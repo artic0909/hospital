@@ -592,6 +592,460 @@
 
     </section>
 
+    <!-- ==================== TOP MEDICAL DESTINATIONS & MULTI-SPECIALTY FOCUS ==================== -->
+    <section class="py-14 sm:py-20 bg-gray-50/60 border-t border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- 1. TOP MEDICAL DESTINATIONS -->
+            <div class="text-center max-w-3xl mx-auto mb-8 sm:mb-10">
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-[#112347] tracking-tight">
+                    Top Medical Destinations
+                </h2>
+                <p class="text-xs sm:text-sm text-[#5a6a85] mt-2.5 leading-relaxed">
+                    Our network spans the top medical tourism hubs worldwide — giving you the choice of cities, doctors and price.
+                </p>
+            </div>
+
+            <!-- Destinations Pills List -->
+            <div class="flex flex-wrap items-center justify-center gap-2.5 sm:gap-3.5 max-w-5xl mx-auto">
+                
+                <!-- India -->
+                <a href="#quote-form" class="inline-flex items-center gap-2.5 bg-white border border-gray-200/90 hover:border-[#00539C] hover:text-[#00539C] px-4 py-2 rounded-full text-xs sm:text-sm font-semibold text-gray-700 shadow-sm hover:shadow transition-all duration-150">
+                    <!-- Flag India -->
+                    <span class="w-5 h-3.5 rounded-sm overflow-hidden flex-shrink-0 inline-block shadow-xs border border-gray-100">
+                        <svg viewBox="0 0 900 600" class="w-full h-full object-cover">
+                            <rect width="900" height="200" fill="#FF9933"/>
+                            <rect y="200" width="900" height="200" fill="#FFFFFF"/>
+                            <rect y="400" width="900" height="200" fill="#128807"/>
+                            <circle cx="450" cy="300" r="80" fill="#000080"/>
+                            <circle cx="450" cy="300" r="70" fill="#FFFFFF"/>
+                            <circle cx="450" cy="300" r="25" fill="#000080"/>
+                        </svg>
+                    </span>
+                    <span>India</span>
+                </a>
+
+                <!-- Turkey -->
+                <a href="#quote-form" class="inline-flex items-center gap-2.5 bg-white border border-gray-200/90 hover:border-[#00539C] hover:text-[#00539C] px-4 py-2 rounded-full text-xs sm:text-sm font-semibold text-gray-700 shadow-sm hover:shadow transition-all duration-150">
+                    <span class="w-5 h-3.5 rounded-sm overflow-hidden flex-shrink-0 inline-block shadow-xs">
+                        <svg viewBox="0 0 1200 800" class="w-full h-full object-cover">
+                            <rect width="1200" height="800" fill="#E30A17"/>
+                            <circle cx="425" cy="400" r="200" fill="#FFFFFF"/>
+                            <circle cx="475" cy="400" r="160" fill="#E30A17"/>
+                            <polygon points="630,400 575,417 596,362 552,393 605,379" fill="#FFFFFF" transform="scale(1.2) translate(-90, -70)"/>
+                        </svg>
+                    </span>
+                    <span>Turkey</span>
+                </a>
+
+                <!-- Thailand -->
+                <a href="#quote-form" class="inline-flex items-center gap-2.5 bg-white border border-gray-200/90 hover:border-[#00539C] hover:text-[#00539C] px-4 py-2 rounded-full text-xs sm:text-sm font-semibold text-gray-700 shadow-sm hover:shadow transition-all duration-150">
+                    <span class="w-5 h-3.5 rounded-sm overflow-hidden flex-shrink-0 inline-block shadow-xs">
+                        <svg viewBox="0 0 900 600" class="w-full h-full object-cover">
+                            <rect width="900" height="600" fill="#A51931"/>
+                            <rect y="100" width="900" height="400" fill="#F4F5F8"/>
+                            <rect y="200" width="900" height="200" fill="#2D2A4A"/>
+                        </svg>
+                    </span>
+                    <span>Thailand</span>
+                </a>
+
+                <!-- Germany -->
+                <a href="#quote-form" class="inline-flex items-center gap-2.5 bg-white border border-gray-200/90 hover:border-[#00539C] hover:text-[#00539C] px-4 py-2 rounded-full text-xs sm:text-sm font-semibold text-gray-700 shadow-sm hover:shadow transition-all duration-150">
+                    <span class="w-5 h-3.5 rounded-sm overflow-hidden flex-shrink-0 inline-block shadow-xs">
+                        <svg viewBox="0 0 5 3" class="w-full h-full object-cover">
+                            <rect width="5" height="1" y="0" fill="#000000"/>
+                            <rect width="5" height="1" y="1" fill="#DD0000"/>
+                            <rect width="5" height="1" y="2" fill="#FFCE00"/>
+                        </svg>
+                    </span>
+                    <span>Germany</span>
+                </a>
+
+                <!-- United Arab Emirates -->
+                <a href="#quote-form" class="inline-flex items-center gap-2.5 bg-white border border-gray-200/90 hover:border-[#00539C] hover:text-[#00539C] px-4 py-2 rounded-full text-xs sm:text-sm font-semibold text-gray-700 shadow-sm hover:shadow transition-all duration-150">
+                    <span class="w-5 h-3.5 rounded-sm overflow-hidden flex-shrink-0 inline-block shadow-xs">
+                        <svg viewBox="0 0 1200 600" class="w-full h-full object-cover">
+                            <rect width="1200" height="200" fill="#00732F"/>
+                            <rect y="200" width="1200" height="200" fill="#FFFFFF"/>
+                            <rect y="400" width="1200" height="200" fill="#000000"/>
+                            <rect width="300" height="600" fill="#FF0000"/>
+                        </svg>
+                    </span>
+                    <span>United Arab Emirates</span>
+                </a>
+
+                <!-- Egypt -->
+                <a href="#quote-form" class="inline-flex items-center gap-2.5 bg-white border border-gray-200/90 hover:border-[#00539C] hover:text-[#00539C] px-4 py-2 rounded-full text-xs sm:text-sm font-semibold text-gray-700 shadow-sm hover:shadow transition-all duration-150">
+                    <span class="w-5 h-3.5 rounded-sm overflow-hidden flex-shrink-0 inline-block shadow-xs">
+                        <svg viewBox="0 0 900 600" class="w-full h-full object-cover">
+                            <rect width="900" height="200" fill="#CE1126"/>
+                            <rect y="200" width="900" height="200" fill="#FFFFFF"/>
+                            <rect y="400" width="900" height="200" fill="#000000"/>
+                            <circle cx="450" cy="300" r="30" fill="#C09300"/>
+                        </svg>
+                    </span>
+                    <span>Egypt</span>
+                </a>
+
+                <!-- Oman -->
+                <a href="#quote-form" class="inline-flex items-center gap-2.5 bg-white border border-gray-200/90 hover:border-[#00539C] hover:text-[#00539C] px-4 py-2 rounded-full text-xs sm:text-sm font-semibold text-gray-700 shadow-sm hover:shadow transition-all duration-150">
+                    <span class="w-5 h-3.5 rounded-sm overflow-hidden flex-shrink-0 inline-block shadow-xs">
+                        <svg viewBox="0 0 600 300" class="w-full h-full object-cover">
+                            <rect width="600" height="100" fill="#FFFFFF"/>
+                            <rect y="100" width="600" height="100" fill="#DB161B"/>
+                            <rect y="200" width="600" height="100" fill="#008000"/>
+                            <rect width="150" height="300" fill="#DB161B"/>
+                        </svg>
+                    </span>
+                    <span>Oman</span>
+                </a>
+
+                <!-- Saudi Arabia -->
+                <a href="#quote-form" class="inline-flex items-center gap-2.5 bg-white border border-gray-200/90 hover:border-[#00539C] hover:text-[#00539C] px-4 py-2 rounded-full text-xs sm:text-sm font-semibold text-gray-700 shadow-sm hover:shadow transition-all duration-150">
+                    <span class="w-5 h-3.5 rounded-sm overflow-hidden flex-shrink-0 inline-block shadow-xs">
+                        <svg viewBox="0 0 900 600" class="w-full h-full object-cover">
+                            <rect width="900" height="600" fill="#006C35"/>
+                            <path d="M300 360h300v12H300z" fill="#FFFFFF"/>
+                        </svg>
+                    </span>
+                    <span>Saudi Arabia</span>
+                </a>
+
+            </div>
+
+            <!-- 2. MULTI-SPECIALTY FOCUS -->
+            <div class="mt-16 sm:mt-24">
+                
+                <!-- Section Header -->
+                <div class="text-center max-w-3xl mx-auto mb-8 sm:mb-12">
+                    <h2 class="text-2xl sm:text-3xl font-extrabold text-[#112347] tracking-tight">
+                        Multi-Specialty Focus
+                    </h2>
+                    <p class="text-xs sm:text-sm text-[#5a6a85] mt-2.5">
+                        We cover all medical needs, from hair transplants to heart transplants.
+                    </p>
+                </div>
+
+                <!-- Specialties Grid (3 Columns on Desktop, 2 on Tablet, 1 on Mobile) -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+                    
+                    <!-- 1. Oncology -->
+                    <div class="group bg-white rounded-xl p-5 border border-gray-200/80 shadow-[0_2px_8px_rgba(0,0,0,0.03)] hover:shadow-lg hover:border-blue-300 transition-all duration-200 flex items-start justify-between cursor-pointer">
+                        <div class="flex items-start gap-4 pr-3">
+                            <!-- Icon -->
+                            <div class="w-11 h-11 rounded-lg bg-blue-50/80 text-[#00539C] flex items-center justify-center flex-shrink-0 group-hover:bg-[#00539C] group-hover:text-white transition-colors duration-200">
+                                <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M18 8c0 4.5-6 9-6 9s-6-4.5-6-9a6 6 0 0 1 12 0z"/>
+                                    <circle cx="12" cy="8" r="2"/>
+                                    <path d="M4 19c2-2 5-2 8 0 3-2 6-2 8 0"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="text-base font-bold text-gray-900 group-hover:text-[#00539C] transition-colors leading-snug">
+                                    Oncology
+                                </h3>
+                                <p class="text-xs text-gray-500 mt-1 leading-relaxed">
+                                    Advanced cancer treatments with proven results.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="w-5 h-5 rounded-full bg-[#e13b3f] text-white flex items-center justify-center flex-shrink-0 text-xs font-bold shadow-xs group-hover:scale-110 transition-transform">
+                            +
+                        </div>
+                    </div>
+
+                    <!-- 2. Neurosurgery -->
+                    <div class="group bg-white rounded-xl p-5 border border-gray-200/80 shadow-[0_2px_8px_rgba(0,0,0,0.03)] hover:shadow-lg hover:border-blue-300 transition-all duration-200 flex items-start justify-between cursor-pointer">
+                        <div class="flex items-start gap-4 pr-3">
+                            <div class="w-11 h-11 rounded-lg bg-blue-50/80 text-[#00539C] flex items-center justify-center flex-shrink-0 group-hover:bg-[#00539C] group-hover:text-white transition-colors duration-200">
+                                <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 4.44-2.04z"/>
+                                    <path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-4.44-2.04z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="text-base font-bold text-gray-900 group-hover:text-[#00539C] transition-colors leading-snug">
+                                    Neurosurgery
+                                </h3>
+                                <p class="text-xs text-gray-500 mt-1 leading-relaxed">
+                                    Comprehensive neurosurgical care for adults and children.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="w-5 h-5 rounded-full bg-[#e13b3f] text-white flex items-center justify-center flex-shrink-0 text-xs font-bold shadow-xs group-hover:scale-110 transition-transform">
+                            +
+                        </div>
+                    </div>
+
+                    <!-- 3. Spine Surgery -->
+                    <div class="group bg-white rounded-xl p-5 border border-gray-200/80 shadow-[0_2px_8px_rgba(0,0,0,0.03)] hover:shadow-lg hover:border-blue-300 transition-all duration-200 flex items-start justify-between cursor-pointer">
+                        <div class="flex items-start gap-4 pr-3">
+                            <div class="w-11 h-11 rounded-lg bg-blue-50/80 text-[#00539C] flex items-center justify-center flex-shrink-0 group-hover:bg-[#00539C] group-hover:text-white transition-colors duration-200">
+                                <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M8 5h8M8 9h8M8 13h8M8 17h8M12 2v20"/>
+                                    <circle cx="12" cy="5" r="2" fill="currentColor"/>
+                                    <circle cx="12" cy="9" r="2" fill="currentColor"/>
+                                    <circle cx="12" cy="13" r="2" fill="currentColor"/>
+                                    <circle cx="12" cy="17" r="2" fill="currentColor"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="text-base font-bold text-gray-900 group-hover:text-[#00539C] transition-colors leading-snug">
+                                    Spine Surgery
+                                </h3>
+                                <p class="text-xs text-gray-500 mt-1 leading-relaxed">
+                                    Precision spine surgeries for better mobility.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="w-5 h-5 rounded-full bg-[#e13b3f] text-white flex items-center justify-center flex-shrink-0 text-xs font-bold shadow-xs group-hover:scale-110 transition-transform">
+                            +
+                        </div>
+                    </div>
+
+                    <!-- 4. Cardiology -->
+                    <div class="group bg-white rounded-xl p-5 border border-gray-200/80 shadow-[0_2px_8px_rgba(0,0,0,0.03)] hover:shadow-lg hover:border-blue-300 transition-all duration-200 flex items-start justify-between cursor-pointer">
+                        <div class="flex items-start gap-4 pr-3">
+                            <div class="w-11 h-11 rounded-lg bg-blue-50/80 text-[#00539C] flex items-center justify-center flex-shrink-0 group-hover:bg-[#00539C] group-hover:text-white transition-colors duration-200">
+                                <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>
+                                    <path d="M12 9v4m-2-2h4"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="text-base font-bold text-gray-900 group-hover:text-[#00539C] transition-colors leading-snug">
+                                    Cardiology
+                                </h3>
+                                <p class="text-xs text-gray-500 mt-1 leading-relaxed">
+                                    World-class heart care for adults and children.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="w-5 h-5 rounded-full bg-[#e13b3f] text-white flex items-center justify-center flex-shrink-0 text-xs font-bold shadow-xs group-hover:scale-110 transition-transform">
+                            +
+                        </div>
+                    </div>
+
+                    <!-- 5. Orthopedics -->
+                    <div class="group bg-white rounded-xl p-5 border border-gray-200/80 shadow-[0_2px_8px_rgba(0,0,0,0.03)] hover:shadow-lg hover:border-blue-300 transition-all duration-200 flex items-start justify-between cursor-pointer">
+                        <div class="flex items-start gap-4 pr-3">
+                            <div class="w-11 h-11 rounded-lg bg-blue-50/80 text-[#00539C] flex items-center justify-center flex-shrink-0 group-hover:bg-[#00539C] group-hover:text-white transition-colors duration-200">
+                                <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M17 10c.7-.7 1.6-1 2.5-1a3.5 3.5 0 1 1 0 7c-.9 0-1.8-.3-2.5-1l-6-6c-.7-.7-1-1.6-1-2.5a3.5 3.5 0 1 1 7 0c0 .9-.3 1.8-1 2.5Z"/>
+                                    <path d="M6 14l-2 2a2.8 2.8 0 0 0 4 4l2-2"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="text-base font-bold text-gray-900 group-hover:text-[#00539C] transition-colors leading-snug">
+                                    Orthopedics
+                                </h3>
+                                <p class="text-xs text-gray-500 mt-1 leading-relaxed">
+                                    Expert joint replacements and bone deformity solutions.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="w-5 h-5 rounded-full bg-[#e13b3f] text-white flex items-center justify-center flex-shrink-0 text-xs font-bold shadow-xs group-hover:scale-110 transition-transform">
+                            +
+                        </div>
+                    </div>
+
+                    <!-- 6. IVF -->
+                    <div class="group bg-white rounded-xl p-5 border border-gray-200/80 shadow-[0_2px_8px_rgba(0,0,0,0.03)] hover:shadow-lg hover:border-blue-300 transition-all duration-200 flex items-start justify-between cursor-pointer">
+                        <div class="flex items-start gap-4 pr-3">
+                            <div class="w-11 h-11 rounded-lg bg-blue-50/80 text-[#00539C] flex items-center justify-center flex-shrink-0 group-hover:bg-[#00539C] group-hover:text-white transition-colors duration-200">
+                                <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="m18 2 4 4"/>
+                                    <path d="m17 7 3-3"/>
+                                    <path d="M19 9 8.7 19.3c-1 1-2.5 1-3.4 0l-.6-.6c-1-1-1-2.5 0-3.4L15 5"/>
+                                    <path d="m9 11 4 4"/>
+                                    <path d="m5 19-3 3"/>
+                                    <path d="m14 4 6 6"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="text-base font-bold text-gray-900 group-hover:text-[#00539C] transition-colors leading-snug">
+                                    IVF
+                                </h3>
+                                <p class="text-xs text-gray-500 mt-1 leading-relaxed">
+                                    Leading fertility treatments with high success rates.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="w-5 h-5 rounded-full bg-[#e13b3f] text-white flex items-center justify-center flex-shrink-0 text-xs font-bold shadow-xs group-hover:scale-110 transition-transform">
+                            +
+                        </div>
+                    </div>
+
+                    <!-- 7. Gynecology -->
+                    <div class="group bg-white rounded-xl p-5 border border-gray-200/80 shadow-[0_2px_8px_rgba(0,0,0,0.03)] hover:shadow-lg hover:border-blue-300 transition-all duration-200 flex items-start justify-between cursor-pointer">
+                        <div class="flex items-start gap-4 pr-3">
+                            <div class="w-11 h-11 rounded-lg bg-blue-50/80 text-[#00539C] flex items-center justify-center flex-shrink-0 group-hover:bg-[#00539C] group-hover:text-white transition-colors duration-200">
+                                <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="8" r="5"/>
+                                    <path d="M12 13v9M9 18h6"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="text-base font-bold text-gray-900 group-hover:text-[#00539C] transition-colors leading-snug">
+                                    Gynecology
+                                </h3>
+                                <p class="text-xs text-gray-500 mt-1 leading-relaxed">
+                                    Specialized women's health services.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="w-5 h-5 rounded-full bg-[#e13b3f] text-white flex items-center justify-center flex-shrink-0 text-xs font-bold shadow-xs group-hover:scale-110 transition-transform">
+                            +
+                        </div>
+                    </div>
+
+                    <!-- 8. Cosmetic -->
+                    <div class="group bg-white rounded-xl p-5 border border-gray-200/80 shadow-[0_2px_8px_rgba(0,0,0,0.03)] hover:shadow-lg hover:border-blue-300 transition-all duration-200 flex items-start justify-between cursor-pointer">
+                        <div class="flex items-start gap-4 pr-3">
+                            <div class="w-11 h-11 rounded-lg bg-blue-50/80 text-[#00539C] flex items-center justify-center flex-shrink-0 group-hover:bg-[#00539C] group-hover:text-white transition-colors duration-200">
+                                <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="9"/>
+                                    <path d="M9 10h.01M15 10h.01M9.5 15a3.5 3.5 0 0 0 5 0"/>
+                                    <path d="M8 3.5c1.5 1.5 3 2 4 2s2.5-.5 4-2"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="text-base font-bold text-gray-900 group-hover:text-[#00539C] transition-colors leading-snug">
+                                    Cosmetic
+                                </h3>
+                                <p class="text-xs text-gray-500 mt-1 leading-relaxed">
+                                    Aesthetic procedures for a new you.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="w-5 h-5 rounded-full bg-[#e13b3f] text-white flex items-center justify-center flex-shrink-0 text-xs font-bold shadow-xs group-hover:scale-110 transition-transform">
+                            +
+                        </div>
+                    </div>
+
+                    <!-- 9. Weight Loss -->
+                    <div class="group bg-white rounded-xl p-5 border border-gray-200/80 shadow-[0_2px_8px_rgba(0,0,0,0.03)] hover:shadow-lg hover:border-blue-300 transition-all duration-200 flex items-start justify-between cursor-pointer">
+                        <div class="flex items-start gap-4 pr-3">
+                            <div class="w-11 h-11 rounded-lg bg-blue-50/80 text-[#00539C] flex items-center justify-center flex-shrink-0 group-hover:bg-[#00539C] group-hover:text-white transition-colors duration-200">
+                                <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M6 4h12a2 2 0 0 1 2 2v2a6 6 0 0 1-6 6h-4a6 6 0 0 1-6-6V6a2 2 0 0 1 2-2Z"/>
+                                    <path d="M6 14c0 3 2.5 6 6 6s6-3 6-6"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="text-base font-bold text-gray-900 group-hover:text-[#00539C] transition-colors leading-snug">
+                                    Weight Loss
+                                </h3>
+                                <p class="text-xs text-gray-500 mt-1 leading-relaxed">
+                                    Specialized weight loss surgery options.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="w-5 h-5 rounded-full bg-[#e13b3f] text-white flex items-center justify-center flex-shrink-0 text-xs font-bold shadow-xs group-hover:scale-110 transition-transform">
+                            +
+                        </div>
+                    </div>
+
+                    <!-- 10. Liver Transplant -->
+                    <div class="group bg-white rounded-xl p-5 border border-gray-200/80 shadow-[0_2px_8px_rgba(0,0,0,0.03)] hover:shadow-lg hover:border-blue-300 transition-all duration-200 flex items-start justify-between cursor-pointer">
+                        <div class="flex items-start gap-4 pr-3">
+                            <div class="w-11 h-11 rounded-lg bg-blue-50/80 text-[#00539C] flex items-center justify-center flex-shrink-0 group-hover:bg-[#00539C] group-hover:text-white transition-colors duration-200">
+                                <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M4 8c2-3 8-4 13-1 3 2 4 6 2 9-2 3-8 5-11 3-3-2-5-7-4-11Z"/>
+                                    <path d="M12 9v4m-2-2h4"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="text-base font-bold text-gray-900 group-hover:text-[#00539C] transition-colors leading-snug">
+                                    Liver Transplant
+                                </h3>
+                                <p class="text-xs text-gray-500 mt-1 leading-relaxed">
+                                    Liver transplant procedures of varying complexity.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="w-5 h-5 rounded-full bg-[#e13b3f] text-white flex items-center justify-center flex-shrink-0 text-xs font-bold shadow-xs group-hover:scale-110 transition-transform">
+                            +
+                        </div>
+                    </div>
+
+                    <!-- 11. Kidney Transplant -->
+                    <div class="group bg-white rounded-xl p-5 border border-gray-200/80 shadow-[0_2px_8px_rgba(0,0,0,0.03)] hover:shadow-lg hover:border-blue-300 transition-all duration-200 flex items-start justify-between cursor-pointer">
+                        <div class="flex items-start gap-4 pr-3">
+                            <div class="w-11 h-11 rounded-lg bg-blue-50/80 text-[#00539C] flex items-center justify-center flex-shrink-0 group-hover:bg-[#00539C] group-hover:text-white transition-colors duration-200">
+                                <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M7 5a4 4 0 0 0-4 4c0 4 3 8 5 9 1.5.8 3 .5 3-1.5 0-3-1-4-2-6-1-2-.5-4.5-2-5.5Z"/>
+                                    <path d="M17 5a4 4 0 0 1 4 4c0 4-3 8-5 9-1.5.8-3 .5-3-1.5 0-3 1-4 2-6 1-2 .5-4.5 2-5.5Z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="text-base font-bold text-gray-900 group-hover:text-[#00539C] transition-colors leading-snug">
+                                    Kidney Transplant
+                                </h3>
+                                <p class="text-xs text-gray-500 mt-1 leading-relaxed">
+                                    Expert renal care and transplants.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="w-5 h-5 rounded-full bg-[#e13b3f] text-white flex items-center justify-center flex-shrink-0 text-xs font-bold shadow-xs group-hover:scale-110 transition-transform">
+                            +
+                        </div>
+                    </div>
+
+                    <!-- 12. Bone Marrow -->
+                    <div class="group bg-white rounded-xl p-5 border border-gray-200/80 shadow-[0_2px_8px_rgba(0,0,0,0.03)] hover:shadow-lg hover:border-blue-300 transition-all duration-200 flex items-start justify-between cursor-pointer">
+                        <div class="flex items-start gap-4 pr-3">
+                            <div class="w-11 h-11 rounded-lg bg-blue-50/80 text-[#00539C] flex items-center justify-center flex-shrink-0 group-hover:bg-[#00539C] group-hover:text-white transition-colors duration-200">
+                                <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="m14 14 6 6"/>
+                                    <circle cx="10" cy="10" r="7"/>
+                                    <path d="M10 7a3 3 0 0 1 3 3"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="text-base font-bold text-gray-900 group-hover:text-[#00539C] transition-colors leading-snug">
+                                    Bone Marrow
+                                </h3>
+                                <p class="text-xs text-gray-500 mt-1 leading-relaxed">
+                                    Bone marrow transplant options for matched and non-matched donors.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="w-5 h-5 rounded-full bg-[#e13b3f] text-white flex items-center justify-center flex-shrink-0 text-xs font-bold shadow-xs group-hover:scale-110 transition-transform">
+                            +
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Bottom Action Buttons: Need Assistance? & WhatsApp Chat -->
+                <div class="flex flex-wrap items-center justify-center gap-3.5 sm:gap-4 mt-10 sm:mt-12">
+                    <a 
+                        href="#quote-form" 
+                        class="bg-[#e13b3f] hover:bg-[#cf2a2e] active:scale-[0.99] text-white text-sm sm:text-base font-bold px-7 py-3 rounded-lg shadow-md hover:shadow-lg transition-all duration-150 inline-flex items-center justify-center"
+                    >
+                        Need Assistance?
+                    </a>
+                    
+                    <a 
+                        href="https://wa.me/919999999999" 
+                        target="_blank" 
+                        class="bg-[#25D366] hover:bg-[#20ba5a] active:scale-[0.99] text-white text-sm sm:text-base font-bold px-7 py-3 rounded-lg shadow-md hover:shadow-lg transition-all duration-150 inline-flex items-center justify-center gap-2"
+                    >
+                        <!-- WhatsApp SVG Icon -->
+                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+                        </svg>
+                        <span>Chat</span>
+                    </a>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
     <!-- ==================== GOOGLE TRANSLATOR INITIALIZATION & INTERACTION ==================== -->
     <script type="text/javascript">
         // Google Translate Element Init callback
