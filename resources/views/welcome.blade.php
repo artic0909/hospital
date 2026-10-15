@@ -1600,6 +1600,130 @@
         </div>
     </section>
 
+    <!-- ==================== HOW DO WE WORK? ==================== -->
+    <section class="py-14 sm:py-20 bg-white border-t border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- Section Header -->
+            <div class="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-[#112347] tracking-tight">
+                    How do we work?
+                </h2>
+            </div>
+
+            <!-- Two Columns: Left 4 Steps & CTA, Right Video Card -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+                
+                <!-- LEFT COLUMN: 4 Workflow Steps & Get Started Button (6 cols) -->
+                <div class="lg:col-span-6 flex flex-col justify-between h-full">
+                    
+                    <!-- 2x2 Steps Grid -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 sm:gap-x-8 gap-y-9 sm:gap-y-12">
+                        
+                        <!-- Step 1: Contact Us -->
+                        <div class="flex flex-col items-center text-center group">
+                            <!-- Circular Icon -->
+                            <div class="w-14 h-14 rounded-full bg-[#f0f7fe] border border-blue-100/80 flex items-center justify-center text-[#00539C] group-hover:bg-[#00539C] group-hover:text-white transition-all duration-200 shadow-xs">
+                                <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                                    <path d="M14 2a6 6 0 0 1 6 6"/>
+                                    <path d="M14 6a2 2 0 0 1 2 2"/>
+                                </svg>
+                            </div>
+                            <!-- Description -->
+                            <p class="text-xs sm:text-[13px] text-gray-500 text-center leading-relaxed mt-3.5 max-w-[210px] mx-auto">
+                                Contact us, share your case details and our team will get in touch with you.
+                            </p>
+                        </div>
+
+                        <!-- Step 2: Medical Opinion & Estimate -->
+                        <div class="flex flex-col items-center text-center group">
+                            <!-- Circular Icon -->
+                            <div class="w-14 h-14 rounded-full bg-[#f0f7fe] border border-blue-100/80 flex items-center justify-center text-[#00539C] group-hover:bg-[#00539C] group-hover:text-white transition-all duration-200 shadow-xs">
+                                <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                    <polyline points="14 2 14 8 20 8"/>
+                                    <line x1="16" y1="13" x2="8" y2="13"/>
+                                    <line x1="16" y1="17" x2="8" y2="17"/>
+                                    <polyline points="10 9 9 9 8 9"/>
+                                    <circle cx="12" cy="13" r="1" fill="currentColor"/>
+                                </svg>
+                            </div>
+                            <!-- Description -->
+                            <p class="text-xs sm:text-[13px] text-gray-500 text-center leading-relaxed mt-3.5 max-w-[210px] mx-auto">
+                                Receive medical opinion and cost estimate within 48 Hours.
+                            </p>
+                        </div>
+
+                        <!-- Step 3: Book Flights & Airport Reception -->
+                        <div class="flex flex-col items-center text-center group">
+                            <!-- Circular Icon -->
+                            <div class="w-14 h-14 rounded-full bg-[#f0f7fe] border border-blue-100/80 flex items-center justify-center text-[#00539C] group-hover:bg-[#00539C] group-hover:text-white transition-all duration-200 shadow-xs">
+                                <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="3" y="4" width="18" height="16" rx="2"/>
+                                    <path d="M3 10h18"/>
+                                    <path d="m9 15 3-3 3 3"/>
+                                    <path d="M12 12v6"/>
+                                    <circle cx="18" cy="16" r="2.5" fill="#00539C" class="fill-[#00539C] stroke-white"/>
+                                    <path d="m17 16 1 1 1.5-1.5" stroke="white" stroke-width="1.2"/>
+                                </svg>
+                            </div>
+                            <!-- Description -->
+                            <p class="text-xs sm:text-[13px] text-gray-500 text-center leading-relaxed mt-3.5 max-w-[210px] mx-auto">
+                                Book flights and get received by our team at the airport.
+                            </p>
+                        </div>
+
+                        <!-- Step 4: Treatment & Follow Ups -->
+                        <div class="flex flex-col items-center text-center group">
+                            <!-- Circular Icon -->
+                            <div class="w-14 h-14 rounded-full bg-[#f0f7fe] border border-blue-100/80 flex items-center justify-center text-[#00539C] group-hover:bg-[#00539C] group-hover:text-white transition-all duration-200 shadow-xs">
+                                <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M9 11l3 3L22 4"/>
+                                    <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+                                    <path d="M7 16h6"/>
+                                </svg>
+                            </div>
+                            <!-- Description -->
+                            <p class="text-xs sm:text-[13px] text-gray-500 text-center leading-relaxed mt-3.5 max-w-[210px] mx-auto">
+                                Get treated and fly back. We stay in touch with you for follow ups.
+                            </p>
+                        </div>
+
+                    </div>
+
+                    <!-- Get Started CTA Button -->
+                    <div class="mt-9 sm:mt-11 text-center">
+                        <a 
+                            href="#quote-form" 
+                            class="bg-[#e13b3f] hover:bg-[#cf2a2e] active:scale-[0.99] text-white text-sm sm:text-base font-bold px-8 py-3 rounded-lg shadow-md hover:shadow-lg transition-all duration-150 inline-flex items-center justify-center"
+                        >
+                            Get Started
+                        </a>
+                    </div>
+
+                </div>
+
+                <!-- RIGHT COLUMN: Video Player Card (6 cols) -->
+                <div class="lg:col-span-6">
+                    <div class="relative w-full aspect-[16/10] sm:aspect-[16/9.5] rounded-2xl sm:rounded-3xl overflow-hidden shadow-lg border border-gray-200/80 bg-gray-900 group">
+                        <iframe 
+                            class="w-full h-full object-cover" 
+                            src="https://www.youtube.com/embed/XZtyGhf5LJ8" 
+                            title="Medical Treatment Abroad - Vaidam Health" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                            allowfullscreen 
+                            loading="lazy"
+                        ></iframe>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
     <!-- ==================== GOOGLE TRANSLATOR INITIALIZATION & INTERACTION ==================== -->
     <script type="text/javascript">
         // Google Translate Element Init callback
