@@ -1046,6 +1046,320 @@
         </div>
     </section>
 
+    <!-- ==================== NETWORK OF TOP HOSPITALS ==================== -->
+    <section class="py-14 sm:py-20 bg-white border-t border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- Section Header -->
+            <div class="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-[#112347] tracking-tight">
+                    Network of Top Hospitals
+                </h2>
+                <p class="text-xs sm:text-sm text-[#5a6a85] mt-2.5 leading-relaxed">
+                    We rigorously vet hospitals before adding to our panel, ensuring you receive the best care. We have in-depth knowledge of hospitals in every country we operate in.
+                </p>
+            </div>
+
+            <!-- Asymmetric Hospitals Grid -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 sm:gap-6 items-start">
+                
+                <!-- LEFT COLUMN: India (IN) - 4 Hospitals (2x2 Grid) -->
+                <div class="lg:col-span-5 bg-gray-50/70 rounded-2xl p-4 sm:p-5 border border-gray-200/80 shadow-[0_2px_12px_rgba(0,0,0,0.02)] h-full flex flex-col justify-between">
+                    <div>
+                        <!-- Header -->
+                        <div class="flex items-center justify-between mb-4 px-1">
+                            <h3 class="text-base sm:text-lg font-bold text-gray-900 tracking-tight">India</h3>
+                            <span class="text-xs font-bold text-gray-400 uppercase tracking-wider">IN</span>
+                        </div>
+
+                        <!-- 2x2 Grid -->
+                        <div class="grid grid-cols-2 gap-3 sm:gap-4">
+                            
+                            <!-- 1. Medanta, Gurgaon -->
+                            <div class="group bg-white rounded-xl overflow-hidden border border-gray-200/80 shadow-xs hover:shadow-md hover:border-blue-300 transition-all duration-200">
+                                <div class="aspect-[16/11] overflow-hidden bg-gray-100 relative">
+                                    <img 
+                                        src="https://images.unsplash.com/photo-1587351021759-3e566b6af7cc?auto=format&fit=crop&w=400&q=80" 
+                                        alt="Medanta, Gurgaon" 
+                                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                                        loading="lazy"
+                                    >
+                                </div>
+                                <div class="py-2.5 px-2 text-center bg-white border-t border-gray-100">
+                                    <span class="block text-[11px] sm:text-xs font-bold text-gray-800 group-hover:text-[#00539C] transition-colors line-clamp-1">
+                                        Medanta, Gurgaon
+                                    </span>
+                                </div>
+                            </div>
+
+                            <!-- 2. Kokilaben, Mumbai -->
+                            <div class="group bg-white rounded-xl overflow-hidden border border-gray-200/80 shadow-xs hover:shadow-md hover:border-blue-300 transition-all duration-200">
+                                <div class="aspect-[16/11] overflow-hidden bg-gray-100 relative">
+                                    <img 
+                                        src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=400&q=80" 
+                                        alt="Kokilaben, Mumbai" 
+                                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                                        loading="lazy"
+                                    >
+                                </div>
+                                <div class="py-2.5 px-2 text-center bg-white border-t border-gray-100">
+                                    <span class="block text-[11px] sm:text-xs font-bold text-gray-800 group-hover:text-[#00539C] transition-colors line-clamp-1">
+                                        Kokilaben, Mumbai
+                                    </span>
+                                </div>
+                            </div>
+
+                            <!-- 3. Indraprastha Apollo, New Delhi -->
+                            <div class="group bg-white rounded-xl overflow-hidden border border-gray-200/80 shadow-xs hover:shadow-md hover:border-blue-300 transition-all duration-200">
+                                <div class="aspect-[16/11] overflow-hidden bg-gray-100 relative">
+                                    <img 
+                                        src="https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=400&q=80" 
+                                        alt="Indraprastha Apollo, New Delhi" 
+                                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                                        loading="lazy"
+                                    >
+                                </div>
+                                <div class="py-2.5 px-2 text-center bg-white border-t border-gray-100">
+                                    <span class="block text-[11px] sm:text-xs font-bold text-gray-800 group-hover:text-[#00539C] transition-colors line-clamp-1">
+                                        Indraprastha Apollo, New Delhi
+                                    </span>
+                                </div>
+                            </div>
+
+                            <!-- 4. Apollo, Chennai -->
+                            <div class="group bg-white rounded-xl overflow-hidden border border-gray-200/80 shadow-xs hover:shadow-md hover:border-blue-300 transition-all duration-200">
+                                <div class="aspect-[16/11] overflow-hidden bg-gray-100 relative">
+                                    <img 
+                                        src="https://images.unsplash.com/photo-1586773860418-d37222d8fce3?auto=format&fit=crop&w=400&q=80" 
+                                        alt="Apollo, Chennai" 
+                                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                                        loading="lazy"
+                                    >
+                                </div>
+                                <div class="py-2.5 px-2 text-center bg-white border-t border-gray-100">
+                                    <span class="block text-[11px] sm:text-xs font-bold text-gray-800 group-hover:text-[#00539C] transition-colors line-clamp-1">
+                                        Apollo, Chennai
+                                    </span>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- RIGHT COLUMN: Turkey, UAE, Thailand, Germany, Egypt -->
+                <div class="lg:col-span-7 space-y-5 sm:space-y-6">
+                    
+                    <!-- Row 1: Turkey (TR) & UAE (AE) -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5">
+                        
+                        <!-- Turkey -->
+                        <div class="bg-gray-50/70 rounded-2xl p-4 sm:p-5 border border-gray-200/80 shadow-[0_2px_12px_rgba(0,0,0,0.02)]">
+                            <div class="flex items-center justify-between mb-3.5 px-1">
+                                <h3 class="text-base font-bold text-gray-900 tracking-tight">Turkey</h3>
+                                <span class="text-xs font-bold text-gray-400 uppercase tracking-wider">TR</span>
+                            </div>
+                            <div class="grid grid-cols-2 gap-2.5 sm:gap-3">
+                                <!-- Medical Park, Istanbul -->
+                                <div class="group bg-white rounded-xl overflow-hidden border border-gray-200/80 shadow-xs hover:shadow-md hover:border-blue-300 transition-all">
+                                    <div class="aspect-[16/11] overflow-hidden bg-gray-100">
+                                        <img src="https://images.unsplash.com/photo-1538108149393-fbbd81895907?auto=format&fit=crop&w=400&q=80" alt="Medical Park, Istanbul" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy">
+                                    </div>
+                                    <div class="py-2 px-1 text-center bg-white border-t border-gray-100">
+                                        <span class="block text-[10px] sm:text-xs font-bold text-gray-800 group-hover:text-[#00539C] transition-colors line-clamp-1">Medical Park, Istanbul</span>
+                                    </div>
+                                </div>
+                                <!-- Memorial Hospitals, Istanbul -->
+                                <div class="group bg-white rounded-xl overflow-hidden border border-gray-200/80 shadow-xs hover:shadow-md hover:border-blue-300 transition-all">
+                                    <div class="aspect-[16/11] overflow-hidden bg-gray-100">
+                                        <img src="https://images.unsplash.com/photo-1512678080530-7760d81faba6?auto=format&fit=crop&w=400&q=80" alt="Memorial Hospitals, Istanbul" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy">
+                                    </div>
+                                    <div class="py-2 px-1 text-center bg-white border-t border-gray-100">
+                                        <span class="block text-[10px] sm:text-xs font-bold text-gray-800 group-hover:text-[#00539C] transition-colors line-clamp-1">Memorial Hospitals, Istanbul</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- UAE -->
+                        <div class="bg-gray-50/70 rounded-2xl p-4 sm:p-5 border border-gray-200/80 shadow-[0_2px_12px_rgba(0,0,0,0.02)]">
+                            <div class="flex items-center justify-between mb-3.5 px-1">
+                                <h3 class="text-base font-bold text-gray-900 tracking-tight">UAE</h3>
+                                <span class="text-xs font-bold text-gray-400 uppercase tracking-wider">AE</span>
+                            </div>
+                            <div class="grid grid-cols-2 gap-2.5 sm:gap-3">
+                                <!-- Burjeel, Abu Dhabi -->
+                                <div class="group bg-white rounded-xl overflow-hidden border border-gray-200/80 shadow-xs hover:shadow-md hover:border-blue-300 transition-all">
+                                    <div class="aspect-[16/11] overflow-hidden bg-gray-100">
+                                        <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=400&q=80" alt="Burjeel, Abu Dhabi" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy">
+                                    </div>
+                                    <div class="py-2 px-1 text-center bg-white border-t border-gray-100">
+                                        <span class="block text-[10px] sm:text-xs font-bold text-gray-800 group-hover:text-[#00539C] transition-colors line-clamp-1">Burjeel, Abu Dhabi</span>
+                                    </div>
+                                </div>
+                                <!-- Saudi German, Dubai -->
+                                <div class="group bg-white rounded-xl overflow-hidden border border-gray-200/80 shadow-xs hover:shadow-md hover:border-blue-300 transition-all">
+                                    <div class="aspect-[16/11] overflow-hidden bg-gray-100">
+                                        <img src="https://images.unsplash.com/photo-1586773860418-d37222d8fce3?auto=format&fit=crop&w=400&q=80" alt="Saudi German, Dubai" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy">
+                                    </div>
+                                    <div class="py-2 px-1 text-center bg-white border-t border-gray-100">
+                                        <span class="block text-[10px] sm:text-xs font-bold text-gray-800 group-hover:text-[#00539C] transition-colors line-clamp-1">Saudi German, Dubai</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Row 2: Thailand (TH) & Germany (DE) -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5">
+                        
+                        <!-- Thailand -->
+                        <div class="bg-gray-50/70 rounded-2xl p-4 sm:p-5 border border-gray-200/80 shadow-[0_2px_12px_rgba(0,0,0,0.02)]">
+                            <div class="flex items-center justify-between mb-3.5 px-1">
+                                <h3 class="text-base font-bold text-gray-900 tracking-tight">Thailand</h3>
+                                <span class="text-xs font-bold text-gray-400 uppercase tracking-wider">TH</span>
+                            </div>
+                            <div class="grid grid-cols-2 gap-2.5 sm:gap-3">
+                                <!-- Bumrungrad, Bangkok -->
+                                <div class="group bg-white rounded-xl overflow-hidden border border-gray-200/80 shadow-xs hover:shadow-md hover:border-blue-300 transition-all">
+                                    <div class="aspect-[16/11] overflow-hidden bg-gray-100">
+                                        <img src="https://images.unsplash.com/photo-1587351021759-3e566b6af7cc?auto=format&fit=crop&w=400&q=80" alt="Bumrungrad, Bangkok" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy">
+                                    </div>
+                                    <div class="py-2 px-1 text-center bg-white border-t border-gray-100">
+                                        <span class="block text-[10px] sm:text-xs font-bold text-gray-800 group-hover:text-[#00539C] transition-colors line-clamp-1">Bumrungrad, Bangkok</span>
+                                    </div>
+                                </div>
+                                <!-- Bangkok Hospital -->
+                                <div class="group bg-white rounded-xl overflow-hidden border border-gray-200/80 shadow-xs hover:shadow-md hover:border-blue-300 transition-all">
+                                    <div class="aspect-[16/11] overflow-hidden bg-gray-100">
+                                        <img src="https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=400&q=80" alt="Bangkok Hospital" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy">
+                                    </div>
+                                    <div class="py-2 px-1 text-center bg-white border-t border-gray-100">
+                                        <span class="block text-[10px] sm:text-xs font-bold text-gray-800 group-hover:text-[#00539C] transition-colors line-clamp-1">Bangkok Hospital</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Germany -->
+                        <div class="bg-gray-50/70 rounded-2xl p-4 sm:p-5 border border-gray-200/80 shadow-[0_2px_12px_rgba(0,0,0,0.02)]">
+                            <div class="flex items-center justify-between mb-3.5 px-1">
+                                <h3 class="text-base font-bold text-gray-900 tracking-tight">Germany</h3>
+                                <span class="text-xs font-bold text-gray-400 uppercase tracking-wider">DE</span>
+                            </div>
+                            <div class="grid grid-cols-2 gap-2.5 sm:gap-3">
+                                <!-- Charite, Berlin -->
+                                <div class="group bg-white rounded-xl overflow-hidden border border-gray-200/80 shadow-xs hover:shadow-md hover:border-blue-300 transition-all">
+                                    <div class="aspect-[16/11] overflow-hidden bg-gray-100">
+                                        <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=400&q=80" alt="Charite, Berlin" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy">
+                                    </div>
+                                    <div class="py-2 px-1 text-center bg-white border-t border-gray-100">
+                                        <span class="block text-[10px] sm:text-xs font-bold text-gray-800 group-hover:text-[#00539C] transition-colors line-clamp-1">Charite, Berlin</span>
+                                    </div>
+                                </div>
+                                <!-- Heidelberg University -->
+                                <div class="group bg-white rounded-xl overflow-hidden border border-gray-200/80 shadow-xs hover:shadow-md hover:border-blue-300 transition-all">
+                                    <div class="aspect-[16/11] overflow-hidden bg-gray-100">
+                                        <img src="https://images.unsplash.com/photo-1586773860418-d37222d8fce3?auto=format&fit=crop&w=400&q=80" alt="Heidelberg University" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy">
+                                    </div>
+                                    <div class="py-2 px-1 text-center bg-white border-t border-gray-100">
+                                        <span class="block text-[10px] sm:text-xs font-bold text-gray-800 group-hover:text-[#00539C] transition-colors line-clamp-1">Heidelberg University</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Row 3: Egypt (EG) - Full Width across Right Column -->
+                    <div class="bg-gray-50/70 rounded-2xl p-4 sm:p-5 border border-gray-200/80 shadow-[0_2px_12px_rgba(0,0,0,0.02)]">
+                        <div class="flex items-center justify-between mb-3.5 px-1">
+                            <h3 class="text-base font-bold text-gray-900 tracking-tight">Egypt</h3>
+                            <span class="text-xs font-bold text-gray-400 uppercase tracking-wider">EG</span>
+                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+                            <!-- Arab Contractors Medical Centre, Cairo -->
+                            <div class="group bg-white rounded-xl overflow-hidden border border-gray-200/80 shadow-xs hover:shadow-md hover:border-blue-300 transition-all">
+                                <div class="aspect-[21/9] sm:aspect-[16/8] overflow-hidden bg-gray-100">
+                                    <img src="https://images.unsplash.com/photo-1512678080530-7760d81faba6?auto=format&fit=crop&w=500&q=80" alt="Arab Contractors Medical Centre, Cairo" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy">
+                                </div>
+                                <div class="py-2.5 px-2 text-center bg-white border-t border-gray-100">
+                                    <span class="block text-xs font-bold text-gray-800 group-hover:text-[#00539C] transition-colors line-clamp-1">Arab Contractors Medical Centre, Cairo</span>
+                                </div>
+                            </div>
+                            <!-- As-Salam International Hospital, Cairo -->
+                            <div class="group bg-white rounded-xl overflow-hidden border border-gray-200/80 shadow-xs hover:shadow-md hover:border-blue-300 transition-all">
+                                <div class="aspect-[21/9] sm:aspect-[16/8] overflow-hidden bg-gray-100">
+                                    <img src="https://images.unsplash.com/photo-1538108149393-fbbd81895907?auto=format&fit=crop&w=500&q=80" alt="As-Salam International Hospital, Cairo" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy">
+                                </div>
+                                <div class="py-2.5 px-2 text-center bg-white border-t border-gray-100">
+                                    <span class="block text-xs font-bold text-gray-800 group-hover:text-[#00539C] transition-colors line-clamp-1">As-Salam International Hospital, Cairo</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Accreditations Strip -->
+            <div class="flex flex-wrap items-center justify-center gap-3 sm:gap-4 mt-10 sm:mt-12 text-center">
+                <!-- JCI Gold Medal Emblem -->
+                <div class="w-6 h-6 rounded-full bg-gradient-to-tr from-amber-500 to-yellow-300 p-0.5 shadow-xs flex items-center justify-center text-white" title="JCI Accredited">
+                    <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                </div>
+
+                <!-- NABH Circular Seal -->
+                <div class="w-6 h-6 rounded-full bg-blue-600 p-0.5 shadow-xs flex items-center justify-center text-white font-bold text-[9px] border-2 border-red-500" title="NABH">
+                    <span>N</span>
+                </div>
+
+                <!-- ESMO Logo -->
+                <div class="bg-emerald-700 text-white font-black text-[9px] tracking-tighter px-1.5 py-0.5 rounded shadow-xs" title="ESMO">
+                    ESMO
+                </div>
+
+                <!-- Medical Seal -->
+                <div class="w-6 h-6 rounded-full bg-teal-50 border border-teal-300 text-teal-700 flex items-center justify-center text-[9px] font-bold shadow-xs" title="QHA Trent">
+                    <svg class="w-3.5 h-3.5 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke-width="2"/><path d="m9 12 2 2 4-4" stroke-width="2"/></svg>
+                </div>
+
+                <!-- ISO Seal -->
+                <div class="bg-[#00539C] text-white font-bold text-[9px] px-1.5 py-0.5 rounded shadow-xs" title="ISO 9001">
+                    ISO
+                </div>
+
+                <span class="text-xs text-gray-500 font-medium ml-1">
+                    Hospitals with highest accreditation
+                </span>
+            </div>
+
+            <!-- Bottom CTAs -->
+            <div class="flex flex-wrap items-center justify-center gap-3.5 sm:gap-4 mt-8 sm:mt-10">
+                <a 
+                    href="#quote-form" 
+                    class="bg-[#e13b3f] hover:bg-[#cf2a2e] active:scale-[0.99] text-white text-sm sm:text-base font-bold px-7 py-3 rounded-lg shadow-md hover:shadow-lg transition-all duration-150 inline-flex items-center justify-center"
+                >
+                    Contact Hospital
+                </a>
+                
+                <a 
+                    href="https://wa.me/919999999999" 
+                    target="_blank" 
+                    class="bg-[#25D366] hover:bg-[#20ba5a] active:scale-[0.99] text-white text-sm sm:text-base font-bold px-7 py-3 rounded-lg shadow-md hover:shadow-lg transition-all duration-150 inline-flex items-center justify-center gap-2"
+                >
+                    <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                        <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+                    </svg>
+                    <span>Chat</span>
+                </a>
+            </div>
+
+        </div>
+    </section>
+
     <!-- ==================== GOOGLE TRANSLATOR INITIALIZATION & INTERACTION ==================== -->
     <script type="text/javascript">
         // Google Translate Element Init callback
