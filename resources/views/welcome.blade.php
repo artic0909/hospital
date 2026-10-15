@@ -1951,6 +1951,249 @@
         </div>
     </section>
 
+    <!-- ==================== VAIDAM IN NEWS ==================== -->
+    <section class="py-14 sm:py-20 bg-white border-t border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- Section Header with Left Title and Right Nav Controls -->
+            <div class="flex items-center justify-between mb-8 sm:mb-10">
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-[#112347] tracking-tight">
+                    Vaidam In News
+                </h2>
+                
+                <!-- Slider Nav Arrows -->
+                <div class="flex items-center gap-2">
+                    <button 
+                        type="button" 
+                        id="news-slider-prev" 
+                        class="w-9 h-9 rounded-full border border-gray-300 hover:border-[#00539C] text-gray-500 hover:text-[#00539C] flex items-center justify-center transition-all bg-white shadow-xs active:scale-95"
+                        aria-label="Previous News"
+                    >
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M15 19l-7-7 7-7"/></svg>
+                    </button>
+                    <button 
+                        type="button" 
+                        id="news-slider-next" 
+                        class="w-9 h-9 rounded-full border border-gray-300 hover:border-[#00539C] text-gray-500 hover:text-[#00539C] flex items-center justify-center transition-all bg-white shadow-xs active:scale-95"
+                        aria-label="Next News"
+                    >
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M9 5l7 7-7 7"/></svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- News Cards Container / Carousel -->
+            <div 
+                id="news-cards-container" 
+                class="flex gap-4 sm:gap-5 overflow-x-auto pb-4 pt-1 snap-x scroll-smooth"
+                style="scrollbar-width: none; -ms-overflow-style: none;"
+            >
+                
+                <!-- Card 1: BioSpectrum -->
+                <div class="flex-shrink-0 w-[270px] sm:w-[290px] lg:w-[calc(20%-16px)] min-w-[240px] snap-start bg-white rounded-2xl overflow-hidden border border-blue-200/80 shadow-xs hover:shadow-md hover:border-blue-300 transition-all duration-200 flex flex-col justify-between group">
+                    <div>
+                        <!-- Image with Overlay -->
+                        <div class="relative aspect-[16/10] overflow-hidden bg-gray-100">
+                            <img 
+                                src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&w=500&q=80" 
+                                alt="BioSpectrum Story" 
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                                loading="lazy"
+                            >
+                            <!-- Logo Badge Top-Left -->
+                            <div class="absolute top-2.5 left-2.5 bg-white px-2 py-0.5 rounded shadow-xs border border-gray-100 flex items-center gap-1">
+                                <span class="text-[9px] font-black tracking-tight text-[#00539C]">Bio<span class="text-amber-500">Spectrum</span></span>
+                            </div>
+                            <!-- Angled Wave Banner at Bottom -->
+                            <div class="absolute bottom-0 inset-x-0 h-8 flex items-end">
+                                <svg viewBox="0 0 400 50" preserveAspectRatio="none" class="absolute inset-0 w-full h-full text-[#00539C] fill-current">
+                                    <path d="M0,25 Q150,50 300,20 Q360,5 400,0 L400,50 L0,50 Z"></path>
+                                </svg>
+                                <span class="relative z-10 text-[10px] font-extrabold uppercase tracking-wider text-white pl-3 pb-1 flex items-center gap-1.5">
+                                    News Article
+                                </span>
+                            </div>
+                        </div>
+
+                        <!-- Content -->
+                        <div class="p-3.5 sm:p-4">
+                            <h3 class="text-xs font-bold text-[#00539C] hover:underline leading-snug line-clamp-3">
+                                BioSpectrumIndia: Vaidam Health's CancerRounds Acquisition Featured in a Leading Life Sciences Industry Story
+                            </h3>
+                            <p class="text-[11px] text-gray-500 mt-2 line-clamp-3 leading-relaxed">
+                                Vaidam Health's CancerRounds Acquisition Featured in BioSpectrum Industry Story
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2: Financial Express -->
+                <div class="flex-shrink-0 w-[270px] sm:w-[290px] lg:w-[calc(20%-16px)] min-w-[240px] snap-start bg-white rounded-2xl overflow-hidden border border-blue-200/80 shadow-xs hover:shadow-md hover:border-blue-300 transition-all duration-200 flex flex-col justify-between group">
+                    <div>
+                        <!-- Image with Overlay -->
+                        <div class="relative aspect-[16/10] overflow-hidden bg-gray-100">
+                            <img 
+                                src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=500&q=80" 
+                                alt="Financial Express Story" 
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                                loading="lazy"
+                            >
+                            <!-- Logo Badge Top-Left -->
+                            <div class="absolute top-2.5 left-2.5 bg-white px-2 py-0.5 rounded shadow-xs border border-gray-100 flex items-center gap-1">
+                                <span class="w-1.5 h-1.5 rounded-full bg-red-600"></span>
+                                <span class="text-[8px] font-extrabold tracking-tight text-gray-800 uppercase">Financial Express</span>
+                            </div>
+                            <!-- Angled Wave Banner at Bottom -->
+                            <div class="absolute bottom-0 inset-x-0 h-8 flex items-end">
+                                <svg viewBox="0 0 400 50" preserveAspectRatio="none" class="absolute inset-0 w-full h-full text-[#00539C] fill-current">
+                                    <path d="M0,25 Q150,50 300,20 Q360,5 400,0 L400,50 L0,50 Z"></path>
+                                </svg>
+                                <span class="relative z-10 text-[10px] font-extrabold uppercase tracking-wider text-white pl-3 pb-1 flex items-center gap-1.5">
+                                    News Article
+                                </span>
+                            </div>
+                        </div>
+
+                        <!-- Content -->
+                        <div class="p-3.5 sm:p-4">
+                            <h3 class="text-xs font-bold text-[#00539C] hover:underline leading-snug line-clamp-3">
+                                Financial Express | Medical Tourism Startups Await Their Funding Cure
+                            </h3>
+                            <p class="text-[11px] text-gray-500 mt-2 line-clamp-3 leading-relaxed">
+                                India's Medical Tourism Boom: Can Startups Find Their Funding Cure?
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3: Business Today -->
+                <div class="flex-shrink-0 w-[270px] sm:w-[290px] lg:w-[calc(20%-16px)] min-w-[240px] snap-start bg-white rounded-2xl overflow-hidden border border-blue-200/80 shadow-xs hover:shadow-md hover:border-blue-300 transition-all duration-200 flex flex-col justify-between group">
+                    <div>
+                        <!-- Image with Overlay -->
+                        <div class="relative aspect-[16/10] overflow-hidden bg-gray-100">
+                            <img 
+                                src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?auto=format&fit=crop&w=500&q=80" 
+                                alt="Business Today Story" 
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                                loading="lazy"
+                            >
+                            <!-- Logo Badge Top-Left -->
+                            <div class="absolute top-2.5 left-2.5 bg-white px-2 py-0.5 rounded shadow-xs border border-gray-100 flex items-center gap-1">
+                                <span class="bg-blue-600 text-white font-bold text-[8px] px-1 rounded-xs">bt</span>
+                                <span class="text-[8px] font-bold text-gray-800">Business Today</span>
+                            </div>
+                            <!-- Angled Wave Banner at Bottom -->
+                            <div class="absolute bottom-0 inset-x-0 h-8 flex items-end">
+                                <svg viewBox="0 0 400 50" preserveAspectRatio="none" class="absolute inset-0 w-full h-full text-[#00539C] fill-current">
+                                    <path d="M0,25 Q150,50 300,20 Q360,5 400,0 L400,50 L0,50 Z"></path>
+                                </svg>
+                                <span class="relative z-10 text-[10px] font-extrabold uppercase tracking-wider text-white pl-3 pb-1 flex items-center gap-1.5">
+                                    News Article
+                                </span>
+                            </div>
+                        </div>
+
+                        <!-- Content -->
+                        <div class="p-3.5 sm:p-4">
+                            <h3 class="text-xs font-bold text-[#00539C] hover:underline leading-snug line-clamp-3">
+                                Business Today | Bridging Language Barriers to Strengthen India's Medical Tourism Ecosystem
+                            </h3>
+                            <p class="text-[11px] text-gray-500 mt-2 line-clamp-3 leading-relaxed">
+                                Why Language Translators Are the Key to India's Medical Tourism Ecosystem
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 4: Forbes -->
+                <div class="flex-shrink-0 w-[270px] sm:w-[290px] lg:w-[calc(20%-16px)] min-w-[240px] snap-start bg-white rounded-2xl overflow-hidden border border-blue-200/80 shadow-xs hover:shadow-md hover:border-blue-300 transition-all duration-200 flex flex-col justify-between group">
+                    <div>
+                        <!-- Image with Overlay -->
+                        <div class="relative aspect-[16/10] overflow-hidden bg-gray-100">
+                            <img 
+                                src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=500&q=80" 
+                                alt="Forbes Story" 
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                                loading="lazy"
+                            >
+                            <!-- Logo Badge Top-Left -->
+                            <div class="absolute top-2.5 left-2.5 bg-white px-2 py-0.5 rounded shadow-xs border border-gray-100 flex items-center gap-1">
+                                <span class="text-[9px] font-serif font-black tracking-tight text-gray-900">Forbes</span>
+                            </div>
+                            <!-- Angled Wave Banner at Bottom -->
+                            <div class="absolute bottom-0 inset-x-0 h-8 flex items-end">
+                                <svg viewBox="0 0 400 50" preserveAspectRatio="none" class="absolute inset-0 w-full h-full text-[#00539C] fill-current">
+                                    <path d="M0,25 Q150,50 300,20 Q360,5 400,0 L400,50 L0,50 Z"></path>
+                                </svg>
+                                <span class="relative z-10 text-[10px] font-extrabold uppercase tracking-wider text-white pl-3 pb-1 flex items-center gap-1.5">
+                                    News Article
+                                </span>
+                            </div>
+                        </div>
+
+                        <!-- Content -->
+                        <div class="p-3.5 sm:p-4">
+                            <h3 class="text-xs font-bold text-[#00539C] hover:underline leading-snug line-clamp-3">
+                                Forbes India: Influential Leaders Creating a Lasting Impact in India
+                            </h3>
+                            <p class="text-[11px] text-gray-500 mt-2 line-clamp-3 leading-relaxed">
+                                Pankaj Chandna: Driving Innovation and Creating a Lasting Impact in India
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 5: CII -->
+                <div class="flex-shrink-0 w-[270px] sm:w-[290px] lg:w-[calc(20%-16px)] min-w-[240px] snap-start bg-white rounded-2xl overflow-hidden border border-blue-200/80 shadow-xs hover:shadow-md hover:border-blue-300 transition-all duration-200 flex flex-col justify-between group">
+                    <div>
+                        <!-- Image with Overlay -->
+                        <div class="relative aspect-[16/10] overflow-hidden bg-gray-100">
+                            <img 
+                                src="https://images.unsplash.com/photo-1526256262350-7da7584cf5eb?auto=format&fit=crop&w=500&q=80" 
+                                alt="CII Story" 
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                                loading="lazy"
+                            >
+                            <!-- Logo Badge Top-Left -->
+                            <div class="absolute top-2.5 left-2.5 bg-white px-2 py-0.5 rounded shadow-xs border border-gray-100 flex items-center gap-1">
+                                <span class="text-[9px] font-black tracking-tight text-[#00539C]">CII</span>
+                            </div>
+                            <!-- Angled Wave Banner at Bottom -->
+                            <div class="absolute bottom-0 inset-x-0 h-8 flex items-end">
+                                <svg viewBox="0 0 400 50" preserveAspectRatio="none" class="absolute inset-0 w-full h-full text-[#00539C] fill-current">
+                                    <path d="M0,25 Q150,50 300,20 Q360,5 400,0 L400,50 L0,50 Z"></path>
+                                </svg>
+                                <span class="relative z-10 text-[10px] font-extrabold uppercase tracking-wider text-white pl-3 pb-1 flex items-center gap-1.5">
+                                    News Article
+                                </span>
+                            </div>
+                        </div>
+
+                        <!-- Content -->
+                        <div class="p-3.5 sm:p-4">
+                            <h3 class="text-xs font-bold text-[#00539C] hover:underline leading-snug line-clamp-3">
+                                Exploring AI, Digital Innovation and the Future of Cross-Border Healthcare
+                            </h3>
+                            <p class="text-[11px] text-gray-500 mt-2 line-clamp-3 leading-relaxed">
+                                Pankaj Chandna Highlights Vaidam Health's Vision at the 5th CII Digital Health Summit
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Dots Indicator -->
+            <div class="flex items-center justify-center gap-1.5 mt-6 sm:mt-8">
+                <span class="w-2 h-2 rounded-full bg-[#00539C]"></span>
+                <span class="w-2 h-2 rounded-full bg-gray-300"></span>
+                <span class="w-2 h-2 rounded-full bg-gray-300"></span>
+                <span class="w-2 h-2 rounded-full bg-gray-300"></span>
+            </div>
+
+        </div>
+    </section>
+
     <!-- ==================== GOOGLE TRANSLATOR INITIALIZATION & INTERACTION ==================== -->
     <script type="text/javascript">
         // Google Translate Element Init callback
@@ -2132,6 +2375,22 @@
                     iconBars.classList.remove('hidden');
                     iconClose.classList.add('hidden');
                 }
+            });
+        }
+
+        // News Slider Carousel Navigation
+        const newsContainer = document.getElementById('news-cards-container');
+        const newsPrev = document.getElementById('news-slider-prev');
+        const newsNext = document.getElementById('news-slider-next');
+
+        if (newsContainer && newsPrev && newsNext) {
+            newsPrev.addEventListener('click', () => {
+                const scrollAmount = newsContainer.clientWidth * 0.75;
+                newsContainer.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+            });
+            newsNext.addEventListener('click', () => {
+                const scrollAmount = newsContainer.clientWidth * 0.75;
+                newsContainer.scrollBy({ left: scrollAmount, behavior: 'smooth' });
             });
         }
     </script>
