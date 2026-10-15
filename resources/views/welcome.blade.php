@@ -2194,6 +2194,208 @@
         </div>
     </section>
 
+    <!-- ==================== UPDATES & EVENTS / LATEST BLOGS ==================== -->
+    <section class="py-14 sm:py-20 bg-white border-t border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
+                
+                <!-- LEFT COLUMN: Updates and Events (5 cols) -->
+                <div class="lg:col-span-5 flex flex-col justify-between h-full">
+                    <h2 class="text-xl sm:text-2xl font-extrabold text-[#112347] tracking-tight mb-5 sm:mb-6">
+                        Updates and Events
+                    </h2>
+
+                    <!-- Event Banner Card -->
+                    <div class="relative bg-white rounded-2xl overflow-hidden border border-gray-200/90 shadow-md flex flex-col">
+                        
+                        <!-- Top Banner with Blue Background -->
+                        <div class="bg-gradient-to-b from-[#0a4b8f] to-[#003875] text-white p-4 sm:p-5 relative">
+                            
+                            <!-- Header with Brand on Left and Hospital Logos on Right -->
+                            <div class="flex items-center justify-between gap-2 pb-3 border-b border-blue-400/30">
+                                <div>
+                                    <span class="text-base sm:text-lg font-black tracking-tight text-white">Vaidam<span class="text-blue-300 font-normal">.com</span></span>
+                                    <span class="block text-[8px] uppercase tracking-wider text-blue-200">For Medical Procedures</span>
+                                </div>
+                                <div class="flex items-center gap-1.5 sm:gap-2 bg-white/95 px-2 py-1 rounded shadow-xs">
+                                    <span class="text-[9px] font-bold text-red-600">Health+</span>
+                                    <span class="text-[9px] font-bold text-blue-800">ZENS</span>
+                                    <span class="text-[9px] font-bold text-gray-900">BLK-MAX</span>
+                                </div>
+                            </div>
+
+                            <!-- Main Event Headline -->
+                            <h3 class="text-sm sm:text-base font-extrabold text-center text-white mt-3.5 leading-snug">
+                                Consult Leading Kidney &amp; Urinary Doctor from India in Fiji
+                            </h3>
+
+                            <!-- Event Locations & Red CTA -->
+                            <div class="grid grid-cols-1 sm:grid-cols-12 gap-2.5 mt-3.5 items-center">
+                                <div class="sm:col-span-7 space-y-1.5">
+                                    <!-- Location 1 -->
+                                    <div class="flex items-start gap-1.5 text-[10px] text-blue-100">
+                                        <svg class="w-3.5 h-3.5 text-red-400 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 0 1 0-5 2.5 2.5 0 0 1 0 5z"/></svg>
+                                        <span>Zens Medical Centre, Nadi Town, Fiji<br><strong class="text-white">2nd November 2026 (11:00 AM - 6:00 PM)</strong></span>
+                                    </div>
+                                    <!-- Location 2 -->
+                                    <div class="flex items-start gap-1.5 text-[10px] text-blue-100">
+                                        <svg class="w-3.5 h-3.5 text-red-400 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 0 1 0-5 2.5 2.5 0 0 1 0 5z"/></svg>
+                                        <span>Health Plus Diagnostics, Suva, Fiji<br><strong class="text-white">3rd November 2026 (10:00 AM - 6:00 PM)</strong></span>
+                                    </div>
+                                </div>
+                                <div class="sm:col-span-5 text-center">
+                                    <a href="#quote-form" class="inline-block bg-[#e13b3f] hover:bg-[#cf2a2e] text-white text-[11px] font-bold px-3 py-2 rounded-lg shadow-sm hover:shadow transition-all leading-tight">
+                                        For Appointment and Details Click here »
+                                    </a>
+                                </div>
+                            </div>
+
+                            <!-- Slider Overlay Arrow Left -->
+                            <button type="button" class="absolute left-2 top-1/2 -translate-y-1/2 w-7 h-7 rounded-full bg-black/40 hover:bg-black/60 text-white flex items-center justify-center transition-all" aria-label="Previous event">
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"/></svg>
+                            </button>
+                            <!-- Slider Overlay Arrow Right -->
+                            <button type="button" class="absolute right-2 top-1/2 -translate-y-1/2 w-7 h-7 rounded-full bg-black/40 hover:bg-black/60 text-white flex items-center justify-center transition-all" aria-label="Next event">
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/></svg>
+                            </button>
+
+                        </div>
+
+                        <!-- Bottom Doctor Profile with Flags Backdrop -->
+                        <div class="relative bg-white pt-6 pb-4 px-4 text-center">
+                            <!-- Background Flag Ribbons Effect -->
+                            <div class="absolute inset-x-0 top-0 h-7 opacity-25 bg-repeat-x" style="background-image: repeating-linear-gradient(90deg, #68BFE5 0px, #68BFE5 35px, #FFFFFF 35px, #FFFFFF 45px, #C8102E 45px, #C8102E 65px);"></div>
+                            
+                            <!-- Doctor Circular Portrait -->
+                            <div class="relative -mt-11 mx-auto w-22 h-22 rounded-full border-4 border-white shadow-md overflow-hidden bg-gray-100 ring-2 ring-blue-500">
+                                <img 
+                                    src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=300&q=80" 
+                                    alt="Dr. Yajvender Pratap Singh Rana" 
+                                    class="w-full h-full object-cover"
+                                    loading="lazy"
+                                >
+                            </div>
+
+                            <!-- Doctor Name & Designation -->
+                            <h4 class="text-sm font-extrabold text-gray-900 mt-2">
+                                Dr. Yajvender Pratap Singh Rana
+                            </h4>
+                            <p class="text-[11px] text-gray-500 font-medium mt-0.5 max-w-sm mx-auto leading-relaxed">
+                                Senior Director - Urology, Uro-Oncology, Andrology and Kidney Transplant
+                            </p>
+                        </div>
+
+                    </div>
+
+                    <!-- Pagination Dots -->
+                    <div class="flex items-center justify-center gap-1.5 mt-4">
+                        <span class="w-2 h-2 rounded-full bg-[#00539C]"></span>
+                        <span class="w-2 h-2 rounded-full bg-gray-300"></span>
+                        <span class="w-2 h-2 rounded-full bg-gray-300"></span>
+                    </div>
+
+                </div>
+
+                <!-- RIGHT COLUMN: Latest Blogs (7 cols) -->
+                <div class="lg:col-span-7 flex flex-col justify-between h-full">
+                    
+                    <h2 class="text-xl sm:text-2xl font-extrabold text-[#112347] tracking-tight mb-5 sm:mb-6">
+                        Latest Blogs
+                    </h2>
+
+                    <!-- 2x2 Blogs Grid -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        
+                        <!-- Blog 1 -->
+                        <div class="bg-[#f0f7fe] hover:bg-[#e6f2fc] rounded-2xl p-3.5 border border-blue-100/70 hover:border-blue-300 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-3.5 group cursor-pointer">
+                            <div class="w-18 h-18 sm:w-20 sm:h-20 rounded-xl overflow-hidden bg-white flex-shrink-0 shadow-xs">
+                                <img 
+                                    src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=200&q=80" 
+                                    alt="Bladder Cancer Treatment" 
+                                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                                    loading="lazy"
+                                >
+                            </div>
+                            <div class="flex-1 min-w-0">
+                                <span class="text-[10px] font-semibold text-[#00539C] block">Published On: 06 Oct 2026</span>
+                                <h3 class="text-xs sm:text-[13px] font-bold text-[#112347] group-hover:text-[#00539C] transition-colors leading-snug mt-1 line-clamp-2">
+                                    Bladder Cancer Treatment in Germany | Options &amp; Cost
+                                </h3>
+                            </div>
+                        </div>
+
+                        <!-- Blog 2 -->
+                        <div class="bg-[#f0f7fe] hover:bg-[#e6f2fc] rounded-2xl p-3.5 border border-blue-100/70 hover:border-blue-300 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-3.5 group cursor-pointer">
+                            <div class="w-18 h-18 sm:w-20 sm:h-20 rounded-xl overflow-hidden bg-white flex-shrink-0 shadow-xs">
+                                <img 
+                                    src="https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=200&q=80" 
+                                    alt="Radiotherapy in Germany" 
+                                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                                    loading="lazy"
+                                >
+                            </div>
+                            <div class="flex-1 min-w-0">
+                                <span class="text-[10px] font-semibold text-[#00539C] block">Published On: 06 Oct 2026</span>
+                                <h3 class="text-xs sm:text-[13px] font-bold text-[#112347] group-hover:text-[#00539C] transition-colors leading-snug mt-1 line-clamp-2">
+                                    Radiotherapy in Germany | Techniques, Duration &amp; Cost
+                                </h3>
+                            </div>
+                        </div>
+
+                        <!-- Blog 3 -->
+                        <div class="bg-[#f0f7fe] hover:bg-[#e6f2fc] rounded-2xl p-3.5 border border-blue-100/70 hover:border-blue-300 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-3.5 group cursor-pointer">
+                            <div class="w-18 h-18 sm:w-20 sm:h-20 rounded-xl overflow-hidden bg-white flex-shrink-0 shadow-xs">
+                                <img 
+                                    src="https://images.unsplash.com/photo-1530497610245-94d3c16cda28?auto=format&fit=crop&w=200&q=80" 
+                                    alt="Pancreatic Cancer Treatment" 
+                                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                                    loading="lazy"
+                                >
+                            </div>
+                            <div class="flex-1 min-w-0">
+                                <span class="text-[10px] font-semibold text-[#00539C] block">Published On: 06 Oct 2026</span>
+                                <h3 class="text-xs sm:text-[13px] font-bold text-[#112347] group-hover:text-[#00539C] transition-colors leading-snug mt-1 line-clamp-2">
+                                    Pancreatic Cancer Treatment in Germany | Surgery &amp; Cost
+                                </h3>
+                            </div>
+                        </div>
+
+                        <!-- Blog 4 -->
+                        <div class="bg-[#f0f7fe] hover:bg-[#e6f2fc] rounded-2xl p-3.5 border border-blue-100/70 hover:border-blue-300 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-3.5 group cursor-pointer">
+                            <div class="w-18 h-18 sm:w-20 sm:h-20 rounded-xl overflow-hidden bg-white flex-shrink-0 shadow-xs">
+                                <img 
+                                    src="https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=200&q=80" 
+                                    alt="CAR-T Cell Therapy" 
+                                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                                    loading="lazy"
+                                >
+                            </div>
+                            <div class="flex-1 min-w-0">
+                                <span class="text-[10px] font-semibold text-[#00539C] block">Published On: 06 Oct 2026</span>
+                                <h3 class="text-xs sm:text-[13px] font-bold text-[#112347] group-hover:text-[#00539C] transition-colors leading-snug mt-1 line-clamp-2">
+                                    CAR-T Cell Therapy in Germany | Eligibility, Centres, Cost
+                                </h3>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- View All Blogs Button Right-Aligned -->
+                    <div class="mt-6 text-right">
+                        <a 
+                            href="#quote-form" 
+                            class="bg-[#e13b3f] hover:bg-[#cf2a2e] active:scale-[0.99] text-white text-xs sm:text-sm font-bold px-6 py-2.5 rounded-lg shadow-sm hover:shadow transition-all inline-flex items-center justify-center"
+                        >
+                            View All Blogs
+                        </a>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
     <!-- ==================== GOOGLE TRANSLATOR INITIALIZATION & INTERACTION ==================== -->
     <script type="text/javascript">
         // Google Translate Element Init callback
