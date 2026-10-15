@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="en" dir="ltr">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,16 +11,16 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+Bengali:wght@400;500;600;700&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
     
-    <!-- Tailwind CSS CDN for self-contained styling -->
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     fontFamily: {
-                        sans: ['"Plus Jakarta Sans"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+                        sans: ['"Plus Jakarta Sans"', '"Noto Sans Bengali"', '"Tajawal"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
                     },
                     colors: {
                         vaidam: {
@@ -41,8 +41,59 @@
 
     <style>
         body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-family: 'Plus Jakarta Sans', 'Noto Sans Bengali', 'Tajawal', sans-serif;
+            top: 0px !important;
         }
+
+        /* Move Google Translate Top Banner off-screen so it is completely hidden without breaking its JavaScript engine */
+        .goog-te-banner-frame,
+        .goog-te-banner-frame.skiptranslate,
+        iframe.goog-te-banner-frame,
+        iframe[class*="VIpgJd"],
+        iframe[id*=":1."],
+        iframe[id*=":2."],
+        .VIpgJd-ZVi9od-ORHb-OEVmcd,
+        .VIpgJd-ZVi9od-aZ2wEe-wOHMyf,
+        .VIpgJd-ZVi9od-xl07Ob-OEVmcd {
+            position: absolute !important;
+            top: -9999px !important;
+            left: -9999px !important;
+            visibility: hidden !important;
+            width: 0px !important;
+            height: 0px !important;
+            opacity: 0 !important;
+            pointer-events: none !important;
+            z-index: -9999 !important;
+            border: none !important;
+        }
+
+        /* Prevent Google Translate from pushing body down */
+        body {
+            top: 0px !important;
+            position: static !important;
+        }
+
+        /* Prevent Google Translate from pushing body down by 40px */
+        html, body {
+            top: 0px !important;
+            position: static !important;
+            margin-top: 0px !important;
+            padding-top: 0px !important;
+        }
+
+        .goog-te-gadget {
+            display: none !important;
+        }
+        .goog-tooltip,
+        .goog-tooltip:hover {
+            display: none !important;
+        }
+        .goog-text-highlight {
+            background-color: transparent !important;
+            border: none !important;
+            box-shadow: none !important;
+        }
+
         /* Custom scrollbar */
         ::-webkit-scrollbar {
             width: 8px;
@@ -61,14 +112,17 @@
 </head>
 <body class="bg-gray-50 text-gray-800 antialiased selection:bg-red-500 selection:text-white">
 
+    <!-- Google Translate Element (kept alive off-screen so Google renders the translation combo) -->
+    <div id="google_translate_element" style="position: absolute; top: -9999px; left: -9999px; width: 1px; height: 1px; overflow: hidden;"></div>
+
     <!-- ==================== HEADER (TOP BAR) ==================== -->
-    <header class="bg-[#00539C] text-white py-2.5 px-4 sm:px-6 lg:px-8 shadow-sm">
+    <header class="bg-[#00539C] text-white py-2.5 px-4 sm:px-6 lg:px-8 shadow-sm relative z-50">
         <div class="max-w-7xl mx-auto flex items-center justify-between gap-4">
             
             <!-- Left: Logo & Accreditation Badges -->
             <div class="flex items-center gap-3 sm:gap-5 flex-wrap">
-                <!-- Brand Logo -->
-                <a href="{{ url('/') }}" class="flex flex-col group leading-none">
+                <!-- Brand Logo (Protected from Google translation via notranslate) -->
+                <a href="{{ url('/') }}" class="flex flex-col group leading-none notranslate">
                     <span class="text-2xl sm:text-3xl font-extrabold tracking-tight text-white group-hover:text-blue-100 transition-colors">
                         Vaidam<span class="text-white">.com</span>
                     </span>
@@ -82,7 +136,6 @@
                 <!-- 10 Years Badge -->
                 <div class="hidden sm:flex items-center gap-1.5 text-yellow-300">
                     <svg class="w-7 h-7 text-yellow-400 drop-shadow-sm" viewBox="0 0 24 24" fill="currentColor">
-                        <!-- Laurel Wreath -->
                         <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15h-2v-6h2v6zm4 0h-2V7h2v10z" opacity="0.1"/>
                         <path d="M7.05 6.05a7 7 0 0 0 0 9.9 1 1 0 0 1-1.41 1.41 9 9 0 0 1 0-12.72 1 1 0 0 1 1.41 1.41zm9.9 0a1 1 0 0 1 1.41-1.41 9 9 0 0 1 0 12.72 1 1 0 0 1-1.41-1.41 7 7 0 0 0 0-9.9z" fill="#ffd700"/>
                         <circle cx="12" cy="12" r="3" fill="#ffd700" opacity="0.3"/>
@@ -94,9 +147,8 @@
                 </div>
 
                 <!-- NABH / Quality Accreditation Badge -->
-                <div class="hidden md:flex items-center gap-1.5 bg-white/10 px-2 py-1 rounded-full border border-white/20">
+                <div class="hidden md:flex items-center gap-1.5 bg-white/10 px-2.5 py-1 rounded-full border border-white/20">
                     <div class="w-6 h-6 rounded-full bg-white flex items-center justify-center p-0.5 shadow-sm">
-                        <!-- Quality Emblem -->
                         <svg class="w-full h-full text-red-600" viewBox="0 0 24 24" fill="currentColor">
                             <circle cx="12" cy="12" r="10" fill="#dc2626"/>
                             <circle cx="12" cy="12" r="7" fill="#ffffff"/>
@@ -115,19 +167,70 @@
                     Get a FREE Quote
                 </a>
 
-                <!-- Language / Region Selector -->
-                <div class="relative" x-data="{ open: false }">
-                    <button type="button" class="inline-flex items-center gap-1.5 bg-white hover:bg-gray-100 text-[#00539C] text-xs font-semibold px-2.5 sm:px-3 py-1.5 sm:py-2 rounded-md transition-colors shadow-sm">
-                        <!-- Globe / Flag Icon -->
-                        <svg class="w-3.5 h-3.5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <!-- Custom Google Translate Language Dropdown -->
+                <div class="relative notranslate" id="lang-dropdown-wrapper">
+                    <button 
+                        type="button" 
+                        id="lang-btn"
+                        class="inline-flex items-center gap-1.5 bg-white hover:bg-gray-100 text-[#00539C] text-xs font-semibold px-2.5 sm:px-3 py-1.5 sm:py-2 rounded-md transition-colors shadow-sm focus:outline-none"
+                        aria-expanded="false"
+                    >
+                        <!-- Globe Icon -->
+                        <svg class="w-3.5 h-3.5 text-blue-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <circle cx="12" cy="12" r="10" stroke-width="2"/>
                             <path stroke-width="2" d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
                         </svg>
-                        <span>English</span>
-                        <svg class="w-3 h-3 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <span id="current-lang-text">English</span>
+                        <svg class="w-3 h-3 text-gray-500 transition-transform duration-200" id="lang-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/>
                         </svg>
                     </button>
+
+                    <!-- Language Menu (Supports English, Bengali, Russian, Arabic) -->
+                    <div 
+                        id="lang-menu" 
+                        class="hidden absolute right-0 mt-1.5 w-44 bg-white border border-gray-200 rounded-lg shadow-xl py-1.5 z-50 text-xs font-medium"
+                    >
+                        <button 
+                            type="button"
+                            onclick="translatePage('en')" 
+                            class="w-full text-left flex items-center justify-between px-3.5 py-2 text-gray-700 hover:bg-blue-50 hover:text-[#00539C] transition-colors"
+                            data-lang="en"
+                        >
+                            <span>English (Default)</span>
+                            <span class="lang-check hidden text-[#00539C]">✓</span>
+                        </button>
+
+                        <button 
+                            type="button"
+                            onclick="translatePage('bn')" 
+                            class="w-full text-left flex items-center justify-between px-3.5 py-2 text-gray-700 hover:bg-blue-50 hover:text-[#00539C] transition-colors"
+                            data-lang="bn"
+                        >
+                            <span>বাংলা (Bengali)</span>
+                            <span class="lang-check hidden text-[#00539C]">✓</span>
+                        </button>
+
+                        <button 
+                            type="button"
+                            onclick="translatePage('ru')" 
+                            class="w-full text-left flex items-center justify-between px-3.5 py-2 text-gray-700 hover:bg-blue-50 hover:text-[#00539C] transition-colors"
+                            data-lang="ru"
+                        >
+                            <span>Русский (Russian)</span>
+                            <span class="lang-check hidden text-[#00539C]">✓</span>
+                        </button>
+
+                        <button 
+                            type="button"
+                            onclick="translatePage('ar')" 
+                            class="w-full text-left flex items-center justify-between px-3.5 py-2 text-gray-700 hover:bg-blue-50 hover:text-[#00539C] transition-colors"
+                            data-lang="ar"
+                        >
+                            <span>العربية (Arabic)</span>
+                            <span class="lang-check hidden text-[#00539C]">✓</span>
+                        </button>
+                    </div>
                 </div>
             </div>
 
@@ -140,7 +243,7 @@
             <div class="flex items-center justify-between h-14 gap-4">
                 
                 <!-- Navigation Links (Desktop) -->
-                <div class="hidden lg:flex items-center gap-5 xl:gap-7 text-xs xl:text-sm font-semibold text-gray-700">
+                <div class="hidden lg:flex items-center gap-4 xl:gap-6 text-xs xl:text-sm font-semibold text-gray-700">
                     <a href="{{ url('/') }}" class="text-[#00539C] hover:text-[#003d73] transition-colors py-4 border-b-2 border-[#00539C]">
                         Home
                     </a>
@@ -153,8 +256,7 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/>
                             </svg>
                         </button>
-                        <!-- Simple Dropdown Menu -->
-                        <div class="absolute left-0 top-full hidden group-hover:block w-52 bg-white border border-gray-100 rounded-lg shadow-xl py-2 z-50">
+                        <div class="absolute left-0 top-full hidden group-hover:block w-56 bg-white border border-gray-100 rounded-lg shadow-xl py-2 z-50">
                             <a href="#" class="block px-4 py-2 text-xs text-gray-700 hover:bg-blue-50 hover:text-[#00539C]">Top Hospitals in India</a>
                             <a href="#" class="block px-4 py-2 text-xs text-gray-700 hover:bg-blue-50 hover:text-[#00539C]">Hospitals in Turkey</a>
                             <a href="#" class="block px-4 py-2 text-xs text-gray-700 hover:bg-blue-50 hover:text-[#00539C]">Hospitals in Thailand</a>
@@ -170,7 +272,7 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/>
                             </svg>
                         </button>
-                        <div class="absolute left-0 top-full hidden group-hover:block w-52 bg-white border border-gray-100 rounded-lg shadow-xl py-2 z-50">
+                        <div class="absolute left-0 top-full hidden group-hover:block w-60 bg-white border border-gray-100 rounded-lg shadow-xl py-2 z-50">
                             <a href="#" class="block px-4 py-2 text-xs text-gray-700 hover:bg-blue-50 hover:text-[#00539C]">Cardiologists</a>
                             <a href="#" class="block px-4 py-2 text-xs text-gray-700 hover:bg-blue-50 hover:text-[#00539C]">Oncologists (Cancer)</a>
                             <a href="#" class="block px-4 py-2 text-xs text-gray-700 hover:bg-blue-50 hover:text-[#00539C]">Orthopedic Surgeons</a>
@@ -186,7 +288,7 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/>
                             </svg>
                         </button>
-                        <div class="absolute left-0 top-full hidden group-hover:block w-52 bg-white border border-gray-100 rounded-lg shadow-xl py-2 z-50">
+                        <div class="absolute left-0 top-full hidden group-hover:block w-56 bg-white border border-gray-100 rounded-lg shadow-xl py-2 z-50">
                             <a href="#" class="block px-4 py-2 text-xs text-gray-700 hover:bg-blue-50 hover:text-[#00539C]">Heart Surgery Cost</a>
                             <a href="#" class="block px-4 py-2 text-xs text-gray-700 hover:bg-blue-50 hover:text-[#00539C]">Knee Replacement Cost</a>
                             <a href="#" class="block px-4 py-2 text-xs text-gray-700 hover:bg-blue-50 hover:text-[#00539C]">Cancer Treatment Cost</a>
@@ -202,7 +304,7 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/>
                             </svg>
                         </button>
-                        <div class="absolute left-0 top-full hidden group-hover:block w-52 bg-white border border-gray-100 rounded-lg shadow-xl py-2 z-50">
+                        <div class="absolute left-0 top-full hidden group-hover:block w-56 bg-white border border-gray-100 rounded-lg shadow-xl py-2 z-50">
                             <a href="#" class="block px-4 py-2 text-xs text-gray-700 hover:bg-blue-50 hover:text-[#00539C]">Medical Visa Guide</a>
                             <a href="#" class="block px-4 py-2 text-xs text-gray-700 hover:bg-blue-50 hover:text-[#00539C]">Travel Checklist</a>
                             <a href="#" class="block px-4 py-2 text-xs text-gray-700 hover:bg-blue-50 hover:text-[#00539C]">Treatment FAQs</a>
@@ -279,7 +381,7 @@
                 class="w-full h-full object-cover object-center lg:object-[80%_center]"
                 onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1920&q=80';"
             >
-            <!-- Gradient Overlay: Soft white fade on left for maximum text readability -->
+            <!-- Gradient Overlay: Soft white fade for maximum text readability -->
             <div class="absolute inset-0 bg-gradient-to-r from-white via-white/95 sm:via-white/90 lg:via-white/80 to-white/40 lg:to-transparent"></div>
             <!-- Bottom subtle fade -->
             <div class="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-white to-transparent"></div>
@@ -358,7 +460,6 @@
                         <!-- Card Header -->
                         <div class="mb-4">
                             <div class="flex items-center gap-2">
-                                <!-- Shield with Checkmark Icon -->
                                 <div class="w-5 h-5 flex-shrink-0 text-white">
                                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
                                         <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
@@ -425,7 +526,7 @@
                             </div>
 
                             <!-- 4. Phone with Country Code -->
-                            <div class="flex rounded-lg overflow-hidden bg-white shadow-inner focus-within:ring-2 focus-within:ring-red-400/40 border border-transparent focus-within:border-red-500 transition-all">
+                            <div class="flex rounded-lg overflow-hidden bg-white shadow-inner focus-within:ring-2 focus-within:ring-red-400/40 border border-transparent focus-within:border-red-500 transition-all notranslate" dir="ltr">
                                 <div class="bg-gray-100/90 text-gray-700 text-sm font-semibold px-3 flex items-center border-r border-gray-200 select-none">
                                     +91
                                 </div>
@@ -491,8 +592,170 @@
 
     </section>
 
-    <!-- Mobile Navigation Toggle Script -->
-    <script>
+    <!-- ==================== GOOGLE TRANSLATOR INITIALIZATION & INTERACTION ==================== -->
+    <script type="text/javascript">
+        // Google Translate Element Init callback
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'en',
+                includedLanguages: 'en,bn,ru,ar',
+                autoDisplay: false,
+                multilanguagePage: true
+            }, 'google_translate_element');
+        }
+
+        const languagesMap = {
+            'en': 'English',
+            'bn': 'বাংলা (Bengali)',
+            'ru': 'Русский (Russian)',
+            'ar': 'العربية (Arabic)'
+        };
+
+        // Read Google Translate Cookie (googtrans)
+        function getCookie(name) {
+            const v = document.cookie.match('(^|;) ?' + name + '=([^;]*)(;|$)');
+            return v ? v[2] : null;
+        }
+
+        // Get currently active language
+        function getCurrentLanguage() {
+            const googtrans = getCookie('googtrans');
+            if (googtrans) {
+                const parts = googtrans.split('/');
+                if (parts.length > 2 && languagesMap[parts[2]]) {
+                    return parts[2];
+                }
+            }
+            return 'en';
+        }
+
+        // Translate the whole website dynamically using Google Translate
+        function translatePage(lang) {
+            const cookieVal = '/en/' + lang;
+            
+            // Set cookie across path and host
+            document.cookie = "googtrans=" + cookieVal + "; path=/;";
+            try {
+                if (window.location.hostname) {
+                    document.cookie = "googtrans=" + cookieVal + "; domain=" + window.location.hostname + "; path=/;";
+                    document.cookie = "googtrans=" + cookieVal + "; domain=." + window.location.hostname + "; path=/;";
+                }
+            } catch (e) {}
+
+            // Apply RTL dynamically for Arabic
+            if (lang === 'ar') {
+                document.documentElement.setAttribute('dir', 'rtl');
+            } else {
+                document.documentElement.setAttribute('dir', 'ltr');
+            }
+
+            // Update UI text and checkmarks
+            updateLanguageUI(lang);
+
+            // Trigger Google Translate
+            const select = document.querySelector('.goog-te-combo');
+            if (select) {
+                select.value = lang;
+                select.dispatchEvent(new Event('change'));
+            } else {
+                setTimeout(() => {
+                    const retrySelect = document.querySelector('.goog-te-combo');
+                    if (retrySelect) {
+                        retrySelect.value = lang;
+                        retrySelect.dispatchEvent(new Event('change'));
+                    } else {
+                        window.location.reload();
+                    }
+                }, 300);
+            }
+        }
+
+        // Update active checkmarks and button label
+        function updateLanguageUI(lang) {
+            const currentText = document.getElementById('current-lang-text');
+            if (currentText && languagesMap[lang]) {
+                currentText.textContent = languagesMap[lang].split(' ')[0]; // E.g. "English", "বাংলা"
+            }
+
+            // Checkmarks
+            document.querySelectorAll('[data-lang]').forEach(btn => {
+                const check = btn.querySelector('.lang-check');
+                if (btn.getAttribute('data-lang') === lang) {
+                    btn.classList.add('bg-blue-50/80', 'font-bold', 'text-[#00539C]');
+                    if (check) check.classList.remove('hidden');
+                } else {
+                    btn.classList.remove('bg-blue-50/80', 'font-bold', 'text-[#00539C]');
+                    if (check) check.classList.add('hidden');
+                }
+            });
+
+            // Set direction
+            if (lang === 'ar') {
+                document.documentElement.setAttribute('dir', 'rtl');
+            } else {
+                document.documentElement.setAttribute('dir', 'ltr');
+            }
+        }
+
+        // Prevent body shift without deleting Google Translate's execution frame
+        function resetBodyTop() {
+            if (document.body && document.body.style.top !== '0px') {
+                document.body.style.top = '0px';
+                document.body.style.position = 'static';
+            }
+            if (document.documentElement && document.documentElement.style.top !== '0px') {
+                document.documentElement.style.top = '0px';
+            }
+        }
+
+        // Run UI check on load and keep body pinned to top
+        document.addEventListener('DOMContentLoaded', () => {
+            const currentLang = getCurrentLanguage();
+            updateLanguageUI(currentLang);
+            resetBodyTop();
+
+            // Observe body style to keep top: 0px without destroying iframe communication
+            const bodyObserver = new MutationObserver(() => {
+                resetBodyTop();
+            });
+
+            bodyObserver.observe(document.body, {
+                attributes: true,
+                attributeFilter: ['style']
+            });
+
+            const interval = setInterval(resetBodyTop, 200);
+            setTimeout(() => clearInterval(interval), 4000);
+        });
+
+        // Dropdown toggle
+        const langBtn = document.getElementById('lang-btn');
+        const langMenu = document.getElementById('lang-menu');
+        const langArrow = document.getElementById('lang-arrow');
+        const langWrapper = document.getElementById('lang-dropdown-wrapper');
+
+        if (langBtn && langMenu) {
+            langBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const isHidden = langMenu.classList.contains('hidden');
+                if (isHidden) {
+                    langMenu.classList.remove('hidden');
+                    langArrow.classList.add('rotate-180');
+                } else {
+                    langMenu.classList.add('hidden');
+                    langArrow.classList.remove('rotate-180');
+                }
+            });
+
+            document.addEventListener('click', (e) => {
+                if (langWrapper && !langWrapper.contains(e.target)) {
+                    langMenu.classList.add('hidden');
+                    langArrow.classList.remove('rotate-180');
+                }
+            });
+        }
+
+        // Mobile Menu Toggle
         const menuBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
         const iconBars = document.getElementById('menu-icon-bars');
@@ -513,5 +776,9 @@
             });
         }
     </script>
+
+    <!-- Load Google Translate API Script Asynchronously -->
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
 </body>
 </html>
