@@ -231,8 +231,8 @@
                                 <!-- Title & Accreditation Emblems -->
                                 <div class="space-y-1.5 flex-1 min-w-0">
                                     <div class="flex items-center gap-1.5 flex-wrap">
-                                        <h2 class="text-base sm:text-lg font-bold text-[#00539C] hover:underline cursor-pointer leading-tight">
-                                            Indraprastha Apollo Hospital, New Delhi
+                                        <h2 class="text-base sm:text-lg font-bold text-[#00539C] leading-tight">
+                                            <a href="{{ route('hospital.details') }}" class="hover:underline">Indraprastha Apollo Hospital, New Delhi</a>
                                         </h2>
                                         <!-- Verified Checkmark Icon -->
                                         <span class="inline-flex items-center justify-center w-4 h-4 rounded-full bg-emerald-500 text-white text-[9px] font-bold" title="Verified Hospital">✓</span>
