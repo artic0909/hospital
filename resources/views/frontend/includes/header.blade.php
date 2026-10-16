@@ -616,7 +616,7 @@
                     </div>
 
                     <!-- Cost Dropdown (Mega Menu) -->
-                    <div class="group h-14 flex items-center">
+                    <!-- <div class="group h-14 flex items-center">
                         <button type="button" class="h-14 flex items-center gap-1 text-gray-700 hover:text-[#00539C] group-hover:text-[#00539C] border-b-2 border-transparent group-hover:border-[#00539C] transition-all cursor-pointer focus:outline-none">
                             <span>Cost</span>
                             <svg class="w-3 h-3 text-gray-400 group-hover:text-[#00539C] transition-transform duration-200 group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -624,12 +624,12 @@
                             </svg>
                         </button>
                         
-                        <!-- Cost Full-Width Mega Menu -->
+                       
                         <div class="absolute left-0 right-0 top-full w-full bg-white border-b border-gray-200 shadow-2xl z-50 hidden group-hover:block transition-all">
                             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-7">
                                 <div class="grid grid-cols-6 gap-6 xl:gap-8">
                                     
-                                    <!-- Cardiology -->
+                                   
                                     <div>
                                         <h4 class="text-sm font-bold text-[#112347] tracking-tight">Cardiology</h4>
                                         <div class="h-[2px] w-full mt-1.5 mb-3.5 bg-amber-500"></div>
@@ -653,7 +653,7 @@
                                         </div>
                                     </div>
 
-                                    <!-- Oncology -->
+                                    
                                     <div>
                                         <h4 class="text-sm font-bold text-[#112347] tracking-tight">Oncology</h4>
                                         <div class="h-[2px] w-full mt-1.5 mb-3.5 bg-[#e13b3f]"></div>
@@ -677,7 +677,7 @@
                                         </div>
                                     </div>
 
-                                    <!-- Neurology -->
+                                    
                                     <div>
                                         <h4 class="text-sm font-bold text-[#112347] tracking-tight">Neurology</h4>
                                         <div class="h-[2px] w-full mt-1.5 mb-3.5 bg-[#00539C]"></div>
@@ -701,7 +701,7 @@
                                         </div>
                                     </div>
 
-                                    <!-- Orthopedics -->
+                                    
                                     <div>
                                         <h4 class="text-sm font-bold text-[#112347] tracking-tight">Orthopedics</h4>
                                         <div class="h-[2px] w-full mt-1.5 mb-3.5 bg-emerald-500"></div>
@@ -725,7 +725,7 @@
                                         </div>
                                     </div>
 
-                                    <!-- Spine Surgery -->
+                                    
                                     <div>
                                         <h4 class="text-sm font-bold text-[#112347] tracking-tight">Spine Surgery</h4>
                                         <div class="h-[2px] w-full mt-1.5 mb-3.5 bg-[#e13b3f]"></div>
@@ -749,7 +749,7 @@
                                         </div>
                                     </div>
 
-                                    <!-- Other Departments -->
+                                    
                                     <div>
                                         <h4 class="text-sm font-bold text-[#112347] tracking-tight">Other Departments</h4>
                                         <div class="h-[2px] w-full mt-1.5 mb-3.5 bg-[#00539C]"></div>
@@ -780,7 +780,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
 
                     <!-- Knowledge Dropdown -->
                     <div class="relative group h-14 flex items-center">
@@ -791,8 +791,8 @@
                             </svg>
                         </button>
                         <div class="absolute left-0 top-full hidden group-hover:block w-48 bg-white border border-gray-100 rounded-xl shadow-xl py-2 z-50">
-                            <a href="#quote-form" class="block px-4 py-2 text-xs font-medium text-gray-700 hover:bg-blue-50 hover:text-[#00539C] transition-colors">Blogs</a>
-                            <a href="#quote-form" class="block px-4 py-2 text-xs font-medium text-gray-700 hover:bg-blue-50 hover:text-[#00539C] transition-colors">Videos</a>
+                            <!-- <a href="#quote-form" class="block px-4 py-2 text-xs font-medium text-gray-700 hover:bg-blue-50 hover:text-[#00539C] transition-colors">Blogs</a> -->
+                            <!-- <a href="#quote-form" class="block px-4 py-2 text-xs font-medium text-gray-700 hover:bg-blue-50 hover:text-[#00539C] transition-colors">Videos</a> -->
                             <a href="#quote-form" class="block px-4 py-2 text-xs font-medium text-gray-700 hover:bg-blue-50 hover:text-[#00539C] transition-colors">Medical Visa</a>
                             <a href="#quote-form" class="block px-4 py-2 text-xs font-medium text-gray-700 hover:bg-blue-50 hover:text-[#00539C] transition-colors">News & Updates</a>
                         </div>
