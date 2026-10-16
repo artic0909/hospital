@@ -181,7 +181,7 @@
 
             <!-- Two Main Action CTAs -->
             <div class="pt-4 border-t border-gray-100 flex flex-col sm:flex-row items-center gap-3.5">
-                <a href="#appointment-box" class="w-full sm:flex-1 bg-[#e13b3f] hover:bg-[#cf2a2e] text-white text-xs sm:text-sm font-bold py-3 px-6 rounded-lg shadow-sm hover:shadow text-center transition-all">
+                <a href="{{ route('hospital.appointment') }}" class="w-full sm:flex-1 bg-[#e13b3f] hover:bg-[#cf2a2e] text-white text-xs sm:text-sm font-bold py-3 px-6 rounded-lg shadow-sm hover:shadow text-center transition-all">
                     Book Appointment for Indraprastha Apollo Hospital, New Delhi
                 </a>
                 <a href="https://wa.me/919999999999?text=Hello%20Vaidam,%20I%20want%20to%20consult%20Indraprastha%20Apollo%20Hospital%20New%20Delhi" target="_blank" class="w-full sm:w-auto bg-[#28a745] hover:bg-[#218838] text-white text-xs sm:text-sm font-bold py-3 px-6 rounded-lg shadow-sm hover:shadow flex items-center justify-center gap-2 transition-all">
