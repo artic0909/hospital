@@ -7,6 +7,8 @@ Route::view('/hospitals', 'frontend.pages.hospital.hospitals')->name('hospitals'
 Route::view('/doctors', 'frontend.pages.doctor.doctors')->name('doctors');
 Route::view('/hospital-details', 'frontend.pages.hospital.hospital_details')->name('hospital.details');
 Route::view('/book-appointment', 'frontend.pages.hospital.book_appointment')->name('hospital.appointment');
+Route::view('/doctor-details', 'frontend.pages.doctor.doctor_details')->name('doctor.details');
+Route::view('/doctor-appointment', 'frontend.pages.doctor.book_appointment')->name('doctor.appointment');
 
 Route::get('/lang/{locale}', function (string $locale) {
     if (in_array($locale, ['en', 'bn', 'ru', 'ar'])) {

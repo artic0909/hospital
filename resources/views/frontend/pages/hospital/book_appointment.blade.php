@@ -425,24 +425,7 @@
 
             </div>
 
-            <!-- Trust Features below the card -->
-            <div class="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-4 text-center">
-                <div class="bg-white/80 rounded-xl border border-gray-200/70 p-3.5 space-y-1">
-                    <span class="text-lg">⏱️</span>
-                    <h4 class="text-xs font-bold text-gray-900">Zero Wait Time</h4>
-                    <p class="text-[11px] text-gray-500">Priority consultation desk</p>
-                </div>
-                <div class="bg-white/80 rounded-xl border border-gray-200/70 p-3.5 space-y-1">
-                    <span class="text-lg">🛡️</span>
-                    <h4 class="text-xs font-bold text-gray-900">100% Free Booking</h4>
-                    <p class="text-[11px] text-gray-500">No advance payment needed</p>
-                </div>
-                <div class="bg-white/80 rounded-xl border border-gray-200/70 p-3.5 space-y-1">
-                    <span class="text-lg">🤝</span>
-                    <h4 class="text-xs font-bold text-gray-900">Personal Concierge</h4>
-                    <p class="text-[11px] text-gray-500">Assistance at the hospital</p>
-                </div>
-            </div>
+
 
         </div>
     </div>
