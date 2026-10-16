@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::view('/', 'frontend.pages.index')->name('home');
 Route::view('/hospitals', 'frontend.pages.hospitals')->name('hospitals');
+Route::view('/doctors', 'frontend.pages.doctors')->name('doctors');
 
 Route::get('/lang/{locale}', function (string $locale) {
     if (in_array($locale, ['en', 'bn', 'ru', 'ar'])) {

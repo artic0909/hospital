@@ -380,12 +380,12 @@
 
                     <!-- Doctors Dropdown (Mega Menu) -->
                     <div class="group h-14 flex items-center">
-                        <button type="button" class="h-14 flex items-center gap-1 text-gray-700 hover:text-[#00539C] group-hover:text-[#00539C] border-b-2 border-transparent group-hover:border-[#00539C] transition-all cursor-pointer focus:outline-none">
+                        <a href="{{ route('doctors') }}" class="h-14 flex items-center gap-1 {{ request()->routeIs('doctors') ? 'text-[#00539C] border-b-2 border-[#00539C]' : 'text-gray-700 hover:text-[#00539C] border-b-2 border-transparent' }} group-hover:text-[#00539C] group-hover:border-[#00539C] transition-all cursor-pointer focus:outline-none">
                             <span>Doctors</span>
                             <svg class="w-3 h-3 text-gray-400 group-hover:text-[#00539C] transition-transform duration-200 group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/>
                             </svg>
-                        </button>
+                        </a>
                         
                         <!-- Doctors Full-Width Mega Menu -->
                         <div class="absolute left-0 right-0 top-full w-full bg-white border-b border-gray-200 shadow-2xl z-50 hidden group-hover:block transition-all">
@@ -434,7 +434,7 @@
                                                 <span>Aesthetic & Plastic Surgeons</span>
                                             </a>
                                         </div>
-                                        <a href="#quote-form" class="inline-flex items-center text-xs font-bold text-[#00539C] hover:text-[#003d73] hover:underline mt-2.5 transition-colors">
+                                        <a href="{{ route('doctors') }}" class="inline-flex items-center text-xs font-bold text-[#00539C] hover:text-[#003d73] hover:underline mt-2.5 transition-colors">
                                             View all →
                                         </a>
                                     </div>
@@ -477,7 +477,7 @@
                                                 <span>Cancer Doctors</span>
                                             </a>
                                         </div>
-                                        <a href="#quote-form" class="inline-flex items-center text-xs font-bold text-[#00539C] hover:text-[#003d73] hover:underline mt-2.5 transition-colors">
+                                        <a href="{{ route('doctors') }}" class="inline-flex items-center text-xs font-bold text-[#00539C] hover:text-[#003d73] hover:underline mt-2.5 transition-colors">
                                             View all →
                                         </a>
                                     </div>
