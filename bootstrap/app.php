@@ -15,6 +15,20 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->web(append: [
             \App\Http\Middleware\SetLocale::class,
         ]);
+
+        $middleware->redirectGuestsTo(function (Request $request) {
+            if ($request->is('partner*')) {
+                return route('partner.login');
+            }
+            return route('login');
+        });
+
+        $middleware->redirectUsersTo(function (Request $request) {
+            if (\Illuminate\Support\Facades\Auth::guard('partner')->check()) {
+                return route('partner.dashboard');
+            }
+            return route('dashboard');
+        });
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         $exceptions->shouldRenderJsonWhen(

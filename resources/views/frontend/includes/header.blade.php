@@ -799,10 +799,17 @@
                         Free Consult
                     </a>
 
-                    <a href="#quote-form" class="h-14 flex items-center hover:text-[#27797D] border-b-2 border-transparent hover:border-emerald-500 transition-colors text-emerald-600 font-bold gap-1">
-                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
-                        Partner Login
-                    </a>
+                    @auth('partner')
+                        <a href="{{ route('partner.dashboard') }}" class="h-14 flex items-center hover:text-[#27797D] border-b-2 border-transparent hover:border-[#EF7415] transition-colors text-[#EF7415] font-bold gap-1.5">
+                            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                            Partner Portal ({{ Str::limit(auth('partner')->user()->name, 12) }})
+                        </a>
+                    @else
+                        <a href="{{ route('partner.login') }}" class="h-14 flex items-center hover:text-[#27797D] border-b-2 border-transparent hover:border-emerald-500 transition-colors text-emerald-600 font-bold gap-1">
+                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                            Partner Login
+                        </a>
+                    @endauth
                 </div>
 
                 <!-- Right: Search Bar -->
@@ -904,6 +911,11 @@
             <a href="#quote-form" class="block px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:bg-gray-50">Patient Stories</a>
             <a href="#quote-form" class="block px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:bg-gray-50">Wellness</a>
             <a href="#quote-form" class="block px-3 py-2 rounded-md text-sm font-bold text-emerald-600 bg-emerald-50">FREE Consult</a>
+            @auth('partner')
+                <a href="{{ route('partner.dashboard') }}" class="block px-3 py-2 rounded-md text-sm font-bold text-white bg-[#1D4B6C]">Partner Portal (Dashboard)</a>
+            @else
+                <a href="{{ route('partner.login') }}" class="block px-3 py-2 rounded-md text-sm font-bold text-white bg-[#27797D]">Partner Login / Register</a>
+            @endauth
         </div>
     </nav>
 
