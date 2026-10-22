@@ -1,47 +1,45 @@
     <div id="google_translate_element" style="position: absolute; top: -9999px; left: -9999px; width: 1px; height: 1px; overflow: hidden;"></div>
 
     <!-- ==================== HEADER (TOP BAR) ==================== -->
-    <header class="bg-[#1D4B6C] text-white py-2.5 px-4 sm:px-6 lg:px-8 shadow-sm relative z-50 border-b border-[#27797D]/30">
-        <div class="max-w-7xl mx-auto flex items-center justify-between gap-4">
+    <header class="bg-[#1D4B6C] text-white py-2.5 px-3 sm:px-6 lg:px-8 shadow-sm relative z-50 border-b border-[#27797D]/30">
+        <div class="max-w-7xl mx-auto flex items-center justify-between gap-2 sm:gap-4">
             
-            <!-- Left: Logo & Accreditation Badges -->
-            <div class="flex items-center gap-3 sm:gap-4 flex-wrap">
+            <!-- Left: Logo & Accreditation Badges (Never squished) -->
+            <div class="flex items-center gap-2 sm:gap-3 flex-shrink-0 min-w-0">
                 <!-- Brand Logo (Protected from Google translation via notranslate) -->
-                <a href="{{ url('/') }}" class="inline-flex items-center gap-2.5 group notranslate">
-                    <div class="bg-white px-2 py-1 rounded-xl shadow-xs border border-white/20 flex items-center justify-center">
-                        <img src="{{ asset('logo.png') }}" alt="Heal Go Fly - Medical Value Travel" class="h-9 sm:h-10 w-auto object-contain">
+                <a href="{{ url('/') }}" class="inline-flex items-center gap-2 sm:gap-2.5 group notranslate">
+                    <div class="bg-white p-1 sm:p-1.5 rounded-xl shadow-xs border border-white/20 flex items-center justify-center shrink-0">
+                        <img src="{{ asset('logo.png') }}" alt="Heal Go Fly - Medical Value Travel" class="h-7 sm:h-9 w-auto object-contain">
                     </div>
                     <div class="flex flex-col leading-none">
-                        <span class="text-xl sm:text-2xl font-black tracking-tight text-white group-hover:text-teal-200 transition-colors">
+                        <span class="text-base sm:text-xl lg:text-2xl font-black tracking-tight text-white group-hover:text-teal-200 transition-colors whitespace-nowrap">
                             Heal Go Fly
                         </span>
-                        <span class="text-[9px] sm:text-[10px] tracking-wider uppercase font-bold text-[#EF7415] mt-0.5">
+                        <span class="text-[8px] sm:text-[9px] tracking-wider uppercase font-bold text-[#EF7415] mt-0.5 whitespace-nowrap">
                             Healgofly hi rahega
                         </span>
                     </div>
                 </a>
 
-                <div class="h-8 w-px bg-white/20 hidden sm:block"></div>
-
-                <!-- Accreditation / Quality Badge -->
-                <div class="hidden md:flex items-center gap-1.5 bg-white/10 px-2.5 py-1 rounded-full border border-white/20">
-                    <div class="w-5 h-5 rounded-full bg-[#EF7415] flex items-center justify-center p-0.5 shadow-sm text-white">
-                        <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                <!-- Accreditation / Quality Badge (Desktop Only) -->
+                <div class="hidden xl:flex items-center gap-1.5 bg-white/10 px-2.5 py-1 rounded-full border border-white/20">
+                    <div class="w-4 h-4 rounded-full bg-[#EF7415] flex items-center justify-center p-0.5 shadow-sm text-white">
+                        <svg class="w-2.5 h-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
                     </div>
                     <span class="text-[10px] font-bold text-white tracking-wide uppercase">NABH & JCI Certified</span>
                 </div>
             </div>
 
-            <!-- Right: Call to Action & Language Selector -->
-            <div class="flex items-center gap-2 sm:gap-3">
+            <!-- Right Desktop: Call to Action & Language Selector -->
+            <div class="hidden lg:flex items-center gap-2.5 xl:gap-3">
                 <!-- LLP Contact No -->
-                <a href="https://wa.me/919129846542" target="_blank" class="hidden md:inline-flex items-center gap-1.5 bg-white/10 hover:bg-white/20 text-white text-xs font-bold px-3 py-2 rounded-md border border-white/20 transition-all shadow-xs" title="Chat on WhatsApp">
+                <a href="https://wa.me/919129846542" target="_blank" class="inline-flex items-center gap-1.5 bg-white/10 hover:bg-white/20 text-white text-xs font-bold px-3 py-2 rounded-lg border border-white/20 transition-all shadow-xs" title="Chat on WhatsApp">
                     <svg class="w-3.5 h-3.5 text-[#25D366] fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
                     <span>+91 9129846542</span>
                 </a>
 
                 <!-- Free Quote Button -->
-                <a href="#quote-form" class="inline-flex items-center justify-center bg-[#EF7415] hover:bg-[#d9640d] text-white text-xs sm:text-sm font-bold px-3.5 sm:px-5 py-2 sm:py-2.5 rounded-md shadow transition-all duration-150 transform hover:-translate-y-0.5 active:translate-y-0">
+                <a href="#quote-form" class="inline-flex items-center justify-center bg-[#EF7415] hover:bg-[#d9640d] text-white text-xs sm:text-sm font-bold px-4 py-2.5 rounded-lg shadow transition-all duration-150 transform hover:-translate-y-0.5 active:translate-y-0 whitespace-nowrap">
                     Get a FREE Quote
                 </a>
 
@@ -50,10 +48,9 @@
                     <button 
                         type="button" 
                         id="lang-btn"
-                        class="inline-flex items-center gap-1.5 bg-white hover:bg-gray-100 text-[#1D4B6C] text-xs font-semibold px-2.5 sm:px-3 py-1.5 sm:py-2 rounded-md transition-colors shadow-sm focus:outline-none"
+                        class="inline-flex items-center gap-1.5 bg-white hover:bg-gray-100 text-[#1D4B6C] text-xs font-semibold px-2.5 sm:px-3 py-2 rounded-lg transition-colors shadow-sm focus:outline-none"
                         aria-expanded="false"
                     >
-                        <!-- Globe Icon -->
                         <svg class="w-3.5 h-3.5 text-blue-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <circle cx="12" cy="12" r="10" stroke-width="2"/>
                             <path stroke-width="2" d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
@@ -64,52 +61,53 @@
                         </svg>
                     </button>
 
-                    <!-- Language Menu (Supports English, Bengali, Russian, Arabic) -->
+                    <!-- Language Menu -->
                     <div 
                         id="lang-menu" 
                         class="hidden absolute right-0 mt-1.5 w-44 bg-white border border-gray-200 rounded-lg shadow-xl py-1.5 z-50 text-xs font-medium"
                     >
-                        <button 
-                            type="button"
-                            onclick="translatePage('en')" 
-                            class="w-full text-left flex items-center justify-between px-3.5 py-2 text-gray-700 hover:bg-blue-50 hover:text-[#27797D] transition-colors"
-                            data-lang="en"
-                        >
+                        <button type="button" onclick="translatePage('en')" class="w-full text-left flex items-center justify-between px-3.5 py-2 text-gray-700 hover:bg-blue-50 hover:text-[#27797D] transition-colors" data-lang="en">
                             <span>English (Default)</span>
                             <span class="lang-check hidden text-[#27797D]">✓</span>
                         </button>
-
-                        <button 
-                            type="button"
-                            onclick="translatePage('bn')" 
-                            class="w-full text-left flex items-center justify-between px-3.5 py-2 text-gray-700 hover:bg-blue-50 hover:text-[#27797D] transition-colors"
-                            data-lang="bn"
-                        >
+                        <button type="button" onclick="translatePage('bn')" class="w-full text-left flex items-center justify-between px-3.5 py-2 text-gray-700 hover:bg-blue-50 hover:text-[#27797D] transition-colors" data-lang="bn">
                             <span>বাংলা (Bengali)</span>
                             <span class="lang-check hidden text-[#27797D]">✓</span>
                         </button>
-
-                        <button 
-                            type="button"
-                            onclick="translatePage('ru')" 
-                            class="w-full text-left flex items-center justify-between px-3.5 py-2 text-gray-700 hover:bg-blue-50 hover:text-[#27797D] transition-colors"
-                            data-lang="ru"
-                        >
+                        <button type="button" onclick="translatePage('ru')" class="w-full text-left flex items-center justify-between px-3.5 py-2 text-gray-700 hover:bg-blue-50 hover:text-[#27797D] transition-colors" data-lang="ru">
                             <span>Русский (Russian)</span>
                             <span class="lang-check hidden text-[#27797D]">✓</span>
                         </button>
-
-                        <button 
-                            type="button"
-                            onclick="translatePage('ar')" 
-                            class="w-full text-left flex items-center justify-between px-3.5 py-2 text-gray-700 hover:bg-blue-50 hover:text-[#27797D] transition-colors"
-                            data-lang="ar"
-                        >
+                        <button type="button" onclick="translatePage('ar')" class="w-full text-left flex items-center justify-between px-3.5 py-2 text-gray-700 hover:bg-blue-50 hover:text-[#27797D] transition-colors" data-lang="ar">
                             <span>العربية (Arabic)</span>
                             <span class="lang-check hidden text-[#27797D]">✓</span>
                         </button>
                     </div>
                 </div>
+            </div>
+
+            <!-- Right Mobile: Clean, non-crowded controls with Sidebar Hamburger -->
+            <div class="flex lg:hidden items-center gap-1.5 sm:gap-2">
+                <!-- WhatsApp Quick Chat -->
+                <a href="https://wa.me/919129846542" target="_blank" class="w-8 h-8 rounded-lg bg-white/10 hover:bg-white/20 text-[#25D366] flex items-center justify-center transition-colors" title="WhatsApp Chat">
+                    <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                </a>
+
+                <!-- Compact Free Quote Button -->
+                <a href="#quote-form" class="inline-flex items-center justify-center bg-[#EF7415] hover:bg-[#d9640d] text-white text-[11px] sm:text-xs font-bold px-2.5 sm:px-3 py-1.5 rounded-lg shadow-xs transition-all whitespace-nowrap">
+                    Quote
+                </a>
+
+                <!-- Mobile Hamburger Button to open Sidebar Drawer -->
+                <button 
+                    type="button" 
+                    class="mobile-sidebar-toggle-btn w-8 h-8 rounded-lg bg-white/10 hover:bg-white/20 text-white flex items-center justify-center focus:outline-none transition-colors"
+                    aria-label="Open Sidebar Menu"
+                >
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
             </div>
 
         </div>
@@ -828,94 +826,186 @@
                     </form>
                 </div>
 
-                <!-- Mobile Menu Button -->
+                <!-- Mobile Secondary Menu Trigger -->
                 <div class="lg:hidden flex items-center">
-                    <button id="mobile-menu-btn" type="button" class="p-2 rounded-md text-gray-600 hover:text-gray-900 hover:bg-gray-100 focus:outline-none">
-                        <svg id="menu-icon-bars" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <button type="button" class="mobile-sidebar-toggle-btn p-2 rounded-lg text-gray-600 hover:text-gray-900 hover:bg-gray-100 focus:outline-none transition-colors" aria-label="Open Navigation Sidebar">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-                        </svg>
-                        <svg id="menu-icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
                         </svg>
                     </button>
                 </div>
 
             </div>
         </div>
+    </nav>
 
-        <!-- Mobile Drawer Navigation -->
-        <div id="mobile-menu" class="hidden lg:hidden border-t border-gray-200 bg-white px-4 pt-3 pb-6 space-y-2 max-h-[80vh] overflow-y-auto">
-            <a href="{{ url('/') }}" class="block px-3 py-2 rounded-md text-sm font-semibold text-[#27797D] bg-blue-50">Home</a>
-            
-            <!-- Mobile Hospitals Accordion -->
-            <details class="group/m">
-                <summary class="flex items-center justify-between px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:bg-gray-50 cursor-pointer list-none">
-                    <span>Hospitals</span>
-                    <svg class="w-4 h-4 text-gray-400 transition-transform group-open/m:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-                </summary>
-                <div class="pl-4 pr-2 py-2 space-y-1 border-l-2 border-blue-100 ml-3 mt-1">
-                    <a href="#quote-form" class="block py-1 text-xs text-gray-600 hover:text-[#27797D]">Top Hospitals in India</a>
-                    <a href="#quote-form" class="block py-1 text-xs text-gray-600 hover:text-[#27797D]">Hospitals in Turkey</a>
-                    <a href="#quote-form" class="block py-1 text-xs text-gray-600 hover:text-[#27797D]">Hospitals in Thailand</a>
-                    <a href="#quote-form" class="block py-1 text-xs text-gray-600 hover:text-[#27797D]">Hospitals in UAE</a>
-                    <a href="#quote-form" class="block py-1 text-xs text-gray-600 hover:text-[#27797D]">Hospitals in Germany</a>
-                    <a href="#quote-form" class="block py-1 text-xs text-gray-600 hover:text-[#27797D]">Hospitals in Egypt</a>
+    <!-- ==================== MOBILE SLIDE-OVER SIDEBAR DRAWER (OFF-CANVAS) ==================== -->
+    <!-- Backdrop Overlay -->
+    <div id="mobile-sidebar-backdrop" class="fixed inset-0 bg-black/60 backdrop-blur-xs z-[9998] transition-opacity duration-300 opacity-0 pointer-events-none"></div>
+
+    <!-- Slide-over Drawer Panel -->
+    <aside id="mobile-sidebar" class="fixed inset-y-0 right-0 w-[86%] max-w-sm bg-white shadow-2xl z-[9999] flex flex-col transform transition-transform duration-300 ease-in-out translate-x-full">
+        
+        <!-- Drawer Header -->
+        <div class="p-4 bg-gradient-to-r from-[#1D4B6C] to-[#27797D] text-white flex items-center justify-between border-b border-white/10 shrink-0">
+            <div class="flex items-center gap-2.5 notranslate">
+                <div class="bg-white p-1 rounded-xl shadow-xs">
+                    <img src="{{ asset('logo.png') }}" alt="Heal Go Fly" class="h-7 w-auto object-contain">
                 </div>
-            </details>
-
-            <!-- Mobile Doctors Accordion -->
-            <details class="group/m">
-                <summary class="flex items-center justify-between px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:bg-gray-50 cursor-pointer list-none">
-                    <span>Doctors</span>
-                    <svg class="w-4 h-4 text-gray-400 transition-transform group-open/m:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-                </summary>
-                <div class="pl-4 pr-2 py-2 space-y-1 border-l-2 border-blue-100 ml-3 mt-1">
-                    <a href="#quote-form" class="block py-1 text-xs text-gray-600 hover:text-[#27797D]">Cardiac Surgeons</a>
-                    <a href="#quote-form" class="block py-1 text-xs text-gray-600 hover:text-[#27797D]">Cancer Doctors</a>
-                    <a href="#quote-form" class="block py-1 text-xs text-gray-600 hover:text-[#27797D]">Neurologists & Neurosurgeons</a>
-                    <a href="#quote-form" class="block py-1 text-xs text-gray-600 hover:text-[#27797D]">Orthopedic Surgeons</a>
-                    <a href="#quote-form" class="block py-1 text-xs text-gray-600 hover:text-[#27797D]">Back & Spine Surgeons</a>
+                <div class="leading-none">
+                    <span class="text-base font-black tracking-tight text-white block">Heal Go Fly</span>
+                    <span class="text-[9px] uppercase font-bold text-[#EF7415] tracking-wider mt-0.5 block">Healgofly hi rahega</span>
                 </div>
-            </details>
+            </div>
 
-            <!-- Mobile Cost Accordion -->
-            <details class="group/m">
-                <summary class="flex items-center justify-between px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:bg-gray-50 cursor-pointer list-none">
-                    <span>Cost & Pricing</span>
-                    <svg class="w-4 h-4 text-gray-400 transition-transform group-open/m:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-                </summary>
-                <div class="pl-4 pr-2 py-2 space-y-1 border-l-2 border-blue-100 ml-3 mt-1">
-                    <a href="#quote-form" class="block py-1 text-xs text-gray-600 hover:text-[#27797D]">Cardiology Costs</a>
-                    <a href="#quote-form" class="block py-1 text-xs text-gray-600 hover:text-[#27797D]">Oncology Treatment Cost</a>
-                    <a href="#quote-form" class="block py-1 text-xs text-gray-600 hover:text-[#27797D]">Neurology & Brain Surgery</a>
-                    <a href="#quote-form" class="block py-1 text-xs text-gray-600 hover:text-[#27797D]">Orthopedic & Knee Replacement</a>
-                    <a href="#quote-form" class="block py-1 text-xs text-gray-600 hover:text-[#27797D]">Spine Surgery Cost</a>
-                    <a href="#quote-form" class="block py-1 text-xs text-gray-600 hover:text-[#27797D]">Other Treatments & Transplants</a>
-                </div>
-            </details>
-
-            <!-- Mobile Knowledge Accordion -->
-            <details class="group/m">
-                <summary class="flex items-center justify-between px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:bg-gray-50 cursor-pointer list-none">
-                    <span>Knowledge & Guides</span>
-                    <svg class="w-4 h-4 text-gray-400 transition-transform group-open/m:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-                </summary>
-                <div class="pl-4 pr-2 py-2 space-y-1 border-l-2 border-blue-100 ml-3 mt-1">
-                    <a href="#quote-form" class="block py-1 text-xs text-gray-600 hover:text-[#27797D]">Blogs</a>
-                    <a href="#quote-form" class="block py-1 text-xs text-gray-600 hover:text-[#27797D]">Videos</a>
-                    <a href="#quote-form" class="block py-1 text-xs text-gray-600 hover:text-[#27797D]">Medical Visa Guide</a>
-                    <a href="#quote-form" class="block py-1 text-xs text-gray-600 hover:text-[#27797D]">News & Updates</a>
-                </div>
-            </details>
-
-            <a href="#quote-form" class="block px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:bg-gray-50">Patient Stories</a>
-            <a href="#quote-form" class="block px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:bg-gray-50">Wellness</a>
-            <a href="#quote-form" class="block px-3 py-2 rounded-md text-sm font-bold text-emerald-600 bg-emerald-50">FREE Consult</a>
-            @auth('partner')
-                <a href="{{ route('partner.dashboard') }}" class="block px-3 py-2 rounded-md text-sm font-bold text-white bg-[#1D4B6C]">Partner Portal (Dashboard)</a>
-            @else
-                <a href="{{ route('partner.login') }}" class="block px-3 py-2 rounded-md text-sm font-bold text-white bg-[#27797D]">Partner Login / Register</a>
-            @endauth
+            <!-- Close Button (X) -->
+            <button id="mobile-sidebar-close-btn" type="button" class="w-8 h-8 rounded-full bg-white/15 hover:bg-white/25 text-white flex items-center justify-center focus:outline-none transition-colors" aria-label="Close Navigation Menu">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"/>
+                </svg>
+            </button>
         </div>
+
+        <!-- Drawer Content (Scrollable) -->
+        <div class="flex-1 overflow-y-auto p-4 space-y-4">
+            
+            <!-- Quick CTA Buttons -->
+            <div class="space-y-2">
+                <a href="#quote-form" class="mobile-sidebar-link w-full bg-[#EF7415] hover:bg-[#d9640d] text-white font-bold py-2.5 px-4 rounded-xl text-xs sm:text-sm text-center flex items-center justify-center gap-2 shadow-sm transition-all">
+                    <span>Get a FREE Quote</span>
+                    <span class="text-sm">&rarr;</span>
+                </a>
+
+                @auth('partner')
+                    <a href="{{ route('partner.dashboard') }}" class="mobile-sidebar-link w-full bg-[#1D4B6C] hover:bg-[#27797D] text-white font-bold py-2.5 px-4 rounded-xl text-xs text-center flex items-center justify-center gap-2 transition-all">
+                        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                        <span>Partner Portal (Dashboard)</span>
+                    </a>
+                @else
+                    <a href="{{ route('partner.login') }}" class="mobile-sidebar-link w-full bg-[#27797D] hover:bg-[#1D4B6C] text-white font-bold py-2.5 px-4 rounded-xl text-xs text-center flex items-center justify-center gap-2 transition-all">
+                        <span>Partner Login / Register</span>
+                        <span class="text-xs">&rarr;</span>
+                    </a>
+                @endauth
+
+                <a href="https://wa.me/919129846542" target="_blank" class="w-full bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-200 font-bold py-2 px-3 rounded-xl text-xs text-center flex items-center justify-center gap-2 transition-all">
+                    <svg class="w-4 h-4 text-[#25D366] fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                    <span>WhatsApp: +91 9129846542</span>
+                </a>
+            </div>
+
+            <!-- Language Switcher in Sidebar -->
+            <div class="bg-gray-50 p-3 rounded-2xl border border-gray-100 notranslate">
+                <span class="text-[11px] font-bold text-gray-400 uppercase tracking-wider block mb-2">Select Language</span>
+                <div class="grid grid-cols-2 gap-1.5">
+                    <button type="button" onclick="translatePage('en')" class="px-2.5 py-1.5 rounded-lg text-xs font-semibold text-gray-700 bg-white border border-gray-200 hover:border-[#27797D] text-left transition-colors">
+                        English
+                    </button>
+                    <button type="button" onclick="translatePage('bn')" class="px-2.5 py-1.5 rounded-lg text-xs font-semibold text-gray-700 bg-white border border-gray-200 hover:border-[#27797D] text-left transition-colors">
+                        বাংলা (Bengali)
+                    </button>
+                    <button type="button" onclick="translatePage('ru')" class="px-2.5 py-1.5 rounded-lg text-xs font-semibold text-gray-700 bg-white border border-gray-200 hover:border-[#27797D] text-left transition-colors">
+                        Русский (Russian)
+                    </button>
+                    <button type="button" onclick="translatePage('ar')" class="px-2.5 py-1.5 rounded-lg text-xs font-semibold text-gray-700 bg-white border border-gray-200 hover:border-[#27797D] text-left transition-colors">
+                        العربية (Arabic)
+                    </button>
+                </div>
+            </div>
+
+            <!-- Menu Navigation Accordions & Links -->
+            <div class="space-y-1 pt-2 border-t border-gray-100">
+                <a href="{{ url('/') }}" class="mobile-sidebar-link flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-bold {{ request()->routeIs('home') ? 'bg-[#27797D]/10 text-[#27797D]' : 'text-gray-800 hover:bg-gray-50' }}">
+                    <span>Home</span>
+                    <span class="text-gray-400">&rsaquo;</span>
+                </a>
+
+                <!-- Hospitals Accordion -->
+                <details class="group/sub">
+                    <summary class="flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-bold text-gray-800 hover:bg-gray-50 cursor-pointer list-none select-none">
+                        <span>Hospitals</span>
+                        <svg class="w-3.5 h-3.5 text-gray-400 transition-transform group-open/sub:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </summary>
+                    <div class="pl-3 pr-1 py-1 space-y-1 ml-2 border-l-2 border-[#27797D]/30 mt-0.5">
+                        <a href="{{ route('hospitals') }}" class="mobile-sidebar-link block px-2.5 py-1.5 text-xs text-[#27797D] font-bold">View All Hospitals &rarr;</a>
+                        <a href="#quote-form" class="mobile-sidebar-link block px-2.5 py-1 text-xs text-gray-600 hover:text-[#27797D]">Top Hospitals in India</a>
+                        <a href="#quote-form" class="mobile-sidebar-link block px-2.5 py-1 text-xs text-gray-600 hover:text-[#27797D]">Hospitals in Turkey</a>
+                        <a href="#quote-form" class="mobile-sidebar-link block px-2.5 py-1 text-xs text-gray-600 hover:text-[#27797D]">Hospitals in Thailand</a>
+                        <a href="#quote-form" class="mobile-sidebar-link block px-2.5 py-1 text-xs text-gray-600 hover:text-[#27797D]">Hospitals in UAE</a>
+                        <a href="#quote-form" class="mobile-sidebar-link block px-2.5 py-1 text-xs text-gray-600 hover:text-[#27797D]">Hospitals in Germany</a>
+                        <a href="#quote-form" class="mobile-sidebar-link block px-2.5 py-1 text-xs text-gray-600 hover:text-[#27797D]">Hospitals in Egypt</a>
+                    </div>
+                </details>
+
+                <!-- Doctors Accordion -->
+                <details class="group/sub">
+                    <summary class="flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-bold text-gray-800 hover:bg-gray-50 cursor-pointer list-none select-none">
+                        <span>Doctors</span>
+                        <svg class="w-3.5 h-3.5 text-gray-400 transition-transform group-open/sub:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </summary>
+                    <div class="pl-3 pr-1 py-1 space-y-1 ml-2 border-l-2 border-[#27797D]/30 mt-0.5">
+                        <a href="{{ route('doctors') }}" class="mobile-sidebar-link block px-2.5 py-1.5 text-xs text-[#27797D] font-bold">View All Doctors &rarr;</a>
+                        <a href="#quote-form" class="mobile-sidebar-link block px-2.5 py-1 text-xs text-gray-600 hover:text-[#27797D]">Cardiac Surgeons</a>
+                        <a href="#quote-form" class="mobile-sidebar-link block px-2.5 py-1 text-xs text-gray-600 hover:text-[#27797D]">Cancer Doctors</a>
+                        <a href="#quote-form" class="mobile-sidebar-link block px-2.5 py-1 text-xs text-gray-600 hover:text-[#27797D]">Neurologists & Neurosurgeons</a>
+                        <a href="#quote-form" class="mobile-sidebar-link block px-2.5 py-1 text-xs text-gray-600 hover:text-[#27797D]">Orthopedic Surgeons</a>
+                        <a href="#quote-form" class="mobile-sidebar-link block px-2.5 py-1 text-xs text-gray-600 hover:text-[#27797D]">Back & Spine Surgeons</a>
+                    </div>
+                </details>
+
+                <!-- Cost & Pricing Accordion -->
+                <details class="group/sub">
+                    <summary class="flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-bold text-gray-800 hover:bg-gray-50 cursor-pointer list-none select-none">
+                        <span>Cost & Pricing</span>
+                        <svg class="w-3.5 h-3.5 text-gray-400 transition-transform group-open/sub:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </summary>
+                    <div class="pl-3 pr-1 py-1 space-y-1 ml-2 border-l-2 border-[#27797D]/30 mt-0.5">
+                        <a href="#quote-form" class="mobile-sidebar-link block px-2.5 py-1 text-xs text-gray-600 hover:text-[#27797D]">Cardiology Costs</a>
+                        <a href="#quote-form" class="mobile-sidebar-link block px-2.5 py-1 text-xs text-gray-600 hover:text-[#27797D]">Oncology Treatment Cost</a>
+                        <a href="#quote-form" class="mobile-sidebar-link block px-2.5 py-1 text-xs text-gray-600 hover:text-[#27797D]">Neurology & Brain Surgery</a>
+                        <a href="#quote-form" class="mobile-sidebar-link block px-2.5 py-1 text-xs text-gray-600 hover:text-[#27797D]">Orthopedic & Knee Replacement</a>
+                        <a href="#quote-form" class="mobile-sidebar-link block px-2.5 py-1 text-xs text-gray-600 hover:text-[#27797D]">Spine Surgery Cost</a>
+                    </div>
+                </details>
+
+                <!-- Knowledge & Guides Accordion -->
+                <details class="group/sub">
+                    <summary class="flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-bold text-gray-800 hover:bg-gray-50 cursor-pointer list-none select-none">
+                        <span>Knowledge & Guides</span>
+                        <svg class="w-3.5 h-3.5 text-gray-400 transition-transform group-open/sub:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </summary>
+                    <div class="pl-3 pr-1 py-1 space-y-1 ml-2 border-l-2 border-[#27797D]/30 mt-0.5">
+                        <a href="#quote-form" class="mobile-sidebar-link block px-2.5 py-1 text-xs text-gray-600 hover:text-[#27797D]">Blogs & Medical Guides</a>
+                        <a href="#quote-form" class="mobile-sidebar-link block px-2.5 py-1 text-xs text-gray-600 hover:text-[#27797D]">Medical Visa Guidelines</a>
+                        <a href="#quote-form" class="mobile-sidebar-link block px-2.5 py-1 text-xs text-gray-600 hover:text-[#27797D]">Patient Travel Videos</a>
+                    </div>
+                </details>
+
+                <a href="#quote-form" class="mobile-sidebar-link flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-bold text-gray-800 hover:bg-gray-50">
+                    <span>Patient Stories</span>
+                    <span class="text-gray-400">&rsaquo;</span>
+                </a>
+
+                <a href="#quote-form" class="mobile-sidebar-link flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-bold text-gray-800 hover:bg-gray-50">
+                    <span>Wellness & Ayush</span>
+                    <span class="text-gray-400">&rsaquo;</span>
+                </a>
+
+                <a href="#quote-form" class="mobile-sidebar-link flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-bold text-emerald-700 bg-emerald-50">
+                    <span>FREE Consult Request</span>
+                    <span class="text-emerald-500 font-extrabold">&rarr;</span>
+                </a>
+            </div>
+
+        </div>
+
+        <!-- Drawer Footer -->
+        <div class="p-3.5 bg-gray-50 border-t border-gray-100 text-center text-xs shrink-0">
+            <p class="text-[11px] font-bold text-[#1D4B6C]">Heal Go Fly LLP</p>
+            <p class="text-[10px] text-gray-500 mt-0.5">info@healgofly.com &bull; +91 9129846542</p>
+            <span class="inline-block mt-1 text-[9px] uppercase tracking-wider font-extrabold text-[#EF7415]">NABH & JCI Certified Network</span>
+        </div>
+
+    </aside>
     </nav>
 

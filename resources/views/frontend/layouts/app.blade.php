@@ -294,26 +294,57 @@
             });
         }
 
-        // Mobile Menu Toggle
-        const menuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const iconBars = document.getElementById('menu-icon-bars');
-        const iconClose = document.getElementById('menu-icon-close');
+        // Mobile Sidebar Drawer Controller (Off-Canvas)
+        const sidebar = document.getElementById('mobile-sidebar');
+        const backdrop = document.getElementById('mobile-sidebar-backdrop');
+        const closeBtn = document.getElementById('mobile-sidebar-close-btn');
+        const openBtns = document.querySelectorAll('.mobile-sidebar-toggle-btn');
+        const sidebarLinks = document.querySelectorAll('.mobile-sidebar-link');
 
-        if (menuBtn && mobileMenu) {
-            menuBtn.addEventListener('click', () => {
-                const isHidden = mobileMenu.classList.contains('hidden');
-                if (isHidden) {
-                    mobileMenu.classList.remove('hidden');
-                    iconBars.classList.add('hidden');
-                    iconClose.classList.remove('hidden');
-                } else {
-                    mobileMenu.classList.add('hidden');
-                    iconBars.classList.remove('hidden');
-                    iconClose.classList.add('hidden');
-                }
-            });
+        function openSidebar() {
+            if (!sidebar || !backdrop) return;
+            sidebar.classList.remove('translate-x-full');
+            sidebar.classList.add('translate-x-0');
+            backdrop.classList.remove('opacity-0', 'pointer-events-none');
+            backdrop.classList.add('opacity-100');
+            document.body.classList.add('overflow-hidden');
         }
+
+        function closeSidebar() {
+            if (!sidebar || !backdrop) return;
+            sidebar.classList.remove('translate-x-0');
+            sidebar.classList.add('translate-x-full');
+            backdrop.classList.remove('opacity-100');
+            backdrop.classList.add('opacity-0', 'pointer-events-none');
+            document.body.classList.remove('overflow-hidden');
+        }
+
+        openBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                openSidebar();
+            });
+        });
+
+        if (closeBtn) {
+            closeBtn.addEventListener('click', closeSidebar);
+        }
+
+        if (backdrop) {
+            backdrop.addEventListener('click', closeSidebar);
+        }
+
+        sidebarLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                closeSidebar();
+            });
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeSidebar();
+            }
+        });
 
         // News Slider Carousel Navigation
         const newsContainer = document.getElementById('news-cards-container');
