@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Vaidam.com - Medical Treatment With Unmatched Personal Care</title>
+    <title>Heal Go Fly - Medical Treatment With Unmatched Personal Care</title>
     
     <!-- Favicon -->
     <link rel="icon" href="/favicon.ico" sizes="any">
@@ -24,11 +24,11 @@
                     },
                     colors: {
                         vaidam: {
-                            blue: '#00539C',
-                            darkblue: '#00407a',
+                            blue: '#27797D',
+                            darkblue: '#15364e',
                             cardblue: '#005596',
-                            red: '#e13b3f',
-                            redhover: '#cf2a2e',
+                            red: '#EF7415',
+                            redhover: '#d9640d',
                             gold: '#f59e0b',
                             textdark: '#112347',
                             textmuted: '#5a6a85'
@@ -116,7 +116,7 @@
     <div id="google_translate_element" style="position: absolute; top: -9999px; left: -9999px; width: 1px; height: 1px; overflow: hidden;"></div>
 
     <!-- ==================== HEADER (TOP BAR) ==================== -->
-    <header class="bg-[#00539C] text-white py-2.5 px-4 sm:px-6 lg:px-8 shadow-sm relative z-50">
+    <header class="bg-[#27797D] text-white py-2.5 px-4 sm:px-6 lg:px-8 shadow-sm relative z-50">
         <div class="max-w-7xl mx-auto flex items-center justify-between gap-4">
             
             <!-- Left: Logo & Accreditation Badges -->
@@ -152,7 +152,7 @@
                         <svg class="w-full h-full text-red-600" viewBox="0 0 24 24" fill="currentColor">
                             <circle cx="12" cy="12" r="10" fill="#dc2626"/>
                             <circle cx="12" cy="12" r="7" fill="#ffffff"/>
-                            <circle cx="12" cy="12" r="5" fill="#00539C"/>
+                            <circle cx="12" cy="12" r="5" fill="#27797D"/>
                             <path d="M12 9v6M9 12h6" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/>
                         </svg>
                     </div>
@@ -163,7 +163,7 @@
             <!-- Right: Call to Action & Language Selector -->
             <div class="flex items-center gap-2 sm:gap-3">
                 <!-- Free Quote Button -->
-                <a href="#quote-form" class="inline-flex items-center justify-center bg-[#e13b3f] hover:bg-[#c92a2e] text-white text-xs sm:text-sm font-bold px-3.5 sm:px-5 py-2 sm:py-2.5 rounded-md shadow transition-all duration-150 transform hover:-translate-y-0.5 active:translate-y-0">
+                <a href="#quote-form" class="inline-flex items-center justify-center bg-[#EF7415] hover:bg-[#d9640d] text-white text-xs sm:text-sm font-bold px-3.5 sm:px-5 py-2 sm:py-2.5 rounded-md shadow transition-all duration-150 transform hover:-translate-y-0.5 active:translate-y-0">
                     Get a FREE Quote
                 </a>
 
@@ -172,7 +172,7 @@
                     <button 
                         type="button" 
                         id="lang-btn"
-                        class="inline-flex items-center gap-1.5 bg-white hover:bg-gray-100 text-[#00539C] text-xs font-semibold px-2.5 sm:px-3 py-1.5 sm:py-2 rounded-md transition-colors shadow-sm focus:outline-none"
+                        class="inline-flex items-center gap-1.5 bg-white hover:bg-gray-100 text-[#27797D] text-xs font-semibold px-2.5 sm:px-3 py-1.5 sm:py-2 rounded-md transition-colors shadow-sm focus:outline-none"
                         aria-expanded="false"
                     >
                         <!-- Globe Icon -->
@@ -194,41 +194,41 @@
                         <button 
                             type="button"
                             onclick="translatePage('en')" 
-                            class="w-full text-left flex items-center justify-between px-3.5 py-2 text-gray-700 hover:bg-blue-50 hover:text-[#00539C] transition-colors"
+                            class="w-full text-left flex items-center justify-between px-3.5 py-2 text-gray-700 hover:bg-blue-50 hover:text-[#27797D] transition-colors"
                             data-lang="en"
                         >
                             <span>English (Default)</span>
-                            <span class="lang-check hidden text-[#00539C]">✓</span>
+                            <span class="lang-check hidden text-[#27797D]">✓</span>
                         </button>
 
                         <button 
                             type="button"
                             onclick="translatePage('bn')" 
-                            class="w-full text-left flex items-center justify-between px-3.5 py-2 text-gray-700 hover:bg-blue-50 hover:text-[#00539C] transition-colors"
+                            class="w-full text-left flex items-center justify-between px-3.5 py-2 text-gray-700 hover:bg-blue-50 hover:text-[#27797D] transition-colors"
                             data-lang="bn"
                         >
                             <span>বাংলা (Bengali)</span>
-                            <span class="lang-check hidden text-[#00539C]">✓</span>
+                            <span class="lang-check hidden text-[#27797D]">✓</span>
                         </button>
 
                         <button 
                             type="button"
                             onclick="translatePage('ru')" 
-                            class="w-full text-left flex items-center justify-between px-3.5 py-2 text-gray-700 hover:bg-blue-50 hover:text-[#00539C] transition-colors"
+                            class="w-full text-left flex items-center justify-between px-3.5 py-2 text-gray-700 hover:bg-blue-50 hover:text-[#27797D] transition-colors"
                             data-lang="ru"
                         >
                             <span>Русский (Russian)</span>
-                            <span class="lang-check hidden text-[#00539C]">✓</span>
+                            <span class="lang-check hidden text-[#27797D]">✓</span>
                         </button>
 
                         <button 
                             type="button"
                             onclick="translatePage('ar')" 
-                            class="w-full text-left flex items-center justify-between px-3.5 py-2 text-gray-700 hover:bg-blue-50 hover:text-[#00539C] transition-colors"
+                            class="w-full text-left flex items-center justify-between px-3.5 py-2 text-gray-700 hover:bg-blue-50 hover:text-[#27797D] transition-colors"
                             data-lang="ar"
                         >
                             <span>العربية (Arabic)</span>
-                            <span class="lang-check hidden text-[#00539C]">✓</span>
+                            <span class="lang-check hidden text-[#27797D]">✓</span>
                         </button>
                     </div>
                 </div>
@@ -244,15 +244,15 @@
                 
                 <!-- Navigation Links (Desktop) -->
                 <div class="hidden lg:flex items-center gap-4 xl:gap-6 text-xs xl:text-sm font-semibold text-gray-700 h-14">
-                    <a href="{{ url('/') }}" class="h-14 flex items-center text-[#00539C] hover:text-[#003d73] transition-colors border-b-2 border-[#00539C]">
+                    <a href="{{ url('/') }}" class="h-14 flex items-center text-[#27797D] hover:text-[#1e5f62] transition-colors border-b-2 border-[#27797D]">
                         Home
                     </a>
 
                     <!-- Hospitals Dropdown (Mega Menu) -->
                     <div class="group h-14 flex items-center">
-                        <button type="button" class="h-14 flex items-center gap-1 text-gray-700 hover:text-[#00539C] group-hover:text-[#00539C] border-b-2 border-transparent group-hover:border-[#00539C] transition-all cursor-pointer focus:outline-none">
+                        <button type="button" class="h-14 flex items-center gap-1 text-gray-700 hover:text-[#27797D] group-hover:text-[#27797D] border-b-2 border-transparent group-hover:border-[#27797D] transition-all cursor-pointer focus:outline-none">
                             <span>Hospitals</span>
-                            <svg class="w-3 h-3 text-gray-400 group-hover:text-[#00539C] transition-transform duration-200 group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg class="w-3 h-3 text-gray-400 group-hover:text-[#27797D] transition-transform duration-200 group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/>
                             </svg>
                         </button>
@@ -267,44 +267,44 @@
                                         <h4 class="text-sm font-bold text-[#112347] tracking-tight">India</h4>
                                         <div class="h-[2px] w-full mt-1.5 mb-3.5 bg-amber-500"></div>
                                         <div class="space-y-1.5">
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#00539C] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#00539C] mr-1.5 select-none font-semibold">›</span>
+                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
+                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
                                                 <span>Heart Hospitals</span>
                                             </a>
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#00539C] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#00539C] mr-1.5 select-none font-semibold">›</span>
+                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
+                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
                                                 <span>Cancer Hospitals</span>
                                             </a>
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#00539C] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#00539C] mr-1.5 select-none font-semibold">›</span>
+                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
+                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
                                                 <span>Brain & Neurosurgery Hospitals</span>
                                             </a>
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#00539C] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#00539C] mr-1.5 select-none font-semibold">›</span>
+                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
+                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
                                                 <span>Bone & Joint Hospitals</span>
                                             </a>
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#00539C] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#00539C] mr-1.5 select-none font-semibold">›</span>
+                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
+                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
                                                 <span>Spine Hospitals</span>
                                             </a>
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#00539C] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#00539C] mr-1.5 select-none font-semibold">›</span>
+                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
+                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
                                                 <span>Hematology Hospitals</span>
                                             </a>
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#00539C] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#00539C] mr-1.5 select-none font-semibold">›</span>
+                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
+                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
                                                 <span>Gynecology Hospitals</span>
                                             </a>
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#00539C] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#00539C] mr-1.5 select-none font-semibold">›</span>
+                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
+                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
                                                 <span>IVF Centers</span>
                                             </a>
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#00539C] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#00539C] mr-1.5 select-none font-semibold">›</span>
+                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
+                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
                                                 <span>Cosmetic Surgery Hospitals</span>
                                             </a>
                                         </div>
-                                        <a href="#quote-form" class="inline-flex items-center text-xs font-bold text-[#00539C] hover:text-[#003d73] hover:underline mt-2.5 transition-colors">
+                                        <a href="#quote-form" class="inline-flex items-center text-xs font-bold text-[#27797D] hover:text-[#1e5f62] hover:underline mt-2.5 transition-colors">
                                             View all →
                                         </a>
                                     </div>
@@ -312,42 +312,42 @@
                                     <!-- Turkey -->
                                     <div>
                                         <h4 class="text-sm font-bold text-[#112347] tracking-tight">Turkey</h4>
-                                        <div class="h-[2px] w-full mt-1.5 mb-3.5 bg-[#e13b3f]"></div>
+                                        <div class="h-[2px] w-full mt-1.5 mb-3.5 bg-[#EF7415]"></div>
                                         <div class="space-y-1.5">
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#00539C] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#00539C] mr-1.5 select-none font-semibold">›</span>
+                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
+                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
                                                 <span>Cosmetic Surgery Hospitals</span>
                                             </a>
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#00539C] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#00539C] mr-1.5 select-none font-semibold">›</span>
+                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
+                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
                                                 <span>Spine Hospitals</span>
                                             </a>
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#00539C] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#00539C] mr-1.5 select-none font-semibold">›</span>
+                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
+                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
                                                 <span>Brain & Neurosurgery Hospitals</span>
                                             </a>
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#00539C] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#00539C] mr-1.5 select-none font-semibold">›</span>
+                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
+                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
                                                 <span>Heart Hospitals</span>
                                             </a>
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#00539C] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#00539C] mr-1.5 select-none font-semibold">›</span>
+                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
+                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
                                                 <span>Bone & Joint Hospitals</span>
                                             </a>
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#00539C] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#00539C] mr-1.5 select-none font-semibold">›</span>
+                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
+                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
                                                 <span>IVF Centers</span>
                                             </a>
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#00539C] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#00539C] mr-1.5 select-none font-semibold">›</span>
+                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
+                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
                                                 <span>Dental Centers</span>
                                             </a>
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#00539C] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#00539C] mr-1.5 select-none font-semibold">›</span>
+                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
+                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
                                                 <span>Cancer Hospitals</span>
                                             </a>
                                         </div>
-                                        <a href="#quote-form" class="inline-flex items-center text-xs font-bold text-[#00539C] hover:text-[#003d73] hover:underline mt-2.5 transition-colors">
+                                        <a href="#quote-form" class="inline-flex items-center text-xs font-bold text-[#27797D] hover:text-[#1e5f62] hover:underline mt-2.5 transition-colors">
                                             View all →
                                         </a>
                                     </div>
@@ -355,42 +355,42 @@
                                     <!-- Thailand -->
                                     <div>
                                         <h4 class="text-sm font-bold text-[#112347] tracking-tight">Thailand</h4>
-                                        <div class="h-[2px] w-full mt-1.5 mb-3.5 bg-[#00539C]"></div>
+                                        <div class="h-[2px] w-full mt-1.5 mb-3.5 bg-[#27797D]"></div>
                                         <div class="space-y-1.5">
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#00539C] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#00539C] mr-1.5 select-none font-semibold">›</span>
+                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
+                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
                                                 <span>Heart Hospitals</span>
                                             </a>
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#00539C] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#00539C] mr-1.5 select-none font-semibold">›</span>
+                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
+                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
                                                 <span>Cosmetic Surgery Hospitals</span>
                                             </a>
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#00539C] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#00539C] mr-1.5 select-none font-semibold">›</span>
+                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
+                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
                                                 <span>Gynecology Hospitals</span>
                                             </a>
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#00539C] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#00539C] mr-1.5 select-none font-semibold">›</span>
+                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
+                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
                                                 <span>IVF Centers</span>
                                             </a>
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#00539C] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#00539C] mr-1.5 select-none font-semibold">›</span>
+                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
+                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
                                                 <span>Brain & Neurosurgery Hospitals</span>
                                             </a>
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#00539C] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#00539C] mr-1.5 select-none font-semibold">›</span>
+                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
+                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
                                                 <span>Cancer Hospitals</span>
                                             </a>
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#00539C] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#00539C] mr-1.5 select-none font-semibold">›</span>
+                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
+                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
                                                 <span>Bone & Joint Hospitals</span>
                                             </a>
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#00539C] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#00539C] mr-1.5 select-none font-semibold">›</span>
+                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
+                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
                                                 <span>Spine Hospitals</span>
                                             </a>
                                         </div>
-                                        <a href="#quote-form" class="inline-flex items-center text-xs font-bold text-[#00539C] hover:text-[#003d73] hover:underline mt-2.5 transition-colors">
+                                        <a href="#quote-form" class="inline-flex items-center text-xs font-bold text-[#27797D] hover:text-[#1e5f62] hover:underline mt-2.5 transition-colors">
                                             View all →
                                         </a>
                                     </div>
@@ -400,36 +400,36 @@
                                         <h4 class="text-sm font-bold text-[#112347] tracking-tight">UAE</h4>
                                         <div class="h-[2px] w-full mt-1.5 mb-3.5 bg-emerald-500"></div>
                                         <div class="space-y-1.5">
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#00539C] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#00539C] mr-1.5 select-none font-semibold">›</span>
+                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
+                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
                                                 <span>Heart Hospitals</span>
                                             </a>
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#00539C] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#00539C] mr-1.5 select-none font-semibold">›</span>
+                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
+                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
                                                 <span>Gynecology Hospitals</span>
                                             </a>
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#00539C] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#00539C] mr-1.5 select-none font-semibold">›</span>
+                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
+                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
                                                 <span>IVF Centers</span>
                                             </a>
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#00539C] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#00539C] mr-1.5 select-none font-semibold">›</span>
+                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
+                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
                                                 <span>Brain & Neurosurgery Hospitals</span>
                                             </a>
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#00539C] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#00539C] mr-1.5 select-none font-semibold">›</span>
+                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
+                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
                                                 <span>Cancer Hospitals</span>
                                             </a>
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#00539C] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#00539C] mr-1.5 select-none font-semibold">›</span>
+                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
+                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
                                                 <span>Bone & Joint Hospitals</span>
                                             </a>
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#00539C] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#00539C] mr-1.5 select-none font-semibold">›</span>
+                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
+                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
                                                 <span>Spine Hospitals</span>
                                             </a>
                                         </div>
-                                        <a href="#quote-form" class="inline-flex items-center text-xs font-bold text-[#00539C] hover:text-[#003d73] hover:underline mt-2.5 transition-colors">
+                                        <a href="#quote-form" class="inline-flex items-center text-xs font-bold text-[#27797D] hover:text-[#1e5f62] hover:underline mt-2.5 transition-colors">
                                             View all →
                                         </a>
                                     </div>
@@ -437,22 +437,22 @@
                                     <!-- Germany -->
                                     <div>
                                         <h4 class="text-sm font-bold text-[#112347] tracking-tight">Germany</h4>
-                                        <div class="h-[2px] w-full mt-1.5 mb-3.5 bg-[#e13b3f]"></div>
+                                        <div class="h-[2px] w-full mt-1.5 mb-3.5 bg-[#EF7415]"></div>
                                         <div class="space-y-1.5">
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#00539C] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#00539C] mr-1.5 select-none font-semibold">›</span>
+                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
+                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
                                                 <span>Cancer Hospitals</span>
                                             </a>
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#00539C] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#00539C] mr-1.5 select-none font-semibold">›</span>
+                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
+                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
                                                 <span>Brain & Neurosurgery Hospitals</span>
                                             </a>
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#00539C] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#00539C] mr-1.5 select-none font-semibold">›</span>
+                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
+                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
                                                 <span>Heart Hospitals</span>
                                             </a>
                                         </div>
-                                        <a href="#quote-form" class="inline-flex items-center text-xs font-bold text-[#00539C] hover:text-[#003d73] hover:underline mt-2.5 transition-colors">
+                                        <a href="#quote-form" class="inline-flex items-center text-xs font-bold text-[#27797D] hover:text-[#1e5f62] hover:underline mt-2.5 transition-colors">
                                             View all →
                                         </a>
                                     </div>
@@ -460,30 +460,30 @@
                                     <!-- Egypt -->
                                     <div>
                                         <h4 class="text-sm font-bold text-[#112347] tracking-tight">Egypt</h4>
-                                        <div class="h-[2px] w-full mt-1.5 mb-3.5 bg-[#00539C]"></div>
+                                        <div class="h-[2px] w-full mt-1.5 mb-3.5 bg-[#27797D]"></div>
                                         <div class="space-y-1.5">
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#00539C] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#00539C] mr-1.5 select-none font-semibold">›</span>
+                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
+                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
                                                 <span>Heart Hospitals</span>
                                             </a>
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#00539C] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#00539C] mr-1.5 select-none font-semibold">›</span>
+                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
+                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
                                                 <span>Cancer Hospitals</span>
                                             </a>
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#00539C] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#00539C] mr-1.5 select-none font-semibold">›</span>
+                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
+                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
                                                 <span>Brain & Neurosurgery Hospitals</span>
                                             </a>
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#00539C] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#00539C] mr-1.5 select-none font-semibold">›</span>
+                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
+                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
                                                 <span>Bone & Joint Hospitals</span>
                                             </a>
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#00539C] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#00539C] mr-1.5 select-none font-semibold">›</span>
+                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
+                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
                                                 <span>Spine Hospitals</span>
                                             </a>
                                         </div>
-                                        <a href="#quote-form" class="inline-flex items-center text-xs font-bold text-[#00539C] hover:text-[#003d73] hover:underline mt-2.5 transition-colors">
+                                        <a href="#quote-form" class="inline-flex items-center text-xs font-bold text-[#27797D] hover:text-[#1e5f62] hover:underline mt-2.5 transition-colors">
                                             View all →
                                         </a>
                                     </div>
@@ -495,9 +495,9 @@
 
                     <!-- Doctors Dropdown (Mega Menu) -->
                     <div class="group h-14 flex items-center">
-                        <button type="button" class="h-14 flex items-center gap-1 text-gray-700 hover:text-[#00539C] group-hover:text-[#00539C] border-b-2 border-transparent group-hover:border-[#00539C] transition-all cursor-pointer focus:outline-none">
+                        <button type="button" class="h-14 flex items-center gap-1 text-gray-700 hover:text-[#27797D] group-hover:text-[#27797D] border-b-2 border-transparent group-hover:border-[#27797D] transition-all cursor-pointer focus:outline-none">
                             <span>Doctors</span>
-                            <svg class="w-3 h-3 text-gray-400 group-hover:text-[#00539C] transition-transform duration-200 group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg class="w-3 h-3 text-gray-400 group-hover:text-[#27797D] transition-transform duration-200 group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/>
                             </svg>
                         </button>
@@ -512,44 +512,44 @@
                                         <h4 class="text-sm font-bold text-[#112347] tracking-tight">India</h4>
                                         <div class="h-[2px] w-full mt-1.5 mb-3.5 bg-amber-500"></div>
                                         <div class="space-y-1.5">
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#00539C] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#00539C] mr-1.5 select-none font-semibold">›</span>
+                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
+                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
                                                 <span>Cardiac Surgeons</span>
                                             </a>
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#00539C] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#00539C] mr-1.5 select-none font-semibold">›</span>
+                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
+                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
                                                 <span>Cancer Doctors</span>
                                             </a>
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#00539C] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#00539C] mr-1.5 select-none font-semibold">›</span>
+                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
+                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
                                                 <span>Neurologists & Neurosurgeons</span>
                                             </a>
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#00539C] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#00539C] mr-1.5 select-none font-semibold">›</span>
+                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
+                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
                                                 <span>Orthopedic Surgeons</span>
                                             </a>
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#00539C] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#00539C] mr-1.5 select-none font-semibold">›</span>
+                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
+                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
                                                 <span>Back & Spine Surgeons</span>
                                             </a>
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#00539C] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#00539C] mr-1.5 select-none font-semibold">›</span>
+                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
+                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
                                                 <span>Hematologists</span>
                                             </a>
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#00539C] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#00539C] mr-1.5 select-none font-semibold">›</span>
+                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
+                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
                                                 <span>Gynecologists</span>
                                             </a>
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#00539C] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#00539C] mr-1.5 select-none font-semibold">›</span>
+                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
+                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
                                                 <span>IVF & Fertility Specialists</span>
                                             </a>
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#00539C] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#00539C] mr-1.5 select-none font-semibold">›</span>
+                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
+                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
                                                 <span>Aesthetic & Plastic Surgeons</span>
                                             </a>
                                         </div>
-                                        <a href="#quote-form" class="inline-flex items-center text-xs font-bold text-[#00539C] hover:text-[#003d73] hover:underline mt-2.5 transition-colors">
+                                        <a href="#quote-form" class="inline-flex items-center text-xs font-bold text-[#27797D] hover:text-[#1e5f62] hover:underline mt-2.5 transition-colors">
                                             View all →
                                         </a>
                                     </div>
@@ -557,42 +557,42 @@
                                     <!-- Turkey -->
                                     <div>
                                         <h4 class="text-sm font-bold text-[#112347] tracking-tight">Turkey</h4>
-                                        <div class="h-[2px] w-full mt-1.5 mb-3.5 bg-[#e13b3f]"></div>
+                                        <div class="h-[2px] w-full mt-1.5 mb-3.5 bg-[#EF7415]"></div>
                                         <div class="space-y-1.5">
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#00539C] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#00539C] mr-1.5 select-none font-semibold">›</span>
+                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
+                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
                                                 <span>Aesthetic & Plastic Surgeons</span>
                                             </a>
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#00539C] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#00539C] mr-1.5 select-none font-semibold">›</span>
+                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
+                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
                                                 <span>Back & Spine Surgeons</span>
                                             </a>
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#00539C] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#00539C] mr-1.5 select-none font-semibold">›</span>
+                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
+                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
                                                 <span>Neurologists & Neurosurgeons</span>
                                             </a>
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#00539C] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#00539C] mr-1.5 select-none font-semibold">›</span>
+                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
+                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
                                                 <span>Orthopedic Surgeons</span>
                                             </a>
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#00539C] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#00539C] mr-1.5 select-none font-semibold">›</span>
+                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
+                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
                                                 <span>Cardiac Surgeons</span>
                                             </a>
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#00539C] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#00539C] mr-1.5 select-none font-semibold">›</span>
+                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
+                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
                                                 <span>IVF & Fertility Specialists</span>
                                             </a>
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#00539C] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#00539C] mr-1.5 select-none font-semibold">›</span>
+                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
+                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
                                                 <span>Dentists & Dental Surgeons</span>
                                             </a>
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#00539C] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#00539C] mr-1.5 select-none font-semibold">›</span>
+                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
+                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
                                                 <span>Cancer Doctors</span>
                                             </a>
                                         </div>
-                                        <a href="#quote-form" class="inline-flex items-center text-xs font-bold text-[#00539C] hover:text-[#003d73] hover:underline mt-2.5 transition-colors">
+                                        <a href="#quote-form" class="inline-flex items-center text-xs font-bold text-[#27797D] hover:text-[#1e5f62] hover:underline mt-2.5 transition-colors">
                                             View all →
                                         </a>
                                     </div>
@@ -600,38 +600,38 @@
                                     <!-- Thailand -->
                                     <div>
                                         <h4 class="text-sm font-bold text-[#112347] tracking-tight">Thailand</h4>
-                                        <div class="h-[2px] w-full mt-1.5 mb-3.5 bg-[#00539C]"></div>
+                                        <div class="h-[2px] w-full mt-1.5 mb-3.5 bg-[#27797D]"></div>
                                         <div class="space-y-1.5">
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#00539C] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#00539C] mr-1.5 select-none font-semibold">›</span>
+                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
+                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
                                                 <span>Aesthetic & Plastic Surgeons</span>
                                             </a>
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#00539C] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#00539C] mr-1.5 select-none font-semibold">›</span>
+                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
+                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
                                                 <span>Cardiac Surgeons</span>
                                             </a>
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#00539C] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#00539C] mr-1.5 select-none font-semibold">›</span>
+                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
+                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
                                                 <span>Gynecologists</span>
                                             </a>
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#00539C] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#00539C] mr-1.5 select-none font-semibold">›</span>
+                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
+                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
                                                 <span>IVF & Fertility Specialists</span>
                                             </a>
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#00539C] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#00539C] mr-1.5 select-none font-semibold">›</span>
+                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
+                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
                                                 <span>Neurologists & Neurosurgeons</span>
                                             </a>
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#00539C] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#00539C] mr-1.5 select-none font-semibold">›</span>
+                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
+                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
                                                 <span>Back & Spine Surgeons</span>
                                             </a>
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#00539C] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#00539C] mr-1.5 select-none font-semibold">›</span>
+                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
+                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
                                                 <span>Cancer Doctors</span>
                                             </a>
                                         </div>
-                                        <a href="#quote-form" class="inline-flex items-center text-xs font-bold text-[#00539C] hover:text-[#003d73] hover:underline mt-2.5 transition-colors">
+                                        <a href="#quote-form" class="inline-flex items-center text-xs font-bold text-[#27797D] hover:text-[#1e5f62] hover:underline mt-2.5 transition-colors">
                                             View all →
                                         </a>
                                     </div>
@@ -641,32 +641,32 @@
                                         <h4 class="text-sm font-bold text-[#112347] tracking-tight">UAE</h4>
                                         <div class="h-[2px] w-full mt-1.5 mb-3.5 bg-emerald-500"></div>
                                         <div class="space-y-1.5">
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#00539C] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#00539C] mr-1.5 select-none font-semibold">›</span>
+                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
+                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
                                                 <span>Cardiac Surgeons</span>
                                             </a>
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#00539C] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#00539C] mr-1.5 select-none font-semibold">›</span>
+                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
+                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
                                                 <span>Gynecologists</span>
                                             </a>
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#00539C] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#00539C] mr-1.5 select-none font-semibold">›</span>
+                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
+                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
                                                 <span>IVF & Fertility Specialists</span>
                                             </a>
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#00539C] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#00539C] mr-1.5 select-none font-semibold">›</span>
+                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
+                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
                                                 <span>Neurologists & Neurosurgeons</span>
                                             </a>
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#00539C] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#00539C] mr-1.5 select-none font-semibold">›</span>
+                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
+                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
                                                 <span>Cancer Doctors</span>
                                             </a>
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#00539C] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#00539C] mr-1.5 select-none font-semibold">›</span>
+                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
+                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
                                                 <span>Back & Spine Surgeons</span>
                                             </a>
                                         </div>
-                                        <a href="#quote-form" class="inline-flex items-center text-xs font-bold text-[#00539C] hover:text-[#003d73] hover:underline mt-2.5 transition-colors">
+                                        <a href="#quote-form" class="inline-flex items-center text-xs font-bold text-[#27797D] hover:text-[#1e5f62] hover:underline mt-2.5 transition-colors">
                                             View all →
                                         </a>
                                     </div>
@@ -674,22 +674,22 @@
                                     <!-- Germany -->
                                     <div>
                                         <h4 class="text-sm font-bold text-[#112347] tracking-tight">Germany</h4>
-                                        <div class="h-[2px] w-full mt-1.5 mb-3.5 bg-[#e13b3f]"></div>
+                                        <div class="h-[2px] w-full mt-1.5 mb-3.5 bg-[#EF7415]"></div>
                                         <div class="space-y-1.5">
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#00539C] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#00539C] mr-1.5 select-none font-semibold">›</span>
+                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
+                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
                                                 <span>Cancer Doctors</span>
                                             </a>
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#00539C] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#00539C] mr-1.5 select-none font-semibold">›</span>
+                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
+                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
                                                 <span>Neurologists & Neurosurgeons</span>
                                             </a>
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#00539C] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#00539C] mr-1.5 select-none font-semibold">›</span>
+                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
+                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
                                                 <span>Cardiac Surgeons</span>
                                             </a>
                                         </div>
-                                        <a href="#quote-form" class="inline-flex items-center text-xs font-bold text-[#00539C] hover:text-[#003d73] hover:underline mt-2.5 transition-colors">
+                                        <a href="#quote-form" class="inline-flex items-center text-xs font-bold text-[#27797D] hover:text-[#1e5f62] hover:underline mt-2.5 transition-colors">
                                             View all →
                                         </a>
                                     </div>
@@ -697,30 +697,30 @@
                                     <!-- Egypt -->
                                     <div>
                                         <h4 class="text-sm font-bold text-[#112347] tracking-tight">Egypt</h4>
-                                        <div class="h-[2px] w-full mt-1.5 mb-3.5 bg-[#00539C]"></div>
+                                        <div class="h-[2px] w-full mt-1.5 mb-3.5 bg-[#27797D]"></div>
                                         <div class="space-y-1.5">
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#00539C] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#00539C] mr-1.5 select-none font-semibold">›</span>
+                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
+                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
                                                 <span>Cardiac Surgeons</span>
                                             </a>
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#00539C] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#00539C] mr-1.5 select-none font-semibold">›</span>
+                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
+                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
                                                 <span>Cancer Doctors</span>
                                             </a>
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#00539C] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#00539C] mr-1.5 select-none font-semibold">›</span>
+                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
+                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
                                                 <span>Neurologists & Neurosurgeons</span>
                                             </a>
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#00539C] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#00539C] mr-1.5 select-none font-semibold">›</span>
+                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
+                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
                                                 <span>Orthopedic Surgeons</span>
                                             </a>
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#00539C] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#00539C] mr-1.5 select-none font-semibold">›</span>
+                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
+                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
                                                 <span>Back & Spine Surgeons</span>
                                             </a>
                                         </div>
-                                        <a href="#quote-form" class="inline-flex items-center text-xs font-bold text-[#00539C] hover:text-[#003d73] hover:underline mt-2.5 transition-colors">
+                                        <a href="#quote-form" class="inline-flex items-center text-xs font-bold text-[#27797D] hover:text-[#1e5f62] hover:underline mt-2.5 transition-colors">
                                             View all →
                                         </a>
                                     </div>
@@ -732,9 +732,9 @@
 
                     <!-- Cost Dropdown (Mega Menu) -->
                     <div class="group h-14 flex items-center">
-                        <button type="button" class="h-14 flex items-center gap-1 text-gray-700 hover:text-[#00539C] group-hover:text-[#00539C] border-b-2 border-transparent group-hover:border-[#00539C] transition-all cursor-pointer focus:outline-none">
+                        <button type="button" class="h-14 flex items-center gap-1 text-gray-700 hover:text-[#27797D] group-hover:text-[#27797D] border-b-2 border-transparent group-hover:border-[#27797D] transition-all cursor-pointer focus:outline-none">
                             <span>Cost</span>
-                            <svg class="w-3 h-3 text-gray-400 group-hover:text-[#00539C] transition-transform duration-200 group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg class="w-3 h-3 text-gray-400 group-hover:text-[#27797D] transition-transform duration-200 group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/>
                             </svg>
                         </button>
@@ -749,20 +749,20 @@
                                         <h4 class="text-sm font-bold text-[#112347] tracking-tight">Cardiology</h4>
                                         <div class="h-[2px] w-full mt-1.5 mb-3.5 bg-amber-500"></div>
                                         <div class="space-y-1.5">
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#00539C] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#00539C] mr-1.5 select-none font-semibold">›</span>
+                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
+                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
                                                 <span>Heart Bypass Surgery (CABG)</span>
                                             </a>
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#00539C] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#00539C] mr-1.5 select-none font-semibold">›</span>
+                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
+                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
                                                 <span>Valve Replacement</span>
                                             </a>
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#00539C] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#00539C] mr-1.5 select-none font-semibold">›</span>
+                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
+                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
                                                 <span>Angioplasty and Stent Placement</span>
                                             </a>
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#00539C] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#00539C] mr-1.5 select-none font-semibold">›</span>
+                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
+                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
                                                 <span>AICD</span>
                                             </a>
                                         </div>
@@ -771,22 +771,22 @@
                                     <!-- Oncology -->
                                     <div>
                                         <h4 class="text-sm font-bold text-[#112347] tracking-tight">Oncology</h4>
-                                        <div class="h-[2px] w-full mt-1.5 mb-3.5 bg-[#e13b3f]"></div>
+                                        <div class="h-[2px] w-full mt-1.5 mb-3.5 bg-[#EF7415]"></div>
                                         <div class="space-y-1.5">
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#00539C] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#00539C] mr-1.5 select-none font-semibold">›</span>
+                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
+                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
                                                 <span>Brain Tumor</span>
                                             </a>
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#00539C] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#00539C] mr-1.5 select-none font-semibold">›</span>
+                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
+                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
                                                 <span>CyberKnife</span>
                                             </a>
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#00539C] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#00539C] mr-1.5 select-none font-semibold">›</span>
+                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
+                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
                                                 <span>Chemotherapy</span>
                                             </a>
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#00539C] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#00539C] mr-1.5 select-none font-semibold">›</span>
+                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
+                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
                                                 <span>Leukemia</span>
                                             </a>
                                         </div>
@@ -795,22 +795,22 @@
                                     <!-- Neurology -->
                                     <div>
                                         <h4 class="text-sm font-bold text-[#112347] tracking-tight">Neurology</h4>
-                                        <div class="h-[2px] w-full mt-1.5 mb-3.5 bg-[#00539C]"></div>
+                                        <div class="h-[2px] w-full mt-1.5 mb-3.5 bg-[#27797D]"></div>
                                         <div class="space-y-1.5">
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#00539C] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#00539C] mr-1.5 select-none font-semibold">›</span>
+                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
+                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
                                                 <span>Deep Brain Stimulation</span>
                                             </a>
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#00539C] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#00539C] mr-1.5 select-none font-semibold">›</span>
+                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
+                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
                                                 <span>Craniotomy</span>
                                             </a>
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#00539C] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#00539C] mr-1.5 select-none font-semibold">›</span>
+                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
+                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
                                                 <span>Brain Hemorrhage</span>
                                             </a>
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#00539C] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#00539C] mr-1.5 select-none font-semibold">›</span>
+                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
+                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
                                                 <span>Epilepsy</span>
                                             </a>
                                         </div>
@@ -821,20 +821,20 @@
                                         <h4 class="text-sm font-bold text-[#112347] tracking-tight">Orthopedics</h4>
                                         <div class="h-[2px] w-full mt-1.5 mb-3.5 bg-emerald-500"></div>
                                         <div class="space-y-1.5">
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#00539C] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#00539C] mr-1.5 select-none font-semibold">›</span>
+                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
+                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
                                                 <span>Knee Replacement</span>
                                             </a>
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#00539C] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#00539C] mr-1.5 select-none font-semibold">›</span>
+                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
+                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
                                                 <span>Minimally Invasive Hip Replacement</span>
                                             </a>
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#00539C] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#00539C] mr-1.5 select-none font-semibold">›</span>
+                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
+                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
                                                 <span>ACL Reconstruction</span>
                                             </a>
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#00539C] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#00539C] mr-1.5 select-none font-semibold">›</span>
+                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
+                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
                                                 <span>Shoulder Replacement</span>
                                             </a>
                                         </div>
@@ -843,22 +843,22 @@
                                     <!-- Spine Surgery -->
                                     <div>
                                         <h4 class="text-sm font-bold text-[#112347] tracking-tight">Spine Surgery</h4>
-                                        <div class="h-[2px] w-full mt-1.5 mb-3.5 bg-[#e13b3f]"></div>
+                                        <div class="h-[2px] w-full mt-1.5 mb-3.5 bg-[#EF7415]"></div>
                                         <div class="space-y-1.5">
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#00539C] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#00539C] mr-1.5 select-none font-semibold">›</span>
+                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
+                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
                                                 <span>Minimally Invasive Spine Surgery</span>
                                             </a>
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#00539C] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#00539C] mr-1.5 select-none font-semibold">›</span>
+                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
+                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
                                                 <span>Total Disc Replacement</span>
                                             </a>
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#00539C] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#00539C] mr-1.5 select-none font-semibold">›</span>
+                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
+                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
                                                 <span>Spine Decompression Surgery</span>
                                             </a>
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#00539C] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#00539C] mr-1.5 select-none font-semibold">›</span>
+                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
+                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
                                                 <span>Scoliosis</span>
                                             </a>
                                         </div>
@@ -867,26 +867,26 @@
                                     <!-- Other Departments -->
                                     <div>
                                         <h4 class="text-sm font-bold text-[#112347] tracking-tight">Other Departments</h4>
-                                        <div class="h-[2px] w-full mt-1.5 mb-3.5 bg-[#00539C]"></div>
+                                        <div class="h-[2px] w-full mt-1.5 mb-3.5 bg-[#27797D]"></div>
                                         <div class="space-y-1.5">
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#00539C] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#00539C] mr-1.5 select-none font-semibold">›</span>
+                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
+                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
                                                 <span>Hair Transplantation</span>
                                             </a>
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#00539C] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#00539C] mr-1.5 select-none font-semibold">›</span>
+                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
+                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
                                                 <span>Weight Loss Surgery</span>
                                             </a>
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#00539C] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#00539C] mr-1.5 select-none font-semibold">›</span>
+                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
+                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
                                                 <span>IVF</span>
                                             </a>
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#00539C] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#00539C] mr-1.5 select-none font-semibold">›</span>
+                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
+                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
                                                 <span>Bone Marrow Transplant</span>
                                             </a>
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#00539C] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#00539C] mr-1.5 select-none font-semibold">›</span>
+                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
+                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
                                                 <span>Kidney Transplant</span>
                                             </a>
                                         </div>
@@ -899,29 +899,29 @@
 
                     <!-- Knowledge Dropdown -->
                     <div class="relative group h-14 flex items-center">
-                        <button type="button" class="h-14 flex items-center gap-1 text-gray-700 hover:text-[#00539C] group-hover:text-[#00539C] border-b-2 border-transparent group-hover:border-[#00539C] transition-all cursor-pointer focus:outline-none">
+                        <button type="button" class="h-14 flex items-center gap-1 text-gray-700 hover:text-[#27797D] group-hover:text-[#27797D] border-b-2 border-transparent group-hover:border-[#27797D] transition-all cursor-pointer focus:outline-none">
                             <span>Knowledge</span>
-                            <svg class="w-3 h-3 text-gray-400 group-hover:text-[#00539C] transition-transform duration-200 group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg class="w-3 h-3 text-gray-400 group-hover:text-[#27797D] transition-transform duration-200 group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/>
                             </svg>
                         </button>
                         <div class="absolute left-0 top-full hidden group-hover:block w-48 bg-white border border-gray-100 rounded-xl shadow-xl py-2 z-50">
-                            <a href="#quote-form" class="block px-4 py-2 text-xs font-medium text-gray-700 hover:bg-blue-50 hover:text-[#00539C] transition-colors">Blogs</a>
-                            <a href="#quote-form" class="block px-4 py-2 text-xs font-medium text-gray-700 hover:bg-blue-50 hover:text-[#00539C] transition-colors">Videos</a>
-                            <a href="#quote-form" class="block px-4 py-2 text-xs font-medium text-gray-700 hover:bg-blue-50 hover:text-[#00539C] transition-colors">Medical Visa</a>
-                            <a href="#quote-form" class="block px-4 py-2 text-xs font-medium text-gray-700 hover:bg-blue-50 hover:text-[#00539C] transition-colors">News & Updates</a>
+                            <a href="#quote-form" class="block px-4 py-2 text-xs font-medium text-gray-700 hover:bg-blue-50 hover:text-[#27797D] transition-colors">Blogs</a>
+                            <a href="#quote-form" class="block px-4 py-2 text-xs font-medium text-gray-700 hover:bg-blue-50 hover:text-[#27797D] transition-colors">Videos</a>
+                            <a href="#quote-form" class="block px-4 py-2 text-xs font-medium text-gray-700 hover:bg-blue-50 hover:text-[#27797D] transition-colors">Medical Visa</a>
+                            <a href="#quote-form" class="block px-4 py-2 text-xs font-medium text-gray-700 hover:bg-blue-50 hover:text-[#27797D] transition-colors">News & Updates</a>
                         </div>
                     </div>
 
-                    <a href="#quote-form" class="h-14 flex items-center hover:text-[#00539C] border-b-2 border-transparent hover:border-[#00539C] transition-colors">
+                    <a href="#quote-form" class="h-14 flex items-center hover:text-[#27797D] border-b-2 border-transparent hover:border-[#27797D] transition-colors">
                         Patient Stories
                     </a>
 
-                    <a href="#quote-form" class="h-14 flex items-center hover:text-[#00539C] border-b-2 border-transparent hover:border-[#00539C] transition-colors">
+                    <a href="#quote-form" class="h-14 flex items-center hover:text-[#27797D] border-b-2 border-transparent hover:border-[#27797D] transition-colors">
                         Wellness
                     </a>
 
-                    <a href="#quote-form" class="h-14 flex items-center hover:text-[#00539C] border-b-2 border-transparent hover:border-emerald-500 transition-colors text-emerald-600 font-bold gap-1">
+                    <a href="#quote-form" class="h-14 flex items-center hover:text-[#27797D] border-b-2 border-transparent hover:border-emerald-500 transition-colors text-emerald-600 font-bold gap-1">
                         <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
                         FREE Consult
                     </a>
@@ -933,9 +933,9 @@
                         <input 
                             type="text" 
                             placeholder="Search doctors, hospitals, treatments..." 
-                            class="w-full bg-gray-50 hover:bg-white focus:bg-white text-xs sm:text-sm text-gray-800 placeholder-gray-400 rounded-full pl-4 pr-10 py-2 border border-gray-300 focus:border-[#00539C] focus:ring-2 focus:ring-blue-100 focus:outline-none transition-all"
+                            class="w-full bg-gray-50 hover:bg-white focus:bg-white text-xs sm:text-sm text-gray-800 placeholder-gray-400 rounded-full pl-4 pr-10 py-2 border border-gray-300 focus:border-[#27797D] focus:ring-2 focus:ring-blue-100 focus:outline-none transition-all"
                         >
-                        <button type="submit" class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-[#00539C] transition-colors">
+                        <button type="submit" class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-[#27797D] transition-colors">
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
                             </svg>
@@ -960,7 +960,7 @@
 
         <!-- Mobile Drawer Navigation -->
         <div id="mobile-menu" class="hidden lg:hidden border-t border-gray-200 bg-white px-4 pt-3 pb-6 space-y-2 max-h-[80vh] overflow-y-auto">
-            <a href="{{ url('/') }}" class="block px-3 py-2 rounded-md text-sm font-semibold text-[#00539C] bg-blue-50">Home</a>
+            <a href="{{ url('/') }}" class="block px-3 py-2 rounded-md text-sm font-semibold text-[#27797D] bg-blue-50">Home</a>
             
             <!-- Mobile Hospitals Accordion -->
             <details class="group/m">
@@ -969,12 +969,12 @@
                     <svg class="w-4 h-4 text-gray-400 transition-transform group-open/m:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
                 </summary>
                 <div class="pl-4 pr-2 py-2 space-y-1 border-l-2 border-blue-100 ml-3 mt-1">
-                    <a href="#quote-form" class="block py-1 text-xs text-gray-600 hover:text-[#00539C]">Top Hospitals in India</a>
-                    <a href="#quote-form" class="block py-1 text-xs text-gray-600 hover:text-[#00539C]">Hospitals in Turkey</a>
-                    <a href="#quote-form" class="block py-1 text-xs text-gray-600 hover:text-[#00539C]">Hospitals in Thailand</a>
-                    <a href="#quote-form" class="block py-1 text-xs text-gray-600 hover:text-[#00539C]">Hospitals in UAE</a>
-                    <a href="#quote-form" class="block py-1 text-xs text-gray-600 hover:text-[#00539C]">Hospitals in Germany</a>
-                    <a href="#quote-form" class="block py-1 text-xs text-gray-600 hover:text-[#00539C]">Hospitals in Egypt</a>
+                    <a href="#quote-form" class="block py-1 text-xs text-gray-600 hover:text-[#27797D]">Top Hospitals in India</a>
+                    <a href="#quote-form" class="block py-1 text-xs text-gray-600 hover:text-[#27797D]">Hospitals in Turkey</a>
+                    <a href="#quote-form" class="block py-1 text-xs text-gray-600 hover:text-[#27797D]">Hospitals in Thailand</a>
+                    <a href="#quote-form" class="block py-1 text-xs text-gray-600 hover:text-[#27797D]">Hospitals in UAE</a>
+                    <a href="#quote-form" class="block py-1 text-xs text-gray-600 hover:text-[#27797D]">Hospitals in Germany</a>
+                    <a href="#quote-form" class="block py-1 text-xs text-gray-600 hover:text-[#27797D]">Hospitals in Egypt</a>
                 </div>
             </details>
 
@@ -985,11 +985,11 @@
                     <svg class="w-4 h-4 text-gray-400 transition-transform group-open/m:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
                 </summary>
                 <div class="pl-4 pr-2 py-2 space-y-1 border-l-2 border-blue-100 ml-3 mt-1">
-                    <a href="#quote-form" class="block py-1 text-xs text-gray-600 hover:text-[#00539C]">Cardiac Surgeons</a>
-                    <a href="#quote-form" class="block py-1 text-xs text-gray-600 hover:text-[#00539C]">Cancer Doctors</a>
-                    <a href="#quote-form" class="block py-1 text-xs text-gray-600 hover:text-[#00539C]">Neurologists & Neurosurgeons</a>
-                    <a href="#quote-form" class="block py-1 text-xs text-gray-600 hover:text-[#00539C]">Orthopedic Surgeons</a>
-                    <a href="#quote-form" class="block py-1 text-xs text-gray-600 hover:text-[#00539C]">Back & Spine Surgeons</a>
+                    <a href="#quote-form" class="block py-1 text-xs text-gray-600 hover:text-[#27797D]">Cardiac Surgeons</a>
+                    <a href="#quote-form" class="block py-1 text-xs text-gray-600 hover:text-[#27797D]">Cancer Doctors</a>
+                    <a href="#quote-form" class="block py-1 text-xs text-gray-600 hover:text-[#27797D]">Neurologists & Neurosurgeons</a>
+                    <a href="#quote-form" class="block py-1 text-xs text-gray-600 hover:text-[#27797D]">Orthopedic Surgeons</a>
+                    <a href="#quote-form" class="block py-1 text-xs text-gray-600 hover:text-[#27797D]">Back & Spine Surgeons</a>
                 </div>
             </details>
 
@@ -1000,12 +1000,12 @@
                     <svg class="w-4 h-4 text-gray-400 transition-transform group-open/m:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
                 </summary>
                 <div class="pl-4 pr-2 py-2 space-y-1 border-l-2 border-blue-100 ml-3 mt-1">
-                    <a href="#quote-form" class="block py-1 text-xs text-gray-600 hover:text-[#00539C]">Cardiology Costs</a>
-                    <a href="#quote-form" class="block py-1 text-xs text-gray-600 hover:text-[#00539C]">Oncology Treatment Cost</a>
-                    <a href="#quote-form" class="block py-1 text-xs text-gray-600 hover:text-[#00539C]">Neurology & Brain Surgery</a>
-                    <a href="#quote-form" class="block py-1 text-xs text-gray-600 hover:text-[#00539C]">Orthopedic & Knee Replacement</a>
-                    <a href="#quote-form" class="block py-1 text-xs text-gray-600 hover:text-[#00539C]">Spine Surgery Cost</a>
-                    <a href="#quote-form" class="block py-1 text-xs text-gray-600 hover:text-[#00539C]">Other Treatments & Transplants</a>
+                    <a href="#quote-form" class="block py-1 text-xs text-gray-600 hover:text-[#27797D]">Cardiology Costs</a>
+                    <a href="#quote-form" class="block py-1 text-xs text-gray-600 hover:text-[#27797D]">Oncology Treatment Cost</a>
+                    <a href="#quote-form" class="block py-1 text-xs text-gray-600 hover:text-[#27797D]">Neurology & Brain Surgery</a>
+                    <a href="#quote-form" class="block py-1 text-xs text-gray-600 hover:text-[#27797D]">Orthopedic & Knee Replacement</a>
+                    <a href="#quote-form" class="block py-1 text-xs text-gray-600 hover:text-[#27797D]">Spine Surgery Cost</a>
+                    <a href="#quote-form" class="block py-1 text-xs text-gray-600 hover:text-[#27797D]">Other Treatments & Transplants</a>
                 </div>
             </details>
 
@@ -1016,10 +1016,10 @@
                     <svg class="w-4 h-4 text-gray-400 transition-transform group-open/m:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
                 </summary>
                 <div class="pl-4 pr-2 py-2 space-y-1 border-l-2 border-blue-100 ml-3 mt-1">
-                    <a href="#quote-form" class="block py-1 text-xs text-gray-600 hover:text-[#00539C]">Blogs</a>
-                    <a href="#quote-form" class="block py-1 text-xs text-gray-600 hover:text-[#00539C]">Videos</a>
-                    <a href="#quote-form" class="block py-1 text-xs text-gray-600 hover:text-[#00539C]">Medical Visa Guide</a>
-                    <a href="#quote-form" class="block py-1 text-xs text-gray-600 hover:text-[#00539C]">News & Updates</a>
+                    <a href="#quote-form" class="block py-1 text-xs text-gray-600 hover:text-[#27797D]">Blogs</a>
+                    <a href="#quote-form" class="block py-1 text-xs text-gray-600 hover:text-[#27797D]">Videos</a>
+                    <a href="#quote-form" class="block py-1 text-xs text-gray-600 hover:text-[#27797D]">Medical Visa Guide</a>
+                    <a href="#quote-form" class="block py-1 text-xs text-gray-600 hover:text-[#27797D]">News & Updates</a>
                 </div>
             </details>
 
@@ -1223,7 +1223,7 @@
                             <div class="pt-1">
                                 <button 
                                     type="submit" 
-                                    class="w-full bg-[#e13b3f] hover:bg-[#cf2a2e] active:scale-[0.99] text-white font-bold py-3 px-4 rounded-lg shadow-md hover:shadow-lg transition-all duration-150 flex items-center justify-center gap-2 text-base"
+                                    class="w-full bg-[#EF7415] hover:bg-[#d9640d] active:scale-[0.99] text-white font-bold py-3 px-4 rounded-lg shadow-md hover:shadow-lg transition-all duration-150 flex items-center justify-center gap-2 text-base"
                                 >
                                     <span>Continue</span>
                                     <span class="text-lg leading-none">&rarr;</span>
@@ -1237,7 +1237,7 @@
                                     <a href="#" class="underline hover:text-white transition-colors">Terms of Use</a> 
                                     and 
                                     <a href="#" class="underline hover:text-white transition-colors">Privacy Policy</a> 
-                                    of Vaidam Health.
+                                    of Heal Go Fly.
                                 </p>
                             </div>
 
@@ -1270,7 +1270,7 @@
             <div class="flex flex-wrap items-center justify-center gap-2.5 sm:gap-3.5 max-w-5xl mx-auto">
                 
                 <!-- India -->
-                <a href="#quote-form" class="inline-flex items-center gap-2.5 bg-white border border-gray-200/90 hover:border-[#00539C] hover:text-[#00539C] px-4 py-2 rounded-full text-xs sm:text-sm font-semibold text-gray-700 shadow-sm hover:shadow transition-all duration-150">
+                <a href="#quote-form" class="inline-flex items-center gap-2.5 bg-white border border-gray-200/90 hover:border-[#27797D] hover:text-[#27797D] px-4 py-2 rounded-full text-xs sm:text-sm font-semibold text-gray-700 shadow-sm hover:shadow transition-all duration-150">
                     <!-- Flag India -->
                     <span class="w-5 h-3.5 rounded-sm overflow-hidden flex-shrink-0 inline-block shadow-xs border border-gray-100">
                         <svg viewBox="0 0 900 600" class="w-full h-full object-cover">
@@ -1286,7 +1286,7 @@
                 </a>
 
                 <!-- Turkey -->
-                <a href="#quote-form" class="inline-flex items-center gap-2.5 bg-white border border-gray-200/90 hover:border-[#00539C] hover:text-[#00539C] px-4 py-2 rounded-full text-xs sm:text-sm font-semibold text-gray-700 shadow-sm hover:shadow transition-all duration-150">
+                <a href="#quote-form" class="inline-flex items-center gap-2.5 bg-white border border-gray-200/90 hover:border-[#27797D] hover:text-[#27797D] px-4 py-2 rounded-full text-xs sm:text-sm font-semibold text-gray-700 shadow-sm hover:shadow transition-all duration-150">
                     <span class="w-5 h-3.5 rounded-sm overflow-hidden flex-shrink-0 inline-block shadow-xs">
                         <svg viewBox="0 0 1200 800" class="w-full h-full object-cover">
                             <rect width="1200" height="800" fill="#E30A17"/>
@@ -1299,7 +1299,7 @@
                 </a>
 
                 <!-- Thailand -->
-                <a href="#quote-form" class="inline-flex items-center gap-2.5 bg-white border border-gray-200/90 hover:border-[#00539C] hover:text-[#00539C] px-4 py-2 rounded-full text-xs sm:text-sm font-semibold text-gray-700 shadow-sm hover:shadow transition-all duration-150">
+                <a href="#quote-form" class="inline-flex items-center gap-2.5 bg-white border border-gray-200/90 hover:border-[#27797D] hover:text-[#27797D] px-4 py-2 rounded-full text-xs sm:text-sm font-semibold text-gray-700 shadow-sm hover:shadow transition-all duration-150">
                     <span class="w-5 h-3.5 rounded-sm overflow-hidden flex-shrink-0 inline-block shadow-xs">
                         <svg viewBox="0 0 900 600" class="w-full h-full object-cover">
                             <rect width="900" height="600" fill="#A51931"/>
@@ -1311,7 +1311,7 @@
                 </a>
 
                 <!-- Germany -->
-                <a href="#quote-form" class="inline-flex items-center gap-2.5 bg-white border border-gray-200/90 hover:border-[#00539C] hover:text-[#00539C] px-4 py-2 rounded-full text-xs sm:text-sm font-semibold text-gray-700 shadow-sm hover:shadow transition-all duration-150">
+                <a href="#quote-form" class="inline-flex items-center gap-2.5 bg-white border border-gray-200/90 hover:border-[#27797D] hover:text-[#27797D] px-4 py-2 rounded-full text-xs sm:text-sm font-semibold text-gray-700 shadow-sm hover:shadow transition-all duration-150">
                     <span class="w-5 h-3.5 rounded-sm overflow-hidden flex-shrink-0 inline-block shadow-xs">
                         <svg viewBox="0 0 5 3" class="w-full h-full object-cover">
                             <rect width="5" height="1" y="0" fill="#000000"/>
@@ -1323,7 +1323,7 @@
                 </a>
 
                 <!-- United Arab Emirates -->
-                <a href="#quote-form" class="inline-flex items-center gap-2.5 bg-white border border-gray-200/90 hover:border-[#00539C] hover:text-[#00539C] px-4 py-2 rounded-full text-xs sm:text-sm font-semibold text-gray-700 shadow-sm hover:shadow transition-all duration-150">
+                <a href="#quote-form" class="inline-flex items-center gap-2.5 bg-white border border-gray-200/90 hover:border-[#27797D] hover:text-[#27797D] px-4 py-2 rounded-full text-xs sm:text-sm font-semibold text-gray-700 shadow-sm hover:shadow transition-all duration-150">
                     <span class="w-5 h-3.5 rounded-sm overflow-hidden flex-shrink-0 inline-block shadow-xs">
                         <svg viewBox="0 0 1200 600" class="w-full h-full object-cover">
                             <rect width="1200" height="200" fill="#00732F"/>
@@ -1336,7 +1336,7 @@
                 </a>
 
                 <!-- Egypt -->
-                <a href="#quote-form" class="inline-flex items-center gap-2.5 bg-white border border-gray-200/90 hover:border-[#00539C] hover:text-[#00539C] px-4 py-2 rounded-full text-xs sm:text-sm font-semibold text-gray-700 shadow-sm hover:shadow transition-all duration-150">
+                <a href="#quote-form" class="inline-flex items-center gap-2.5 bg-white border border-gray-200/90 hover:border-[#27797D] hover:text-[#27797D] px-4 py-2 rounded-full text-xs sm:text-sm font-semibold text-gray-700 shadow-sm hover:shadow transition-all duration-150">
                     <span class="w-5 h-3.5 rounded-sm overflow-hidden flex-shrink-0 inline-block shadow-xs">
                         <svg viewBox="0 0 900 600" class="w-full h-full object-cover">
                             <rect width="900" height="200" fill="#CE1126"/>
@@ -1349,7 +1349,7 @@
                 </a>
 
                 <!-- Oman -->
-                <a href="#quote-form" class="inline-flex items-center gap-2.5 bg-white border border-gray-200/90 hover:border-[#00539C] hover:text-[#00539C] px-4 py-2 rounded-full text-xs sm:text-sm font-semibold text-gray-700 shadow-sm hover:shadow transition-all duration-150">
+                <a href="#quote-form" class="inline-flex items-center gap-2.5 bg-white border border-gray-200/90 hover:border-[#27797D] hover:text-[#27797D] px-4 py-2 rounded-full text-xs sm:text-sm font-semibold text-gray-700 shadow-sm hover:shadow transition-all duration-150">
                     <span class="w-5 h-3.5 rounded-sm overflow-hidden flex-shrink-0 inline-block shadow-xs">
                         <svg viewBox="0 0 600 300" class="w-full h-full object-cover">
                             <rect width="600" height="100" fill="#FFFFFF"/>
@@ -1362,7 +1362,7 @@
                 </a>
 
                 <!-- Saudi Arabia -->
-                <a href="#quote-form" class="inline-flex items-center gap-2.5 bg-white border border-gray-200/90 hover:border-[#00539C] hover:text-[#00539C] px-4 py-2 rounded-full text-xs sm:text-sm font-semibold text-gray-700 shadow-sm hover:shadow transition-all duration-150">
+                <a href="#quote-form" class="inline-flex items-center gap-2.5 bg-white border border-gray-200/90 hover:border-[#27797D] hover:text-[#27797D] px-4 py-2 rounded-full text-xs sm:text-sm font-semibold text-gray-700 shadow-sm hover:shadow transition-all duration-150">
                     <span class="w-5 h-3.5 rounded-sm overflow-hidden flex-shrink-0 inline-block shadow-xs">
                         <svg viewBox="0 0 900 600" class="w-full h-full object-cover">
                             <rect width="900" height="600" fill="#006C35"/>
@@ -1398,7 +1398,7 @@
                                 <img src="{{ asset('icons/onco.svg') }}" alt="Oncology" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200">
                             </div>
                             <div class="min-w-0">
-                                <h3 class="text-base font-bold text-gray-900 group-hover:text-[#00539C] transition-colors leading-snug">
+                                <h3 class="text-base font-bold text-gray-900 group-hover:text-[#27797D] transition-colors leading-snug">
                                     Oncology
                                 </h3>
                                 <p class="text-xs text-gray-500 mt-1 leading-relaxed">
@@ -1406,7 +1406,7 @@
                                 </p>
                             </div>
                         </div>
-                        <div class="w-6 h-6 rounded-full bg-[#e13b3f] text-white flex items-center justify-center flex-shrink-0 shadow-xs group-hover:scale-110 group-hover:bg-[#cf2a2e] transition-all self-center ml-2">
+                        <div class="w-6 h-6 rounded-full bg-[#EF7415] text-white flex items-center justify-center flex-shrink-0 shadow-xs group-hover:scale-110 group-hover:bg-[#d9640d] transition-all self-center ml-2">
                             <svg class="w-3.5 h-3.5 text-white stroke-[2.5]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
                             </svg>
@@ -1420,7 +1420,7 @@
                                 <img src="{{ asset('icons/neuro.png') }}" alt="Neurosurgery" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200">
                             </div>
                             <div class="min-w-0">
-                                <h3 class="text-base font-bold text-gray-900 group-hover:text-[#00539C] transition-colors leading-snug">
+                                <h3 class="text-base font-bold text-gray-900 group-hover:text-[#27797D] transition-colors leading-snug">
                                     Neurosurgery
                                 </h3>
                                 <p class="text-xs text-gray-500 mt-1 leading-relaxed">
@@ -1428,7 +1428,7 @@
                                 </p>
                             </div>
                         </div>
-                        <div class="w-6 h-6 rounded-full bg-[#e13b3f] text-white flex items-center justify-center flex-shrink-0 shadow-xs group-hover:scale-110 group-hover:bg-[#cf2a2e] transition-all self-center ml-2">
+                        <div class="w-6 h-6 rounded-full bg-[#EF7415] text-white flex items-center justify-center flex-shrink-0 shadow-xs group-hover:scale-110 group-hover:bg-[#d9640d] transition-all self-center ml-2">
                             <svg class="w-3.5 h-3.5 text-white stroke-[2.5]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
                             </svg>
@@ -1442,7 +1442,7 @@
                                 <img src="{{ asset('icons/spine.svg') }}" alt="Spine Surgery" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200">
                             </div>
                             <div class="min-w-0">
-                                <h3 class="text-base font-bold text-gray-900 group-hover:text-[#00539C] transition-colors leading-snug">
+                                <h3 class="text-base font-bold text-gray-900 group-hover:text-[#27797D] transition-colors leading-snug">
                                     Spine Surgery
                                 </h3>
                                 <p class="text-xs text-gray-500 mt-1 leading-relaxed">
@@ -1450,7 +1450,7 @@
                                 </p>
                             </div>
                         </div>
-                        <div class="w-6 h-6 rounded-full bg-[#e13b3f] text-white flex items-center justify-center flex-shrink-0 shadow-xs group-hover:scale-110 group-hover:bg-[#cf2a2e] transition-all self-center ml-2">
+                        <div class="w-6 h-6 rounded-full bg-[#EF7415] text-white flex items-center justify-center flex-shrink-0 shadow-xs group-hover:scale-110 group-hover:bg-[#d9640d] transition-all self-center ml-2">
                             <svg class="w-3.5 h-3.5 text-white stroke-[2.5]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
                             </svg>
@@ -1464,7 +1464,7 @@
                                 <img src="{{ asset('icons/cardio.svg') }}" alt="Cardiology" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200">
                             </div>
                             <div class="min-w-0">
-                                <h3 class="text-base font-bold text-gray-900 group-hover:text-[#00539C] transition-colors leading-snug">
+                                <h3 class="text-base font-bold text-gray-900 group-hover:text-[#27797D] transition-colors leading-snug">
                                     Cardiology
                                 </h3>
                                 <p class="text-xs text-gray-500 mt-1 leading-relaxed">
@@ -1472,7 +1472,7 @@
                                 </p>
                             </div>
                         </div>
-                        <div class="w-6 h-6 rounded-full bg-[#e13b3f] text-white flex items-center justify-center flex-shrink-0 shadow-xs group-hover:scale-110 group-hover:bg-[#cf2a2e] transition-all self-center ml-2">
+                        <div class="w-6 h-6 rounded-full bg-[#EF7415] text-white flex items-center justify-center flex-shrink-0 shadow-xs group-hover:scale-110 group-hover:bg-[#d9640d] transition-all self-center ml-2">
                             <svg class="w-3.5 h-3.5 text-white stroke-[2.5]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
                             </svg>
@@ -1486,7 +1486,7 @@
                                 <img src="{{ asset('icons/ortho.svg') }}" alt="Orthopedics" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200">
                             </div>
                             <div class="min-w-0">
-                                <h3 class="text-base font-bold text-gray-900 group-hover:text-[#00539C] transition-colors leading-snug">
+                                <h3 class="text-base font-bold text-gray-900 group-hover:text-[#27797D] transition-colors leading-snug">
                                     Orthopedics
                                 </h3>
                                 <p class="text-xs text-gray-500 mt-1 leading-relaxed">
@@ -1494,7 +1494,7 @@
                                 </p>
                             </div>
                         </div>
-                        <div class="w-6 h-6 rounded-full bg-[#e13b3f] text-white flex items-center justify-center flex-shrink-0 shadow-xs group-hover:scale-110 group-hover:bg-[#cf2a2e] transition-all self-center ml-2">
+                        <div class="w-6 h-6 rounded-full bg-[#EF7415] text-white flex items-center justify-center flex-shrink-0 shadow-xs group-hover:scale-110 group-hover:bg-[#d9640d] transition-all self-center ml-2">
                             <svg class="w-3.5 h-3.5 text-white stroke-[2.5]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
                             </svg>
@@ -1508,7 +1508,7 @@
                                 <img src="{{ asset('icons/ivf.svg') }}" alt="IVF" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200">
                             </div>
                             <div class="min-w-0">
-                                <h3 class="text-base font-bold text-gray-900 group-hover:text-[#00539C] transition-colors leading-snug">
+                                <h3 class="text-base font-bold text-gray-900 group-hover:text-[#27797D] transition-colors leading-snug">
                                     IVF
                                 </h3>
                                 <p class="text-xs text-gray-500 mt-1 leading-relaxed">
@@ -1516,7 +1516,7 @@
                                 </p>
                             </div>
                         </div>
-                        <div class="w-6 h-6 rounded-full bg-[#e13b3f] text-white flex items-center justify-center flex-shrink-0 shadow-xs group-hover:scale-110 group-hover:bg-[#cf2a2e] transition-all self-center ml-2">
+                        <div class="w-6 h-6 rounded-full bg-[#EF7415] text-white flex items-center justify-center flex-shrink-0 shadow-xs group-hover:scale-110 group-hover:bg-[#d9640d] transition-all self-center ml-2">
                             <svg class="w-3.5 h-3.5 text-white stroke-[2.5]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
                             </svg>
@@ -1530,7 +1530,7 @@
                                 <img src="{{ asset('icons/heno.svg') }}" alt="Gynecology" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200">
                             </div>
                             <div class="min-w-0">
-                                <h3 class="text-base font-bold text-gray-900 group-hover:text-[#00539C] transition-colors leading-snug">
+                                <h3 class="text-base font-bold text-gray-900 group-hover:text-[#27797D] transition-colors leading-snug">
                                     Gynecology
                                 </h3>
                                 <p class="text-xs text-gray-500 mt-1 leading-relaxed">
@@ -1538,7 +1538,7 @@
                                 </p>
                             </div>
                         </div>
-                        <div class="w-6 h-6 rounded-full bg-[#e13b3f] text-white flex items-center justify-center flex-shrink-0 shadow-xs group-hover:scale-110 group-hover:bg-[#cf2a2e] transition-all self-center ml-2">
+                        <div class="w-6 h-6 rounded-full bg-[#EF7415] text-white flex items-center justify-center flex-shrink-0 shadow-xs group-hover:scale-110 group-hover:bg-[#d9640d] transition-all self-center ml-2">
                             <svg class="w-3.5 h-3.5 text-white stroke-[2.5]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
                             </svg>
@@ -1552,7 +1552,7 @@
                                 <img src="{{ asset('icons/cosmatic.svg') }}" alt="Cosmetic" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200">
                             </div>
                             <div class="min-w-0">
-                                <h3 class="text-base font-bold text-gray-900 group-hover:text-[#00539C] transition-colors leading-snug">
+                                <h3 class="text-base font-bold text-gray-900 group-hover:text-[#27797D] transition-colors leading-snug">
                                     Cosmetic
                                 </h3>
                                 <p class="text-xs text-gray-500 mt-1 leading-relaxed">
@@ -1560,7 +1560,7 @@
                                 </p>
                             </div>
                         </div>
-                        <div class="w-6 h-6 rounded-full bg-[#e13b3f] text-white flex items-center justify-center flex-shrink-0 shadow-xs group-hover:scale-110 group-hover:bg-[#cf2a2e] transition-all self-center ml-2">
+                        <div class="w-6 h-6 rounded-full bg-[#EF7415] text-white flex items-center justify-center flex-shrink-0 shadow-xs group-hover:scale-110 group-hover:bg-[#d9640d] transition-all self-center ml-2">
                             <svg class="w-3.5 h-3.5 text-white stroke-[2.5]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
                             </svg>
@@ -1574,7 +1574,7 @@
                                 <img src="{{ asset('icons/weightloss.svg') }}" alt="Weight Loss" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200">
                             </div>
                             <div class="min-w-0">
-                                <h3 class="text-base font-bold text-gray-900 group-hover:text-[#00539C] transition-colors leading-snug">
+                                <h3 class="text-base font-bold text-gray-900 group-hover:text-[#27797D] transition-colors leading-snug">
                                     Weight Loss
                                 </h3>
                                 <p class="text-xs text-gray-500 mt-1 leading-relaxed">
@@ -1582,7 +1582,7 @@
                                 </p>
                             </div>
                         </div>
-                        <div class="w-6 h-6 rounded-full bg-[#e13b3f] text-white flex items-center justify-center flex-shrink-0 shadow-xs group-hover:scale-110 group-hover:bg-[#cf2a2e] transition-all self-center ml-2">
+                        <div class="w-6 h-6 rounded-full bg-[#EF7415] text-white flex items-center justify-center flex-shrink-0 shadow-xs group-hover:scale-110 group-hover:bg-[#d9640d] transition-all self-center ml-2">
                             <svg class="w-3.5 h-3.5 text-white stroke-[2.5]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
                             </svg>
@@ -1596,7 +1596,7 @@
                                 <img src="{{ asset('icons/liver.svg') }}" alt="Liver Transplant" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200">
                             </div>
                             <div class="min-w-0">
-                                <h3 class="text-base font-bold text-gray-900 group-hover:text-[#00539C] transition-colors leading-snug">
+                                <h3 class="text-base font-bold text-gray-900 group-hover:text-[#27797D] transition-colors leading-snug">
                                     Liver Transplant
                                 </h3>
                                 <p class="text-xs text-gray-500 mt-1 leading-relaxed">
@@ -1604,7 +1604,7 @@
                                 </p>
                             </div>
                         </div>
-                        <div class="w-6 h-6 rounded-full bg-[#e13b3f] text-white flex items-center justify-center flex-shrink-0 shadow-xs group-hover:scale-110 group-hover:bg-[#cf2a2e] transition-all self-center ml-2">
+                        <div class="w-6 h-6 rounded-full bg-[#EF7415] text-white flex items-center justify-center flex-shrink-0 shadow-xs group-hover:scale-110 group-hover:bg-[#d9640d] transition-all self-center ml-2">
                             <svg class="w-3.5 h-3.5 text-white stroke-[2.5]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
                             </svg>
@@ -1618,7 +1618,7 @@
                                 <img src="{{ asset('icons/kidneytransplant.svg') }}" alt="Kidney Transplant" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200">
                             </div>
                             <div class="min-w-0">
-                                <h3 class="text-base font-bold text-gray-900 group-hover:text-[#00539C] transition-colors leading-snug">
+                                <h3 class="text-base font-bold text-gray-900 group-hover:text-[#27797D] transition-colors leading-snug">
                                     Kidney Transplant
                                 </h3>
                                 <p class="text-xs text-gray-500 mt-1 leading-relaxed">
@@ -1626,7 +1626,7 @@
                                 </p>
                             </div>
                         </div>
-                        <div class="w-6 h-6 rounded-full bg-[#e13b3f] text-white flex items-center justify-center flex-shrink-0 shadow-xs group-hover:scale-110 group-hover:bg-[#cf2a2e] transition-all self-center ml-2">
+                        <div class="w-6 h-6 rounded-full bg-[#EF7415] text-white flex items-center justify-center flex-shrink-0 shadow-xs group-hover:scale-110 group-hover:bg-[#d9640d] transition-all self-center ml-2">
                             <svg class="w-3.5 h-3.5 text-white stroke-[2.5]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
                             </svg>
@@ -1640,7 +1640,7 @@
                                 <img src="{{ asset('icons/bonemarrow.svg') }}" alt="Bone Marrow" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200">
                             </div>
                             <div class="min-w-0">
-                                <h3 class="text-base font-bold text-gray-900 group-hover:text-[#00539C] transition-colors leading-snug">
+                                <h3 class="text-base font-bold text-gray-900 group-hover:text-[#27797D] transition-colors leading-snug">
                                     Bone Marrow
                                 </h3>
                                 <p class="text-xs text-gray-500 mt-1 leading-relaxed">
@@ -1648,7 +1648,7 @@
                                 </p>
                             </div>
                         </div>
-                        <div class="w-6 h-6 rounded-full bg-[#e13b3f] text-white flex items-center justify-center flex-shrink-0 shadow-xs group-hover:scale-110 group-hover:bg-[#cf2a2e] transition-all self-center ml-2">
+                        <div class="w-6 h-6 rounded-full bg-[#EF7415] text-white flex items-center justify-center flex-shrink-0 shadow-xs group-hover:scale-110 group-hover:bg-[#d9640d] transition-all self-center ml-2">
                             <svg class="w-3.5 h-3.5 text-white stroke-[2.5]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
                             </svg>
@@ -1661,13 +1661,13 @@
                 <div class="flex flex-wrap items-center justify-center gap-3.5 sm:gap-4 mt-10 sm:mt-12">
                     <a 
                         href="#quote-form" 
-                        class="bg-[#e13b3f] hover:bg-[#cf2a2e] active:scale-[0.99] text-white text-sm sm:text-base font-bold px-7 py-3 rounded-lg shadow-md hover:shadow-lg transition-all duration-150 inline-flex items-center justify-center"
+                        class="bg-[#EF7415] hover:bg-[#d9640d] active:scale-[0.99] text-white text-sm sm:text-base font-bold px-7 py-3 rounded-lg shadow-md hover:shadow-lg transition-all duration-150 inline-flex items-center justify-center"
                     >
                         Need Assistance?
                     </a>
                     
                     <a 
-                        href="https://wa.me/919999999999" 
+                        href="https://wa.me/919129846542" 
                         target="_blank" 
                         class="bg-[#25D366] hover:bg-[#20ba5a] active:scale-[0.99] text-white text-sm sm:text-base font-bold px-7 py-3 rounded-lg shadow-md hover:shadow-lg transition-all duration-150 inline-flex items-center justify-center gap-2"
                     >
@@ -1724,7 +1724,7 @@
                                     >
                                 </div>
                                 <div class="py-2.5 px-2 text-center bg-white border-t border-gray-100">
-                                    <span class="block text-[11px] sm:text-xs font-bold text-gray-800 group-hover:text-[#00539C] transition-colors line-clamp-1">
+                                    <span class="block text-[11px] sm:text-xs font-bold text-gray-800 group-hover:text-[#27797D] transition-colors line-clamp-1">
                                         Medanta, Gurgaon
                                     </span>
                                 </div>
@@ -1741,7 +1741,7 @@
                                     >
                                 </div>
                                 <div class="py-2.5 px-2 text-center bg-white border-t border-gray-100">
-                                    <span class="block text-[11px] sm:text-xs font-bold text-gray-800 group-hover:text-[#00539C] transition-colors line-clamp-1">
+                                    <span class="block text-[11px] sm:text-xs font-bold text-gray-800 group-hover:text-[#27797D] transition-colors line-clamp-1">
                                         Kokilaben, Mumbai
                                     </span>
                                 </div>
@@ -1758,7 +1758,7 @@
                                     >
                                 </div>
                                 <div class="py-2.5 px-2 text-center bg-white border-t border-gray-100">
-                                    <span class="block text-[11px] sm:text-xs font-bold text-gray-800 group-hover:text-[#00539C] transition-colors line-clamp-1">
+                                    <span class="block text-[11px] sm:text-xs font-bold text-gray-800 group-hover:text-[#27797D] transition-colors line-clamp-1">
                                         Indraprastha Apollo, New Delhi
                                     </span>
                                 </div>
@@ -1775,7 +1775,7 @@
                                     >
                                 </div>
                                 <div class="py-2.5 px-2 text-center bg-white border-t border-gray-100">
-                                    <span class="block text-[11px] sm:text-xs font-bold text-gray-800 group-hover:text-[#00539C] transition-colors line-clamp-1">
+                                    <span class="block text-[11px] sm:text-xs font-bold text-gray-800 group-hover:text-[#27797D] transition-colors line-clamp-1">
                                         Apollo, Chennai
                                     </span>
                                 </div>
@@ -1804,7 +1804,7 @@
                                         <img src="https://images.unsplash.com/photo-1538108149393-fbbd81895907?auto=format&fit=crop&w=400&q=80" alt="Medical Park, Istanbul" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy">
                                     </div>
                                     <div class="py-2 px-1 text-center bg-white border-t border-gray-100">
-                                        <span class="block text-[10px] sm:text-xs font-bold text-gray-800 group-hover:text-[#00539C] transition-colors line-clamp-1">Medical Park, Istanbul</span>
+                                        <span class="block text-[10px] sm:text-xs font-bold text-gray-800 group-hover:text-[#27797D] transition-colors line-clamp-1">Medical Park, Istanbul</span>
                                     </div>
                                 </div>
                                 <!-- Memorial Hospitals, Istanbul -->
@@ -1813,7 +1813,7 @@
                                         <img src="https://images.unsplash.com/photo-1512678080530-7760d81faba6?auto=format&fit=crop&w=400&q=80" alt="Memorial Hospitals, Istanbul" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy">
                                     </div>
                                     <div class="py-2 px-1 text-center bg-white border-t border-gray-100">
-                                        <span class="block text-[10px] sm:text-xs font-bold text-gray-800 group-hover:text-[#00539C] transition-colors line-clamp-1">Memorial Hospitals, Istanbul</span>
+                                        <span class="block text-[10px] sm:text-xs font-bold text-gray-800 group-hover:text-[#27797D] transition-colors line-clamp-1">Memorial Hospitals, Istanbul</span>
                                     </div>
                                 </div>
                             </div>
@@ -1832,7 +1832,7 @@
                                         <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=400&q=80" alt="Burjeel, Abu Dhabi" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy">
                                     </div>
                                     <div class="py-2 px-1 text-center bg-white border-t border-gray-100">
-                                        <span class="block text-[10px] sm:text-xs font-bold text-gray-800 group-hover:text-[#00539C] transition-colors line-clamp-1">Burjeel, Abu Dhabi</span>
+                                        <span class="block text-[10px] sm:text-xs font-bold text-gray-800 group-hover:text-[#27797D] transition-colors line-clamp-1">Burjeel, Abu Dhabi</span>
                                     </div>
                                 </div>
                                 <!-- Saudi German, Dubai -->
@@ -1841,7 +1841,7 @@
                                         <img src="https://images.unsplash.com/photo-1586773860418-d37222d8fce3?auto=format&fit=crop&w=400&q=80" alt="Saudi German, Dubai" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy">
                                     </div>
                                     <div class="py-2 px-1 text-center bg-white border-t border-gray-100">
-                                        <span class="block text-[10px] sm:text-xs font-bold text-gray-800 group-hover:text-[#00539C] transition-colors line-clamp-1">Saudi German, Dubai</span>
+                                        <span class="block text-[10px] sm:text-xs font-bold text-gray-800 group-hover:text-[#27797D] transition-colors line-clamp-1">Saudi German, Dubai</span>
                                     </div>
                                 </div>
                             </div>
@@ -1865,7 +1865,7 @@
                                         <img src="https://images.unsplash.com/photo-1587351021759-3e566b6af7cc?auto=format&fit=crop&w=400&q=80" alt="Bumrungrad, Bangkok" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy">
                                     </div>
                                     <div class="py-2 px-1 text-center bg-white border-t border-gray-100">
-                                        <span class="block text-[10px] sm:text-xs font-bold text-gray-800 group-hover:text-[#00539C] transition-colors line-clamp-1">Bumrungrad, Bangkok</span>
+                                        <span class="block text-[10px] sm:text-xs font-bold text-gray-800 group-hover:text-[#27797D] transition-colors line-clamp-1">Bumrungrad, Bangkok</span>
                                     </div>
                                 </div>
                                 <!-- Bangkok Hospital -->
@@ -1874,7 +1874,7 @@
                                         <img src="https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=400&q=80" alt="Bangkok Hospital" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy">
                                     </div>
                                     <div class="py-2 px-1 text-center bg-white border-t border-gray-100">
-                                        <span class="block text-[10px] sm:text-xs font-bold text-gray-800 group-hover:text-[#00539C] transition-colors line-clamp-1">Bangkok Hospital</span>
+                                        <span class="block text-[10px] sm:text-xs font-bold text-gray-800 group-hover:text-[#27797D] transition-colors line-clamp-1">Bangkok Hospital</span>
                                     </div>
                                 </div>
                             </div>
@@ -1893,7 +1893,7 @@
                                         <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=400&q=80" alt="Charite, Berlin" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy">
                                     </div>
                                     <div class="py-2 px-1 text-center bg-white border-t border-gray-100">
-                                        <span class="block text-[10px] sm:text-xs font-bold text-gray-800 group-hover:text-[#00539C] transition-colors line-clamp-1">Charite, Berlin</span>
+                                        <span class="block text-[10px] sm:text-xs font-bold text-gray-800 group-hover:text-[#27797D] transition-colors line-clamp-1">Charite, Berlin</span>
                                     </div>
                                 </div>
                                 <!-- Heidelberg University -->
@@ -1902,7 +1902,7 @@
                                         <img src="https://images.unsplash.com/photo-1586773860418-d37222d8fce3?auto=format&fit=crop&w=400&q=80" alt="Heidelberg University" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy">
                                     </div>
                                     <div class="py-2 px-1 text-center bg-white border-t border-gray-100">
-                                        <span class="block text-[10px] sm:text-xs font-bold text-gray-800 group-hover:text-[#00539C] transition-colors line-clamp-1">Heidelberg University</span>
+                                        <span class="block text-[10px] sm:text-xs font-bold text-gray-800 group-hover:text-[#27797D] transition-colors line-clamp-1">Heidelberg University</span>
                                     </div>
                                 </div>
                             </div>
@@ -1923,7 +1923,7 @@
                                     <img src="https://images.unsplash.com/photo-1512678080530-7760d81faba6?auto=format&fit=crop&w=500&q=80" alt="Arab Contractors Medical Centre, Cairo" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy">
                                 </div>
                                 <div class="py-2.5 px-2 text-center bg-white border-t border-gray-100">
-                                    <span class="block text-xs font-bold text-gray-800 group-hover:text-[#00539C] transition-colors line-clamp-1">Arab Contractors Medical Centre, Cairo</span>
+                                    <span class="block text-xs font-bold text-gray-800 group-hover:text-[#27797D] transition-colors line-clamp-1">Arab Contractors Medical Centre, Cairo</span>
                                 </div>
                             </div>
                             <!-- As-Salam International Hospital, Cairo -->
@@ -1932,7 +1932,7 @@
                                     <img src="https://images.unsplash.com/photo-1538108149393-fbbd81895907?auto=format&fit=crop&w=500&q=80" alt="As-Salam International Hospital, Cairo" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy">
                                 </div>
                                 <div class="py-2.5 px-2 text-center bg-white border-t border-gray-100">
-                                    <span class="block text-xs font-bold text-gray-800 group-hover:text-[#00539C] transition-colors line-clamp-1">As-Salam International Hospital, Cairo</span>
+                                    <span class="block text-xs font-bold text-gray-800 group-hover:text-[#27797D] transition-colors line-clamp-1">As-Salam International Hospital, Cairo</span>
                                 </div>
                             </div>
                         </div>
@@ -1965,7 +1965,7 @@
                 </div>
 
                 <!-- ISO Seal -->
-                <div class="bg-[#00539C] text-white font-bold text-[9px] px-1.5 py-0.5 rounded shadow-xs" title="ISO 9001">
+                <div class="bg-[#27797D] text-white font-bold text-[9px] px-1.5 py-0.5 rounded shadow-xs" title="ISO 9001">
                     ISO
                 </div>
 
@@ -1978,13 +1978,13 @@
             <div class="flex flex-wrap items-center justify-center gap-3.5 sm:gap-4 mt-8 sm:mt-10">
                 <a 
                     href="#quote-form" 
-                    class="bg-[#e13b3f] hover:bg-[#cf2a2e] active:scale-[0.99] text-white text-sm sm:text-base font-bold px-7 py-3 rounded-lg shadow-md hover:shadow-lg transition-all duration-150 inline-flex items-center justify-center"
+                    class="bg-[#EF7415] hover:bg-[#d9640d] active:scale-[0.99] text-white text-sm sm:text-base font-bold px-7 py-3 rounded-lg shadow-md hover:shadow-lg transition-all duration-150 inline-flex items-center justify-center"
                 >
                     Contact Hospital
                 </a>
                 
                 <a 
-                    href="https://wa.me/919999999999" 
+                    href="https://wa.me/919129846542" 
                     target="_blank" 
                     class="bg-[#25D366] hover:bg-[#20ba5a] active:scale-[0.99] text-white text-sm sm:text-base font-bold px-7 py-3 rounded-lg shadow-md hover:shadow-lg transition-all duration-150 inline-flex items-center justify-center gap-2"
                 >
@@ -2004,7 +2004,7 @@
             
             <!-- Section Header -->
             <div class="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
-                <h2 class="text-2xl sm:text-3xl font-extrabold text-[#00539C] tracking-tight">
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-[#27797D] tracking-tight">
                     Lowest Quotes Assured
                 </h2>
                 <p class="text-xs sm:text-sm text-[#5a6a85] mt-2.5 max-w-2xl mx-auto leading-relaxed">
@@ -2016,192 +2016,192 @@
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
                 
                 <!-- 1. Knee Replacement -->
-                <div class="bg-[#f0f7fe] hover:bg-[#e5f1fc] rounded-2xl p-3.5 sm:p-4 border border-blue-100/60 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-3.5 group cursor-pointer">
+                <div class="bg-[#f0f9f9] hover:bg-[#edf6f9] rounded-2xl p-3.5 sm:p-4 border border-blue-100/60 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-3.5 group cursor-pointer">
                     <img src="{{ asset('icons/RHEUMATOLOGY-51.svg') }}" alt="Knee Replacement" class="w-12 h-12 flex-shrink-0 group-hover:scale-105 transition-transform object-contain">
                     <div>
-                        <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#00539C] transition-colors">
+                        <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#27797D] transition-colors">
                             Knee Replacement
                         </h3>
                         <p class="text-xs text-gray-500 mt-0.5">
                             Starting <span class="font-bold text-gray-900">$4,000</span>
                         </p>
-                        <a href="#quote-form" class="inline-block text-xs font-semibold text-[#e13b3f] hover:text-[#c92a2e] mt-1 group-hover:underline">
+                        <a href="#quote-form" class="inline-block text-xs font-semibold text-[#EF7415] hover:text-[#d9640d] mt-1 group-hover:underline">
                             Get Quote
                         </a>
                     </div>
                 </div>
 
                 <!-- 2. Hip Replacement -->
-                <div class="bg-[#f0f7fe] hover:bg-[#e5f1fc] rounded-2xl p-3.5 sm:p-4 border border-blue-100/60 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-3.5 group cursor-pointer">
+                <div class="bg-[#f0f9f9] hover:bg-[#edf6f9] rounded-2xl p-3.5 sm:p-4 border border-blue-100/60 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-3.5 group cursor-pointer">
                     <img src="{{ asset('icons/Hip-Replecement.svg') }}" alt="Hip Replacement" class="w-12 h-12 flex-shrink-0 group-hover:scale-105 transition-transform object-contain">
                     <div>
-                        <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#00539C] transition-colors">
+                        <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#27797D] transition-colors">
                             Hip Replacement
                         </h3>
                         <p class="text-xs text-gray-500 mt-0.5">
                             Starting <span class="font-bold text-gray-900">$5,500</span>
                         </p>
-                        <a href="#quote-form" class="inline-block text-xs font-semibold text-[#e13b3f] hover:text-[#c92a2e] mt-1 group-hover:underline">
+                        <a href="#quote-form" class="inline-block text-xs font-semibold text-[#EF7415] hover:text-[#d9640d] mt-1 group-hover:underline">
                             Get Quote
                         </a>
                     </div>
                 </div>
 
                 <!-- 3. Brain Tumor -->
-                <div class="bg-[#f0f7fe] hover:bg-[#e5f1fc] rounded-2xl p-3.5 sm:p-4 border border-blue-100/60 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-3.5 group cursor-pointer">
+                <div class="bg-[#f0f9f9] hover:bg-[#edf6f9] rounded-2xl p-3.5 sm:p-4 border border-blue-100/60 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-3.5 group cursor-pointer">
                     <img src="{{ asset('icons/Brain-Tumor.svg') }}" alt="Brain Tumor" class="w-12 h-12 flex-shrink-0 group-hover:scale-105 transition-transform object-contain">
                     <div>
-                        <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#00539C] transition-colors">
+                        <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#27797D] transition-colors">
                             Brain Tumor
                         </h3>
                         <p class="text-xs text-gray-500 mt-0.5">
                             Starting <span class="font-bold text-gray-900">$5,000</span>
                         </p>
-                        <a href="#quote-form" class="inline-block text-xs font-semibold text-[#e13b3f] hover:text-[#c92a2e] mt-1 group-hover:underline">
+                        <a href="#quote-form" class="inline-block text-xs font-semibold text-[#EF7415] hover:text-[#d9640d] mt-1 group-hover:underline">
                             Get Quote
                         </a>
                     </div>
                 </div>
 
                 <!-- 4. Heart Bypass Surgery -->
-                <div class="bg-[#f0f7fe] hover:bg-[#e5f1fc] rounded-2xl p-3.5 sm:p-4 border border-blue-100/60 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-3.5 group cursor-pointer">
+                <div class="bg-[#f0f9f9] hover:bg-[#edf6f9] rounded-2xl p-3.5 sm:p-4 border border-blue-100/60 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-3.5 group cursor-pointer">
                     <img src="{{ asset('icons/Heart-Bypass-Surgery.svg') }}" alt="Heart Bypass Surgery" class="w-12 h-12 flex-shrink-0 group-hover:scale-105 transition-transform object-contain">
                     <div>
-                        <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#00539C] transition-colors">
+                        <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#27797D] transition-colors">
                             Heart Bypass Surgery
                         </h3>
                         <p class="text-xs text-gray-500 mt-0.5">
                             Starting <span class="font-bold text-gray-900">$4,500</span>
                         </p>
-                        <a href="#quote-form" class="inline-block text-xs font-semibold text-[#e13b3f] hover:text-[#c92a2e] mt-1 group-hover:underline">
+                        <a href="#quote-form" class="inline-block text-xs font-semibold text-[#EF7415] hover:text-[#d9640d] mt-1 group-hover:underline">
                             Get Quote
                         </a>
                     </div>
                 </div>
 
                 <!-- 5. Valve Replacement -->
-                <div class="bg-[#f0f7fe] hover:bg-[#e5f1fc] rounded-2xl p-3.5 sm:p-4 border border-blue-100/60 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-3.5 group cursor-pointer">
+                <div class="bg-[#f0f9f9] hover:bg-[#edf6f9] rounded-2xl p-3.5 sm:p-4 border border-blue-100/60 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-3.5 group cursor-pointer">
                     <img src="{{ asset('icons/Valve-Replacement.svg') }}" alt="Valve Replacement" class="w-12 h-12 flex-shrink-0 group-hover:scale-105 transition-transform object-contain">
                     <div>
-                        <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#00539C] transition-colors">
+                        <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#27797D] transition-colors">
                             Valve Replacement
                         </h3>
                         <p class="text-xs text-gray-500 mt-0.5">
                             Starting <span class="font-bold text-gray-900">$9,500</span>
                         </p>
-                        <a href="#quote-form" class="inline-block text-xs font-semibold text-[#e13b3f] hover:text-[#c92a2e] mt-1 group-hover:underline">
+                        <a href="#quote-form" class="inline-block text-xs font-semibold text-[#EF7415] hover:text-[#d9640d] mt-1 group-hover:underline">
                             Get Quote
                         </a>
                     </div>
                 </div>
 
                 <!-- 6. Breast Cancer -->
-                <div class="bg-[#f0f7fe] hover:bg-[#e5f1fc] rounded-2xl p-3.5 sm:p-4 border border-blue-100/60 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-3.5 group cursor-pointer">
+                <div class="bg-[#f0f9f9] hover:bg-[#edf6f9] rounded-2xl p-3.5 sm:p-4 border border-blue-100/60 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-3.5 group cursor-pointer">
                     <img src="{{ asset('icons/Breast-Cancer.svg') }}" alt="Breast Cancer" class="w-12 h-12 flex-shrink-0 group-hover:scale-105 transition-transform object-contain">
                     <div>
-                        <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#00539C] transition-colors">
+                        <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#27797D] transition-colors">
                             Breast Cancer
                         </h3>
                         <p class="text-xs text-gray-500 mt-0.5">
                             Starting <span class="font-bold text-gray-900">$5,000</span>
                         </p>
-                        <a href="#quote-form" class="inline-block text-xs font-semibold text-[#e13b3f] hover:text-[#c92a2e] mt-1 group-hover:underline">
+                        <a href="#quote-form" class="inline-block text-xs font-semibold text-[#EF7415] hover:text-[#d9640d] mt-1 group-hover:underline">
                             Get Quote
                         </a>
                     </div>
                 </div>
 
                 <!-- 7. Lung Cancer -->
-                <div class="bg-[#f0f7fe] hover:bg-[#e5f1fc] rounded-2xl p-3.5 sm:p-4 border border-blue-100/60 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-3.5 group cursor-pointer">
+                <div class="bg-[#f0f9f9] hover:bg-[#edf6f9] rounded-2xl p-3.5 sm:p-4 border border-blue-100/60 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-3.5 group cursor-pointer">
                     <img src="{{ asset('icons/Lung-Cancer.svg') }}" alt="Lung Cancer" class="w-12 h-12 flex-shrink-0 group-hover:scale-105 transition-transform object-contain">
                     <div>
-                        <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#00539C] transition-colors">
+                        <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#27797D] transition-colors">
                             Lung Cancer
                         </h3>
                         <p class="text-xs text-gray-500 mt-0.5">
                             Starting <span class="font-bold text-gray-900">$5,500</span>
                         </p>
-                        <a href="#quote-form" class="inline-block text-xs font-semibold text-[#e13b3f] hover:text-[#c92a2e] mt-1 group-hover:underline">
+                        <a href="#quote-form" class="inline-block text-xs font-semibold text-[#EF7415] hover:text-[#d9640d] mt-1 group-hover:underline">
                             Get Quote
                         </a>
                     </div>
                 </div>
 
                 <!-- 8. Rhinoplasty -->
-                <div class="bg-[#f0f7fe] hover:bg-[#e5f1fc] rounded-2xl p-3.5 sm:p-4 border border-blue-100/60 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-3.5 group cursor-pointer">
+                <div class="bg-[#f0f9f9] hover:bg-[#edf6f9] rounded-2xl p-3.5 sm:p-4 border border-blue-100/60 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-3.5 group cursor-pointer">
                     <img src="{{ asset('icons/Rhinoplasty.svg') }}" alt="Rhinoplasty" class="w-12 h-12 flex-shrink-0 group-hover:scale-105 transition-transform object-contain">
                     <div>
-                        <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#00539C] transition-colors">
+                        <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#27797D] transition-colors">
                             Rhinoplasty
                         </h3>
                         <p class="text-xs text-gray-500 mt-0.5">
                             Starting <span class="font-bold text-gray-900">$1,800</span>
                         </p>
-                        <a href="#quote-form" class="inline-block text-xs font-semibold text-[#e13b3f] hover:text-[#c92a2e] mt-1 group-hover:underline">
+                        <a href="#quote-form" class="inline-block text-xs font-semibold text-[#EF7415] hover:text-[#d9640d] mt-1 group-hover:underline">
                             Get Quote
                         </a>
                     </div>
                 </div>
 
                 <!-- 9. Breast Implants -->
-                <div class="bg-[#f0f7fe] hover:bg-[#e5f1fc] rounded-2xl p-3.5 sm:p-4 border border-blue-100/60 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-3.5 group cursor-pointer">
+                <div class="bg-[#f0f9f9] hover:bg-[#edf6f9] rounded-2xl p-3.5 sm:p-4 border border-blue-100/60 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-3.5 group cursor-pointer">
                     <img src="{{ asset('icons/Breast-Cancer (1).svg') }}" alt="Breast Implants" class="w-12 h-12 flex-shrink-0 group-hover:scale-105 transition-transform object-contain">
                     <div>
-                        <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#00539C] transition-colors">
+                        <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#27797D] transition-colors">
                             Breast Implants
                         </h3>
                         <p class="text-xs text-gray-500 mt-0.5">
                             Starting <span class="font-bold text-gray-900">$2,750</span>
                         </p>
-                        <a href="#quote-form" class="inline-block text-xs font-semibold text-[#e13b3f] hover:text-[#c92a2e] mt-1 group-hover:underline">
+                        <a href="#quote-form" class="inline-block text-xs font-semibold text-[#EF7415] hover:text-[#d9640d] mt-1 group-hover:underline">
                             Get Quote
                         </a>
                     </div>
                 </div>
 
                 <!-- 10. Hair Transplant -->
-                <div class="bg-[#f0f7fe] hover:bg-[#e5f1fc] rounded-2xl p-3.5 sm:p-4 border border-blue-100/60 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-3.5 group cursor-pointer">
+                <div class="bg-[#f0f9f9] hover:bg-[#edf6f9] rounded-2xl p-3.5 sm:p-4 border border-blue-100/60 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-3.5 group cursor-pointer">
                     <img src="{{ asset('icons/Hair-Transpalnt.svg') }}" alt="Hair Transplant" class="w-12 h-12 flex-shrink-0 group-hover:scale-105 transition-transform object-contain">
                     <div>
-                        <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#00539C] transition-colors">
+                        <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#27797D] transition-colors">
                             Hair Transplant
                         </h3>
                         <p class="text-xs text-gray-500 mt-0.5">
                             Starting <span class="font-bold text-gray-900">$1,400</span>
                         </p>
-                        <a href="#quote-form" class="inline-block text-xs font-semibold text-[#e13b3f] hover:text-[#c92a2e] mt-1 group-hover:underline">
+                        <a href="#quote-form" class="inline-block text-xs font-semibold text-[#EF7415] hover:text-[#d9640d] mt-1 group-hover:underline">
                             Get Quote
                         </a>
                     </div>
                 </div>
 
                 <!-- 11. Cervical Cancer -->
-                <div class="bg-[#f0f7fe] hover:bg-[#e5f1fc] rounded-2xl p-3.5 sm:p-4 border border-blue-100/60 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-3.5 group cursor-pointer">
+                <div class="bg-[#f0f9f9] hover:bg-[#edf6f9] rounded-2xl p-3.5 sm:p-4 border border-blue-100/60 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-3.5 group cursor-pointer">
                     <img src="{{ asset('icons/Cervical-Cancer.svg') }}" alt="Cervical Cancer" class="w-12 h-12 flex-shrink-0 group-hover:scale-105 transition-transform object-contain">
                     <div>
-                        <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#00539C] transition-colors">
+                        <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#27797D] transition-colors">
                             Cervical Cancer
                         </h3>
                         <p class="text-xs text-gray-500 mt-0.5">
                             Starting <span class="font-bold text-gray-900">$4,500</span>
                         </p>
-                        <a href="#quote-form" class="inline-block text-xs font-semibold text-[#e13b3f] hover:text-[#c92a2e] mt-1 group-hover:underline">
+                        <a href="#quote-form" class="inline-block text-xs font-semibold text-[#EF7415] hover:text-[#d9640d] mt-1 group-hover:underline">
                             Get Quote
                         </a>
                     </div>
                 </div>
 
                 <!-- 12. Hysterectomy -->
-                <div class="bg-[#f0f7fe] hover:bg-[#e5f1fc] rounded-2xl p-3.5 sm:p-4 border border-blue-100/60 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-3.5 group cursor-pointer">
+                <div class="bg-[#f0f9f9] hover:bg-[#edf6f9] rounded-2xl p-3.5 sm:p-4 border border-blue-100/60 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-3.5 group cursor-pointer">
                     <img src="{{ asset('icons/Hysterectomy.svg') }}" alt="Hysterectomy" class="w-12 h-12 flex-shrink-0 group-hover:scale-105 transition-transform object-contain">
                     <div>
-                        <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#00539C] transition-colors">
+                        <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#27797D] transition-colors">
                             Hysterectomy
                         </h3>
                         <p class="text-xs text-gray-500 mt-0.5">
                             Starting <span class="font-bold text-gray-900">$3,000</span>
                         </p>
-                        <a href="#quote-form" class="inline-block text-xs font-semibold text-[#e13b3f] hover:text-[#c92a2e] mt-1 group-hover:underline">
+                        <a href="#quote-form" class="inline-block text-xs font-semibold text-[#EF7415] hover:text-[#d9640d] mt-1 group-hover:underline">
                             Get Quote
                         </a>
                     </div>
@@ -2217,13 +2217,13 @@
                 <div class="flex flex-wrap items-center justify-center gap-3.5 sm:gap-4">
                     <a 
                         href="#quote-form" 
-                        class="bg-[#e13b3f] hover:bg-[#cf2a2e] active:scale-[0.99] text-white text-sm sm:text-base font-bold px-7 py-3 rounded-lg shadow-md hover:shadow-lg transition-all duration-150 inline-flex items-center justify-center"
+                        class="bg-[#EF7415] hover:bg-[#d9640d] active:scale-[0.99] text-white text-sm sm:text-base font-bold px-7 py-3 rounded-lg shadow-md hover:shadow-lg transition-all duration-150 inline-flex items-center justify-center"
                     >
                         Get Quote
                     </a>
                     
                     <a 
-                        href="https://wa.me/919999999999" 
+                        href="https://wa.me/919129846542" 
                         target="_blank" 
                         class="bg-[#25D366] hover:bg-[#20ba5a] active:scale-[0.99] text-white text-sm sm:text-base font-bold px-7 py-3 rounded-lg shadow-md hover:shadow-lg transition-all duration-150 inline-flex items-center justify-center gap-2"
                     >
@@ -2261,7 +2261,7 @@
                         <!-- Step 1: Contact Us -->
                         <div class="flex flex-col items-center text-center group">
                             <!-- Circular Icon -->
-                            <div class="w-14 h-14 rounded-full bg-[#f0f7fe] border border-blue-100/80 flex items-center justify-center text-[#00539C] group-hover:bg-[#00539C] group-hover:text-white transition-all duration-200 shadow-xs">
+                            <div class="w-14 h-14 rounded-full bg-[#f0f9f9] border border-blue-100/80 flex items-center justify-center text-[#27797D] group-hover:bg-[#27797D] group-hover:text-white transition-all duration-200 shadow-xs">
                                 <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                                     <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
                                     <path d="M14 2a6 6 0 0 1 6 6"/>
@@ -2277,7 +2277,7 @@
                         <!-- Step 2: Medical Opinion & Estimate -->
                         <div class="flex flex-col items-center text-center group">
                             <!-- Circular Icon -->
-                            <div class="w-14 h-14 rounded-full bg-[#f0f7fe] border border-blue-100/80 flex items-center justify-center text-[#00539C] group-hover:bg-[#00539C] group-hover:text-white transition-all duration-200 shadow-xs">
+                            <div class="w-14 h-14 rounded-full bg-[#f0f9f9] border border-blue-100/80 flex items-center justify-center text-[#27797D] group-hover:bg-[#27797D] group-hover:text-white transition-all duration-200 shadow-xs">
                                 <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                                     <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
                                     <polyline points="14 2 14 8 20 8"/>
@@ -2296,13 +2296,13 @@
                         <!-- Step 3: Book Flights & Airport Reception -->
                         <div class="flex flex-col items-center text-center group">
                             <!-- Circular Icon -->
-                            <div class="w-14 h-14 rounded-full bg-[#f0f7fe] border border-blue-100/80 flex items-center justify-center text-[#00539C] group-hover:bg-[#00539C] group-hover:text-white transition-all duration-200 shadow-xs">
+                            <div class="w-14 h-14 rounded-full bg-[#f0f9f9] border border-blue-100/80 flex items-center justify-center text-[#27797D] group-hover:bg-[#27797D] group-hover:text-white transition-all duration-200 shadow-xs">
                                 <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                                     <rect x="3" y="4" width="18" height="16" rx="2"/>
                                     <path d="M3 10h18"/>
                                     <path d="m9 15 3-3 3 3"/>
                                     <path d="M12 12v6"/>
-                                    <circle cx="18" cy="16" r="2.5" fill="#00539C" class="fill-[#00539C] stroke-white"/>
+                                    <circle cx="18" cy="16" r="2.5" fill="#27797D" class="fill-[#27797D] stroke-white"/>
                                     <path d="m17 16 1 1 1.5-1.5" stroke="white" stroke-width="1.2"/>
                                 </svg>
                             </div>
@@ -2315,7 +2315,7 @@
                         <!-- Step 4: Treatment & Follow Ups -->
                         <div class="flex flex-col items-center text-center group">
                             <!-- Circular Icon -->
-                            <div class="w-14 h-14 rounded-full bg-[#f0f7fe] border border-blue-100/80 flex items-center justify-center text-[#00539C] group-hover:bg-[#00539C] group-hover:text-white transition-all duration-200 shadow-xs">
+                            <div class="w-14 h-14 rounded-full bg-[#f0f9f9] border border-blue-100/80 flex items-center justify-center text-[#27797D] group-hover:bg-[#27797D] group-hover:text-white transition-all duration-200 shadow-xs">
                                 <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                                     <path d="M9 11l3 3L22 4"/>
                                     <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
@@ -2334,7 +2334,7 @@
                     <div class="mt-9 sm:mt-11 text-center">
                         <a 
                             href="#quote-form" 
-                            class="bg-[#e13b3f] hover:bg-[#cf2a2e] active:scale-[0.99] text-white text-sm sm:text-base font-bold px-8 py-3 rounded-lg shadow-md hover:shadow-lg transition-all duration-150 inline-flex items-center justify-center"
+                            class="bg-[#EF7415] hover:bg-[#d9640d] active:scale-[0.99] text-white text-sm sm:text-base font-bold px-8 py-3 rounded-lg shadow-md hover:shadow-lg transition-all duration-150 inline-flex items-center justify-center"
                         >
                             Get Started
                         </a>
@@ -2348,7 +2348,7 @@
                         <iframe 
                             class="w-full h-full object-cover" 
                             src="https://www.youtube.com/embed/XZtyGhf5LJ8" 
-                            title="Medical Treatment Abroad - Vaidam Health" 
+                            title="Medical Treatment Abroad - Heal Go Fly" 
                             frameborder="0" 
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
                             allowfullscreen 
@@ -2380,19 +2380,19 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
                 
                 <!-- 1. Medical Opinion -->
-                <div class="bg-[#f0f7fe] hover:bg-[#e5f1fc] rounded-2xl p-4 sm:p-5 border border-blue-100/60 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-4 group cursor-pointer">
-                    <div class="w-12 h-12 rounded-full bg-white shadow-xs border border-blue-100/80 flex items-center justify-center flex-shrink-0 text-[#00539C] group-hover:scale-105 transition-transform">
+                <div class="bg-[#f0f9f9] hover:bg-[#edf6f9] rounded-2xl p-4 sm:p-5 border border-blue-100/60 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-4 group cursor-pointer">
+                    <div class="w-12 h-12 rounded-full bg-white shadow-xs border border-blue-100/80 flex items-center justify-center flex-shrink-0 text-[#27797D] group-hover:scale-105 transition-transform">
                         <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
                             <polyline points="14 2 14 8 20 8"/>
                             <line x1="16" y1="13" x2="8" y2="13"/>
                             <line x1="16" y1="17" x2="8" y2="17"/>
                             <polyline points="10 9 9 9 8 9"/>
-                            <path d="M10 13l2 2 4-4" stroke="#e13b3f" stroke-width="2"/>
+                            <path d="M10 13l2 2 4-4" stroke="#EF7415" stroke-width="2"/>
                         </svg>
                     </div>
                     <div>
-                        <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#00539C] transition-colors">
+                        <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#27797D] transition-colors">
                             Medical Opinion
                         </h3>
                         <p class="text-xs text-gray-500 mt-1 leading-relaxed">
@@ -2402,8 +2402,8 @@
                 </div>
 
                 <!-- 2. Pre-Travel Consultations -->
-                <div class="bg-[#f0f7fe] hover:bg-[#e5f1fc] rounded-2xl p-4 sm:p-5 border border-blue-100/60 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-4 group cursor-pointer">
-                    <div class="w-12 h-12 rounded-full bg-white shadow-xs border border-blue-100/80 flex items-center justify-center flex-shrink-0 text-[#00539C] group-hover:scale-105 transition-transform">
+                <div class="bg-[#f0f9f9] hover:bg-[#edf6f9] rounded-2xl p-4 sm:p-5 border border-blue-100/60 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-4 group cursor-pointer">
+                    <div class="w-12 h-12 rounded-full bg-white shadow-xs border border-blue-100/80 flex items-center justify-center flex-shrink-0 text-[#27797D] group-hover:scale-105 transition-transform">
                         <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
                             <circle cx="9" cy="7" r="4"/>
@@ -2411,7 +2411,7 @@
                         </svg>
                     </div>
                     <div>
-                        <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#00539C] transition-colors">
+                        <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#27797D] transition-colors">
                             Pre-Travel Consultations
                         </h3>
                         <p class="text-xs text-gray-500 mt-1 leading-relaxed">
@@ -2421,17 +2421,17 @@
                 </div>
 
                 <!-- 3. Visa Assistance -->
-                <div class="bg-[#f0f7fe] hover:bg-[#e5f1fc] rounded-2xl p-4 sm:p-5 border border-blue-100/60 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-4 group cursor-pointer">
-                    <div class="w-12 h-12 rounded-full bg-white shadow-xs border border-blue-100/80 flex items-center justify-center flex-shrink-0 text-[#00539C] group-hover:scale-105 transition-transform">
+                <div class="bg-[#f0f9f9] hover:bg-[#edf6f9] rounded-2xl p-4 sm:p-5 border border-blue-100/60 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-4 group cursor-pointer">
+                    <div class="w-12 h-12 rounded-full bg-white shadow-xs border border-blue-100/80 flex items-center justify-center flex-shrink-0 text-[#27797D] group-hover:scale-105 transition-transform">
                         <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                             <rect x="5" y="3" width="14" height="18" rx="2"/>
                             <line x1="9" y1="7" x2="15" y2="7"/>
                             <circle cx="12" cy="13" r="3"/>
-                            <path d="M12 11v4M10 13h4" stroke="#e13b3f" stroke-width="1.5"/>
+                            <path d="M12 11v4M10 13h4" stroke="#EF7415" stroke-width="1.5"/>
                         </svg>
                     </div>
                     <div>
-                        <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#00539C] transition-colors">
+                        <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#27797D] transition-colors">
                             Visa Assistance
                         </h3>
                         <p class="text-xs text-gray-500 mt-1 leading-relaxed">
@@ -2441,8 +2441,8 @@
                 </div>
 
                 <!-- 4. Money Exchange -->
-                <div class="bg-[#f0f7fe] hover:bg-[#e5f1fc] rounded-2xl p-4 sm:p-5 border border-blue-100/60 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-4 group cursor-pointer">
-                    <div class="w-12 h-12 rounded-full bg-white shadow-xs border border-blue-100/80 flex items-center justify-center flex-shrink-0 text-[#00539C] group-hover:scale-105 transition-transform">
+                <div class="bg-[#f0f9f9] hover:bg-[#edf6f9] rounded-2xl p-4 sm:p-5 border border-blue-100/60 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-4 group cursor-pointer">
+                    <div class="w-12 h-12 rounded-full bg-white shadow-xs border border-blue-100/80 flex items-center justify-center flex-shrink-0 text-[#27797D] group-hover:scale-105 transition-transform">
                         <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                             <circle cx="8" cy="8" r="5"/>
                             <path d="M8 6v4M7 7h2"/>
@@ -2453,7 +2453,7 @@
                         </svg>
                     </div>
                     <div>
-                        <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#00539C] transition-colors">
+                        <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#27797D] transition-colors">
                             Money Exchange
                         </h3>
                         <p class="text-xs text-gray-500 mt-1 leading-relaxed">
@@ -2463,8 +2463,8 @@
                 </div>
 
                 <!-- 5. Interpreters -->
-                <div class="bg-[#f0f7fe] hover:bg-[#e5f1fc] rounded-2xl p-4 sm:p-5 border border-blue-100/60 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-4 group cursor-pointer">
-                    <div class="w-12 h-12 rounded-full bg-white shadow-xs border border-blue-100/80 flex items-center justify-center flex-shrink-0 text-[#00539C] group-hover:scale-105 transition-transform">
+                <div class="bg-[#f0f9f9] hover:bg-[#edf6f9] rounded-2xl p-4 sm:p-5 border border-blue-100/60 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-4 group cursor-pointer">
+                    <div class="w-12 h-12 rounded-full bg-white shadow-xs border border-blue-100/80 flex items-center justify-center flex-shrink-0 text-[#27797D] group-hover:scale-105 transition-transform">
                         <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                             <path d="m5 8 6 6"/>
                             <path d="m4 14 6-6 2-3"/>
@@ -2475,7 +2475,7 @@
                         </svg>
                     </div>
                     <div>
-                        <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#00539C] transition-colors">
+                        <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#27797D] transition-colors">
                             Interpreters
                         </h3>
                         <p class="text-xs text-gray-500 mt-1 leading-relaxed">
@@ -2485,18 +2485,18 @@
                 </div>
 
                 <!-- 6. Transportation -->
-                <div class="bg-[#f0f7fe] hover:bg-[#e5f1fc] rounded-2xl p-4 sm:p-5 border border-blue-100/60 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-4 group cursor-pointer">
-                    <div class="w-12 h-12 rounded-full bg-white shadow-xs border border-blue-100/80 flex items-center justify-center flex-shrink-0 text-[#00539C] group-hover:scale-105 transition-transform">
+                <div class="bg-[#f0f9f9] hover:bg-[#edf6f9] rounded-2xl p-4 sm:p-5 border border-blue-100/60 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-4 group cursor-pointer">
+                    <div class="w-12 h-12 rounded-full bg-white shadow-xs border border-blue-100/80 flex items-center justify-center flex-shrink-0 text-[#27797D] group-hover:scale-105 transition-transform">
                         <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                             <rect x="1" y="3" width="15" height="13" rx="2"/>
                             <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/>
                             <circle cx="5.5" cy="18.5" r="2.5"/>
                             <circle cx="18.5" cy="18.5" r="2.5"/>
-                            <path d="M7 8h4M9 6v4" stroke="#e13b3f" stroke-width="1.5"/>
+                            <path d="M7 8h4M9 6v4" stroke="#EF7415" stroke-width="1.5"/>
                         </svg>
                     </div>
                     <div>
-                        <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#00539C] transition-colors">
+                        <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#27797D] transition-colors">
                             Transportation
                         </h3>
                         <p class="text-xs text-gray-500 mt-1 leading-relaxed">
@@ -2506,8 +2506,8 @@
                 </div>
 
                 <!-- 7. Accommodation Options -->
-                <div class="bg-[#f0f7fe] hover:bg-[#e5f1fc] rounded-2xl p-4 sm:p-5 border border-blue-100/60 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-4 group cursor-pointer">
-                    <div class="w-12 h-12 rounded-full bg-white shadow-xs border border-blue-100/80 flex items-center justify-center flex-shrink-0 text-[#00539C] group-hover:scale-105 transition-transform">
+                <div class="bg-[#f0f9f9] hover:bg-[#edf6f9] rounded-2xl p-4 sm:p-5 border border-blue-100/60 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-4 group cursor-pointer">
+                    <div class="w-12 h-12 rounded-full bg-white shadow-xs border border-blue-100/80 flex items-center justify-center flex-shrink-0 text-[#27797D] group-hover:scale-105 transition-transform">
                         <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M3 21h18"/>
                             <path d="M5 21V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16"/>
@@ -2516,7 +2516,7 @@
                         </svg>
                     </div>
                     <div>
-                        <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#00539C] transition-colors">
+                        <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#27797D] transition-colors">
                             Accommodation Options
                         </h3>
                         <p class="text-xs text-gray-500 mt-1 leading-relaxed">
@@ -2526,17 +2526,17 @@
                 </div>
 
                 <!-- 8. Hospital Coordination -->
-                <div class="bg-[#f0f7fe] hover:bg-[#e5f1fc] rounded-2xl p-4 sm:p-5 border border-blue-100/60 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-4 group cursor-pointer">
-                    <div class="w-12 h-12 rounded-full bg-white shadow-xs border border-blue-100/80 flex items-center justify-center flex-shrink-0 text-[#00539C] group-hover:scale-105 transition-transform">
+                <div class="bg-[#f0f9f9] hover:bg-[#edf6f9] rounded-2xl p-4 sm:p-5 border border-blue-100/60 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-4 group cursor-pointer">
+                    <div class="w-12 h-12 rounded-full bg-white shadow-xs border border-blue-100/80 flex items-center justify-center flex-shrink-0 text-[#27797D] group-hover:scale-105 transition-transform">
                         <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/>
                             <rect x="8" y="2" width="8" height="4" rx="1"/>
                             <path d="M9 14h6M9 18h4"/>
-                            <path d="M12 8v4M10 10h4" stroke="#e13b3f" stroke-width="1.5"/>
+                            <path d="M12 8v4M10 10h4" stroke="#EF7415" stroke-width="1.5"/>
                         </svg>
                     </div>
                     <div>
-                        <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#00539C] transition-colors">
+                        <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#27797D] transition-colors">
                             Hospital Coordination
                         </h3>
                         <p class="text-xs text-gray-500 mt-1 leading-relaxed">
@@ -2546,15 +2546,15 @@
                 </div>
 
                 <!-- 9. Private Duty Nursing -->
-                <div class="bg-[#f0f7fe] hover:bg-[#e5f1fc] rounded-2xl p-4 sm:p-5 border border-blue-100/60 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-4 group cursor-pointer">
-                    <div class="w-12 h-12 rounded-full bg-white shadow-xs border border-blue-100/80 flex items-center justify-center flex-shrink-0 text-[#00539C] group-hover:scale-105 transition-transform">
+                <div class="bg-[#f0f9f9] hover:bg-[#edf6f9] rounded-2xl p-4 sm:p-5 border border-blue-100/60 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-4 group cursor-pointer">
+                    <div class="w-12 h-12 rounded-full bg-white shadow-xs border border-blue-100/80 flex items-center justify-center flex-shrink-0 text-[#27797D] group-hover:scale-105 transition-transform">
                         <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                            <path d="M12 8v6M9 11h6" stroke="#e13b3f" stroke-width="1.8"/>
+                            <path d="M12 8v6M9 11h6" stroke="#EF7415" stroke-width="1.8"/>
                         </svg>
                     </div>
                     <div>
-                        <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#00539C] transition-colors">
+                        <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#27797D] transition-colors">
                             Private Duty Nursing
                         </h3>
                         <p class="text-xs text-gray-500 mt-1 leading-relaxed">
@@ -2569,13 +2569,13 @@
             <div class="flex flex-wrap items-center justify-center gap-3.5 sm:gap-4 mt-10 sm:mt-12">
                 <a 
                     href="#quote-form" 
-                    class="bg-[#e13b3f] hover:bg-[#cf2a2e] active:scale-[0.99] text-white text-sm sm:text-base font-bold px-7 py-3 rounded-lg shadow-md hover:shadow-lg transition-all duration-150 inline-flex items-center justify-center"
+                    class="bg-[#EF7415] hover:bg-[#d9640d] active:scale-[0.99] text-white text-sm sm:text-base font-bold px-7 py-3 rounded-lg shadow-md hover:shadow-lg transition-all duration-150 inline-flex items-center justify-center"
                 >
                     Get Quote
                 </a>
                 
                 <a 
-                    href="https://wa.me/919999999999" 
+                    href="https://wa.me/919129846542" 
                     target="_blank" 
                     class="bg-[#25D366] hover:bg-[#20ba5a] active:scale-[0.99] text-white text-sm sm:text-base font-bold px-7 py-3 rounded-lg shadow-md hover:shadow-lg transition-all duration-150 inline-flex items-center justify-center gap-2"
                 >
@@ -2596,7 +2596,7 @@
             <!-- Section Header with Left Title and Right Nav Controls -->
             <div class="flex items-center justify-between mb-8 sm:mb-10">
                 <h2 class="text-2xl sm:text-3xl font-extrabold text-[#112347] tracking-tight">
-                    Vaidam In News
+                    Heal Go Fly In News
                 </h2>
                 
                 <!-- Slider Nav Arrows -->
@@ -2604,7 +2604,7 @@
                     <button 
                         type="button" 
                         id="news-slider-prev" 
-                        class="w-9 h-9 rounded-full border border-gray-300 hover:border-[#00539C] text-gray-500 hover:text-[#00539C] flex items-center justify-center transition-all bg-white shadow-xs active:scale-95"
+                        class="w-9 h-9 rounded-full border border-gray-300 hover:border-[#27797D] text-gray-500 hover:text-[#27797D] flex items-center justify-center transition-all bg-white shadow-xs active:scale-95"
                         aria-label="Previous News"
                     >
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M15 19l-7-7 7-7"/></svg>
@@ -2612,7 +2612,7 @@
                     <button 
                         type="button" 
                         id="news-slider-next" 
-                        class="w-9 h-9 rounded-full border border-gray-300 hover:border-[#00539C] text-gray-500 hover:text-[#00539C] flex items-center justify-center transition-all bg-white shadow-xs active:scale-95"
+                        class="w-9 h-9 rounded-full border border-gray-300 hover:border-[#27797D] text-gray-500 hover:text-[#27797D] flex items-center justify-center transition-all bg-white shadow-xs active:scale-95"
                         aria-label="Next News"
                     >
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M9 5l7 7-7 7"/></svg>
@@ -2640,11 +2640,11 @@
                             >
                             <!-- Logo Badge Top-Left -->
                             <div class="absolute top-2.5 left-2.5 bg-white px-2 py-0.5 rounded shadow-xs border border-gray-100 flex items-center gap-1">
-                                <span class="text-[9px] font-black tracking-tight text-[#00539C]">Bio<span class="text-amber-500">Spectrum</span></span>
+                                <span class="text-[9px] font-black tracking-tight text-[#27797D]">Bio<span class="text-amber-500">Spectrum</span></span>
                             </div>
                             <!-- Angled Wave Banner at Bottom -->
                             <div class="absolute bottom-0 inset-x-0 h-8 flex items-end">
-                                <svg viewBox="0 0 400 50" preserveAspectRatio="none" class="absolute inset-0 w-full h-full text-[#00539C] fill-current">
+                                <svg viewBox="0 0 400 50" preserveAspectRatio="none" class="absolute inset-0 w-full h-full text-[#27797D] fill-current">
                                     <path d="M0,25 Q150,50 300,20 Q360,5 400,0 L400,50 L0,50 Z"></path>
                                 </svg>
                                 <span class="relative z-10 text-[10px] font-extrabold uppercase tracking-wider text-white pl-3 pb-1 flex items-center gap-1.5">
@@ -2655,11 +2655,11 @@
 
                         <!-- Content -->
                         <div class="p-3.5 sm:p-4">
-                            <h3 class="text-xs font-bold text-[#00539C] hover:underline leading-snug line-clamp-3">
-                                BioSpectrumIndia: Vaidam Health's CancerRounds Acquisition Featured in a Leading Life Sciences Industry Story
+                            <h3 class="text-xs font-bold text-[#27797D] hover:underline leading-snug line-clamp-3">
+                                BioSpectrumIndia: Heal Go Fly's CancerRounds Acquisition Featured in a Leading Life Sciences Industry Story
                             </h3>
                             <p class="text-[11px] text-gray-500 mt-2 line-clamp-3 leading-relaxed">
-                                Vaidam Health's CancerRounds Acquisition Featured in BioSpectrum Industry Story
+                                Heal Go Fly's CancerRounds Acquisition Featured in BioSpectrum Industry Story
                             </p>
                         </div>
                     </div>
@@ -2683,7 +2683,7 @@
                             </div>
                             <!-- Angled Wave Banner at Bottom -->
                             <div class="absolute bottom-0 inset-x-0 h-8 flex items-end">
-                                <svg viewBox="0 0 400 50" preserveAspectRatio="none" class="absolute inset-0 w-full h-full text-[#00539C] fill-current">
+                                <svg viewBox="0 0 400 50" preserveAspectRatio="none" class="absolute inset-0 w-full h-full text-[#27797D] fill-current">
                                     <path d="M0,25 Q150,50 300,20 Q360,5 400,0 L400,50 L0,50 Z"></path>
                                 </svg>
                                 <span class="relative z-10 text-[10px] font-extrabold uppercase tracking-wider text-white pl-3 pb-1 flex items-center gap-1.5">
@@ -2694,7 +2694,7 @@
 
                         <!-- Content -->
                         <div class="p-3.5 sm:p-4">
-                            <h3 class="text-xs font-bold text-[#00539C] hover:underline leading-snug line-clamp-3">
+                            <h3 class="text-xs font-bold text-[#27797D] hover:underline leading-snug line-clamp-3">
                                 Financial Express | Medical Tourism Startups Await Their Funding Cure
                             </h3>
                             <p class="text-[11px] text-gray-500 mt-2 line-clamp-3 leading-relaxed">
@@ -2722,7 +2722,7 @@
                             </div>
                             <!-- Angled Wave Banner at Bottom -->
                             <div class="absolute bottom-0 inset-x-0 h-8 flex items-end">
-                                <svg viewBox="0 0 400 50" preserveAspectRatio="none" class="absolute inset-0 w-full h-full text-[#00539C] fill-current">
+                                <svg viewBox="0 0 400 50" preserveAspectRatio="none" class="absolute inset-0 w-full h-full text-[#27797D] fill-current">
                                     <path d="M0,25 Q150,50 300,20 Q360,5 400,0 L400,50 L0,50 Z"></path>
                                 </svg>
                                 <span class="relative z-10 text-[10px] font-extrabold uppercase tracking-wider text-white pl-3 pb-1 flex items-center gap-1.5">
@@ -2733,7 +2733,7 @@
 
                         <!-- Content -->
                         <div class="p-3.5 sm:p-4">
-                            <h3 class="text-xs font-bold text-[#00539C] hover:underline leading-snug line-clamp-3">
+                            <h3 class="text-xs font-bold text-[#27797D] hover:underline leading-snug line-clamp-3">
                                 Business Today | Bridging Language Barriers to Strengthen India's Medical Tourism Ecosystem
                             </h3>
                             <p class="text-[11px] text-gray-500 mt-2 line-clamp-3 leading-relaxed">
@@ -2760,7 +2760,7 @@
                             </div>
                             <!-- Angled Wave Banner at Bottom -->
                             <div class="absolute bottom-0 inset-x-0 h-8 flex items-end">
-                                <svg viewBox="0 0 400 50" preserveAspectRatio="none" class="absolute inset-0 w-full h-full text-[#00539C] fill-current">
+                                <svg viewBox="0 0 400 50" preserveAspectRatio="none" class="absolute inset-0 w-full h-full text-[#27797D] fill-current">
                                     <path d="M0,25 Q150,50 300,20 Q360,5 400,0 L400,50 L0,50 Z"></path>
                                 </svg>
                                 <span class="relative z-10 text-[10px] font-extrabold uppercase tracking-wider text-white pl-3 pb-1 flex items-center gap-1.5">
@@ -2771,7 +2771,7 @@
 
                         <!-- Content -->
                         <div class="p-3.5 sm:p-4">
-                            <h3 class="text-xs font-bold text-[#00539C] hover:underline leading-snug line-clamp-3">
+                            <h3 class="text-xs font-bold text-[#27797D] hover:underline leading-snug line-clamp-3">
                                 Forbes India: Influential Leaders Creating a Lasting Impact in India
                             </h3>
                             <p class="text-[11px] text-gray-500 mt-2 line-clamp-3 leading-relaxed">
@@ -2794,11 +2794,11 @@
                             >
                             <!-- Logo Badge Top-Left -->
                             <div class="absolute top-2.5 left-2.5 bg-white px-2 py-0.5 rounded shadow-xs border border-gray-100 flex items-center gap-1">
-                                <span class="text-[9px] font-black tracking-tight text-[#00539C]">CII</span>
+                                <span class="text-[9px] font-black tracking-tight text-[#27797D]">CII</span>
                             </div>
                             <!-- Angled Wave Banner at Bottom -->
                             <div class="absolute bottom-0 inset-x-0 h-8 flex items-end">
-                                <svg viewBox="0 0 400 50" preserveAspectRatio="none" class="absolute inset-0 w-full h-full text-[#00539C] fill-current">
+                                <svg viewBox="0 0 400 50" preserveAspectRatio="none" class="absolute inset-0 w-full h-full text-[#27797D] fill-current">
                                     <path d="M0,25 Q150,50 300,20 Q360,5 400,0 L400,50 L0,50 Z"></path>
                                 </svg>
                                 <span class="relative z-10 text-[10px] font-extrabold uppercase tracking-wider text-white pl-3 pb-1 flex items-center gap-1.5">
@@ -2809,11 +2809,11 @@
 
                         <!-- Content -->
                         <div class="p-3.5 sm:p-4">
-                            <h3 class="text-xs font-bold text-[#00539C] hover:underline leading-snug line-clamp-3">
+                            <h3 class="text-xs font-bold text-[#27797D] hover:underline leading-snug line-clamp-3">
                                 Exploring AI, Digital Innovation and the Future of Cross-Border Healthcare
                             </h3>
                             <p class="text-[11px] text-gray-500 mt-2 line-clamp-3 leading-relaxed">
-                                Pankaj Chandna Highlights Vaidam Health's Vision at the 5th CII Digital Health Summit
+                                Pankaj Chandna Highlights Heal Go Fly's Vision at the 5th CII Digital Health Summit
                             </p>
                         </div>
                     </div>
@@ -2823,7 +2823,7 @@
 
             <!-- Dots Indicator -->
             <div class="flex items-center justify-center gap-1.5 mt-6 sm:mt-8">
-                <span class="w-2 h-2 rounded-full bg-[#00539C]"></span>
+                <span class="w-2 h-2 rounded-full bg-[#27797D]"></span>
                 <span class="w-2 h-2 rounded-full bg-gray-300"></span>
                 <span class="w-2 h-2 rounded-full bg-gray-300"></span>
                 <span class="w-2 h-2 rounded-full bg-gray-300"></span>
@@ -2835,7 +2835,7 @@
 
 
     <!-- ==================== FOOTER ==================== -->
-    <footer class="bg-[#004f98] text-white pt-14 sm:pt-16 pb-10 border-t border-blue-800">
+    <footer class="bg-[#1D4B6C] text-white pt-14 sm:pt-16 pb-10 border-t border-blue-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             
             <!-- Top Section: 5 Columns Grid -->
@@ -2856,7 +2856,7 @@
                     </a>
                     
                     <p class="text-xs text-blue-100/80 leading-relaxed max-w-sm">
-                        Vaidam Health is the world's most trusted medical travel assistance platform. We connect international patients to the best hospitals and doctors worldwide.
+                        Heal Go Fly is the world's most trusted medical travel assistance platform. We connect international patients to the best hospitals and doctors worldwide.
                     </p>
                 </div>
 
@@ -2901,19 +2901,19 @@
                     </h3>
                     <div class="space-y-3 text-xs text-blue-100/90">
                         <!-- WhatsApp -->
-                        <a href="https://wa.me/919971616131" target="_blank" class="flex items-center gap-2 hover:text-white transition-colors">
+                        <a href="https://wa.me/919129846542" target="_blank" class="flex items-center gap-2 hover:text-white transition-colors">
                             <span class="w-6 h-6 rounded-full bg-[#25D366] text-white flex items-center justify-center flex-shrink-0 shadow-xs">
                                 <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
                             </span>
-                            <span class="font-semibold">+91-9971616131</span>
+                            <span class="font-semibold">+91-9129846542</span>
                         </a>
                         
                         <!-- Email -->
-                        <a href="mailto:hello@vaidam.com" class="flex items-center gap-2 hover:text-white transition-colors">
+                        <a href="mailto:hello@healgofly.com" class="flex items-center gap-2 hover:text-white transition-colors">
                             <span class="w-6 h-6 rounded-full bg-blue-900/80 text-white flex items-center justify-center flex-shrink-0 border border-blue-400/40">
                                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
                             </span>
-                            <span>hello@vaidam.com</span>
+                            <span>hello@healgofly.com</span>
                         </a>
 
                         <!-- Social Media Icons -->
@@ -2948,7 +2948,7 @@
                             <strong class="text-white">India :</strong> 98, 2nd Floor Sector 44, Gurgaon, Haryana 122001
                         </p>
                         <p>
-                            <strong class="text-white">UAE :</strong> Vaidam Health FZC LLC, P.O.Box 85570, Sharjah, UAE
+                            <strong class="text-white">UAE :</strong> Heal Go Fly FZC LLC, P.O.Box 85570, Sharjah, UAE
                         </p>
                         <p>
                             <strong class="text-white">USA :</strong> 8 The Green, Suite B, Dover, Delaware, 19901
@@ -2973,11 +2973,11 @@
                 <!-- Quality Accreditation Certificate -->
                 <div class="w-16 h-20 bg-white rounded-sm p-1.5 flex flex-col justify-between text-gray-800 shadow-sm border border-gray-200 text-center">
                     <div class="border-b border-gray-200 pb-1">
-                        <span class="block text-[6px] font-black uppercase text-[#00539C] tracking-tight">Accreditation</span>
+                        <span class="block text-[6px] font-black uppercase text-[#27797D] tracking-tight">Accreditation</span>
                         <span class="block text-[5px] text-gray-500">Quality Certified</span>
                     </div>
                     <div class="my-auto flex items-center justify-center">
-                        <div class="w-7 h-7 rounded-full bg-blue-50 border border-blue-400 flex items-center justify-center text-[#00539C]">
+                        <div class="w-7 h-7 rounded-full bg-blue-50 border border-blue-400 flex items-center justify-center text-[#27797D]">
                             <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
                         </div>
                     </div>
@@ -2990,10 +2990,10 @@
             <!-- Bottom Disclaimer & Copyright -->
             <div class="pt-6 text-center space-y-3">
                 <p class="text-[10px] text-blue-200/80 leading-relaxed max-w-4xl mx-auto">
-                    Note: Vaidam Health does not provide medical advice, diagnosis or treatment. The services and information offered on www.vaidam.com are intended solely for informational purposes and cannot replace the professional consultation or treatment by a physician. Vaidam Health discourages copying, cloning of its webpages and its content and it will follow the legal procedures to protect its intellectual property.
+                    Note: Heal Go Fly does not provide medical advice, diagnosis or treatment. The services and information offered on www.healgofly.com are intended solely for informational purposes and cannot replace the professional consultation or treatment by a physician. Heal Go Fly discourages copying, cloning of its webpages and its content and it will follow the legal procedures to protect its intellectual property.
                 </p>
                 <p class="text-[11px] text-blue-200/90 font-medium">
-                    &copy; Copyrights 2026 Vaidam.com. All rights reserved.
+                    &copy; Copyrights 2026 Heal Go Fly. All rights reserved.
                 </p>
             </div>
 
@@ -3089,10 +3089,10 @@
             document.querySelectorAll('[data-lang]').forEach(btn => {
                 const check = btn.querySelector('.lang-check');
                 if (btn.getAttribute('data-lang') === lang) {
-                    btn.classList.add('bg-blue-50/80', 'font-bold', 'text-[#00539C]');
+                    btn.classList.add('bg-blue-50/80', 'font-bold', 'text-[#27797D]');
                     if (check) check.classList.remove('hidden');
                 } else {
-                    btn.classList.remove('bg-blue-50/80', 'font-bold', 'text-[#00539C]');
+                    btn.classList.remove('bg-blue-50/80', 'font-bold', 'text-[#27797D]');
                     if (check) check.classList.add('hidden');
                 }
             });

@@ -1,9 +1,9 @@
 <?php
 
 return [
-    'title' => 'Vaidam.com - Medical Treatment With Unmatched Personal Care',
+    'title' => 'Heal Go Fly - Medical Treatment With Unmatched Personal Care',
     'header' => [
-        'logo_tagline' => 'FOR MEDICAL PROCEDURES',
+        'logo_tagline' => 'Healgofly hi rahega',
         'ten' => '10',
         'years' => 'Years',
         'nabh_certified' => 'NABH Certified',
@@ -64,7 +64,7 @@ return [
         'terms_of_use' => 'Terms of Use',
         'and' => 'and',
         'privacy_policy' => 'Privacy Policy',
-        'company_name' => 'of Vaidam Health.',
+        'company_name' => 'of Heal Go Fly.',
         'success_alert' => 'Thank you! Our medical expert will contact you shortly.',
     ],
     'countries' => [

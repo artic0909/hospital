@@ -1,6 +1,6 @@
 @extends('frontend.layouts.app')
 
-@section('title', 'Vaidam.com - Medical Treatment With Unmatched Personal Care')
+@section('title', 'Heal Go Fly - Medical Treatment With Unmatched Personal Care')
 
 @section('content')
     <!-- ==================== HERO SECTION ==================== -->
@@ -196,7 +196,7 @@
                             <div class="pt-1">
                                 <button 
                                     type="submit" 
-                                    class="w-full bg-[#e13b3f] hover:bg-[#cf2a2e] active:scale-[0.99] text-white font-bold py-3 px-4 rounded-lg shadow-md hover:shadow-lg transition-all duration-150 flex items-center justify-center gap-2 text-base"
+                                    class="w-full bg-[#EF7415] hover:bg-[#d9640d] active:scale-[0.99] text-white font-bold py-3 px-4 rounded-lg shadow-md hover:shadow-lg transition-all duration-150 flex items-center justify-center gap-2 text-base"
                                 >
                                     <span>Continue</span>
                                     <span class="text-lg leading-none">&rarr;</span>
@@ -210,7 +210,7 @@
                                     <a href="#" class="underline hover:text-white transition-colors">Terms of Use</a> 
                                     and 
                                     <a href="#" class="underline hover:text-white transition-colors">Privacy Policy</a> 
-                                    of Vaidam Health.
+                                    of Heal Go Fly.
                                 </p>
                             </div>
 
@@ -243,7 +243,7 @@
             <div class="flex flex-wrap items-center justify-center gap-2.5 sm:gap-3.5 max-w-5xl mx-auto">
                 
                 <!-- India -->
-                <a href="#quote-form" class="inline-flex items-center gap-2.5 bg-white border border-gray-200/90 hover:border-[#00539C] hover:text-[#00539C] px-4 py-2 rounded-full text-xs sm:text-sm font-semibold text-gray-700 shadow-sm hover:shadow transition-all duration-150">
+                <a href="#quote-form" class="inline-flex items-center gap-2.5 bg-white border border-gray-200/90 hover:border-[#27797D] hover:text-[#27797D] px-4 py-2 rounded-full text-xs sm:text-sm font-semibold text-gray-700 shadow-sm hover:shadow transition-all duration-150">
                     <!-- Flag India -->
                     <span class="w-5 h-3.5 rounded-sm overflow-hidden flex-shrink-0 inline-block shadow-xs border border-gray-100">
                         <svg viewBox="0 0 900 600" class="w-full h-full object-cover">
@@ -259,7 +259,7 @@
                 </a>
 
                 <!-- Turkey -->
-                <a href="#quote-form" class="inline-flex items-center gap-2.5 bg-white border border-gray-200/90 hover:border-[#00539C] hover:text-[#00539C] px-4 py-2 rounded-full text-xs sm:text-sm font-semibold text-gray-700 shadow-sm hover:shadow transition-all duration-150">
+                <a href="#quote-form" class="inline-flex items-center gap-2.5 bg-white border border-gray-200/90 hover:border-[#27797D] hover:text-[#27797D] px-4 py-2 rounded-full text-xs sm:text-sm font-semibold text-gray-700 shadow-sm hover:shadow transition-all duration-150">
                     <span class="w-5 h-3.5 rounded-sm overflow-hidden flex-shrink-0 inline-block shadow-xs">
                         <svg viewBox="0 0 1200 800" class="w-full h-full object-cover">
                             <rect width="1200" height="800" fill="#E30A17"/>
@@ -272,7 +272,7 @@
                 </a>
 
                 <!-- Thailand -->
-                <a href="#quote-form" class="inline-flex items-center gap-2.5 bg-white border border-gray-200/90 hover:border-[#00539C] hover:text-[#00539C] px-4 py-2 rounded-full text-xs sm:text-sm font-semibold text-gray-700 shadow-sm hover:shadow transition-all duration-150">
+                <a href="#quote-form" class="inline-flex items-center gap-2.5 bg-white border border-gray-200/90 hover:border-[#27797D] hover:text-[#27797D] px-4 py-2 rounded-full text-xs sm:text-sm font-semibold text-gray-700 shadow-sm hover:shadow transition-all duration-150">
                     <span class="w-5 h-3.5 rounded-sm overflow-hidden flex-shrink-0 inline-block shadow-xs">
                         <svg viewBox="0 0 900 600" class="w-full h-full object-cover">
                             <rect width="900" height="600" fill="#A51931"/>
@@ -284,7 +284,7 @@
                 </a>
 
                 <!-- Germany -->
-                <a href="#quote-form" class="inline-flex items-center gap-2.5 bg-white border border-gray-200/90 hover:border-[#00539C] hover:text-[#00539C] px-4 py-2 rounded-full text-xs sm:text-sm font-semibold text-gray-700 shadow-sm hover:shadow transition-all duration-150">
+                <a href="#quote-form" class="inline-flex items-center gap-2.5 bg-white border border-gray-200/90 hover:border-[#27797D] hover:text-[#27797D] px-4 py-2 rounded-full text-xs sm:text-sm font-semibold text-gray-700 shadow-sm hover:shadow transition-all duration-150">
                     <span class="w-5 h-3.5 rounded-sm overflow-hidden flex-shrink-0 inline-block shadow-xs">
                         <svg viewBox="0 0 5 3" class="w-full h-full object-cover">
                             <rect width="5" height="1" y="0" fill="#000000"/>
@@ -296,7 +296,7 @@
                 </a>
 
                 <!-- United Arab Emirates -->
-                <a href="#quote-form" class="inline-flex items-center gap-2.5 bg-white border border-gray-200/90 hover:border-[#00539C] hover:text-[#00539C] px-4 py-2 rounded-full text-xs sm:text-sm font-semibold text-gray-700 shadow-sm hover:shadow transition-all duration-150">
+                <a href="#quote-form" class="inline-flex items-center gap-2.5 bg-white border border-gray-200/90 hover:border-[#27797D] hover:text-[#27797D] px-4 py-2 rounded-full text-xs sm:text-sm font-semibold text-gray-700 shadow-sm hover:shadow transition-all duration-150">
                     <span class="w-5 h-3.5 rounded-sm overflow-hidden flex-shrink-0 inline-block shadow-xs">
                         <svg viewBox="0 0 1200 600" class="w-full h-full object-cover">
                             <rect width="1200" height="200" fill="#00732F"/>
@@ -309,7 +309,7 @@
                 </a>
 
                 <!-- Egypt -->
-                <a href="#quote-form" class="inline-flex items-center gap-2.5 bg-white border border-gray-200/90 hover:border-[#00539C] hover:text-[#00539C] px-4 py-2 rounded-full text-xs sm:text-sm font-semibold text-gray-700 shadow-sm hover:shadow transition-all duration-150">
+                <a href="#quote-form" class="inline-flex items-center gap-2.5 bg-white border border-gray-200/90 hover:border-[#27797D] hover:text-[#27797D] px-4 py-2 rounded-full text-xs sm:text-sm font-semibold text-gray-700 shadow-sm hover:shadow transition-all duration-150">
                     <span class="w-5 h-3.5 rounded-sm overflow-hidden flex-shrink-0 inline-block shadow-xs">
                         <svg viewBox="0 0 900 600" class="w-full h-full object-cover">
                             <rect width="900" height="200" fill="#CE1126"/>
@@ -322,7 +322,7 @@
                 </a>
 
                 <!-- Oman -->
-                <a href="#quote-form" class="inline-flex items-center gap-2.5 bg-white border border-gray-200/90 hover:border-[#00539C] hover:text-[#00539C] px-4 py-2 rounded-full text-xs sm:text-sm font-semibold text-gray-700 shadow-sm hover:shadow transition-all duration-150">
+                <a href="#quote-form" class="inline-flex items-center gap-2.5 bg-white border border-gray-200/90 hover:border-[#27797D] hover:text-[#27797D] px-4 py-2 rounded-full text-xs sm:text-sm font-semibold text-gray-700 shadow-sm hover:shadow transition-all duration-150">
                     <span class="w-5 h-3.5 rounded-sm overflow-hidden flex-shrink-0 inline-block shadow-xs">
                         <svg viewBox="0 0 600 300" class="w-full h-full object-cover">
                             <rect width="600" height="100" fill="#FFFFFF"/>
@@ -335,7 +335,7 @@
                 </a>
 
                 <!-- Saudi Arabia -->
-                <a href="#quote-form" class="inline-flex items-center gap-2.5 bg-white border border-gray-200/90 hover:border-[#00539C] hover:text-[#00539C] px-4 py-2 rounded-full text-xs sm:text-sm font-semibold text-gray-700 shadow-sm hover:shadow transition-all duration-150">
+                <a href="#quote-form" class="inline-flex items-center gap-2.5 bg-white border border-gray-200/90 hover:border-[#27797D] hover:text-[#27797D] px-4 py-2 rounded-full text-xs sm:text-sm font-semibold text-gray-700 shadow-sm hover:shadow transition-all duration-150">
                     <span class="w-5 h-3.5 rounded-sm overflow-hidden flex-shrink-0 inline-block shadow-xs">
                         <svg viewBox="0 0 900 600" class="w-full h-full object-cover">
                             <rect width="900" height="600" fill="#006C35"/>
@@ -371,7 +371,7 @@
                                 <img src="{{ asset('icons/onco.svg') }}" alt="Oncology" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200">
                             </div>
                             <div class="min-w-0">
-                                <h3 class="text-base font-bold text-gray-900 group-hover:text-[#00539C] transition-colors leading-snug">
+                                <h3 class="text-base font-bold text-gray-900 group-hover:text-[#27797D] transition-colors leading-snug">
                                     Oncology
                                 </h3>
                                 <p class="text-xs text-gray-500 mt-1 leading-relaxed">
@@ -379,7 +379,7 @@
                                 </p>
                             </div>
                         </div>
-                        <div class="w-6 h-6 rounded-full bg-[#e13b3f] text-white flex items-center justify-center flex-shrink-0 shadow-xs group-hover:scale-110 group-hover:bg-[#cf2a2e] transition-all self-center ml-2">
+                        <div class="w-6 h-6 rounded-full bg-[#EF7415] text-white flex items-center justify-center flex-shrink-0 shadow-xs group-hover:scale-110 group-hover:bg-[#d9640d] transition-all self-center ml-2">
                             <svg class="w-3.5 h-3.5 text-white stroke-[2.5]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
                             </svg>
@@ -393,7 +393,7 @@
                                 <img src="{{ asset('icons/neuro.png') }}" alt="Neurosurgery" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200">
                             </div>
                             <div class="min-w-0">
-                                <h3 class="text-base font-bold text-gray-900 group-hover:text-[#00539C] transition-colors leading-snug">
+                                <h3 class="text-base font-bold text-gray-900 group-hover:text-[#27797D] transition-colors leading-snug">
                                     Neurosurgery
                                 </h3>
                                 <p class="text-xs text-gray-500 mt-1 leading-relaxed">
@@ -401,7 +401,7 @@
                                 </p>
                             </div>
                         </div>
-                        <div class="w-6 h-6 rounded-full bg-[#e13b3f] text-white flex items-center justify-center flex-shrink-0 shadow-xs group-hover:scale-110 group-hover:bg-[#cf2a2e] transition-all self-center ml-2">
+                        <div class="w-6 h-6 rounded-full bg-[#EF7415] text-white flex items-center justify-center flex-shrink-0 shadow-xs group-hover:scale-110 group-hover:bg-[#d9640d] transition-all self-center ml-2">
                             <svg class="w-3.5 h-3.5 text-white stroke-[2.5]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
                             </svg>
@@ -415,7 +415,7 @@
                                 <img src="{{ asset('icons/spine.svg') }}" alt="Spine Surgery" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200">
                             </div>
                             <div class="min-w-0">
-                                <h3 class="text-base font-bold text-gray-900 group-hover:text-[#00539C] transition-colors leading-snug">
+                                <h3 class="text-base font-bold text-gray-900 group-hover:text-[#27797D] transition-colors leading-snug">
                                     Spine Surgery
                                 </h3>
                                 <p class="text-xs text-gray-500 mt-1 leading-relaxed">
@@ -423,7 +423,7 @@
                                 </p>
                             </div>
                         </div>
-                        <div class="w-6 h-6 rounded-full bg-[#e13b3f] text-white flex items-center justify-center flex-shrink-0 shadow-xs group-hover:scale-110 group-hover:bg-[#cf2a2e] transition-all self-center ml-2">
+                        <div class="w-6 h-6 rounded-full bg-[#EF7415] text-white flex items-center justify-center flex-shrink-0 shadow-xs group-hover:scale-110 group-hover:bg-[#d9640d] transition-all self-center ml-2">
                             <svg class="w-3.5 h-3.5 text-white stroke-[2.5]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
                             </svg>
@@ -437,7 +437,7 @@
                                 <img src="{{ asset('icons/cardio.svg') }}" alt="Cardiology" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200">
                             </div>
                             <div class="min-w-0">
-                                <h3 class="text-base font-bold text-gray-900 group-hover:text-[#00539C] transition-colors leading-snug">
+                                <h3 class="text-base font-bold text-gray-900 group-hover:text-[#27797D] transition-colors leading-snug">
                                     Cardiology
                                 </h3>
                                 <p class="text-xs text-gray-500 mt-1 leading-relaxed">
@@ -445,7 +445,7 @@
                                 </p>
                             </div>
                         </div>
-                        <div class="w-6 h-6 rounded-full bg-[#e13b3f] text-white flex items-center justify-center flex-shrink-0 shadow-xs group-hover:scale-110 group-hover:bg-[#cf2a2e] transition-all self-center ml-2">
+                        <div class="w-6 h-6 rounded-full bg-[#EF7415] text-white flex items-center justify-center flex-shrink-0 shadow-xs group-hover:scale-110 group-hover:bg-[#d9640d] transition-all self-center ml-2">
                             <svg class="w-3.5 h-3.5 text-white stroke-[2.5]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
                             </svg>
@@ -459,7 +459,7 @@
                                 <img src="{{ asset('icons/ortho.svg') }}" alt="Orthopedics" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200">
                             </div>
                             <div class="min-w-0">
-                                <h3 class="text-base font-bold text-gray-900 group-hover:text-[#00539C] transition-colors leading-snug">
+                                <h3 class="text-base font-bold text-gray-900 group-hover:text-[#27797D] transition-colors leading-snug">
                                     Orthopedics
                                 </h3>
                                 <p class="text-xs text-gray-500 mt-1 leading-relaxed">
@@ -467,7 +467,7 @@
                                 </p>
                             </div>
                         </div>
-                        <div class="w-6 h-6 rounded-full bg-[#e13b3f] text-white flex items-center justify-center flex-shrink-0 shadow-xs group-hover:scale-110 group-hover:bg-[#cf2a2e] transition-all self-center ml-2">
+                        <div class="w-6 h-6 rounded-full bg-[#EF7415] text-white flex items-center justify-center flex-shrink-0 shadow-xs group-hover:scale-110 group-hover:bg-[#d9640d] transition-all self-center ml-2">
                             <svg class="w-3.5 h-3.5 text-white stroke-[2.5]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
                             </svg>
@@ -481,7 +481,7 @@
                                 <img src="{{ asset('icons/ivf.svg') }}" alt="IVF" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200">
                             </div>
                             <div class="min-w-0">
-                                <h3 class="text-base font-bold text-gray-900 group-hover:text-[#00539C] transition-colors leading-snug">
+                                <h3 class="text-base font-bold text-gray-900 group-hover:text-[#27797D] transition-colors leading-snug">
                                     IVF
                                 </h3>
                                 <p class="text-xs text-gray-500 mt-1 leading-relaxed">
@@ -489,7 +489,7 @@
                                 </p>
                             </div>
                         </div>
-                        <div class="w-6 h-6 rounded-full bg-[#e13b3f] text-white flex items-center justify-center flex-shrink-0 shadow-xs group-hover:scale-110 group-hover:bg-[#cf2a2e] transition-all self-center ml-2">
+                        <div class="w-6 h-6 rounded-full bg-[#EF7415] text-white flex items-center justify-center flex-shrink-0 shadow-xs group-hover:scale-110 group-hover:bg-[#d9640d] transition-all self-center ml-2">
                             <svg class="w-3.5 h-3.5 text-white stroke-[2.5]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
                             </svg>
@@ -503,7 +503,7 @@
                                 <img src="{{ asset('icons/heno.svg') }}" alt="Gynecology" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200">
                             </div>
                             <div class="min-w-0">
-                                <h3 class="text-base font-bold text-gray-900 group-hover:text-[#00539C] transition-colors leading-snug">
+                                <h3 class="text-base font-bold text-gray-900 group-hover:text-[#27797D] transition-colors leading-snug">
                                     Gynecology
                                 </h3>
                                 <p class="text-xs text-gray-500 mt-1 leading-relaxed">
@@ -511,7 +511,7 @@
                                 </p>
                             </div>
                         </div>
-                        <div class="w-6 h-6 rounded-full bg-[#e13b3f] text-white flex items-center justify-center flex-shrink-0 shadow-xs group-hover:scale-110 group-hover:bg-[#cf2a2e] transition-all self-center ml-2">
+                        <div class="w-6 h-6 rounded-full bg-[#EF7415] text-white flex items-center justify-center flex-shrink-0 shadow-xs group-hover:scale-110 group-hover:bg-[#d9640d] transition-all self-center ml-2">
                             <svg class="w-3.5 h-3.5 text-white stroke-[2.5]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
                             </svg>
@@ -525,7 +525,7 @@
                                 <img src="{{ asset('icons/cosmatic.svg') }}" alt="Cosmetic" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200">
                             </div>
                             <div class="min-w-0">
-                                <h3 class="text-base font-bold text-gray-900 group-hover:text-[#00539C] transition-colors leading-snug">
+                                <h3 class="text-base font-bold text-gray-900 group-hover:text-[#27797D] transition-colors leading-snug">
                                     Cosmetic
                                 </h3>
                                 <p class="text-xs text-gray-500 mt-1 leading-relaxed">
@@ -533,7 +533,7 @@
                                 </p>
                             </div>
                         </div>
-                        <div class="w-6 h-6 rounded-full bg-[#e13b3f] text-white flex items-center justify-center flex-shrink-0 shadow-xs group-hover:scale-110 group-hover:bg-[#cf2a2e] transition-all self-center ml-2">
+                        <div class="w-6 h-6 rounded-full bg-[#EF7415] text-white flex items-center justify-center flex-shrink-0 shadow-xs group-hover:scale-110 group-hover:bg-[#d9640d] transition-all self-center ml-2">
                             <svg class="w-3.5 h-3.5 text-white stroke-[2.5]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
                             </svg>
@@ -547,7 +547,7 @@
                                 <img src="{{ asset('icons/weightloss.svg') }}" alt="Weight Loss" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200">
                             </div>
                             <div class="min-w-0">
-                                <h3 class="text-base font-bold text-gray-900 group-hover:text-[#00539C] transition-colors leading-snug">
+                                <h3 class="text-base font-bold text-gray-900 group-hover:text-[#27797D] transition-colors leading-snug">
                                     Weight Loss
                                 </h3>
                                 <p class="text-xs text-gray-500 mt-1 leading-relaxed">
@@ -555,7 +555,7 @@
                                 </p>
                             </div>
                         </div>
-                        <div class="w-6 h-6 rounded-full bg-[#e13b3f] text-white flex items-center justify-center flex-shrink-0 shadow-xs group-hover:scale-110 group-hover:bg-[#cf2a2e] transition-all self-center ml-2">
+                        <div class="w-6 h-6 rounded-full bg-[#EF7415] text-white flex items-center justify-center flex-shrink-0 shadow-xs group-hover:scale-110 group-hover:bg-[#d9640d] transition-all self-center ml-2">
                             <svg class="w-3.5 h-3.5 text-white stroke-[2.5]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
                             </svg>
@@ -569,7 +569,7 @@
                                 <img src="{{ asset('icons/liver.svg') }}" alt="Liver Transplant" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200">
                             </div>
                             <div class="min-w-0">
-                                <h3 class="text-base font-bold text-gray-900 group-hover:text-[#00539C] transition-colors leading-snug">
+                                <h3 class="text-base font-bold text-gray-900 group-hover:text-[#27797D] transition-colors leading-snug">
                                     Liver Transplant
                                 </h3>
                                 <p class="text-xs text-gray-500 mt-1 leading-relaxed">
@@ -577,7 +577,7 @@
                                 </p>
                             </div>
                         </div>
-                        <div class="w-6 h-6 rounded-full bg-[#e13b3f] text-white flex items-center justify-center flex-shrink-0 shadow-xs group-hover:scale-110 group-hover:bg-[#cf2a2e] transition-all self-center ml-2">
+                        <div class="w-6 h-6 rounded-full bg-[#EF7415] text-white flex items-center justify-center flex-shrink-0 shadow-xs group-hover:scale-110 group-hover:bg-[#d9640d] transition-all self-center ml-2">
                             <svg class="w-3.5 h-3.5 text-white stroke-[2.5]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
                             </svg>
@@ -591,7 +591,7 @@
                                 <img src="{{ asset('icons/kidneytransplant.svg') }}" alt="Kidney Transplant" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200">
                             </div>
                             <div class="min-w-0">
-                                <h3 class="text-base font-bold text-gray-900 group-hover:text-[#00539C] transition-colors leading-snug">
+                                <h3 class="text-base font-bold text-gray-900 group-hover:text-[#27797D] transition-colors leading-snug">
                                     Kidney Transplant
                                 </h3>
                                 <p class="text-xs text-gray-500 mt-1 leading-relaxed">
@@ -599,7 +599,7 @@
                                 </p>
                             </div>
                         </div>
-                        <div class="w-6 h-6 rounded-full bg-[#e13b3f] text-white flex items-center justify-center flex-shrink-0 shadow-xs group-hover:scale-110 group-hover:bg-[#cf2a2e] transition-all self-center ml-2">
+                        <div class="w-6 h-6 rounded-full bg-[#EF7415] text-white flex items-center justify-center flex-shrink-0 shadow-xs group-hover:scale-110 group-hover:bg-[#d9640d] transition-all self-center ml-2">
                             <svg class="w-3.5 h-3.5 text-white stroke-[2.5]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
                             </svg>
@@ -613,7 +613,7 @@
                                 <img src="{{ asset('icons/bonemarrow.svg') }}" alt="Bone Marrow" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200">
                             </div>
                             <div class="min-w-0">
-                                <h3 class="text-base font-bold text-gray-900 group-hover:text-[#00539C] transition-colors leading-snug">
+                                <h3 class="text-base font-bold text-gray-900 group-hover:text-[#27797D] transition-colors leading-snug">
                                     Bone Marrow
                                 </h3>
                                 <p class="text-xs text-gray-500 mt-1 leading-relaxed">
@@ -621,7 +621,7 @@
                                 </p>
                             </div>
                         </div>
-                        <div class="w-6 h-6 rounded-full bg-[#e13b3f] text-white flex items-center justify-center flex-shrink-0 shadow-xs group-hover:scale-110 group-hover:bg-[#cf2a2e] transition-all self-center ml-2">
+                        <div class="w-6 h-6 rounded-full bg-[#EF7415] text-white flex items-center justify-center flex-shrink-0 shadow-xs group-hover:scale-110 group-hover:bg-[#d9640d] transition-all self-center ml-2">
                             <svg class="w-3.5 h-3.5 text-white stroke-[2.5]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
                             </svg>
@@ -634,13 +634,13 @@
                 <div class="flex flex-wrap items-center justify-center gap-3.5 sm:gap-4 mt-10 sm:mt-12">
                     <a 
                         href="#quote-form" 
-                        class="bg-[#e13b3f] hover:bg-[#cf2a2e] active:scale-[0.99] text-white text-sm sm:text-base font-bold px-7 py-3 rounded-lg shadow-md hover:shadow-lg transition-all duration-150 inline-flex items-center justify-center"
+                        class="bg-[#EF7415] hover:bg-[#d9640d] active:scale-[0.99] text-white text-sm sm:text-base font-bold px-7 py-3 rounded-lg shadow-md hover:shadow-lg transition-all duration-150 inline-flex items-center justify-center"
                     >
                         Need Assistance?
                     </a>
                     
                     <a 
-                        href="https://wa.me/919999999999" 
+                        href="https://wa.me/919129846542" 
                         target="_blank" 
                         class="bg-[#25D366] hover:bg-[#20ba5a] active:scale-[0.99] text-white text-sm sm:text-base font-bold px-7 py-3 rounded-lg shadow-md hover:shadow-lg transition-all duration-150 inline-flex items-center justify-center gap-2"
                     >
@@ -697,7 +697,7 @@
                                     >
                                 </div>
                                 <div class="py-2.5 px-2 text-center bg-white border-t border-gray-100">
-                                    <span class="block text-[11px] sm:text-xs font-bold text-gray-800 group-hover:text-[#00539C] transition-colors line-clamp-1">
+                                    <span class="block text-[11px] sm:text-xs font-bold text-gray-800 group-hover:text-[#27797D] transition-colors line-clamp-1">
                                         Medanta, Gurgaon
                                     </span>
                                 </div>
@@ -714,7 +714,7 @@
                                     >
                                 </div>
                                 <div class="py-2.5 px-2 text-center bg-white border-t border-gray-100">
-                                    <span class="block text-[11px] sm:text-xs font-bold text-gray-800 group-hover:text-[#00539C] transition-colors line-clamp-1">
+                                    <span class="block text-[11px] sm:text-xs font-bold text-gray-800 group-hover:text-[#27797D] transition-colors line-clamp-1">
                                         Kokilaben, Mumbai
                                     </span>
                                 </div>
@@ -731,7 +731,7 @@
                                     >
                                 </div>
                                 <div class="py-2.5 px-2 text-center bg-white border-t border-gray-100">
-                                    <span class="block text-[11px] sm:text-xs font-bold text-gray-800 group-hover:text-[#00539C] transition-colors line-clamp-1">
+                                    <span class="block text-[11px] sm:text-xs font-bold text-gray-800 group-hover:text-[#27797D] transition-colors line-clamp-1">
                                         Indraprastha Apollo, New Delhi
                                     </span>
                                 </div>
@@ -748,7 +748,7 @@
                                     >
                                 </div>
                                 <div class="py-2.5 px-2 text-center bg-white border-t border-gray-100">
-                                    <span class="block text-[11px] sm:text-xs font-bold text-gray-800 group-hover:text-[#00539C] transition-colors line-clamp-1">
+                                    <span class="block text-[11px] sm:text-xs font-bold text-gray-800 group-hover:text-[#27797D] transition-colors line-clamp-1">
                                         Apollo, Chennai
                                     </span>
                                 </div>
@@ -777,7 +777,7 @@
                                         <img src="https://images.unsplash.com/photo-1538108149393-fbbd81895907?auto=format&fit=crop&w=400&q=80" alt="Medical Park, Istanbul" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy">
                                     </div>
                                     <div class="py-2 px-1 text-center bg-white border-t border-gray-100">
-                                        <span class="block text-[10px] sm:text-xs font-bold text-gray-800 group-hover:text-[#00539C] transition-colors line-clamp-1">Medical Park, Istanbul</span>
+                                        <span class="block text-[10px] sm:text-xs font-bold text-gray-800 group-hover:text-[#27797D] transition-colors line-clamp-1">Medical Park, Istanbul</span>
                                     </div>
                                 </div>
                                 <!-- Memorial Hospitals, Istanbul -->
@@ -786,7 +786,7 @@
                                         <img src="https://images.unsplash.com/photo-1512678080530-7760d81faba6?auto=format&fit=crop&w=400&q=80" alt="Memorial Hospitals, Istanbul" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy">
                                     </div>
                                     <div class="py-2 px-1 text-center bg-white border-t border-gray-100">
-                                        <span class="block text-[10px] sm:text-xs font-bold text-gray-800 group-hover:text-[#00539C] transition-colors line-clamp-1">Memorial Hospitals, Istanbul</span>
+                                        <span class="block text-[10px] sm:text-xs font-bold text-gray-800 group-hover:text-[#27797D] transition-colors line-clamp-1">Memorial Hospitals, Istanbul</span>
                                     </div>
                                 </div>
                             </div>
@@ -805,7 +805,7 @@
                                         <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=400&q=80" alt="Burjeel, Abu Dhabi" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy">
                                     </div>
                                     <div class="py-2 px-1 text-center bg-white border-t border-gray-100">
-                                        <span class="block text-[10px] sm:text-xs font-bold text-gray-800 group-hover:text-[#00539C] transition-colors line-clamp-1">Burjeel, Abu Dhabi</span>
+                                        <span class="block text-[10px] sm:text-xs font-bold text-gray-800 group-hover:text-[#27797D] transition-colors line-clamp-1">Burjeel, Abu Dhabi</span>
                                     </div>
                                 </div>
                                 <!-- Saudi German, Dubai -->
@@ -814,7 +814,7 @@
                                         <img src="https://images.unsplash.com/photo-1586773860418-d37222d8fce3?auto=format&fit=crop&w=400&q=80" alt="Saudi German, Dubai" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy">
                                     </div>
                                     <div class="py-2 px-1 text-center bg-white border-t border-gray-100">
-                                        <span class="block text-[10px] sm:text-xs font-bold text-gray-800 group-hover:text-[#00539C] transition-colors line-clamp-1">Saudi German, Dubai</span>
+                                        <span class="block text-[10px] sm:text-xs font-bold text-gray-800 group-hover:text-[#27797D] transition-colors line-clamp-1">Saudi German, Dubai</span>
                                     </div>
                                 </div>
                             </div>
@@ -838,7 +838,7 @@
                                         <img src="https://images.unsplash.com/photo-1587351021759-3e566b6af7cc?auto=format&fit=crop&w=400&q=80" alt="Bumrungrad, Bangkok" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy">
                                     </div>
                                     <div class="py-2 px-1 text-center bg-white border-t border-gray-100">
-                                        <span class="block text-[10px] sm:text-xs font-bold text-gray-800 group-hover:text-[#00539C] transition-colors line-clamp-1">Bumrungrad, Bangkok</span>
+                                        <span class="block text-[10px] sm:text-xs font-bold text-gray-800 group-hover:text-[#27797D] transition-colors line-clamp-1">Bumrungrad, Bangkok</span>
                                     </div>
                                 </div>
                                 <!-- Bangkok Hospital -->
@@ -847,7 +847,7 @@
                                         <img src="https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=400&q=80" alt="Bangkok Hospital" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy">
                                     </div>
                                     <div class="py-2 px-1 text-center bg-white border-t border-gray-100">
-                                        <span class="block text-[10px] sm:text-xs font-bold text-gray-800 group-hover:text-[#00539C] transition-colors line-clamp-1">Bangkok Hospital</span>
+                                        <span class="block text-[10px] sm:text-xs font-bold text-gray-800 group-hover:text-[#27797D] transition-colors line-clamp-1">Bangkok Hospital</span>
                                     </div>
                                 </div>
                             </div>
@@ -866,7 +866,7 @@
                                         <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=400&q=80" alt="Charite, Berlin" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy">
                                     </div>
                                     <div class="py-2 px-1 text-center bg-white border-t border-gray-100">
-                                        <span class="block text-[10px] sm:text-xs font-bold text-gray-800 group-hover:text-[#00539C] transition-colors line-clamp-1">Charite, Berlin</span>
+                                        <span class="block text-[10px] sm:text-xs font-bold text-gray-800 group-hover:text-[#27797D] transition-colors line-clamp-1">Charite, Berlin</span>
                                     </div>
                                 </div>
                                 <!-- Heidelberg University -->
@@ -875,7 +875,7 @@
                                         <img src="https://images.unsplash.com/photo-1586773860418-d37222d8fce3?auto=format&fit=crop&w=400&q=80" alt="Heidelberg University" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy">
                                     </div>
                                     <div class="py-2 px-1 text-center bg-white border-t border-gray-100">
-                                        <span class="block text-[10px] sm:text-xs font-bold text-gray-800 group-hover:text-[#00539C] transition-colors line-clamp-1">Heidelberg University</span>
+                                        <span class="block text-[10px] sm:text-xs font-bold text-gray-800 group-hover:text-[#27797D] transition-colors line-clamp-1">Heidelberg University</span>
                                     </div>
                                 </div>
                             </div>
@@ -896,7 +896,7 @@
                                     <img src="https://images.unsplash.com/photo-1512678080530-7760d81faba6?auto=format&fit=crop&w=500&q=80" alt="Arab Contractors Medical Centre, Cairo" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy">
                                 </div>
                                 <div class="py-2.5 px-2 text-center bg-white border-t border-gray-100">
-                                    <span class="block text-xs font-bold text-gray-800 group-hover:text-[#00539C] transition-colors line-clamp-1">Arab Contractors Medical Centre, Cairo</span>
+                                    <span class="block text-xs font-bold text-gray-800 group-hover:text-[#27797D] transition-colors line-clamp-1">Arab Contractors Medical Centre, Cairo</span>
                                 </div>
                             </div>
                             <!-- As-Salam International Hospital, Cairo -->
@@ -905,7 +905,7 @@
                                     <img src="https://images.unsplash.com/photo-1538108149393-fbbd81895907?auto=format&fit=crop&w=500&q=80" alt="As-Salam International Hospital, Cairo" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy">
                                 </div>
                                 <div class="py-2.5 px-2 text-center bg-white border-t border-gray-100">
-                                    <span class="block text-xs font-bold text-gray-800 group-hover:text-[#00539C] transition-colors line-clamp-1">As-Salam International Hospital, Cairo</span>
+                                    <span class="block text-xs font-bold text-gray-800 group-hover:text-[#27797D] transition-colors line-clamp-1">As-Salam International Hospital, Cairo</span>
                                 </div>
                             </div>
                         </div>
@@ -938,7 +938,7 @@
                 </div>
 
                 <!-- ISO Seal -->
-                <div class="bg-[#00539C] text-white font-bold text-[9px] px-1.5 py-0.5 rounded shadow-xs" title="ISO 9001">
+                <div class="bg-[#27797D] text-white font-bold text-[9px] px-1.5 py-0.5 rounded shadow-xs" title="ISO 9001">
                     ISO
                 </div>
 
@@ -951,13 +951,13 @@
             <div class="flex flex-wrap items-center justify-center gap-3.5 sm:gap-4 mt-8 sm:mt-10">
                 <a 
                     href="#quote-form" 
-                    class="bg-[#e13b3f] hover:bg-[#cf2a2e] active:scale-[0.99] text-white text-sm sm:text-base font-bold px-7 py-3 rounded-lg shadow-md hover:shadow-lg transition-all duration-150 inline-flex items-center justify-center"
+                    class="bg-[#EF7415] hover:bg-[#d9640d] active:scale-[0.99] text-white text-sm sm:text-base font-bold px-7 py-3 rounded-lg shadow-md hover:shadow-lg transition-all duration-150 inline-flex items-center justify-center"
                 >
                     Contact Hospital
                 </a>
                 
                 <a 
-                    href="https://wa.me/919999999999" 
+                    href="https://wa.me/919129846542" 
                     target="_blank" 
                     class="bg-[#25D366] hover:bg-[#20ba5a] active:scale-[0.99] text-white text-sm sm:text-base font-bold px-7 py-3 rounded-lg shadow-md hover:shadow-lg transition-all duration-150 inline-flex items-center justify-center gap-2"
                 >
@@ -977,7 +977,7 @@
             
             <!-- Section Header -->
             <div class="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
-                <h2 class="text-2xl sm:text-3xl font-extrabold text-[#00539C] tracking-tight">
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-[#27797D] tracking-tight">
                     Lowest Quotes Assured
                 </h2>
                 <p class="text-xs sm:text-sm text-[#5a6a85] mt-2.5 max-w-2xl mx-auto leading-relaxed">
@@ -989,192 +989,192 @@
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
                 
                 <!-- 1. Knee Replacement -->
-                <div class="bg-[#f0f7fe] hover:bg-[#e5f1fc] rounded-2xl p-3.5 sm:p-4 border border-blue-100/60 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-3.5 group cursor-pointer">
+                <div class="bg-[#f0f9f9] hover:bg-[#edf6f9] rounded-2xl p-3.5 sm:p-4 border border-blue-100/60 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-3.5 group cursor-pointer">
                     <img src="{{ asset('icons/RHEUMATOLOGY-51.svg') }}" alt="Knee Replacement" class="w-12 h-12 flex-shrink-0 group-hover:scale-105 transition-transform object-contain">
                     <div>
-                        <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#00539C] transition-colors">
+                        <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#27797D] transition-colors">
                             Knee Replacement
                         </h3>
                         <p class="text-xs text-gray-500 mt-0.5">
                             Starting <span class="font-bold text-gray-900">$4,000</span>
                         </p>
-                        <a href="#quote-form" class="inline-block text-xs font-semibold text-[#e13b3f] hover:text-[#c92a2e] mt-1 group-hover:underline">
+                        <a href="#quote-form" class="inline-block text-xs font-semibold text-[#EF7415] hover:text-[#d9640d] mt-1 group-hover:underline">
                             Get Quote
                         </a>
                     </div>
                 </div>
 
                 <!-- 2. Hip Replacement -->
-                <div class="bg-[#f0f7fe] hover:bg-[#e5f1fc] rounded-2xl p-3.5 sm:p-4 border border-blue-100/60 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-3.5 group cursor-pointer">
+                <div class="bg-[#f0f9f9] hover:bg-[#edf6f9] rounded-2xl p-3.5 sm:p-4 border border-blue-100/60 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-3.5 group cursor-pointer">
                     <img src="{{ asset('icons/Hip-Replecement.svg') }}" alt="Hip Replacement" class="w-12 h-12 flex-shrink-0 group-hover:scale-105 transition-transform object-contain">
                     <div>
-                        <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#00539C] transition-colors">
+                        <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#27797D] transition-colors">
                             Hip Replacement
                         </h3>
                         <p class="text-xs text-gray-500 mt-0.5">
                             Starting <span class="font-bold text-gray-900">$5,500</span>
                         </p>
-                        <a href="#quote-form" class="inline-block text-xs font-semibold text-[#e13b3f] hover:text-[#c92a2e] mt-1 group-hover:underline">
+                        <a href="#quote-form" class="inline-block text-xs font-semibold text-[#EF7415] hover:text-[#d9640d] mt-1 group-hover:underline">
                             Get Quote
                         </a>
                     </div>
                 </div>
 
                 <!-- 3. Brain Tumor -->
-                <div class="bg-[#f0f7fe] hover:bg-[#e5f1fc] rounded-2xl p-3.5 sm:p-4 border border-blue-100/60 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-3.5 group cursor-pointer">
+                <div class="bg-[#f0f9f9] hover:bg-[#edf6f9] rounded-2xl p-3.5 sm:p-4 border border-blue-100/60 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-3.5 group cursor-pointer">
                     <img src="{{ asset('icons/Brain-Tumor.svg') }}" alt="Brain Tumor" class="w-12 h-12 flex-shrink-0 group-hover:scale-105 transition-transform object-contain">
                     <div>
-                        <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#00539C] transition-colors">
+                        <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#27797D] transition-colors">
                             Brain Tumor
                         </h3>
                         <p class="text-xs text-gray-500 mt-0.5">
                             Starting <span class="font-bold text-gray-900">$5,000</span>
                         </p>
-                        <a href="#quote-form" class="inline-block text-xs font-semibold text-[#e13b3f] hover:text-[#c92a2e] mt-1 group-hover:underline">
+                        <a href="#quote-form" class="inline-block text-xs font-semibold text-[#EF7415] hover:text-[#d9640d] mt-1 group-hover:underline">
                             Get Quote
                         </a>
                     </div>
                 </div>
 
                 <!-- 4. Heart Bypass Surgery -->
-                <div class="bg-[#f0f7fe] hover:bg-[#e5f1fc] rounded-2xl p-3.5 sm:p-4 border border-blue-100/60 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-3.5 group cursor-pointer">
+                <div class="bg-[#f0f9f9] hover:bg-[#edf6f9] rounded-2xl p-3.5 sm:p-4 border border-blue-100/60 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-3.5 group cursor-pointer">
                     <img src="{{ asset('icons/Heart-Bypass-Surgery.svg') }}" alt="Heart Bypass Surgery" class="w-12 h-12 flex-shrink-0 group-hover:scale-105 transition-transform object-contain">
                     <div>
-                        <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#00539C] transition-colors">
+                        <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#27797D] transition-colors">
                             Heart Bypass Surgery
                         </h3>
                         <p class="text-xs text-gray-500 mt-0.5">
                             Starting <span class="font-bold text-gray-900">$4,500</span>
                         </p>
-                        <a href="#quote-form" class="inline-block text-xs font-semibold text-[#e13b3f] hover:text-[#c92a2e] mt-1 group-hover:underline">
+                        <a href="#quote-form" class="inline-block text-xs font-semibold text-[#EF7415] hover:text-[#d9640d] mt-1 group-hover:underline">
                             Get Quote
                         </a>
                     </div>
                 </div>
 
                 <!-- 5. Valve Replacement -->
-                <div class="bg-[#f0f7fe] hover:bg-[#e5f1fc] rounded-2xl p-3.5 sm:p-4 border border-blue-100/60 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-3.5 group cursor-pointer">
+                <div class="bg-[#f0f9f9] hover:bg-[#edf6f9] rounded-2xl p-3.5 sm:p-4 border border-blue-100/60 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-3.5 group cursor-pointer">
                     <img src="{{ asset('icons/Valve-Replacement.svg') }}" alt="Valve Replacement" class="w-12 h-12 flex-shrink-0 group-hover:scale-105 transition-transform object-contain">
                     <div>
-                        <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#00539C] transition-colors">
+                        <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#27797D] transition-colors">
                             Valve Replacement
                         </h3>
                         <p class="text-xs text-gray-500 mt-0.5">
                             Starting <span class="font-bold text-gray-900">$9,500</span>
                         </p>
-                        <a href="#quote-form" class="inline-block text-xs font-semibold text-[#e13b3f] hover:text-[#c92a2e] mt-1 group-hover:underline">
+                        <a href="#quote-form" class="inline-block text-xs font-semibold text-[#EF7415] hover:text-[#d9640d] mt-1 group-hover:underline">
                             Get Quote
                         </a>
                     </div>
                 </div>
 
                 <!-- 6. Breast Cancer -->
-                <div class="bg-[#f0f7fe] hover:bg-[#e5f1fc] rounded-2xl p-3.5 sm:p-4 border border-blue-100/60 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-3.5 group cursor-pointer">
+                <div class="bg-[#f0f9f9] hover:bg-[#edf6f9] rounded-2xl p-3.5 sm:p-4 border border-blue-100/60 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-3.5 group cursor-pointer">
                     <img src="{{ asset('icons/Breast-Cancer.svg') }}" alt="Breast Cancer" class="w-12 h-12 flex-shrink-0 group-hover:scale-105 transition-transform object-contain">
                     <div>
-                        <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#00539C] transition-colors">
+                        <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#27797D] transition-colors">
                             Breast Cancer
                         </h3>
                         <p class="text-xs text-gray-500 mt-0.5">
                             Starting <span class="font-bold text-gray-900">$5,000</span>
                         </p>
-                        <a href="#quote-form" class="inline-block text-xs font-semibold text-[#e13b3f] hover:text-[#c92a2e] mt-1 group-hover:underline">
+                        <a href="#quote-form" class="inline-block text-xs font-semibold text-[#EF7415] hover:text-[#d9640d] mt-1 group-hover:underline">
                             Get Quote
                         </a>
                     </div>
                 </div>
 
                 <!-- 7. Lung Cancer -->
-                <div class="bg-[#f0f7fe] hover:bg-[#e5f1fc] rounded-2xl p-3.5 sm:p-4 border border-blue-100/60 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-3.5 group cursor-pointer">
+                <div class="bg-[#f0f9f9] hover:bg-[#edf6f9] rounded-2xl p-3.5 sm:p-4 border border-blue-100/60 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-3.5 group cursor-pointer">
                     <img src="{{ asset('icons/Lung-Cancer.svg') }}" alt="Lung Cancer" class="w-12 h-12 flex-shrink-0 group-hover:scale-105 transition-transform object-contain">
                     <div>
-                        <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#00539C] transition-colors">
+                        <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#27797D] transition-colors">
                             Lung Cancer
                         </h3>
                         <p class="text-xs text-gray-500 mt-0.5">
                             Starting <span class="font-bold text-gray-900">$5,500</span>
                         </p>
-                        <a href="#quote-form" class="inline-block text-xs font-semibold text-[#e13b3f] hover:text-[#c92a2e] mt-1 group-hover:underline">
+                        <a href="#quote-form" class="inline-block text-xs font-semibold text-[#EF7415] hover:text-[#d9640d] mt-1 group-hover:underline">
                             Get Quote
                         </a>
                     </div>
                 </div>
 
                 <!-- 8. Rhinoplasty -->
-                <div class="bg-[#f0f7fe] hover:bg-[#e5f1fc] rounded-2xl p-3.5 sm:p-4 border border-blue-100/60 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-3.5 group cursor-pointer">
+                <div class="bg-[#f0f9f9] hover:bg-[#edf6f9] rounded-2xl p-3.5 sm:p-4 border border-blue-100/60 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-3.5 group cursor-pointer">
                     <img src="{{ asset('icons/Rhinoplasty.svg') }}" alt="Rhinoplasty" class="w-12 h-12 flex-shrink-0 group-hover:scale-105 transition-transform object-contain">
                     <div>
-                        <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#00539C] transition-colors">
+                        <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#27797D] transition-colors">
                             Rhinoplasty
                         </h3>
                         <p class="text-xs text-gray-500 mt-0.5">
                             Starting <span class="font-bold text-gray-900">$1,800</span>
                         </p>
-                        <a href="#quote-form" class="inline-block text-xs font-semibold text-[#e13b3f] hover:text-[#c92a2e] mt-1 group-hover:underline">
+                        <a href="#quote-form" class="inline-block text-xs font-semibold text-[#EF7415] hover:text-[#d9640d] mt-1 group-hover:underline">
                             Get Quote
                         </a>
                     </div>
                 </div>
 
                 <!-- 9. Breast Implants -->
-                <div class="bg-[#f0f7fe] hover:bg-[#e5f1fc] rounded-2xl p-3.5 sm:p-4 border border-blue-100/60 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-3.5 group cursor-pointer">
+                <div class="bg-[#f0f9f9] hover:bg-[#edf6f9] rounded-2xl p-3.5 sm:p-4 border border-blue-100/60 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-3.5 group cursor-pointer">
                     <img src="{{ asset('icons/Breast-Cancer (1).svg') }}" alt="Breast Implants" class="w-12 h-12 flex-shrink-0 group-hover:scale-105 transition-transform object-contain">
                     <div>
-                        <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#00539C] transition-colors">
+                        <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#27797D] transition-colors">
                             Breast Implants
                         </h3>
                         <p class="text-xs text-gray-500 mt-0.5">
                             Starting <span class="font-bold text-gray-900">$2,750</span>
                         </p>
-                        <a href="#quote-form" class="inline-block text-xs font-semibold text-[#e13b3f] hover:text-[#c92a2e] mt-1 group-hover:underline">
+                        <a href="#quote-form" class="inline-block text-xs font-semibold text-[#EF7415] hover:text-[#d9640d] mt-1 group-hover:underline">
                             Get Quote
                         </a>
                     </div>
                 </div>
 
                 <!-- 10. Hair Transplant -->
-                <div class="bg-[#f0f7fe] hover:bg-[#e5f1fc] rounded-2xl p-3.5 sm:p-4 border border-blue-100/60 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-3.5 group cursor-pointer">
+                <div class="bg-[#f0f9f9] hover:bg-[#edf6f9] rounded-2xl p-3.5 sm:p-4 border border-blue-100/60 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-3.5 group cursor-pointer">
                     <img src="{{ asset('icons/Hair-Transpalnt.svg') }}" alt="Hair Transplant" class="w-12 h-12 flex-shrink-0 group-hover:scale-105 transition-transform object-contain">
                     <div>
-                        <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#00539C] transition-colors">
+                        <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#27797D] transition-colors">
                             Hair Transplant
                         </h3>
                         <p class="text-xs text-gray-500 mt-0.5">
                             Starting <span class="font-bold text-gray-900">$1,400</span>
                         </p>
-                        <a href="#quote-form" class="inline-block text-xs font-semibold text-[#e13b3f] hover:text-[#c92a2e] mt-1 group-hover:underline">
+                        <a href="#quote-form" class="inline-block text-xs font-semibold text-[#EF7415] hover:text-[#d9640d] mt-1 group-hover:underline">
                             Get Quote
                         </a>
                     </div>
                 </div>
 
                 <!-- 11. Cervical Cancer -->
-                <div class="bg-[#f0f7fe] hover:bg-[#e5f1fc] rounded-2xl p-3.5 sm:p-4 border border-blue-100/60 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-3.5 group cursor-pointer">
+                <div class="bg-[#f0f9f9] hover:bg-[#edf6f9] rounded-2xl p-3.5 sm:p-4 border border-blue-100/60 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-3.5 group cursor-pointer">
                     <img src="{{ asset('icons/Cervical-Cancer.svg') }}" alt="Cervical Cancer" class="w-12 h-12 flex-shrink-0 group-hover:scale-105 transition-transform object-contain">
                     <div>
-                        <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#00539C] transition-colors">
+                        <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#27797D] transition-colors">
                             Cervical Cancer
                         </h3>
                         <p class="text-xs text-gray-500 mt-0.5">
                             Starting <span class="font-bold text-gray-900">$4,500</span>
                         </p>
-                        <a href="#quote-form" class="inline-block text-xs font-semibold text-[#e13b3f] hover:text-[#c92a2e] mt-1 group-hover:underline">
+                        <a href="#quote-form" class="inline-block text-xs font-semibold text-[#EF7415] hover:text-[#d9640d] mt-1 group-hover:underline">
                             Get Quote
                         </a>
                     </div>
                 </div>
 
                 <!-- 12. Hysterectomy -->
-                <div class="bg-[#f0f7fe] hover:bg-[#e5f1fc] rounded-2xl p-3.5 sm:p-4 border border-blue-100/60 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-3.5 group cursor-pointer">
+                <div class="bg-[#f0f9f9] hover:bg-[#edf6f9] rounded-2xl p-3.5 sm:p-4 border border-blue-100/60 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-3.5 group cursor-pointer">
                     <img src="{{ asset('icons/Hysterectomy.svg') }}" alt="Hysterectomy" class="w-12 h-12 flex-shrink-0 group-hover:scale-105 transition-transform object-contain">
                     <div>
-                        <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#00539C] transition-colors">
+                        <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#27797D] transition-colors">
                             Hysterectomy
                         </h3>
                         <p class="text-xs text-gray-500 mt-0.5">
                             Starting <span class="font-bold text-gray-900">$3,000</span>
                         </p>
-                        <a href="#quote-form" class="inline-block text-xs font-semibold text-[#e13b3f] hover:text-[#c92a2e] mt-1 group-hover:underline">
+                        <a href="#quote-form" class="inline-block text-xs font-semibold text-[#EF7415] hover:text-[#d9640d] mt-1 group-hover:underline">
                             Get Quote
                         </a>
                     </div>
@@ -1190,13 +1190,13 @@
                 <div class="flex flex-wrap items-center justify-center gap-3.5 sm:gap-4">
                     <a 
                         href="#quote-form" 
-                        class="bg-[#e13b3f] hover:bg-[#cf2a2e] active:scale-[0.99] text-white text-sm sm:text-base font-bold px-7 py-3 rounded-lg shadow-md hover:shadow-lg transition-all duration-150 inline-flex items-center justify-center"
+                        class="bg-[#EF7415] hover:bg-[#d9640d] active:scale-[0.99] text-white text-sm sm:text-base font-bold px-7 py-3 rounded-lg shadow-md hover:shadow-lg transition-all duration-150 inline-flex items-center justify-center"
                     >
                         Get Quote
                     </a>
                     
                     <a 
-                        href="https://wa.me/919999999999" 
+                        href="https://wa.me/919129846542" 
                         target="_blank" 
                         class="bg-[#25D366] hover:bg-[#20ba5a] active:scale-[0.99] text-white text-sm sm:text-base font-bold px-7 py-3 rounded-lg shadow-md hover:shadow-lg transition-all duration-150 inline-flex items-center justify-center gap-2"
                     >
@@ -1234,7 +1234,7 @@
                         <!-- Step 1: Contact Us -->
                         <div class="flex flex-col items-center text-center group">
                             <!-- Circular Icon -->
-                            <div class="w-14 h-14 rounded-full bg-[#f0f7fe] border border-blue-100/80 flex items-center justify-center text-[#00539C] group-hover:bg-[#00539C] group-hover:text-white transition-all duration-200 shadow-xs">
+                            <div class="w-14 h-14 rounded-full bg-[#f0f9f9] border border-blue-100/80 flex items-center justify-center text-[#27797D] group-hover:bg-[#27797D] group-hover:text-white transition-all duration-200 shadow-xs">
                                 <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                                     <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
                                     <path d="M14 2a6 6 0 0 1 6 6"/>
@@ -1250,7 +1250,7 @@
                         <!-- Step 2: Medical Opinion & Estimate -->
                         <div class="flex flex-col items-center text-center group">
                             <!-- Circular Icon -->
-                            <div class="w-14 h-14 rounded-full bg-[#f0f7fe] border border-blue-100/80 flex items-center justify-center text-[#00539C] group-hover:bg-[#00539C] group-hover:text-white transition-all duration-200 shadow-xs">
+                            <div class="w-14 h-14 rounded-full bg-[#f0f9f9] border border-blue-100/80 flex items-center justify-center text-[#27797D] group-hover:bg-[#27797D] group-hover:text-white transition-all duration-200 shadow-xs">
                                 <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                                     <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
                                     <polyline points="14 2 14 8 20 8"/>
@@ -1269,13 +1269,13 @@
                         <!-- Step 3: Book Flights & Airport Reception -->
                         <div class="flex flex-col items-center text-center group">
                             <!-- Circular Icon -->
-                            <div class="w-14 h-14 rounded-full bg-[#f0f7fe] border border-blue-100/80 flex items-center justify-center text-[#00539C] group-hover:bg-[#00539C] group-hover:text-white transition-all duration-200 shadow-xs">
+                            <div class="w-14 h-14 rounded-full bg-[#f0f9f9] border border-blue-100/80 flex items-center justify-center text-[#27797D] group-hover:bg-[#27797D] group-hover:text-white transition-all duration-200 shadow-xs">
                                 <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                                     <rect x="3" y="4" width="18" height="16" rx="2"/>
                                     <path d="M3 10h18"/>
                                     <path d="m9 15 3-3 3 3"/>
                                     <path d="M12 12v6"/>
-                                    <circle cx="18" cy="16" r="2.5" fill="#00539C" class="fill-[#00539C] stroke-white"/>
+                                    <circle cx="18" cy="16" r="2.5" fill="#27797D" class="fill-[#27797D] stroke-white"/>
                                     <path d="m17 16 1 1 1.5-1.5" stroke="white" stroke-width="1.2"/>
                                 </svg>
                             </div>
@@ -1288,7 +1288,7 @@
                         <!-- Step 4: Treatment & Follow Ups -->
                         <div class="flex flex-col items-center text-center group">
                             <!-- Circular Icon -->
-                            <div class="w-14 h-14 rounded-full bg-[#f0f7fe] border border-blue-100/80 flex items-center justify-center text-[#00539C] group-hover:bg-[#00539C] group-hover:text-white transition-all duration-200 shadow-xs">
+                            <div class="w-14 h-14 rounded-full bg-[#f0f9f9] border border-blue-100/80 flex items-center justify-center text-[#27797D] group-hover:bg-[#27797D] group-hover:text-white transition-all duration-200 shadow-xs">
                                 <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                                     <path d="M9 11l3 3L22 4"/>
                                     <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
@@ -1307,7 +1307,7 @@
                     <div class="mt-9 sm:mt-11 text-center">
                         <a 
                             href="#quote-form" 
-                            class="bg-[#e13b3f] hover:bg-[#cf2a2e] active:scale-[0.99] text-white text-sm sm:text-base font-bold px-8 py-3 rounded-lg shadow-md hover:shadow-lg transition-all duration-150 inline-flex items-center justify-center"
+                            class="bg-[#EF7415] hover:bg-[#d9640d] active:scale-[0.99] text-white text-sm sm:text-base font-bold px-8 py-3 rounded-lg shadow-md hover:shadow-lg transition-all duration-150 inline-flex items-center justify-center"
                         >
                             Get Started
                         </a>
@@ -1321,7 +1321,7 @@
                         <iframe 
                             class="w-full h-full object-cover" 
                             src="https://www.youtube.com/embed/XZtyGhf5LJ8" 
-                            title="Medical Treatment Abroad - Vaidam Health" 
+                            title="Medical Treatment Abroad - Heal Go Fly" 
                             frameborder="0" 
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
                             allowfullscreen 
@@ -1353,19 +1353,19 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
                 
                 <!-- 1. Medical Opinion -->
-                <div class="bg-[#f0f7fe] hover:bg-[#e5f1fc] rounded-2xl p-4 sm:p-5 border border-blue-100/60 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-4 group cursor-pointer">
-                    <div class="w-12 h-12 rounded-full bg-white shadow-xs border border-blue-100/80 flex items-center justify-center flex-shrink-0 text-[#00539C] group-hover:scale-105 transition-transform">
+                <div class="bg-[#f0f9f9] hover:bg-[#edf6f9] rounded-2xl p-4 sm:p-5 border border-blue-100/60 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-4 group cursor-pointer">
+                    <div class="w-12 h-12 rounded-full bg-white shadow-xs border border-blue-100/80 flex items-center justify-center flex-shrink-0 text-[#27797D] group-hover:scale-105 transition-transform">
                         <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
                             <polyline points="14 2 14 8 20 8"/>
                             <line x1="16" y1="13" x2="8" y2="13"/>
                             <line x1="16" y1="17" x2="8" y2="17"/>
                             <polyline points="10 9 9 9 8 9"/>
-                            <path d="M10 13l2 2 4-4" stroke="#e13b3f" stroke-width="2"/>
+                            <path d="M10 13l2 2 4-4" stroke="#EF7415" stroke-width="2"/>
                         </svg>
                     </div>
                     <div>
-                        <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#00539C] transition-colors">
+                        <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#27797D] transition-colors">
                             Medical Opinion
                         </h3>
                         <p class="text-xs text-gray-500 mt-1 leading-relaxed">
@@ -1375,8 +1375,8 @@
                 </div>
 
                 <!-- 2. Pre-Travel Consultations -->
-                <div class="bg-[#f0f7fe] hover:bg-[#e5f1fc] rounded-2xl p-4 sm:p-5 border border-blue-100/60 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-4 group cursor-pointer">
-                    <div class="w-12 h-12 rounded-full bg-white shadow-xs border border-blue-100/80 flex items-center justify-center flex-shrink-0 text-[#00539C] group-hover:scale-105 transition-transform">
+                <div class="bg-[#f0f9f9] hover:bg-[#edf6f9] rounded-2xl p-4 sm:p-5 border border-blue-100/60 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-4 group cursor-pointer">
+                    <div class="w-12 h-12 rounded-full bg-white shadow-xs border border-blue-100/80 flex items-center justify-center flex-shrink-0 text-[#27797D] group-hover:scale-105 transition-transform">
                         <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
                             <circle cx="9" cy="7" r="4"/>
@@ -1384,7 +1384,7 @@
                         </svg>
                     </div>
                     <div>
-                        <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#00539C] transition-colors">
+                        <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#27797D] transition-colors">
                             Pre-Travel Consultations
                         </h3>
                         <p class="text-xs text-gray-500 mt-1 leading-relaxed">
@@ -1394,17 +1394,17 @@
                 </div>
 
                 <!-- 3. Visa Assistance -->
-                <div class="bg-[#f0f7fe] hover:bg-[#e5f1fc] rounded-2xl p-4 sm:p-5 border border-blue-100/60 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-4 group cursor-pointer">
-                    <div class="w-12 h-12 rounded-full bg-white shadow-xs border border-blue-100/80 flex items-center justify-center flex-shrink-0 text-[#00539C] group-hover:scale-105 transition-transform">
+                <div class="bg-[#f0f9f9] hover:bg-[#edf6f9] rounded-2xl p-4 sm:p-5 border border-blue-100/60 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-4 group cursor-pointer">
+                    <div class="w-12 h-12 rounded-full bg-white shadow-xs border border-blue-100/80 flex items-center justify-center flex-shrink-0 text-[#27797D] group-hover:scale-105 transition-transform">
                         <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                             <rect x="5" y="3" width="14" height="18" rx="2"/>
                             <line x1="9" y1="7" x2="15" y2="7"/>
                             <circle cx="12" cy="13" r="3"/>
-                            <path d="M12 11v4M10 13h4" stroke="#e13b3f" stroke-width="1.5"/>
+                            <path d="M12 11v4M10 13h4" stroke="#EF7415" stroke-width="1.5"/>
                         </svg>
                     </div>
                     <div>
-                        <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#00539C] transition-colors">
+                        <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#27797D] transition-colors">
                             Visa Assistance
                         </h3>
                         <p class="text-xs text-gray-500 mt-1 leading-relaxed">
@@ -1414,8 +1414,8 @@
                 </div>
 
                 <!-- 4. Money Exchange -->
-                <div class="bg-[#f0f7fe] hover:bg-[#e5f1fc] rounded-2xl p-4 sm:p-5 border border-blue-100/60 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-4 group cursor-pointer">
-                    <div class="w-12 h-12 rounded-full bg-white shadow-xs border border-blue-100/80 flex items-center justify-center flex-shrink-0 text-[#00539C] group-hover:scale-105 transition-transform">
+                <div class="bg-[#f0f9f9] hover:bg-[#edf6f9] rounded-2xl p-4 sm:p-5 border border-blue-100/60 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-4 group cursor-pointer">
+                    <div class="w-12 h-12 rounded-full bg-white shadow-xs border border-blue-100/80 flex items-center justify-center flex-shrink-0 text-[#27797D] group-hover:scale-105 transition-transform">
                         <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                             <circle cx="8" cy="8" r="5"/>
                             <path d="M8 6v4M7 7h2"/>
@@ -1426,7 +1426,7 @@
                         </svg>
                     </div>
                     <div>
-                        <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#00539C] transition-colors">
+                        <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#27797D] transition-colors">
                             Money Exchange
                         </h3>
                         <p class="text-xs text-gray-500 mt-1 leading-relaxed">
@@ -1436,8 +1436,8 @@
                 </div>
 
                 <!-- 5. Interpreters -->
-                <div class="bg-[#f0f7fe] hover:bg-[#e5f1fc] rounded-2xl p-4 sm:p-5 border border-blue-100/60 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-4 group cursor-pointer">
-                    <div class="w-12 h-12 rounded-full bg-white shadow-xs border border-blue-100/80 flex items-center justify-center flex-shrink-0 text-[#00539C] group-hover:scale-105 transition-transform">
+                <div class="bg-[#f0f9f9] hover:bg-[#edf6f9] rounded-2xl p-4 sm:p-5 border border-blue-100/60 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-4 group cursor-pointer">
+                    <div class="w-12 h-12 rounded-full bg-white shadow-xs border border-blue-100/80 flex items-center justify-center flex-shrink-0 text-[#27797D] group-hover:scale-105 transition-transform">
                         <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                             <path d="m5 8 6 6"/>
                             <path d="m4 14 6-6 2-3"/>
@@ -1448,7 +1448,7 @@
                         </svg>
                     </div>
                     <div>
-                        <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#00539C] transition-colors">
+                        <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#27797D] transition-colors">
                             Interpreters
                         </h3>
                         <p class="text-xs text-gray-500 mt-1 leading-relaxed">
@@ -1458,18 +1458,18 @@
                 </div>
 
                 <!-- 6. Transportation -->
-                <div class="bg-[#f0f7fe] hover:bg-[#e5f1fc] rounded-2xl p-4 sm:p-5 border border-blue-100/60 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-4 group cursor-pointer">
-                    <div class="w-12 h-12 rounded-full bg-white shadow-xs border border-blue-100/80 flex items-center justify-center flex-shrink-0 text-[#00539C] group-hover:scale-105 transition-transform">
+                <div class="bg-[#f0f9f9] hover:bg-[#edf6f9] rounded-2xl p-4 sm:p-5 border border-blue-100/60 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-4 group cursor-pointer">
+                    <div class="w-12 h-12 rounded-full bg-white shadow-xs border border-blue-100/80 flex items-center justify-center flex-shrink-0 text-[#27797D] group-hover:scale-105 transition-transform">
                         <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                             <rect x="1" y="3" width="15" height="13" rx="2"/>
                             <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/>
                             <circle cx="5.5" cy="18.5" r="2.5"/>
                             <circle cx="18.5" cy="18.5" r="2.5"/>
-                            <path d="M7 8h4M9 6v4" stroke="#e13b3f" stroke-width="1.5"/>
+                            <path d="M7 8h4M9 6v4" stroke="#EF7415" stroke-width="1.5"/>
                         </svg>
                     </div>
                     <div>
-                        <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#00539C] transition-colors">
+                        <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#27797D] transition-colors">
                             Transportation
                         </h3>
                         <p class="text-xs text-gray-500 mt-1 leading-relaxed">
@@ -1479,8 +1479,8 @@
                 </div>
 
                 <!-- 7. Accommodation Options -->
-                <div class="bg-[#f0f7fe] hover:bg-[#e5f1fc] rounded-2xl p-4 sm:p-5 border border-blue-100/60 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-4 group cursor-pointer">
-                    <div class="w-12 h-12 rounded-full bg-white shadow-xs border border-blue-100/80 flex items-center justify-center flex-shrink-0 text-[#00539C] group-hover:scale-105 transition-transform">
+                <div class="bg-[#f0f9f9] hover:bg-[#edf6f9] rounded-2xl p-4 sm:p-5 border border-blue-100/60 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-4 group cursor-pointer">
+                    <div class="w-12 h-12 rounded-full bg-white shadow-xs border border-blue-100/80 flex items-center justify-center flex-shrink-0 text-[#27797D] group-hover:scale-105 transition-transform">
                         <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M3 21h18"/>
                             <path d="M5 21V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16"/>
@@ -1489,7 +1489,7 @@
                         </svg>
                     </div>
                     <div>
-                        <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#00539C] transition-colors">
+                        <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#27797D] transition-colors">
                             Accommodation Options
                         </h3>
                         <p class="text-xs text-gray-500 mt-1 leading-relaxed">
@@ -1499,17 +1499,17 @@
                 </div>
 
                 <!-- 8. Hospital Coordination -->
-                <div class="bg-[#f0f7fe] hover:bg-[#e5f1fc] rounded-2xl p-4 sm:p-5 border border-blue-100/60 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-4 group cursor-pointer">
-                    <div class="w-12 h-12 rounded-full bg-white shadow-xs border border-blue-100/80 flex items-center justify-center flex-shrink-0 text-[#00539C] group-hover:scale-105 transition-transform">
+                <div class="bg-[#f0f9f9] hover:bg-[#edf6f9] rounded-2xl p-4 sm:p-5 border border-blue-100/60 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-4 group cursor-pointer">
+                    <div class="w-12 h-12 rounded-full bg-white shadow-xs border border-blue-100/80 flex items-center justify-center flex-shrink-0 text-[#27797D] group-hover:scale-105 transition-transform">
                         <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/>
                             <rect x="8" y="2" width="8" height="4" rx="1"/>
                             <path d="M9 14h6M9 18h4"/>
-                            <path d="M12 8v4M10 10h4" stroke="#e13b3f" stroke-width="1.5"/>
+                            <path d="M12 8v4M10 10h4" stroke="#EF7415" stroke-width="1.5"/>
                         </svg>
                     </div>
                     <div>
-                        <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#00539C] transition-colors">
+                        <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#27797D] transition-colors">
                             Hospital Coordination
                         </h3>
                         <p class="text-xs text-gray-500 mt-1 leading-relaxed">
@@ -1519,15 +1519,15 @@
                 </div>
 
                 <!-- 9. Private Duty Nursing -->
-                <div class="bg-[#f0f7fe] hover:bg-[#e5f1fc] rounded-2xl p-4 sm:p-5 border border-blue-100/60 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-4 group cursor-pointer">
-                    <div class="w-12 h-12 rounded-full bg-white shadow-xs border border-blue-100/80 flex items-center justify-center flex-shrink-0 text-[#00539C] group-hover:scale-105 transition-transform">
+                <div class="bg-[#f0f9f9] hover:bg-[#edf6f9] rounded-2xl p-4 sm:p-5 border border-blue-100/60 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-4 group cursor-pointer">
+                    <div class="w-12 h-12 rounded-full bg-white shadow-xs border border-blue-100/80 flex items-center justify-center flex-shrink-0 text-[#27797D] group-hover:scale-105 transition-transform">
                         <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                            <path d="M12 8v6M9 11h6" stroke="#e13b3f" stroke-width="1.8"/>
+                            <path d="M12 8v6M9 11h6" stroke="#EF7415" stroke-width="1.8"/>
                         </svg>
                     </div>
                     <div>
-                        <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#00539C] transition-colors">
+                        <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#27797D] transition-colors">
                             Private Duty Nursing
                         </h3>
                         <p class="text-xs text-gray-500 mt-1 leading-relaxed">
@@ -1542,13 +1542,13 @@
             <div class="flex flex-wrap items-center justify-center gap-3.5 sm:gap-4 mt-10 sm:mt-12">
                 <a 
                     href="#quote-form" 
-                    class="bg-[#e13b3f] hover:bg-[#cf2a2e] active:scale-[0.99] text-white text-sm sm:text-base font-bold px-7 py-3 rounded-lg shadow-md hover:shadow-lg transition-all duration-150 inline-flex items-center justify-center"
+                    class="bg-[#EF7415] hover:bg-[#d9640d] active:scale-[0.99] text-white text-sm sm:text-base font-bold px-7 py-3 rounded-lg shadow-md hover:shadow-lg transition-all duration-150 inline-flex items-center justify-center"
                 >
                     Get Quote
                 </a>
                 
                 <a 
-                    href="https://wa.me/919999999999" 
+                    href="https://wa.me/919129846542" 
                     target="_blank" 
                     class="bg-[#25D366] hover:bg-[#20ba5a] active:scale-[0.99] text-white text-sm sm:text-base font-bold px-7 py-3 rounded-lg shadow-md hover:shadow-lg transition-all duration-150 inline-flex items-center justify-center gap-2"
                 >
@@ -1562,14 +1562,14 @@
         </div>
     </section>
 
-    <!-- ==================== VAIDAM IN NEWS ==================== -->
+    <!-- ==================== HEAL GO FLY IN NEWS ==================== -->
     <section class="py-14 sm:py-20 bg-white border-t border-gray-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             
             <!-- Section Header with Left Title and Right Nav Controls -->
             <div class="flex items-center justify-between mb-8 sm:mb-10">
                 <h2 class="text-2xl sm:text-3xl font-extrabold text-[#112347] tracking-tight">
-                    Vaidam In News
+                    Heal Go Fly In News
                 </h2>
                 
                 <!-- Slider Nav Arrows -->
@@ -1577,7 +1577,7 @@
                     <button 
                         type="button" 
                         id="news-slider-prev" 
-                        class="w-9 h-9 rounded-full border border-gray-300 hover:border-[#00539C] text-gray-500 hover:text-[#00539C] flex items-center justify-center transition-all bg-white shadow-xs active:scale-95"
+                        class="w-9 h-9 rounded-full border border-gray-300 hover:border-[#27797D] text-gray-500 hover:text-[#27797D] flex items-center justify-center transition-all bg-white shadow-xs active:scale-95"
                         aria-label="Previous News"
                     >
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M15 19l-7-7 7-7"/></svg>
@@ -1585,7 +1585,7 @@
                     <button 
                         type="button" 
                         id="news-slider-next" 
-                        class="w-9 h-9 rounded-full border border-gray-300 hover:border-[#00539C] text-gray-500 hover:text-[#00539C] flex items-center justify-center transition-all bg-white shadow-xs active:scale-95"
+                        class="w-9 h-9 rounded-full border border-gray-300 hover:border-[#27797D] text-gray-500 hover:text-[#27797D] flex items-center justify-center transition-all bg-white shadow-xs active:scale-95"
                         aria-label="Next News"
                     >
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M9 5l7 7-7 7"/></svg>
@@ -1613,11 +1613,11 @@
                             >
                             <!-- Logo Badge Top-Left -->
                             <div class="absolute top-2.5 left-2.5 bg-white px-2 py-0.5 rounded shadow-xs border border-gray-100 flex items-center gap-1">
-                                <span class="text-[9px] font-black tracking-tight text-[#00539C]">Bio<span class="text-amber-500">Spectrum</span></span>
+                                <span class="text-[9px] font-black tracking-tight text-[#27797D]">Bio<span class="text-amber-500">Spectrum</span></span>
                             </div>
                             <!-- Angled Wave Banner at Bottom -->
                             <div class="absolute bottom-0 inset-x-0 h-8 flex items-end">
-                                <svg viewBox="0 0 400 50" preserveAspectRatio="none" class="absolute inset-0 w-full h-full text-[#00539C] fill-current">
+                                <svg viewBox="0 0 400 50" preserveAspectRatio="none" class="absolute inset-0 w-full h-full text-[#27797D] fill-current">
                                     <path d="M0,25 Q150,50 300,20 Q360,5 400,0 L400,50 L0,50 Z"></path>
                                 </svg>
                                 <span class="relative z-10 text-[10px] font-extrabold uppercase tracking-wider text-white pl-3 pb-1 flex items-center gap-1.5">
@@ -1628,11 +1628,11 @@
 
                         <!-- Content -->
                         <div class="p-3.5 sm:p-4">
-                            <h3 class="text-xs font-bold text-[#00539C] hover:underline leading-snug line-clamp-3">
-                                BioSpectrumIndia: Vaidam Health's CancerRounds Acquisition Featured in a Leading Life Sciences Industry Story
+                            <h3 class="text-xs font-bold text-[#27797D] hover:underline leading-snug line-clamp-3">
+                                BioSpectrumIndia: Heal Go Fly's CancerRounds Acquisition Featured in a Leading Life Sciences Industry Story
                             </h3>
                             <p class="text-[11px] text-gray-500 mt-2 line-clamp-3 leading-relaxed">
-                                Vaidam Health's CancerRounds Acquisition Featured in BioSpectrum Industry Story
+                                Heal Go Fly's CancerRounds Acquisition Featured in BioSpectrum Industry Story
                             </p>
                         </div>
                     </div>
@@ -1656,7 +1656,7 @@
                             </div>
                             <!-- Angled Wave Banner at Bottom -->
                             <div class="absolute bottom-0 inset-x-0 h-8 flex items-end">
-                                <svg viewBox="0 0 400 50" preserveAspectRatio="none" class="absolute inset-0 w-full h-full text-[#00539C] fill-current">
+                                <svg viewBox="0 0 400 50" preserveAspectRatio="none" class="absolute inset-0 w-full h-full text-[#27797D] fill-current">
                                     <path d="M0,25 Q150,50 300,20 Q360,5 400,0 L400,50 L0,50 Z"></path>
                                 </svg>
                                 <span class="relative z-10 text-[10px] font-extrabold uppercase tracking-wider text-white pl-3 pb-1 flex items-center gap-1.5">
@@ -1667,7 +1667,7 @@
 
                         <!-- Content -->
                         <div class="p-3.5 sm:p-4">
-                            <h3 class="text-xs font-bold text-[#00539C] hover:underline leading-snug line-clamp-3">
+                            <h3 class="text-xs font-bold text-[#27797D] hover:underline leading-snug line-clamp-3">
                                 Financial Express | Medical Tourism Startups Await Their Funding Cure
                             </h3>
                             <p class="text-[11px] text-gray-500 mt-2 line-clamp-3 leading-relaxed">
@@ -1695,7 +1695,7 @@
                             </div>
                             <!-- Angled Wave Banner at Bottom -->
                             <div class="absolute bottom-0 inset-x-0 h-8 flex items-end">
-                                <svg viewBox="0 0 400 50" preserveAspectRatio="none" class="absolute inset-0 w-full h-full text-[#00539C] fill-current">
+                                <svg viewBox="0 0 400 50" preserveAspectRatio="none" class="absolute inset-0 w-full h-full text-[#27797D] fill-current">
                                     <path d="M0,25 Q150,50 300,20 Q360,5 400,0 L400,50 L0,50 Z"></path>
                                 </svg>
                                 <span class="relative z-10 text-[10px] font-extrabold uppercase tracking-wider text-white pl-3 pb-1 flex items-center gap-1.5">
@@ -1706,7 +1706,7 @@
 
                         <!-- Content -->
                         <div class="p-3.5 sm:p-4">
-                            <h3 class="text-xs font-bold text-[#00539C] hover:underline leading-snug line-clamp-3">
+                            <h3 class="text-xs font-bold text-[#27797D] hover:underline leading-snug line-clamp-3">
                                 Business Today | Bridging Language Barriers to Strengthen India's Medical Tourism Ecosystem
                             </h3>
                             <p class="text-[11px] text-gray-500 mt-2 line-clamp-3 leading-relaxed">
@@ -1733,7 +1733,7 @@
                             </div>
                             <!-- Angled Wave Banner at Bottom -->
                             <div class="absolute bottom-0 inset-x-0 h-8 flex items-end">
-                                <svg viewBox="0 0 400 50" preserveAspectRatio="none" class="absolute inset-0 w-full h-full text-[#00539C] fill-current">
+                                <svg viewBox="0 0 400 50" preserveAspectRatio="none" class="absolute inset-0 w-full h-full text-[#27797D] fill-current">
                                     <path d="M0,25 Q150,50 300,20 Q360,5 400,0 L400,50 L0,50 Z"></path>
                                 </svg>
                                 <span class="relative z-10 text-[10px] font-extrabold uppercase tracking-wider text-white pl-3 pb-1 flex items-center gap-1.5">
@@ -1744,7 +1744,7 @@
 
                         <!-- Content -->
                         <div class="p-3.5 sm:p-4">
-                            <h3 class="text-xs font-bold text-[#00539C] hover:underline leading-snug line-clamp-3">
+                            <h3 class="text-xs font-bold text-[#27797D] hover:underline leading-snug line-clamp-3">
                                 Forbes India: Influential Leaders Creating a Lasting Impact in India
                             </h3>
                             <p class="text-[11px] text-gray-500 mt-2 line-clamp-3 leading-relaxed">
@@ -1767,11 +1767,11 @@
                             >
                             <!-- Logo Badge Top-Left -->
                             <div class="absolute top-2.5 left-2.5 bg-white px-2 py-0.5 rounded shadow-xs border border-gray-100 flex items-center gap-1">
-                                <span class="text-[9px] font-black tracking-tight text-[#00539C]">CII</span>
+                                <span class="text-[9px] font-black tracking-tight text-[#27797D]">CII</span>
                             </div>
                             <!-- Angled Wave Banner at Bottom -->
                             <div class="absolute bottom-0 inset-x-0 h-8 flex items-end">
-                                <svg viewBox="0 0 400 50" preserveAspectRatio="none" class="absolute inset-0 w-full h-full text-[#00539C] fill-current">
+                                <svg viewBox="0 0 400 50" preserveAspectRatio="none" class="absolute inset-0 w-full h-full text-[#27797D] fill-current">
                                     <path d="M0,25 Q150,50 300,20 Q360,5 400,0 L400,50 L0,50 Z"></path>
                                 </svg>
                                 <span class="relative z-10 text-[10px] font-extrabold uppercase tracking-wider text-white pl-3 pb-1 flex items-center gap-1.5">
@@ -1782,11 +1782,11 @@
 
                         <!-- Content -->
                         <div class="p-3.5 sm:p-4">
-                            <h3 class="text-xs font-bold text-[#00539C] hover:underline leading-snug line-clamp-3">
+                            <h3 class="text-xs font-bold text-[#27797D] hover:underline leading-snug line-clamp-3">
                                 Exploring AI, Digital Innovation and the Future of Cross-Border Healthcare
                             </h3>
                             <p class="text-[11px] text-gray-500 mt-2 line-clamp-3 leading-relaxed">
-                                Pankaj Chandna Highlights Vaidam Health's Vision at the 5th CII Digital Health Summit
+                                Pankaj Chandna Highlights Heal Go Fly's Vision at the 5th CII Digital Health Summit
                             </p>
                         </div>
                     </div>
@@ -1796,7 +1796,7 @@
 
             <!-- Dots Indicator -->
             <div class="flex items-center justify-center gap-1.5 mt-6 sm:mt-8">
-                <span class="w-2 h-2 rounded-full bg-[#00539C]"></span>
+                <span class="w-2 h-2 rounded-full bg-[#27797D]"></span>
                 <span class="w-2 h-2 rounded-full bg-gray-300"></span>
                 <span class="w-2 h-2 rounded-full bg-gray-300"></span>
                 <span class="w-2 h-2 rounded-full bg-gray-300"></span>

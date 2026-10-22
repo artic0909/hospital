@@ -26,6 +26,10 @@
     --color-accent: var(--color-neutral-800);
     --color-accent-content: var(--color-neutral-800);
     --color-accent-foreground: var(--color-white);
+
+    --color-brand-teal: #27797D;
+    --color-brand-navy: #1D4B6C;
+    --color-brand-orange: #EF7415;
 }
 
 @layer theme {

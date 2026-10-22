@@ -1,6 +1,6 @@
 @extends('frontend.layouts.app')
 
-@section('title', 'Book Appointment with Dr. Y K Mishra | Vaidam.com')
+@section('title', 'Book Appointment with Dr. Y K Mishra | Heal Go Fly')
 
 @section('content')
 
@@ -8,11 +8,11 @@
     <div class="bg-gray-50/80 border-b border-gray-200/70">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 py-3">
             <nav class="flex items-center gap-2 text-xs text-gray-500 font-medium overflow-x-auto whitespace-nowrap">
-                <a href="{{ url('/') }}" class="hover:text-[#00539C] transition-colors">Home</a>
+                <a href="{{ url('/') }}" class="hover:text-[#27797D] transition-colors">Home</a>
                 <span class="text-gray-400">›</span>
-                <a href="{{ route('doctors') }}" class="hover:text-[#00539C] transition-colors">Doctors</a>
+                <a href="{{ route('doctors') }}" class="hover:text-[#27797D] transition-colors">Doctors</a>
                 <span class="text-gray-400">›</span>
-                <a href="{{ route('doctor.details') }}" class="hover:text-[#00539C] transition-colors">Dr. Y K Mishra</a>
+                <a href="{{ route('doctor.details') }}" class="hover:text-[#27797D] transition-colors">Dr. Y K Mishra</a>
                 <span class="text-gray-400">›</span>
                 <span class="text-[#112347] font-semibold">Book Appointment</span>
             </nav>
@@ -51,7 +51,7 @@
                         >
                         <div class="space-y-0.5">
                             <div class="flex items-center gap-1.5">
-                                <h3 class="text-sm sm:text-base font-bold text-[#00539C]">
+                                <h3 class="text-sm sm:text-base font-bold text-[#27797D]">
                                     Dr. Y K Mishra
                                 </h3>
                                 <span class="inline-flex items-center justify-center w-4 h-4 rounded-full border border-red-500 text-red-500 text-[10px] font-bold">
@@ -74,7 +74,7 @@
 
                         <!-- Date Pills Row -->
                         <div class="flex items-center gap-2 overflow-x-auto pb-1.5 scrollbar-none" id="doctor-date-pills">
-                            <button type="button" class="doc-date-pill active-pill px-3.5 py-2 rounded-xl border-2 border-[#00539C] bg-blue-50/70 text-[#00539C] font-semibold text-xs flex-shrink-0 transition-all shadow-xs" data-date="Fri, 16-Oct">
+                            <button type="button" class="doc-date-pill active-pill px-3.5 py-2 rounded-xl border-2 border-[#27797D] bg-blue-50/70 text-[#27797D] font-semibold text-xs flex-shrink-0 transition-all shadow-xs" data-date="Fri, 16-Oct">
                                 Fri, 16-Oct
                             </button>
                             <button type="button" class="doc-date-pill px-3.5 py-2 rounded-xl border border-gray-200 bg-white text-gray-700 font-medium text-xs flex-shrink-0 hover:border-gray-300 transition-all" data-date="Sat, 17-Oct">
@@ -108,7 +108,7 @@
                                 Morning
                             </span>
                             <div class="flex flex-wrap items-center gap-2.5">
-                                <button type="button" class="time-slot-pill active-slot px-4 py-2 rounded-xl border-2 border-[#00539C] bg-blue-50/70 text-[#00539C] font-semibold text-xs transition-all shadow-xs" data-time="10:00 AM">
+                                <button type="button" class="time-slot-pill active-slot px-4 py-2 rounded-xl border-2 border-[#27797D] bg-blue-50/70 text-[#27797D] font-semibold text-xs transition-all shadow-xs" data-time="10:00 AM">
                                     10:00 AM
                                 </button>
                                 <button type="button" class="time-slot-pill px-4 py-2 rounded-xl border border-gray-200 bg-white text-gray-700 font-medium text-xs hover:border-gray-300 transition-all" data-time="10:30 AM">
@@ -151,7 +151,7 @@
                         <button 
                             type="button" 
                             id="btn-doc-next" 
-                            class="w-full bg-[#e13b3f] hover:bg-[#cf2a2e] text-white text-sm sm:text-base font-bold py-3.5 px-6 rounded-xl shadow-md hover:shadow-lg transition-all duration-150 transform hover:-translate-y-0.5 text-center"
+                            class="w-full bg-[#EF7415] hover:bg-[#d9640d] text-white text-sm sm:text-base font-bold py-3.5 px-6 rounded-xl shadow-md hover:shadow-lg transition-all duration-150 transform hover:-translate-y-0.5 text-center"
                         >
                             Next →
                         </button>
@@ -163,7 +163,7 @@
                 <div id="doctor-step-2" class="hidden space-y-6">
                     
                     <div class="flex items-center justify-between pb-3 border-b border-gray-100">
-                        <button type="button" id="btn-doc-back" class="text-xs sm:text-sm text-[#00539C] hover:underline font-bold flex items-center gap-1.5">
+                        <button type="button" id="btn-doc-back" class="text-xs sm:text-sm text-[#27797D] hover:underline font-bold flex items-center gap-1.5">
                             <span>←</span>
                             <span>Change Date & Slot</span>
                         </button>
@@ -187,14 +187,14 @@
                         <!-- Patient Name -->
                         <div>
                             <label class="block text-xs font-semibold text-gray-700 mb-1">Patient Full Name <span class="text-red-500">*</span></label>
-                            <input type="text" id="doc-pat-name" required placeholder="Enter patient name" class="w-full text-xs sm:text-sm text-gray-900 bg-white placeholder-gray-400 px-3.5 py-2.5 rounded-xl border border-gray-300 focus:outline-none focus:border-[#00539C] focus:ring-2 focus:ring-blue-100">
+                            <input type="text" id="doc-pat-name" required placeholder="Enter patient name" class="w-full text-xs sm:text-sm text-gray-900 bg-white placeholder-gray-400 px-3.5 py-2.5 rounded-xl border border-gray-300 focus:outline-none focus:border-[#27797D] focus:ring-2 focus:ring-blue-100">
                         </div>
 
                         <!-- Phone -->
                         <div>
                             <label class="block text-xs font-semibold text-gray-700 mb-1">Phone Number <span class="text-red-500">*</span></label>
                             <div class="flex gap-2">
-                                <select class="w-24 bg-gray-50 text-xs font-bold text-gray-700 px-2 py-2.5 rounded-xl border border-gray-300 focus:outline-none focus:border-[#00539C]">
+                                <select class="w-24 bg-gray-50 text-xs font-bold text-gray-700 px-2 py-2.5 rounded-xl border border-gray-300 focus:outline-none focus:border-[#27797D]">
                                     <option value="+91" selected>🇮🇳 +91</option>
                                     <option value="+880">🇧🇩 +880</option>
                                     <option value="+971">🇦🇪 +971</option>
@@ -204,27 +204,27 @@
                                     <option value="+44">🇬🇧 +44</option>
                                     <option value="+1">🇺🇸 +1</option>
                                 </select>
-                                <input type="tel" id="doc-pat-phone" required placeholder="Phone number" class="flex-1 text-xs sm:text-sm text-gray-900 bg-white placeholder-gray-400 px-3.5 py-2.5 rounded-xl border border-gray-300 focus:outline-none focus:border-[#00539C] focus:ring-2 focus:ring-blue-100">
+                                <input type="tel" id="doc-pat-phone" required placeholder="Phone number" class="flex-1 text-xs sm:text-sm text-gray-900 bg-white placeholder-gray-400 px-3.5 py-2.5 rounded-xl border border-gray-300 focus:outline-none focus:border-[#27797D] focus:ring-2 focus:ring-blue-100">
                             </div>
                         </div>
 
                         <!-- Email -->
                         <div>
                             <label class="block text-xs font-semibold text-gray-700 mb-1">Email Address <span class="text-gray-400 text-[11px]">(Optional)</span></label>
-                            <input type="email" placeholder="patient@example.com" class="w-full text-xs sm:text-sm text-gray-900 bg-white placeholder-gray-400 px-3.5 py-2.5 rounded-xl border border-gray-300 focus:outline-none focus:border-[#00539C] focus:ring-2 focus:ring-blue-100">
+                            <input type="email" placeholder="patient@example.com" class="w-full text-xs sm:text-sm text-gray-900 bg-white placeholder-gray-400 px-3.5 py-2.5 rounded-xl border border-gray-300 focus:outline-none focus:border-[#27797D] focus:ring-2 focus:ring-blue-100">
                         </div>
 
                         <!-- Concern -->
                         <div>
                             <label class="block text-xs font-semibold text-gray-700 mb-1">Describe Medical Concern</label>
-                            <textarea rows="3" placeholder="Briefly describe heart symptoms, bypass inquiries or consultation notes..." class="w-full text-xs sm:text-sm text-gray-900 bg-white placeholder-gray-400 px-3.5 py-2.5 rounded-xl border border-gray-300 focus:outline-none focus:border-[#00539C] focus:ring-2 focus:ring-blue-100"></textarea>
+                            <textarea rows="3" placeholder="Briefly describe heart symptoms, bypass inquiries or consultation notes..." class="w-full text-xs sm:text-sm text-gray-900 bg-white placeholder-gray-400 px-3.5 py-2.5 rounded-xl border border-gray-300 focus:outline-none focus:border-[#27797D] focus:ring-2 focus:ring-blue-100"></textarea>
                         </div>
 
                         <!-- Submit -->
                         <div class="pt-2">
                             <button 
                                 type="submit" 
-                                class="w-full bg-[#e13b3f] hover:bg-[#cf2a2e] text-white text-sm sm:text-base font-bold py-3.5 px-6 rounded-xl shadow-md hover:shadow-lg transition-all duration-150 transform hover:-translate-y-0.5 text-center"
+                                class="w-full bg-[#EF7415] hover:bg-[#d9640d] text-white text-sm sm:text-base font-bold py-3.5 px-6 rounded-xl shadow-md hover:shadow-lg transition-all duration-150 transform hover:-translate-y-0.5 text-center"
                             >
                                 Confirm Consultation with Dr. Y K Mishra
                             </button>
@@ -264,7 +264,7 @@
                     </div>
 
                     <div class="pt-3 flex flex-col sm:flex-row items-center justify-center gap-3">
-                        <a href="{{ route('doctor.details') }}" class="w-full sm:w-auto bg-[#00539C] hover:bg-[#00407a] text-white text-xs sm:text-sm font-bold py-2.5 px-6 rounded-lg transition-all">
+                        <a href="{{ route('doctor.details') }}" class="w-full sm:w-auto bg-[#27797D] hover:bg-[#15364e] text-white text-xs sm:text-sm font-bold py-2.5 px-6 rounded-lg transition-all">
                             Back to Doctor Profile
                         </a>
                         <button type="button" onclick="location.reload()" class="w-full sm:w-auto bg-gray-100 hover:bg-gray-200 text-gray-700 text-xs sm:text-sm font-semibold py-2.5 px-5 rounded-lg transition-all">
@@ -295,7 +295,7 @@
                 datePills.forEach(p => {
                     p.className = "doc-date-pill px-3.5 py-2 rounded-xl border border-gray-200 bg-white text-gray-700 font-medium text-xs flex-shrink-0 hover:border-gray-300 transition-all";
                 });
-                pill.className = "doc-date-pill active-pill px-3.5 py-2 rounded-xl border-2 border-[#00539C] bg-blue-50/70 text-[#00539C] font-semibold text-xs flex-shrink-0 transition-all shadow-xs";
+                pill.className = "doc-date-pill active-pill px-3.5 py-2 rounded-xl border-2 border-[#27797D] bg-blue-50/70 text-[#27797D] font-semibold text-xs flex-shrink-0 transition-all shadow-xs";
                 chosenDate = pill.getAttribute('data-date');
             });
         });
@@ -307,7 +307,7 @@
                 timePills.forEach(p => {
                     p.className = "time-slot-pill px-4 py-2 rounded-xl border border-gray-200 bg-white text-gray-700 font-medium text-xs hover:border-gray-300 transition-all";
                 });
-                pill.className = "time-slot-pill active-slot px-4 py-2 rounded-xl border-2 border-[#00539C] bg-blue-50/70 text-[#00539C] font-semibold text-xs transition-all shadow-xs";
+                pill.className = "time-slot-pill active-slot px-4 py-2 rounded-xl border-2 border-[#27797D] bg-blue-50/70 text-[#27797D] font-semibold text-xs transition-all shadow-xs";
                 chosenTime = pill.getAttribute('data-time');
             });
         });

@@ -1,6 +1,6 @@
 @extends('frontend.layouts.app')
 
-@section('title', 'Indraprastha Apollo Hospital, New Delhi - Doctors, Cost & Facilities | Vaidam.com')
+@section('title', 'Indraprastha Apollo Hospital, New Delhi - Doctors, Cost & Facilities | Heal Go Fly')
 
 @section('content')
 
@@ -8,11 +8,11 @@
     <div class="bg-gray-50/80 border-b border-gray-200/70">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
             <nav class="flex items-center gap-2 text-xs text-gray-500 font-medium overflow-x-auto whitespace-nowrap">
-                <a href="{{ url('/') }}" class="hover:text-[#00539C] transition-colors">Home</a>
+                <a href="{{ url('/') }}" class="hover:text-[#27797D] transition-colors">Home</a>
                 <span class="text-gray-400">›</span>
-                <a href="{{ route('hospitals') }}" class="hover:text-[#00539C] transition-colors">Hospitals</a>
+                <a href="{{ route('hospitals') }}" class="hover:text-[#27797D] transition-colors">Hospitals</a>
                 <span class="text-gray-400">›</span>
-                <a href="{{ route('hospitals') }}" class="hover:text-[#00539C] transition-colors">India</a>
+                <a href="{{ route('hospitals') }}" class="hover:text-[#27797D] transition-colors">India</a>
                 <span class="text-gray-400">›</span>
                 <span class="text-gray-500">New Delhi</span>
                 <span class="text-gray-400">›</span>
@@ -83,17 +83,17 @@
                         
                         <!-- Row 1 -->
                         <div class="flex items-start gap-3">
-                            <div class="w-8 h-8 rounded-lg bg-blue-100/70 flex items-center justify-center text-[#00539C] flex-shrink-0">
+                            <div class="w-8 h-8 rounded-lg bg-blue-100/70 flex items-center justify-center text-[#27797D] flex-shrink-0">
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
                             </div>
                             <div>
                                 <span class="block text-gray-500 font-medium">Doctors List</span>
-                                <a href="#doctors-section" class="text-[#00539C] font-bold hover:underline">Click Here</a>
+                                <a href="#doctors-section" class="text-[#27797D] font-bold hover:underline">Click Here</a>
                             </div>
                         </div>
 
                         <div class="flex items-start gap-3">
-                            <div class="w-8 h-8 rounded-lg bg-blue-100/70 flex items-center justify-center text-[#00539C] flex-shrink-0">
+                            <div class="w-8 h-8 rounded-lg bg-blue-100/70 flex items-center justify-center text-[#27797D] flex-shrink-0">
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2a8 8 0 0 0-8 8c0 5.25 8 12 8 12s8-6.75 8-12a8 8 0 0 0-8-8z"/><circle cx="12" cy="10" r="3"/></svg>
                             </div>
                             <div>
@@ -104,7 +104,7 @@
 
                         <!-- Row 2 -->
                         <div class="flex items-start gap-3">
-                            <div class="w-8 h-8 rounded-lg bg-blue-100/70 flex items-center justify-center text-[#00539C] flex-shrink-0">
+                            <div class="w-8 h-8 rounded-lg bg-blue-100/70 flex items-center justify-center text-[#27797D] flex-shrink-0">
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
                             </div>
                             <div>
@@ -114,7 +114,7 @@
                         </div>
 
                         <div class="flex items-start gap-3">
-                            <div class="w-8 h-8 rounded-lg bg-blue-100/70 flex items-center justify-center text-[#00539C] flex-shrink-0">
+                            <div class="w-8 h-8 rounded-lg bg-blue-100/70 flex items-center justify-center text-[#27797D] flex-shrink-0">
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
                             </div>
                             <div>
@@ -134,7 +134,7 @@
 
                         <!-- Row 3 -->
                         <div class="flex items-start gap-3">
-                            <div class="w-8 h-8 rounded-lg bg-blue-100/70 flex items-center justify-center text-[#00539C] flex-shrink-0">
+                            <div class="w-8 h-8 rounded-lg bg-blue-100/70 flex items-center justify-center text-[#27797D] flex-shrink-0">
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2v20M2 12h20"/></svg>
                             </div>
                             <div>
@@ -144,18 +144,18 @@
                         </div>
 
                         <div class="flex items-start gap-3">
-                            <div class="w-8 h-8 rounded-lg bg-blue-100/70 flex items-center justify-center text-[#00539C] flex-shrink-0">
+                            <div class="w-8 h-8 rounded-lg bg-blue-100/70 flex items-center justify-center text-[#27797D] flex-shrink-0">
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
                             </div>
                             <div>
                                 <span class="block text-gray-500 font-medium">Images</span>
-                                <a href="#gallery-section" class="text-[#00539C] font-bold hover:underline">Click Here</a>
+                                <a href="#gallery-section" class="text-[#27797D] font-bold hover:underline">Click Here</a>
                             </div>
                         </div>
 
                         <!-- Row 4 -->
                         <div class="flex items-start gap-3">
-                            <div class="w-8 h-8 rounded-lg bg-blue-100/70 flex items-center justify-center text-[#00539C] flex-shrink-0">
+                            <div class="w-8 h-8 rounded-lg bg-blue-100/70 flex items-center justify-center text-[#27797D] flex-shrink-0">
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M2 4v16M2 8h18a2 2 0 0 1 2 2v10M2 17h20M6 8v9"/></svg>
                             </div>
                             <div>
@@ -165,12 +165,12 @@
                         </div>
 
                         <div class="flex items-start gap-3">
-                            <div class="w-8 h-8 rounded-lg bg-blue-100/70 flex items-center justify-center text-[#00539C] flex-shrink-0">
+                            <div class="w-8 h-8 rounded-lg bg-blue-100/70 flex items-center justify-center text-[#27797D] flex-shrink-0">
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
                             </div>
                             <div>
                                 <span class="block text-gray-500 font-medium">Facilities</span>
-                                <a href="#facilities-section" class="text-[#00539C] font-bold hover:underline">Click Here</a>
+                                <a href="#facilities-section" class="text-[#27797D] font-bold hover:underline">Click Here</a>
                             </div>
                         </div>
 
@@ -181,10 +181,10 @@
 
             <!-- Two Main Action CTAs -->
             <div class="pt-4 border-t border-gray-100 flex flex-col sm:flex-row items-center gap-3.5">
-                <a href="{{ route('hospital.appointment') }}" class="w-full sm:flex-1 bg-[#e13b3f] hover:bg-[#cf2a2e] text-white text-xs sm:text-sm font-bold py-3 px-6 rounded-lg shadow-sm hover:shadow text-center transition-all">
+                <a href="{{ route('hospital.appointment') }}" class="w-full sm:flex-1 bg-[#EF7415] hover:bg-[#d9640d] text-white text-xs sm:text-sm font-bold py-3 px-6 rounded-lg shadow-sm hover:shadow text-center transition-all">
                     Book Appointment for Indraprastha Apollo Hospital, New Delhi
                 </a>
-                <a href="https://wa.me/919999999999?text=Hello%20Vaidam,%20I%20want%20to%20consult%20Indraprastha%20Apollo%20Hospital%20New%20Delhi" target="_blank" class="w-full sm:w-auto bg-[#28a745] hover:bg-[#218838] text-white text-xs sm:text-sm font-bold py-3 px-6 rounded-lg shadow-sm hover:shadow flex items-center justify-center gap-2 transition-all">
+                <a href="https://wa.me/919129846542?text=Hello%20Heal%20Go%20Fly,%20I%20want%20to%20consult%20Indraprastha%20Apollo%20Hospital%20New%20Delhi" target="_blank" class="w-full sm:w-auto bg-[#28a745] hover:bg-[#218838] text-white text-xs sm:text-sm font-bold py-3 px-6 rounded-lg shadow-sm hover:shadow flex items-center justify-center gap-2 transition-all">
                     <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
                     <span>WhatsApp Us</span>
                 </a>
@@ -267,7 +267,7 @@
 
                         <!-- International Patient Services Highlight -->
                         <div class="mt-4 p-4 rounded-xl bg-blue-50/60 border border-blue-100 space-y-2">
-                            <h4 class="text-xs font-bold text-[#00539C] uppercase tracking-wider">International Patient Services</h4>
+                            <h4 class="text-xs font-bold text-[#27797D] uppercase tracking-wider">International Patient Services</h4>
                             <p class="text-xs text-gray-700 leading-relaxed">
                                 Indraprastha Apollo is a preferred destination for international patients, offering comprehensive and personalised care: Pre-arrival Consultation and Case Review, Visa Assistance, Dedicated Interpreters, Airport Transfers, and Concierge Services.
                             </p>
@@ -281,305 +281,305 @@
                         <h2 class="text-xl sm:text-2xl font-extrabold text-[#112347] tracking-tight">
                             List Of Top Doctors at Indraprastha Apollo Hospital, New Delhi
                         </h2>
-                        <a href="{{ route('doctors') }}" class="text-xs font-bold text-[#00539C] hover:underline">View All Specialists →</a>
+                        <a href="{{ route('doctors') }}" class="text-xs font-bold text-[#27797D] hover:underline">View All Specialists →</a>
                     </div>
 
                     <!-- 3-Column Specialties Doctor Directory Grid -->
                     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5">
                         
                         <!-- 1. Cardiology -->
-                        <a href="{{ route('doctors') }}" class="bg-[#f0f7fe]/70 hover:bg-[#e3f0fc] border border-blue-100/80 rounded-xl p-3 flex items-center justify-between group transition-all">
+                        <a href="{{ route('doctors') }}" class="bg-[#f0f9f9]/70 hover:bg-[#edf6f9] border border-blue-100/80 rounded-xl p-3 flex items-center justify-between group transition-all">
                             <div class="flex items-center gap-2.5 min-w-0 pr-2">
-                                <div class="w-8 h-8 rounded-lg bg-blue-100 flex items-center justify-center text-[#00539C] flex-shrink-0">
+                                <div class="w-8 h-8 rounded-lg bg-blue-100 flex items-center justify-center text-[#27797D] flex-shrink-0">
                                     🫀
                                 </div>
-                                <span class="text-xs font-bold text-gray-800 group-hover:text-[#00539C] truncate">Cardiology And Cardiac Surgery</span>
+                                <span class="text-xs font-bold text-gray-800 group-hover:text-[#27797D] truncate">Cardiology And Cardiac Surgery</span>
                             </div>
                             <span class="text-xs text-blue-600 font-bold whitespace-nowrap">10 Doctors ›</span>
                         </a>
 
                         <!-- 2. Cosmetic -->
-                        <a href="{{ route('doctors') }}" class="bg-[#f0f7fe]/70 hover:bg-[#e3f0fc] border border-blue-100/80 rounded-xl p-3 flex items-center justify-between group transition-all">
+                        <a href="{{ route('doctors') }}" class="bg-[#f0f9f9]/70 hover:bg-[#edf6f9] border border-blue-100/80 rounded-xl p-3 flex items-center justify-between group transition-all">
                             <div class="flex items-center gap-2.5 min-w-0 pr-2">
-                                <div class="w-8 h-8 rounded-lg bg-blue-100 flex items-center justify-center text-[#00539C] flex-shrink-0">
+                                <div class="w-8 h-8 rounded-lg bg-blue-100 flex items-center justify-center text-[#27797D] flex-shrink-0">
                                     💄
                                 </div>
-                                <span class="text-xs font-bold text-gray-800 group-hover:text-[#00539C] truncate">Cosmetic And Plastic Surgery</span>
+                                <span class="text-xs font-bold text-gray-800 group-hover:text-[#27797D] truncate">Cosmetic And Plastic Surgery</span>
                             </div>
                             <span class="text-xs text-blue-600 font-bold whitespace-nowrap">6 Doctors ›</span>
                         </a>
 
                         <!-- 3. Dental -->
-                        <a href="{{ route('doctors') }}" class="bg-[#f0f7fe]/70 hover:bg-[#e3f0fc] border border-blue-100/80 rounded-xl p-3 flex items-center justify-between group transition-all">
+                        <a href="{{ route('doctors') }}" class="bg-[#f0f9f9]/70 hover:bg-[#edf6f9] border border-blue-100/80 rounded-xl p-3 flex items-center justify-between group transition-all">
                             <div class="flex items-center gap-2.5 min-w-0 pr-2">
-                                <div class="w-8 h-8 rounded-lg bg-blue-100 flex items-center justify-center text-[#00539C] flex-shrink-0">
+                                <div class="w-8 h-8 rounded-lg bg-blue-100 flex items-center justify-center text-[#27797D] flex-shrink-0">
                                     🦷
                                 </div>
-                                <span class="text-xs font-bold text-gray-800 group-hover:text-[#00539C] truncate">Dental Treatment</span>
+                                <span class="text-xs font-bold text-gray-800 group-hover:text-[#27797D] truncate">Dental Treatment</span>
                             </div>
                             <span class="text-xs text-blue-600 font-bold whitespace-nowrap">2 Doctors ›</span>
                         </a>
 
                         <!-- 4. Dermatology -->
-                        <a href="{{ route('doctors') }}" class="bg-[#f0f7fe]/70 hover:bg-[#e3f0fc] border border-blue-100/80 rounded-xl p-3 flex items-center justify-between group transition-all">
+                        <a href="{{ route('doctors') }}" class="bg-[#f0f9f9]/70 hover:bg-[#edf6f9] border border-blue-100/80 rounded-xl p-3 flex items-center justify-between group transition-all">
                             <div class="flex items-center gap-2.5 min-w-0 pr-2">
-                                <div class="w-8 h-8 rounded-lg bg-blue-100 flex items-center justify-center text-[#00539C] flex-shrink-0">
+                                <div class="w-8 h-8 rounded-lg bg-blue-100 flex items-center justify-center text-[#27797D] flex-shrink-0">
                                     🧴
                                 </div>
-                                <span class="text-xs font-bold text-gray-800 group-hover:text-[#00539C] truncate">Dermatology</span>
+                                <span class="text-xs font-bold text-gray-800 group-hover:text-[#27797D] truncate">Dermatology</span>
                             </div>
                             <span class="text-xs text-blue-600 font-bold whitespace-nowrap">2 Doctors ›</span>
                         </a>
 
                         <!-- 5. Endocrinology -->
-                        <a href="{{ route('doctors') }}" class="bg-[#f0f7fe]/70 hover:bg-[#e3f0fc] border border-blue-100/80 rounded-xl p-3 flex items-center justify-between group transition-all">
+                        <a href="{{ route('doctors') }}" class="bg-[#f0f9f9]/70 hover:bg-[#edf6f9] border border-blue-100/80 rounded-xl p-3 flex items-center justify-between group transition-all">
                             <div class="flex items-center gap-2.5 min-w-0 pr-2">
-                                <div class="w-8 h-8 rounded-lg bg-blue-100 flex items-center justify-center text-[#00539C] flex-shrink-0">
+                                <div class="w-8 h-8 rounded-lg bg-blue-100 flex items-center justify-center text-[#27797D] flex-shrink-0">
                                     🩺
                                 </div>
-                                <span class="text-xs font-bold text-gray-800 group-hover:text-[#00539C] truncate">Endocrinology</span>
+                                <span class="text-xs font-bold text-gray-800 group-hover:text-[#27797D] truncate">Endocrinology</span>
                             </div>
                             <span class="text-xs text-blue-600 font-bold whitespace-nowrap">8 Doctors ›</span>
                         </a>
 
                         <!-- 6. ENT Surgery -->
-                        <a href="{{ route('doctors') }}" class="bg-[#f0f7fe]/70 hover:bg-[#e3f0fc] border border-blue-100/80 rounded-xl p-3 flex items-center justify-between group transition-all">
+                        <a href="{{ route('doctors') }}" class="bg-[#f0f9f9]/70 hover:bg-[#edf6f9] border border-blue-100/80 rounded-xl p-3 flex items-center justify-between group transition-all">
                             <div class="flex items-center gap-2.5 min-w-0 pr-2">
-                                <div class="w-8 h-8 rounded-lg bg-blue-100 flex items-center justify-center text-[#00539C] flex-shrink-0">
+                                <div class="w-8 h-8 rounded-lg bg-blue-100 flex items-center justify-center text-[#27797D] flex-shrink-0">
                                     👂
                                 </div>
-                                <span class="text-xs font-bold text-gray-800 group-hover:text-[#00539C] truncate">Ent Surgery</span>
+                                <span class="text-xs font-bold text-gray-800 group-hover:text-[#27797D] truncate">Ent Surgery</span>
                             </div>
                             <span class="text-xs text-blue-600 font-bold whitespace-nowrap">6 Doctors ›</span>
                         </a>
 
                         <!-- 7. Gastroenterology -->
-                        <a href="{{ route('doctors') }}" class="bg-[#f0f7fe]/70 hover:bg-[#e3f0fc] border border-blue-100/80 rounded-xl p-3 flex items-center justify-between group transition-all">
+                        <a href="{{ route('doctors') }}" class="bg-[#f0f9f9]/70 hover:bg-[#edf6f9] border border-blue-100/80 rounded-xl p-3 flex items-center justify-between group transition-all">
                             <div class="flex items-center gap-2.5 min-w-0 pr-2">
-                                <div class="w-8 h-8 rounded-lg bg-blue-100 flex items-center justify-center text-[#00539C] flex-shrink-0">
+                                <div class="w-8 h-8 rounded-lg bg-blue-100 flex items-center justify-center text-[#27797D] flex-shrink-0">
                                     🔬
                                 </div>
-                                <span class="text-xs font-bold text-gray-800 group-hover:text-[#00539C] truncate">Gastroenterology</span>
+                                <span class="text-xs font-bold text-gray-800 group-hover:text-[#27797D] truncate">Gastroenterology</span>
                             </div>
                             <span class="text-xs text-blue-600 font-bold whitespace-nowrap">14 Doctors ›</span>
                         </a>
 
                         <!-- 8. General Surgery -->
-                        <a href="{{ route('doctors') }}" class="bg-[#f0f7fe]/70 hover:bg-[#e3f0fc] border border-blue-100/80 rounded-xl p-3 flex items-center justify-between group transition-all">
+                        <a href="{{ route('doctors') }}" class="bg-[#f0f9f9]/70 hover:bg-[#edf6f9] border border-blue-100/80 rounded-xl p-3 flex items-center justify-between group transition-all">
                             <div class="flex items-center gap-2.5 min-w-0 pr-2">
-                                <div class="w-8 h-8 rounded-lg bg-blue-100 flex items-center justify-center text-[#00539C] flex-shrink-0">
+                                <div class="w-8 h-8 rounded-lg bg-blue-100 flex items-center justify-center text-[#27797D] flex-shrink-0">
                                     💉
                                 </div>
-                                <span class="text-xs font-bold text-gray-800 group-hover:text-[#00539C] truncate">General Surgery</span>
+                                <span class="text-xs font-bold text-gray-800 group-hover:text-[#27797D] truncate">General Surgery</span>
                             </div>
                             <span class="text-xs text-blue-600 font-bold whitespace-nowrap">15 Doctors ›</span>
                         </a>
 
                         <!-- 9. Gynecology -->
-                        <a href="{{ route('doctors') }}" class="bg-[#f0f7fe]/70 hover:bg-[#e3f0fc] border border-blue-100/80 rounded-xl p-3 flex items-center justify-between group transition-all">
+                        <a href="{{ route('doctors') }}" class="bg-[#f0f9f9]/70 hover:bg-[#edf6f9] border border-blue-100/80 rounded-xl p-3 flex items-center justify-between group transition-all">
                             <div class="flex items-center gap-2.5 min-w-0 pr-2">
-                                <div class="w-8 h-8 rounded-lg bg-blue-100 flex items-center justify-center text-[#00539C] flex-shrink-0">
+                                <div class="w-8 h-8 rounded-lg bg-blue-100 flex items-center justify-center text-[#27797D] flex-shrink-0">
                                     🤰
                                 </div>
-                                <span class="text-xs font-bold text-gray-800 group-hover:text-[#00539C] truncate">Gynecology</span>
+                                <span class="text-xs font-bold text-gray-800 group-hover:text-[#27797D] truncate">Gynecology</span>
                             </div>
                             <span class="text-xs text-blue-600 font-bold whitespace-nowrap">7 Doctors ›</span>
                         </a>
 
                         <!-- 10. Hematology -->
-                        <a href="{{ route('doctors') }}" class="bg-[#f0f7fe]/70 hover:bg-[#e3f0fc] border border-blue-100/80 rounded-xl p-3 flex items-center justify-between group transition-all">
+                        <a href="{{ route('doctors') }}" class="bg-[#f0f9f9]/70 hover:bg-[#edf6f9] border border-blue-100/80 rounded-xl p-3 flex items-center justify-between group transition-all">
                             <div class="flex items-center gap-2.5 min-w-0 pr-2">
-                                <div class="w-8 h-8 rounded-lg bg-blue-100 flex items-center justify-center text-[#00539C] flex-shrink-0">
+                                <div class="w-8 h-8 rounded-lg bg-blue-100 flex items-center justify-center text-[#27797D] flex-shrink-0">
                                     🩸
                                 </div>
-                                <span class="text-xs font-bold text-gray-800 group-hover:text-[#00539C] truncate">Hematology</span>
+                                <span class="text-xs font-bold text-gray-800 group-hover:text-[#27797D] truncate">Hematology</span>
                             </div>
                             <span class="text-xs text-blue-600 font-bold whitespace-nowrap">2 Doctors ›</span>
                         </a>
 
                         <!-- 11. Hepatology -->
-                        <a href="{{ route('doctors') }}" class="bg-[#f0f7fe]/70 hover:bg-[#e3f0fc] border border-blue-100/80 rounded-xl p-3 flex items-center justify-between group transition-all">
+                        <a href="{{ route('doctors') }}" class="bg-[#f0f9f9]/70 hover:bg-[#edf6f9] border border-blue-100/80 rounded-xl p-3 flex items-center justify-between group transition-all">
                             <div class="flex items-center gap-2.5 min-w-0 pr-2">
-                                <div class="w-8 h-8 rounded-lg bg-blue-100 flex items-center justify-center text-[#00539C] flex-shrink-0">
+                                <div class="w-8 h-8 rounded-lg bg-blue-100 flex items-center justify-center text-[#27797D] flex-shrink-0">
                                     🧪
                                 </div>
-                                <span class="text-xs font-bold text-gray-800 group-hover:text-[#00539C] truncate">Hepatology</span>
+                                <span class="text-xs font-bold text-gray-800 group-hover:text-[#27797D] truncate">Hepatology</span>
                             </div>
                             <span class="text-xs text-blue-600 font-bold whitespace-nowrap">4 Doctors ›</span>
                         </a>
 
                         <!-- 12. IVF -->
-                        <a href="{{ route('doctors') }}" class="bg-[#f0f7fe]/70 hover:bg-[#e3f0fc] border border-blue-100/80 rounded-xl p-3 flex items-center justify-between group transition-all">
+                        <a href="{{ route('doctors') }}" class="bg-[#f0f9f9]/70 hover:bg-[#edf6f9] border border-blue-100/80 rounded-xl p-3 flex items-center justify-between group transition-all">
                             <div class="flex items-center gap-2.5 min-w-0 pr-2">
-                                <div class="w-8 h-8 rounded-lg bg-blue-100 flex items-center justify-center text-[#00539C] flex-shrink-0">
+                                <div class="w-8 h-8 rounded-lg bg-blue-100 flex items-center justify-center text-[#27797D] flex-shrink-0">
                                     🍼
                                 </div>
-                                <span class="text-xs font-bold text-gray-800 group-hover:text-[#00539C] truncate">Ivf And Infertility</span>
+                                <span class="text-xs font-bold text-gray-800 group-hover:text-[#27797D] truncate">Ivf And Infertility</span>
                             </div>
                             <span class="text-xs text-blue-600 font-bold whitespace-nowrap">2 Doctors ›</span>
                         </a>
 
                         <!-- 13. Nephrology -->
-                        <a href="{{ route('doctors') }}" class="bg-[#f0f7fe]/70 hover:bg-[#e3f0fc] border border-blue-100/80 rounded-xl p-3 flex items-center justify-between group transition-all">
+                        <a href="{{ route('doctors') }}" class="bg-[#f0f9f9]/70 hover:bg-[#edf6f9] border border-blue-100/80 rounded-xl p-3 flex items-center justify-between group transition-all">
                             <div class="flex items-center gap-2.5 min-w-0 pr-2">
-                                <div class="w-8 h-8 rounded-lg bg-blue-100 flex items-center justify-center text-[#00539C] flex-shrink-0">
+                                <div class="w-8 h-8 rounded-lg bg-blue-100 flex items-center justify-center text-[#27797D] flex-shrink-0">
                                     🧬
                                 </div>
-                                <span class="text-xs font-bold text-gray-800 group-hover:text-[#00539C] truncate">Nephrology</span>
+                                <span class="text-xs font-bold text-gray-800 group-hover:text-[#27797D] truncate">Nephrology</span>
                             </div>
                             <span class="text-xs text-blue-600 font-bold whitespace-nowrap">7 Doctors ›</span>
                         </a>
 
                         <!-- 14. Neurology -->
-                        <a href="{{ route('doctors') }}" class="bg-[#f0f7fe]/70 hover:bg-[#e3f0fc] border border-blue-100/80 rounded-xl p-3 flex items-center justify-between group transition-all">
+                        <a href="{{ route('doctors') }}" class="bg-[#f0f9f9]/70 hover:bg-[#edf6f9] border border-blue-100/80 rounded-xl p-3 flex items-center justify-between group transition-all">
                             <div class="flex items-center gap-2.5 min-w-0 pr-2">
-                                <div class="w-8 h-8 rounded-lg bg-blue-100 flex items-center justify-center text-[#00539C] flex-shrink-0">
+                                <div class="w-8 h-8 rounded-lg bg-blue-100 flex items-center justify-center text-[#27797D] flex-shrink-0">
                                     🧠
                                 </div>
-                                <span class="text-xs font-bold text-gray-800 group-hover:text-[#00539C] truncate">Neurology And Neurosurgery</span>
+                                <span class="text-xs font-bold text-gray-800 group-hover:text-[#27797D] truncate">Neurology And Neurosurgery</span>
                             </div>
                             <span class="text-xs text-blue-600 font-bold whitespace-nowrap">13 Doctors ›</span>
                         </a>
 
                         <!-- 15. Bariatric -->
-                        <a href="{{ route('doctors') }}" class="bg-[#f0f7fe]/70 hover:bg-[#e3f0fc] border border-blue-100/80 rounded-xl p-3 flex items-center justify-between group transition-all">
+                        <a href="{{ route('doctors') }}" class="bg-[#f0f9f9]/70 hover:bg-[#edf6f9] border border-blue-100/80 rounded-xl p-3 flex items-center justify-between group transition-all">
                             <div class="flex items-center gap-2.5 min-w-0 pr-2">
-                                <div class="w-8 h-8 rounded-lg bg-blue-100 flex items-center justify-center text-[#00539C] flex-shrink-0">
+                                <div class="w-8 h-8 rounded-lg bg-blue-100 flex items-center justify-center text-[#27797D] flex-shrink-0">
                                     ⚖️
                                 </div>
-                                <span class="text-xs font-bold text-gray-800 group-hover:text-[#00539C] truncate">Obesity Or Bariatric Surgery</span>
+                                <span class="text-xs font-bold text-gray-800 group-hover:text-[#27797D] truncate">Obesity Or Bariatric Surgery</span>
                             </div>
                             <span class="text-xs text-blue-600 font-bold whitespace-nowrap">14 Doctors ›</span>
                         </a>
 
                         <!-- 16. Oncology -->
-                        <a href="{{ route('doctors') }}" class="bg-[#f0f7fe]/70 hover:bg-[#e3f0fc] border border-blue-100/80 rounded-xl p-3 flex items-center justify-between group transition-all">
+                        <a href="{{ route('doctors') }}" class="bg-[#f0f9f9]/70 hover:bg-[#edf6f9] border border-blue-100/80 rounded-xl p-3 flex items-center justify-between group transition-all">
                             <div class="flex items-center gap-2.5 min-w-0 pr-2">
-                                <div class="w-8 h-8 rounded-lg bg-blue-100 flex items-center justify-center text-[#00539C] flex-shrink-0">
+                                <div class="w-8 h-8 rounded-lg bg-blue-100 flex items-center justify-center text-[#27797D] flex-shrink-0">
                                     🎗️
                                 </div>
-                                <span class="text-xs font-bold text-gray-800 group-hover:text-[#00539C] truncate">Oncology And Oncosurgery</span>
+                                <span class="text-xs font-bold text-gray-800 group-hover:text-[#27797D] truncate">Oncology And Oncosurgery</span>
                             </div>
                             <span class="text-xs text-blue-600 font-bold whitespace-nowrap">19 Doctors ›</span>
                         </a>
 
                         <!-- 17. Ophthalmology -->
-                        <a href="{{ route('doctors') }}" class="bg-[#f0f7fe]/70 hover:bg-[#e3f0fc] border border-blue-100/80 rounded-xl p-3 flex items-center justify-between group transition-all">
+                        <a href="{{ route('doctors') }}" class="bg-[#f0f9f9]/70 hover:bg-[#edf6f9] border border-blue-100/80 rounded-xl p-3 flex items-center justify-between group transition-all">
                             <div class="flex items-center gap-2.5 min-w-0 pr-2">
-                                <div class="w-8 h-8 rounded-lg bg-blue-100 flex items-center justify-center text-[#00539C] flex-shrink-0">
+                                <div class="w-8 h-8 rounded-lg bg-blue-100 flex items-center justify-center text-[#27797D] flex-shrink-0">
                                     👁️
                                 </div>
-                                <span class="text-xs font-bold text-gray-800 group-hover:text-[#00539C] truncate">Ophthalmology</span>
+                                <span class="text-xs font-bold text-gray-800 group-hover:text-[#27797D] truncate">Ophthalmology</span>
                             </div>
                             <span class="text-xs text-blue-600 font-bold whitespace-nowrap">3 Doctors ›</span>
                         </a>
 
                         <!-- 18. Orthopedics -->
-                        <a href="{{ route('doctors') }}" class="bg-[#f0f7fe]/70 hover:bg-[#e3f0fc] border border-blue-100/80 rounded-xl p-3 flex items-center justify-between group transition-all">
+                        <a href="{{ route('doctors') }}" class="bg-[#f0f9f9]/70 hover:bg-[#edf6f9] border border-blue-100/80 rounded-xl p-3 flex items-center justify-between group transition-all">
                             <div class="flex items-center gap-2.5 min-w-0 pr-2">
-                                <div class="w-8 h-8 rounded-lg bg-blue-100 flex items-center justify-center text-[#00539C] flex-shrink-0">
+                                <div class="w-8 h-8 rounded-lg bg-blue-100 flex items-center justify-center text-[#27797D] flex-shrink-0">
                                     🦴
                                 </div>
-                                <span class="text-xs font-bold text-gray-800 group-hover:text-[#00539C] truncate">Orthopedics</span>
+                                <span class="text-xs font-bold text-gray-800 group-hover:text-[#27797D] truncate">Orthopedics</span>
                             </div>
                             <span class="text-xs text-blue-600 font-bold whitespace-nowrap">15 Doctors ›</span>
                         </a>
 
                         <!-- 19. Pediatric Cardiology -->
-                        <a href="{{ route('doctors') }}" class="bg-[#f0f7fe]/70 hover:bg-[#e3f0fc] border border-blue-100/80 rounded-xl p-3 flex items-center justify-between group transition-all">
+                        <a href="{{ route('doctors') }}" class="bg-[#f0f9f9]/70 hover:bg-[#edf6f9] border border-blue-100/80 rounded-xl p-3 flex items-center justify-between group transition-all">
                             <div class="flex items-center gap-2.5 min-w-0 pr-2">
-                                <div class="w-8 h-8 rounded-lg bg-blue-100 flex items-center justify-center text-[#00539C] flex-shrink-0">
+                                <div class="w-8 h-8 rounded-lg bg-blue-100 flex items-center justify-center text-[#27797D] flex-shrink-0">
                                     👶
                                 </div>
-                                <span class="text-xs font-bold text-gray-800 group-hover:text-[#00539C] truncate">Pediatric Cardiology</span>
+                                <span class="text-xs font-bold text-gray-800 group-hover:text-[#27797D] truncate">Pediatric Cardiology</span>
                             </div>
                             <span class="text-xs text-blue-600 font-bold whitespace-nowrap">1 Doctor ›</span>
                         </a>
 
                         <!-- 20. Pediatrics -->
-                        <a href="{{ route('doctors') }}" class="bg-[#f0f7fe]/70 hover:bg-[#e3f0fc] border border-blue-100/80 rounded-xl p-3 flex items-center justify-between group transition-all">
+                        <a href="{{ route('doctors') }}" class="bg-[#f0f9f9]/70 hover:bg-[#edf6f9] border border-blue-100/80 rounded-xl p-3 flex items-center justify-between group transition-all">
                             <div class="flex items-center gap-2.5 min-w-0 pr-2">
-                                <div class="w-8 h-8 rounded-lg bg-blue-100 flex items-center justify-center text-[#00539C] flex-shrink-0">
+                                <div class="w-8 h-8 rounded-lg bg-blue-100 flex items-center justify-center text-[#27797D] flex-shrink-0">
                                     🧸
                                 </div>
-                                <span class="text-xs font-bold text-gray-800 group-hover:text-[#00539C] truncate">Pediatrics & Pediatric Surgery</span>
+                                <span class="text-xs font-bold text-gray-800 group-hover:text-[#27797D] truncate">Pediatrics & Pediatric Surgery</span>
                             </div>
                             <span class="text-xs text-blue-600 font-bold whitespace-nowrap">9 Doctors ›</span>
                         </a>
 
                         <!-- 21. Pulmonology -->
-                        <a href="{{ route('doctors') }}" class="bg-[#f0f7fe]/70 hover:bg-[#e3f0fc] border border-blue-100/80 rounded-xl p-3 flex items-center justify-between group transition-all">
+                        <a href="{{ route('doctors') }}" class="bg-[#f0f9f9]/70 hover:bg-[#edf6f9] border border-blue-100/80 rounded-xl p-3 flex items-center justify-between group transition-all">
                             <div class="flex items-center gap-2.5 min-w-0 pr-2">
-                                <div class="w-8 h-8 rounded-lg bg-blue-100 flex items-center justify-center text-[#00539C] flex-shrink-0">
+                                <div class="w-8 h-8 rounded-lg bg-blue-100 flex items-center justify-center text-[#27797D] flex-shrink-0">
                                     🫁
                                 </div>
-                                <span class="text-xs font-bold text-gray-800 group-hover:text-[#00539C] truncate">Pulmonology</span>
+                                <span class="text-xs font-bold text-gray-800 group-hover:text-[#27797D] truncate">Pulmonology</span>
                             </div>
                             <span class="text-xs text-blue-600 font-bold whitespace-nowrap">4 Doctors ›</span>
                         </a>
 
                         <!-- 22. Rheumatology -->
-                        <a href="{{ route('doctors') }}" class="bg-[#f0f7fe]/70 hover:bg-[#e3f0fc] border border-blue-100/80 rounded-xl p-3 flex items-center justify-between group transition-all">
+                        <a href="{{ route('doctors') }}" class="bg-[#f0f9f9]/70 hover:bg-[#edf6f9] border border-blue-100/80 rounded-xl p-3 flex items-center justify-between group transition-all">
                             <div class="flex items-center gap-2.5 min-w-0 pr-2">
-                                <div class="w-8 h-8 rounded-lg bg-blue-100 flex items-center justify-center text-[#00539C] flex-shrink-0">
+                                <div class="w-8 h-8 rounded-lg bg-blue-100 flex items-center justify-center text-[#27797D] flex-shrink-0">
                                     🦵
                                 </div>
-                                <span class="text-xs font-bold text-gray-800 group-hover:text-[#00539C] truncate">Rheumatology</span>
+                                <span class="text-xs font-bold text-gray-800 group-hover:text-[#27797D] truncate">Rheumatology</span>
                             </div>
                             <span class="text-xs text-blue-600 font-bold whitespace-nowrap">1 Doctor ›</span>
                         </a>
 
                         <!-- 23. Health Check Ups -->
-                        <a href="{{ route('doctors') }}" class="bg-[#f0f7fe]/70 hover:bg-[#e3f0fc] border border-blue-100/80 rounded-xl p-3 flex items-center justify-between group transition-all">
+                        <a href="{{ route('doctors') }}" class="bg-[#f0f9f9]/70 hover:bg-[#edf6f9] border border-blue-100/80 rounded-xl p-3 flex items-center justify-between group transition-all">
                             <div class="flex items-center gap-2.5 min-w-0 pr-2">
-                                <div class="w-8 h-8 rounded-lg bg-blue-100 flex items-center justify-center text-[#00539C] flex-shrink-0">
+                                <div class="w-8 h-8 rounded-lg bg-blue-100 flex items-center justify-center text-[#27797D] flex-shrink-0">
                                     📋
                                 </div>
-                                <span class="text-xs font-bold text-gray-800 group-hover:text-[#00539C] truncate">Routine Health Check Ups</span>
+                                <span class="text-xs font-bold text-gray-800 group-hover:text-[#27797D] truncate">Routine Health Check Ups</span>
                             </div>
                             <span class="text-xs text-blue-600 font-bold whitespace-nowrap">1 Doctor ›</span>
                         </a>
 
                         <!-- 24. Spine Surgery -->
-                        <a href="{{ route('doctors') }}" class="bg-[#f0f7fe]/70 hover:bg-[#e3f0fc] border border-blue-100/80 rounded-xl p-3 flex items-center justify-between group transition-all">
+                        <a href="{{ route('doctors') }}" class="bg-[#f0f9f9]/70 hover:bg-[#edf6f9] border border-blue-100/80 rounded-xl p-3 flex items-center justify-between group transition-all">
                             <div class="flex items-center gap-2.5 min-w-0 pr-2">
-                                <div class="w-8 h-8 rounded-lg bg-blue-100 flex items-center justify-center text-[#00539C] flex-shrink-0">
+                                <div class="w-8 h-8 rounded-lg bg-blue-100 flex items-center justify-center text-[#27797D] flex-shrink-0">
                                     🦴
                                 </div>
-                                <span class="text-xs font-bold text-gray-800 group-hover:text-[#00539C] truncate">Spine Surgery</span>
+                                <span class="text-xs font-bold text-gray-800 group-hover:text-[#27797D] truncate">Spine Surgery</span>
                             </div>
                             <span class="text-xs text-blue-600 font-bold whitespace-nowrap">6 Doctors ›</span>
                         </a>
 
                         <!-- 25. Transplant Surgery -->
-                        <a href="{{ route('doctors') }}" class="bg-[#f0f7fe]/70 hover:bg-[#e3f0fc] border border-blue-100/80 rounded-xl p-3 flex items-center justify-between group transition-all">
+                        <a href="{{ route('doctors') }}" class="bg-[#f0f9f9]/70 hover:bg-[#edf6f9] border border-blue-100/80 rounded-xl p-3 flex items-center justify-between group transition-all">
                             <div class="flex items-center gap-2.5 min-w-0 pr-2">
-                                <div class="w-8 h-8 rounded-lg bg-blue-100 flex items-center justify-center text-[#00539C] flex-shrink-0">
+                                <div class="w-8 h-8 rounded-lg bg-blue-100 flex items-center justify-center text-[#27797D] flex-shrink-0">
                                     🫀
                                 </div>
-                                <span class="text-xs font-bold text-gray-800 group-hover:text-[#00539C] truncate">Transplant Surgery</span>
+                                <span class="text-xs font-bold text-gray-800 group-hover:text-[#27797D] truncate">Transplant Surgery</span>
                             </div>
                             <span class="text-xs text-blue-600 font-bold whitespace-nowrap">8 Doctors ›</span>
                         </a>
 
                         <!-- 26. Urology -->
-                        <a href="{{ route('doctors') }}" class="bg-[#f0f7fe]/70 hover:bg-[#e3f0fc] border border-blue-100/80 rounded-xl p-3 flex items-center justify-between group transition-all">
+                        <a href="{{ route('doctors') }}" class="bg-[#f0f9f9]/70 hover:bg-[#edf6f9] border border-blue-100/80 rounded-xl p-3 flex items-center justify-between group transition-all">
                             <div class="flex items-center gap-2.5 min-w-0 pr-2">
-                                <div class="w-8 h-8 rounded-lg bg-blue-100 flex items-center justify-center text-[#00539C] flex-shrink-0">
+                                <div class="w-8 h-8 rounded-lg bg-blue-100 flex items-center justify-center text-[#27797D] flex-shrink-0">
                                     🚻
                                 </div>
-                                <span class="text-xs font-bold text-gray-800 group-hover:text-[#00539C] truncate">Urology Treatment</span>
+                                <span class="text-xs font-bold text-gray-800 group-hover:text-[#27797D] truncate">Urology Treatment</span>
                             </div>
                             <span class="text-xs text-blue-600 font-bold whitespace-nowrap">10 Doctors ›</span>
                         </a>
 
                         <!-- 27. Vascular Surgery -->
-                        <a href="{{ route('doctors') }}" class="bg-[#f0f7fe]/70 hover:bg-[#e3f0fc] border border-blue-100/80 rounded-xl p-3 flex items-center justify-between group transition-all">
+                        <a href="{{ route('doctors') }}" class="bg-[#f0f9f9]/70 hover:bg-[#edf6f9] border border-blue-100/80 rounded-xl p-3 flex items-center justify-between group transition-all">
                             <div class="flex items-center gap-2.5 min-w-0 pr-2">
-                                <div class="w-8 h-8 rounded-lg bg-blue-100 flex items-center justify-center text-[#00539C] flex-shrink-0">
+                                <div class="w-8 h-8 rounded-lg bg-blue-100 flex items-center justify-center text-[#27797D] flex-shrink-0">
                                     🩸
                                 </div>
-                                <span class="text-xs font-bold text-gray-800 group-hover:text-[#00539C] truncate">Vascular Surgery</span>
+                                <span class="text-xs font-bold text-gray-800 group-hover:text-[#27797D] truncate">Vascular Surgery</span>
                             </div>
                             <span class="text-xs text-blue-600 font-bold whitespace-nowrap">2 Doctors ›</span>
                         </a>
@@ -630,35 +630,35 @@
                     <!-- 4-Column Facilities Grid -->
                     <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
                         <div class="bg-blue-50/70 border border-blue-100 rounded-xl p-3.5 flex items-center gap-3">
-                            <div class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center text-[#00539C] text-sm">🚑</div>
+                            <div class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center text-[#27797D] text-sm">🚑</div>
                             <span class="text-xs font-bold text-gray-800">Ambulance</span>
                         </div>
                         <div class="bg-blue-50/70 border border-blue-100 rounded-xl p-3.5 flex items-center gap-3">
-                            <div class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center text-[#00539C] text-sm">🩸</div>
+                            <div class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center text-[#27797D] text-sm">🩸</div>
                             <span class="text-xs font-bold text-gray-800">Blood Bank</span>
                         </div>
                         <div class="bg-blue-50/70 border border-blue-100 rounded-xl p-3.5 flex items-center gap-3">
-                            <div class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center text-[#00539C] text-sm">🩺</div>
+                            <div class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center text-[#27797D] text-sm">🩺</div>
                             <span class="text-xs font-bold text-gray-800">Dialysis</span>
                         </div>
                         <div class="bg-blue-50/70 border border-blue-100 rounded-xl p-3.5 flex items-center gap-3">
-                            <div class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center text-[#00539C] text-sm">🏥</div>
+                            <div class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center text-[#27797D] text-sm">🏥</div>
                             <span class="text-xs font-bold text-gray-800">ICU</span>
                         </div>
                         <div class="bg-blue-50/70 border border-blue-100 rounded-xl p-3.5 flex items-center gap-3">
-                            <div class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center text-[#00539C] text-sm">👶</div>
+                            <div class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center text-[#27797D] text-sm">👶</div>
                             <span class="text-xs font-bold text-gray-800">NICU</span>
                         </div>
                         <div class="bg-blue-50/70 border border-blue-100 rounded-xl p-3.5 flex items-center gap-3">
-                            <div class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center text-[#00539C] text-sm">🔬</div>
+                            <div class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center text-[#27797D] text-sm">🔬</div>
                             <span class="text-xs font-bold text-gray-800">Operation Theater</span>
                         </div>
                         <div class="bg-blue-50/70 border border-blue-100 rounded-xl p-3.5 flex items-center gap-3">
-                            <div class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center text-[#00539C] text-sm">💊</div>
+                            <div class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center text-[#27797D] text-sm">💊</div>
                             <span class="text-xs font-bold text-gray-800">Pharmacy</span>
                         </div>
                         <div class="bg-blue-50/70 border border-blue-100 rounded-xl p-3.5 flex items-center gap-3">
-                            <div class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center text-[#00539C] text-sm">🧸</div>
+                            <div class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center text-[#27797D] text-sm">🧸</div>
                             <span class="text-xs font-bold text-gray-800">PICU</span>
                         </div>
                     </div>
@@ -672,13 +672,13 @@
 
                     <style>
                         .service-tab.active {
-                            background-color: #00539C !important;
+                            background-color: #27797D !important;
                             color: #ffffff !important;
                             font-weight: 700 !important;
                             box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
                         }
                         .service-tab.active:hover {
-                            background-color: #00407a !important;
+                            background-color: #15364e !important;
                             color: #ffffff !important;
                         }
                         .service-tab:not(.active) {
@@ -688,7 +688,7 @@
                         }
                         .service-tab:not(.active):hover {
                             background-color: #e0f2fe !important;
-                            color: #00539C !important;
+                            color: #27797D !important;
                         }
                     </style>
 
@@ -1068,7 +1068,7 @@
                 </div>
 
                 <!-- SECTION H: Global Trust CTA Banner -->
-                <div class="bg-[#004f98] rounded-2xl p-5 sm:p-6 text-white shadow-md flex flex-col sm:flex-row items-center justify-between gap-4">
+                <div class="bg-[#1D4B6C] rounded-2xl p-5 sm:p-6 text-white shadow-md flex flex-col sm:flex-row items-center justify-between gap-4">
                     <div class="space-y-1 text-center sm:text-left">
                         <h3 class="text-base sm:text-lg font-bold tracking-tight">
                             Patients From 105+ Countries Trust Indraprastha Apollo Hospital, New Delhi
@@ -1077,7 +1077,7 @@
                             Get a free, no-obligation second opinion from our medical experts.
                         </p>
                     </div>
-                    <a href="#appointment-box" class="w-full sm:w-auto flex-shrink-0 bg-[#e13b3f] hover:bg-[#cf2a2e] text-white text-xs sm:text-sm font-bold py-2.5 px-6 rounded-lg shadow-sm hover:shadow text-center transition-all whitespace-nowrap">
+                    <a href="#appointment-box" class="w-full sm:w-auto flex-shrink-0 bg-[#EF7415] hover:bg-[#d9640d] text-white text-xs sm:text-sm font-bold py-2.5 px-6 rounded-lg shadow-sm hover:shadow text-center transition-all whitespace-nowrap">
                         Book Appointment
                     </a>
                 </div>
@@ -1104,7 +1104,7 @@
                         <!-- Sub-header with Navigation Arrows -->
                         <div class="flex items-center justify-between">
                             <div class="flex items-center gap-2.5">
-                                <div class="w-8 h-8 rounded-lg bg-blue-50 text-[#00539C] flex items-center justify-center">
+                                <div class="w-8 h-8 rounded-lg bg-blue-50 text-[#27797D] flex items-center justify-center">
                                     <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
                                     </svg>
@@ -1114,10 +1114,10 @@
 
                             <!-- Carousel Prev / Next Buttons -->
                             <div class="flex items-center gap-2">
-                                <button type="button" id="review-prev" class="w-8 h-8 rounded-full border border-gray-200 hover:border-[#00539C] hover:text-[#00539C] text-gray-500 flex items-center justify-center transition-colors">
+                                <button type="button" id="review-prev" class="w-8 h-8 rounded-full border border-gray-200 hover:border-[#27797D] hover:text-[#27797D] text-gray-500 flex items-center justify-center transition-colors">
                                     <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
                                 </button>
-                                <button type="button" id="review-next" class="w-8 h-8 rounded-full border border-gray-200 hover:border-[#00539C] hover:text-[#00539C] text-gray-500 flex items-center justify-center transition-colors">
+                                <button type="button" id="review-next" class="w-8 h-8 rounded-full border border-gray-200 hover:border-[#27797D] hover:text-[#27797D] text-gray-500 flex items-center justify-center transition-colors">
                                     <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
                                 </button>
                             </div>
@@ -1137,7 +1137,7 @@
                                     </p>
                                 </div>
                                 <div class="flex items-center gap-3 pt-3 border-t border-gray-200/60">
-                                    <div class="w-8 h-8 rounded-full bg-blue-100 text-[#00539C] font-bold text-xs flex items-center justify-center flex-shrink-0">
+                                    <div class="w-8 h-8 rounded-full bg-blue-100 text-[#27797D] font-bold text-xs flex items-center justify-center flex-shrink-0">
                                         M
                                     </div>
                                     <div>
@@ -1162,7 +1162,7 @@
                                     </p>
                                 </div>
                                 <div class="flex items-center gap-3 pt-3 border-t border-gray-200/60">
-                                    <div class="w-8 h-8 rounded-full bg-blue-100 text-[#00539C] font-bold text-xs flex items-center justify-center flex-shrink-0">
+                                    <div class="w-8 h-8 rounded-full bg-blue-100 text-[#27797D] font-bold text-xs flex items-center justify-center flex-shrink-0">
                                         M
                                     </div>
                                     <div>
@@ -1187,7 +1187,7 @@
                                     </p>
                                 </div>
                                 <div class="flex items-center gap-3 pt-3 border-t border-gray-200/60">
-                                    <div class="w-8 h-8 rounded-full bg-blue-100 text-[#00539C] font-bold text-xs flex items-center justify-center flex-shrink-0">
+                                    <div class="w-8 h-8 rounded-full bg-blue-100 text-[#27797D] font-bold text-xs flex items-center justify-center flex-shrink-0">
                                         D
                                     </div>
                                     <div>
@@ -1203,7 +1203,7 @@
 
                         <!-- Pagination Dots -->
                         <div class="flex items-center justify-center gap-1.5 pt-2" id="reviews-dots">
-                            <button type="button" class="dot-btn w-6 h-1.5 bg-[#00539C] rounded-full transition-all" data-index="0"></button>
+                            <button type="button" class="dot-btn w-6 h-1.5 bg-[#27797D] rounded-full transition-all" data-index="0"></button>
                             <button type="button" class="dot-btn w-1.5 h-1.5 bg-gray-300 rounded-full hover:bg-gray-400 transition-all" data-index="1"></button>
                             <button type="button" class="dot-btn w-1.5 h-1.5 bg-gray-300 rounded-full hover:bg-gray-400 transition-all" data-index="2"></button>
                         </div>
@@ -1218,14 +1218,14 @@
             <div class="lg:col-span-4 lg:sticky lg:top-20 z-30 space-y-4" id="appointment-box">
                 
                 <!-- Card 1: Top Direct CTA Box -->
-                <div class="bg-[#004f98] rounded-2xl p-5 text-white shadow-md text-center space-y-3">
+                <div class="bg-[#1D4B6C] rounded-2xl p-5 text-white shadow-md text-center space-y-3">
                     <h3 class="text-base font-bold tracking-tight">
                         Contact Indraprastha Apollo Hospital, New Delhi
                     </h3>
                     <p class="text-xs text-blue-100">
                         Our team responds within 24 hours
                     </p>
-                    <a href="#evaluation-form" class="w-full bg-[#e13b3f] hover:bg-[#cf2a2e] text-white text-xs sm:text-sm font-extrabold py-2.5 px-4 rounded-lg shadow-sm hover:shadow block uppercase tracking-wider transition-all">
+                    <a href="#evaluation-form" class="w-full bg-[#EF7415] hover:bg-[#d9640d] text-white text-xs sm:text-sm font-extrabold py-2.5 px-4 rounded-lg shadow-sm hover:shadow block uppercase tracking-wider transition-all">
                         Book Appointment
                     </a>
                     <p class="text-[10px] text-blue-200">
@@ -1234,7 +1234,7 @@
                 </div>
 
                 <!-- Card 2: Contact Hospital Form (Matching User's Screenshot) -->
-                <div id="evaluation-form" class="bg-[#00539C] rounded-2xl p-5 sm:p-6 text-white shadow-xl border border-blue-400/20">
+                <div id="evaluation-form" class="bg-[#27797D] rounded-2xl p-5 sm:p-6 text-white shadow-xl border border-blue-400/20">
                     
                     <!-- Header -->
                     <div class="mb-4">
@@ -1256,12 +1256,12 @@
                         
                         <!-- 1. Patient Name -->
                         <div>
-                            <input type="text" name="patient_name" required placeholder="Patient Name" class="w-full text-xs text-gray-900 bg-white placeholder-gray-400 px-3.5 py-2.5 rounded-lg border-0 focus:outline-none focus:ring-2 focus:ring-[#e13b3f]">
+                            <input type="text" name="patient_name" required placeholder="Patient Name" class="w-full text-xs text-gray-900 bg-white placeholder-gray-400 px-3.5 py-2.5 rounded-lg border-0 focus:outline-none focus:ring-2 focus:ring-[#EF7415]">
                         </div>
 
                         <!-- 2. Country Dropdown -->
                         <div class="relative">
-                            <select name="country" class="w-full text-xs text-gray-900 bg-white px-3.5 py-2.5 rounded-lg border-0 focus:outline-none focus:ring-2 focus:ring-[#e13b3f] appearance-none cursor-pointer font-medium">
+                            <select name="country" class="w-full text-xs text-gray-900 bg-white px-3.5 py-2.5 rounded-lg border-0 focus:outline-none focus:ring-2 focus:ring-[#EF7415] appearance-none cursor-pointer font-medium">
                                 <option value="India" selected>India</option>
                                 <option value="Bangladesh">Bangladesh</option>
                                 <option value="United Arab Emirates">United Arab Emirates</option>
@@ -1280,7 +1280,7 @@
 
                         <!-- 3. Select City -->
                         <div>
-                            <input type="text" name="city" placeholder="Select City" class="w-full text-xs text-gray-900 bg-white placeholder-gray-400 px-3.5 py-2.5 rounded-lg border-0 focus:outline-none focus:ring-2 focus:ring-[#e13b3f]">
+                            <input type="text" name="city" placeholder="Select City" class="w-full text-xs text-gray-900 bg-white placeholder-gray-400 px-3.5 py-2.5 rounded-lg border-0 focus:outline-none focus:ring-2 focus:ring-[#EF7415]">
                         </div>
 
                         <!-- 4. Phone with Country Code (+91) -->
@@ -1288,28 +1288,28 @@
                             <div class="w-16 bg-white rounded-lg flex items-center justify-center text-xs font-bold text-gray-700 px-2 flex-shrink-0">
                                 +91
                             </div>
-                            <input type="tel" name="phone" required placeholder="Your Phone number" class="flex-1 text-xs text-gray-900 bg-white placeholder-gray-400 px-3.5 py-2.5 rounded-lg border-0 focus:outline-none focus:ring-2 focus:ring-[#e13b3f]">
+                            <input type="tel" name="phone" required placeholder="Your Phone number" class="flex-1 text-xs text-gray-900 bg-white placeholder-gray-400 px-3.5 py-2.5 rounded-lg border-0 focus:outline-none focus:ring-2 focus:ring-[#EF7415]">
                         </div>
 
                         <!-- 5. Medical Problem Textarea -->
                         <div>
-                            <textarea name="problem" rows="3" placeholder="Describe The Current Medical Problem.." class="w-full text-xs text-gray-900 bg-white placeholder-gray-400 px-3.5 py-2.5 rounded-lg border-0 focus:outline-none focus:ring-2 focus:ring-[#e13b3f]"></textarea>
+                            <textarea name="problem" rows="3" placeholder="Describe The Current Medical Problem.." class="w-full text-xs text-gray-900 bg-white placeholder-gray-400 px-3.5 py-2.5 rounded-lg border-0 focus:outline-none focus:ring-2 focus:ring-[#EF7415]"></textarea>
                         </div>
 
                         <!-- 6. Age or DOB -->
                         <div>
-                            <input type="text" name="age_dob" placeholder="Example: 30 Yrs or 29-05-1985" class="w-full text-xs text-gray-900 bg-white placeholder-gray-400 px-3.5 py-2.5 rounded-lg border-0 focus:outline-none focus:ring-2 focus:ring-[#e13b3f]">
+                            <input type="text" name="age_dob" placeholder="Example: 30 Yrs or 29-05-1985" class="w-full text-xs text-gray-900 bg-white placeholder-gray-400 px-3.5 py-2.5 rounded-lg border-0 focus:outline-none focus:ring-2 focus:ring-[#EF7415]">
                         </div>
 
                         <!-- 7. Red Continue Button -->
-                        <button type="submit" class="w-full bg-[#e13b3f] hover:bg-[#cf2a2e] text-white text-sm font-bold py-3 rounded-lg shadow-md hover:shadow-lg transition-all duration-150 transform hover:-translate-y-0.5">
+                        <button type="submit" class="w-full bg-[#EF7415] hover:bg-[#d9640d] text-white text-sm font-bold py-3 rounded-lg shadow-md hover:shadow-lg transition-all duration-150 transform hover:-translate-y-0.5">
                             Continue →
                         </button>
                     </form>
 
                     <!-- Terms & Privacy -->
                     <p class="text-[11px] text-blue-100/90 text-center mt-3 leading-snug">
-                        By submitting I agree to the <a href="#terms" class="underline hover:text-white font-medium">Terms of Use</a> and <a href="#privacy" class="underline hover:text-white font-medium">Privacy Policy</a> of Vaidam Health.
+                        By submitting I agree to the <a href="#terms" class="underline hover:text-white font-medium">Terms of Use</a> and <a href="#privacy" class="underline hover:text-white font-medium">Privacy Policy</a> of Heal Go Fly.
                     </p>
                 </div>
 
@@ -1386,7 +1386,7 @@
             currentDotIndex = index;
             dots.forEach((dot, i) => {
                 if (i === currentDotIndex) {
-                    dot.className = 'dot-btn w-6 h-1.5 bg-[#00539C] rounded-full transition-all';
+                    dot.className = 'dot-btn w-6 h-1.5 bg-[#27797D] rounded-full transition-all';
                 } else {
                     dot.className = 'dot-btn w-1.5 h-1.5 bg-gray-300 rounded-full hover:bg-gray-400 transition-all';
                 }

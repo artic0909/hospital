@@ -1,6 +1,6 @@
 @extends('frontend.layouts.app')
 
-@section('title', 'Best Hospitals in India - Top Rated Hospitals & Cost Comparison | Vaidam.com')
+@section('title', 'Best Hospitals in India - Top Rated Hospitals & Cost Comparison | Heal Go Fly')
 
 @section('content')
 
@@ -8,9 +8,9 @@
     <div class="bg-gray-50/80 border-b border-gray-200/70">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
             <nav class="flex items-center gap-2 text-xs text-gray-500 font-medium">
-                <a href="{{ url('/') }}" class="hover:text-[#00539C] transition-colors">Home</a>
+                <a href="{{ url('/') }}" class="hover:text-[#27797D] transition-colors">Home</a>
                 <span class="text-gray-400">›</span>
-                <a href="{{ route('hospitals') }}" class="hover:text-[#00539C] transition-colors">Hospitals</a>
+                <a href="{{ route('hospitals') }}" class="hover:text-[#27797D] transition-colors">Hospitals</a>
                 <span class="text-gray-400">›</span>
                 <span class="text-[#112347] font-semibold" id="breadcrumb-country">India</span>
             </nav>
@@ -34,7 +34,7 @@
         <div class="rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.06)] border border-gray-200/90 overflow-hidden bg-white">
             
             <!-- Card Top Blue Bar -->
-            <div class="bg-[#00539C] text-white px-5 sm:px-6 py-3.5 flex items-center justify-between">
+            <div class="bg-[#27797D] text-white px-5 sm:px-6 py-3.5 flex items-center justify-between">
                 <div class="flex items-center gap-2.5 font-bold text-sm sm:text-base tracking-wide">
                     <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
                         <circle cx="11" cy="11" r="8"/>
@@ -63,7 +63,7 @@
                             <span>COUNTRY</span>
                         </label>
                         <div class="relative">
-                            <select id="filter-country" class="w-full h-11 pl-3.5 pr-14 text-sm font-semibold text-gray-800 bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00539C] focus:border-transparent transition-all appearance-none cursor-pointer">
+                            <select id="filter-country" class="w-full h-11 pl-3.5 pr-14 text-sm font-semibold text-gray-800 bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#27797D] focus:border-transparent transition-all appearance-none cursor-pointer">
                                 <option value="India" selected>India</option>
                                 <option value="Turkey">Turkey</option>
                                 <option value="Thailand">Thailand</option>
@@ -101,7 +101,7 @@
                             <span>CITY</span>
                         </label>
                         <div class="relative">
-                            <select id="filter-city" class="w-full h-11 pl-3.5 pr-10 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00539C] focus:border-transparent transition-all appearance-none cursor-pointer">
+                            <select id="filter-city" class="w-full h-11 pl-3.5 pr-10 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#27797D] focus:border-transparent transition-all appearance-none cursor-pointer">
                                 <option value="">Select city...</option>
                                 <option value="New Delhi">New Delhi</option>
                                 <option value="Mumbai">Mumbai</option>
@@ -126,7 +126,7 @@
                             <span>DEPARTMENT</span>
                         </label>
                         <div class="relative">
-                            <select id="filter-dept" class="w-full h-11 pl-3.5 pr-10 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00539C] focus:border-transparent transition-all appearance-none cursor-pointer">
+                            <select id="filter-dept" class="w-full h-11 pl-3.5 pr-10 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#27797D] focus:border-transparent transition-all appearance-none cursor-pointer">
                                 <option value="">Select dept...</option>
                                 <option value="Cardiology">Cardiology & Cardiac Surgery</option>
                                 <option value="Oncology">Oncology & Cancer Care</option>
@@ -153,7 +153,7 @@
                         <span>Clear filters</span>
                     </button>
                     
-                    <button type="button" id="search-hospitals-btn" class="inline-flex items-center gap-2 bg-[#f0f7fe] hover:bg-[#00539C] text-[#00539C] hover:text-white border border-blue-200 hover:border-transparent text-xs sm:text-sm font-bold px-6 py-2.5 rounded-lg shadow-xs hover:shadow transition-all duration-150 cursor-pointer">
+                    <button type="button" id="search-hospitals-btn" class="inline-flex items-center gap-2 bg-[#f0f9f9] hover:bg-[#27797D] text-[#27797D] hover:text-white border border-blue-200 hover:border-transparent text-xs sm:text-sm font-bold px-6 py-2.5 rounded-lg shadow-xs hover:shadow transition-all duration-150 cursor-pointer">
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
                             <circle cx="11" cy="11" r="8"/>
                             <line x1="21" y1="21" x2="16.65" y2="16.65"/>
@@ -180,7 +180,7 @@
                     <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                         <div>
                             <span class="text-sm font-bold text-gray-900">
-                                Showing <span id="visible-count" class="text-[#00539C]">8</span> Best Hospitals in India
+                                Showing <span id="visible-count" class="text-[#27797D]">8</span> Best Hospitals in India
                             </span>
                             <p class="text-xs text-gray-500 mt-0.5">Accredited by JCI, NABH, and international healthcare boards</p>
                         </div>
@@ -188,7 +188,7 @@
                         <!-- Sort By Dropdown -->
                         <div class="flex items-center gap-2 text-xs">
                             <span class="text-gray-500 font-medium">Sort by:</span>
-                            <select id="sort-hospitals" class="bg-gray-50 border border-gray-300 text-gray-700 text-xs rounded-md px-2.5 py-1.5 focus:outline-none focus:ring-1 focus:ring-[#00539C] cursor-pointer">
+                            <select id="sort-hospitals" class="bg-gray-50 border border-gray-300 text-gray-700 text-xs rounded-md px-2.5 py-1.5 focus:outline-none focus:ring-1 focus:ring-[#27797D] cursor-pointer">
                                 <option value="recommended">Recommended</option>
                                 <option value="rating">Highest Rated</option>
                                 <option value="beds">Most Beds</option>
@@ -200,7 +200,7 @@
                     <!-- Quick City Filter Pills -->
                     <div class="flex items-center gap-2 overflow-x-auto pb-1 pt-1 no-scrollbar text-xs">
                         <span class="text-gray-400 font-bold uppercase text-[10px] tracking-wider whitespace-nowrap">City:</span>
-                        <button type="button" class="city-pill active px-3 py-1 rounded-full font-semibold bg-[#00539C] text-white transition-colors" data-city="all">All</button>
+                        <button type="button" class="city-pill active px-3 py-1 rounded-full font-semibold bg-[#27797D] text-white transition-colors" data-city="all">All</button>
                         <button type="button" class="city-pill px-3 py-1 rounded-full font-semibold bg-gray-100 hover:bg-gray-200 text-gray-700 transition-colors" data-city="New Delhi">New Delhi</button>
                         <button type="button" class="city-pill px-3 py-1 rounded-full font-semibold bg-gray-100 hover:bg-gray-200 text-gray-700 transition-colors" data-city="Mumbai">Mumbai</button>
                         <button type="button" class="city-pill px-3 py-1 rounded-full font-semibold bg-gray-100 hover:bg-gray-200 text-gray-700 transition-colors" data-city="Gurgaon">Gurgaon</button>
@@ -231,13 +231,13 @@
                                 <!-- Title & Accreditation Emblems -->
                                 <div class="space-y-1.5 flex-1 min-w-0">
                                     <div class="flex items-center gap-1.5 flex-wrap">
-                                        <h2 class="text-base sm:text-lg font-bold text-[#00539C] leading-tight">
+                                        <h2 class="text-base sm:text-lg font-bold text-[#27797D] leading-tight">
                                             <a href="{{ route('hospital.details') }}" class="hover:underline">Indraprastha Apollo Hospital, New Delhi</a>
                                         </h2>
                                         <!-- Verified Checkmark Icon -->
                                         <span class="inline-flex items-center justify-center w-4 h-4 rounded-full bg-emerald-500 text-white text-[9px] font-bold" title="Verified Hospital">✓</span>
                                         <!-- Featured Badge -->
-                                        <span class="bg-[#e13b3f] text-white text-[10px] font-bold px-2 py-0.5 rounded-full tracking-wide">Featured</span>
+                                        <span class="bg-[#EF7415] text-white text-[10px] font-bold px-2 py-0.5 rounded-full tracking-wide">Featured</span>
                                     </div>
 
                                     <!-- Rating -->
@@ -290,10 +290,10 @@
 
                                 <!-- Action Buttons -->
                                 <div class="space-y-2 pt-1">
-                                    <a href="#evaluation-form" class="w-full bg-[#e13b3f] hover:bg-[#cf2a2e] text-white text-xs sm:text-sm font-bold py-2.5 px-4 rounded-lg shadow-xs hover:shadow text-center block transition-all">
+                                    <a href="#evaluation-form" class="w-full bg-[#EF7415] hover:bg-[#d9640d] text-white text-xs sm:text-sm font-bold py-2.5 px-4 rounded-lg shadow-xs hover:shadow text-center block transition-all">
                                         Book Appointment
                                     </a>
-                                    <a href="https://wa.me/919999999999?text=Hello%20Vaidam,%20I%20am%20interested%20in%20Indraprastha%20Apollo%20Hospital%20New%20Delhi" target="_blank" class="w-full bg-[#28a745] hover:bg-[#218838] text-white text-xs sm:text-sm font-bold py-2.5 px-4 rounded-lg shadow-xs hover:shadow text-center flex items-center justify-center gap-2 transition-all">
+                                    <a href="https://wa.me/919129846542?text=Hello%20Heal%20Go%20Fly,%20I%20am%20interested%20in%20Indraprastha%20Apollo%20Hospital%20New%20Delhi" target="_blank" class="w-full bg-[#28a745] hover:bg-[#218838] text-white text-xs sm:text-sm font-bold py-2.5 px-4 rounded-lg shadow-xs hover:shadow text-center flex items-center justify-center gap-2 transition-all">
                                         <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
                                         <span>WhatsApp Us</span>
                                     </a>
@@ -307,7 +307,7 @@
                             <p class="text-xs text-gray-500 leading-relaxed flex-1 hospital-desc">
                                 Indraprastha Apollo Hospital, the Apollo Hospitals Group's flagship, is India's premier multi-super specialty hospital. It was founded as a joint venture with the Government of Delhi and has constantly ranked at the top of medical quality....
                             </p>
-                            <button type="button" class="show-more-btn text-[#00539C] hover:underline font-bold text-xs whitespace-nowrap self-end sm:self-auto cursor-pointer">
+                            <button type="button" class="show-more-btn text-[#27797D] hover:underline font-bold text-xs whitespace-nowrap self-end sm:self-auto cursor-pointer">
                                 Show More
                             </button>
                         </div>
@@ -329,7 +329,7 @@
 
                                 <div class="space-y-1.5 flex-1 min-w-0">
                                     <div class="flex items-center gap-1.5 flex-wrap">
-                                        <h2 class="text-base sm:text-lg font-bold text-[#00539C] hover:underline cursor-pointer leading-tight">
+                                        <h2 class="text-base sm:text-lg font-bold text-[#27797D] hover:underline cursor-pointer leading-tight">
                                             Kokilaben Dhirubhai Ambani Hospital, Mumbai
                                         </h2>
                                         <span class="inline-flex items-center justify-center w-4 h-4 rounded-full bg-emerald-500 text-white text-[9px] font-bold" title="Verified Hospital">✓</span>
@@ -378,10 +378,10 @@
                                 </div>
 
                                 <div class="space-y-2 pt-1">
-                                    <a href="#evaluation-form" class="w-full bg-[#e13b3f] hover:bg-[#cf2a2e] text-white text-xs sm:text-sm font-bold py-2.5 px-4 rounded-lg shadow-xs hover:shadow text-center block transition-all">
+                                    <a href="#evaluation-form" class="w-full bg-[#EF7415] hover:bg-[#d9640d] text-white text-xs sm:text-sm font-bold py-2.5 px-4 rounded-lg shadow-xs hover:shadow text-center block transition-all">
                                         Book Appointment
                                     </a>
-                                    <a href="https://wa.me/919999999999?text=Hello%20Vaidam,%20I%20am%20interested%20in%20Kokilaben%20Hospital%20Mumbai" target="_blank" class="w-full bg-[#28a745] hover:bg-[#218838] text-white text-xs sm:text-sm font-bold py-2.5 px-4 rounded-lg shadow-xs hover:shadow text-center flex items-center justify-center gap-2 transition-all">
+                                    <a href="https://wa.me/919129846542?text=Hello%20Heal%20Go%20Fly,%20I%20am%20interested%20in%20Kokilaben%20Hospital%20Mumbai" target="_blank" class="w-full bg-[#28a745] hover:bg-[#218838] text-white text-xs sm:text-sm font-bold py-2.5 px-4 rounded-lg shadow-xs hover:shadow text-center flex items-center justify-center gap-2 transition-all">
                                         <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
                                         <span>WhatsApp Us</span>
                                     </a>
@@ -394,7 +394,7 @@
                             <p class="text-xs text-gray-500 leading-relaxed flex-1 hospital-desc">
                                 Kokilaben Dhirubhai Ambani Hospital, one of the most modern and state-of-the-art multi-speciality tertiary care hospitals in Mumbai, was launched in 2008 by Reliance Group. It is the only hospital in Mumbai with all four renowned accreditations, including the National...
                             </p>
-                            <button type="button" class="show-more-btn text-[#00539C] hover:underline font-bold text-xs whitespace-nowrap self-end sm:self-auto cursor-pointer">
+                            <button type="button" class="show-more-btn text-[#27797D] hover:underline font-bold text-xs whitespace-nowrap self-end sm:self-auto cursor-pointer">
                                 Show More
                             </button>
                         </div>
@@ -416,11 +416,11 @@
 
                                 <div class="space-y-1.5 flex-1 min-w-0">
                                     <div class="flex items-center gap-1.5 flex-wrap">
-                                        <h2 class="text-base sm:text-lg font-bold text-[#00539C] hover:underline cursor-pointer leading-tight">
+                                        <h2 class="text-base sm:text-lg font-bold text-[#27797D] hover:underline cursor-pointer leading-tight">
                                             Medanta - The Medicity, Gurgaon
                                         </h2>
                                         <span class="inline-flex items-center justify-center w-4 h-4 rounded-full bg-emerald-500 text-white text-[9px] font-bold" title="Verified Hospital">✓</span>
-                                        <span class="bg-[#e13b3f] text-white text-[10px] font-bold px-2 py-0.5 rounded-full tracking-wide">Featured</span>
+                                        <span class="bg-[#EF7415] text-white text-[10px] font-bold px-2 py-0.5 rounded-full tracking-wide">Featured</span>
                                     </div>
 
                                     <div class="flex items-center gap-1.5 text-xs text-gray-600">
@@ -466,10 +466,10 @@
                                 </div>
 
                                 <div class="space-y-2 pt-1">
-                                    <a href="#evaluation-form" class="w-full bg-[#e13b3f] hover:bg-[#cf2a2e] text-white text-xs sm:text-sm font-bold py-2.5 px-4 rounded-lg shadow-xs hover:shadow text-center block transition-all">
+                                    <a href="#evaluation-form" class="w-full bg-[#EF7415] hover:bg-[#d9640d] text-white text-xs sm:text-sm font-bold py-2.5 px-4 rounded-lg shadow-xs hover:shadow text-center block transition-all">
                                         Book Appointment
                                     </a>
-                                    <a href="https://wa.me/919999999999?text=Hello%20Vaidam,%20I%20am%20interested%20in%20Medanta%20Gurgaon" target="_blank" class="w-full bg-[#28a745] hover:bg-[#218838] text-white text-xs sm:text-sm font-bold py-2.5 px-4 rounded-lg shadow-xs hover:shadow text-center flex items-center justify-center gap-2 transition-all">
+                                    <a href="https://wa.me/919129846542?text=Hello%20Heal%20Go%20Fly,%20I%20am%20interested%20in%20Medanta%20Gurgaon" target="_blank" class="w-full bg-[#28a745] hover:bg-[#218838] text-white text-xs sm:text-sm font-bold py-2.5 px-4 rounded-lg shadow-xs hover:shadow text-center flex items-center justify-center gap-2 transition-all">
                                         <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
                                         <span>WhatsApp Us</span>
                                     </a>
@@ -482,7 +482,7 @@
                             <p class="text-xs text-gray-500 leading-relaxed flex-1 hospital-desc">
                                 Founded by eminent cardiac surgeon Dr. Naresh Trehan, Medanta - The Medicity is one of India's largest multi-super specialty institutes. Spread across 43 acres with over 800 doctors, it features CyberKnife, Da Vinci robotic surgery...
                             </p>
-                            <button type="button" class="show-more-btn text-[#00539C] hover:underline font-bold text-xs whitespace-nowrap self-end sm:self-auto cursor-pointer">
+                            <button type="button" class="show-more-btn text-[#27797D] hover:underline font-bold text-xs whitespace-nowrap self-end sm:self-auto cursor-pointer">
                                 Show More
                             </button>
                         </div>
@@ -504,7 +504,7 @@
 
                                 <div class="space-y-1.5 flex-1 min-w-0">
                                     <div class="flex items-center gap-1.5 flex-wrap">
-                                        <h2 class="text-base sm:text-lg font-bold text-[#00539C] hover:underline cursor-pointer leading-tight">
+                                        <h2 class="text-base sm:text-lg font-bold text-[#27797D] hover:underline cursor-pointer leading-tight">
                                             Fortis Memorial Research Institute (FMRI), Gurgaon
                                         </h2>
                                         <span class="inline-flex items-center justify-center w-4 h-4 rounded-full bg-emerald-500 text-white text-[9px] font-bold" title="Verified Hospital">✓</span>
@@ -553,10 +553,10 @@
                                 </div>
 
                                 <div class="space-y-2 pt-1">
-                                    <a href="#evaluation-form" class="w-full bg-[#e13b3f] hover:bg-[#cf2a2e] text-white text-xs sm:text-sm font-bold py-2.5 px-4 rounded-lg shadow-xs hover:shadow text-center block transition-all">
+                                    <a href="#evaluation-form" class="w-full bg-[#EF7415] hover:bg-[#d9640d] text-white text-xs sm:text-sm font-bold py-2.5 px-4 rounded-lg shadow-xs hover:shadow text-center block transition-all">
                                         Book Appointment
                                     </a>
-                                    <a href="https://wa.me/919999999999?text=Hello%20Vaidam,%20I%20am%20interested%20in%20Fortis%20FMRI%20Gurgaon" target="_blank" class="w-full bg-[#28a745] hover:bg-[#218838] text-white text-xs sm:text-sm font-bold py-2.5 px-4 rounded-lg shadow-xs hover:shadow text-center flex items-center justify-center gap-2 transition-all">
+                                    <a href="https://wa.me/919129846542?text=Hello%20Heal%20Go%20Fly,%20I%20am%20interested%20in%20Fortis%20FMRI%20Gurgaon" target="_blank" class="w-full bg-[#28a745] hover:bg-[#218838] text-white text-xs sm:text-sm font-bold py-2.5 px-4 rounded-lg shadow-xs hover:shadow text-center flex items-center justify-center gap-2 transition-all">
                                         <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
                                         <span>WhatsApp Us</span>
                                     </a>
@@ -569,7 +569,7 @@
                             <p class="text-xs text-gray-500 leading-relaxed flex-1 hospital-desc">
                                 Often called the "Mecca of Healthcare" for the Asia-Pacific region, FMRI is ranked second globally among technologically advanced hospitals. Celebrated for pediatric cardiac surgery, adult bone marrow transplants, and neuro-oncology...
                             </p>
-                            <button type="button" class="show-more-btn text-[#00539C] hover:underline font-bold text-xs whitespace-nowrap self-end sm:self-auto cursor-pointer">
+                            <button type="button" class="show-more-btn text-[#27797D] hover:underline font-bold text-xs whitespace-nowrap self-end sm:self-auto cursor-pointer">
                                 Show More
                             </button>
                         </div>
@@ -591,7 +591,7 @@
 
                                 <div class="space-y-1.5 flex-1 min-w-0">
                                     <div class="flex items-center gap-1.5 flex-wrap">
-                                        <h2 class="text-base sm:text-lg font-bold text-[#00539C] hover:underline cursor-pointer leading-tight">
+                                        <h2 class="text-base sm:text-lg font-bold text-[#27797D] hover:underline cursor-pointer leading-tight">
                                             Max Super Speciality Hospital, Saket, New Delhi
                                         </h2>
                                         <span class="inline-flex items-center justify-center w-4 h-4 rounded-full bg-emerald-500 text-white text-[9px] font-bold" title="Verified Hospital">✓</span>
@@ -640,10 +640,10 @@
                                 </div>
 
                                 <div class="space-y-2 pt-1">
-                                    <a href="#evaluation-form" class="w-full bg-[#e13b3f] hover:bg-[#cf2a2e] text-white text-xs sm:text-sm font-bold py-2.5 px-4 rounded-lg shadow-xs hover:shadow text-center block transition-all">
+                                    <a href="#evaluation-form" class="w-full bg-[#EF7415] hover:bg-[#d9640d] text-white text-xs sm:text-sm font-bold py-2.5 px-4 rounded-lg shadow-xs hover:shadow text-center block transition-all">
                                         Book Appointment
                                     </a>
-                                    <a href="https://wa.me/919999999999?text=Hello%20Vaidam,%20I%20am%20interested%20in%20Max%20Saket%20New%20Delhi" target="_blank" class="w-full bg-[#28a745] hover:bg-[#218838] text-white text-xs sm:text-sm font-bold py-2.5 px-4 rounded-lg shadow-xs hover:shadow text-center flex items-center justify-center gap-2 transition-all">
+                                    <a href="https://wa.me/919129846542?text=Hello%20Heal%20Go%20Fly,%20I%20am%20interested%20in%20Max%20Saket%20New%20Delhi" target="_blank" class="w-full bg-[#28a745] hover:bg-[#218838] text-white text-xs sm:text-sm font-bold py-2.5 px-4 rounded-lg shadow-xs hover:shadow text-center flex items-center justify-center gap-2 transition-all">
                                         <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
                                         <span>WhatsApp Us</span>
                                     </a>
@@ -656,7 +656,7 @@
                             <p class="text-xs text-gray-500 leading-relaxed flex-1 hospital-desc">
                                 Premier multi-specialty tertiary care hospital with Asia's first BrainSUITE intraoperative MRI-equipped neurosurgical theatre. Famous for Novalis Tx radiosurgery and high-volume joint replacements...
                             </p>
-                            <button type="button" class="show-more-btn text-[#00539C] hover:underline font-bold text-xs whitespace-nowrap self-end sm:self-auto cursor-pointer">
+                            <button type="button" class="show-more-btn text-[#27797D] hover:underline font-bold text-xs whitespace-nowrap self-end sm:self-auto cursor-pointer">
                                 Show More
                             </button>
                         </div>
@@ -678,11 +678,11 @@
 
                                 <div class="space-y-1.5 flex-1 min-w-0">
                                     <div class="flex items-center gap-1.5 flex-wrap">
-                                        <h2 class="text-base sm:text-lg font-bold text-[#00539C] hover:underline cursor-pointer leading-tight">
+                                        <h2 class="text-base sm:text-lg font-bold text-[#27797D] hover:underline cursor-pointer leading-tight">
                                             Apollo Hospitals, Greams Road, Chennai
                                         </h2>
                                         <span class="inline-flex items-center justify-center w-4 h-4 rounded-full bg-emerald-500 text-white text-[9px] font-bold" title="Verified Hospital">✓</span>
-                                        <span class="bg-[#e13b3f] text-white text-[10px] font-bold px-2 py-0.5 rounded-full tracking-wide">Featured</span>
+                                        <span class="bg-[#EF7415] text-white text-[10px] font-bold px-2 py-0.5 rounded-full tracking-wide">Featured</span>
                                     </div>
 
                                     <div class="flex items-center gap-1.5 text-xs text-gray-600">
@@ -728,10 +728,10 @@
                                 </div>
 
                                 <div class="space-y-2 pt-1">
-                                    <a href="#evaluation-form" class="w-full bg-[#e13b3f] hover:bg-[#cf2a2e] text-white text-xs sm:text-sm font-bold py-2.5 px-4 rounded-lg shadow-xs hover:shadow text-center block transition-all">
+                                    <a href="#evaluation-form" class="w-full bg-[#EF7415] hover:bg-[#d9640d] text-white text-xs sm:text-sm font-bold py-2.5 px-4 rounded-lg shadow-xs hover:shadow text-center block transition-all">
                                         Book Appointment
                                     </a>
-                                    <a href="https://wa.me/919999999999?text=Hello%20Vaidam,%20I%20am%20interested%20in%20Apollo%20Chennai" target="_blank" class="w-full bg-[#28a745] hover:bg-[#218838] text-white text-xs sm:text-sm font-bold py-2.5 px-4 rounded-lg shadow-xs hover:shadow text-center flex items-center justify-center gap-2 transition-all">
+                                    <a href="https://wa.me/919129846542?text=Hello%20Heal%20Go%20Fly,%20I%20am%20interested%20in%20Apollo%20Chennai" target="_blank" class="w-full bg-[#28a745] hover:bg-[#218838] text-white text-xs sm:text-sm font-bold py-2.5 px-4 rounded-lg shadow-xs hover:shadow text-center flex items-center justify-center gap-2 transition-all">
                                         <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
                                         <span>WhatsApp Us</span>
                                     </a>
@@ -744,7 +744,7 @@
                             <p class="text-xs text-gray-500 leading-relaxed flex-1 hospital-desc">
                                 The flagship institution of Apollo Hospitals Group. Features South Asia's first Proton Beam Cancer Therapy Centre, robotic cardiac surgery, and one of the highest cardiac bypass success rates globally (99.6%)...
                             </p>
-                            <button type="button" class="show-more-btn text-[#00539C] hover:underline font-bold text-xs whitespace-nowrap self-end sm:self-auto cursor-pointer">
+                            <button type="button" class="show-more-btn text-[#27797D] hover:underline font-bold text-xs whitespace-nowrap self-end sm:self-auto cursor-pointer">
                                 Show More
                             </button>
                         </div>
@@ -766,7 +766,7 @@
 
                                 <div class="space-y-1.5 flex-1 min-w-0">
                                     <div class="flex items-center gap-1.5 flex-wrap">
-                                        <h2 class="text-base sm:text-lg font-bold text-[#00539C] hover:underline cursor-pointer leading-tight">
+                                        <h2 class="text-base sm:text-lg font-bold text-[#27797D] hover:underline cursor-pointer leading-tight">
                                             BLK-Max Super Speciality Hospital, New Delhi
                                         </h2>
                                         <span class="inline-flex items-center justify-center w-4 h-4 rounded-full bg-emerald-500 text-white text-[9px] font-bold" title="Verified Hospital">✓</span>
@@ -815,10 +815,10 @@
                                 </div>
 
                                 <div class="space-y-2 pt-1">
-                                    <a href="#evaluation-form" class="w-full bg-[#e13b3f] hover:bg-[#cf2a2e] text-white text-xs sm:text-sm font-bold py-2.5 px-4 rounded-lg shadow-xs hover:shadow text-center block transition-all">
+                                    <a href="#evaluation-form" class="w-full bg-[#EF7415] hover:bg-[#d9640d] text-white text-xs sm:text-sm font-bold py-2.5 px-4 rounded-lg shadow-xs hover:shadow text-center block transition-all">
                                         Book Appointment
                                     </a>
-                                    <a href="https://wa.me/919999999999?text=Hello%20Vaidam,%20I%20am%20interested%20in%20BLK%20Hospital%20Delhi" target="_blank" class="w-full bg-[#28a745] hover:bg-[#218838] text-white text-xs sm:text-sm font-bold py-2.5 px-4 rounded-lg shadow-xs hover:shadow text-center flex items-center justify-center gap-2 transition-all">
+                                    <a href="https://wa.me/919129846542?text=Hello%20Heal%20Go%20Fly,%20I%20am%20interested%20in%20BLK%20Hospital%20Delhi" target="_blank" class="w-full bg-[#28a745] hover:bg-[#218838] text-white text-xs sm:text-sm font-bold py-2.5 px-4 rounded-lg shadow-xs hover:shadow text-center flex items-center justify-center gap-2 transition-all">
                                         <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
                                         <span>WhatsApp Us</span>
                                     </a>
@@ -831,7 +831,7 @@
                             <p class="text-xs text-gray-500 leading-relaxed flex-1 hospital-desc">
                                 Houses one of Asia's largest dedicated Bone Marrow Transplant centres with over 1,000+ successful BMTs performed. Comprehensive robotic surgery program and high IVF success rates...
                             </p>
-                            <button type="button" class="show-more-btn text-[#00539C] hover:underline font-bold text-xs whitespace-nowrap self-end sm:self-auto cursor-pointer">
+                            <button type="button" class="show-more-btn text-[#27797D] hover:underline font-bold text-xs whitespace-nowrap self-end sm:self-auto cursor-pointer">
                                 Show More
                             </button>
                         </div>
@@ -853,7 +853,7 @@
 
                                 <div class="space-y-1.5 flex-1 min-w-0">
                                     <div class="flex items-center gap-1.5 flex-wrap">
-                                        <h2 class="text-base sm:text-lg font-bold text-[#00539C] hover:underline cursor-pointer leading-tight">
+                                        <h2 class="text-base sm:text-lg font-bold text-[#27797D] hover:underline cursor-pointer leading-tight">
                                             Manipal Hospital, Old Airport Road, Bangalore
                                         </h2>
                                         <span class="inline-flex items-center justify-center w-4 h-4 rounded-full bg-emerald-500 text-white text-[9px] font-bold" title="Verified Hospital">✓</span>
@@ -902,10 +902,10 @@
                                 </div>
 
                                 <div class="space-y-2 pt-1">
-                                    <a href="#evaluation-form" class="w-full bg-[#e13b3f] hover:bg-[#cf2a2e] text-white text-xs sm:text-sm font-bold py-2.5 px-4 rounded-lg shadow-xs hover:shadow text-center block transition-all">
+                                    <a href="#evaluation-form" class="w-full bg-[#EF7415] hover:bg-[#d9640d] text-white text-xs sm:text-sm font-bold py-2.5 px-4 rounded-lg shadow-xs hover:shadow text-center block transition-all">
                                         Book Appointment
                                     </a>
-                                    <a href="https://wa.me/919999999999?text=Hello%20Vaidam,%20I%20am%20interested%20in%20Manipal%20Bangalore" target="_blank" class="w-full bg-[#28a745] hover:bg-[#218838] text-white text-xs sm:text-sm font-bold py-2.5 px-4 rounded-lg shadow-xs hover:shadow text-center flex items-center justify-center gap-2 transition-all">
+                                    <a href="https://wa.me/919129846542?text=Hello%20Heal%20Go%20Fly,%20I%20am%20interested%20in%20Manipal%20Bangalore" target="_blank" class="w-full bg-[#28a745] hover:bg-[#218838] text-white text-xs sm:text-sm font-bold py-2.5 px-4 rounded-lg shadow-xs hover:shadow text-center flex items-center justify-center gap-2 transition-all">
                                         <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
                                         <span>WhatsApp Us</span>
                                     </a>
@@ -918,7 +918,7 @@
                             <p class="text-xs text-gray-500 leading-relaxed flex-1 hospital-desc">
                                 Karnataka's flagship multi-specialty institution known as Bengaluru's premier medical hub. World-class transplant programs, precision oncology, and comprehensive pediatric sub-specialties...
                             </p>
-                            <button type="button" class="show-more-btn text-[#00539C] hover:underline font-bold text-xs whitespace-nowrap self-end sm:self-auto cursor-pointer">
+                            <button type="button" class="show-more-btn text-[#27797D] hover:underline font-bold text-xs whitespace-nowrap self-end sm:self-auto cursor-pointer">
                                 Show More
                             </button>
                         </div>
@@ -929,7 +929,7 @@
 
                 <!-- Pagination Bar -->
                 <div class="flex items-center justify-center gap-2 pt-6">
-                    <button class="w-9 h-9 rounded-lg bg-[#00539C] text-white font-bold text-xs shadow-xs">1</button>
+                    <button class="w-9 h-9 rounded-lg bg-[#27797D] text-white font-bold text-xs shadow-xs">1</button>
                     <button class="w-9 h-9 rounded-lg bg-white hover:bg-gray-100 text-gray-700 font-semibold text-xs border border-gray-200 transition-colors">2</button>
                     <button class="w-9 h-9 rounded-lg bg-white hover:bg-gray-100 text-gray-700 font-semibold text-xs border border-gray-200 transition-colors">3</button>
                     <button class="w-9 h-9 rounded-lg bg-white hover:bg-gray-100 text-gray-700 font-semibold text-xs border border-gray-200 transition-colors">4</button>
@@ -946,7 +946,7 @@
             <div class="lg:col-span-4 lg:sticky lg:top-20 z-30 space-y-4">
                 
                 <!-- The Blue "Get FREE Evaluation" Card (Exact Match to Screenshot) -->
-                <div id="evaluation-form" class="bg-[#00539C] rounded-2xl p-5 sm:p-6 text-white shadow-xl border border-blue-400/20">
+                <div id="evaluation-form" class="bg-[#27797D] rounded-2xl p-5 sm:p-6 text-white shadow-xl border border-blue-400/20">
                     
                     <!-- Header -->
                     <div class="mb-4">
@@ -968,12 +968,12 @@
                         
                         <!-- 1. Patient Name -->
                         <div>
-                            <input type="text" name="patient_name" required placeholder="Patient Name" class="w-full text-xs text-gray-900 bg-white placeholder-gray-400 px-3.5 py-2.5 rounded-lg border-0 focus:outline-none focus:ring-2 focus:ring-[#e13b3f]">
+                            <input type="text" name="patient_name" required placeholder="Patient Name" class="w-full text-xs text-gray-900 bg-white placeholder-gray-400 px-3.5 py-2.5 rounded-lg border-0 focus:outline-none focus:ring-2 focus:ring-[#EF7415]">
                         </div>
 
                         <!-- 2. Country Dropdown -->
                         <div class="relative">
-                            <select name="country" class="w-full text-xs text-gray-900 bg-white px-3.5 py-2.5 rounded-lg border-0 focus:outline-none focus:ring-2 focus:ring-[#e13b3f] appearance-none cursor-pointer font-medium">
+                            <select name="country" class="w-full text-xs text-gray-900 bg-white px-3.5 py-2.5 rounded-lg border-0 focus:outline-none focus:ring-2 focus:ring-[#EF7415] appearance-none cursor-pointer font-medium">
                                 <option value="India" selected>India</option>
                                 <option value="Bangladesh">Bangladesh</option>
                                 <option value="United Arab Emirates">United Arab Emirates</option>
@@ -992,7 +992,7 @@
 
                         <!-- 3. Select City -->
                         <div>
-                            <input type="text" name="city" placeholder="Select City" class="w-full text-xs text-gray-900 bg-white placeholder-gray-400 px-3.5 py-2.5 rounded-lg border-0 focus:outline-none focus:ring-2 focus:ring-[#e13b3f]">
+                            <input type="text" name="city" placeholder="Select City" class="w-full text-xs text-gray-900 bg-white placeholder-gray-400 px-3.5 py-2.5 rounded-lg border-0 focus:outline-none focus:ring-2 focus:ring-[#EF7415]">
                         </div>
 
                         <!-- 4. Phone with Country Code (+91) -->
@@ -1000,28 +1000,28 @@
                             <div class="w-16 bg-white rounded-lg flex items-center justify-center text-xs font-bold text-gray-700 px-2 flex-shrink-0">
                                 +91
                             </div>
-                            <input type="tel" name="phone" required placeholder="Your Phone number" class="flex-1 text-xs text-gray-900 bg-white placeholder-gray-400 px-3.5 py-2.5 rounded-lg border-0 focus:outline-none focus:ring-2 focus:ring-[#e13b3f]">
+                            <input type="tel" name="phone" required placeholder="Your Phone number" class="flex-1 text-xs text-gray-900 bg-white placeholder-gray-400 px-3.5 py-2.5 rounded-lg border-0 focus:outline-none focus:ring-2 focus:ring-[#EF7415]">
                         </div>
 
                         <!-- 5. Medical Problem Textarea -->
                         <div>
-                            <textarea name="problem" rows="3" placeholder="Describe The Current Medical Problem.." class="w-full text-xs text-gray-900 bg-white placeholder-gray-400 px-3.5 py-2.5 rounded-lg border-0 focus:outline-none focus:ring-2 focus:ring-[#e13b3f]"></textarea>
+                            <textarea name="problem" rows="3" placeholder="Describe The Current Medical Problem.." class="w-full text-xs text-gray-900 bg-white placeholder-gray-400 px-3.5 py-2.5 rounded-lg border-0 focus:outline-none focus:ring-2 focus:ring-[#EF7415]"></textarea>
                         </div>
 
                         <!-- 6. Age or DOB -->
                         <div>
-                            <input type="text" name="age_dob" placeholder="Example: 30 Yrs or 29-05-1985" class="w-full text-xs text-gray-900 bg-white placeholder-gray-400 px-3.5 py-2.5 rounded-lg border-0 focus:outline-none focus:ring-2 focus:ring-[#e13b3f]">
+                            <input type="text" name="age_dob" placeholder="Example: 30 Yrs or 29-05-1985" class="w-full text-xs text-gray-900 bg-white placeholder-gray-400 px-3.5 py-2.5 rounded-lg border-0 focus:outline-none focus:ring-2 focus:ring-[#EF7415]">
                         </div>
 
                         <!-- 7. Red Continue Button -->
-                        <button type="submit" class="w-full bg-[#e13b3f] hover:bg-[#cf2a2e] text-white text-sm font-bold py-3 rounded-lg shadow-md hover:shadow-lg transition-all duration-150 transform hover:-translate-y-0.5">
+                        <button type="submit" class="w-full bg-[#EF7415] hover:bg-[#d9640d] text-white text-sm font-bold py-3 rounded-lg shadow-md hover:shadow-lg transition-all duration-150 transform hover:-translate-y-0.5">
                             Continue →
                         </button>
                     </form>
 
                     <!-- Terms & Privacy -->
                     <p class="text-[11px] text-blue-100/90 text-center mt-3 leading-snug">
-                        By submitting I agree to the <a href="#terms" class="underline hover:text-white font-medium">Terms of Use</a> and <a href="#privacy" class="underline hover:text-white font-medium">Privacy Policy</a> of Vaidam Health.
+                        By submitting I agree to the <a href="#terms" class="underline hover:text-white font-medium">Terms of Use</a> and <a href="#privacy" class="underline hover:text-white font-medium">Privacy Policy</a> of Heal Go Fly.
                     </p>
                 </div>
 
@@ -1152,10 +1152,10 @@
                 if (deptSelect) deptSelect.value = '';
                 cityPills.forEach(p => {
                     if (p.getAttribute('data-city') === 'all') {
-                        p.classList.add('bg-[#00539C]', 'text-white');
+                        p.classList.add('bg-[#27797D]', 'text-white');
                         p.classList.remove('bg-gray-100', 'text-gray-700');
                     } else {
-                        p.classList.remove('bg-[#00539C]', 'text-white');
+                        p.classList.remove('bg-[#27797D]', 'text-white');
                         p.classList.add('bg-gray-100', 'text-gray-700');
                     }
                 });
@@ -1174,10 +1174,10 @@
             citySelect.addEventListener('change', () => {
                 cityPills.forEach(p => {
                     if (p.getAttribute('data-city').toLowerCase() === citySelect.value.toLowerCase()) {
-                        p.classList.add('bg-[#00539C]', 'text-white');
+                        p.classList.add('bg-[#27797D]', 'text-white');
                         p.classList.remove('bg-gray-100', 'text-gray-700');
                     } else {
-                        p.classList.remove('bg-[#00539C]', 'text-white');
+                        p.classList.remove('bg-[#27797D]', 'text-white');
                         p.classList.add('bg-gray-100', 'text-gray-700');
                     }
                 });
@@ -1190,10 +1190,10 @@
         cityPills.forEach(pill => {
             pill.addEventListener('click', () => {
                 cityPills.forEach(p => {
-                    p.classList.remove('bg-[#00539C]', 'text-white');
+                    p.classList.remove('bg-[#27797D]', 'text-white');
                     p.classList.add('bg-gray-100', 'text-gray-700');
                 });
-                pill.classList.add('bg-[#00539C]', 'text-white');
+                pill.classList.add('bg-[#27797D]', 'text-white');
                 pill.classList.remove('bg-gray-100', 'text-gray-700');
 
                 const chosenCity = pill.getAttribute('data-city');

@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'title' => 'Vaidam.com - Медицинское лечение с непревзойденной заботой',
+    'title' => 'Heal Go Fly - Медицинское лечение с непревзойденной заботой',
     'header' => [
         'logo_tagline' => 'ДЛЯ МЕДИЦИНСКИХ ПРОЦЕДУР',
         'ten' => '10',
@@ -64,7 +64,7 @@ return [
         'terms_of_use' => 'Условиями использования',
         'and' => 'и',
         'privacy_policy' => 'Политикой конфиденциальности',
-        'company_name' => 'Vaidam Health.',
+        'company_name' => 'Heal Go Fly.',
         'success_alert' => 'Спасибо! Наш медицинский эксперт свяжется с вами в ближайшее время.',
     ],
     'countries' => [

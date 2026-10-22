@@ -3,10 +3,10 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>@yield('title', 'Vaidam.com - Medical Treatment With Unmatched Personal Care')</title>
+    <title>@yield('title', 'Heal Go Fly - Medical Value Travel | Healgofly hi rahega')</title>
     
     <!-- Favicon -->
-    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" href="{{ asset('logo.png') }}" type="image/png">
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -23,14 +23,22 @@
                         sans: ['"Plus Jakarta Sans"', '"Noto Sans Bengali"', '"Tajawal"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
                     },
                     colors: {
+                        brand: {
+                            teal: '#27797D',
+                            navy: '#1D4B6C',
+                            orange: '#EF7415',
+                            tealhover: '#1e5f62',
+                            navyhover: '#15364e',
+                            orangehover: '#d9640d'
+                        },
                         vaidam: {
-                            blue: '#00539C',
-                            darkblue: '#00407a',
-                            cardblue: '#005596',
-                            red: '#e13b3f',
-                            redhover: '#cf2a2e',
-                            gold: '#f59e0b',
-                            textdark: '#112347',
+                            blue: '#1D4B6C',
+                            darkblue: '#15364e',
+                            cardblue: '#27797D',
+                            red: '#EF7415',
+                            redhover: '#d9640d',
+                            gold: '#EF7415',
+                            textdark: '#1D4B6C',
                             textmuted: '#5a6a85'
                         }
                     }
@@ -212,10 +220,10 @@
             document.querySelectorAll('[data-lang]').forEach(btn => {
                 const check = btn.querySelector('.lang-check');
                 if (btn.getAttribute('data-lang') === lang) {
-                    btn.classList.add('bg-blue-50/80', 'font-bold', 'text-[#00539C]');
+                    btn.classList.add('bg-teal-50', 'font-bold', 'text-[#27797D]');
                     if (check) check.classList.remove('hidden');
                 } else {
-                    btn.classList.remove('bg-blue-50/80', 'font-bold', 'text-[#00539C]');
+                    btn.classList.remove('bg-teal-50', 'font-bold', 'text-[#27797D]');
                     if (check) check.classList.add('hidden');
                 }
             });

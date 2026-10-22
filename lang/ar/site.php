@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'title' => 'Vaidam.com - علاج طبي مع رعاية شخصية لا مثيل لها',
+    'title' => 'Heal Go Fly - علاج طبي مع رعاية شخصية لا مثيل لها',
     'header' => [
         'logo_tagline' => 'للإجراءات الطبية',
         'ten' => '١٠',
@@ -64,7 +64,7 @@ return [
         'terms_of_use' => 'شروط الاستخدام',
         'and' => 'و',
         'privacy_policy' => 'سياسة الخصوصية',
-        'company_name' => 'الخاصة بـ Vaidam Health.',
+        'company_name' => 'الخاصة بـ Heal Go Fly.',
         'success_alert' => 'شكراً لك! سيتواصل معك خبيرنا الطبي في أقرب وقت ممكن.',
     ],
     'countries' => [

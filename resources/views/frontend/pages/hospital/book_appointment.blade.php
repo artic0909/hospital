@@ -1,6 +1,6 @@
 @extends('frontend.layouts.app')
 
-@section('title', 'Book an Appointment - Indraprastha Apollo Hospital, New Delhi | Vaidam.com')
+@section('title', 'Book an Appointment - Indraprastha Apollo Hospital, New Delhi | Heal Go Fly')
 
 @section('content')
 
@@ -8,11 +8,11 @@
     <div class="bg-gray-50/80 border-b border-gray-200/70">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 py-3">
             <nav class="flex items-center gap-2 text-xs text-gray-500 font-medium overflow-x-auto whitespace-nowrap">
-                <a href="{{ url('/') }}" class="hover:text-[#00539C] transition-colors">Home</a>
+                <a href="{{ url('/') }}" class="hover:text-[#27797D] transition-colors">Home</a>
                 <span class="text-gray-400">›</span>
-                <a href="{{ route('hospitals') }}" class="hover:text-[#00539C] transition-colors">Hospitals</a>
+                <a href="{{ route('hospitals') }}" class="hover:text-[#27797D] transition-colors">Hospitals</a>
                 <span class="text-gray-400">›</span>
-                <a href="{{ route('hospital.details') }}" class="hover:text-[#00539C] transition-colors">Indraprastha Apollo Hospital</a>
+                <a href="{{ route('hospital.details') }}" class="hover:text-[#27797D] transition-colors">Indraprastha Apollo Hospital</a>
                 <span class="text-gray-400">›</span>
                 <span class="text-[#112347] font-semibold">Book an Appointment</span>
             </nav>
@@ -41,7 +41,7 @@
                     class="w-16 h-16 sm:w-18 sm:h-18 rounded-xl object-cover border border-gray-100 flex-shrink-0 shadow-xs"
                 >
                 <div class="space-y-1">
-                    <a href="{{ route('hospital.details') }}" class="block font-bold text-sm sm:text-base text-[#00539C] hover:underline leading-snug">
+                    <a href="{{ route('hospital.details') }}" class="block font-bold text-sm sm:text-base text-[#27797D] hover:underline leading-snug">
                         Indraprastha Apollo Hospital, New Delhi
                     </a>
                     <div class="flex items-center text-xs text-amber-500 font-semibold">
@@ -71,10 +71,10 @@
                         <!-- Two Radio Pills -->
                         <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
                             <!-- Pill 1: I know the doctor -->
-                            <label id="pill-doctor" class="finder-pill active-pill flex-1 flex items-center gap-2.5 px-4 sm:px-5 py-3 rounded-full border-2 border-[#00539C] bg-blue-50/70 text-[#00539C] font-semibold text-xs sm:text-sm cursor-pointer transition-all shadow-xs">
+                            <label id="pill-doctor" class="finder-pill active-pill flex-1 flex items-center gap-2.5 px-4 sm:px-5 py-3 rounded-full border-2 border-[#27797D] bg-blue-50/70 text-[#27797D] font-semibold text-xs sm:text-sm cursor-pointer transition-all shadow-xs">
                                 <input type="radio" name="doctor_find_mode" value="doctor" checked class="hidden mode-radio">
-                                <span class="radio-dot w-4 h-4 rounded-full border-2 border-[#00539C] flex items-center justify-center flex-shrink-0">
-                                    <span class="dot-inner w-2 h-2 rounded-full bg-[#00539C]"></span>
+                                <span class="radio-dot w-4 h-4 rounded-full border-2 border-[#27797D] flex items-center justify-center flex-shrink-0">
+                                    <span class="dot-inner w-2 h-2 rounded-full bg-[#27797D]"></span>
                                 </span>
                                 <span>I know the doctor</span>
                             </label>
@@ -105,7 +105,7 @@
                                     id="doctor-search-input" 
                                     placeholder="Search doctor by name." 
                                     autocomplete="off"
-                                    class="w-full text-xs sm:text-sm text-gray-900 bg-white placeholder-gray-400 px-3.5 py-3 rounded-xl border border-gray-300 focus:outline-none focus:border-[#00539C] focus:ring-2 focus:ring-blue-100 transition-all"
+                                    class="w-full text-xs sm:text-sm text-gray-900 bg-white placeholder-gray-400 px-3.5 py-3 rounded-xl border border-gray-300 focus:outline-none focus:border-[#27797D] focus:ring-2 focus:ring-blue-100 transition-all"
                                 >
                                 <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none text-gray-400">
                                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
@@ -135,7 +135,7 @@
                                     id="speciality-search-input" 
                                     placeholder="Search speciality" 
                                     autocomplete="off"
-                                    class="w-full text-xs sm:text-sm text-gray-900 bg-white placeholder-gray-400 px-3.5 py-3 rounded-xl border border-gray-300 focus:outline-none focus:border-[#00539C] focus:ring-2 focus:ring-blue-100 cursor-pointer transition-all"
+                                    class="w-full text-xs sm:text-sm text-gray-900 bg-white placeholder-gray-400 px-3.5 py-3 rounded-xl border border-gray-300 focus:outline-none focus:border-[#27797D] focus:ring-2 focus:ring-blue-100 cursor-pointer transition-all"
                                 >
                                 <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none text-gray-400" id="speciality-chevron">
                                     <svg class="w-4 h-4 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
@@ -160,7 +160,7 @@
                                     id="spec-doctor-search-input" 
                                     placeholder="Search doctor by name." 
                                     autocomplete="off"
-                                    class="w-full text-xs sm:text-sm text-gray-900 bg-white placeholder-gray-400 px-3.5 py-3 rounded-xl border border-gray-300 focus:outline-none focus:border-[#00539C] focus:ring-2 focus:ring-blue-100 transition-all"
+                                    class="w-full text-xs sm:text-sm text-gray-900 bg-white placeholder-gray-400 px-3.5 py-3 rounded-xl border border-gray-300 focus:outline-none focus:border-[#27797D] focus:ring-2 focus:ring-blue-100 transition-all"
                                 >
                                 <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none text-gray-400">
                                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
@@ -178,7 +178,7 @@
                     <!-- Common Checkbox: "Your doctor not in the list?" -->
                     <div class="pt-1">
                         <label class="inline-flex items-center gap-2 cursor-pointer select-none text-xs sm:text-sm text-gray-700">
-                            <input type="checkbox" id="doctor-not-in-list" class="w-4 h-4 rounded text-[#00539C] border-gray-300 focus:ring-[#00539C]">
+                            <input type="checkbox" id="doctor-not-in-list" class="w-4 h-4 rounded text-[#27797D] border-gray-300 focus:ring-[#27797D]">
                             <span>Your doctor not in the list?</span>
                         </label>
 
@@ -188,7 +188,7 @@
                                 type="text" 
                                 id="custom-doctor-name" 
                                 placeholder="Enter your preferred doctor's name" 
-                                class="w-full text-xs sm:text-sm text-gray-900 bg-gray-50/80 placeholder-gray-400 px-3.5 py-2.5 rounded-xl border border-gray-300 focus:outline-none focus:border-[#00539C] focus:ring-2 focus:ring-blue-100"
+                                class="w-full text-xs sm:text-sm text-gray-900 bg-gray-50/80 placeholder-gray-400 px-3.5 py-2.5 rounded-xl border border-gray-300 focus:outline-none focus:border-[#27797D] focus:ring-2 focus:ring-blue-100"
                             >
                         </div>
                     </div>
@@ -206,7 +206,7 @@
                             >
                             <div class="space-y-0.5">
                                 <div class="flex items-center gap-1.5">
-                                    <h3 class="text-sm sm:text-base font-bold text-[#00539C]" id="card-doctor-name">Dr. Kuldeep Singh</h3>
+                                    <h3 class="text-sm sm:text-base font-bold text-[#27797D]" id="card-doctor-name">Dr. Kuldeep Singh</h3>
                                     <!-- Red verified badge circle with check -->
                                     <span class="inline-flex items-center justify-center w-4 h-4 rounded-full border border-red-500 text-red-500 text-[10px] font-bold">
                                         ✓
@@ -247,7 +247,7 @@
                                     <button type="button" class="date-pill flex-shrink-0 px-3 py-1.5 rounded-lg border border-gray-200 bg-white text-xs text-gray-700 hover:border-gray-300 font-medium transition-all" data-date="23-10-2026">
                                         Fri, 23-Oct
                                     </button>
-                                    <button type="button" class="date-pill active-date-pill flex-shrink-0 px-3 py-1.5 rounded-lg border-2 border-[#00539C] bg-blue-50/60 text-[#00539C] text-xs font-semibold shadow-xs" data-date="custom">
+                                    <button type="button" class="date-pill active-date-pill flex-shrink-0 px-3 py-1.5 rounded-lg border-2 border-[#27797D] bg-blue-50/60 text-[#27797D] text-xs font-semibold shadow-xs" data-date="custom">
                                         Custom date
                                     </button>
                                 </div>
@@ -261,7 +261,7 @@
                                         type="date" 
                                         id="appointment-custom-date" 
                                         value="2026-10-30" 
-                                        class="w-full text-xs sm:text-sm text-gray-900 bg-white px-3.5 py-2.5 rounded-xl border border-gray-300 focus:outline-none focus:border-[#00539C] focus:ring-2 focus:ring-blue-100"
+                                        class="w-full text-xs sm:text-sm text-gray-900 bg-white px-3.5 py-2.5 rounded-xl border border-gray-300 focus:outline-none focus:border-[#27797D] focus:ring-2 focus:ring-blue-100"
                                     >
                                 </div>
                                 <p class="text-[11px] text-gray-500">
@@ -278,7 +278,7 @@
                         <button 
                             type="button" 
                             id="btn-goto-step-2" 
-                            class="w-full bg-[#e13b3f] hover:bg-[#cf2a2e] text-white text-sm sm:text-base font-bold py-3.5 px-6 rounded-xl shadow-md hover:shadow-lg transition-all duration-150 transform hover:-translate-y-0.5 text-center flex items-center justify-center gap-2"
+                            class="w-full bg-[#EF7415] hover:bg-[#d9640d] text-white text-sm sm:text-base font-bold py-3.5 px-6 rounded-xl shadow-md hover:shadow-lg transition-all duration-150 transform hover:-translate-y-0.5 text-center flex items-center justify-center gap-2"
                         >
                             <span>Next →</span>
                         </button>
@@ -291,7 +291,7 @@
                     
                     <!-- Back Button & Selected Summary -->
                     <div class="flex items-center justify-between pb-3 border-b border-gray-100">
-                        <button type="button" id="btn-back-to-step-1" class="text-xs sm:text-sm text-[#00539C] hover:underline font-bold flex items-center gap-1.5">
+                        <button type="button" id="btn-back-to-step-1" class="text-xs sm:text-sm text-[#27797D] hover:underline font-bold flex items-center gap-1.5">
                             <span>←</span>
                             <span>Change Doctor / Speciality</span>
                         </button>
@@ -300,7 +300,7 @@
 
                     <!-- Appointment Summary Banner -->
                     <div class="bg-blue-50/70 border border-blue-100 rounded-xl p-3.5 flex items-center gap-3">
-                        <div class="w-9 h-9 rounded-full bg-blue-100 text-[#00539C] flex items-center justify-center font-bold text-sm flex-shrink-0">
+                        <div class="w-9 h-9 rounded-full bg-blue-100 text-[#27797D] flex items-center justify-center font-bold text-sm flex-shrink-0">
                             👨‍⚕️
                         </div>
                         <div class="text-xs sm:text-sm">
@@ -316,14 +316,14 @@
                         <!-- 1. Patient Name -->
                         <div>
                             <label class="block text-xs font-semibold text-gray-700 mb-1">Patient Full Name <span class="text-red-500">*</span></label>
-                            <input type="text" id="patient-name-input" required placeholder="Enter patient name" class="w-full text-xs sm:text-sm text-gray-900 bg-white placeholder-gray-400 px-3.5 py-2.5 rounded-xl border border-gray-300 focus:outline-none focus:border-[#00539C] focus:ring-2 focus:ring-blue-100">
+                            <input type="text" id="patient-name-input" required placeholder="Enter patient name" class="w-full text-xs sm:text-sm text-gray-900 bg-white placeholder-gray-400 px-3.5 py-2.5 rounded-xl border border-gray-300 focus:outline-none focus:border-[#27797D] focus:ring-2 focus:ring-blue-100">
                         </div>
 
                         <!-- 2. Phone with Country Code Selector -->
                         <div>
                             <label class="block text-xs font-semibold text-gray-700 mb-1">Phone Number <span class="text-red-500">*</span></label>
                             <div class="flex gap-2">
-                                <select class="w-24 bg-gray-50 text-xs font-bold text-gray-700 px-2.5 py-2.5 rounded-xl border border-gray-300 focus:outline-none focus:border-[#00539C]">
+                                <select class="w-24 bg-gray-50 text-xs font-bold text-gray-700 px-2.5 py-2.5 rounded-xl border border-gray-300 focus:outline-none focus:border-[#27797D]">
                                     <option value="+91" selected>🇮🇳 +91</option>
                                     <option value="+880">🇧🇩 +880</option>
                                     <option value="+971">🇦🇪 +971</option>
@@ -334,25 +334,25 @@
                                     <option value="+44">🇬🇧 +44</option>
                                     <option value="+1">🇺🇸 +1</option>
                                 </select>
-                                <input type="tel" id="patient-phone-input" required placeholder="Phone number" class="flex-1 text-xs sm:text-sm text-gray-900 bg-white placeholder-gray-400 px-3.5 py-2.5 rounded-xl border border-gray-300 focus:outline-none focus:border-[#00539C] focus:ring-2 focus:ring-blue-100">
+                                <input type="tel" id="patient-phone-input" required placeholder="Phone number" class="flex-1 text-xs sm:text-sm text-gray-900 bg-white placeholder-gray-400 px-3.5 py-2.5 rounded-xl border border-gray-300 focus:outline-none focus:border-[#27797D] focus:ring-2 focus:ring-blue-100">
                             </div>
                         </div>
 
                         <!-- 3. Email Address -->
                         <div>
                             <label class="block text-xs font-semibold text-gray-700 mb-1">Email Address <span class="text-gray-400 text-[11px]">(Optional)</span></label>
-                            <input type="email" placeholder="patient@example.com" class="w-full text-xs sm:text-sm text-gray-900 bg-white placeholder-gray-400 px-3.5 py-2.5 rounded-xl border border-gray-300 focus:outline-none focus:border-[#00539C] focus:ring-2 focus:ring-blue-100">
+                            <input type="email" placeholder="patient@example.com" class="w-full text-xs sm:text-sm text-gray-900 bg-white placeholder-gray-400 px-3.5 py-2.5 rounded-xl border border-gray-300 focus:outline-none focus:border-[#27797D] focus:ring-2 focus:ring-blue-100">
                         </div>
 
                         <!-- 4. Preferred Consultation Date -->
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
                             <div>
                                 <label class="block text-xs font-semibold text-gray-700 mb-1">Preferred Date <span class="text-red-500">*</span></label>
-                                <input type="date" required value="{{ date('Y-m-d', strtotime('+1 day')) }}" class="w-full text-xs sm:text-sm text-gray-900 bg-white px-3.5 py-2.5 rounded-xl border border-gray-300 focus:outline-none focus:border-[#00539C]">
+                                <input type="date" required value="{{ date('Y-m-d', strtotime('+1 day')) }}" class="w-full text-xs sm:text-sm text-gray-900 bg-white px-3.5 py-2.5 rounded-xl border border-gray-300 focus:outline-none focus:border-[#27797D]">
                             </div>
                             <div>
                                 <label class="block text-xs font-semibold text-gray-700 mb-1">Preferred Time Slot</label>
-                                <select class="w-full text-xs sm:text-sm text-gray-900 bg-white px-3.5 py-2.5 rounded-xl border border-gray-300 focus:outline-none focus:border-[#00539C]">
+                                <select class="w-full text-xs sm:text-sm text-gray-900 bg-white px-3.5 py-2.5 rounded-xl border border-gray-300 focus:outline-none focus:border-[#27797D]">
                                     <option value="morning">Morning (09:00 AM - 12:00 PM)</option>
                                     <option value="afternoon" selected>Afternoon (12:00 PM - 04:00 PM)</option>
                                     <option value="evening">Evening (04:00 PM - 07:00 PM)</option>
@@ -363,21 +363,21 @@
                         <!-- 5. Current Medical Problem -->
                         <div>
                             <label class="block text-xs font-semibold text-gray-700 mb-1">Describe Medical Concern</label>
-                            <textarea rows="3" placeholder="Briefly describe symptoms, history or medical inquiry..." class="w-full text-xs sm:text-sm text-gray-900 bg-white placeholder-gray-400 px-3.5 py-2.5 rounded-xl border border-gray-300 focus:outline-none focus:border-[#00539C] focus:ring-2 focus:ring-blue-100"></textarea>
+                            <textarea rows="3" placeholder="Briefly describe symptoms, history or medical inquiry..." class="w-full text-xs sm:text-sm text-gray-900 bg-white placeholder-gray-400 px-3.5 py-2.5 rounded-xl border border-gray-300 focus:outline-none focus:border-[#27797D] focus:ring-2 focus:ring-blue-100"></textarea>
                         </div>
 
                         <!-- Submit Button -->
                         <div class="pt-2">
                             <button 
                                 type="submit" 
-                                class="w-full bg-[#e13b3f] hover:bg-[#cf2a2e] text-white text-sm sm:text-base font-bold py-3.5 px-6 rounded-xl shadow-md hover:shadow-lg transition-all duration-150 transform hover:-translate-y-0.5 text-center"
+                                class="w-full bg-[#EF7415] hover:bg-[#d9640d] text-white text-sm sm:text-base font-bold py-3.5 px-6 rounded-xl shadow-md hover:shadow-lg transition-all duration-150 transform hover:-translate-y-0.5 text-center"
                             >
                                 Confirm & Book Appointment
                             </button>
                         </div>
 
                         <p class="text-[11px] text-gray-500 text-center leading-snug">
-                            By booking, you agree to Vaidam Health's Terms of Use & Privacy Policy. A patient coordinator will contact you within 24 hours.
+                            By booking, you agree to Heal Go Fly's Terms of Use & Privacy Policy. A patient coordinator will contact you within 24 hours.
                         </p>
 
                     </form>
@@ -414,7 +414,7 @@
                     </div>
 
                     <div class="pt-3 flex flex-col sm:flex-row items-center justify-center gap-3">
-                        <a href="{{ route('hospital.details') }}" class="w-full sm:w-auto bg-[#00539C] hover:bg-[#00407a] text-white text-xs sm:text-sm font-bold py-2.5 px-6 rounded-lg transition-all">
+                        <a href="{{ route('hospital.details') }}" class="w-full sm:w-auto bg-[#27797D] hover:bg-[#15364e] text-white text-xs sm:text-sm font-bold py-2.5 px-6 rounded-lg transition-all">
                             Back to Hospital Details
                         </a>
                         <button type="button" onclick="location.reload()" class="w-full sm:w-auto bg-gray-100 hover:bg-gray-200 text-gray-700 text-xs sm:text-sm font-semibold py-2.5 px-5 rounded-lg transition-all">
@@ -500,9 +500,9 @@
         // Mode Switcher Pills
         function setMode(mode) {
             if (mode === 'doctor') {
-                pillDoctor.className = "finder-pill active-pill flex-1 flex items-center gap-2.5 px-4 sm:px-5 py-3 rounded-full border-2 border-[#00539C] bg-blue-50/70 text-[#00539C] font-semibold text-xs sm:text-sm cursor-pointer transition-all shadow-xs";
-                pillDoctor.querySelector('.radio-dot').className = "radio-dot w-4 h-4 rounded-full border-2 border-[#00539C] flex items-center justify-center flex-shrink-0";
-                pillDoctor.querySelector('.dot-inner').className = "dot-inner w-2 h-2 rounded-full bg-[#00539C]";
+                pillDoctor.className = "finder-pill active-pill flex-1 flex items-center gap-2.5 px-4 sm:px-5 py-3 rounded-full border-2 border-[#27797D] bg-blue-50/70 text-[#27797D] font-semibold text-xs sm:text-sm cursor-pointer transition-all shadow-xs";
+                pillDoctor.querySelector('.radio-dot').className = "radio-dot w-4 h-4 rounded-full border-2 border-[#27797D] flex items-center justify-center flex-shrink-0";
+                pillDoctor.querySelector('.dot-inner').className = "dot-inner w-2 h-2 rounded-full bg-[#27797D]";
 
                 pillSpeciality.className = "finder-pill flex-1 flex items-center gap-2.5 px-4 sm:px-5 py-3 rounded-full border border-gray-200 bg-white text-gray-700 font-semibold text-xs sm:text-sm cursor-pointer hover:border-gray-300 transition-all";
                 pillSpeciality.querySelector('.radio-dot').className = "radio-dot w-4 h-4 rounded-full border-2 border-gray-300 flex items-center justify-center flex-shrink-0";
@@ -511,9 +511,9 @@
                 modeDoctorSection.classList.remove('hidden');
                 modeSpecialitySection.classList.add('hidden');
             } else {
-                pillSpeciality.className = "finder-pill active-pill flex-1 flex items-center gap-2.5 px-4 sm:px-5 py-3 rounded-full border-2 border-[#00539C] bg-blue-50/70 text-[#00539C] font-semibold text-xs sm:text-sm cursor-pointer transition-all shadow-xs";
-                pillSpeciality.querySelector('.radio-dot').className = "radio-dot w-4 h-4 rounded-full border-2 border-[#00539C] flex items-center justify-center flex-shrink-0";
-                pillSpeciality.querySelector('.dot-inner').className = "dot-inner w-2 h-2 rounded-full bg-[#00539C]";
+                pillSpeciality.className = "finder-pill active-pill flex-1 flex items-center gap-2.5 px-4 sm:px-5 py-3 rounded-full border-2 border-[#27797D] bg-blue-50/70 text-[#27797D] font-semibold text-xs sm:text-sm cursor-pointer transition-all shadow-xs";
+                pillSpeciality.querySelector('.radio-dot').className = "radio-dot w-4 h-4 rounded-full border-2 border-[#27797D] flex items-center justify-center flex-shrink-0";
+                pillSpeciality.querySelector('.dot-inner').className = "dot-inner w-2 h-2 rounded-full bg-[#27797D]";
 
                 pillDoctor.className = "finder-pill flex-1 flex items-center gap-2.5 px-4 sm:px-5 py-3 rounded-full border border-gray-200 bg-white text-gray-700 font-semibold text-xs sm:text-sm cursor-pointer hover:border-gray-300 transition-all";
                 pillDoctor.querySelector('.radio-dot').className = "radio-dot w-4 h-4 rounded-full border-2 border-gray-300 flex items-center justify-center flex-shrink-0";
@@ -591,7 +591,7 @@
                 specMenu.innerHTML = `<div class="px-4 py-3 text-gray-500 text-xs">No speciality found matching "${filterText}".</div>`;
             } else {
                 specMenu.innerHTML = filtered.map(s => `
-                    <div class="spec-item px-4 py-2.5 hover:bg-blue-50 cursor-pointer text-xs sm:text-sm text-gray-800 hover:text-[#00539C] transition-colors border-b border-gray-50 last:border-0" data-spec="${s}">
+                    <div class="spec-item px-4 py-2.5 hover:bg-blue-50 cursor-pointer text-xs sm:text-sm text-gray-800 hover:text-[#27797D] transition-colors border-b border-gray-50 last:border-0" data-spec="${s}">
                         <span>${s}</span>
                     </div>
                 `).join('');
@@ -720,7 +720,7 @@
                     p.className = "date-pill flex-shrink-0 px-3 py-1.5 rounded-lg border border-gray-200 bg-white text-xs text-gray-700 hover:border-gray-300 font-medium transition-all";
                 });
 
-                pill.className = "date-pill active-date-pill flex-shrink-0 px-3 py-1.5 rounded-lg border-2 border-[#00539C] bg-blue-50/60 text-[#00539C] text-xs font-semibold shadow-xs";
+                pill.className = "date-pill active-date-pill flex-shrink-0 px-3 py-1.5 rounded-lg border-2 border-[#27797D] bg-blue-50/60 text-[#27797D] text-xs font-semibold shadow-xs";
 
                 selectedDate = pill.getAttribute('data-date');
                 if (selectedDate === 'custom') {
