@@ -796,12 +796,12 @@
                     </a>
 
                     <a href="#quote-form" class="h-14 flex items-center hover:text-[#27797D] border-b-2 border-transparent hover:border-[#27797D] transition-colors">
-                        Wellness
+                        Free Consult
                     </a>
 
                     <a href="#quote-form" class="h-14 flex items-center hover:text-[#27797D] border-b-2 border-transparent hover:border-emerald-500 transition-colors text-emerald-600 font-bold gap-1">
                         <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
-                        FREE Consult
+                        Partner Login
                     </a>
                 </div>
 
