@@ -658,14 +658,33 @@
     </section>
 
     <!-- ==================== HOW DO WE WORK? ==================== -->
-    <section class="py-14 sm:py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section class="relative py-16 sm:py-24 overflow-hidden border-t border-b border-gray-200">
+        <!-- Background Image Container -->
+        <div class="absolute inset-0 z-0">
+            <img 
+                src="{{ asset('images/how_it_works_bg.jpg') }}" 
+                alt="Medical Travel Assistance - Heal Go Fly" 
+                class="w-full h-full object-cover object-center"
+            >
+            <!-- Visible Overlay: allows the modern hospital atrium & doctors to be clearly visible while maintaining readability -->
+            <div class="absolute inset-0 bg-white/60 sm:bg-white/55 backdrop-blur-[1px]"></div>
+            <div class="absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-[#eaedf2] to-transparent"></div>
+            <div class="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-[#eaedf2] to-transparent"></div>
+        </div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             
             <!-- Section Header -->
             <div class="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-                <h2 class="text-2xl sm:text-3xl font-extrabold text-[#112347] tracking-tight">
+                <span class="inline-block text-xs font-extrabold uppercase tracking-widest text-[#27797D] bg-white/90 px-3.5 py-1 rounded-full shadow-xs border border-gray-200/80 mb-2.5">
+                    Simple 4-Step Process
+                </span>
+                <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#112347] tracking-tight">
                     How do we work?
                 </h2>
+                <p class="text-xs sm:text-sm text-gray-700 font-medium mt-2 max-w-xl mx-auto">
+                    Your trusted medical travel journey from initial consultation to complete recovery.
+                </p>
             </div>
 
             <!-- Two Columns: Left 4 Steps & CTA, Right Video Card -->
@@ -675,10 +694,10 @@
                 <div class="lg:col-span-6 flex flex-col justify-between h-full">
                     
                     <!-- 2x2 Steps Grid -->
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 sm:gap-x-8 gap-y-9 sm:gap-y-12">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
                         
                         <!-- Step 1: Contact Us -->
-                        <div class="flex flex-col items-center text-center group">
+                        <div class="flex flex-col items-center text-center group bg-white/95 backdrop-blur-xs p-5 rounded-2xl border border-gray-200/90 shadow-md hover:shadow-lg hover:border-[#27797D]/60 hover:-translate-y-0.5 transition-all duration-200">
                             <!-- Circular Icon -->
                             <div class="w-14 h-14 rounded-full bg-[#f0f9f9] border border-blue-100/80 flex items-center justify-center text-[#27797D] group-hover:bg-[#27797D] group-hover:text-white transition-all duration-200 shadow-xs">
                                 <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
@@ -687,14 +706,17 @@
                                     <path d="M14 6a2 2 0 0 1 2 2"/>
                                 </svg>
                             </div>
+                            <h3 class="text-sm font-bold text-[#112347] mt-3 group-hover:text-[#27797D] transition-colors">
+                                Contact Us
+                            </h3>
                             <!-- Description -->
-                            <p class="text-xs sm:text-[13px] text-gray-500 text-center leading-relaxed mt-3.5 max-w-[210px] mx-auto">
+                            <p class="text-xs text-gray-500 text-center leading-relaxed mt-1.5 max-w-[210px] mx-auto">
                                 Contact us, share your case details and our team will get in touch with you.
                             </p>
                         </div>
 
                         <!-- Step 2: Medical Opinion & Estimate -->
-                        <div class="flex flex-col items-center text-center group">
+                        <div class="flex flex-col items-center text-center group bg-white/95 backdrop-blur-xs p-5 rounded-2xl border border-gray-200/90 shadow-md hover:shadow-lg hover:border-[#27797D]/60 hover:-translate-y-0.5 transition-all duration-200">
                             <!-- Circular Icon -->
                             <div class="w-14 h-14 rounded-full bg-[#f0f9f9] border border-blue-100/80 flex items-center justify-center text-[#27797D] group-hover:bg-[#27797D] group-hover:text-white transition-all duration-200 shadow-xs">
                                 <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
@@ -706,14 +728,17 @@
                                     <circle cx="12" cy="13" r="1" fill="currentColor"/>
                                 </svg>
                             </div>
+                            <h3 class="text-sm font-bold text-[#112347] mt-3 group-hover:text-[#27797D] transition-colors">
+                                Medical Opinion & Estimate
+                            </h3>
                             <!-- Description -->
-                            <p class="text-xs sm:text-[13px] text-gray-500 text-center leading-relaxed mt-3.5 max-w-[210px] mx-auto">
+                            <p class="text-xs text-gray-500 text-center leading-relaxed mt-1.5 max-w-[210px] mx-auto">
                                 Receive medical opinion and cost estimate within 48 Hours.
                             </p>
                         </div>
 
                         <!-- Step 3: Book Flights & Airport Reception -->
-                        <div class="flex flex-col items-center text-center group">
+                        <div class="flex flex-col items-center text-center group bg-white/95 backdrop-blur-xs p-5 rounded-2xl border border-gray-200/90 shadow-md hover:shadow-lg hover:border-[#27797D]/60 hover:-translate-y-0.5 transition-all duration-200">
                             <!-- Circular Icon -->
                             <div class="w-14 h-14 rounded-full bg-[#f0f9f9] border border-blue-100/80 flex items-center justify-center text-[#27797D] group-hover:bg-[#27797D] group-hover:text-white transition-all duration-200 shadow-xs">
                                 <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
@@ -725,14 +750,17 @@
                                     <path d="m17 16 1 1 1.5-1.5" stroke="white" stroke-width="1.2"/>
                                 </svg>
                             </div>
+                            <h3 class="text-sm font-bold text-[#112347] mt-3 group-hover:text-[#27797D] transition-colors">
+                                Book Flights & Arrival
+                            </h3>
                             <!-- Description -->
-                            <p class="text-xs sm:text-[13px] text-gray-500 text-center leading-relaxed mt-3.5 max-w-[210px] mx-auto">
+                            <p class="text-xs text-gray-500 text-center leading-relaxed mt-1.5 max-w-[210px] mx-auto">
                                 Book flights and get received by our team at the airport.
                             </p>
                         </div>
 
                         <!-- Step 4: Treatment & Follow Ups -->
-                        <div class="flex flex-col items-center text-center group">
+                        <div class="flex flex-col items-center text-center group bg-white/95 backdrop-blur-xs p-5 rounded-2xl border border-gray-200/90 shadow-md hover:shadow-lg hover:border-[#27797D]/60 hover:-translate-y-0.5 transition-all duration-200">
                             <!-- Circular Icon -->
                             <div class="w-14 h-14 rounded-full bg-[#f0f9f9] border border-blue-100/80 flex items-center justify-center text-[#27797D] group-hover:bg-[#27797D] group-hover:text-white transition-all duration-200 shadow-xs">
                                 <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
@@ -741,8 +769,11 @@
                                     <path d="M7 16h6"/>
                                 </svg>
                             </div>
+                            <h3 class="text-sm font-bold text-[#112347] mt-3 group-hover:text-[#27797D] transition-colors">
+                                Treatment & Follow Ups
+                            </h3>
                             <!-- Description -->
-                            <p class="text-xs sm:text-[13px] text-gray-500 text-center leading-relaxed mt-3.5 max-w-[210px] mx-auto">
+                            <p class="text-xs text-gray-500 text-center leading-relaxed mt-1.5 max-w-[210px] mx-auto">
                                 Get treated and fly back. We stay in touch with you for follow ups.
                             </p>
                         </div>
@@ -750,7 +781,7 @@
                     </div>
 
                     <!-- Get Started CTA Button -->
-                    <div class="mt-9 sm:mt-11 text-center">
+                    <div class="mt-8 sm:mt-10 text-center">
                         <a 
                             href="#quote-form" 
                             class="bg-[#EF7415] hover:bg-[#d9640d] active:scale-[0.99] text-white text-sm sm:text-base font-bold px-8 py-3 rounded-lg shadow-md hover:shadow-lg transition-all duration-150 inline-flex items-center justify-center"
