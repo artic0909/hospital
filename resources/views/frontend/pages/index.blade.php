@@ -226,7 +226,7 @@
     </section>
 
     <!-- ==================== TOP MEDICAL DESTINATIONS & MULTI-SPECIALTY FOCUS ==================== -->
-    <section class="py-14 sm:py-20 bg-gray-50/60 border-t border-gray-100">
+    <section class="py-14 sm:py-20 bg-[#eaedf2] border-y border-gray-300/60">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             
             <!-- 1. TOP MEDICAL DESTINATIONS -->
@@ -658,7 +658,7 @@
     </section>
 
     <!-- ==================== HOW DO WE WORK? ==================== -->
-    <section class="py-14 sm:py-20 bg-white border-t border-gray-100">
+    <section class="py-14 sm:py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             
             <!-- Section Header -->
@@ -784,7 +784,7 @@
 
 
     <!-- ==================== LOWEST QUOTES ASSURED ==================== -->
-    <section class="py-14 sm:py-20 bg-white border-t border-gray-100">
+    <section class="py-14 sm:py-20 bg-[#eaedf2] border-y border-gray-300/60">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             
             <!-- Section Header -->
@@ -801,7 +801,7 @@
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
                 
                 <!-- 1. Knee Replacement -->
-                <div class="bg-[#f0f9f9] hover:bg-[#edf6f9] rounded-2xl p-3.5 sm:p-4 border border-blue-100/60 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-3.5 group cursor-pointer">
+                <div class="bg-white hover:bg-[#f0f9f9] rounded-2xl p-3.5 sm:p-4 border border-gray-200/80 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-3.5 group cursor-pointer">
                     <img src="{{ asset('icons/RHEUMATOLOGY-51.svg') }}" alt="Knee Replacement" class="w-12 h-12 flex-shrink-0 group-hover:scale-105 transition-transform object-contain">
                     <div>
                         <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#27797D] transition-colors">
@@ -817,7 +817,7 @@
                 </div>
 
                 <!-- 2. Hip Replacement -->
-                <div class="bg-[#f0f9f9] hover:bg-[#edf6f9] rounded-2xl p-3.5 sm:p-4 border border-blue-100/60 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-3.5 group cursor-pointer">
+                <div class="bg-white hover:bg-[#f0f9f9] rounded-2xl p-3.5 sm:p-4 border border-gray-200/80 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-3.5 group cursor-pointer">
                     <img src="{{ asset('icons/Hip-Replecement.svg') }}" alt="Hip Replacement" class="w-12 h-12 flex-shrink-0 group-hover:scale-105 transition-transform object-contain">
                     <div>
                         <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#27797D] transition-colors">
@@ -833,7 +833,7 @@
                 </div>
 
                 <!-- 3. Brain Tumor -->
-                <div class="bg-[#f0f9f9] hover:bg-[#edf6f9] rounded-2xl p-3.5 sm:p-4 border border-blue-100/60 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-3.5 group cursor-pointer">
+                <div class="bg-white hover:bg-[#f0f9f9] rounded-2xl p-3.5 sm:p-4 border border-gray-200/80 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-3.5 group cursor-pointer">
                     <img src="{{ asset('icons/Brain-Tumor.svg') }}" alt="Brain Tumor" class="w-12 h-12 flex-shrink-0 group-hover:scale-105 transition-transform object-contain">
                     <div>
                         <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#27797D] transition-colors">
@@ -849,7 +849,7 @@
                 </div>
 
                 <!-- 4. Heart Bypass Surgery -->
-                <div class="bg-[#f0f9f9] hover:bg-[#edf6f9] rounded-2xl p-3.5 sm:p-4 border border-blue-100/60 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-3.5 group cursor-pointer">
+                <div class="bg-white hover:bg-[#f0f9f9] rounded-2xl p-3.5 sm:p-4 border border-gray-200/80 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-3.5 group cursor-pointer">
                     <img src="{{ asset('icons/Heart-Bypass-Surgery.svg') }}" alt="Heart Bypass Surgery" class="w-12 h-12 flex-shrink-0 group-hover:scale-105 transition-transform object-contain">
                     <div>
                         <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#27797D] transition-colors">
@@ -865,7 +865,7 @@
                 </div>
 
                 <!-- 5. Valve Replacement -->
-                <div class="bg-[#f0f9f9] hover:bg-[#edf6f9] rounded-2xl p-3.5 sm:p-4 border border-blue-100/60 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-3.5 group cursor-pointer">
+                <div class="bg-white hover:bg-[#f0f9f9] rounded-2xl p-3.5 sm:p-4 border border-gray-200/80 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-3.5 group cursor-pointer">
                     <img src="{{ asset('icons/Valve-Replacement.svg') }}" alt="Valve Replacement" class="w-12 h-12 flex-shrink-0 group-hover:scale-105 transition-transform object-contain">
                     <div>
                         <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#27797D] transition-colors">
@@ -881,7 +881,7 @@
                 </div>
 
                 <!-- 6. Breast Cancer -->
-                <div class="bg-[#f0f9f9] hover:bg-[#edf6f9] rounded-2xl p-3.5 sm:p-4 border border-blue-100/60 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-3.5 group cursor-pointer">
+                <div class="bg-white hover:bg-[#f0f9f9] rounded-2xl p-3.5 sm:p-4 border border-gray-200/80 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-3.5 group cursor-pointer">
                     <img src="{{ asset('icons/Breast-Cancer.svg') }}" alt="Breast Cancer" class="w-12 h-12 flex-shrink-0 group-hover:scale-105 transition-transform object-contain">
                     <div>
                         <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#27797D] transition-colors">
@@ -897,7 +897,7 @@
                 </div>
 
                 <!-- 7. Lung Cancer -->
-                <div class="bg-[#f0f9f9] hover:bg-[#edf6f9] rounded-2xl p-3.5 sm:p-4 border border-blue-100/60 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-3.5 group cursor-pointer">
+                <div class="bg-white hover:bg-[#f0f9f9] rounded-2xl p-3.5 sm:p-4 border border-gray-200/80 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-3.5 group cursor-pointer">
                     <img src="{{ asset('icons/Lung-Cancer.svg') }}" alt="Lung Cancer" class="w-12 h-12 flex-shrink-0 group-hover:scale-105 transition-transform object-contain">
                     <div>
                         <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#27797D] transition-colors">
@@ -913,7 +913,7 @@
                 </div>
 
                 <!-- 8. Rhinoplasty -->
-                <div class="bg-[#f0f9f9] hover:bg-[#edf6f9] rounded-2xl p-3.5 sm:p-4 border border-blue-100/60 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-3.5 group cursor-pointer">
+                <div class="bg-white hover:bg-[#f0f9f9] rounded-2xl p-3.5 sm:p-4 border border-gray-200/80 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-3.5 group cursor-pointer">
                     <img src="{{ asset('icons/Rhinoplasty.svg') }}" alt="Rhinoplasty" class="w-12 h-12 flex-shrink-0 group-hover:scale-105 transition-transform object-contain">
                     <div>
                         <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#27797D] transition-colors">
@@ -929,7 +929,7 @@
                 </div>
 
                 <!-- 9. Breast Implants -->
-                <div class="bg-[#f0f9f9] hover:bg-[#edf6f9] rounded-2xl p-3.5 sm:p-4 border border-blue-100/60 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-3.5 group cursor-pointer">
+                <div class="bg-white hover:bg-[#f0f9f9] rounded-2xl p-3.5 sm:p-4 border border-gray-200/80 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-3.5 group cursor-pointer">
                     <img src="{{ asset('icons/Breast-Cancer (1).svg') }}" alt="Breast Implants" class="w-12 h-12 flex-shrink-0 group-hover:scale-105 transition-transform object-contain">
                     <div>
                         <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#27797D] transition-colors">
@@ -945,7 +945,7 @@
                 </div>
 
                 <!-- 10. Hair Transplant -->
-                <div class="bg-[#f0f9f9] hover:bg-[#edf6f9] rounded-2xl p-3.5 sm:p-4 border border-blue-100/60 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-3.5 group cursor-pointer">
+                <div class="bg-white hover:bg-[#f0f9f9] rounded-2xl p-3.5 sm:p-4 border border-gray-200/80 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-3.5 group cursor-pointer">
                     <img src="{{ asset('icons/Hair-Transpalnt.svg') }}" alt="Hair Transplant" class="w-12 h-12 flex-shrink-0 group-hover:scale-105 transition-transform object-contain">
                     <div>
                         <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#27797D] transition-colors">
@@ -961,7 +961,7 @@
                 </div>
 
                 <!-- 11. Cervical Cancer -->
-                <div class="bg-[#f0f9f9] hover:bg-[#edf6f9] rounded-2xl p-3.5 sm:p-4 border border-blue-100/60 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-3.5 group cursor-pointer">
+                <div class="bg-white hover:bg-[#f0f9f9] rounded-2xl p-3.5 sm:p-4 border border-gray-200/80 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-3.5 group cursor-pointer">
                     <img src="{{ asset('icons/Cervical-Cancer.svg') }}" alt="Cervical Cancer" class="w-12 h-12 flex-shrink-0 group-hover:scale-105 transition-transform object-contain">
                     <div>
                         <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#27797D] transition-colors">
@@ -977,7 +977,7 @@
                 </div>
 
                 <!-- 12. Hysterectomy -->
-                <div class="bg-[#f0f9f9] hover:bg-[#edf6f9] rounded-2xl p-3.5 sm:p-4 border border-blue-100/60 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-3.5 group cursor-pointer">
+                <div class="bg-white hover:bg-[#f0f9f9] rounded-2xl p-3.5 sm:p-4 border border-gray-200/80 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-3.5 group cursor-pointer">
                     <img src="{{ asset('icons/Hysterectomy.svg') }}" alt="Hysterectomy" class="w-12 h-12 flex-shrink-0 group-hover:scale-105 transition-transform object-contain">
                     <div>
                         <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#27797D] transition-colors">
@@ -1025,7 +1025,7 @@
 
 
     <!-- ==================== OUR SERVICES COVER EVERY NEED ==================== -->
-    <section class="py-14 sm:py-20 bg-white border-t border-gray-100">
+    <section class="py-14 sm:py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             
             <!-- Section Header -->
@@ -1252,7 +1252,7 @@
     </section>
 
     <!-- ==================== NETWORK OF TOP HOSPITALS ==================== -->
-    <section class="py-14 sm:py-20 bg-white border-t border-gray-100">
+    <section class="py-14 sm:py-20 bg-[#eaedf2] border-y border-gray-300/60">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             
             <!-- Section Header -->
@@ -1269,7 +1269,7 @@
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 sm:gap-6 items-start">
                 
                 <!-- LEFT COLUMN: India (IN) - 4 Hospitals (2x2 Grid) -->
-                <div class="lg:col-span-5 bg-gray-50/70 rounded-2xl p-4 sm:p-5 border border-gray-200/80 shadow-[0_2px_12px_rgba(0,0,0,0.02)] h-full flex flex-col justify-between">
+                <div class="lg:col-span-5 bg-white rounded-2xl p-4 sm:p-5 border border-gray-200/80 shadow-xs h-full flex flex-col justify-between">
                     <div>
                         <!-- Header -->
                         <div class="flex items-center justify-between mb-4 px-1">
@@ -1359,7 +1359,7 @@
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5">
                         
                         <!-- Turkey -->
-                        <div class="bg-gray-50/70 rounded-2xl p-4 sm:p-5 border border-gray-200/80 shadow-[0_2px_12px_rgba(0,0,0,0.02)]">
+                        <div class="bg-white rounded-2xl p-4 sm:p-5 border border-gray-200/80 shadow-xs">
                             <div class="flex items-center justify-between mb-3.5 px-1">
                                 <h3 class="text-base font-bold text-gray-900 tracking-tight">Turkey</h3>
                                 <span class="text-xs font-bold text-gray-400 uppercase tracking-wider">TR</span>
@@ -1387,7 +1387,7 @@
                         </div>
 
                         <!-- UAE -->
-                        <div class="bg-gray-50/70 rounded-2xl p-4 sm:p-5 border border-gray-200/80 shadow-[0_2px_12px_rgba(0,0,0,0.02)]">
+                        <div class="bg-white rounded-2xl p-4 sm:p-5 border border-gray-200/80 shadow-xs">
                             <div class="flex items-center justify-between mb-3.5 px-1">
                                 <h3 class="text-base font-bold text-gray-900 tracking-tight">UAE</h3>
                                 <span class="text-xs font-bold text-gray-400 uppercase tracking-wider">AE</span>
@@ -1420,7 +1420,7 @@
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5">
                         
                         <!-- Thailand -->
-                        <div class="bg-gray-50/70 rounded-2xl p-4 sm:p-5 border border-gray-200/80 shadow-[0_2px_12px_rgba(0,0,0,0.02)]">
+                        <div class="bg-white rounded-2xl p-4 sm:p-5 border border-gray-200/80 shadow-xs">
                             <div class="flex items-center justify-between mb-3.5 px-1">
                                 <h3 class="text-base font-bold text-gray-900 tracking-tight">Thailand</h3>
                                 <span class="text-xs font-bold text-gray-400 uppercase tracking-wider">TH</span>
@@ -1448,7 +1448,7 @@
                         </div>
 
                         <!-- Germany -->
-                        <div class="bg-gray-50/70 rounded-2xl p-4 sm:p-5 border border-gray-200/80 shadow-[0_2px_12px_rgba(0,0,0,0.02)]">
+                        <div class="bg-white rounded-2xl p-4 sm:p-5 border border-gray-200/80 shadow-xs">
                             <div class="flex items-center justify-between mb-3.5 px-1">
                                 <h3 class="text-base font-bold text-gray-900 tracking-tight">Germany</h3>
                                 <span class="text-xs font-bold text-gray-400 uppercase tracking-wider">DE</span>
@@ -1478,7 +1478,7 @@
                     </div>
 
                     <!-- Row 3: Egypt (EG) - Full Width across Right Column -->
-                    <div class="bg-gray-50/70 rounded-2xl p-4 sm:p-5 border border-gray-200/80 shadow-[0_2px_12px_rgba(0,0,0,0.02)]">
+                    <div class="bg-white rounded-2xl p-4 sm:p-5 border border-gray-200/80 shadow-xs">
                         <div class="flex items-center justify-between mb-3.5 px-1">
                             <h3 class="text-base font-bold text-gray-900 tracking-tight">Egypt</h3>
                             <span class="text-xs font-bold text-gray-400 uppercase tracking-wider">EG</span>
@@ -1566,7 +1566,7 @@
     </section>
 
     <!-- ==================== HEAL GO FLY IN NEWS ==================== -->
-    <section class="py-14 sm:py-20 bg-white border-t border-gray-100">
+    <section class="py-14 sm:py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             
             <!-- Section Header with Left Title and Right Nav Controls -->
