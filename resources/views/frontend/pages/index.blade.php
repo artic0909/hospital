@@ -657,6 +657,600 @@
         </div>
     </section>
 
+    <!-- ==================== HOW DO WE WORK? ==================== -->
+    <section class="py-14 sm:py-20 bg-white border-t border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- Section Header -->
+            <div class="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-[#112347] tracking-tight">
+                    How do we work?
+                </h2>
+            </div>
+
+            <!-- Two Columns: Left 4 Steps & CTA, Right Video Card -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+                
+                <!-- LEFT COLUMN: 4 Workflow Steps & Get Started Button (6 cols) -->
+                <div class="lg:col-span-6 flex flex-col justify-between h-full">
+                    
+                    <!-- 2x2 Steps Grid -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 sm:gap-x-8 gap-y-9 sm:gap-y-12">
+                        
+                        <!-- Step 1: Contact Us -->
+                        <div class="flex flex-col items-center text-center group">
+                            <!-- Circular Icon -->
+                            <div class="w-14 h-14 rounded-full bg-[#f0f9f9] border border-blue-100/80 flex items-center justify-center text-[#27797D] group-hover:bg-[#27797D] group-hover:text-white transition-all duration-200 shadow-xs">
+                                <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                                    <path d="M14 2a6 6 0 0 1 6 6"/>
+                                    <path d="M14 6a2 2 0 0 1 2 2"/>
+                                </svg>
+                            </div>
+                            <!-- Description -->
+                            <p class="text-xs sm:text-[13px] text-gray-500 text-center leading-relaxed mt-3.5 max-w-[210px] mx-auto">
+                                Contact us, share your case details and our team will get in touch with you.
+                            </p>
+                        </div>
+
+                        <!-- Step 2: Medical Opinion & Estimate -->
+                        <div class="flex flex-col items-center text-center group">
+                            <!-- Circular Icon -->
+                            <div class="w-14 h-14 rounded-full bg-[#f0f9f9] border border-blue-100/80 flex items-center justify-center text-[#27797D] group-hover:bg-[#27797D] group-hover:text-white transition-all duration-200 shadow-xs">
+                                <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                    <polyline points="14 2 14 8 20 8"/>
+                                    <line x1="16" y1="13" x2="8" y2="13"/>
+                                    <line x1="16" y1="17" x2="8" y2="17"/>
+                                    <polyline points="10 9 9 9 8 9"/>
+                                    <circle cx="12" cy="13" r="1" fill="currentColor"/>
+                                </svg>
+                            </div>
+                            <!-- Description -->
+                            <p class="text-xs sm:text-[13px] text-gray-500 text-center leading-relaxed mt-3.5 max-w-[210px] mx-auto">
+                                Receive medical opinion and cost estimate within 48 Hours.
+                            </p>
+                        </div>
+
+                        <!-- Step 3: Book Flights & Airport Reception -->
+                        <div class="flex flex-col items-center text-center group">
+                            <!-- Circular Icon -->
+                            <div class="w-14 h-14 rounded-full bg-[#f0f9f9] border border-blue-100/80 flex items-center justify-center text-[#27797D] group-hover:bg-[#27797D] group-hover:text-white transition-all duration-200 shadow-xs">
+                                <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="3" y="4" width="18" height="16" rx="2"/>
+                                    <path d="M3 10h18"/>
+                                    <path d="m9 15 3-3 3 3"/>
+                                    <path d="M12 12v6"/>
+                                    <circle cx="18" cy="16" r="2.5" fill="#27797D" class="fill-[#27797D] stroke-white"/>
+                                    <path d="m17 16 1 1 1.5-1.5" stroke="white" stroke-width="1.2"/>
+                                </svg>
+                            </div>
+                            <!-- Description -->
+                            <p class="text-xs sm:text-[13px] text-gray-500 text-center leading-relaxed mt-3.5 max-w-[210px] mx-auto">
+                                Book flights and get received by our team at the airport.
+                            </p>
+                        </div>
+
+                        <!-- Step 4: Treatment & Follow Ups -->
+                        <div class="flex flex-col items-center text-center group">
+                            <!-- Circular Icon -->
+                            <div class="w-14 h-14 rounded-full bg-[#f0f9f9] border border-blue-100/80 flex items-center justify-center text-[#27797D] group-hover:bg-[#27797D] group-hover:text-white transition-all duration-200 shadow-xs">
+                                <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M9 11l3 3L22 4"/>
+                                    <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+                                    <path d="M7 16h6"/>
+                                </svg>
+                            </div>
+                            <!-- Description -->
+                            <p class="text-xs sm:text-[13px] text-gray-500 text-center leading-relaxed mt-3.5 max-w-[210px] mx-auto">
+                                Get treated and fly back. We stay in touch with you for follow ups.
+                            </p>
+                        </div>
+
+                    </div>
+
+                    <!-- Get Started CTA Button -->
+                    <div class="mt-9 sm:mt-11 text-center">
+                        <a 
+                            href="#quote-form" 
+                            class="bg-[#EF7415] hover:bg-[#d9640d] active:scale-[0.99] text-white text-sm sm:text-base font-bold px-8 py-3 rounded-lg shadow-md hover:shadow-lg transition-all duration-150 inline-flex items-center justify-center"
+                        >
+                            Get Started
+                        </a>
+                    </div>
+
+                </div>
+
+                <!-- RIGHT COLUMN: Video Player Card (6 cols) -->
+                <div class="lg:col-span-6">
+                    <div class="relative w-full aspect-[16/10] sm:aspect-[16/9.5] rounded-2xl sm:rounded-3xl overflow-hidden shadow-lg border border-gray-200/80 bg-gray-900 group">
+                        <iframe 
+                            class="w-full h-full object-cover" 
+                            src="https://www.youtube.com/embed/XZtyGhf5LJ8" 
+                            title="Medical Treatment Abroad - Heal Go Fly" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                            allowfullscreen 
+                            loading="lazy"
+                        ></iframe>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+
+
+    <!-- ==================== LOWEST QUOTES ASSURED ==================== -->
+    <section class="py-14 sm:py-20 bg-white border-t border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- Section Header -->
+            <div class="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-[#27797D] tracking-tight">
+                    Lowest Quotes Assured
+                </h2>
+                <p class="text-xs sm:text-sm text-[#5a6a85] mt-2.5 max-w-2xl mx-auto leading-relaxed">
+                    We constantly negotiate better prices and alternatives without compromising treatment quality. Our prices are consistently lower.
+                </p>
+            </div>
+
+            <!-- Quotes 4-Column Grid (12 Items) -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
+                
+                <!-- 1. Knee Replacement -->
+                <div class="bg-[#f0f9f9] hover:bg-[#edf6f9] rounded-2xl p-3.5 sm:p-4 border border-blue-100/60 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-3.5 group cursor-pointer">
+                    <img src="{{ asset('icons/RHEUMATOLOGY-51.svg') }}" alt="Knee Replacement" class="w-12 h-12 flex-shrink-0 group-hover:scale-105 transition-transform object-contain">
+                    <div>
+                        <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#27797D] transition-colors">
+                            Knee Replacement
+                        </h3>
+                        <p class="text-xs text-gray-500 mt-0.5">
+                            Starting <span class="font-bold text-gray-900">$4,000</span>
+                        </p>
+                        <a href="#quote-form" class="inline-block text-xs font-semibold text-[#EF7415] hover:text-[#d9640d] mt-1 group-hover:underline">
+                            Get Quote
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 2. Hip Replacement -->
+                <div class="bg-[#f0f9f9] hover:bg-[#edf6f9] rounded-2xl p-3.5 sm:p-4 border border-blue-100/60 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-3.5 group cursor-pointer">
+                    <img src="{{ asset('icons/Hip-Replecement.svg') }}" alt="Hip Replacement" class="w-12 h-12 flex-shrink-0 group-hover:scale-105 transition-transform object-contain">
+                    <div>
+                        <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#27797D] transition-colors">
+                            Hip Replacement
+                        </h3>
+                        <p class="text-xs text-gray-500 mt-0.5">
+                            Starting <span class="font-bold text-gray-900">$5,500</span>
+                        </p>
+                        <a href="#quote-form" class="inline-block text-xs font-semibold text-[#EF7415] hover:text-[#d9640d] mt-1 group-hover:underline">
+                            Get Quote
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 3. Brain Tumor -->
+                <div class="bg-[#f0f9f9] hover:bg-[#edf6f9] rounded-2xl p-3.5 sm:p-4 border border-blue-100/60 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-3.5 group cursor-pointer">
+                    <img src="{{ asset('icons/Brain-Tumor.svg') }}" alt="Brain Tumor" class="w-12 h-12 flex-shrink-0 group-hover:scale-105 transition-transform object-contain">
+                    <div>
+                        <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#27797D] transition-colors">
+                            Brain Tumor
+                        </h3>
+                        <p class="text-xs text-gray-500 mt-0.5">
+                            Starting <span class="font-bold text-gray-900">$5,000</span>
+                        </p>
+                        <a href="#quote-form" class="inline-block text-xs font-semibold text-[#EF7415] hover:text-[#d9640d] mt-1 group-hover:underline">
+                            Get Quote
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 4. Heart Bypass Surgery -->
+                <div class="bg-[#f0f9f9] hover:bg-[#edf6f9] rounded-2xl p-3.5 sm:p-4 border border-blue-100/60 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-3.5 group cursor-pointer">
+                    <img src="{{ asset('icons/Heart-Bypass-Surgery.svg') }}" alt="Heart Bypass Surgery" class="w-12 h-12 flex-shrink-0 group-hover:scale-105 transition-transform object-contain">
+                    <div>
+                        <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#27797D] transition-colors">
+                            Heart Bypass Surgery
+                        </h3>
+                        <p class="text-xs text-gray-500 mt-0.5">
+                            Starting <span class="font-bold text-gray-900">$4,500</span>
+                        </p>
+                        <a href="#quote-form" class="inline-block text-xs font-semibold text-[#EF7415] hover:text-[#d9640d] mt-1 group-hover:underline">
+                            Get Quote
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 5. Valve Replacement -->
+                <div class="bg-[#f0f9f9] hover:bg-[#edf6f9] rounded-2xl p-3.5 sm:p-4 border border-blue-100/60 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-3.5 group cursor-pointer">
+                    <img src="{{ asset('icons/Valve-Replacement.svg') }}" alt="Valve Replacement" class="w-12 h-12 flex-shrink-0 group-hover:scale-105 transition-transform object-contain">
+                    <div>
+                        <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#27797D] transition-colors">
+                            Valve Replacement
+                        </h3>
+                        <p class="text-xs text-gray-500 mt-0.5">
+                            Starting <span class="font-bold text-gray-900">$9,500</span>
+                        </p>
+                        <a href="#quote-form" class="inline-block text-xs font-semibold text-[#EF7415] hover:text-[#d9640d] mt-1 group-hover:underline">
+                            Get Quote
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 6. Breast Cancer -->
+                <div class="bg-[#f0f9f9] hover:bg-[#edf6f9] rounded-2xl p-3.5 sm:p-4 border border-blue-100/60 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-3.5 group cursor-pointer">
+                    <img src="{{ asset('icons/Breast-Cancer.svg') }}" alt="Breast Cancer" class="w-12 h-12 flex-shrink-0 group-hover:scale-105 transition-transform object-contain">
+                    <div>
+                        <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#27797D] transition-colors">
+                            Breast Cancer
+                        </h3>
+                        <p class="text-xs text-gray-500 mt-0.5">
+                            Starting <span class="font-bold text-gray-900">$5,000</span>
+                        </p>
+                        <a href="#quote-form" class="inline-block text-xs font-semibold text-[#EF7415] hover:text-[#d9640d] mt-1 group-hover:underline">
+                            Get Quote
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 7. Lung Cancer -->
+                <div class="bg-[#f0f9f9] hover:bg-[#edf6f9] rounded-2xl p-3.5 sm:p-4 border border-blue-100/60 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-3.5 group cursor-pointer">
+                    <img src="{{ asset('icons/Lung-Cancer.svg') }}" alt="Lung Cancer" class="w-12 h-12 flex-shrink-0 group-hover:scale-105 transition-transform object-contain">
+                    <div>
+                        <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#27797D] transition-colors">
+                            Lung Cancer
+                        </h3>
+                        <p class="text-xs text-gray-500 mt-0.5">
+                            Starting <span class="font-bold text-gray-900">$5,500</span>
+                        </p>
+                        <a href="#quote-form" class="inline-block text-xs font-semibold text-[#EF7415] hover:text-[#d9640d] mt-1 group-hover:underline">
+                            Get Quote
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 8. Rhinoplasty -->
+                <div class="bg-[#f0f9f9] hover:bg-[#edf6f9] rounded-2xl p-3.5 sm:p-4 border border-blue-100/60 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-3.5 group cursor-pointer">
+                    <img src="{{ asset('icons/Rhinoplasty.svg') }}" alt="Rhinoplasty" class="w-12 h-12 flex-shrink-0 group-hover:scale-105 transition-transform object-contain">
+                    <div>
+                        <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#27797D] transition-colors">
+                            Rhinoplasty
+                        </h3>
+                        <p class="text-xs text-gray-500 mt-0.5">
+                            Starting <span class="font-bold text-gray-900">$1,800</span>
+                        </p>
+                        <a href="#quote-form" class="inline-block text-xs font-semibold text-[#EF7415] hover:text-[#d9640d] mt-1 group-hover:underline">
+                            Get Quote
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 9. Breast Implants -->
+                <div class="bg-[#f0f9f9] hover:bg-[#edf6f9] rounded-2xl p-3.5 sm:p-4 border border-blue-100/60 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-3.5 group cursor-pointer">
+                    <img src="{{ asset('icons/Breast-Cancer (1).svg') }}" alt="Breast Implants" class="w-12 h-12 flex-shrink-0 group-hover:scale-105 transition-transform object-contain">
+                    <div>
+                        <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#27797D] transition-colors">
+                            Breast Implants
+                        </h3>
+                        <p class="text-xs text-gray-500 mt-0.5">
+                            Starting <span class="font-bold text-gray-900">$2,750</span>
+                        </p>
+                        <a href="#quote-form" class="inline-block text-xs font-semibold text-[#EF7415] hover:text-[#d9640d] mt-1 group-hover:underline">
+                            Get Quote
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 10. Hair Transplant -->
+                <div class="bg-[#f0f9f9] hover:bg-[#edf6f9] rounded-2xl p-3.5 sm:p-4 border border-blue-100/60 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-3.5 group cursor-pointer">
+                    <img src="{{ asset('icons/Hair-Transpalnt.svg') }}" alt="Hair Transplant" class="w-12 h-12 flex-shrink-0 group-hover:scale-105 transition-transform object-contain">
+                    <div>
+                        <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#27797D] transition-colors">
+                            Hair Transplant
+                        </h3>
+                        <p class="text-xs text-gray-500 mt-0.5">
+                            Starting <span class="font-bold text-gray-900">$1,400</span>
+                        </p>
+                        <a href="#quote-form" class="inline-block text-xs font-semibold text-[#EF7415] hover:text-[#d9640d] mt-1 group-hover:underline">
+                            Get Quote
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 11. Cervical Cancer -->
+                <div class="bg-[#f0f9f9] hover:bg-[#edf6f9] rounded-2xl p-3.5 sm:p-4 border border-blue-100/60 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-3.5 group cursor-pointer">
+                    <img src="{{ asset('icons/Cervical-Cancer.svg') }}" alt="Cervical Cancer" class="w-12 h-12 flex-shrink-0 group-hover:scale-105 transition-transform object-contain">
+                    <div>
+                        <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#27797D] transition-colors">
+                            Cervical Cancer
+                        </h3>
+                        <p class="text-xs text-gray-500 mt-0.5">
+                            Starting <span class="font-bold text-gray-900">$4,500</span>
+                        </p>
+                        <a href="#quote-form" class="inline-block text-xs font-semibold text-[#EF7415] hover:text-[#d9640d] mt-1 group-hover:underline">
+                            Get Quote
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 12. Hysterectomy -->
+                <div class="bg-[#f0f9f9] hover:bg-[#edf6f9] rounded-2xl p-3.5 sm:p-4 border border-blue-100/60 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-3.5 group cursor-pointer">
+                    <img src="{{ asset('icons/Hysterectomy.svg') }}" alt="Hysterectomy" class="w-12 h-12 flex-shrink-0 group-hover:scale-105 transition-transform object-contain">
+                    <div>
+                        <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#27797D] transition-colors">
+                            Hysterectomy
+                        </h3>
+                        <p class="text-xs text-gray-500 mt-0.5">
+                            Starting <span class="font-bold text-gray-900">$3,000</span>
+                        </p>
+                        <a href="#quote-form" class="inline-block text-xs font-semibold text-[#EF7415] hover:text-[#d9640d] mt-1 group-hover:underline">
+                            Get Quote
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Bottom Center Actions -->
+            <div class="mt-12 sm:mt-14 text-center">
+                <p class="text-xs sm:text-sm text-gray-500 font-medium mb-3.5">
+                    Discover what we offer!
+                </p>
+                <div class="flex flex-wrap items-center justify-center gap-3.5 sm:gap-4">
+                    <a 
+                        href="#quote-form" 
+                        class="bg-[#EF7415] hover:bg-[#d9640d] active:scale-[0.99] text-white text-sm sm:text-base font-bold px-7 py-3 rounded-lg shadow-md hover:shadow-lg transition-all duration-150 inline-flex items-center justify-center"
+                    >
+                        Get Quote
+                    </a>
+                    
+                    <a 
+                        href="https://wa.me/919129846542" 
+                        target="_blank" 
+                        class="bg-[#25D366] hover:bg-[#20ba5a] active:scale-[0.99] text-white text-sm sm:text-base font-bold px-7 py-3 rounded-lg shadow-md hover:shadow-lg transition-all duration-150 inline-flex items-center justify-center gap-2"
+                    >
+                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+                        </svg>
+                        <span>Chat</span>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- ==================== OUR SERVICES COVER EVERY NEED ==================== -->
+    <section class="py-14 sm:py-20 bg-white border-t border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- Section Header -->
+            <div class="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-[#112347] tracking-tight">
+                    Our Services Cover Every Need
+                </h2>
+                <p class="text-xs sm:text-sm text-[#5a6a85] mt-2.5 max-w-2xl mx-auto leading-relaxed">
+                    You will be assisted by a dedicated case manager from our team. List of services you can expect from us, for FREE!
+                </p>
+            </div>
+
+            <!-- 9 Services Grid (3 Columns) -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+                
+                <!-- 1. Medical Opinion -->
+                <div class="bg-[#f0f9f9] hover:bg-[#edf6f9] rounded-2xl p-4 sm:p-5 border border-blue-100/60 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-4 group cursor-pointer">
+                    <div class="w-12 h-12 rounded-full bg-white shadow-xs border border-blue-100/80 flex items-center justify-center flex-shrink-0 text-[#27797D] group-hover:scale-105 transition-transform">
+                        <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                            <polyline points="14 2 14 8 20 8"/>
+                            <line x1="16" y1="13" x2="8" y2="13"/>
+                            <line x1="16" y1="17" x2="8" y2="17"/>
+                            <polyline points="10 9 9 9 8 9"/>
+                            <path d="M10 13l2 2 4-4" stroke="#EF7415" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#27797D] transition-colors">
+                            Medical Opinion
+                        </h3>
+                        <p class="text-xs text-gray-500 mt-1 leading-relaxed">
+                            Expert opinions and cost estimates.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 2. Pre-Travel Consultations -->
+                <div class="bg-[#f0f9f9] hover:bg-[#edf6f9] rounded-2xl p-4 sm:p-5 border border-blue-100/60 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-4 group cursor-pointer">
+                    <div class="w-12 h-12 rounded-full bg-white shadow-xs border border-blue-100/80 flex items-center justify-center flex-shrink-0 text-[#27797D] group-hover:scale-105 transition-transform">
+                        <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+                            <circle cx="9" cy="7" r="4"/>
+                            <path d="M22 6c0 1.66-1.34 3-3 3h-.5L17 11v-2c-1.66 0-3-1.34-3-3s1.34-3 3-3h2c1.66 0 3 1.34 3 3z"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#27797D] transition-colors">
+                            Pre-Travel Consultations
+                        </h3>
+                        <p class="text-xs text-gray-500 mt-1 leading-relaxed">
+                            Understand your procedure before traveling.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 3. Visa Assistance -->
+                <div class="bg-[#f0f9f9] hover:bg-[#edf6f9] rounded-2xl p-4 sm:p-5 border border-blue-100/60 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-4 group cursor-pointer">
+                    <div class="w-12 h-12 rounded-full bg-white shadow-xs border border-blue-100/80 flex items-center justify-center flex-shrink-0 text-[#27797D] group-hover:scale-105 transition-transform">
+                        <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="5" y="3" width="14" height="18" rx="2"/>
+                            <line x1="9" y1="7" x2="15" y2="7"/>
+                            <circle cx="12" cy="13" r="3"/>
+                            <path d="M12 11v4M10 13h4" stroke="#EF7415" stroke-width="1.5"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#27797D] transition-colors">
+                            Visa Assistance
+                        </h3>
+                        <p class="text-xs text-gray-500 mt-1 leading-relaxed">
+                            Complete medical visa assistance.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 4. Money Exchange -->
+                <div class="bg-[#f0f9f9] hover:bg-[#edf6f9] rounded-2xl p-4 sm:p-5 border border-blue-100/60 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-4 group cursor-pointer">
+                    <div class="w-12 h-12 rounded-full bg-white shadow-xs border border-blue-100/80 flex items-center justify-center flex-shrink-0 text-[#27797D] group-hover:scale-105 transition-transform">
+                        <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="8" cy="8" r="5"/>
+                            <path d="M8 6v4M7 7h2"/>
+                            <circle cx="16" cy="16" r="5"/>
+                            <path d="M15 15h2a1 1 0 0 1 0 2h-2v-4h2"/>
+                            <path d="M18 7l-2-2m0 0l-2 2m2-2v4"/>
+                            <path d="M6 17l2 2m0 0l2-2m-2 2v-4"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#27797D] transition-colors">
+                            Money Exchange
+                        </h3>
+                        <p class="text-xs text-gray-500 mt-1 leading-relaxed">
+                            Convenient currency exchange services in your city.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 5. Interpreters -->
+                <div class="bg-[#f0f9f9] hover:bg-[#edf6f9] rounded-2xl p-4 sm:p-5 border border-blue-100/60 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-4 group cursor-pointer">
+                    <div class="w-12 h-12 rounded-full bg-white shadow-xs border border-blue-100/80 flex items-center justify-center flex-shrink-0 text-[#27797D] group-hover:scale-105 transition-transform">
+                        <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="m5 8 6 6"/>
+                            <path d="m4 14 6-6 2-3"/>
+                            <path d="M2 5h12"/>
+                            <path d="M7 2h1"/>
+                            <path d="m22 22-5-10-5 10"/>
+                            <path d="M14 18h6"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#27797D] transition-colors">
+                            Interpreters
+                        </h3>
+                        <p class="text-xs text-gray-500 mt-1 leading-relaxed">
+                            Fluent professionals to break language barriers at every step.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 6. Transportation -->
+                <div class="bg-[#f0f9f9] hover:bg-[#edf6f9] rounded-2xl p-4 sm:p-5 border border-blue-100/60 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-4 group cursor-pointer">
+                    <div class="w-12 h-12 rounded-full bg-white shadow-xs border border-blue-100/80 flex items-center justify-center flex-shrink-0 text-[#27797D] group-hover:scale-105 transition-transform">
+                        <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="1" y="3" width="15" height="13" rx="2"/>
+                            <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/>
+                            <circle cx="5.5" cy="18.5" r="2.5"/>
+                            <circle cx="18.5" cy="18.5" r="2.5"/>
+                            <path d="M7 8h4M9 6v4" stroke="#EF7415" stroke-width="1.5"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#27797D] transition-colors">
+                            Transportation
+                        </h3>
+                        <p class="text-xs text-gray-500 mt-1 leading-relaxed">
+                            Complimentary airport transfers.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 7. Accommodation Options -->
+                <div class="bg-[#f0f9f9] hover:bg-[#edf6f9] rounded-2xl p-4 sm:p-5 border border-blue-100/60 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-4 group cursor-pointer">
+                    <div class="w-12 h-12 rounded-full bg-white shadow-xs border border-blue-100/80 flex items-center justify-center flex-shrink-0 text-[#27797D] group-hover:scale-105 transition-transform">
+                        <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M3 21h18"/>
+                            <path d="M5 21V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16"/>
+                            <path d="M9 7h1M9 11h1M9 15h1M14 7h1M14 11h1M14 15h1"/>
+                            <path d="M10 21v-3a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#27797D] transition-colors">
+                            Accommodation Options
+                        </h3>
+                        <p class="text-xs text-gray-500 mt-1 leading-relaxed">
+                            Near the hospital and matching your budget and needs.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 8. Hospital Coordination -->
+                <div class="bg-[#f0f9f9] hover:bg-[#edf6f9] rounded-2xl p-4 sm:p-5 border border-blue-100/60 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-4 group cursor-pointer">
+                    <div class="w-12 h-12 rounded-full bg-white shadow-xs border border-blue-100/80 flex items-center justify-center flex-shrink-0 text-[#27797D] group-hover:scale-105 transition-transform">
+                        <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/>
+                            <rect x="8" y="2" width="8" height="4" rx="1"/>
+                            <path d="M9 14h6M9 18h4"/>
+                            <path d="M12 8v4M10 10h4" stroke="#EF7415" stroke-width="1.5"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#27797D] transition-colors">
+                            Hospital Coordination
+                        </h3>
+                        <p class="text-xs text-gray-500 mt-1 leading-relaxed">
+                            Full coordination of medical logistics.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 9. Private Duty Nursing -->
+                <div class="bg-[#f0f9f9] hover:bg-[#edf6f9] rounded-2xl p-4 sm:p-5 border border-blue-100/60 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-4 group cursor-pointer">
+                    <div class="w-12 h-12 rounded-full bg-white shadow-xs border border-blue-100/80 flex items-center justify-center flex-shrink-0 text-[#27797D] group-hover:scale-105 transition-transform">
+                        <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                            <path d="M12 8v6M9 11h6" stroke="#EF7415" stroke-width="1.8"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#27797D] transition-colors">
+                            Private Duty Nursing
+                        </h3>
+                        <p class="text-xs text-gray-500 mt-1 leading-relaxed">
+                            Arrangements of private nursing care as needed.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Bottom Action Buttons: Get Quote & WhatsApp Chat -->
+            <div class="flex flex-wrap items-center justify-center gap-3.5 sm:gap-4 mt-10 sm:mt-12">
+                <a 
+                    href="#quote-form" 
+                    class="bg-[#EF7415] hover:bg-[#d9640d] active:scale-[0.99] text-white text-sm sm:text-base font-bold px-7 py-3 rounded-lg shadow-md hover:shadow-lg transition-all duration-150 inline-flex items-center justify-center"
+                >
+                    Get Quote
+                </a>
+                
+                <a 
+                    href="https://wa.me/919129846542" 
+                    target="_blank" 
+                    class="bg-[#25D366] hover:bg-[#20ba5a] active:scale-[0.99] text-white text-sm sm:text-base font-bold px-7 py-3 rounded-lg shadow-md hover:shadow-lg transition-all duration-150 inline-flex items-center justify-center gap-2"
+                >
+                    <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                        <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+                    </svg>
+                    <span>Chat</span>
+                </a>
+            </div>
+
+        </div>
+    </section>
+
     <!-- ==================== NETWORK OF TOP HOSPITALS ==================== -->
     <section class="py-14 sm:py-20 bg-white border-t border-gray-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -954,597 +1548,6 @@
                     class="bg-[#EF7415] hover:bg-[#d9640d] active:scale-[0.99] text-white text-sm sm:text-base font-bold px-7 py-3 rounded-lg shadow-md hover:shadow-lg transition-all duration-150 inline-flex items-center justify-center"
                 >
                     Contact Hospital
-                </a>
-                
-                <a 
-                    href="https://wa.me/919129846542" 
-                    target="_blank" 
-                    class="bg-[#25D366] hover:bg-[#20ba5a] active:scale-[0.99] text-white text-sm sm:text-base font-bold px-7 py-3 rounded-lg shadow-md hover:shadow-lg transition-all duration-150 inline-flex items-center justify-center gap-2"
-                >
-                    <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
-                        <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
-                    </svg>
-                    <span>Chat</span>
-                </a>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- ==================== LOWEST QUOTES ASSURED ==================== -->
-    <section class="py-14 sm:py-20 bg-white border-t border-gray-100">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            
-            <!-- Section Header -->
-            <div class="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
-                <h2 class="text-2xl sm:text-3xl font-extrabold text-[#27797D] tracking-tight">
-                    Lowest Quotes Assured
-                </h2>
-                <p class="text-xs sm:text-sm text-[#5a6a85] mt-2.5 max-w-2xl mx-auto leading-relaxed">
-                    We constantly negotiate better prices and alternatives without compromising treatment quality. Our prices are consistently lower.
-                </p>
-            </div>
-
-            <!-- Quotes 4-Column Grid (12 Items) -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
-                
-                <!-- 1. Knee Replacement -->
-                <div class="bg-[#f0f9f9] hover:bg-[#edf6f9] rounded-2xl p-3.5 sm:p-4 border border-blue-100/60 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-3.5 group cursor-pointer">
-                    <img src="{{ asset('icons/RHEUMATOLOGY-51.svg') }}" alt="Knee Replacement" class="w-12 h-12 flex-shrink-0 group-hover:scale-105 transition-transform object-contain">
-                    <div>
-                        <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#27797D] transition-colors">
-                            Knee Replacement
-                        </h3>
-                        <p class="text-xs text-gray-500 mt-0.5">
-                            Starting <span class="font-bold text-gray-900">$4,000</span>
-                        </p>
-                        <a href="#quote-form" class="inline-block text-xs font-semibold text-[#EF7415] hover:text-[#d9640d] mt-1 group-hover:underline">
-                            Get Quote
-                        </a>
-                    </div>
-                </div>
-
-                <!-- 2. Hip Replacement -->
-                <div class="bg-[#f0f9f9] hover:bg-[#edf6f9] rounded-2xl p-3.5 sm:p-4 border border-blue-100/60 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-3.5 group cursor-pointer">
-                    <img src="{{ asset('icons/Hip-Replecement.svg') }}" alt="Hip Replacement" class="w-12 h-12 flex-shrink-0 group-hover:scale-105 transition-transform object-contain">
-                    <div>
-                        <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#27797D] transition-colors">
-                            Hip Replacement
-                        </h3>
-                        <p class="text-xs text-gray-500 mt-0.5">
-                            Starting <span class="font-bold text-gray-900">$5,500</span>
-                        </p>
-                        <a href="#quote-form" class="inline-block text-xs font-semibold text-[#EF7415] hover:text-[#d9640d] mt-1 group-hover:underline">
-                            Get Quote
-                        </a>
-                    </div>
-                </div>
-
-                <!-- 3. Brain Tumor -->
-                <div class="bg-[#f0f9f9] hover:bg-[#edf6f9] rounded-2xl p-3.5 sm:p-4 border border-blue-100/60 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-3.5 group cursor-pointer">
-                    <img src="{{ asset('icons/Brain-Tumor.svg') }}" alt="Brain Tumor" class="w-12 h-12 flex-shrink-0 group-hover:scale-105 transition-transform object-contain">
-                    <div>
-                        <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#27797D] transition-colors">
-                            Brain Tumor
-                        </h3>
-                        <p class="text-xs text-gray-500 mt-0.5">
-                            Starting <span class="font-bold text-gray-900">$5,000</span>
-                        </p>
-                        <a href="#quote-form" class="inline-block text-xs font-semibold text-[#EF7415] hover:text-[#d9640d] mt-1 group-hover:underline">
-                            Get Quote
-                        </a>
-                    </div>
-                </div>
-
-                <!-- 4. Heart Bypass Surgery -->
-                <div class="bg-[#f0f9f9] hover:bg-[#edf6f9] rounded-2xl p-3.5 sm:p-4 border border-blue-100/60 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-3.5 group cursor-pointer">
-                    <img src="{{ asset('icons/Heart-Bypass-Surgery.svg') }}" alt="Heart Bypass Surgery" class="w-12 h-12 flex-shrink-0 group-hover:scale-105 transition-transform object-contain">
-                    <div>
-                        <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#27797D] transition-colors">
-                            Heart Bypass Surgery
-                        </h3>
-                        <p class="text-xs text-gray-500 mt-0.5">
-                            Starting <span class="font-bold text-gray-900">$4,500</span>
-                        </p>
-                        <a href="#quote-form" class="inline-block text-xs font-semibold text-[#EF7415] hover:text-[#d9640d] mt-1 group-hover:underline">
-                            Get Quote
-                        </a>
-                    </div>
-                </div>
-
-                <!-- 5. Valve Replacement -->
-                <div class="bg-[#f0f9f9] hover:bg-[#edf6f9] rounded-2xl p-3.5 sm:p-4 border border-blue-100/60 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-3.5 group cursor-pointer">
-                    <img src="{{ asset('icons/Valve-Replacement.svg') }}" alt="Valve Replacement" class="w-12 h-12 flex-shrink-0 group-hover:scale-105 transition-transform object-contain">
-                    <div>
-                        <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#27797D] transition-colors">
-                            Valve Replacement
-                        </h3>
-                        <p class="text-xs text-gray-500 mt-0.5">
-                            Starting <span class="font-bold text-gray-900">$9,500</span>
-                        </p>
-                        <a href="#quote-form" class="inline-block text-xs font-semibold text-[#EF7415] hover:text-[#d9640d] mt-1 group-hover:underline">
-                            Get Quote
-                        </a>
-                    </div>
-                </div>
-
-                <!-- 6. Breast Cancer -->
-                <div class="bg-[#f0f9f9] hover:bg-[#edf6f9] rounded-2xl p-3.5 sm:p-4 border border-blue-100/60 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-3.5 group cursor-pointer">
-                    <img src="{{ asset('icons/Breast-Cancer.svg') }}" alt="Breast Cancer" class="w-12 h-12 flex-shrink-0 group-hover:scale-105 transition-transform object-contain">
-                    <div>
-                        <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#27797D] transition-colors">
-                            Breast Cancer
-                        </h3>
-                        <p class="text-xs text-gray-500 mt-0.5">
-                            Starting <span class="font-bold text-gray-900">$5,000</span>
-                        </p>
-                        <a href="#quote-form" class="inline-block text-xs font-semibold text-[#EF7415] hover:text-[#d9640d] mt-1 group-hover:underline">
-                            Get Quote
-                        </a>
-                    </div>
-                </div>
-
-                <!-- 7. Lung Cancer -->
-                <div class="bg-[#f0f9f9] hover:bg-[#edf6f9] rounded-2xl p-3.5 sm:p-4 border border-blue-100/60 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-3.5 group cursor-pointer">
-                    <img src="{{ asset('icons/Lung-Cancer.svg') }}" alt="Lung Cancer" class="w-12 h-12 flex-shrink-0 group-hover:scale-105 transition-transform object-contain">
-                    <div>
-                        <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#27797D] transition-colors">
-                            Lung Cancer
-                        </h3>
-                        <p class="text-xs text-gray-500 mt-0.5">
-                            Starting <span class="font-bold text-gray-900">$5,500</span>
-                        </p>
-                        <a href="#quote-form" class="inline-block text-xs font-semibold text-[#EF7415] hover:text-[#d9640d] mt-1 group-hover:underline">
-                            Get Quote
-                        </a>
-                    </div>
-                </div>
-
-                <!-- 8. Rhinoplasty -->
-                <div class="bg-[#f0f9f9] hover:bg-[#edf6f9] rounded-2xl p-3.5 sm:p-4 border border-blue-100/60 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-3.5 group cursor-pointer">
-                    <img src="{{ asset('icons/Rhinoplasty.svg') }}" alt="Rhinoplasty" class="w-12 h-12 flex-shrink-0 group-hover:scale-105 transition-transform object-contain">
-                    <div>
-                        <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#27797D] transition-colors">
-                            Rhinoplasty
-                        </h3>
-                        <p class="text-xs text-gray-500 mt-0.5">
-                            Starting <span class="font-bold text-gray-900">$1,800</span>
-                        </p>
-                        <a href="#quote-form" class="inline-block text-xs font-semibold text-[#EF7415] hover:text-[#d9640d] mt-1 group-hover:underline">
-                            Get Quote
-                        </a>
-                    </div>
-                </div>
-
-                <!-- 9. Breast Implants -->
-                <div class="bg-[#f0f9f9] hover:bg-[#edf6f9] rounded-2xl p-3.5 sm:p-4 border border-blue-100/60 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-3.5 group cursor-pointer">
-                    <img src="{{ asset('icons/Breast-Cancer (1).svg') }}" alt="Breast Implants" class="w-12 h-12 flex-shrink-0 group-hover:scale-105 transition-transform object-contain">
-                    <div>
-                        <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#27797D] transition-colors">
-                            Breast Implants
-                        </h3>
-                        <p class="text-xs text-gray-500 mt-0.5">
-                            Starting <span class="font-bold text-gray-900">$2,750</span>
-                        </p>
-                        <a href="#quote-form" class="inline-block text-xs font-semibold text-[#EF7415] hover:text-[#d9640d] mt-1 group-hover:underline">
-                            Get Quote
-                        </a>
-                    </div>
-                </div>
-
-                <!-- 10. Hair Transplant -->
-                <div class="bg-[#f0f9f9] hover:bg-[#edf6f9] rounded-2xl p-3.5 sm:p-4 border border-blue-100/60 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-3.5 group cursor-pointer">
-                    <img src="{{ asset('icons/Hair-Transpalnt.svg') }}" alt="Hair Transplant" class="w-12 h-12 flex-shrink-0 group-hover:scale-105 transition-transform object-contain">
-                    <div>
-                        <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#27797D] transition-colors">
-                            Hair Transplant
-                        </h3>
-                        <p class="text-xs text-gray-500 mt-0.5">
-                            Starting <span class="font-bold text-gray-900">$1,400</span>
-                        </p>
-                        <a href="#quote-form" class="inline-block text-xs font-semibold text-[#EF7415] hover:text-[#d9640d] mt-1 group-hover:underline">
-                            Get Quote
-                        </a>
-                    </div>
-                </div>
-
-                <!-- 11. Cervical Cancer -->
-                <div class="bg-[#f0f9f9] hover:bg-[#edf6f9] rounded-2xl p-3.5 sm:p-4 border border-blue-100/60 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-3.5 group cursor-pointer">
-                    <img src="{{ asset('icons/Cervical-Cancer.svg') }}" alt="Cervical Cancer" class="w-12 h-12 flex-shrink-0 group-hover:scale-105 transition-transform object-contain">
-                    <div>
-                        <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#27797D] transition-colors">
-                            Cervical Cancer
-                        </h3>
-                        <p class="text-xs text-gray-500 mt-0.5">
-                            Starting <span class="font-bold text-gray-900">$4,500</span>
-                        </p>
-                        <a href="#quote-form" class="inline-block text-xs font-semibold text-[#EF7415] hover:text-[#d9640d] mt-1 group-hover:underline">
-                            Get Quote
-                        </a>
-                    </div>
-                </div>
-
-                <!-- 12. Hysterectomy -->
-                <div class="bg-[#f0f9f9] hover:bg-[#edf6f9] rounded-2xl p-3.5 sm:p-4 border border-blue-100/60 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-3.5 group cursor-pointer">
-                    <img src="{{ asset('icons/Hysterectomy.svg') }}" alt="Hysterectomy" class="w-12 h-12 flex-shrink-0 group-hover:scale-105 transition-transform object-contain">
-                    <div>
-                        <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#27797D] transition-colors">
-                            Hysterectomy
-                        </h3>
-                        <p class="text-xs text-gray-500 mt-0.5">
-                            Starting <span class="font-bold text-gray-900">$3,000</span>
-                        </p>
-                        <a href="#quote-form" class="inline-block text-xs font-semibold text-[#EF7415] hover:text-[#d9640d] mt-1 group-hover:underline">
-                            Get Quote
-                        </a>
-                    </div>
-                </div>
-
-            </div>
-
-            <!-- Bottom Center Actions -->
-            <div class="mt-12 sm:mt-14 text-center">
-                <p class="text-xs sm:text-sm text-gray-500 font-medium mb-3.5">
-                    Discover what we offer!
-                </p>
-                <div class="flex flex-wrap items-center justify-center gap-3.5 sm:gap-4">
-                    <a 
-                        href="#quote-form" 
-                        class="bg-[#EF7415] hover:bg-[#d9640d] active:scale-[0.99] text-white text-sm sm:text-base font-bold px-7 py-3 rounded-lg shadow-md hover:shadow-lg transition-all duration-150 inline-flex items-center justify-center"
-                    >
-                        Get Quote
-                    </a>
-                    
-                    <a 
-                        href="https://wa.me/919129846542" 
-                        target="_blank" 
-                        class="bg-[#25D366] hover:bg-[#20ba5a] active:scale-[0.99] text-white text-sm sm:text-base font-bold px-7 py-3 rounded-lg shadow-md hover:shadow-lg transition-all duration-150 inline-flex items-center justify-center gap-2"
-                    >
-                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
-                            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
-                        </svg>
-                        <span>Chat</span>
-                    </a>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- ==================== HOW DO WE WORK? ==================== -->
-    <section class="py-14 sm:py-20 bg-white border-t border-gray-100">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            
-            <!-- Section Header -->
-            <div class="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-                <h2 class="text-2xl sm:text-3xl font-extrabold text-[#112347] tracking-tight">
-                    How do we work?
-                </h2>
-            </div>
-
-            <!-- Two Columns: Left 4 Steps & CTA, Right Video Card -->
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
-                
-                <!-- LEFT COLUMN: 4 Workflow Steps & Get Started Button (6 cols) -->
-                <div class="lg:col-span-6 flex flex-col justify-between h-full">
-                    
-                    <!-- 2x2 Steps Grid -->
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 sm:gap-x-8 gap-y-9 sm:gap-y-12">
-                        
-                        <!-- Step 1: Contact Us -->
-                        <div class="flex flex-col items-center text-center group">
-                            <!-- Circular Icon -->
-                            <div class="w-14 h-14 rounded-full bg-[#f0f9f9] border border-blue-100/80 flex items-center justify-center text-[#27797D] group-hover:bg-[#27797D] group-hover:text-white transition-all duration-200 shadow-xs">
-                                <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
-                                    <path d="M14 2a6 6 0 0 1 6 6"/>
-                                    <path d="M14 6a2 2 0 0 1 2 2"/>
-                                </svg>
-                            </div>
-                            <!-- Description -->
-                            <p class="text-xs sm:text-[13px] text-gray-500 text-center leading-relaxed mt-3.5 max-w-[210px] mx-auto">
-                                Contact us, share your case details and our team will get in touch with you.
-                            </p>
-                        </div>
-
-                        <!-- Step 2: Medical Opinion & Estimate -->
-                        <div class="flex flex-col items-center text-center group">
-                            <!-- Circular Icon -->
-                            <div class="w-14 h-14 rounded-full bg-[#f0f9f9] border border-blue-100/80 flex items-center justify-center text-[#27797D] group-hover:bg-[#27797D] group-hover:text-white transition-all duration-200 shadow-xs">
-                                <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-                                    <polyline points="14 2 14 8 20 8"/>
-                                    <line x1="16" y1="13" x2="8" y2="13"/>
-                                    <line x1="16" y1="17" x2="8" y2="17"/>
-                                    <polyline points="10 9 9 9 8 9"/>
-                                    <circle cx="12" cy="13" r="1" fill="currentColor"/>
-                                </svg>
-                            </div>
-                            <!-- Description -->
-                            <p class="text-xs sm:text-[13px] text-gray-500 text-center leading-relaxed mt-3.5 max-w-[210px] mx-auto">
-                                Receive medical opinion and cost estimate within 48 Hours.
-                            </p>
-                        </div>
-
-                        <!-- Step 3: Book Flights & Airport Reception -->
-                        <div class="flex flex-col items-center text-center group">
-                            <!-- Circular Icon -->
-                            <div class="w-14 h-14 rounded-full bg-[#f0f9f9] border border-blue-100/80 flex items-center justify-center text-[#27797D] group-hover:bg-[#27797D] group-hover:text-white transition-all duration-200 shadow-xs">
-                                <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                                    <rect x="3" y="4" width="18" height="16" rx="2"/>
-                                    <path d="M3 10h18"/>
-                                    <path d="m9 15 3-3 3 3"/>
-                                    <path d="M12 12v6"/>
-                                    <circle cx="18" cy="16" r="2.5" fill="#27797D" class="fill-[#27797D] stroke-white"/>
-                                    <path d="m17 16 1 1 1.5-1.5" stroke="white" stroke-width="1.2"/>
-                                </svg>
-                            </div>
-                            <!-- Description -->
-                            <p class="text-xs sm:text-[13px] text-gray-500 text-center leading-relaxed mt-3.5 max-w-[210px] mx-auto">
-                                Book flights and get received by our team at the airport.
-                            </p>
-                        </div>
-
-                        <!-- Step 4: Treatment & Follow Ups -->
-                        <div class="flex flex-col items-center text-center group">
-                            <!-- Circular Icon -->
-                            <div class="w-14 h-14 rounded-full bg-[#f0f9f9] border border-blue-100/80 flex items-center justify-center text-[#27797D] group-hover:bg-[#27797D] group-hover:text-white transition-all duration-200 shadow-xs">
-                                <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M9 11l3 3L22 4"/>
-                                    <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
-                                    <path d="M7 16h6"/>
-                                </svg>
-                            </div>
-                            <!-- Description -->
-                            <p class="text-xs sm:text-[13px] text-gray-500 text-center leading-relaxed mt-3.5 max-w-[210px] mx-auto">
-                                Get treated and fly back. We stay in touch with you for follow ups.
-                            </p>
-                        </div>
-
-                    </div>
-
-                    <!-- Get Started CTA Button -->
-                    <div class="mt-9 sm:mt-11 text-center">
-                        <a 
-                            href="#quote-form" 
-                            class="bg-[#EF7415] hover:bg-[#d9640d] active:scale-[0.99] text-white text-sm sm:text-base font-bold px-8 py-3 rounded-lg shadow-md hover:shadow-lg transition-all duration-150 inline-flex items-center justify-center"
-                        >
-                            Get Started
-                        </a>
-                    </div>
-
-                </div>
-
-                <!-- RIGHT COLUMN: Video Player Card (6 cols) -->
-                <div class="lg:col-span-6">
-                    <div class="relative w-full aspect-[16/10] sm:aspect-[16/9.5] rounded-2xl sm:rounded-3xl overflow-hidden shadow-lg border border-gray-200/80 bg-gray-900 group">
-                        <iframe 
-                            class="w-full h-full object-cover" 
-                            src="https://www.youtube.com/embed/XZtyGhf5LJ8" 
-                            title="Medical Treatment Abroad - Heal Go Fly" 
-                            frameborder="0" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                            allowfullscreen 
-                            loading="lazy"
-                        ></iframe>
-                    </div>
-                </div>
-
-            </div>
-
-        </div>
-    </section>
-
-    <!-- ==================== OUR SERVICES COVER EVERY NEED ==================== -->
-    <section class="py-14 sm:py-20 bg-white border-t border-gray-100">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            
-            <!-- Section Header -->
-            <div class="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
-                <h2 class="text-2xl sm:text-3xl font-extrabold text-[#112347] tracking-tight">
-                    Our Services Cover Every Need
-                </h2>
-                <p class="text-xs sm:text-sm text-[#5a6a85] mt-2.5 max-w-2xl mx-auto leading-relaxed">
-                    You will be assisted by a dedicated case manager from our team. List of services you can expect from us, for FREE!
-                </p>
-            </div>
-
-            <!-- 9 Services Grid (3 Columns) -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
-                
-                <!-- 1. Medical Opinion -->
-                <div class="bg-[#f0f9f9] hover:bg-[#edf6f9] rounded-2xl p-4 sm:p-5 border border-blue-100/60 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-4 group cursor-pointer">
-                    <div class="w-12 h-12 rounded-full bg-white shadow-xs border border-blue-100/80 flex items-center justify-center flex-shrink-0 text-[#27797D] group-hover:scale-105 transition-transform">
-                        <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-                            <polyline points="14 2 14 8 20 8"/>
-                            <line x1="16" y1="13" x2="8" y2="13"/>
-                            <line x1="16" y1="17" x2="8" y2="17"/>
-                            <polyline points="10 9 9 9 8 9"/>
-                            <path d="M10 13l2 2 4-4" stroke="#EF7415" stroke-width="2"/>
-                        </svg>
-                    </div>
-                    <div>
-                        <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#27797D] transition-colors">
-                            Medical Opinion
-                        </h3>
-                        <p class="text-xs text-gray-500 mt-1 leading-relaxed">
-                            Expert opinions and cost estimates.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- 2. Pre-Travel Consultations -->
-                <div class="bg-[#f0f9f9] hover:bg-[#edf6f9] rounded-2xl p-4 sm:p-5 border border-blue-100/60 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-4 group cursor-pointer">
-                    <div class="w-12 h-12 rounded-full bg-white shadow-xs border border-blue-100/80 flex items-center justify-center flex-shrink-0 text-[#27797D] group-hover:scale-105 transition-transform">
-                        <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
-                            <circle cx="9" cy="7" r="4"/>
-                            <path d="M22 6c0 1.66-1.34 3-3 3h-.5L17 11v-2c-1.66 0-3-1.34-3-3s1.34-3 3-3h2c1.66 0 3 1.34 3 3z"/>
-                        </svg>
-                    </div>
-                    <div>
-                        <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#27797D] transition-colors">
-                            Pre-Travel Consultations
-                        </h3>
-                        <p class="text-xs text-gray-500 mt-1 leading-relaxed">
-                            Understand your procedure before traveling.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- 3. Visa Assistance -->
-                <div class="bg-[#f0f9f9] hover:bg-[#edf6f9] rounded-2xl p-4 sm:p-5 border border-blue-100/60 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-4 group cursor-pointer">
-                    <div class="w-12 h-12 rounded-full bg-white shadow-xs border border-blue-100/80 flex items-center justify-center flex-shrink-0 text-[#27797D] group-hover:scale-105 transition-transform">
-                        <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                            <rect x="5" y="3" width="14" height="18" rx="2"/>
-                            <line x1="9" y1="7" x2="15" y2="7"/>
-                            <circle cx="12" cy="13" r="3"/>
-                            <path d="M12 11v4M10 13h4" stroke="#EF7415" stroke-width="1.5"/>
-                        </svg>
-                    </div>
-                    <div>
-                        <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#27797D] transition-colors">
-                            Visa Assistance
-                        </h3>
-                        <p class="text-xs text-gray-500 mt-1 leading-relaxed">
-                            Complete medical visa assistance.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- 4. Money Exchange -->
-                <div class="bg-[#f0f9f9] hover:bg-[#edf6f9] rounded-2xl p-4 sm:p-5 border border-blue-100/60 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-4 group cursor-pointer">
-                    <div class="w-12 h-12 rounded-full bg-white shadow-xs border border-blue-100/80 flex items-center justify-center flex-shrink-0 text-[#27797D] group-hover:scale-105 transition-transform">
-                        <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                            <circle cx="8" cy="8" r="5"/>
-                            <path d="M8 6v4M7 7h2"/>
-                            <circle cx="16" cy="16" r="5"/>
-                            <path d="M15 15h2a1 1 0 0 1 0 2h-2v-4h2"/>
-                            <path d="M18 7l-2-2m0 0l-2 2m2-2v4"/>
-                            <path d="M6 17l2 2m0 0l2-2m-2 2v-4"/>
-                        </svg>
-                    </div>
-                    <div>
-                        <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#27797D] transition-colors">
-                            Money Exchange
-                        </h3>
-                        <p class="text-xs text-gray-500 mt-1 leading-relaxed">
-                            Convenient currency exchange services in your city.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- 5. Interpreters -->
-                <div class="bg-[#f0f9f9] hover:bg-[#edf6f9] rounded-2xl p-4 sm:p-5 border border-blue-100/60 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-4 group cursor-pointer">
-                    <div class="w-12 h-12 rounded-full bg-white shadow-xs border border-blue-100/80 flex items-center justify-center flex-shrink-0 text-[#27797D] group-hover:scale-105 transition-transform">
-                        <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="m5 8 6 6"/>
-                            <path d="m4 14 6-6 2-3"/>
-                            <path d="M2 5h12"/>
-                            <path d="M7 2h1"/>
-                            <path d="m22 22-5-10-5 10"/>
-                            <path d="M14 18h6"/>
-                        </svg>
-                    </div>
-                    <div>
-                        <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#27797D] transition-colors">
-                            Interpreters
-                        </h3>
-                        <p class="text-xs text-gray-500 mt-1 leading-relaxed">
-                            Fluent professionals to break language barriers at every step.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- 6. Transportation -->
-                <div class="bg-[#f0f9f9] hover:bg-[#edf6f9] rounded-2xl p-4 sm:p-5 border border-blue-100/60 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-4 group cursor-pointer">
-                    <div class="w-12 h-12 rounded-full bg-white shadow-xs border border-blue-100/80 flex items-center justify-center flex-shrink-0 text-[#27797D] group-hover:scale-105 transition-transform">
-                        <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                            <rect x="1" y="3" width="15" height="13" rx="2"/>
-                            <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/>
-                            <circle cx="5.5" cy="18.5" r="2.5"/>
-                            <circle cx="18.5" cy="18.5" r="2.5"/>
-                            <path d="M7 8h4M9 6v4" stroke="#EF7415" stroke-width="1.5"/>
-                        </svg>
-                    </div>
-                    <div>
-                        <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#27797D] transition-colors">
-                            Transportation
-                        </h3>
-                        <p class="text-xs text-gray-500 mt-1 leading-relaxed">
-                            Complimentary airport transfers.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- 7. Accommodation Options -->
-                <div class="bg-[#f0f9f9] hover:bg-[#edf6f9] rounded-2xl p-4 sm:p-5 border border-blue-100/60 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-4 group cursor-pointer">
-                    <div class="w-12 h-12 rounded-full bg-white shadow-xs border border-blue-100/80 flex items-center justify-center flex-shrink-0 text-[#27797D] group-hover:scale-105 transition-transform">
-                        <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M3 21h18"/>
-                            <path d="M5 21V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16"/>
-                            <path d="M9 7h1M9 11h1M9 15h1M14 7h1M14 11h1M14 15h1"/>
-                            <path d="M10 21v-3a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3"/>
-                        </svg>
-                    </div>
-                    <div>
-                        <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#27797D] transition-colors">
-                            Accommodation Options
-                        </h3>
-                        <p class="text-xs text-gray-500 mt-1 leading-relaxed">
-                            Near the hospital and matching your budget and needs.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- 8. Hospital Coordination -->
-                <div class="bg-[#f0f9f9] hover:bg-[#edf6f9] rounded-2xl p-4 sm:p-5 border border-blue-100/60 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-4 group cursor-pointer">
-                    <div class="w-12 h-12 rounded-full bg-white shadow-xs border border-blue-100/80 flex items-center justify-center flex-shrink-0 text-[#27797D] group-hover:scale-105 transition-transform">
-                        <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/>
-                            <rect x="8" y="2" width="8" height="4" rx="1"/>
-                            <path d="M9 14h6M9 18h4"/>
-                            <path d="M12 8v4M10 10h4" stroke="#EF7415" stroke-width="1.5"/>
-                        </svg>
-                    </div>
-                    <div>
-                        <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#27797D] transition-colors">
-                            Hospital Coordination
-                        </h3>
-                        <p class="text-xs text-gray-500 mt-1 leading-relaxed">
-                            Full coordination of medical logistics.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- 9. Private Duty Nursing -->
-                <div class="bg-[#f0f9f9] hover:bg-[#edf6f9] rounded-2xl p-4 sm:p-5 border border-blue-100/60 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-4 group cursor-pointer">
-                    <div class="w-12 h-12 rounded-full bg-white shadow-xs border border-blue-100/80 flex items-center justify-center flex-shrink-0 text-[#27797D] group-hover:scale-105 transition-transform">
-                        <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                            <path d="M12 8v6M9 11h6" stroke="#EF7415" stroke-width="1.8"/>
-                        </svg>
-                    </div>
-                    <div>
-                        <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#27797D] transition-colors">
-                            Private Duty Nursing
-                        </h3>
-                        <p class="text-xs text-gray-500 mt-1 leading-relaxed">
-                            Arrangements of private nursing care as needed.
-                        </p>
-                    </div>
-                </div>
-
-            </div>
-
-            <!-- Bottom Action Buttons: Get Quote & WhatsApp Chat -->
-            <div class="flex flex-wrap items-center justify-center gap-3.5 sm:gap-4 mt-10 sm:mt-12">
-                <a 
-                    href="#quote-form" 
-                    class="bg-[#EF7415] hover:bg-[#d9640d] active:scale-[0.99] text-white text-sm sm:text-base font-bold px-7 py-3 rounded-lg shadow-md hover:shadow-lg transition-all duration-150 inline-flex items-center justify-center"
-                >
-                    Get Quote
                 </a>
                 
                 <a 
