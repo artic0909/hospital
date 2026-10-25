@@ -121,7 +121,7 @@ class AuthController extends Controller
             'email' => ['required', 'string', 'email', 'max:255', 'unique:partners,email'],
             'phone' => ['required', 'string', 'min:7', 'max:20'],
             'country' => ['required', 'string', 'max:100'],
-            'partner_type' => ['required', 'string', 'in:medical_facilitator,travel_agent,hospital_rep,doctor_clinic,corporate_affiliate,other'],
+            'partner_type' => ['required', 'string', 'max:100'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
             'terms' => ['accepted'],
         ], [
