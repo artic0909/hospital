@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en" dir="ltr" class="h-full bg-slate-50">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -26,6 +26,7 @@
                         brand: {
                             teal: '#27797D',
                             navy: '#1D4B6C',
+                            darknavy: '#112347',
                             orange: '#EF7415',
                             tealhover: '#1e5f62',
                             navyhover: '#15364e',
@@ -36,100 +37,171 @@
             }
         }
     </script>
+
+    <!-- ApexCharts CDN for Rich Admin Visualizations -->
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+
+    <style>
+        /* Custom scrollbar for admin dashboard */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 9999px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+    </style>
 </head>
-<body class="bg-gray-50 text-gray-800 antialiased font-sans flex flex-col min-h-screen">
+<body class="h-full bg-slate-50 text-slate-800 antialiased font-sans">
 
-    <!-- Partner Top Header Bar -->
-    <header class="bg-[#1D4B6C] text-white sticky top-0 z-40 border-b border-[#27797D]/30 shadow-sm">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-16">
-                
-                <!-- Left: Brand Logo & Partner Badge -->
-                <div class="flex items-center gap-3 sm:gap-4">
-                    <a href="{{ url('/') }}" class="inline-flex items-center gap-2.5 notranslate group">
-                        <div class="bg-white px-2 py-1 rounded-xl shadow-xs border border-white/20 flex items-center justify-center">
-                            <img src="{{ asset('logo.png') }}" alt="Heal Go Fly" class="h-8 sm:h-9 w-auto object-contain">
-                        </div>
-                        <div class="flex flex-col leading-none">
-                            <span class="text-base sm:text-lg font-black tracking-tight text-white group-hover:text-teal-200 transition-colors">
-                                Heal Go Fly
-                            </span>
-                            <span class="text-[9px] uppercase font-bold text-[#EF7415] tracking-wider mt-0.5">
-                                Partner Portal
-                            </span>
-                        </div>
-                    </a>
+    <div class="min-h-full flex flex-col">
 
-                    <div class="h-6 w-px bg-white/20 hidden md:block"></div>
+        <!-- ==================== SIDEBAR COMPONENT ==================== -->
+        @include('partner.includes.sidebar')
 
-                    <!-- Mode Tag -->
-                    <span class="hidden md:inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-bold bg-white/10 text-teal-200 border border-white/10">
-                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
-                        Authorized Facilitator
-                    </span>
-                </div>
+        <!-- ==================== MAIN CONTENT WRAPPER (OFFSET BY SIDEBAR ON LG) ==================== -->
+        <div class="lg:pl-64 flex flex-col flex-1 min-w-0">
 
-                <!-- Right: Partner Profile & Actions -->
-                <div class="flex items-center gap-3 sm:gap-4">
-                    <a href="{{ url('/') }}" class="hidden sm:inline-flex text-xs font-semibold text-teal-100 hover:text-white transition-colors">
-                        &larr; Public Website
-                    </a>
-
-                    @auth('partner')
-                        <!-- Partner Avatar / Info Dropdown/Badge -->
-                        <div class="flex items-center gap-2.5 bg-white/10 px-3 py-1.5 rounded-xl border border-white/15">
-                            <div class="w-7 h-7 rounded-full bg-[#EF7415] text-white flex items-center justify-center font-bold text-xs uppercase shadow-xs">
-                                {{ substr(auth('partner')->user()->name, 0, 1) }}
-                            </div>
-                            <div class="hidden sm:block text-left leading-tight">
-                                <span class="block text-xs font-bold text-white leading-tight">
-                                    {{ Str::limit(auth('partner')->user()->name, 16) }}
-                                </span>
-                                <span class="block text-[10px] text-teal-200/90 truncate max-w-[140px]">
-                                    {{ auth('partner')->user()->company_name }}
-                                </span>
-                            </div>
-                        </div>
-
-                        <!-- Logout Form -->
-                        <form action="{{ route('partner.logout') }}" method="POST" class="inline">
-                            @csrf
+            <!-- Top Header Bar -->
+            <header class="sticky top-0 z-30 bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-xs">
+                <div class="px-4 sm:px-6 lg:px-8 py-3">
+                    <div class="flex items-center justify-between gap-4">
+                        
+                        <!-- Left: Mobile Menu Toggle & Breadcrumbs -->
+                        <div class="flex items-center gap-3">
+                            <!-- Mobile Sidebar Button -->
                             <button 
-                                type="submit" 
-                                class="inline-flex items-center gap-1 text-xs font-bold text-rose-200 hover:text-white bg-rose-500/20 hover:bg-rose-600 px-3 py-1.5 rounded-lg border border-rose-400/30 transition-all"
-                                title="Sign out of partner portal"
+                                id="partner-sidebar-toggle-btn" 
+                                type="button" 
+                                class="lg:hidden p-2 rounded-xl text-slate-600 hover:text-slate-900 hover:bg-slate-100 focus:outline-none transition-colors"
+                                aria-label="Open Sidebar Menu"
                             >
-                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/></svg>
-                                <span class="hidden sm:inline">Logout</span>
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                                </svg>
                             </button>
-                        </form>
-                    @endauth
+
+                            <!-- Dashboard Title & Live Badge -->
+                            <div class="flex items-center gap-2.5">
+                                <h1 class="text-base sm:text-lg font-extrabold text-[#112347] tracking-tight">
+                                    Partner Portal
+                                </h1>
+                                <span class="hidden sm:inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-emerald-50 text-emerald-700 border border-emerald-200">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                                    Live Sync
+                                </span>
+                            </div>
+                        </div>
+
+                        <!-- Right: Actions & User Avatar -->
+                        <div class="flex items-center gap-2.5 sm:gap-4">
+                            
+                            <!-- Search Bar (Desktop) -->
+                            <div class="hidden md:block relative w-64 lg:w-72">
+                                <input 
+                                    type="text" 
+                                    id="partner-quick-search"
+                                    placeholder="Search patient, ID, hospital..." 
+                                    class="w-full bg-slate-100 hover:bg-slate-50 focus:bg-white text-xs text-slate-800 placeholder-slate-400 rounded-xl pl-9 pr-4 py-2 border border-slate-200 focus:border-[#27797D] focus:ring-2 focus:ring-[#27797D]/20 focus:outline-none transition-all"
+                                >
+                                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                                    </svg>
+                                </div>
+                            </div>
+
+                            <!-- Fast-Track New Referral CTA -->
+                            <button 
+                                type="button"
+                                onclick="openReferralModal()"
+                                class="inline-flex items-center gap-1.5 bg-[#EF7415] hover:bg-[#d9640d] text-white text-xs font-bold px-3 sm:px-4 py-2 rounded-xl shadow-sm hover:shadow transition-all duration-150 transform hover:-translate-y-0.5"
+                            >
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/>
+                                </svg>
+                                <span><span class="hidden sm:inline">Refer</span> Patient</span>
+                            </button>
+
+                            <!-- Public Website Link -->
+                            <a 
+                                href="{{ url('/') }}" 
+                                target="_blank"
+                                class="hidden xl:inline-flex items-center gap-1 text-xs font-semibold text-slate-600 hover:text-[#27797D] px-2.5 py-1.5 rounded-lg hover:bg-slate-100 transition-colors"
+                            >
+                                <span>Website</span>
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                            </a>
+
+                            <!-- Notification Bell with Ping -->
+                            <div class="relative">
+                                <button 
+                                    type="button" 
+                                    class="p-2 rounded-xl text-slate-500 hover:text-slate-800 hover:bg-slate-100 transition-colors relative"
+                                    title="Notifications"
+                                    onclick="alert('Notifications: 3 new patient updates received today.')"
+                                >
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/>
+                                    </svg>
+                                    <span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-[#EF7415] ring-2 ring-white"></span>
+                                </button>
+                            </div>
+
+                            <!-- Partner User Avatar & Info -->
+                            @auth('partner')
+                                <div class="flex items-center gap-2 pl-2 border-l border-slate-200">
+                                    <div class="w-8 h-8 rounded-xl bg-gradient-to-br from-[#1D4B6C] to-[#27797D] text-white flex items-center justify-center font-bold text-xs uppercase shadow-xs">
+                                        {{ strtoupper(substr(auth('partner')->user()->name, 0, 1)) }}
+                                    </div>
+                                    <div class="hidden md:block text-left leading-tight">
+                                        <span class="block text-xs font-bold text-[#112347]">
+                                            {{ Str::limit(auth('partner')->user()->name, 14) }}
+                                        </span>
+                                        <span class="block text-[10px] text-slate-400 truncate max-w-[120px]">
+                                            {{ auth('partner')->user()->company_name }}
+                                        </span>
+                                    </div>
+                                </div>
+                            @endauth
+
+                        </div>
+
+                    </div>
                 </div>
+            </header>
 
-            </div>
-        </div>
-    </header>
+            <!-- Main Page Content -->
+            <main class="flex-1 p-4 sm:p-6 lg:p-8">
+                @yield('content')
+            </main>
 
-    <!-- Main Content Area -->
-    <main class="flex-1 py-8 sm:py-10">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            @yield('content')
-        </div>
-    </main>
+            <!-- Footer -->
+            <footer class="bg-white border-t border-slate-200/80 py-4 px-4 sm:px-6 lg:px-8 text-xs text-slate-500">
+                <div class="flex flex-col sm:flex-row items-center justify-between gap-3">
+                    <div>
+                        &copy; {{ date('Y') }} <span class="font-bold text-[#112347]">Heal Go Fly LLP</span>. Partner Management System. &bull; <span class="text-[#EF7415] italic font-semibold">Healgofly hi rahega</span>
+                    </div>
+                    <div class="flex items-center gap-4 text-xs font-medium">
+                        <span class="text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">JCI & NABH Hospital Liaison</span>
+                        <a href="https://wa.me/919129846542" target="_blank" class="hover:text-[#27797D] text-[#25D366] font-bold">+91 9129846542</a>
+                    </div>
+                </div>
+            </footer>
 
-    <!-- Partner Footer -->
-    <footer class="bg-white border-t border-gray-200 py-6 text-center text-xs text-gray-500">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-3">
-            <div>
-                &copy; {{ date('Y') }} <span class="font-bold text-[#1D4B6C]">Heal Go Fly LLP</span>. All rights reserved. &bull; <span class="text-[#EF7415] italic font-semibold">Healgofly hi rahega</span>
-            </div>
-            <div class="flex items-center gap-4 text-xs font-medium">
-                <a href="mailto:info@healgofly.com" class="hover:text-[#27797D]">info@healgofly.com</a>
-                <span>&bull;</span>
-                <a href="https://wa.me/919129846542" target="_blank" class="hover:text-[#27797D] text-[#25D366] font-bold">+91 9129846542</a>
-            </div>
         </div>
-    </footer>
+
+    </div>
+
+    <!-- ==================== SCRIPTS COMPONENT ==================== -->
+    @include('partner.includes.script')
 
     @stack('scripts')
 </body>
