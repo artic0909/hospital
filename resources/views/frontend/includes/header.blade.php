@@ -770,35 +770,58 @@
                         Patient Stories
                     </a>
 
-                    <a href="#quote-form" class="h-14 flex items-center hover:text-[#27797D] border-b-2 border-transparent hover:border-[#27797D] transition-colors">
-                        Free Consult
+                    <a href="#quote-form" class="h-14 flex items-center">
+                        <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold text-emerald-700 bg-emerald-50 hover:bg-emerald-100 border border-emerald-200/80 shadow-2xs hover:shadow transition-all duration-150">
+                            <span class="relative flex h-2 w-2">
+                                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                                <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                            </span>
+                            <span>Free Consult</span>
+                        </span>
                     </a>
 
                     <!-- Agent Dropdown -->
                     <div class="relative group h-14 flex items-center">
                         <button type="button" class="h-14 flex items-center gap-1 text-gray-700 hover:text-[#27797D] group-hover:text-[#27797D] border-b-2 border-transparent group-hover:border-[#27797D] transition-all cursor-pointer focus:outline-none">
-                            <span>Agent</span>
+                            @auth('partner')
+                                <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                                <span>Agent ({{ Str::limit(auth('partner')->user()->name, 10) }})</span>
+                            @else
+                                <span>Agent</span>
+                            @endauth
                             <svg class="w-3 h-3 text-gray-400 group-hover:text-[#27797D] transition-transform duration-200 group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/>
                             </svg>
                         </button>
                         <div class="absolute left-0 top-full hidden group-hover:block w-48 bg-white border border-gray-100 rounded-xl shadow-xl py-2 z-50">
-                           <a href="#quote-form" class="block px-4 py-2 text-xs font-medium text-gray-700 hover:bg-blue-50 hover:text-[#27797D] transition-colors">Login</a>
-                            <a href="#quote-form" class="block px-4 py-2 text-xs font-medium text-gray-700 hover:bg-blue-50 hover:text-[#27797D] transition-colors">Register</a>
+                            @auth('partner')
+                                <div class="px-4 py-2 border-b border-gray-100 bg-gray-50/50">
+                                    <p class="text-[10px] text-gray-400 uppercase font-bold tracking-wider">Signed in as</p>
+                                    <p class="text-xs font-bold text-[#112347] truncate">{{ auth('partner')->user()->name }}</p>
+                                </div>
+                                <a href="{{ route('partner.dashboard') }}" class="flex items-center gap-2 px-4 py-2 text-xs font-semibold text-[#EF7415] hover:bg-orange-50 transition-colors">
+                                    <svg class="w-3.5 h-3.5 text-[#EF7415]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+                                    <span>Dashboard</span>
+                                </a>
+                                <form method="POST" action="{{ route('partner.logout') }}">
+                                    @csrf
+                                    <button type="submit" class="w-full text-left flex items-center gap-2 px-4 py-2 text-xs font-semibold text-red-600 hover:bg-red-50 transition-colors">
+                                        <svg class="w-3.5 h-3.5 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/></svg>
+                                        <span>Logout</span>
+                                    </button>
+                                </form>
+                            @else
+                                <a href="{{ route('partner.login') }}" class="flex items-center gap-2 px-4 py-2 text-xs font-medium text-gray-700 hover:bg-blue-50 hover:text-[#27797D] transition-colors">
+                                    <svg class="w-3.5 h-3.5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"/></svg>
+                                    <span>Login</span>
+                                </a>
+                                <a href="{{ route('partner.register') }}" class="flex items-center gap-2 px-4 py-2 text-xs font-medium text-gray-700 hover:bg-blue-50 hover:text-[#27797D] transition-colors">
+                                    <svg class="w-3.5 h-3.5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z"/></svg>
+                                    <span>Register</span>
+                                </a>
+                            @endauth
                         </div>
                     </div>
-
-                    <!-- @auth('partner')
-                        <a href="{{ route('partner.dashboard') }}" class="h-14 flex items-center hover:text-[#27797D] border-b-2 border-transparent hover:border-[#EF7415] transition-colors text-[#EF7415] font-bold gap-1.5">
-                            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-                            Partner Portal ({{ Str::limit(auth('partner')->user()->name, 12) }})
-                        </a>
-                    @else
-                        <a href="{{ route('partner.login') }}" class="h-14 flex items-center hover:text-[#27797D] border-b-2 border-transparent hover:border-emerald-500 transition-colors text-emerald-600 font-bold gap-1">
-                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
-                            Partner Login
-                        </a>
-                    @endauth -->
                 </div>
 
                 <!-- Right: Search Bar -->
@@ -965,28 +988,42 @@
                     <span class="text-gray-400">&rsaquo;</span>
                 </a>
 
-                <a href="#quote-form" class="mobile-sidebar-link flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-bold text-gray-800 hover:bg-gray-50">
-                    <span>Free Consult</span>
-                    <span class="text-gray-400">&rsaquo;</span>
+                <a href="#quote-form" class="mobile-sidebar-link flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-bold text-emerald-700 bg-emerald-50 hover:bg-emerald-100 border border-emerald-200/60 transition-colors">
+                    <span class="flex items-center gap-2">
+                        <span class="relative flex h-2 w-2">
+                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                        </span>
+                        <span>Free Consult</span>
+                    </span>
                 </a>
 
-                @auth('partner')
-                    <a href="{{ route('partner.dashboard') }}" class="mobile-sidebar-link flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-bold text-[#EF7415] bg-orange-50 hover:bg-orange-100 transition-colors">
+                <!-- Agent Accordion -->
+                <details class="group/sub">
+                    <summary class="flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-bold text-gray-800 hover:bg-gray-50 cursor-pointer list-none select-none">
                         <span class="flex items-center gap-2">
-                            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-                            <span>Partner Portal ({{ Str::limit(auth('partner')->user()->name, 12) }})</span>
+                            @auth('partner')
+                                <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                                <span>Agent ({{ Str::limit(auth('partner')->user()->name, 12) }})</span>
+                            @else
+                                <span>Agent</span>
+                            @endauth
                         </span>
-                        <span class="text-xs">&rarr;</span>
-                    </a>
-                @else
-                    <a href="{{ route('partner.login') }}" class="mobile-sidebar-link flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-bold text-emerald-700 bg-emerald-50 hover:bg-emerald-100 transition-colors">
-                        <span class="flex items-center gap-1.5">
-                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
-                            <span>Partner Login</span>
-                        </span>
-                        <span class="text-xs">&rarr;</span>
-                    </a>
-                @endauth
+                        <svg class="w-3.5 h-3.5 text-gray-400 transition-transform group-open/sub:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </summary>
+                    <div class="pl-3 pr-1 py-1 space-y-1 ml-2 border-l-2 border-[#27797D]/30 mt-0.5">
+                        @auth('partner')
+                            <a href="{{ route('partner.dashboard') }}" class="mobile-sidebar-link block px-2.5 py-1.5 text-xs text-[#EF7415] font-bold">Partner Dashboard &rarr;</a>
+                            <form method="POST" action="{{ route('partner.logout') }}">
+                                @csrf
+                                <button type="submit" class="w-full text-left mobile-sidebar-link block px-2.5 py-1 text-xs text-red-600 font-semibold">Logout</button>
+                            </form>
+                        @else
+                            <a href="{{ route('partner.login') }}" class="mobile-sidebar-link block px-2.5 py-1.5 text-xs text-gray-700 hover:text-[#27797D] font-medium">Agent Login</a>
+                            <a href="{{ route('partner.register') }}" class="mobile-sidebar-link block px-2.5 py-1.5 text-xs text-gray-700 hover:text-[#27797D] font-medium">Agent Register</a>
+                        @endauth
+                    </div>
+                </details>
             </div>
 
         </div>
