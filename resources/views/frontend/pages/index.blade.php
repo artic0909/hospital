@@ -225,6 +225,276 @@
 
     </section>
 
+    <!-- ==================== OUR SERVICES WE PROVIDE ==================== -->
+    <section class="py-12 sm:py-16 bg-gradient-to-b from-white via-slate-50/50 to-white border-b border-gray-200/70 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- Section Header -->
+            <div class="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
+                <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-bold bg-[#27797D]/10 text-[#27797D] uppercase tracking-wider mb-3">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                    </svg>
+                    <span>Our Services We Provide</span>
+                </div>
+                <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#112347] tracking-tight">
+                    Comprehensive Patient Care & Travel Support
+                </h2>
+                <p class="text-xs sm:text-sm text-[#5a6a85] mt-2.5 max-w-2xl mx-auto leading-relaxed">
+                    From free doctor evaluations and hospital coordination to airport transfers and language interpreters, we manage every step of your medical journey.
+                </p>
+                
+                <!-- Quick Feature Badges -->
+                <div class="flex flex-wrap items-center justify-center gap-3 sm:gap-6 mt-4 pt-1 text-xs font-semibold text-gray-600">
+                    <span class="inline-flex items-center gap-1.5 text-emerald-700 bg-emerald-50 px-3 py-1 rounded-full border border-emerald-200/60">
+                        <svg class="w-3.5 h-3.5 text-emerald-600" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                        5 Free Core Services
+                    </span>
+                    <span class="inline-flex items-center gap-1.5 text-blue-700 bg-blue-50 px-3 py-1 rounded-full border border-blue-200/60">
+                        <svg class="w-3.5 h-3.5 text-blue-600" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                        Zero Hidden Surcharges
+                    </span>
+                    <span class="inline-flex items-center gap-1.5 text-[#27797D] bg-teal-50 px-3 py-1 rounded-full border border-teal-200/60">
+                        <svg class="w-3.5 h-3.5 text-[#27797D]" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                        24/7 Dedicated Care Manager
+                    </span>
+                </div>
+            </div>
+
+            <!-- Services Grid (8 Cards: 7 Services + 1 Patient Concierge CTA) -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
+                
+                <!-- SERVICE 1: Medical Opinion - FREE -->
+                <div class="bg-white rounded-2xl border border-gray-200/90 p-5 sm:p-6 shadow-xs hover:shadow-xl hover:border-[#27797D]/50 transition-all duration-200 flex flex-col justify-between group relative overflow-hidden">
+                    <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-emerald-500 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    <div>
+                        <div class="flex items-center justify-between gap-2 mb-4">
+                            <div class="w-12 h-12 rounded-xl bg-teal-50 text-[#27797D] ring-1 ring-teal-100 flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 7v3m-1.5-1.5h3"/>
+                                </svg>
+                            </div>
+                            <span class="inline-flex items-center gap-1 text-[11px] font-bold px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200 shadow-2xs">
+                                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                                FREE
+                            </span>
+                        </div>
+                        <h3 class="text-base sm:text-lg font-bold text-[#112347] group-hover:text-[#27797D] transition-colors leading-snug">
+                            Medical Opinion
+                        </h3>
+                        <p class="text-xs text-[#5a6a85] leading-relaxed mt-2">
+                            Detailed review of medical reports, treatment plans, and estimated costs from senior hospital specialists before you travel.
+                        </p>
+                    </div>
+                    <div class="mt-4 pt-3 border-t border-gray-100 flex items-center gap-1.5 text-[11px] font-semibold text-emerald-700">
+                        <svg class="w-3.5 h-3.5 text-emerald-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                        <span>Multiple Doctor Opinions</span>
+                    </div>
+                </div>
+
+                <!-- SERVICE 2: Language Interpreter - FREE -->
+                <div class="bg-white rounded-2xl border border-gray-200/90 p-5 sm:p-6 shadow-xs hover:shadow-xl hover:border-[#27797D]/50 transition-all duration-200 flex flex-col justify-between group relative overflow-hidden">
+                    <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-emerald-500 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    <div>
+                        <div class="flex items-center justify-between gap-2 mb-4">
+                            <div class="w-12 h-12 rounded-xl bg-blue-50 text-blue-600 ring-1 ring-blue-100 flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"/>
+                                </svg>
+                            </div>
+                            <span class="inline-flex items-center gap-1 text-[11px] font-bold px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200 shadow-2xs">
+                                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                                FREE
+                            </span>
+                        </div>
+                        <h3 class="text-base sm:text-lg font-bold text-[#112347] group-hover:text-[#27797D] transition-colors leading-snug">
+                            Language Interpreter
+                        </h3>
+                        <p class="text-xs text-[#5a6a85] leading-relaxed mt-2">
+                            Dedicated native language interpreters for doctor consultations, daily hospital visits, and clinical documentation (Arabic, Russian, Bengali, French, etc.).
+                        </p>
+                    </div>
+                    <div class="mt-4 pt-3 border-t border-gray-100 flex items-center gap-1.5 text-[11px] font-semibold text-emerald-700">
+                        <svg class="w-3.5 h-3.5 text-emerald-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                        <span>Multi-Lingual Translators</span>
+                    </div>
+                </div>
+
+                <!-- SERVICE 3: Currency Exchange Facility -->
+                <div class="bg-white rounded-2xl border border-gray-200/90 p-5 sm:p-6 shadow-xs hover:shadow-xl hover:border-[#27797D]/50 transition-all duration-200 flex flex-col justify-between group relative overflow-hidden">
+                    <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#27797D] to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    <div>
+                        <div class="flex items-center justify-between gap-2 mb-4">
+                            <div class="w-12 h-12 rounded-xl bg-amber-50 text-amber-600 ring-1 ring-amber-100 flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                            </div>
+                            <span class="inline-flex items-center text-[11px] font-semibold px-2.5 py-1 rounded-full bg-amber-50 text-amber-700 border border-amber-200">
+                                Verified Rates
+                            </span>
+                        </div>
+                        <h3 class="text-base sm:text-lg font-bold text-[#112347] group-hover:text-[#27797D] transition-colors leading-snug">
+                            Currency Exchange Facility
+                        </h3>
+                        <p class="text-xs text-[#5a6a85] leading-relaxed mt-2">
+                            Assistance with transparent local currency conversion and international bank card payments at authorized hospital desks or certified Forex partners.
+                        </p>
+                    </div>
+                    <div class="mt-4 pt-3 border-t border-gray-100 flex items-center gap-1.5 text-[11px] font-semibold text-gray-700">
+                        <svg class="w-3.5 h-3.5 text-amber-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                        <span>Safe & Reliable Exchange</span>
+                    </div>
+                </div>
+
+                <!-- SERVICE 4: Pickup & Drop from Airport - FREE -->
+                <div class="bg-white rounded-2xl border border-gray-200/90 p-5 sm:p-6 shadow-xs hover:shadow-xl hover:border-[#27797D]/50 transition-all duration-200 flex flex-col justify-between group relative overflow-hidden">
+                    <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-emerald-500 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    <div>
+                        <div class="flex items-center justify-between gap-2 mb-4">
+                            <div class="w-12 h-12 rounded-xl bg-indigo-50 text-indigo-600 ring-1 ring-indigo-100 flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M8 17a2 2 0 100-4 2 2 0 000 4zm8 0a2 2 0 100-4 2 2 0 000 4zm-9-8l2-4h6l2 4M3 13h18l-1.5 5.5A2 2 0 0117.564 20H6.436a2 2 0 01-1.936-1.5L3 13z"/>
+                                </svg>
+                            </div>
+                            <span class="inline-flex items-center gap-1 text-[11px] font-bold px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200 shadow-2xs">
+                                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                                FREE
+                            </span>
+                        </div>
+                        <h3 class="text-base sm:text-lg font-bold text-[#112347] group-hover:text-[#27797D] transition-colors leading-snug">
+                            Airport Pickup & Drop
+                        </h3>
+                        <p class="text-xs text-[#5a6a85] leading-relaxed mt-2">
+                            Complimentary chauffeured airport reception on arrival and departure directly to your hotel or hospital, with wheelchair assistance if requested.
+                        </p>
+                    </div>
+                    <div class="mt-4 pt-3 border-t border-gray-100 flex items-center gap-1.5 text-[11px] font-semibold text-emerald-700">
+                        <svg class="w-3.5 h-3.5 text-emerald-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                        <span>Door-to-Door Transfers</span>
+                    </div>
+                </div>
+
+                <!-- SERVICE 5: Accommodation Under Your Budget -->
+                <div class="bg-white rounded-2xl border border-gray-200/90 p-5 sm:p-6 shadow-xs hover:shadow-xl hover:border-[#27797D]/50 transition-all duration-200 flex flex-col justify-between group relative overflow-hidden">
+                    <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#27797D] to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    <div>
+                        <div class="flex items-center justify-between gap-2 mb-4">
+                            <div class="w-12 h-12 rounded-xl bg-purple-50 text-purple-600 ring-1 ring-purple-100 flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+                                </svg>
+                            </div>
+                            <span class="inline-flex items-center text-[11px] font-semibold px-2.5 py-1 rounded-full bg-purple-50 text-purple-700 border border-purple-200">
+                                Customized
+                            </span>
+                        </div>
+                        <h3 class="text-base sm:text-lg font-bold text-[#112347] group-hover:text-[#27797D] transition-colors leading-snug">
+                            Budget Accommodation
+                        </h3>
+                        <p class="text-xs text-[#5a6a85] leading-relaxed mt-2">
+                            Clean, family-friendly hotels, guest houses, and serviced apartments near your hospital, handpicked to match your exact comfort and budget preferences.
+                        </p>
+                    </div>
+                    <div class="mt-4 pt-3 border-t border-gray-100 flex items-center gap-1.5 text-[11px] font-semibold text-gray-700">
+                        <svg class="w-3.5 h-3.5 text-purple-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                        <span>Near Hospital & Kitchens</span>
+                    </div>
+                </div>
+
+                <!-- SERVICE 6: Hospital Coordination - FREE -->
+                <div class="bg-white rounded-2xl border border-gray-200/90 p-5 sm:p-6 shadow-xs hover:shadow-xl hover:border-[#27797D]/50 transition-all duration-200 flex flex-col justify-between group relative overflow-hidden">
+                    <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-emerald-500 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    <div>
+                        <div class="flex items-center justify-between gap-2 mb-4">
+                            <div class="w-12 h-12 rounded-xl bg-rose-50 text-rose-600 ring-1 ring-rose-100 flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 7v2m-1-1h2"/>
+                                </svg>
+                            </div>
+                            <span class="inline-flex items-center gap-1 text-[11px] font-bold px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200 shadow-2xs">
+                                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                                FREE
+                            </span>
+                        </div>
+                        <h3 class="text-base sm:text-lg font-bold text-[#112347] group-hover:text-[#27797D] transition-colors leading-snug">
+                            Hospital Coordination
+                        </h3>
+                        <p class="text-xs text-[#5a6a85] leading-relaxed mt-2">
+                            End-to-end priority admission desk, zero-waiting doctor appointments, diagnostic test scheduling, and direct billing coordination inside the hospital.
+                        </p>
+                    </div>
+                    <div class="mt-4 pt-3 border-t border-gray-100 flex items-center gap-1.5 text-[11px] font-semibold text-emerald-700">
+                        <svg class="w-3.5 h-3.5 text-emerald-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                        <span>Priority Queue & Desk</span>
+                    </div>
+                </div>
+
+                <!-- SERVICE 7: Visa Assistance (Invitation Letter) - FREE -->
+                <div class="bg-white rounded-2xl border border-gray-200/90 p-5 sm:p-6 shadow-xs hover:shadow-xl hover:border-[#27797D]/50 transition-all duration-200 flex flex-col justify-between group relative overflow-hidden">
+                    <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-emerald-500 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    <div>
+                        <div class="flex items-center justify-between gap-2 mb-4">
+                            <div class="w-12 h-12 rounded-xl bg-cyan-50 text-cyan-600 ring-1 ring-cyan-100 flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h4m-5 5h10a2 2 0 002-2V5a2 2 0 00-2-2H6a2 2 0 00-2 2v14a2 2 0 002 2z"/>
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M10 7h4"/>
+                                </svg>
+                            </div>
+                            <span class="inline-flex items-center gap-1 text-[11px] font-bold px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200 shadow-2xs">
+                                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                                FREE
+                            </span>
+                        </div>
+                        <h3 class="text-base sm:text-lg font-bold text-[#112347] group-hover:text-[#27797D] transition-colors leading-snug">
+                            Visa Assistance & Letter
+                        </h3>
+                        <p class="text-xs text-[#5a6a85] leading-relaxed mt-2">
+                            Fast-track official hospital Medical Visa Invitation Letters for patient & attendants, Embassy facilitation, and full medical visa documentation support.
+                        </p>
+                    </div>
+                    <div class="mt-4 pt-3 border-t border-gray-100 flex items-center gap-1.5 text-[11px] font-semibold text-emerald-700">
+                        <svg class="w-3.5 h-3.5 text-emerald-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                        <span>Official Hospital Letter</span>
+                    </div>
+                </div>
+
+                <!-- SERVICE 8: Dedicated Patient Care Concierge (CTA) -->
+                <div class="bg-gradient-to-br from-[#27797D] to-[#195659] text-white rounded-2xl p-5 sm:p-6 shadow-md hover:shadow-xl transition-all duration-200 flex flex-col justify-between relative overflow-hidden group">
+                    <div class="absolute -right-4 -bottom-4 w-28 h-28 bg-white/5 rounded-full blur-xl pointer-events-none"></div>
+                    <div>
+                        <div class="flex items-center justify-between gap-2 mb-4">
+                            <div class="w-12 h-12 rounded-xl bg-white/15 text-white flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform backdrop-blur-sm">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+                                </svg>
+                            </div>
+                            <span class="inline-flex items-center text-[10px] font-bold px-2 py-0.5 rounded-full bg-white/20 text-white border border-white/30 uppercase tracking-wider">
+                                24/7 Helpline
+                            </span>
+                        </div>
+                        <h3 class="text-base sm:text-lg font-bold text-white leading-snug">
+                            Personal Care Manager
+                        </h3>
+                        <p class="text-xs text-teal-100/90 leading-relaxed mt-2">
+                            Need guidance for your medical trip? Connect directly with our personal patient coordinators for immediate 1-on-1 assistance.
+                        </p>
+                    </div>
+                    <div class="mt-4 pt-3 border-t border-white/15">
+                        <a href="https://wa.me/919129846542?text=Hello%20Heal%20Go%20Fly,%20I%20need%20assistance%20with%20medical%20services" target="_blank" class="w-full bg-[#EF7415] hover:bg-[#d9640d] text-white text-xs font-bold py-2.5 px-3.5 rounded-xl text-center flex items-center justify-center gap-1.5 shadow-sm transition-all duration-150 transform hover:-translate-y-0.5">
+                            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                            <span>Chat on WhatsApp</span>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
     <!-- ==================== TOP MEDICAL DESTINATIONS & MULTI-SPECIALTY FOCUS ==================== -->
     <section class="py-14 sm:py-20 bg-[#eaedf2] border-y border-gray-300/60">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
