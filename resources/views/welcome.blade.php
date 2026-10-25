@@ -2029,16 +2029,20 @@
     </section>
 
     <!-- ==================== LOWEST QUOTES ASSURED ==================== -->
-    <section class="py-14 sm:py-20 bg-white border-t border-gray-100">
+    <section class="py-14 sm:py-20 bg-[#eaedf2] border-y border-gray-300/60">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             
             <!-- Section Header -->
             <div class="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
-                <h2 class="text-2xl sm:text-3xl font-extrabold text-[#27797D] tracking-tight">
-                    Lowest Quotes Assured
+                <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-teal-50 border border-teal-200/80 text-[#27797D] text-xs font-bold uppercase tracking-wider mb-3 shadow-2xs">
+                    <span class="w-2 h-2 rounded-full bg-[#27797D] animate-pulse"></span>
+                    Transparent Treatment Pricing
+                </div>
+                <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#112347] tracking-tight">
+                    Guaranteed Best Treatment Quotes
                 </h2>
                 <p class="text-xs sm:text-sm text-[#5a6a85] mt-2.5 max-w-2xl mx-auto leading-relaxed">
-                    We constantly negotiate better prices and alternatives without compromising treatment quality. Our prices are consistently lower.
+                    We negotiate pre-approved hospital package rates to provide world-class medical treatments at substantially lower costs with zero compromise on quality.
                 </p>
             </div>
 
@@ -2046,223 +2050,316 @@
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
                 
                 <!-- 1. Knee Replacement -->
-                <div class="bg-[#f0f9f9] hover:bg-[#edf6f9] rounded-2xl p-3.5 sm:p-4 border border-blue-100/60 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-3.5 group cursor-pointer">
-                    <img src="{{ asset('icons/RHEUMATOLOGY-51.svg') }}" alt="Knee Replacement" class="w-12 h-12 flex-shrink-0 group-hover:scale-105 transition-transform object-contain">
-                    <div>
-                        <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#27797D] transition-colors">
-                            Knee Replacement
-                        </h3>
-                        <p class="text-xs text-gray-500 mt-0.5">
-                            Starting <span class="font-bold text-gray-900">$4,000</span>
-                        </p>
-                        <a href="#quote-form" class="inline-block text-xs font-semibold text-[#EF7415] hover:text-[#d9640d] mt-1 group-hover:underline">
-                            Get Quote
-                        </a>
+                <a href="#quote-form" class="group relative bg-white rounded-2xl p-4 border border-gray-200/90 shadow-[0_2px_8px_rgba(0,0,0,0.03)] hover:shadow-xl hover:shadow-[#27797D]/10 hover:border-[#27797D]/50 hover:-translate-y-1 transition-all duration-300 flex items-center gap-3.5 cursor-pointer overflow-hidden">
+                    <span class="absolute left-0 top-3 bottom-3 w-1 bg-gradient-to-b from-[#27797D] to-[#EF7415] rounded-r-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                    <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-teal-50/90 via-blue-50/70 to-indigo-50/40 p-2 flex items-center justify-center flex-shrink-0 border border-teal-100/70 shadow-2xs group-hover:scale-105 group-hover:bg-teal-100/80 group-hover:border-teal-200 transition-all duration-300">
+                        <img src="{{ asset('icons/RHEUMATOLOGY-51.svg') }}" alt="Total Knee Replacement" class="w-full h-full object-contain">
                     </div>
-                </div>
+                    <div class="min-w-0 flex-1">
+                        <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#27797D] transition-colors truncate">
+                            Total Knee Replacement
+                        </h3>
+                        <div class="flex items-baseline gap-1 mt-1">
+                            <span class="text-[11px] text-gray-400 font-medium">From</span>
+                            <span class="text-sm sm:text-base font-extrabold text-[#112347] group-hover:text-[#27797D] transition-colors">$3,800</span>
+                        </div>
+                        <span class="inline-flex items-center gap-1 text-[11px] font-bold text-[#EF7415] group-hover:text-[#d9640d] group-hover:translate-x-0.5 transition-all mt-0.5">
+                            Get Quote
+                            <svg class="w-3 h-3 stroke-[2.5]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                            </svg>
+                        </span>
+                    </div>
+                </a>
 
                 <!-- 2. Hip Replacement -->
-                <div class="bg-[#f0f9f9] hover:bg-[#edf6f9] rounded-2xl p-3.5 sm:p-4 border border-blue-100/60 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-3.5 group cursor-pointer">
-                    <img src="{{ asset('icons/Hip-Replecement.svg') }}" alt="Hip Replacement" class="w-12 h-12 flex-shrink-0 group-hover:scale-105 transition-transform object-contain">
-                    <div>
-                        <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#27797D] transition-colors">
-                            Hip Replacement
-                        </h3>
-                        <p class="text-xs text-gray-500 mt-0.5">
-                            Starting <span class="font-bold text-gray-900">$5,500</span>
-                        </p>
-                        <a href="#quote-form" class="inline-block text-xs font-semibold text-[#EF7415] hover:text-[#d9640d] mt-1 group-hover:underline">
-                            Get Quote
-                        </a>
+                <a href="#quote-form" class="group relative bg-white rounded-2xl p-4 border border-gray-200/90 shadow-[0_2px_8px_rgba(0,0,0,0.03)] hover:shadow-xl hover:shadow-[#27797D]/10 hover:border-[#27797D]/50 hover:-translate-y-1 transition-all duration-300 flex items-center gap-3.5 cursor-pointer overflow-hidden">
+                    <span class="absolute left-0 top-3 bottom-3 w-1 bg-gradient-to-b from-[#27797D] to-[#EF7415] rounded-r-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                    <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-teal-50/90 via-blue-50/70 to-indigo-50/40 p-2 flex items-center justify-center flex-shrink-0 border border-teal-100/70 shadow-2xs group-hover:scale-105 group-hover:bg-teal-100/80 group-hover:border-teal-200 transition-all duration-300">
+                        <img src="{{ asset('icons/Hip-Replecement.svg') }}" alt="Total Hip Replacement" class="w-full h-full object-contain">
                     </div>
-                </div>
+                    <div class="min-w-0 flex-1">
+                        <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#27797D] transition-colors truncate">
+                            Total Hip Replacement
+                        </h3>
+                        <div class="flex items-baseline gap-1 mt-1">
+                            <span class="text-[11px] text-gray-400 font-medium">From</span>
+                            <span class="text-sm sm:text-base font-extrabold text-[#112347] group-hover:text-[#27797D] transition-colors">$5,200</span>
+                        </div>
+                        <span class="inline-flex items-center gap-1 text-[11px] font-bold text-[#EF7415] group-hover:text-[#d9640d] group-hover:translate-x-0.5 transition-all mt-0.5">
+                            Get Quote
+                            <svg class="w-3 h-3 stroke-[2.5]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                            </svg>
+                        </span>
+                    </div>
+                </a>
 
                 <!-- 3. Brain Tumor -->
-                <div class="bg-[#f0f9f9] hover:bg-[#edf6f9] rounded-2xl p-3.5 sm:p-4 border border-blue-100/60 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-3.5 group cursor-pointer">
-                    <img src="{{ asset('icons/Brain-Tumor.svg') }}" alt="Brain Tumor" class="w-12 h-12 flex-shrink-0 group-hover:scale-105 transition-transform object-contain">
-                    <div>
-                        <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#27797D] transition-colors">
-                            Brain Tumor
-                        </h3>
-                        <p class="text-xs text-gray-500 mt-0.5">
-                            Starting <span class="font-bold text-gray-900">$5,000</span>
-                        </p>
-                        <a href="#quote-form" class="inline-block text-xs font-semibold text-[#EF7415] hover:text-[#d9640d] mt-1 group-hover:underline">
-                            Get Quote
-                        </a>
+                <a href="#quote-form" class="group relative bg-white rounded-2xl p-4 border border-gray-200/90 shadow-[0_2px_8px_rgba(0,0,0,0.03)] hover:shadow-xl hover:shadow-[#27797D]/10 hover:border-[#27797D]/50 hover:-translate-y-1 transition-all duration-300 flex items-center gap-3.5 cursor-pointer overflow-hidden">
+                    <span class="absolute left-0 top-3 bottom-3 w-1 bg-gradient-to-b from-[#27797D] to-[#EF7415] rounded-r-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                    <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-teal-50/90 via-blue-50/70 to-indigo-50/40 p-2 flex items-center justify-center flex-shrink-0 border border-teal-100/70 shadow-2xs group-hover:scale-105 group-hover:bg-teal-100/80 group-hover:border-teal-200 transition-all duration-300">
+                        <img src="{{ asset('icons/Brain-Tumor.svg') }}" alt="Brain Tumor Surgery" class="w-full h-full object-contain">
                     </div>
-                </div>
+                    <div class="min-w-0 flex-1">
+                        <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#27797D] transition-colors truncate">
+                            Brain Tumor Surgery
+                        </h3>
+                        <div class="flex items-baseline gap-1 mt-1">
+                            <span class="text-[11px] text-gray-400 font-medium">From</span>
+                            <span class="text-sm sm:text-base font-extrabold text-[#112347] group-hover:text-[#27797D] transition-colors">$4,800</span>
+                        </div>
+                        <span class="inline-flex items-center gap-1 text-[11px] font-bold text-[#EF7415] group-hover:text-[#d9640d] group-hover:translate-x-0.5 transition-all mt-0.5">
+                            Get Quote
+                            <svg class="w-3 h-3 stroke-[2.5]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                            </svg>
+                        </span>
+                    </div>
+                </a>
 
                 <!-- 4. Heart Bypass Surgery -->
-                <div class="bg-[#f0f9f9] hover:bg-[#edf6f9] rounded-2xl p-3.5 sm:p-4 border border-blue-100/60 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-3.5 group cursor-pointer">
-                    <img src="{{ asset('icons/Heart-Bypass-Surgery.svg') }}" alt="Heart Bypass Surgery" class="w-12 h-12 flex-shrink-0 group-hover:scale-105 transition-transform object-contain">
-                    <div>
-                        <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#27797D] transition-colors">
-                            Heart Bypass Surgery
-                        </h3>
-                        <p class="text-xs text-gray-500 mt-0.5">
-                            Starting <span class="font-bold text-gray-900">$4,500</span>
-                        </p>
-                        <a href="#quote-form" class="inline-block text-xs font-semibold text-[#EF7415] hover:text-[#d9640d] mt-1 group-hover:underline">
-                            Get Quote
-                        </a>
+                <a href="#quote-form" class="group relative bg-white rounded-2xl p-4 border border-gray-200/90 shadow-[0_2px_8px_rgba(0,0,0,0.03)] hover:shadow-xl hover:shadow-[#27797D]/10 hover:border-[#27797D]/50 hover:-translate-y-1 transition-all duration-300 flex items-center gap-3.5 cursor-pointer overflow-hidden">
+                    <span class="absolute left-0 top-3 bottom-3 w-1 bg-gradient-to-b from-[#27797D] to-[#EF7415] rounded-r-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                    <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-teal-50/90 via-blue-50/70 to-indigo-50/40 p-2 flex items-center justify-center flex-shrink-0 border border-teal-100/70 shadow-2xs group-hover:scale-105 group-hover:bg-teal-100/80 group-hover:border-teal-200 transition-all duration-300">
+                        <img src="{{ asset('icons/Heart-Bypass-Surgery.svg') }}" alt="Heart Bypass Surgery" class="w-full h-full object-contain">
                     </div>
-                </div>
+                    <div class="min-w-0 flex-1">
+                        <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#27797D] transition-colors truncate">
+                            Heart Bypass (CABG)
+                        </h3>
+                        <div class="flex items-baseline gap-1 mt-1">
+                            <span class="text-[11px] text-gray-400 font-medium">From</span>
+                            <span class="text-sm sm:text-base font-extrabold text-[#112347] group-hover:text-[#27797D] transition-colors">$4,400</span>
+                        </div>
+                        <span class="inline-flex items-center gap-1 text-[11px] font-bold text-[#EF7415] group-hover:text-[#d9640d] group-hover:translate-x-0.5 transition-all mt-0.5">
+                            Get Quote
+                            <svg class="w-3 h-3 stroke-[2.5]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                            </svg>
+                        </span>
+                    </div>
+                </a>
 
                 <!-- 5. Valve Replacement -->
-                <div class="bg-[#f0f9f9] hover:bg-[#edf6f9] rounded-2xl p-3.5 sm:p-4 border border-blue-100/60 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-3.5 group cursor-pointer">
-                    <img src="{{ asset('icons/Valve-Replacement.svg') }}" alt="Valve Replacement" class="w-12 h-12 flex-shrink-0 group-hover:scale-105 transition-transform object-contain">
-                    <div>
-                        <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#27797D] transition-colors">
-                            Valve Replacement
-                        </h3>
-                        <p class="text-xs text-gray-500 mt-0.5">
-                            Starting <span class="font-bold text-gray-900">$9,500</span>
-                        </p>
-                        <a href="#quote-form" class="inline-block text-xs font-semibold text-[#EF7415] hover:text-[#d9640d] mt-1 group-hover:underline">
-                            Get Quote
-                        </a>
+                <a href="#quote-form" class="group relative bg-white rounded-2xl p-4 border border-gray-200/90 shadow-[0_2px_8px_rgba(0,0,0,0.03)] hover:shadow-xl hover:shadow-[#27797D]/10 hover:border-[#27797D]/50 hover:-translate-y-1 transition-all duration-300 flex items-center gap-3.5 cursor-pointer overflow-hidden">
+                    <span class="absolute left-0 top-3 bottom-3 w-1 bg-gradient-to-b from-[#27797D] to-[#EF7415] rounded-r-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                    <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-teal-50/90 via-blue-50/70 to-indigo-50/40 p-2 flex items-center justify-center flex-shrink-0 border border-teal-100/70 shadow-2xs group-hover:scale-105 group-hover:bg-teal-100/80 group-hover:border-teal-200 transition-all duration-300">
+                        <img src="{{ asset('icons/Valve-Replacement.svg') }}" alt="Valve Replacement" class="w-full h-full object-contain">
                     </div>
-                </div>
+                    <div class="min-w-0 flex-1">
+                        <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#27797D] transition-colors truncate">
+                            Heart Valve Replacement
+                        </h3>
+                        <div class="flex items-baseline gap-1 mt-1">
+                            <span class="text-[11px] text-gray-400 font-medium">From</span>
+                            <span class="text-sm sm:text-base font-extrabold text-[#112347] group-hover:text-[#27797D] transition-colors">$8,900</span>
+                        </div>
+                        <span class="inline-flex items-center gap-1 text-[11px] font-bold text-[#EF7415] group-hover:text-[#d9640d] group-hover:translate-x-0.5 transition-all mt-0.5">
+                            Get Quote
+                            <svg class="w-3 h-3 stroke-[2.5]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                            </svg>
+                        </span>
+                    </div>
+                </a>
 
                 <!-- 6. Breast Cancer -->
-                <div class="bg-[#f0f9f9] hover:bg-[#edf6f9] rounded-2xl p-3.5 sm:p-4 border border-blue-100/60 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-3.5 group cursor-pointer">
-                    <img src="{{ asset('icons/Breast-Cancer.svg') }}" alt="Breast Cancer" class="w-12 h-12 flex-shrink-0 group-hover:scale-105 transition-transform object-contain">
-                    <div>
-                        <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#27797D] transition-colors">
-                            Breast Cancer
-                        </h3>
-                        <p class="text-xs text-gray-500 mt-0.5">
-                            Starting <span class="font-bold text-gray-900">$5,000</span>
-                        </p>
-                        <a href="#quote-form" class="inline-block text-xs font-semibold text-[#EF7415] hover:text-[#d9640d] mt-1 group-hover:underline">
-                            Get Quote
-                        </a>
+                <a href="#quote-form" class="group relative bg-white rounded-2xl p-4 border border-gray-200/90 shadow-[0_2px_8px_rgba(0,0,0,0.03)] hover:shadow-xl hover:shadow-[#27797D]/10 hover:border-[#27797D]/50 hover:-translate-y-1 transition-all duration-300 flex items-center gap-3.5 cursor-pointer overflow-hidden">
+                    <span class="absolute left-0 top-3 bottom-3 w-1 bg-gradient-to-b from-[#27797D] to-[#EF7415] rounded-r-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                    <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-teal-50/90 via-blue-50/70 to-indigo-50/40 p-2 flex items-center justify-center flex-shrink-0 border border-teal-100/70 shadow-2xs group-hover:scale-105 group-hover:bg-teal-100/80 group-hover:border-teal-200 transition-all duration-300">
+                        <img src="{{ asset('icons/Breast-Cancer.svg') }}" alt="Breast Cancer Treatment" class="w-full h-full object-contain">
                     </div>
-                </div>
+                    <div class="min-w-0 flex-1">
+                        <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#27797D] transition-colors truncate">
+                            Breast Cancer Care
+                        </h3>
+                        <div class="flex items-baseline gap-1 mt-1">
+                            <span class="text-[11px] text-gray-400 font-medium">From</span>
+                            <span class="text-sm sm:text-base font-extrabold text-[#112347] group-hover:text-[#27797D] transition-colors">$4,750</span>
+                        </div>
+                        <span class="inline-flex items-center gap-1 text-[11px] font-bold text-[#EF7415] group-hover:text-[#d9640d] group-hover:translate-x-0.5 transition-all mt-0.5">
+                            Get Quote
+                            <svg class="w-3 h-3 stroke-[2.5]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                            </svg>
+                        </span>
+                    </div>
+                </a>
 
                 <!-- 7. Lung Cancer -->
-                <div class="bg-[#f0f9f9] hover:bg-[#edf6f9] rounded-2xl p-3.5 sm:p-4 border border-blue-100/60 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-3.5 group cursor-pointer">
-                    <img src="{{ asset('icons/Lung-Cancer.svg') }}" alt="Lung Cancer" class="w-12 h-12 flex-shrink-0 group-hover:scale-105 transition-transform object-contain">
-                    <div>
-                        <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#27797D] transition-colors">
-                            Lung Cancer
-                        </h3>
-                        <p class="text-xs text-gray-500 mt-0.5">
-                            Starting <span class="font-bold text-gray-900">$5,500</span>
-                        </p>
-                        <a href="#quote-form" class="inline-block text-xs font-semibold text-[#EF7415] hover:text-[#d9640d] mt-1 group-hover:underline">
-                            Get Quote
-                        </a>
+                <a href="#quote-form" class="group relative bg-white rounded-2xl p-4 border border-gray-200/90 shadow-[0_2px_8px_rgba(0,0,0,0.03)] hover:shadow-xl hover:shadow-[#27797D]/10 hover:border-[#27797D]/50 hover:-translate-y-1 transition-all duration-300 flex items-center gap-3.5 cursor-pointer overflow-hidden">
+                    <span class="absolute left-0 top-3 bottom-3 w-1 bg-gradient-to-b from-[#27797D] to-[#EF7415] rounded-r-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                    <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-teal-50/90 via-blue-50/70 to-indigo-50/40 p-2 flex items-center justify-center flex-shrink-0 border border-teal-100/70 shadow-2xs group-hover:scale-105 group-hover:bg-teal-100/80 group-hover:border-teal-200 transition-all duration-300">
+                        <img src="{{ asset('icons/Lung-Cancer.svg') }}" alt="Lung Cancer Surgery" class="w-full h-full object-contain">
                     </div>
-                </div>
+                    <div class="min-w-0 flex-1">
+                        <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#27797D] transition-colors truncate">
+                            Lung Cancer Surgery
+                        </h3>
+                        <div class="flex items-baseline gap-1 mt-1">
+                            <span class="text-[11px] text-gray-400 font-medium">From</span>
+                            <span class="text-sm sm:text-base font-extrabold text-[#112347] group-hover:text-[#27797D] transition-colors">$5,250</span>
+                        </div>
+                        <span class="inline-flex items-center gap-1 text-[11px] font-bold text-[#EF7415] group-hover:text-[#d9640d] group-hover:translate-x-0.5 transition-all mt-0.5">
+                            Get Quote
+                            <svg class="w-3 h-3 stroke-[2.5]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                            </svg>
+                        </span>
+                    </div>
+                </a>
 
                 <!-- 8. Rhinoplasty -->
-                <div class="bg-[#f0f9f9] hover:bg-[#edf6f9] rounded-2xl p-3.5 sm:p-4 border border-blue-100/60 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-3.5 group cursor-pointer">
-                    <img src="{{ asset('icons/Rhinoplasty.svg') }}" alt="Rhinoplasty" class="w-12 h-12 flex-shrink-0 group-hover:scale-105 transition-transform object-contain">
-                    <div>
-                        <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#27797D] transition-colors">
-                            Rhinoplasty
-                        </h3>
-                        <p class="text-xs text-gray-500 mt-0.5">
-                            Starting <span class="font-bold text-gray-900">$1,800</span>
-                        </p>
-                        <a href="#quote-form" class="inline-block text-xs font-semibold text-[#EF7415] hover:text-[#d9640d] mt-1 group-hover:underline">
-                            Get Quote
-                        </a>
+                <a href="#quote-form" class="group relative bg-white rounded-2xl p-4 border border-gray-200/90 shadow-[0_2px_8px_rgba(0,0,0,0.03)] hover:shadow-xl hover:shadow-[#27797D]/10 hover:border-[#27797D]/50 hover:-translate-y-1 transition-all duration-300 flex items-center gap-3.5 cursor-pointer overflow-hidden">
+                    <span class="absolute left-0 top-3 bottom-3 w-1 bg-gradient-to-b from-[#27797D] to-[#EF7415] rounded-r-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                    <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-teal-50/90 via-blue-50/70 to-indigo-50/40 p-2 flex items-center justify-center flex-shrink-0 border border-teal-100/70 shadow-2xs group-hover:scale-105 group-hover:bg-teal-100/80 group-hover:border-teal-200 transition-all duration-300">
+                        <img src="{{ asset('icons/Rhinoplasty.svg') }}" alt="Cosmetic Rhinoplasty" class="w-full h-full object-contain">
                     </div>
-                </div>
+                    <div class="min-w-0 flex-1">
+                        <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#27797D] transition-colors truncate">
+                            Cosmetic Rhinoplasty
+                        </h3>
+                        <div class="flex items-baseline gap-1 mt-1">
+                            <span class="text-[11px] text-gray-400 font-medium">From</span>
+                            <span class="text-sm sm:text-base font-extrabold text-[#112347] group-hover:text-[#27797D] transition-colors">$1,650</span>
+                        </div>
+                        <span class="inline-flex items-center gap-1 text-[11px] font-bold text-[#EF7415] group-hover:text-[#d9640d] group-hover:translate-x-0.5 transition-all mt-0.5">
+                            Get Quote
+                            <svg class="w-3 h-3 stroke-[2.5]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                            </svg>
+                        </span>
+                    </div>
+                </a>
 
                 <!-- 9. Breast Implants -->
-                <div class="bg-[#f0f9f9] hover:bg-[#edf6f9] rounded-2xl p-3.5 sm:p-4 border border-blue-100/60 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-3.5 group cursor-pointer">
-                    <img src="{{ asset('icons/Breast-Cancer (1).svg') }}" alt="Breast Implants" class="w-12 h-12 flex-shrink-0 group-hover:scale-105 transition-transform object-contain">
-                    <div>
-                        <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#27797D] transition-colors">
-                            Breast Implants
-                        </h3>
-                        <p class="text-xs text-gray-500 mt-0.5">
-                            Starting <span class="font-bold text-gray-900">$2,750</span>
-                        </p>
-                        <a href="#quote-form" class="inline-block text-xs font-semibold text-[#EF7415] hover:text-[#d9640d] mt-1 group-hover:underline">
-                            Get Quote
-                        </a>
+                <a href="#quote-form" class="group relative bg-white rounded-2xl p-4 border border-gray-200/90 shadow-[0_2px_8px_rgba(0,0,0,0.03)] hover:shadow-xl hover:shadow-[#27797D]/10 hover:border-[#27797D]/50 hover:-translate-y-1 transition-all duration-300 flex items-center gap-3.5 cursor-pointer overflow-hidden">
+                    <span class="absolute left-0 top-3 bottom-3 w-1 bg-gradient-to-b from-[#27797D] to-[#EF7415] rounded-r-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                    <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-teal-50/90 via-blue-50/70 to-indigo-50/40 p-2 flex items-center justify-center flex-shrink-0 border border-teal-100/70 shadow-2xs group-hover:scale-105 group-hover:bg-teal-100/80 group-hover:border-teal-200 transition-all duration-300">
+                        <img src="{{ asset('icons/Breast-Cancer (1).svg') }}" alt="Breast Augmentation" class="w-full h-full object-contain">
                     </div>
-                </div>
+                    <div class="min-w-0 flex-1">
+                        <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#27797D] transition-colors truncate">
+                            Breast Augmentation
+                        </h3>
+                        <div class="flex items-baseline gap-1 mt-1">
+                            <span class="text-[11px] text-gray-400 font-medium">From</span>
+                            <span class="text-sm sm:text-base font-extrabold text-[#112347] group-hover:text-[#27797D] transition-colors">$2,600</span>
+                        </div>
+                        <span class="inline-flex items-center gap-1 text-[11px] font-bold text-[#EF7415] group-hover:text-[#d9640d] group-hover:translate-x-0.5 transition-all mt-0.5">
+                            Get Quote
+                            <svg class="w-3 h-3 stroke-[2.5]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                            </svg>
+                        </span>
+                    </div>
+                </a>
 
                 <!-- 10. Hair Transplant -->
-                <div class="bg-[#f0f9f9] hover:bg-[#edf6f9] rounded-2xl p-3.5 sm:p-4 border border-blue-100/60 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-3.5 group cursor-pointer">
-                    <img src="{{ asset('icons/Hair-Transpalnt.svg') }}" alt="Hair Transplant" class="w-12 h-12 flex-shrink-0 group-hover:scale-105 transition-transform object-contain">
-                    <div>
-                        <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#27797D] transition-colors">
-                            Hair Transplant
-                        </h3>
-                        <p class="text-xs text-gray-500 mt-0.5">
-                            Starting <span class="font-bold text-gray-900">$1,400</span>
-                        </p>
-                        <a href="#quote-form" class="inline-block text-xs font-semibold text-[#EF7415] hover:text-[#d9640d] mt-1 group-hover:underline">
-                            Get Quote
-                        </a>
+                <a href="#quote-form" class="group relative bg-white rounded-2xl p-4 border border-gray-200/90 shadow-[0_2px_8px_rgba(0,0,0,0.03)] hover:shadow-xl hover:shadow-[#27797D]/10 hover:border-[#27797D]/50 hover:-translate-y-1 transition-all duration-300 flex items-center gap-3.5 cursor-pointer overflow-hidden">
+                    <span class="absolute left-0 top-3 bottom-3 w-1 bg-gradient-to-b from-[#27797D] to-[#EF7415] rounded-r-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                    <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-teal-50/90 via-blue-50/70 to-indigo-50/40 p-2 flex items-center justify-center flex-shrink-0 border border-teal-100/70 shadow-2xs group-hover:scale-105 group-hover:bg-teal-100/80 group-hover:border-teal-200 transition-all duration-300">
+                        <img src="{{ asset('icons/Hair-Transpalnt.svg') }}" alt="FUE Hair Transplant" class="w-full h-full object-contain">
                     </div>
-                </div>
+                    <div class="min-w-0 flex-1">
+                        <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#27797D] transition-colors truncate">
+                            FUE Hair Transplant
+                        </h3>
+                        <div class="flex items-baseline gap-1 mt-1">
+                            <span class="text-[11px] text-gray-400 font-medium">From</span>
+                            <span class="text-sm sm:text-base font-extrabold text-[#112347] group-hover:text-[#27797D] transition-colors">$1,350</span>
+                        </div>
+                        <span class="inline-flex items-center gap-1 text-[11px] font-bold text-[#EF7415] group-hover:text-[#d9640d] group-hover:translate-x-0.5 transition-all mt-0.5">
+                            Get Quote
+                            <svg class="w-3 h-3 stroke-[2.5]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                            </svg>
+                        </span>
+                    </div>
+                </a>
 
                 <!-- 11. Cervical Cancer -->
-                <div class="bg-[#f0f9f9] hover:bg-[#edf6f9] rounded-2xl p-3.5 sm:p-4 border border-blue-100/60 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-3.5 group cursor-pointer">
-                    <img src="{{ asset('icons/Cervical-Cancer.svg') }}" alt="Cervical Cancer" class="w-12 h-12 flex-shrink-0 group-hover:scale-105 transition-transform object-contain">
-                    <div>
-                        <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#27797D] transition-colors">
-                            Cervical Cancer
-                        </h3>
-                        <p class="text-xs text-gray-500 mt-0.5">
-                            Starting <span class="font-bold text-gray-900">$4,500</span>
-                        </p>
-                        <a href="#quote-form" class="inline-block text-xs font-semibold text-[#EF7415] hover:text-[#d9640d] mt-1 group-hover:underline">
-                            Get Quote
-                        </a>
+                <a href="#quote-form" class="group relative bg-white rounded-2xl p-4 border border-gray-200/90 shadow-[0_2px_8px_rgba(0,0,0,0.03)] hover:shadow-xl hover:shadow-[#27797D]/10 hover:border-[#27797D]/50 hover:-translate-y-1 transition-all duration-300 flex items-center gap-3.5 cursor-pointer overflow-hidden">
+                    <span class="absolute left-0 top-3 bottom-3 w-1 bg-gradient-to-b from-[#27797D] to-[#EF7415] rounded-r-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                    <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-teal-50/90 via-blue-50/70 to-indigo-50/40 p-2 flex items-center justify-center flex-shrink-0 border border-teal-100/70 shadow-2xs group-hover:scale-105 group-hover:bg-teal-100/80 group-hover:border-teal-200 transition-all duration-300">
+                        <img src="{{ asset('icons/Cervical-Cancer.svg') }}" alt="Cervical Cancer Care" class="w-full h-full object-contain">
                     </div>
-                </div>
+                    <div class="min-w-0 flex-1">
+                        <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#27797D] transition-colors truncate">
+                            Cervical Cancer Care
+                        </h3>
+                        <div class="flex items-baseline gap-1 mt-1">
+                            <span class="text-[11px] text-gray-400 font-medium">From</span>
+                            <span class="text-sm sm:text-base font-extrabold text-[#112347] group-hover:text-[#27797D] transition-colors">$4,200</span>
+                        </div>
+                        <span class="inline-flex items-center gap-1 text-[11px] font-bold text-[#EF7415] group-hover:text-[#d9640d] group-hover:translate-x-0.5 transition-all mt-0.5">
+                            Get Quote
+                            <svg class="w-3 h-3 stroke-[2.5]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                            </svg>
+                        </span>
+                    </div>
+                </a>
 
                 <!-- 12. Hysterectomy -->
-                <div class="bg-[#f0f9f9] hover:bg-[#edf6f9] rounded-2xl p-3.5 sm:p-4 border border-blue-100/60 hover:border-blue-300/80 shadow-xs hover:shadow-md transition-all duration-200 flex items-center gap-3.5 group cursor-pointer">
-                    <img src="{{ asset('icons/Hysterectomy.svg') }}" alt="Hysterectomy" class="w-12 h-12 flex-shrink-0 group-hover:scale-105 transition-transform object-contain">
-                    <div>
-                        <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#27797D] transition-colors">
-                            Hysterectomy
-                        </h3>
-                        <p class="text-xs text-gray-500 mt-0.5">
-                            Starting <span class="font-bold text-gray-900">$3,000</span>
-                        </p>
-                        <a href="#quote-form" class="inline-block text-xs font-semibold text-[#EF7415] hover:text-[#d9640d] mt-1 group-hover:underline">
-                            Get Quote
-                        </a>
+                <a href="#quote-form" class="group relative bg-white rounded-2xl p-4 border border-gray-200/90 shadow-[0_2px_8px_rgba(0,0,0,0.03)] hover:shadow-xl hover:shadow-[#27797D]/10 hover:border-[#27797D]/50 hover:-translate-y-1 transition-all duration-300 flex items-center gap-3.5 cursor-pointer overflow-hidden">
+                    <span class="absolute left-0 top-3 bottom-3 w-1 bg-gradient-to-b from-[#27797D] to-[#EF7415] rounded-r-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                    <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-teal-50/90 via-blue-50/70 to-indigo-50/40 p-2 flex items-center justify-center flex-shrink-0 border border-teal-100/70 shadow-2xs group-hover:scale-105 group-hover:bg-teal-100/80 group-hover:border-teal-200 transition-all duration-300">
+                        <img src="{{ asset('icons/Hysterectomy.svg') }}" alt="Laparoscopic Hysterectomy" class="w-full h-full object-contain">
                     </div>
-                </div>
+                    <div class="min-w-0 flex-1">
+                        <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#27797D] transition-colors truncate">
+                            Laparoscopic Hysterectomy
+                        </h3>
+                        <div class="flex items-baseline gap-1 mt-1">
+                            <span class="text-[11px] text-gray-400 font-medium">From</span>
+                            <span class="text-sm sm:text-base font-extrabold text-[#112347] group-hover:text-[#27797D] transition-colors">$2,850</span>
+                        </div>
+                        <span class="inline-flex items-center gap-1 text-[11px] font-bold text-[#EF7415] group-hover:text-[#d9640d] group-hover:translate-x-0.5 transition-all mt-0.5">
+                            Get Quote
+                            <svg class="w-3 h-3 stroke-[2.5]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                            </svg>
+                        </span>
+                    </div>
+                </a>
 
             </div>
 
             <!-- Bottom Center Actions -->
             <div class="mt-12 sm:mt-14 text-center">
                 <p class="text-xs sm:text-sm text-gray-500 font-medium mb-3.5">
-                    Discover what we offer!
+                    Need customized package estimates for your medical condition?
                 </p>
                 <div class="flex flex-wrap items-center justify-center gap-3.5 sm:gap-4">
                     <a 
                         href="#quote-form" 
-                        class="bg-[#EF7415] hover:bg-[#d9640d] active:scale-[0.99] text-white text-sm sm:text-base font-bold px-7 py-3 rounded-lg shadow-md hover:shadow-lg transition-all duration-150 inline-flex items-center justify-center"
+                        class="bg-[#EF7415] hover:bg-[#d9640d] active:scale-[0.99] text-white text-sm sm:text-base font-bold px-7 py-3 rounded-xl shadow-md hover:shadow-lg transition-all duration-150 inline-flex items-center justify-center gap-2 group/btn"
                     >
-                        Get Quote
+                        <svg class="w-4 h-4 fill-none stroke-current stroke-2 group-hover/btn:rotate-12 transition-transform duration-200" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
+                        </svg>
+                        <span>Request Free Quote</span>
                     </a>
                     
                     <a 
                         href="https://wa.me/919129846542" 
                         target="_blank" 
-                        class="bg-[#25D366] hover:bg-[#20ba5a] active:scale-[0.99] text-white text-sm sm:text-base font-bold px-7 py-3 rounded-lg shadow-md hover:shadow-lg transition-all duration-150 inline-flex items-center justify-center gap-2"
+                        class="bg-[#25D366] hover:bg-[#20ba5a] active:scale-[0.99] text-white text-sm sm:text-base font-bold px-7 py-3 rounded-xl shadow-md hover:shadow-lg transition-all duration-150 inline-flex items-center justify-center gap-2"
                     >
                         <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
                             <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
                         </svg>
-                        <span>Chat</span>
+                        <span>Chat on WhatsApp</span>
                     </a>
                 </div>
+                <p class="text-xs text-gray-500 mt-3 flex items-center justify-center gap-1.5 font-medium">
+                    <svg class="w-4 h-4 text-[#27797D] flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
+                    </svg>
+                    Direct hospital rates • No hidden commissions • Complete package transparency
+                </p>
             </div>
 
         </div>
