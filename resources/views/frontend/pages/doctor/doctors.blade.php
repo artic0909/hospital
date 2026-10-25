@@ -29,170 +29,6 @@
         </div>
     </div>
 
-    <!-- ==================== SEARCH & FILTER CONTAINER (4 COLUMNS) ==================== -->
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-2 mb-8 sm:mb-12">
-        <div class="rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.06)] border border-gray-200/90 overflow-hidden bg-white">
-            
-            <!-- Card Top Blue Bar -->
-            <div class="bg-[#27797D] text-white px-5 sm:px-6 py-3.5 flex items-center justify-between">
-                <div class="flex items-center gap-2.5 font-bold text-sm sm:text-base tracking-wide">
-                    <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-                        <circle cx="11" cy="11" r="8"/>
-                        <line x1="21" y1="21" x2="16.65" y2="16.65"/>
-                    </svg>
-                    <span>Find the Right Doctor</span>
-                </div>
-                
-                <span id="applied-filters-badge" class="bg-white/20 text-white text-xs px-3 py-1 rounded-full font-medium tracking-wide">
-                    1 filter applied
-                </span>
-            </div>
-            
-            <!-- Card Body Inputs (4 Columns) -->
-            <div class="p-5 sm:p-6 bg-white space-y-4 sm:space-y-5">
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
-                    
-                    <!-- 1. COUNTRY -->
-                    <div>
-                        <label class="block text-[11px] font-bold text-gray-500 uppercase tracking-wider mb-1.5 flex items-center gap-1.5">
-                            <svg class="w-3.5 h-3.5 text-gray-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                                <circle cx="12" cy="12" r="10"/>
-                                <line x1="2" y1="12" x2="22" y2="12"/>
-                                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
-                            </svg>
-                            <span>COUNTRY</span>
-                        </label>
-                        <div class="relative">
-                            <select id="filter-country" class="w-full h-11 pl-3.5 pr-14 text-sm font-semibold text-gray-800 bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#27797D] focus:border-transparent transition-all appearance-none cursor-pointer">
-                                <option value="Turkey" selected>Turkey</option>
-                                <option value="India">India</option>
-                                <option value="Thailand">Thailand</option>
-                                <option value="Germany">Germany</option>
-                                <option value="United Arab Emirates">United Arab Emirates</option>
-                                <option value="Singapore">Singapore</option>
-                                <option value="Egypt">Egypt</option>
-                            </select>
-                            
-                            <!-- Clear X button & Chevron -->
-                            <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none gap-1.5">
-                                <span id="clear-country-icon" class="w-4 h-4 rounded-full bg-gray-200 text-gray-500 flex items-center justify-center text-[10px] pointer-events-auto cursor-pointer hover:bg-gray-300 transition-colors" title="Clear country">✕</span>
-                                <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-                                </svg>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- 2. CITY -->
-                    <div>
-                        <label class="block text-[11px] font-bold text-gray-500 uppercase tracking-wider mb-1.5 flex items-center gap-1.5">
-                            <svg class="w-3.5 h-3.5 text-gray-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                                <rect x="4" y="2" width="16" height="20" rx="2" ry="2"/>
-                                <line x1="9" y1="22" x2="9" y2="22.01"/>
-                                <line x1="15" y1="22" x2="15" y2="22.01"/>
-                                <line x1="8" y1="6" x2="8" y2="6.01"/>
-                                <line x1="16" y1="6" x2="16" y2="6.01"/>
-                                <line x1="8" y1="10" x2="8" y2="10.01"/>
-                                <line x1="16" y1="10" x2="16" y2="10.01"/>
-                                <line x1="8" y1="14" x2="8" y2="14.01"/>
-                                <line x1="16" y1="14" x2="16" y2="14.01"/>
-                            </svg>
-                            <span>CITY</span>
-                        </label>
-                        <div class="relative">
-                            <select id="filter-city" class="w-full h-11 pl-3.5 pr-10 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#27797D] focus:border-transparent transition-all appearance-none cursor-pointer">
-                                <option value="">Select city...</option>
-                                <option value="Istanbul">Istanbul</option>
-                                <option value="Ankara">Ankara</option>
-                                <option value="Antalya">Antalya</option>
-                                <option value="Izmir">Izmir</option>
-                                <option value="Bursa">Bursa</option>
-                                <option value="New Delhi">New Delhi</option>
-                                <option value="Gurgaon">Gurgaon</option>
-                                <option value="Mumbai">Mumbai</option>
-                                <option value="Chennai">Chennai</option>
-                            </select>
-                            <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
-                                <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- 3. DEPARTMENT -->
-                    <div>
-                        <label class="block text-[11px] font-bold text-gray-500 uppercase tracking-wider mb-1.5 flex items-center gap-1.5">
-                            <svg class="w-3.5 h-3.5 text-gray-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                                <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>
-                            </svg>
-                            <span>DEPARTMENT</span>
-                        </label>
-                        <div class="relative">
-                            <select id="filter-dept" class="w-full h-11 pl-3.5 pr-10 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#27797D] focus:border-transparent transition-all appearance-none cursor-pointer">
-                                <option value="">Select dept...</option>
-                                <option value="Urology">Urology & Andrology</option>
-                                <option value="Neurosurgery">Neurosurgery & Spine</option>
-                                <option value="Cardiology">Cardiology & Cardiac Surgery</option>
-                                <option value="Oncology">Oncology & Cancer Care</option>
-                                <option value="Orthopedics">Orthopedics & Joint Surgery</option>
-                                <option value="Cosmetic">Cosmetic & Plastic Surgery</option>
-                                <option value="Bariatric">Bariatric & Weight Loss</option>
-                                <option value="Transplant">Organ & Bone Marrow Transplant</option>
-                                <option value="IVF">IVF & Reproductive Medicine</option>
-                            </select>
-                            <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
-                                <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- 4. HOSPITAL -->
-                    <div>
-                        <label class="block text-[11px] font-bold text-gray-500 uppercase tracking-wider mb-1.5 flex items-center gap-1.5">
-                            <svg class="w-3.5 h-3.5 text-gray-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                                <path d="M3 21h18M5 21V7l8-4v18M13 21V3l6 4v14"/>
-                            </svg>
-                            <span>HOSPITAL</span>
-                        </label>
-                        <div class="relative">
-                            <select id="filter-hospital" class="w-full h-11 pl-3.5 pr-10 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#27797D] focus:border-transparent transition-all appearance-none cursor-pointer">
-                                <option value="">Select hospital...</option>
-                                <option value="Medicana">Medicana International Hospital</option>
-                                <option value="Medipol">Medipol Mega University Hospital</option>
-                                <option value="Memorial">Memorial Healthcare Group</option>
-                                <option value="Acibadem">Acibadem Healthcare Group</option>
-                                <option value="Anadolu">Anadolu Medical Center</option>
-                                <option value="Medanta">Medanta - The Medicity</option>
-                                <option value="Apollo">Apollo Hospitals</option>
-                                <option value="Fortis">Fortis Healthcare</option>
-                            </select>
-                            <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
-                                <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
-                <!-- Bottom Bar: Clear filters & Search button -->
-                <div class="flex items-center justify-between pt-2 border-t border-gray-100">
-                    <button type="button" id="clear-filters-btn" class="text-xs text-gray-500 hover:text-red-600 font-medium inline-flex items-center gap-1.5 transition-colors cursor-pointer">
-                        <span>✕</span>
-                        <span>Clear filters</span>
-                    </button>
-                    
-                    <button type="button" id="search-doctors-btn" class="inline-flex items-center gap-2 bg-[#f0f9f9] hover:bg-[#27797D] text-[#27797D] hover:text-white border border-blue-200 hover:border-transparent text-xs sm:text-sm font-bold px-6 py-2.5 rounded-lg shadow-xs hover:shadow transition-all duration-150 cursor-pointer">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-                            <circle cx="11" cy="11" r="8"/>
-                            <line x1="21" y1="21" x2="16.65" y2="16.65"/>
-                        </svg>
-                        <span>Search Doctors</span>
-                    </button>
-                </div>
-            </div>
-
-        </div>
-    </div>
-
     <!-- ==================== MAIN CONTENT: LEFT DOCTOR CARDS & RIGHT STICKY FORM ==================== -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
         
@@ -202,31 +38,46 @@
             <!-- ==================== LEFT COLUMN: DOCTORS LIST (SCROLLABLE) ==================== -->
             <div class="lg:col-span-8 space-y-5">
                 
-                <!-- Sub Filter: Filter by Specialty & Results Header -->
-                <div class="bg-white p-4 sm:p-5 rounded-xl border border-gray-200/80 shadow-xs flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-                    <div>
-                        <label class="block text-xs font-bold text-gray-700 mb-1">Filter by Specialty</label>
-                        <div class="relative w-56">
-                            <select id="specialty-subfilter" class="w-full text-xs font-medium text-gray-700 bg-gray-50 border border-gray-300 rounded-lg px-3 py-2 pr-8 focus:outline-none focus:ring-1 focus:ring-[#27797D] appearance-none cursor-pointer">
-                                <option value="all">All specialties</option>
-                                <option value="Urologist">Urologist</option>
-                                <option value="Neurosurgeon">Neurosurgeon</option>
-                                <option value="Cardiac">Cardiac Surgeon</option>
-                                <option value="Oncologist">Oncologist</option>
-                                <option value="Orthopedic">Orthopedic Surgeon</option>
-                                <option value="Bariatric">Bariatric Surgeon</option>
-                                <option value="Cosmetic">Plastic & Cosmetic Surgeon</option>
-                            </select>
-                            <div class="absolute inset-y-0 right-0 flex items-center pr-2.5 pointer-events-none text-gray-400">
-                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                <!-- Results Bar & Quick Specialty Filter -->
+                <div class="bg-white p-4 sm:p-5 rounded-xl border border-gray-200/80 shadow-xs space-y-3.5">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                        <div>
+                            <span class="text-sm font-bold text-gray-900">
+                                Showing <span id="visible-count" class="text-[#27797D]">6</span> Best Doctors
+                            </span>
+                            <p class="text-xs text-gray-500 mt-0.5">Board-certified specialists & surgeons with international patient expertise</p>
+                        </div>
+
+                        <!-- Filter by Specialty Dropdown -->
+                        <div class="flex items-center gap-2 text-xs">
+                            <span class="text-gray-500 font-medium">Specialty:</span>
+                            <div class="relative">
+                                <select id="specialty-subfilter" class="bg-gray-50 border border-gray-300 text-gray-700 text-xs rounded-md pl-2.5 pr-7 py-1.5 focus:outline-none focus:ring-1 focus:ring-[#27797D] appearance-none cursor-pointer font-medium">
+                                    <option value="all">All Specialties</option>
+                                    <option value="Urologist">Urologist</option>
+                                    <option value="Neurosurgeon">Neurosurgeon</option>
+                                    <option value="Cardiac">Cardiac Surgeon</option>
+                                    <option value="Oncologist">Oncologist</option>
+                                    <option value="Orthopedic">Orthopedic Surgeon</option>
+                                    <option value="Bariatric">Bariatric Surgeon</option>
+                                </select>
+                                <div class="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none text-gray-400">
+                                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                                </div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="text-right sm:self-end">
-                        <span class="text-xs text-gray-500 font-medium">
-                            Showing <strong id="visible-count" class="text-[#27797D] font-bold">6</strong> Specialists
-                        </span>
+                    <!-- Quick Specialty Filter Pills -->
+                    <div class="flex items-center gap-2 overflow-x-auto pb-1 pt-1 no-scrollbar text-xs">
+                        <span class="text-gray-400 font-bold uppercase text-[10px] tracking-wider whitespace-nowrap">Specialty:</span>
+                        <button type="button" class="specialty-pill active px-3 py-1 rounded-full font-semibold bg-[#27797D] text-white transition-colors cursor-pointer" data-specialty="all">All</button>
+                        <button type="button" class="specialty-pill px-3 py-1 rounded-full font-semibold bg-gray-100 hover:bg-gray-200 text-gray-700 transition-colors cursor-pointer" data-specialty="Urologist">Urologist</button>
+                        <button type="button" class="specialty-pill px-3 py-1 rounded-full font-semibold bg-gray-100 hover:bg-gray-200 text-gray-700 transition-colors cursor-pointer" data-specialty="Neurosurgeon">Neurosurgeon</button>
+                        <button type="button" class="specialty-pill px-3 py-1 rounded-full font-semibold bg-gray-100 hover:bg-gray-200 text-gray-700 transition-colors cursor-pointer" data-specialty="Cardiac">Cardiac</button>
+                        <button type="button" class="specialty-pill px-3 py-1 rounded-full font-semibold bg-gray-100 hover:bg-gray-200 text-gray-700 transition-colors cursor-pointer" data-specialty="Oncologist">Oncology</button>
+                        <button type="button" class="specialty-pill px-3 py-1 rounded-full font-semibold bg-gray-100 hover:bg-gray-200 text-gray-700 transition-colors cursor-pointer" data-specialty="Orthopedic">Orthopedic</button>
+                        <button type="button" class="specialty-pill px-3 py-1 rounded-full font-semibold bg-gray-100 hover:bg-gray-200 text-gray-700 transition-colors cursor-pointer" data-specialty="Bariatric">Bariatric</button>
                     </div>
                 </div>
 
@@ -916,65 +767,45 @@
 @push('scripts')
 <script>
     document.addEventListener('DOMContentLoaded', () => {
-        const countrySelect = document.getElementById('filter-country');
-        const citySelect = document.getElementById('filter-city');
-        const deptSelect = document.getElementById('filter-dept');
-        const hospitalSelect = document.getElementById('filter-hospital');
         const specialtyFilter = document.getElementById('specialty-subfilter');
-        const searchBtn = document.getElementById('search-doctors-btn');
-        const clearBtn = document.getElementById('clear-filters-btn');
-        const clearCountryIcon = document.getElementById('clear-country-icon');
-        const appliedBadge = document.getElementById('applied-filters-badge');
+        const specialtyPills = document.querySelectorAll('.specialty-pill');
         const visibleCountSpan = document.getElementById('visible-count');
-        const pageHeading = document.getElementById('page-heading');
-        const breadcrumbCountry = document.getElementById('breadcrumb-country');
         const doctorCards = document.querySelectorAll('.doctor-card');
 
-        // Update Applied Filters Count
-        function updateFilterBadge() {
-            let count = 0;
-            if (countrySelect && countrySelect.value) count++;
-            if (citySelect && citySelect.value) count++;
-            if (deptSelect && deptSelect.value) count++;
-            if (hospitalSelect && hospitalSelect.value) count++;
+        // Filter doctors purely by specialty
+        function filterDoctors(specValue) {
+            const spec = (specValue !== undefined ? specValue : (specialtyFilter ? specialtyFilter.value : 'all')).toLowerCase().trim();
 
-            if (appliedBadge) {
-                appliedBadge.textContent = count + (count === 1 ? ' filter applied' : ' filters applied');
-            }
-        }
-
-        // Filter doctors
-        function filterDoctors() {
-            const country = countrySelect ? countrySelect.value.toLowerCase().trim() : '';
-            const city = citySelect ? citySelect.value.toLowerCase().trim() : '';
-            const dept = deptSelect ? deptSelect.value.toLowerCase().trim() : '';
-            const hosp = hospitalSelect ? hospitalSelect.value.toLowerCase().trim() : '';
-            const spec = specialtyFilter ? specialtyFilter.value.toLowerCase().trim() : 'all';
-
-            // Heading & Breadcrumbs
-            if (countrySelect && countrySelect.value) {
-                pageHeading.textContent = 'Best Doctors in ' + countrySelect.value;
-                breadcrumbCountry.textContent = countrySelect.value;
-            } else {
-                pageHeading.textContent = 'Best Doctors';
-                breadcrumbCountry.textContent = 'All';
+            // Sync dropdown value if needed
+            if (specialtyFilter && specialtyFilter.value.toLowerCase() !== spec) {
+                for (let i = 0; i < specialtyFilter.options.length; i++) {
+                    if (specialtyFilter.options[i].value.toLowerCase() === spec) {
+                        specialtyFilter.selectedIndex = i;
+                        break;
+                    }
+                }
             }
 
+            // Sync pills active styling
+            specialtyPills.forEach(pill => {
+                const pillSpec = (pill.getAttribute('data-specialty') || '').toLowerCase();
+                const isActive = (pillSpec === spec) || (spec === 'all' && pillSpec === 'all');
+                if (isActive) {
+                    pill.classList.remove('bg-gray-100', 'text-gray-700', 'hover:bg-gray-200');
+                    pill.classList.add('bg-[#27797D]', 'text-white', 'active');
+                } else {
+                    pill.classList.remove('bg-[#27797D]', 'text-white', 'active');
+                    pill.classList.add('bg-gray-100', 'text-gray-700', 'hover:bg-gray-200');
+                }
+            });
+
+            // Filter doctor cards
             let visible = 0;
             doctorCards.forEach(card => {
-                const cardCountry = (card.getAttribute('data-country') || '').toLowerCase();
-                const cardCity = (card.getAttribute('data-city') || '').toLowerCase();
-                const cardDept = (card.getAttribute('data-dept') || '').toLowerCase();
-                const cardHosp = (card.getAttribute('data-hospital') || '').toLowerCase();
                 const cardSpec = (card.getAttribute('data-specialty') || '').toLowerCase();
+                const matchSpec = spec === 'all' || cardSpec.includes(spec);
 
-                let matchCountry = !country || cardCountry.includes(country);
-                let matchCity = !city || cardCity.includes(city);
-                let matchDept = !dept || cardDept.includes(dept);
-                let matchHosp = !hosp || cardHosp.includes(hosp);
-                let matchSpec = spec === 'all' || cardSpec.includes(spec);
-
-                if (matchCountry && matchCity && matchDept && matchHosp && matchSpec) {
+                if (matchSpec) {
                     card.style.display = 'block';
                     visible++;
                 } else {
@@ -985,41 +816,24 @@
             if (visibleCountSpan) {
                 visibleCountSpan.textContent = visible;
             }
-            updateFilterBadge();
         }
 
-        // Clear Country
-        if (clearCountryIcon) {
-            clearCountryIcon.addEventListener('click', (e) => {
-                e.stopPropagation();
-                if (countrySelect) {
-                    countrySelect.value = '';
-                    filterDoctors();
-                }
+        // Dropdown change listener
+        if (specialtyFilter) {
+            specialtyFilter.addEventListener('change', () => {
+                filterDoctors(specialtyFilter.value);
             });
         }
 
-        // Clear all
-        if (clearBtn) {
-            clearBtn.addEventListener('click', () => {
-                if (countrySelect) countrySelect.value = 'Turkey';
-                if (citySelect) citySelect.value = '';
-                if (deptSelect) deptSelect.value = '';
-                if (hospitalSelect) hospitalSelect.value = '';
-                if (specialtyFilter) specialtyFilter.value = 'all';
-                filterDoctors();
+        // Specialty pills click listener
+        specialtyPills.forEach(pill => {
+            pill.addEventListener('click', () => {
+                const spec = pill.getAttribute('data-specialty') || 'all';
+                filterDoctors(spec);
             });
-        }
+        });
 
-        // Listeners
-        if (searchBtn) searchBtn.addEventListener('click', filterDoctors);
-        if (countrySelect) countrySelect.addEventListener('change', filterDoctors);
-        if (citySelect) citySelect.addEventListener('change', filterDoctors);
-        if (deptSelect) deptSelect.addEventListener('change', filterDoctors);
-        if (hospitalSelect) hospitalSelect.addEventListener('change', filterDoctors);
-        if (specialtyFilter) specialtyFilter.addEventListener('change', filterDoctors);
-
-        // Show More toggle on bullets
+        // Show More / Show Less toggle on bullet items
         document.querySelectorAll('.doctor-card button').forEach(btn => {
             btn.addEventListener('click', () => {
                 const text = btn.textContent.trim().toLowerCase();
@@ -1031,8 +845,8 @@
             });
         });
 
-        // Initialize
-        updateFilterBadge();
+        // Initialize with default state
+        filterDoctors('all');
     });
 </script>
 @endpush
