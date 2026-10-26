@@ -233,17 +233,16 @@
             </span>
             <div class="space-y-1">
                 <a 
-                    href="{{ route('hospitals') }}" 
-                    target="_blank"
-                    class="flex items-center justify-between px-3 py-2 rounded-xl text-slate-300 hover:text-white hover:bg-slate-800/80 transition-all"
+                    href="{{ route('admin.hospital.index') }}" 
+                    class="flex items-center justify-between px-3 py-2 rounded-xl {{ request()->routeIs('admin.hospital*') ? 'bg-[#27797D] text-white font-bold shadow-md shadow-[#27797D]/20' : 'text-slate-300 hover:text-white hover:bg-slate-800/80' }} transition-all"
                 >
                     <div class="flex items-center gap-2.5">
-                        <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg class="w-4 h-4 {{ request()->routeIs('admin.hospital*') ? 'text-teal-200' : 'text-slate-400' }}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
                         </svg>
-                        <span>Partner Hospitals</span>
+                        <span>Hospitals Management</span>
                     </div>
-                    <span class="text-slate-500 text-[10px]">&nearr;</span>
+                    <span class="px-1.5 py-0.5 rounded text-[9px] font-extrabold uppercase bg-[#EF7415] text-white">CRUD</span>
                 </a>
 
                 <a 

@@ -75,5 +75,19 @@ Route::prefix('admin')->name('admin.')->group(function () {
             Route::delete('/treatment/{treatment}', [TreatmentController::class, 'destroy'])->name('treatment.destroy');
             Route::post('/treatment/bulk-delete', [TreatmentController::class, 'bulkDelete'])->name('treatment.bulk-delete');
         });
+
+        // ==================== HOSPITAL CRUD ====================
+        Route::prefix('hospital')->name('hospital.')->group(function () {
+            Route::get('/', \App\Http\Controllers\Admin\HospitalController::class . '@index')->name('index');
+            Route::get('/create', \App\Http\Controllers\Admin\HospitalController::class . '@create')->name('create');
+            Route::post('/', \App\Http\Controllers\Admin\HospitalController::class . '@store')->name('store');
+            Route::get('/get-states/{country}', \App\Http\Controllers\Admin\HospitalController::class . '@getStates')->name('get-states');
+            Route::get('/get-cities/{state}', \App\Http\Controllers\Admin\HospitalController::class . '@getCities')->name('get-cities');
+            Route::post('/bulk-delete', \App\Http\Controllers\Admin\HospitalController::class . '@bulkDelete')->name('bulk-delete');
+            Route::get('/{hospital}', \App\Http\Controllers\Admin\HospitalController::class . '@show')->name('view');
+            Route::get('/{hospital}/edit', \App\Http\Controllers\Admin\HospitalController::class . '@edit')->name('update');
+            Route::put('/{hospital}', \App\Http\Controllers\Admin\HospitalController::class . '@update')->name('update.submit');
+            Route::delete('/{hospital}', \App\Http\Controllers\Admin\HospitalController::class . '@destroy')->name('destroy');
+        });
     });
 });
