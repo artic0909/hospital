@@ -221,13 +221,7 @@
                                         <span>👨‍⚕️</span>
                                         <span>{{ $hosp->doctors_count }} Doctors</span>
                                     </a>
-                                    <a 
-                                        href="{{ route('admin.hospital.doctor.create', $hosp->id) }}"
-                                        class="p-1 rounded-lg bg-orange-50 hover:bg-[#EF7415] text-[#EF7415] hover:text-white border border-orange-200/80 transition-colors"
-                                        title="Add Doctor to this Hospital"
-                                    >
-                                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg>
-                                    </a>
+                                   
                                 </div>
                             </td>
                             <td class="py-3.5 px-5">
