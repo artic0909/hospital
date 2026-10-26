@@ -61,6 +61,7 @@
             background: #94a3b8;
         }
     </style>
+    @stack('styles')
 </head>
 <body class="h-full bg-slate-50 text-slate-800 antialiased font-sans">
 

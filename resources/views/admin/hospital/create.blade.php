@@ -2,6 +2,39 @@
 
 @section('title', 'Register New Hospital - Admin Portal')
 
+@push('styles')
+<!-- Quill Rich Text Editor CSS -->
+<link href="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.snow.css" rel="stylesheet">
+<style>
+    .ql-toolbar.ql-snow {
+        border-top-left-radius: 0.875rem;
+        border-top-right-radius: 0.875rem;
+        border-color: #e2e8f0;
+        background: #f8fafc;
+        padding: 0.625rem 0.875rem;
+    }
+    .ql-container.ql-snow {
+        border-bottom-left-radius: 0.875rem;
+        border-bottom-right-radius: 0.875rem;
+        border-color: #e2e8f0;
+        background: #ffffff;
+        font-family: inherit;
+        font-size: 0.875rem;
+    }
+    .ql-editor {
+        min-height: 180px;
+        font-size: 0.875rem;
+        line-height: 1.6;
+        color: #334155;
+    }
+    .ql-editor.ql-blank::before {
+        color: #94a3b8;
+        font-style: normal;
+        font-size: 0.8125rem;
+    }
+</style>
+@endpush
+
 @section('content')
 <div class="space-y-6 max-w-5xl mx-auto">
 
@@ -306,15 +339,19 @@
             </div>
 
             <div>
-                <label class="block text-xs font-bold text-slate-700 mb-1.5">
-                    Hospital Profile & Description
+                <label class="block text-xs font-bold text-slate-700 mb-1.5 flex items-center justify-between">
+                    <span>Hospital Profile & Description</span>
+                    <span class="text-[10px] text-teal-700 font-semibold bg-teal-50 px-2 py-0.5 rounded-full border border-teal-200">
+                        Rich Text Editor
+                    </span>
                 </label>
-                <textarea 
-                    name="about" 
-                    rows="4" 
-                    placeholder="Describe hospital infrastructure, accreditations (JCI/NABH), emergency facilities, key departments..." 
-                    class="w-full bg-slate-50 focus:bg-white text-xs sm:text-sm px-3.5 py-2.5 rounded-xl border border-slate-200 focus:border-[#27797D] focus:outline-none transition-all font-medium"
-                >{{ old('about') }}</textarea>
+                <!-- Hidden input submitted with the form -->
+                <input type="hidden" name="about" id="about_input" value="{{ old('about') }}">
+                
+                <!-- Quill Editor Container -->
+                <div id="about_editor">
+                    {!! old('about') !!}
+                </div>
             </div>
         </div>
 
@@ -416,6 +453,42 @@
                 if (initialStateId) {
                     loadCities(initialStateId, initialCityId);
                 }
+            });
+        }
+    });
+</script>
+
+<!-- Quill Rich Text Editor JS -->
+<script src="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const quill = new Quill('#about_editor', {
+            theme: 'snow',
+            placeholder: 'Describe hospital infrastructure, clinical achievements, accreditations (JCI/NABH), emergency facilities, key departments...',
+            modules: {
+                toolbar: [
+                    [{ 'header': [1, 2, 3, false] }],
+                    ['bold', 'italic', 'underline', 'strike'],
+                    [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+                    [{ 'color': [] }, { 'background': [] }],
+                    ['blockquote', 'link'],
+                    ['clean']
+                ]
+            }
+        });
+
+        const aboutInput = document.getElementById('about_input');
+
+        // Sync Quill content with hidden input
+        quill.on('text-change', function () {
+            aboutInput.value = quill.getText().trim().length === 0 ? '' : quill.root.innerHTML;
+        });
+
+        // Ensure input has HTML content when form submits
+        const form = document.querySelector('form');
+        if (form) {
+            form.addEventListener('submit', function () {
+                aboutInput.value = quill.getText().trim().length === 0 ? '' : quill.root.innerHTML;
             });
         }
     });

@@ -144,8 +144,8 @@
                     </h2>
                 </div>
 
-                <div class="text-xs sm:text-sm text-slate-600 leading-relaxed font-medium whitespace-pre-line">
-                    {{ $hospital->about ?: 'No detailed clinical overview provided yet. You can add hospital accolades, international patient services, and emergency capabilities by clicking "Edit Hospital".' }}
+                <div class="text-xs sm:text-sm text-slate-700 leading-relaxed font-medium prose max-w-none">
+                    {!! $hospital->about ?: '<p class="text-slate-400 italic">No detailed clinical overview provided yet. You can add hospital accolades, international patient services, and emergency capabilities by clicking "Edit Hospital".</p>' !!}
                 </div>
             </div>
 
