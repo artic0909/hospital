@@ -21,7 +21,7 @@ class HospitalController extends Controller
      */
     public function index(Request $request): View
     {
-        $query = Hospital::with(['country', 'state', 'city', 'category'])->latest();
+        $query = Hospital::with(['country', 'state', 'city', 'category'])->withCount('doctors')->latest();
 
         // Search by name, code, contact, email, or city name
         if ($request->filled('search')) {

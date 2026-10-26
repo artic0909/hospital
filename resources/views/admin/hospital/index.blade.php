@@ -146,6 +146,7 @@
                         <th class="py-3.5 px-5">Category</th>
                         <th class="py-3.5 px-5">Location</th>
                         <th class="py-3.5 px-5">Contact & Email</th>
+                        <th class="py-3.5 px-5">Doctors & OPD</th>
                         <th class="py-3.5 px-5">Beds</th>
                         <th class="py-3.5 px-5">Est. Year</th>
                         <th class="py-3.5 px-5 text-right">Actions</th>
@@ -211,6 +212,25 @@
                                 </div>
                             </td>
                             <td class="py-3.5 px-5">
+                                <div class="inline-flex items-center gap-1.5">
+                                    <a 
+                                        href="{{ route('admin.hospital.doctor.index', $hosp->id) }}"
+                                        class="inline-flex items-center gap-1 px-2.5 py-1 rounded-xl text-xs font-bold bg-teal-50 hover:bg-teal-100 text-[#27797D] border border-teal-200 transition-colors shadow-2xs"
+                                        title="View Doctors Directory"
+                                    >
+                                        <span>👨‍⚕️</span>
+                                        <span>{{ $hosp->doctors_count }} Doctors</span>
+                                    </a>
+                                    <a 
+                                        href="{{ route('admin.hospital.doctor.create', $hosp->id) }}"
+                                        class="p-1 rounded-lg bg-orange-50 hover:bg-[#EF7415] text-[#EF7415] hover:text-white border border-orange-200/80 transition-colors"
+                                        title="Add Doctor to this Hospital"
+                                    >
+                                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg>
+                                    </a>
+                                </div>
+                            </td>
+                            <td class="py-3.5 px-5">
                                 <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-bold bg-emerald-50 text-emerald-700 border border-emerald-200">
                                     🛏️ {{ number_format($hosp->no_of_bed) }}
                                 </span>
@@ -220,6 +240,15 @@
                             </td>
                             <td class="py-3.5 px-5 text-right">
                                 <div class="inline-flex items-center gap-1.5">
+                                    <!-- Add Doctor Shortcut Button -->
+                                    <a 
+                                        href="{{ route('admin.hospital.doctor.create', $hosp->id) }}"
+                                        class="p-1.5 rounded-lg text-[#EF7415] hover:bg-orange-50 transition-colors"
+                                        title="Add Doctor"
+                                    >
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z"/></svg>
+                                    </a>
+
                                     <!-- View Details Button -->
                                     <a 
                                         href="{{ route('admin.hospital.view', $hosp->id) }}"
@@ -256,7 +285,7 @@
                         </tr>
                     @empty
                         <tr>
-                            <td colspan="10" class="py-12 text-center text-slate-400">
+                            <td colspan="11" class="py-12 text-center text-slate-400">
                                 <div class="max-w-xs mx-auto space-y-2">
                                     <span class="text-3xl block">🏥</span>
                                     <p class="font-bold text-slate-700">No partner hospitals found</p>

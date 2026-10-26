@@ -88,6 +88,18 @@ Route::prefix('admin')->name('admin.')->group(function () {
             Route::get('/{hospital}/edit', \App\Http\Controllers\Admin\HospitalController::class . '@edit')->name('update');
             Route::put('/{hospital}', \App\Http\Controllers\Admin\HospitalController::class . '@update')->name('update.submit');
             Route::delete('/{hospital}', \App\Http\Controllers\Admin\HospitalController::class . '@destroy')->name('destroy');
+
+            // Hospital Doctor & Schedule CRUD
+            Route::prefix('{hospital}/doctor')->name('doctor.')->group(function () {
+                Route::get('/', \App\Http\Controllers\Admin\DoctorController::class . '@index')->name('index');
+                Route::get('/create', \App\Http\Controllers\Admin\DoctorController::class . '@create')->name('create');
+                Route::post('/', \App\Http\Controllers\Admin\DoctorController::class . '@store')->name('store');
+                Route::post('/bulk-delete', \App\Http\Controllers\Admin\DoctorController::class . '@bulkDelete')->name('bulk-delete');
+                Route::get('/{doctor}', \App\Http\Controllers\Admin\DoctorController::class . '@show')->name('view');
+                Route::get('/{doctor}/edit', \App\Http\Controllers\Admin\DoctorController::class . '@edit')->name('update');
+                Route::put('/{doctor}', \App\Http\Controllers\Admin\DoctorController::class . '@update')->name('update.submit');
+                Route::delete('/{doctor}', \App\Http\Controllers\Admin\DoctorController::class . '@destroy')->name('destroy');
+            });
         });
     });
 });
