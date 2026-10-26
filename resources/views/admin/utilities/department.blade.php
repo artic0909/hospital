@@ -249,12 +249,12 @@
 
             <div>
                 <label class="block text-xs font-bold text-slate-700 mb-1.5">
-                    Department Icon Image <span class="text-slate-400 text-[10px] font-normal">(PNG, JPG, SVG, WebP up to 2MB)</span>
+                    Department Icon Image <span class="text-slate-400 text-[10px] font-normal">(All formats accepted: SVG, PNG, JPG, JPEG, WebP, GIF, etc. up to 5MB)</span>
                 </label>
                 <input 
                     type="file" 
                     name="image_icon" 
-                    accept="image/*"
+                    accept="image/*,.svg"
                     class="w-full text-xs text-slate-500 file:mr-3 file:py-2 file:px-3 file:rounded-xl file:border-0 file:text-xs file:font-bold file:bg-teal-50 file:text-[#27797D] hover:file:bg-teal-100 cursor-pointer"
                 >
             </div>
@@ -323,12 +323,12 @@
 
             <div>
                 <label class="block text-xs font-bold text-slate-700 mb-1.5">
-                    Change Icon Image <span class="text-slate-400 text-[10px] font-normal">(Leave blank to keep current)</span>
+                    Change Icon Image <span class="text-slate-400 text-[10px] font-normal">(All formats: SVG, PNG, JPG, JPEG, WebP, GIF, etc. - leave blank to keep current)</span>
                 </label>
                 <input 
                     type="file" 
                     name="image_icon" 
-                    accept="image/*"
+                    accept="image/*,.svg"
                     class="w-full text-xs text-slate-500 file:mr-3 file:py-2 file:px-3 file:rounded-xl file:border-0 file:text-xs file:font-bold file:bg-teal-50 file:text-[#27797D] hover:file:bg-teal-100 cursor-pointer"
                 >
             </div>

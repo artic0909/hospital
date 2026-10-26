@@ -47,7 +47,10 @@ class DepartmentController extends Controller
         $validated = $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'description' => ['nullable', 'string'],
-            'image_icon' => ['nullable', 'image', 'mimes:png,jpg,jpeg,svg,webp', 'max:2048'],
+            'image_icon' => ['nullable', 'file', 'extensions:jpeg,png,jpg,gif,svg,webp,ico,bmp,avif', 'max:5120'],
+        ], [
+            'image_icon.extensions' => 'The icon image must be a valid format: SVG, PNG, JPG, JPEG, WebP, GIF, ICO, or AVIF.',
+            'image_icon.max' => 'The icon image size must not exceed 5MB.',
         ]);
 
         if ($request->hasFile('image_icon')) {
@@ -76,7 +79,10 @@ class DepartmentController extends Controller
         $validated = $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'description' => ['nullable', 'string'],
-            'image_icon' => ['nullable', 'image', 'mimes:png,jpg,jpeg,svg,webp', 'max:2048'],
+            'image_icon' => ['nullable', 'file', 'extensions:jpeg,png,jpg,gif,svg,webp,ico,bmp,avif', 'max:5120'],
+        ], [
+            'image_icon.extensions' => 'The icon image must be a valid format: SVG, PNG, JPG, JPEG, WebP, GIF, ICO, or AVIF.',
+            'image_icon.max' => 'The icon image size must not exceed 5MB.',
         ]);
 
         if ($request->hasFile('image_icon')) {
