@@ -84,6 +84,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
             Route::get('/get-states/{country}', \App\Http\Controllers\Admin\HospitalController::class . '@getStates')->name('get-states');
             Route::get('/get-cities/{state}', \App\Http\Controllers\Admin\HospitalController::class . '@getCities')->name('get-cities');
             Route::post('/bulk-delete', \App\Http\Controllers\Admin\HospitalController::class . '@bulkDelete')->name('bulk-delete');
+            Route::get('/{hospital}/login-as-partner', \App\Http\Controllers\Admin\HospitalController::class . '@loginAsPartner')->name('login-as-partner');
             Route::get('/{hospital}', \App\Http\Controllers\Admin\HospitalController::class . '@show')->name('view');
             Route::get('/{hospital}/edit', \App\Http\Controllers\Admin\HospitalController::class . '@edit')->name('update');
             Route::put('/{hospital}', \App\Http\Controllers\Admin\HospitalController::class . '@update')->name('update.submit');

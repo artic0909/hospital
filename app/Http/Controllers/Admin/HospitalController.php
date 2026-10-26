@@ -7,10 +7,13 @@ use App\Models\City;
 use App\Models\Country;
 use App\Models\Hospital;
 use App\Models\HospitalCategory;
+use App\Models\Partner;
 use App\Models\State;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rule;
 use Illuminate\View\View;
 
@@ -207,5 +210,60 @@ class HospitalController extends Controller
     {
         $cities = City::where('state_id', $state->id)->orderBy('name')->get(['id', 'name']);
         return response()->json($cities);
+    }
+
+    /**
+     * Power login: authenticate into Partner Portal as this hospital and redirect to partner dashboard.
+     */
+    public function loginAsPartner(Hospital $hospital): RedirectResponse
+    {
+        $hospital->load('country');
+
+        // 1. Search for existing partner by email or company name
+        $partner = null;
+        if (!empty($hospital->email)) {
+            $partner = Partner::where('email', $hospital->email)->first();
+        }
+
+        if (!$partner) {
+            $partner = Partner::where('company_name', $hospital->name)->first();
+        }
+
+        // 2. If partner doesn't exist yet, automatically provision one for this hospital
+        if (!$partner) {
+            $cleanCode = strtolower(preg_replace('/[^a-zA-Z0-9]/', '', $hospital->code ?: 'hosp' . $hospital->id));
+            $email = !empty($hospital->email) 
+                ? $hospital->email 
+                : ($cleanCode . '@partner.healgofly.com');
+
+            $partner = Partner::create([
+                'name' => $hospital->name,
+                'company_name' => $hospital->name,
+                'email' => $email,
+                'phone' => $hospital->contact ?? '0000000000',
+                'country' => $hospital->country->name ?? 'India',
+                'partner_type' => 'Hospital Partner',
+                'address' => $hospital->address,
+                'website' => null,
+                'status' => 'active',
+                'password' => $hospital->password ?? Hash::make('12345678'),
+            ]);
+        } else {
+            // Ensure status is active
+            if ($partner->status === 'suspended') {
+                $partner->update(['status' => 'active']);
+            }
+        }
+
+        // 3. Log into partner guard with impersonation flags
+        Auth::guard('partner')->login($partner);
+        session([
+            'impersonated_by_admin' => true,
+            'impersonated_hospital_id' => $hospital->id,
+            'impersonated_hospital_name' => $hospital->name,
+        ]);
+
+        return redirect()->route('partner.dashboard')
+            ->with('success', "Logged into Partner Portal as {$hospital->name} successfully!");
     }
 }

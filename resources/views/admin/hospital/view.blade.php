@@ -56,6 +56,15 @@
                     &larr; Directory
                 </a>
                 <a 
+                    href="{{ route('admin.hospital.login-as-partner', $hospital->id) }}" 
+                    target="_blank"
+                    class="inline-flex items-center gap-1.5 px-4 py-2 text-xs font-bold bg-emerald-500 hover:bg-emerald-600 text-white rounded-xl transition-all shadow-md shadow-emerald-500/20 font-semibold"
+                    title="Power Login: Access Partner Dashboard as {{ $hospital->name }}"
+                >
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5.636 5.636a9 9 0 1012.728 0M12 3v9"/></svg>
+                    <span>Partner Dashboard</span>
+                </a>
+                <a 
                     href="{{ route('admin.hospital.update', $hospital->id) }}" 
                     class="inline-flex items-center gap-1.5 px-4 py-2 text-xs font-bold bg-white text-[#112347] hover:bg-teal-50 rounded-xl transition-all shadow-md font-semibold"
                 >

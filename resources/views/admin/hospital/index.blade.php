@@ -234,6 +234,18 @@
                             </td>
                             <td class="py-3.5 px-5 text-right">
                                 <div class="inline-flex items-center gap-1.5">
+                                    <!-- Power Button: One-Click Access Partner Dashboard as this Hospital -->
+                                    <a 
+                                        href="{{ route('admin.hospital.login-as-partner', $hosp->id) }}"
+                                        target="_blank"
+                                        class="p-1.5 rounded-lg text-emerald-600 hover:text-white hover:bg-emerald-600 bg-emerald-50/80 border border-emerald-200 transition-all shadow-2xs group/power"
+                                        title="Power Button: Go / Login Partner Dashboard as {{ $hosp->name }}"
+                                    >
+                                        <svg class="w-4 h-4 transition-transform group-hover/power:scale-110" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M5.636 5.636a9 9 0 1012.728 0M12 3v9" />
+                                        </svg>
+                                    </a>
+
                                     <!-- Add Doctor Shortcut Button -->
                                     <a 
                                         href="{{ route('admin.hospital.doctor.create', $hosp->id) }}"
