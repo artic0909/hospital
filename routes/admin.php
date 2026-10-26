@@ -2,6 +2,13 @@
 
 use App\Http\Controllers\Admin\AuthController as AdminAuthController;
 use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
+use App\Http\Controllers\Admin\Utilities\CityController;
+use App\Http\Controllers\Admin\Utilities\CountryController;
+use App\Http\Controllers\Admin\Utilities\DepartmentController;
+use App\Http\Controllers\Admin\Utilities\DoctorSpecialityController;
+use App\Http\Controllers\Admin\Utilities\HospitalCategoryController;
+use App\Http\Controllers\Admin\Utilities\StateController;
+use App\Http\Controllers\Admin\Utilities\TreatmentController;
 use Illuminate\Support\Facades\Route;
 
 // ==================== ADMIN PORTAL ====================
@@ -16,5 +23,57 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::middleware('auth:admin')->group(function () {
         Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('dashboard');
         Route::post('/logout', [AdminAuthController::class, 'logout'])->name('logout');
+
+        // ==================== UTILITIES & MASTER DATA CRUD ====================
+        Route::prefix('utilities')->name('utilities.')->group(function () {
+            // 1. Countries
+            Route::get('/country', [CountryController::class, 'index'])->name('country');
+            Route::post('/country', [CountryController::class, 'store'])->name('country.store');
+            Route::put('/country/{country}', [CountryController::class, 'update'])->name('country.update');
+            Route::delete('/country/{country}', [CountryController::class, 'destroy'])->name('country.destroy');
+            Route::post('/country/bulk-delete', [CountryController::class, 'bulkDelete'])->name('country.bulk-delete');
+
+            // 2. States
+            Route::get('/state', [StateController::class, 'index'])->name('state');
+            Route::post('/state', [StateController::class, 'store'])->name('state.store');
+            Route::put('/state/{state}', [StateController::class, 'update'])->name('state.update');
+            Route::delete('/state/{state}', [StateController::class, 'destroy'])->name('state.destroy');
+            Route::post('/state/bulk-delete', [StateController::class, 'bulkDelete'])->name('state.bulk-delete');
+
+            // 3. Cities
+            Route::get('/city', [CityController::class, 'index'])->name('city');
+            Route::post('/city', [CityController::class, 'store'])->name('city.store');
+            Route::put('/city/{city}', [CityController::class, 'update'])->name('city.update');
+            Route::delete('/city/{city}', [CityController::class, 'destroy'])->name('city.destroy');
+            Route::post('/city/bulk-delete', [CityController::class, 'bulkDelete'])->name('city.bulk-delete');
+
+            // 4. Departments
+            Route::get('/department', [DepartmentController::class, 'index'])->name('department');
+            Route::post('/department', [DepartmentController::class, 'store'])->name('department.store');
+            Route::put('/department/{department}', [DepartmentController::class, 'update'])->name('department.update');
+            Route::delete('/department/{department}', [DepartmentController::class, 'destroy'])->name('department.destroy');
+            Route::post('/department/bulk-delete', [DepartmentController::class, 'bulkDelete'])->name('department.bulk-delete');
+
+            // 5. Doctor Specialities
+            Route::get('/doctor-spaciality', [DoctorSpecialityController::class, 'index'])->name('doctor-spaciality');
+            Route::post('/doctor-spaciality', [DoctorSpecialityController::class, 'store'])->name('doctor-spaciality.store');
+            Route::put('/doctor-spaciality/{doctorSpeciality}', [DoctorSpecialityController::class, 'update'])->name('doctor-spaciality.update');
+            Route::delete('/doctor-spaciality/{doctorSpeciality}', [DoctorSpecialityController::class, 'destroy'])->name('doctor-spaciality.destroy');
+            Route::post('/doctor-spaciality/bulk-delete', [DoctorSpecialityController::class, 'bulkDelete'])->name('doctor-spaciality.bulk-delete');
+
+            // 6. Hospital Categories
+            Route::get('/hospital-category', [HospitalCategoryController::class, 'index'])->name('hospital-category');
+            Route::post('/hospital-category', [HospitalCategoryController::class, 'store'])->name('hospital-category.store');
+            Route::put('/hospital-category/{hospitalCategory}', [HospitalCategoryController::class, 'update'])->name('hospital-category.update');
+            Route::delete('/hospital-category/{hospitalCategory}', [HospitalCategoryController::class, 'destroy'])->name('hospital-category.destroy');
+            Route::post('/hospital-category/bulk-delete', [HospitalCategoryController::class, 'bulkDelete'])->name('hospital-category.bulk-delete');
+
+            // 7. Treatments
+            Route::get('/treatment', [TreatmentController::class, 'index'])->name('treatment');
+            Route::post('/treatment', [TreatmentController::class, 'store'])->name('treatment.store');
+            Route::put('/treatment/{treatment}', [TreatmentController::class, 'update'])->name('treatment.update');
+            Route::delete('/treatment/{treatment}', [TreatmentController::class, 'destroy'])->name('treatment.destroy');
+            Route::post('/treatment/bulk-delete', [TreatmentController::class, 'bulkDelete'])->name('treatment.bulk-delete');
+        });
     });
 });

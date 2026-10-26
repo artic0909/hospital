@@ -139,6 +139,93 @@
             </div>
         </div>
 
+        <!-- SECTION: MASTER UTILITIES -->
+        <div>
+            <span class="px-3 text-[10px] font-extrabold uppercase tracking-widest text-teal-300/80 block mb-2 flex items-center justify-between">
+                <span>Master Utilities</span>
+                <span class="px-1.5 py-0.2 rounded text-[8px] bg-teal-500/20 text-teal-300 font-mono">CRUD</span>
+            </span>
+            <div class="space-y-1">
+                <!-- Countries -->
+                <a 
+                    href="{{ route('admin.utilities.country') }}" 
+                    class="flex items-center justify-between px-3 py-2 rounded-xl {{ request()->routeIs('admin.utilities.country*') ? 'bg-[#27797D] text-white font-bold shadow-md shadow-[#27797D]/20' : 'text-slate-300 hover:text-white hover:bg-slate-800/80' }} transition-all"
+                >
+                    <div class="flex items-center gap-2.5">
+                        <span class="text-xs">🌐</span>
+                        <span>Countries</span>
+                    </div>
+                </a>
+
+                <!-- States -->
+                <a 
+                    href="{{ route('admin.utilities.state') }}" 
+                    class="flex items-center justify-between px-3 py-2 rounded-xl {{ request()->routeIs('admin.utilities.state*') ? 'bg-[#27797D] text-white font-bold shadow-md shadow-[#27797D]/20' : 'text-slate-300 hover:text-white hover:bg-slate-800/80' }} transition-all"
+                >
+                    <div class="flex items-center gap-2.5">
+                        <span class="text-xs">🗺️</span>
+                        <span>States</span>
+                    </div>
+                </a>
+
+                <!-- Cities -->
+                <a 
+                    href="{{ route('admin.utilities.city') }}" 
+                    class="flex items-center justify-between px-3 py-2 rounded-xl {{ request()->routeIs('admin.utilities.city*') ? 'bg-[#27797D] text-white font-bold shadow-md shadow-[#27797D]/20' : 'text-slate-300 hover:text-white hover:bg-slate-800/80' }} transition-all"
+                >
+                    <div class="flex items-center gap-2.5">
+                        <span class="text-xs">🏙️</span>
+                        <span>Cities</span>
+                    </div>
+                </a>
+
+                <!-- Departments -->
+                <a 
+                    href="{{ route('admin.utilities.department') }}" 
+                    class="flex items-center justify-between px-3 py-2 rounded-xl {{ request()->routeIs('admin.utilities.department*') ? 'bg-[#27797D] text-white font-bold shadow-md shadow-[#27797D]/20' : 'text-slate-300 hover:text-white hover:bg-slate-800/80' }} transition-all"
+                >
+                    <div class="flex items-center gap-2.5">
+                        <span class="text-xs">🏥</span>
+                        <span>Departments</span>
+                    </div>
+                </a>
+
+                <!-- Doctor Specialities -->
+                <a 
+                    href="{{ route('admin.utilities.doctor-spaciality') }}" 
+                    class="flex items-center justify-between px-3 py-2 rounded-xl {{ request()->routeIs('admin.utilities.doctor-spaciality*') ? 'bg-[#27797D] text-white font-bold shadow-md shadow-[#27797D]/20' : 'text-slate-300 hover:text-white hover:bg-slate-800/80' }} transition-all"
+                >
+                    <div class="flex items-center gap-2.5">
+                        <span class="text-xs">🩺</span>
+                        <span>Doctor Specialities</span>
+                    </div>
+                </a>
+
+                <!-- Hospital Categories -->
+                <a 
+                    href="{{ route('admin.utilities.hospital-category') }}" 
+                    class="flex items-center justify-between px-3 py-2 rounded-xl {{ request()->routeIs('admin.utilities.hospital-category*') ? 'bg-[#27797D] text-white font-bold shadow-md shadow-[#27797D]/20' : 'text-slate-300 hover:text-white hover:bg-slate-800/80' }} transition-all"
+                >
+                    <div class="flex items-center gap-2.5">
+                        <span class="text-xs">🏷️</span>
+                        <span>Hospital Categories</span>
+                    </div>
+                </a>
+
+                <!-- Treatments -->
+                <a 
+                    href="{{ route('admin.utilities.treatment') }}" 
+                    class="flex items-center justify-between px-3 py-2 rounded-xl {{ request()->routeIs('admin.utilities.treatment*') ? 'bg-[#27797D] text-white font-bold shadow-md shadow-[#27797D]/20' : 'text-slate-300 hover:text-white hover:bg-slate-800/80' }} transition-all"
+                >
+                    <div class="flex items-center gap-2.5">
+                        <span class="text-xs">💊</span>
+                        <span>Treatments & Pricing</span>
+                    </div>
+                    <span class="px-1.5 py-0.5 rounded text-[9px] font-extrabold bg-[#EF7415] text-white">PRO</span>
+                </a>
+            </div>
+        </div>
+
         <!-- SECTION 2: HOSPITAL & DOCTOR NETWORK -->
         <div>
             <span class="px-3 text-[10px] font-extrabold uppercase tracking-widest text-slate-400 block mb-2">
