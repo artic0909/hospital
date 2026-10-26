@@ -17,6 +17,9 @@ return Application::configure(basePath: dirname(__DIR__))
         ]);
 
         $middleware->redirectGuestsTo(function (Request $request) {
+            if ($request->is('admin*')) {
+                return route('admin.login');
+            }
             if ($request->is('partner*')) {
                 return route('partner.login');
             }
@@ -24,6 +27,9 @@ return Application::configure(basePath: dirname(__DIR__))
         });
 
         $middleware->redirectUsersTo(function (Request $request) {
+            if (\Illuminate\Support\Facades\Auth::guard('admin')->check()) {
+                return route('admin.dashboard');
+            }
             if (\Illuminate\Support\Facades\Auth::guard('partner')->check()) {
                 return route('partner.dashboard');
             }

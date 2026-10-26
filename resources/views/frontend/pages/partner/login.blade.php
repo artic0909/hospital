@@ -221,6 +221,7 @@
                                         type="checkbox" 
                                         name="remember" 
                                         id="remember-me"
+                                        value="1"
                                         class="w-4 h-4 rounded border-gray-300 text-[#27797D] focus:ring-[#27797D]"
                                         {{ old('remember') ? 'checked' : '' }}
                                     >

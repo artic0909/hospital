@@ -49,11 +49,11 @@
                         <li><a href="{{ route('hospitals') }}" class="hover:text-[#EF7415] transition-colors">Hospital Services</a></li>
                         <li><a href="#camps" class="hover:text-[#EF7415] transition-colors">OPD Camps</a></li>
                         <li><a href="{{ route('doctors') }}" class="hover:text-[#EF7415] transition-colors">Doctor Services</a></li>
-                        <li><a href="#refer" class="hover:text-[#EF7415] transition-colors">Refer to Us</a></li>
+                        <li><a href="{{ route('partner.login') }}" class="hover:text-[#EF7415] transition-colors">Partner Portal</a></li>
+                        <li><a href="{{ route('admin.login') }}" class="hover:text-[#EF7415] transition-colors">Admin Portal</a></li>
                         <li><a href="#privacy" class="hover:text-[#EF7415] transition-colors">Privacy Policy</a></li>
                         <li><a href="#editorial" class="hover:text-[#EF7415] transition-colors">Editorial Policy</a></li>
                         <li><a href="#terms" class="hover:text-[#EF7415] transition-colors">Terms of Use</a></li>
-                        <li><a href="#board" class="hover:text-[#EF7415] transition-colors">Medical Reviewer Board</a></li>
                     </ul>
                 </div>
 
