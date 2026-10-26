@@ -16,6 +16,7 @@ class Partner extends Authenticatable
      * @var list<string>
      */
     protected $fillable = [
+        'hospital_id',
         'name',
         'company_name',
         'email',
@@ -27,6 +28,41 @@ class Partner extends Authenticatable
         'status',
         'password',
     ];
+
+    /**
+     * Hospital relationship.
+     */
+    public function hospital(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    {
+        return $this->belongsTo(Hospital::class);
+    }
+
+    /**
+     * Resolve the active hospital for this partner.
+     */
+    public function getHospital(): ?Hospital
+    {
+        if ($this->hospital_id) {
+            $h = Hospital::find($this->hospital_id);
+            if ($h) return $h;
+        }
+
+        if (session('impersonated_hospital_id')) {
+            $h = Hospital::find(session('impersonated_hospital_id'));
+            if ($h) return $h;
+        }
+
+        $h = Hospital::where('email', $this->email)
+            ->orWhere('name', $this->company_name)
+            ->first();
+
+        if ($h) {
+            $this->update(['hospital_id' => $h->id]);
+            return $h;
+        }
+
+        return Hospital::first();
+    }
 
     /**
      * The attributes that should be hidden for serialization.

@@ -129,4 +129,52 @@ class Hospital extends Authenticatable
     {
         return $this->hasMany(Doctor::class);
     }
+
+    /**
+     * Facilities relationship.
+     */
+    public function facilities(): HasMany
+    {
+        return $this->hasMany(Facility::class);
+    }
+
+    /**
+     * Images / Photo Gallery relationship.
+     */
+    public function images(): HasMany
+    {
+        return $this->hasMany(HospitalImage::class);
+    }
+
+    /**
+     * Infrastructure relationship.
+     */
+    public function infrustructure(): \Illuminate\Database\Eloquent\Relations\HasOne
+    {
+        return $this->hasOne(Infrustructure::class);
+    }
+
+    /**
+     * Services relationship.
+     */
+    public function services(): HasMany
+    {
+        return $this->hasMany(Service::class);
+    }
+
+    /**
+     * Location Guide relationship.
+     */
+    public function locationGuide(): \Illuminate\Database\Eloquent\Relations\HasOne
+    {
+        return $this->hasOne(LocationGuide::class);
+    }
+
+    /**
+     * Reviews relationship.
+     */
+    public function reviews(): HasMany
+    {
+        return $this->hasMany(Review::class)->latest();
+    }
 }

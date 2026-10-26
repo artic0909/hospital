@@ -139,6 +139,95 @@
             </div>
         </div>
 
+        <!-- SECTION: HOSPITAL CRUD MANAGEMENT -->
+        <div>
+            <span class="px-3 text-[10px] font-extrabold uppercase tracking-widest text-teal-300/90 block mb-2 flex items-center justify-between">
+                <span>Hospital Management</span>
+                <span class="px-1.5 py-0.2 rounded text-[8px] bg-teal-500/20 text-teal-300 font-mono">CRUD</span>
+            </span>
+            <div class="space-y-1">
+                <!-- Doctors & OPD -->
+                <a 
+                    href="{{ route('partner.doctor.index') }}" 
+                    class="flex items-center justify-between px-3 py-2 rounded-xl transition-all {{ request()->routeIs('partner.doctor*') ? 'bg-[#27797D] text-white font-bold shadow-md shadow-[#27797D]/20' : 'text-slate-300 hover:text-white hover:bg-slate-800/80' }}"
+                >
+                    <div class="flex items-center gap-2.5">
+                        <span class="text-xs">👨‍⚕️</span>
+                        <span>Doctors & OPD</span>
+                    </div>
+                    <span class="px-1.5 py-0.5 rounded text-[9px] font-extrabold {{ request()->routeIs('partner.doctor*') ? 'bg-white/20 text-white' : 'bg-teal-500/20 text-teal-300' }}">Slots</span>
+                </a>
+
+                <!-- Facilities -->
+                <a 
+                    href="{{ route('partner.facility.index') }}" 
+                    class="flex items-center justify-between px-3 py-2 rounded-xl transition-all {{ request()->routeIs('partner.facility*') ? 'bg-[#27797D] text-white font-bold shadow-md shadow-[#27797D]/20' : 'text-slate-300 hover:text-white hover:bg-slate-800/80' }}"
+                >
+                    <div class="flex items-center gap-2.5">
+                        <span class="text-xs">🏥</span>
+                        <span>Hospital Facilities</span>
+                    </div>
+                </a>
+
+                <!-- Images / Gallery -->
+                <a 
+                    href="{{ route('partner.image.index') }}" 
+                    class="flex items-center justify-between px-3 py-2 rounded-xl transition-all {{ request()->routeIs('partner.image*') ? 'bg-[#27797D] text-white font-bold shadow-md shadow-[#27797D]/20' : 'text-slate-300 hover:text-white hover:bg-slate-800/80' }}"
+                >
+                    <div class="flex items-center gap-2.5">
+                        <span class="text-xs">📸</span>
+                        <span>Photo Gallery</span>
+                    </div>
+                </a>
+
+                <!-- Infrastructure -->
+                <a 
+                    href="{{ route('partner.infrustructure.index') }}" 
+                    class="flex items-center justify-between px-3 py-2 rounded-xl transition-all {{ request()->routeIs('partner.infrustructure*') ? 'bg-[#27797D] text-white font-bold shadow-md shadow-[#27797D]/20' : 'text-slate-300 hover:text-white hover:bg-slate-800/80' }}"
+                >
+                    <div class="flex items-center gap-2.5">
+                        <span class="text-xs">🏗️</span>
+                        <span>Infrastructure</span>
+                    </div>
+                    <span class="px-1.5 py-0.5 rounded text-[9px] font-extrabold bg-[#EF7415] text-white">Quill</span>
+                </a>
+
+                <!-- Services -->
+                <a 
+                    href="{{ route('partner.service.index') }}" 
+                    class="flex items-center justify-between px-3 py-2 rounded-xl transition-all {{ request()->routeIs('partner.service*') ? 'bg-[#27797D] text-white font-bold shadow-md shadow-[#27797D]/20' : 'text-slate-300 hover:text-white hover:bg-slate-800/80' }}"
+                >
+                    <div class="flex items-center gap-2.5">
+                        <span class="text-xs">🛎️</span>
+                        <span>Hospital Services</span>
+                    </div>
+                    <span class="px-1.5 py-0.5 rounded text-[9px] font-extrabold bg-teal-500/20 text-teal-300">7 Cats</span>
+                </a>
+
+                <!-- Location Guide -->
+                <a 
+                    href="{{ route('partner.locationguide.index') }}" 
+                    class="flex items-center justify-between px-3 py-2 rounded-xl transition-all {{ request()->routeIs('partner.locationguide*') ? 'bg-[#27797D] text-white font-bold shadow-md shadow-[#27797D]/20' : 'text-slate-300 hover:text-white hover:bg-slate-800/80' }}"
+                >
+                    <div class="flex items-center gap-2.5">
+                        <span class="text-xs">🗺️</span>
+                        <span>Location Guide</span>
+                    </div>
+                </a>
+
+                <!-- Reviews -->
+                <a 
+                    href="{{ route('partner.review.index') }}" 
+                    class="flex items-center justify-between px-3 py-2 rounded-xl transition-all {{ request()->routeIs('partner.review*') ? 'bg-[#27797D] text-white font-bold shadow-md shadow-[#27797D]/20' : 'text-slate-300 hover:text-white hover:bg-slate-800/80' }}"
+                >
+                    <div class="flex items-center gap-2.5">
+                        <span class="text-xs">⭐</span>
+                        <span>Patient Reviews</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+
         <!-- SECTION 2: HOSPITAL NETWORK -->
         <div>
             <span class="px-3 text-[10px] font-extrabold uppercase tracking-widest text-slate-400 block mb-2">
