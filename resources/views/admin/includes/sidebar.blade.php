@@ -144,7 +144,6 @@
                         <span class="text-xs">💊</span>
                         <span>Treatments & Pricing</span>
                     </div>
-                    <span class="px-1.5 py-0.5 rounded text-[9px] font-extrabold bg-[#EF7415] text-white">12</span>
                 </a>
             </div>
         </div>
@@ -165,7 +164,6 @@
                         </svg>
                         <span>Hospitals Management</span>
                     </div>
-                    <span class="px-1.5 py-0.5 rounded text-[9px] font-extrabold uppercase bg-[#EF7415] text-white">120</span>
                 </a>
             </div>
         </div>
