@@ -267,17 +267,14 @@
                                 </a>
                                 @endif
 
-                                <form action="{{ route('partner.patient.report.destroy', [$patient, $report]) }}" method="POST" class="inline" onsubmit="return confirm('Delete this report?');">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button 
-                                        type="submit" 
-                                        class="p-2 rounded-lg text-slate-400 hover:text-rose-600 hover:bg-rose-50 transition-colors cursor-pointer"
-                                        title="Delete Report"
-                                    >
-                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/></svg>
-                                    </button>
-                                </form>
+                                <button 
+                                    type="button" 
+                                    onclick="confirmDeleteReport('{{ route('partner.patient.report.destroy', [$patient, $report]) }}', '{{ addslashes($report->name) }}')"
+                                    class="p-2 rounded-lg text-slate-400 hover:text-rose-600 hover:bg-rose-50 transition-colors cursor-pointer"
+                                    title="Delete Report"
+                                >
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/></svg>
+                                </button>
                             </div>
                         </td>
                     </tr>
@@ -423,14 +420,45 @@
 
     function confirmDelete(url, name) {
         Swal.fire({
-            title: 'Delete Patient?',
-            html: `Are you sure you want to delete <strong>${name}</strong>?<br><small class="text-rose-500">All medical reports will be permanently deleted.</small>`,
+            title: 'Delete Patient Profile?',
+            html: `Are you sure you want to delete <strong>${name}</strong>?<br><span class="text-xs text-rose-500 font-medium">All associated medical records and reports will be permanently deleted.</span>`,
             icon: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#e11d48',
             cancelButtonColor: '#64748b',
-            confirmButtonText: 'Yes, Delete',
-            cancelButtonText: 'Cancel'
+            confirmButtonText: 'Yes, Delete Patient',
+            cancelButtonText: 'Cancel',
+            reverseButtons: true,
+            customClass: {
+                popup: 'rounded-3xl shadow-2xl border border-slate-100',
+                confirmButton: 'font-bold px-5 py-2.5 rounded-xl shadow-md',
+                cancelButton: 'font-bold px-5 py-2.5 rounded-xl'
+            }
+        }).then((result) => {
+            if (result.isConfirmed) {
+                const form = document.getElementById('single-delete-form');
+                form.action = url;
+                form.submit();
+            }
+        });
+    }
+
+    function confirmDeleteReport(url, name) {
+        Swal.fire({
+            title: 'Delete Medical Report?',
+            html: `Are you sure you want to remove report <strong>${name}</strong>?<br><span class="text-xs text-rose-500 font-medium">The uploaded diagnostic document will be permanently deleted.</span>`,
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#e11d48',
+            cancelButtonColor: '#64748b',
+            confirmButtonText: 'Yes, Delete Report',
+            cancelButtonText: 'Cancel',
+            reverseButtons: true,
+            customClass: {
+                popup: 'rounded-3xl shadow-2xl border border-slate-100',
+                confirmButton: 'font-bold px-5 py-2.5 rounded-xl shadow-md',
+                cancelButton: 'font-bold px-5 py-2.5 rounded-xl'
+            }
         }).then((result) => {
             if (result.isConfirmed) {
                 const form = document.getElementById('single-delete-form');

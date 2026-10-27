@@ -402,13 +402,19 @@
     function confirmDeleteReport(url, name) {
         Swal.fire({
             title: 'Delete Medical Report?',
-            html: `Are you sure you want to remove <strong>${name}</strong>?`,
+            html: `Are you sure you want to remove report <strong>${name}</strong>?<br><span class="text-xs text-rose-500 font-medium">The uploaded diagnostic document will be permanently deleted.</span>`,
             icon: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#e11d48',
             cancelButtonColor: '#64748b',
-            confirmButtonText: 'Yes, Delete',
-            cancelButtonText: 'Cancel'
+            confirmButtonText: 'Yes, Delete Report',
+            cancelButtonText: 'Cancel',
+            reverseButtons: true,
+            customClass: {
+                popup: 'rounded-3xl shadow-2xl border border-slate-100',
+                confirmButton: 'font-bold px-5 py-2.5 rounded-xl shadow-md',
+                cancelButton: 'font-bold px-5 py-2.5 rounded-xl'
+            }
         }).then((result) => {
             if (result.isConfirmed) {
                 const form = document.getElementById('delete-report-form');

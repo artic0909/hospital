@@ -422,14 +422,20 @@
     // 2. SweetAlert2 Delete Confirmations
     function confirmDelete(url, name) {
         Swal.fire({
-            title: 'Delete Patient?',
-            html: `Are you sure you want to delete <strong>${name}</strong>?<br><small class="text-rose-500">All attached medical reports and health records will be permanently removed.</small>`,
+            title: 'Delete Patient Profile?',
+            html: `Are you sure you want to delete <strong>${name}</strong>?<br><span class="text-xs text-rose-500 font-medium">All attached medical reports and dossiers will be permanently removed.</span>`,
             icon: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#e11d48',
             cancelButtonColor: '#64748b',
             confirmButtonText: 'Yes, Delete Patient',
-            cancelButtonText: 'Cancel'
+            cancelButtonText: 'Cancel',
+            reverseButtons: true,
+            customClass: {
+                popup: 'rounded-3xl shadow-2xl border border-slate-100',
+                confirmButton: 'font-bold px-5 py-2.5 rounded-xl shadow-md',
+                cancelButton: 'font-bold px-5 py-2.5 rounded-xl'
+            }
         }).then((result) => {
             if (result.isConfirmed) {
                 const form = document.getElementById('single-delete-form');
@@ -443,13 +449,19 @@
         const count = document.querySelectorAll('.patient-checkbox:checked').length;
         Swal.fire({
             title: `Delete ${count} Selected Patients?`,
-            text: 'All selected patient profiles and their medical reports will be permanently deleted.',
+            html: `Are you sure you want to delete <strong>${count}</strong> patient profile(s)?<br><span class="text-xs text-rose-500 font-medium">All selected dossiers and their medical reports will be permanently deleted.</span>`,
             icon: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#e11d48',
             cancelButtonColor: '#64748b',
             confirmButtonText: 'Yes, Delete All Selected',
-            cancelButtonText: 'Cancel'
+            cancelButtonText: 'Cancel',
+            reverseButtons: true,
+            customClass: {
+                popup: 'rounded-3xl shadow-2xl border border-slate-100',
+                confirmButton: 'font-bold px-5 py-2.5 rounded-xl shadow-md',
+                cancelButton: 'font-bold px-5 py-2.5 rounded-xl'
+            }
         }).then((result) => {
             if (result.isConfirmed) {
                 document.getElementById('bulk-delete-form').submit();

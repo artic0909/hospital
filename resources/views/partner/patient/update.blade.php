@@ -314,12 +314,31 @@
 
     if (deleteExistingPhotoBtn) {
         deleteExistingPhotoBtn.addEventListener('click', function () {
-            removeImageInput.value = '1';
-            imageInput.value = '';
-            imagePreview.src = avatarFallback;
-            fileNameLabel.textContent = 'Photo will be removed on save.';
-            fileNameLabel.classList.remove('hidden');
-            this.classList.add('hidden');
+            Swal.fire({
+                title: 'Remove Patient Photo?',
+                text: 'The current profile photo will be cleared when you save changes.',
+                icon: 'question',
+                showCancelButton: true,
+                confirmButtonColor: '#e11d48',
+                cancelButtonColor: '#64748b',
+                confirmButtonText: 'Yes, Remove Photo',
+                cancelButtonText: 'Keep Photo',
+                reverseButtons: true,
+                customClass: {
+                    popup: 'rounded-3xl shadow-2xl border border-slate-100',
+                    confirmButton: 'font-bold px-5 py-2.5 rounded-xl shadow-md',
+                    cancelButton: 'font-bold px-5 py-2.5 rounded-xl'
+                }
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    removeImageInput.value = '1';
+                    imageInput.value = '';
+                    imagePreview.src = avatarFallback;
+                    fileNameLabel.textContent = 'Photo will be removed on save.';
+                    fileNameLabel.classList.remove('hidden');
+                    deleteExistingPhotoBtn.classList.add('hidden');
+                }
+            });
         });
     }
 
