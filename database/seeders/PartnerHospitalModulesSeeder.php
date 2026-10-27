@@ -23,12 +23,19 @@ class PartnerHospitalModulesSeeder extends Seeder
 
         foreach ($hospitals as $hosp) {
             // 1. Link Partner
-            $partner = Partner::where('email', $hosp->email)
-                ->orWhere('company_name', $hosp->name)
-                ->first();
+            if (\Illuminate\Support\Facades\Schema::hasTable('partners') && \Illuminate\Support\Facades\Schema::hasColumn('partners', 'email')) {
+                $query = Partner::query();
+                if (\Illuminate\Support\Facades\Schema::hasColumn('partners', 'company_name')) {
+                    $partner = $query->where('email', $hosp->email)
+                        ->orWhere('company_name', $hosp->name)
+                        ->first();
+                } else {
+                    $partner = $query->where('email', $hosp->email)->first();
+                }
 
-            if ($partner) {
-                $partner->update(['hospital_id' => $hosp->id]);
+                if ($partner && \Illuminate\Support\Facades\Schema::hasColumn('partners', 'hospital_id')) {
+                    $partner->update(['hospital_id' => $hosp->id]);
+                }
             }
 
             // 2. Seed Facilities
