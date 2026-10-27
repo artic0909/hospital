@@ -67,8 +67,9 @@ class HospitalController extends Controller
 
         $categories = HospitalCategory::orderBy('name')->get();
         $countries = Country::orderBy('name')->get();
+        $hospital = $hospitals->first() ?? Hospital::first();
 
-        return view('admin.hospital.index', compact('hospitals', 'categories', 'countries'));
+        return view('admin.hospital.index', compact('hospitals', 'categories', 'countries', 'hospital'));
     }
 
     /**
