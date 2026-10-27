@@ -128,6 +128,9 @@ class HospitalSeeder extends Seeder
         ];
 
         foreach ($hospitals as $data) {
+            if (empty($data['code'])) {
+                $data['code'] = Hospital::generateHospitalCode();
+            }
             Hospital::firstOrCreate(
                 ['name' => $data['name']],
                 $data

@@ -8,8 +8,6 @@ use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
 {
-    use WithoutModelEvents;
-
     /**
      * Seed the application's database.
      */
@@ -32,5 +30,12 @@ class DatabaseSeeder extends Seeder
                 'email_verified_at' => now(),
             ]
         );
+
+        $this->call([
+            UtilitySeeder::class,
+            HospitalSeeder::class,
+            DoctorSeeder::class,
+            PartnerHospitalModulesSeeder::class,
+        ]);
     }
 }
