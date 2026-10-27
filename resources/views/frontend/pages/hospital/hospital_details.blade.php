@@ -954,68 +954,38 @@
                     <h2 class="text-xl sm:text-2xl font-extrabold text-[#112347] tracking-tight pb-3 border-b border-gray-100">
                         Infrastructure
                     </h2>
-                    <div class="space-y-3.5 text-xs sm:text-sm text-gray-700 leading-relaxed">
-                        <div class="flex items-start gap-2.5">
-                            <span class="text-emerald-500 font-bold text-base flex-shrink-0">✓</span>
-                            <span>Located in the heart of the capital, the facility spans over 15 acres with a built-up area of over 600,000 square feet and offers 710 beds.</span>
+                    @if($hosp && $hosp->infrustructure && !empty(trim(strip_tags($hosp->infrustructure->description))))
+                        <div class="rich-content space-y-3 text-xs sm:text-sm text-gray-700 leading-relaxed">
+                            {!! $hosp->infrustructure->description !!}
                         </div>
-                        <div class="flex items-start gap-2.5">
-                            <span class="text-emerald-500 font-bold text-base flex-shrink-0">✓</span>
-                            <span>It boasts the largest number of ICU beds among private hospitals in India.</span>
+                    @else
+                        <div class="space-y-3.5 text-xs sm:text-sm text-gray-700 leading-relaxed">
+                            <div class="flex items-start gap-2.5">
+                                <span class="text-emerald-500 font-bold text-base flex-shrink-0">✓</span>
+                                <span>Located in the heart of the capital, the facility spans over 15 acres with a built-up area of over 600,000 square feet and offers 710 beds.</span>
+                            </div>
+                            <div class="flex items-start gap-2.5">
+                                <span class="text-emerald-500 font-bold text-base flex-shrink-0">✓</span>
+                                <span>It boasts the largest number of ICU beds among private hospitals in India.</span>
+                            </div>
+                            <div class="flex items-start gap-2.5">
+                                <span class="text-emerald-500 font-bold text-base flex-shrink-0">✓</span>
+                                <span>Comprehensive cancer care with a multi-specialty approach and advanced Radiation Oncology services.</span>
+                            </div>
+                            <div class="flex items-start gap-2.5">
+                                <span class="text-emerald-500 font-bold text-base flex-shrink-0">✓</span>
+                                <span>State-of-the-art technologies including Da Vinci Robotic Surgery System, BrainLab Navigation, and NovalisTx.</span>
+                            </div>
+                            <div class="flex items-start gap-2.5">
+                                <span class="text-emerald-500 font-bold text-base flex-shrink-0">✓</span>
+                                <span>Advanced diagnostic equipment including PET-MR, PET-CT, 3 Tesla MRI, and 128-slice CT Scanner.</span>
+                            </div>
+                            <div class="flex items-start gap-2.5">
+                                <span class="text-emerald-500 font-bold text-base flex-shrink-0">✓</span>
+                                <span>Dedicated bone marrow transplant unit with stringent laminar airflow infection control practices.</span>
+                            </div>
                         </div>
-                        <div class="flex items-start gap-2.5">
-                            <span class="text-emerald-500 font-bold text-base flex-shrink-0">✓</span>
-                            <span>Apollo Cancer Institute offers comprehensive cancer care with a multi-specialty approach and advanced Radiation Oncology services.</span>
-                        </div>
-                        <div class="flex items-start gap-2.5">
-                            <span class="text-emerald-500 font-bold text-base flex-shrink-0">✓</span>
-                            <span>State-of-the-art technologies for advanced cancer care include the Da Vinci Robotic Surgery System, BrainLab Navigation System, and NovalisTx.</span>
-                        </div>
-                        <div class="flex items-start gap-2.5">
-                            <span class="text-emerald-500 font-bold text-base flex-shrink-0">✓</span>
-                            <span>The facility features cutting-edge diagnostic equipment, such as PET-MR, PET-CT, a Portable CT Scanner, a 3 Tesla MRI, and a 128-slice CT Scanner.</span>
-                        </div>
-                        <div class="flex items-start gap-2.5">
-                            <span class="text-emerald-500 font-bold text-base flex-shrink-0">✓</span>
-                            <span>Other notable technologies include Cobalt-based HDR Brachytherapy, Tilting MRI, DSA Lab, Hyperbaric Chamber, Fibroscan, and Endosonography.</span>
-                        </div>
-                        <div class="flex items-start gap-2.5">
-                            <span class="text-emerald-500 font-bold text-base flex-shrink-0">✓</span>
-                            <span>A dedicated 6-bed bone marrow transplant unit with stringent infection control practices is available.</span>
-                        </div>
-                        <div class="flex items-start gap-2.5">
-                            <span class="text-emerald-500 font-bold text-base flex-shrink-0">✓</span>
-                            <span>It has one of Asia's largest Sleep Labs and one of India's largest Dialysis Units.</span>
-                        </div>
-                        <div class="flex items-start gap-2.5">
-                            <span class="text-emerald-500 font-bold text-base flex-shrink-0">✓</span>
-                            <span>Additional facilities include car parking, a temple, and an on-site gift shop.</span>
-                        </div>
-                        <div class="flex items-start gap-2.5">
-                            <span class="text-emerald-500 font-bold text-base flex-shrink-0">✓</span>
-                            <span>A communication centre, ATM, and food court are provided for convenience.</span>
-                        </div>
-                        <div class="flex items-start gap-2.5">
-                            <span class="text-emerald-500 font-bold text-base flex-shrink-0">✓</span>
-                            <span>Patients can enjoy private rooms with TV and free Wi-Fi.</span>
-                        </div>
-                        <div class="flex items-start gap-2.5">
-                            <span class="text-emerald-500 font-bold text-base flex-shrink-0">✓</span>
-                            <span>Food can be ordered from the food court, and wheelchairs are accessible for ease of movement.</span>
-                        </div>
-                        <div class="flex items-start gap-2.5">
-                            <span class="text-emerald-500 font-bold text-base flex-shrink-0">✓</span>
-                            <span>Attendant accommodation and laundry services are also available.</span>
-                        </div>
-                        <div class="flex items-start gap-2.5">
-                            <span class="text-emerald-500 font-bold text-base flex-shrink-0">✓</span>
-                            <span>The facility offers health insurance options, including Indian and international health insurance.</span>
-                        </div>
-                        <div class="flex items-start gap-2.5">
-                            <span class="text-emerald-500 font-bold text-base flex-shrink-0">✓</span>
-                            <span>Patients have access to a prayer room, language translators, and a pharmacy.</span>
-                        </div>
-                    </div>
+                    @endif
                 </div>
 
                 <!-- SECTION G: Address & Location -->
@@ -1023,54 +993,58 @@
                     <h2 class="text-xl sm:text-2xl font-extrabold text-[#112347] tracking-tight pb-3 border-b border-gray-100">
                         Address & Location
                     </h2>
-                    <div class="space-y-5 text-xs sm:text-sm text-gray-700">
-                        
-                        <!-- Airport -->
-                        <div class="space-y-2">
-                            <h3 class="font-bold text-gray-900 text-sm">Airport (Indira Gandhi International Airport (DEL)):</h3>
-                            <div class="space-y-1.5 pl-1">
-                                <div class="flex items-center gap-2">
-                                    <span class="text-emerald-500 font-bold text-base flex-shrink-0">✓</span>
-                                    <span>Distance: 22 Km</span>
+                    @if($hosp && $hosp->locationGuide && !empty(trim(strip_tags($hosp->locationGuide->description))))
+                        <div class="rich-content space-y-3 text-xs sm:text-sm text-gray-700 leading-relaxed">
+                            {!! $hosp->locationGuide->description !!}
+                        </div>
+                    @else
+                        <div class="space-y-5 text-xs sm:text-sm text-gray-700">
+                            <!-- Airport -->
+                            <div class="space-y-2">
+                                <h3 class="font-bold text-gray-900 text-sm">Airport (Indira Gandhi International Airport (DEL)):</h3>
+                                <div class="space-y-1.5 pl-1">
+                                    <div class="flex items-center gap-2">
+                                        <span class="text-emerald-500 font-bold text-base flex-shrink-0">✓</span>
+                                        <span>Distance: 22 Km</span>
+                                    </div>
+                                    <div class="flex items-center gap-2">
+                                        <span class="text-emerald-500 font-bold text-base flex-shrink-0">✓</span>
+                                        <span>Duration: 30-40 mins by car</span>
+                                    </div>
                                 </div>
-                                <div class="flex items-center gap-2">
-                                    <span class="text-emerald-500 font-bold text-base flex-shrink-0">✓</span>
-                                    <span>Duration: 30-40 mins by car</span>
+                            </div>
+
+                            <!-- Metro -->
+                            <div class="space-y-2 pt-1">
+                                <h3 class="font-bold text-gray-900 text-sm">Metro (Central Metro Station):</h3>
+                                <div class="space-y-1.5 pl-1">
+                                    <div class="flex items-center gap-2">
+                                        <span class="text-emerald-500 font-bold text-base flex-shrink-0">✓</span>
+                                        <span>Distance: 2.5 Km</span>
+                                    </div>
+                                    <div class="flex items-center gap-2">
+                                        <span class="text-emerald-500 font-bold text-base flex-shrink-0">✓</span>
+                                        <span>Duration: 5-10 minutes by car</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Railway -->
+                            <div class="space-y-2 pt-1">
+                                <h3 class="font-bold text-gray-900 text-sm">Railway Station (Main Railway Station):</h3>
+                                <div class="space-y-1.5 pl-1">
+                                    <div class="flex items-center gap-2">
+                                        <span class="text-emerald-500 font-bold text-base flex-shrink-0">✓</span>
+                                        <span>Distance: 8 Km</span>
+                                    </div>
+                                    <div class="flex items-center gap-2">
+                                        <span class="text-emerald-500 font-bold text-base flex-shrink-0">✓</span>
+                                        <span>Duration: 15-25 minutes by car</span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-
-                        <!-- Metro -->
-                        <div class="space-y-2 pt-1">
-                            <h3 class="font-bold text-gray-900 text-sm">Metro (Indraprastha Metro Station):</h3>
-                            <div class="space-y-1.5 pl-1">
-                                <div class="flex items-center gap-2">
-                                    <span class="text-emerald-500 font-bold text-base flex-shrink-0">✓</span>
-                                    <span>Distance: 2.5 Km</span>
-                                </div>
-                                <div class="flex items-center gap-2">
-                                    <span class="text-emerald-500 font-bold text-base flex-shrink-0">✓</span>
-                                    <span>Duration: 5-10 minutes by car</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Railway -->
-                        <div class="space-y-2 pt-1">
-                            <h3 class="font-bold text-gray-900 text-sm">Railway Station (New Delhi Railway Station):</h3>
-                            <div class="space-y-1.5 pl-1">
-                                <div class="flex items-center gap-2">
-                                    <span class="text-emerald-500 font-bold text-base flex-shrink-0">✓</span>
-                                    <span>Distance: 8 Km</span>
-                                </div>
-                                <div class="flex items-center gap-2">
-                                    <span class="text-emerald-500 font-bold text-base flex-shrink-0">✓</span>
-                                    <span>Duration: 15-25 minutes by car</span>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
+                    @endif
                 </div>
 
                 <!-- SECTION H: Global Trust CTA Banner -->

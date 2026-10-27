@@ -106,7 +106,7 @@ class ReviewController extends Controller
     public function destroy(Review $review): RedirectResponse
     {
         $hospital = $this->getHospital();
-        abort_if($review->hospital_id !== $hospital->id, 403);
+        abort_if((int) $review->hospital_id !== (int) $hospital->id, 403);
 
         $review->delete();
 
@@ -116,7 +116,7 @@ class ReviewController extends Controller
     public function bulkDelete(Request $request): RedirectResponse
     {
         $hospital = $this->getHospital();
-        $ids = $request->input('selected_ids', []);
+        $ids = $request->input('selected_ids', $request->input('ids', []));
 
         if (empty($ids) || !is_array($ids)) {
             return back()->with('error', 'Please select at least one review to delete.');

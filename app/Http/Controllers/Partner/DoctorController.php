@@ -259,11 +259,14 @@ class DoctorController extends Controller
     public function destroy(Doctor $doctor): RedirectResponse
     {
         $hospital = $this->getHospital();
-        abort_if($doctor->hospital_id !== $hospital->id, 403);
+        abort_if((int) $doctor->hospital_id !== (int) $hospital->id, 403);
 
         if ($doctor->image && file_exists(public_path($doctor->image))) {
             @unlink(public_path($doctor->image));
         }
+
+        // Clean up doctor's consultation schedules
+        Schedule::where('doctor_id', $doctor->id)->delete();
 
         $name = $doctor->name;
         $doctor->delete();
@@ -278,7 +281,7 @@ class DoctorController extends Controller
     public function bulkDelete(Request $request): RedirectResponse
     {
         $hospital = $this->getHospital();
-        $ids = $request->input('selected_ids', []);
+        $ids = $request->input('selected_ids', $request->input('ids', []));
 
         if (empty($ids) || !is_array($ids)) {
             return back()->with('error', 'Please select at least one doctor to delete.');
@@ -289,6 +292,7 @@ class DoctorController extends Controller
             if ($doc->image && file_exists(public_path($doc->image))) {
                 @unlink(public_path($doc->image));
             }
+            Schedule::where('doctor_id', $doc->id)->delete();
             $doc->delete();
         }
 

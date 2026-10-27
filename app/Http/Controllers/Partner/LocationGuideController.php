@@ -38,17 +38,20 @@ class LocationGuideController extends Controller
     {
         $hospital = $this->getHospital();
 
-        $validated = $request->validate([
-            'description' => ['required', 'string'],
-        ], [
-            'description.required' => 'Please provide the location guide and travel connectivity details.',
-        ]);
+        $description = $request->input('description', '');
+        $plainText = trim(strip_tags(str_replace(['&nbsp;', '<br>'], ' ', $description)));
+
+        if (empty($plainText) && !str_contains($description, '<img')) {
+            return back()->withInput()->withErrors([
+                'description' => 'Please provide the location guide and travel connectivity details before saving.',
+            ]);
+        }
 
         LocationGuide::updateOrCreate(
             ['hospital_id' => $hospital->id],
-            ['description' => $validated['description']]
+            ['description' => $description]
         );
 
-        return back()->with('success', 'Location guide updated successfully!');
+        return back()->with('success', 'Location & Travel Guide saved successfully!');
     }
 }

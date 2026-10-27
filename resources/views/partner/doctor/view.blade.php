@@ -284,19 +284,26 @@
 @push('scripts')
 <script>
     function confirmDeleteDoctor() {
-        Swal.fire({
-            title: 'Delete Dr. {{ $doctor->name }}?',
-            text: 'This doctor and consultation timetable will be permanently deleted!',
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#EF7415',
-            cancelButtonColor: '#64748b',
-            confirmButtonText: 'Yes, delete doctor'
-        }).then((result) => {
-            if (result.isConfirmed) {
+        if (typeof Swal !== 'undefined') {
+            Swal.fire({
+                title: 'Delete Dr. {{ addslashes($doctor->name) }}?',
+                text: 'This doctor and consultation timetable will be permanently deleted!',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#EF7415',
+                cancelButtonColor: '#64748b',
+                confirmButtonText: 'Yes, delete doctor',
+                borderRadius: '16px'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    document.getElementById('delete-doctor-form').submit();
+                }
+            });
+        } else {
+            if (confirm('Delete Dr. {{ addslashes($doctor->name) }}? This doctor and consultation timetable will be permanently deleted.')) {
                 document.getElementById('delete-doctor-form').submit();
             }
-        });
+        }
     }
 </script>
 @endpush

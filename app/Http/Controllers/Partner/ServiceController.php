@@ -101,7 +101,7 @@ class ServiceController extends Controller
     public function destroy(Service $service): RedirectResponse
     {
         $hospital = $this->getHospital();
-        abort_if($service->hospital_id !== $hospital->id, 403);
+        abort_if((int) $service->hospital_id !== (int) $hospital->id, 403);
 
         $name = $service->name;
         $service->delete();
@@ -112,7 +112,7 @@ class ServiceController extends Controller
     public function bulkDelete(Request $request): RedirectResponse
     {
         $hospital = $this->getHospital();
-        $ids = $request->input('selected_ids', []);
+        $ids = $request->input('selected_ids', $request->input('ids', []));
 
         if (empty($ids) || !is_array($ids)) {
             return back()->with('error', 'Please select at least one service to delete.');

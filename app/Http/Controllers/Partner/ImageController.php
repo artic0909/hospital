@@ -69,7 +69,7 @@ class ImageController extends Controller
     public function destroy(HospitalImage $image): RedirectResponse
     {
         $hospital = $this->getHospital();
-        abort_if($image->hospital_id !== $hospital->id, 403);
+        abort_if((int) $image->hospital_id !== (int) $hospital->id, 403);
 
         if ($image->image && file_exists(public_path($image->image))) {
             @unlink(public_path($image->image));
@@ -83,7 +83,7 @@ class ImageController extends Controller
     public function bulkDelete(Request $request): RedirectResponse
     {
         $hospital = $this->getHospital();
-        $ids = $request->input('selected_ids', []);
+        $ids = $request->input('selected_ids', $request->input('ids', []));
 
         if (empty($ids) || !is_array($ids)) {
             return back()->with('error', 'Please select at least one photo to delete.');

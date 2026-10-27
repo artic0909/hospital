@@ -13,8 +13,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Tailwind CSS CDN with typography & forms plugins -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
     <script>
         tailwind.config = {
             theme: {
@@ -38,11 +38,14 @@
         }
     </script>
 
-    <!-- ApexCharts CDN for Rich Admin Visualizations -->
+    <!-- ApexCharts CDN for Rich Visualizations -->
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 
+    <!-- SweetAlert2 CDN for Confirmation Dialogs & Flash Toasts -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     <style>
-        /* Custom scrollbar for admin dashboard */
+        /* Custom scrollbar for dashboard */
         ::-webkit-scrollbar {
             width: 6px;
             height: 6px;
@@ -57,7 +60,57 @@
         ::-webkit-scrollbar-thumb:hover {
             background: #94a3b8;
         }
+
+        /* Rich content typography styling for live previews */
+        .rich-content h1, .rich-content h2, .rich-content h3 {
+            color: #112347;
+            font-weight: 800;
+            margin-top: 1.25rem;
+            margin-bottom: 0.5rem;
+            line-height: 1.3;
+        }
+        .rich-content h1 { font-size: 1.35rem; }
+        .rich-content h2 { font-size: 1.15rem; }
+        .rich-content h3 { font-size: 1rem; }
+        .rich-content p {
+            margin-bottom: 0.75rem;
+            line-height: 1.7;
+            color: #334155;
+        }
+        .rich-content ul {
+            list-style-type: disc;
+            margin-left: 1.25rem;
+            margin-bottom: 0.75rem;
+            color: #334155;
+        }
+        .rich-content ol {
+            list-style-type: decimal;
+            margin-left: 1.25rem;
+            margin-bottom: 0.75rem;
+            color: #334155;
+        }
+        .rich-content li {
+            margin-bottom: 0.35rem;
+            line-height: 1.6;
+        }
+        .rich-content strong {
+            font-weight: 700;
+            color: #0f172a;
+        }
+        .rich-content a {
+            color: #27797D;
+            text-decoration: underline;
+        }
+        .rich-content blockquote {
+            border-left: 3px solid #27797D;
+            padding-left: 0.85rem;
+            font-style: italic;
+            color: #475569;
+            margin: 0.75rem 0;
+        }
     </style>
+
+    @stack('styles')
 </head>
 <body class="h-full bg-slate-50 text-slate-800 antialiased font-sans">
 
@@ -218,6 +271,60 @@
 
     <!-- ==================== SCRIPTS COMPONENT ==================== -->
     @include('partner.includes.script')
+
+    <script>
+        // Global SweetAlert Toast & Dialog Helper
+        window.confirmAction = function(formId, title, text, confirmButtonText = 'Yes, Proceed') {
+            if (typeof Swal !== 'undefined') {
+                Swal.fire({
+                    title: title || 'Are you sure?',
+                    text: text || 'This action cannot be undone!',
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#EF7415',
+                    cancelButtonColor: '#64748b',
+                    confirmButtonText: confirmButtonText,
+                    borderRadius: '16px'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        const form = document.getElementById(formId);
+                        if (form) form.submit();
+                    }
+                });
+            } else {
+                if (confirm((title ? title + "\n" : "") + (text || "Are you sure?"))) {
+                    const form = document.getElementById(formId);
+                    if (form) form.submit();
+                }
+            }
+        };
+
+        @if (session('success'))
+            if (typeof Swal !== 'undefined') {
+                Swal.fire({
+                    toast: true,
+                    position: 'top-end',
+                    icon: 'success',
+                    title: "{{ session('success') }}",
+                    showConfirmButton: false,
+                    timer: 3500,
+                    timerProgressBar: true
+                });
+            }
+        @endif
+
+        @if (session('error'))
+            if (typeof Swal !== 'undefined') {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Action Failed',
+                    text: "{{ session('error') }}",
+                    confirmButtonColor: '#EF7415',
+                    borderRadius: '16px'
+                });
+            }
+        @endif
+    </script>
 
     @stack('scripts')
 </body>

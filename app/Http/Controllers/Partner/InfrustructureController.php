@@ -38,17 +38,20 @@ class InfrustructureController extends Controller
     {
         $hospital = $this->getHospital();
 
-        $validated = $request->validate([
-            'description' => ['required', 'string'],
-        ], [
-            'description.required' => 'Please provide the infrastructure details.',
-        ]);
+        $description = $request->input('description', '');
+        $plainText = trim(strip_tags(str_replace(['&nbsp;', '<br>'], ' ', $description)));
+
+        if (empty($plainText) && !str_contains($description, '<img')) {
+            return back()->withInput()->withErrors([
+                'description' => 'Please provide the hospital infrastructure details before saving.',
+            ]);
+        }
 
         Infrustructure::updateOrCreate(
             ['hospital_id' => $hospital->id],
-            ['description' => $validated['description']]
+            ['description' => $description]
         );
 
-        return back()->with('success', 'Hospital infrastructure details updated successfully!');
+        return back()->with('success', 'Hospital infrastructure details saved successfully!');
     }
 }

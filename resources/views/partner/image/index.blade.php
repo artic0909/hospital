@@ -268,47 +268,77 @@
     });
 
     function confirmDelete(formId) {
-        Swal.fire({
-            title: 'Delete this photo?',
-            text: 'This image will be permanently removed from the hospital gallery!',
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#EF7415',
-            cancelButtonColor: '#64748b',
-            confirmButtonText: 'Yes, delete'
-        }).then((result) => {
-            if (result.isConfirmed) {
+        if (typeof Swal !== 'undefined') {
+            Swal.fire({
+                title: 'Delete this photo?',
+                text: 'This image will be permanently removed from the hospital gallery!',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#EF7415',
+                cancelButtonColor: '#64748b',
+                confirmButtonText: 'Yes, delete',
+                borderRadius: '16px'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    document.getElementById(formId).submit();
+                }
+            });
+        } else {
+            if (confirm('Delete this photo? This image will be permanently removed.')) {
                 document.getElementById(formId).submit();
             }
-        });
+        }
     }
 
     function confirmBulkDelete() {
         const checked = document.querySelectorAll('.row-checkbox:checked');
-        if (checked.length === 0) return;
-
-        Swal.fire({
-            title: `Delete ${checked.length} selected photos?`,
-            text: 'All selected gallery photos will be permanently deleted!',
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#EF7415',
-            cancelButtonColor: '#64748b',
-            confirmButtonText: 'Yes, delete selected'
-        }).then((result) => {
-            if (result.isConfirmed) {
-                const container = document.getElementById('bulk-delete-inputs');
-                container.innerHTML = '';
-                checked.forEach(cb => {
-                    const input = document.createElement('input');
-                    input.type = 'hidden';
-                    input.name = 'selected_ids[]';
-                    input.value = cb.value;
-                    container.appendChild(input);
+        if (checked.length === 0) {
+            if (typeof Swal !== 'undefined') {
+                Swal.fire({
+                    icon: 'info',
+                    title: 'No Selection',
+                    text: 'Please select at least one photo to delete.',
+                    confirmButtonColor: '#27797D'
                 });
-                document.getElementById('bulk-delete-form').submit();
+            } else {
+                alert('Please select at least one photo to delete.');
             }
-        });
+            return;
+        }
+
+        const executeBulk = () => {
+            const container = document.getElementById('bulk-delete-inputs');
+            container.innerHTML = '';
+            checked.forEach(cb => {
+                const input = document.createElement('input');
+                input.type = 'hidden';
+                input.name = 'selected_ids[]';
+                input.value = cb.value;
+                container.appendChild(input);
+            });
+            document.getElementById('bulk-delete-form').submit();
+        };
+
+        if (typeof Swal !== 'undefined') {
+            Swal.fire({
+                title: `Delete ${checked.length} selected photos?`,
+                text: 'All selected gallery photos will be permanently deleted!',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#EF7415',
+                cancelButtonColor: '#64748b',
+                confirmButtonText: 'Yes, delete selected',
+                borderRadius: '16px'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    executeBulk();
+                }
+            });
+        } else {
+            if (confirm(`Delete ${checked.length} selected photos?`)) {
+                executeBulk();
+            }
+        }
     }
 </script>
 @endpush

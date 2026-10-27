@@ -110,7 +110,7 @@ class FacilityController extends Controller
     public function destroy(Facility $facility): RedirectResponse
     {
         $hospital = $this->getHospital();
-        abort_if($facility->hospital_id !== $hospital->id, 403);
+        abort_if((int) $facility->hospital_id !== (int) $hospital->id, 403);
 
         if ($facility->image && file_exists(public_path($facility->image))) {
             @unlink(public_path($facility->image));
@@ -125,7 +125,7 @@ class FacilityController extends Controller
     public function bulkDelete(Request $request): RedirectResponse
     {
         $hospital = $this->getHospital();
-        $ids = $request->input('selected_ids', []);
+        $ids = $request->input('selected_ids', $request->input('ids', []));
 
         if (empty($ids) || !is_array($ids)) {
             return back()->with('error', 'Please select at least one facility to delete.');
