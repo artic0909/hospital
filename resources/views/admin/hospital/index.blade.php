@@ -146,7 +146,7 @@
                         <th class="py-3.5 px-5">Category</th>
                         <th class="py-3.5 px-5">Location</th>
                         <th class="py-3.5 px-5">Contact & Email</th>
-                        <th class="py-3.5 px-5">Doctors & OPD</th>
+                        <th class="py-3.5 px-5">Faculty & Patients</th>
                         <th class="py-3.5 px-5">Beds</th>
                         <th class="py-3.5 px-5">Est. Year</th>
                         <th class="py-3.5 px-5 text-right">Actions</th>
@@ -212,7 +212,7 @@
                                 </div>
                             </td>
                             <td class="py-3.5 px-5">
-                                <div class="inline-flex items-center gap-1.5">
+                                <div class="flex flex-col gap-1.5 items-start">
                                     <a 
                                         href="{{ route('admin.hospital.doctor.index', $hosp->id) }}"
                                         class="inline-flex items-center gap-1 px-2.5 py-1 rounded-xl text-xs font-bold bg-teal-50 hover:bg-teal-100 text-[#27797D] border border-teal-200 transition-colors shadow-2xs"
@@ -221,7 +221,15 @@
                                         <span>👨‍⚕️</span>
                                         <span>{{ $hosp->doctors_count }} Doctors</span>
                                     </a>
-                                   
+
+                                    <a 
+                                        href="{{ route('admin.hospital.patient.index', $hosp->id) }}"
+                                        class="inline-flex items-center gap-1 px-2.5 py-1 rounded-xl text-xs font-bold bg-orange-50 hover:bg-orange-100 text-[#EF7415] border border-orange-200 transition-colors shadow-2xs"
+                                        title="View Hospital Patients"
+                                    >
+                                        <span>👥</span>
+                                        <span>{{ $hosp->patients_count }} Patients</span>
+                                    </a>
                                 </div>
                             </td>
                             <td class="py-3.5 px-5">
@@ -233,7 +241,7 @@
                                 {{ $hosp->establish_year }}
                             </td>
                             <td class="py-3.5 px-5 text-right">
-                                <div class="inline-flex items-center gap-1.5">
+                                <div class="inline-flex items-center gap-1">
                                     <!-- Power Button: One-Click Access Partner Dashboard as this Hospital -->
                                     <a 
                                         href="{{ route('admin.hospital.login-as-partner', $hosp->id) }}"
@@ -246,13 +254,31 @@
                                         </svg>
                                     </a>
 
+                                    <!-- Add Patient Shortcut -->
+                                    <a 
+                                        href="{{ route('admin.hospital.patient.create', $hosp->id) }}"
+                                        class="p-1.5 rounded-lg text-white bg-[#EF7415] hover:bg-[#d9640d] transition-colors shadow-2xs"
+                                        title="Add Patient - {{ $hosp->name }}"
+                                    >
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z"/></svg>
+                                    </a>
+
+                                    <!-- Patient Directory Button -->
+                                    <a 
+                                        href="{{ route('admin.hospital.patient.index', $hosp->id) }}"
+                                        class="p-1.5 rounded-lg text-[#27797D] hover:bg-teal-50 transition-colors"
+                                        title="Patients Directory - {{ $hosp->name }}"
+                                    >
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+                                    </a>
+
                                     <!-- Doctor Directory / Manage Doctors Button -->
                                     <a 
                                         href="{{ route('admin.hospital.doctor.index', $hosp->id) }}"
-                                        class="p-1.5 rounded-lg text-[#EF7415] hover:bg-orange-50 transition-colors"
+                                        class="p-1.5 rounded-lg text-slate-500 hover:text-[#EF7415] hover:bg-orange-50 transition-colors"
                                         title="Doctors & Schedules - {{ $hosp->name }}"
                                     >
-                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z"/></svg>
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
                                     </a>
 
                                     <!-- View Details Button -->

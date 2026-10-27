@@ -146,8 +146,11 @@ class PatientController extends Controller
             $imagePath = 'patients/' . $filename;
         }
 
+        $hospital = $partner->getHospital();
+
         $patient = Patient::create([
             'partner_id' => $partner->id,
+            'hospital_id' => $hospital ? $hospital->id : null,
             'name' => $validated['name'],
             'phone' => $validated['phone'] ?? null,
             'email' => $validated['email'] ?? null,

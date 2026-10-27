@@ -67,6 +67,22 @@
                     &larr; Directory
                 </a>
                 <a 
+                    href="{{ route('admin.hospital.doctor.index', $hospital->id) }}" 
+                    class="inline-flex items-center gap-1.5 px-3.5 py-2 text-xs font-bold bg-white/15 hover:bg-white/25 text-white rounded-xl transition-all border border-white/20"
+                    title="Manage Doctors & Timetables"
+                >
+                    <span>👨‍⚕️</span>
+                    <span>Doctors ({{ $hospital->doctors()->count() }})</span>
+                </a>
+                <a 
+                    href="{{ route('admin.hospital.patient.index', $hospital->id) }}" 
+                    class="inline-flex items-center gap-1.5 px-3.5 py-2 text-xs font-bold bg-[#EF7415] hover:bg-[#d9640d] text-white rounded-xl transition-all shadow-md shadow-[#EF7415]/20 font-semibold"
+                    title="Manage Hospital Patients & Reports"
+                >
+                    <span>👥</span>
+                    <span>Patients ({{ $hospital->patients()->count() }})</span>
+                </a>
+                <a 
                     href="{{ route('admin.hospital.login-as-partner', $hospital->id) }}" 
                     target="_blank"
                     class="inline-flex items-center gap-1.5 px-4 py-2 text-xs font-bold bg-emerald-500 hover:bg-emerald-600 text-white rounded-xl transition-all shadow-md shadow-emerald-500/20 font-semibold"

@@ -18,6 +18,7 @@ class Patient extends Model
      */
     protected $fillable = [
         'partner_id',
+        'hospital_id',
         'name',
         'phone',
         'email',
@@ -27,6 +28,14 @@ class Patient extends Model
         'address',
         'image',
     ];
+
+    /**
+     * Hospital relationship.
+     */
+    public function hospital(): BelongsTo
+    {
+        return $this->belongsTo(Hospital::class);
+    }
 
     /**
      * Partner relationship.
