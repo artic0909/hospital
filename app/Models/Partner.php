@@ -38,6 +38,14 @@ class Partner extends Authenticatable
     }
 
     /**
+     * Patients relationship.
+     */
+    public function patients(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(Patient::class);
+    }
+
+    /**
      * Resolve the active hospital for this partner.
      */
     public function getHospital(): ?Hospital
