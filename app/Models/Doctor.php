@@ -20,6 +20,7 @@ class Doctor extends Model
     protected $fillable = [
         'hospital_id',
         'name',
+        'slug',
         'designation',
         'spaciality',
         'experience',
@@ -44,6 +45,61 @@ class Doctor extends Model
             'OPD_fee' => 'decimal:2',
             'status' => 'boolean',
         ];
+    }
+
+    /**
+     * Boot model logic to autogenerate unique doctor slug.
+     */
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::creating(function ($doctor) {
+            if (empty($doctor->slug)) {
+                $doctor->slug = static::generateUniqueSlug($doctor->name);
+            }
+        });
+
+        static::updating(function ($doctor) {
+            if (empty($doctor->slug) || ($doctor->isDirty('name') && !$doctor->isDirty('slug'))) {
+                $doctor->slug = static::generateUniqueSlug($doctor->name, $doctor->id);
+            }
+        });
+    }
+
+    /**
+     * Generate unique URL-friendly doctor slug.
+     */
+    public static function generateUniqueSlug(string $name, ?int $ignoreId = null): string
+    {
+        $baseSlug = \Illuminate\Support\Str::slug($name) ?: 'doctor';
+        $slug = $baseSlug;
+        $counter = 1;
+
+        while (static::where('slug', $slug)->when($ignoreId, fn($q) => $q->where('id', '!=', $ignoreId))->exists()) {
+            $slug = "{$baseSlug}-{$counter}";
+            $counter++;
+        }
+
+        return $slug;
+    }
+
+    /**
+     * Get the route key for implicit model binding.
+     */
+    public function getRouteKeyName(): string
+    {
+        return 'slug';
+    }
+
+    /**
+     * Resolve the route binding allowing both slug and numeric ID.
+     */
+    public function resolveRouteBinding($value, $field = null)
+    {
+        return $this->where($field ?? 'slug', $value)
+            ->orWhere('id', $value)
+            ->firstOrFail();
     }
 
     /**

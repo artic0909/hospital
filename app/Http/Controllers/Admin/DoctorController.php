@@ -68,6 +68,7 @@ class DoctorController extends Controller
     {
         $validated = $request->validate([
             'name' => ['required', 'string', 'max:255'],
+            'slug' => ['nullable', 'string', 'max:255', 'unique:doctors,slug'],
             'designation' => ['required', 'string', 'max:255'],
             'spaciality' => ['required', 'string', 'max:255'],
             'experience' => ['required', 'integer', 'min:0'],
@@ -90,6 +91,12 @@ class DoctorController extends Controller
         $validated['hospital_id'] = $hospital->id;
         $validated['status'] = $request->has('status');
 
+        if (!empty($validated['slug'])) {
+            $validated['slug'] = Doctor::generateUniqueSlug($validated['slug']);
+        } else {
+            $validated['slug'] = Doctor::generateUniqueSlug($validated['name']);
+        }
+
         if ($request->hasFile('image')) {
             $validated['image'] = $request->file('image')->store('doctors', 'public');
         }
@@ -110,7 +117,7 @@ class DoctorController extends Controller
             }
         }
 
-        return redirect()->route('admin.hospital.doctor.index', $hospital->id)
+        return redirect()->route('admin.hospital.doctor.index', $hospital)
             ->with('success', "Dr. {$doctor->name} and consultation schedule registered successfully!");
     }
 
@@ -140,6 +147,7 @@ class DoctorController extends Controller
     {
         $validated = $request->validate([
             'name' => ['required', 'string', 'max:255'],
+            'slug' => ['nullable', 'string', 'max:255', \Illuminate\Validation\Rule::unique('doctors', 'slug')->ignore($doctor->id)],
             'designation' => ['required', 'string', 'max:255'],
             'spaciality' => ['required', 'string', 'max:255'],
             'experience' => ['required', 'integer', 'min:0'],
@@ -160,6 +168,12 @@ class DoctorController extends Controller
         ]);
 
         $validated['status'] = $request->has('status');
+
+        if (!empty($validated['slug'])) {
+            $validated['slug'] = Doctor::generateUniqueSlug($validated['slug'], $doctor->id);
+        } else {
+            $validated['slug'] = Doctor::generateUniqueSlug($validated['name'], $doctor->id);
+        }
 
         if ($request->hasFile('image')) {
             if ($doctor->image && Storage::disk('public')->exists($doctor->image)) {

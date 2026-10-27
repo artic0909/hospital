@@ -19,6 +19,7 @@ class Hospital extends Authenticatable
      */
     protected $fillable = [
         'code',
+        'slug',
         'name',
         'contact',
         'email',
@@ -60,7 +61,7 @@ class Hospital extends Authenticatable
     }
 
     /**
-     * Boot model logic to autogenerate hospital code.
+     * Boot model logic to autogenerate hospital code and unique slug.
      */
     protected static function boot()
     {
@@ -69,6 +70,15 @@ class Hospital extends Authenticatable
         static::creating(function ($hospital) {
             if (empty($hospital->code)) {
                 $hospital->code = static::generateHospitalCode();
+            }
+            if (empty($hospital->slug)) {
+                $hospital->slug = static::generateUniqueSlug($hospital->name);
+            }
+        });
+
+        static::updating(function ($hospital) {
+            if (empty($hospital->slug) || ($hospital->isDirty('name') && !$hospital->isDirty('slug'))) {
+                $hospital->slug = static::generateUniqueSlug($hospital->name, $hospital->id);
             }
         });
     }
@@ -88,6 +98,41 @@ class Hospital extends Authenticatable
         }
 
         return $code;
+    }
+
+    /**
+     * Generate unique URL-friendly slug.
+     */
+    public static function generateUniqueSlug(string $name, ?int $ignoreId = null): string
+    {
+        $baseSlug = \Illuminate\Support\Str::slug($name) ?: 'hospital';
+        $slug = $baseSlug;
+        $counter = 1;
+
+        while (static::where('slug', $slug)->when($ignoreId, fn($q) => $q->where('id', '!=', $ignoreId))->exists()) {
+            $slug = "{$baseSlug}-{$counter}";
+            $counter++;
+        }
+
+        return $slug;
+    }
+
+    /**
+     * Get the route key for implicit model binding.
+     */
+    public function getRouteKeyName(): string
+    {
+        return 'slug';
+    }
+
+    /**
+     * Resolve the route binding allowing both slug and numeric ID.
+     */
+    public function resolveRouteBinding($value, $field = null)
+    {
+        return $this->where($field ?? 'slug', $value)
+            ->orWhere('id', $value)
+            ->firstOrFail();
     }
 
     /**

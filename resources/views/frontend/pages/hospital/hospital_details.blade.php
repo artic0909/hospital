@@ -1,6 +1,14 @@
 @extends('frontend.layouts.app')
 
-@section('title', 'Indraprastha Apollo Hospital, New Delhi - Doctors, Cost & Facilities | Heal Go Fly')
+@php
+    $hosp = $hospital ?? null;
+    $hospName = $hosp ? $hosp->name : 'Indraprastha Apollo Hospital, New Delhi';
+    $hospLocation = $hosp && $hosp->city ? $hosp->city->name . ', ' . $hosp->country->name : 'New Delhi, India';
+    $hospEst = $hosp ? $hosp->establish_year : 1995;
+    $hospBeds = $hosp ? $hosp->no_of_bed : 710;
+@endphp
+
+@section('title', $hospName . ' - Doctors, Cost & Facilities | Heal Go Fly')
 
 @section('content')
 
@@ -12,11 +20,9 @@
                 <span class="text-gray-400">›</span>
                 <a href="{{ route('hospitals') }}" class="hover:text-[#27797D] transition-colors">Hospitals</a>
                 <span class="text-gray-400">›</span>
-                <a href="{{ route('hospitals') }}" class="hover:text-[#27797D] transition-colors">India</a>
+                <span class="text-gray-500">{{ $hospLocation }}</span>
                 <span class="text-gray-400">›</span>
-                <span class="text-gray-500">New Delhi</span>
-                <span class="text-gray-400">›</span>
-                <span class="text-[#112347] font-semibold">Indraprastha Apollo Hospital, New Delhi</span>
+                <span class="text-[#112347] font-semibold">{{ $hospName }}</span>
             </nav>
         </div>
     </div>
@@ -35,7 +41,7 @@
                         <span>You are viewing our top rated Hospital</span>
                     </div>
                     <h1 class="text-2xl sm:text-3xl lg:text-[34px] font-extrabold text-[#112347] tracking-tight leading-tight">
-                        Indraprastha Apollo Hospital, New Delhi
+                        {{ $hospName }}
                     </h1>
                     <div class="flex flex-wrap items-center gap-4 text-xs text-gray-500 pt-0.5">
                         <div class="flex items-center text-amber-500 text-sm">
@@ -45,7 +51,7 @@
                         </div>
                         <div class="flex items-center gap-1">
                             <svg class="w-3.5 h-3.5 text-red-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg>
-                            <span>New Delhi, India</span>
+                            <span>{{ $hospLocation }}</span>
                         </div>
                     </div>
                 </div>

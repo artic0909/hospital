@@ -113,15 +113,31 @@
 
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
                 <!-- Name -->
-                <div class="sm:col-span-2">
+                <div>
                     <label class="block text-xs font-bold text-slate-700 mb-1.5">
                         Doctor Full Name <span class="text-rose-500">*</span>
                     </label>
                     <input 
                         type="text" 
                         name="name" 
+                        id="doctor_name"
                         value="{{ old('name', $doctor->name) }}" 
                         required 
+                        class="w-full bg-slate-50 focus:bg-white text-xs sm:text-sm px-3.5 py-2.5 rounded-xl border border-slate-200 focus:border-[#27797D] focus:outline-none transition-all font-medium"
+                    >
+                </div>
+
+                <!-- Slug -->
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1.5">
+                        URL Slug <span class="text-slate-400 font-normal text-[10px]">(Leave blank to keep auto)</span>
+                    </label>
+                    <input 
+                        type="text" 
+                        name="slug" 
+                        id="doctor_slug"
+                        value="{{ old('slug', $doctor->slug) }}" 
+                        placeholder="e.g. naresh-trehan" 
                         class="w-full bg-slate-50 focus:bg-white text-xs sm:text-sm px-3.5 py-2.5 rounded-xl border border-slate-200 focus:border-[#27797D] focus:outline-none transition-all font-medium"
                     >
                 </div>

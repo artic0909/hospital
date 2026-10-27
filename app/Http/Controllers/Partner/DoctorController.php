@@ -82,6 +82,7 @@ class DoctorController extends Controller
 
         $validated = $request->validate([
             'name' => ['required', 'string', 'max:255'],
+            'slug' => ['nullable', 'string', 'max:255', 'unique:doctors,slug'],
             'designation' => ['required', 'string', 'max:255'],
             'spaciality' => ['required', 'string', 'max:255'],
             'experience' => ['required', 'integer', 'min:0'],
@@ -113,9 +114,14 @@ class DoctorController extends Controller
             $imagePath = 'doctors/' . $filename;
         }
 
+        $slug = !empty($validated['slug'])
+            ? Doctor::generateUniqueSlug($validated['slug'])
+            : Doctor::generateUniqueSlug($validated['name']);
+
         $doctor = Doctor::create([
             'hospital_id' => $hospital->id,
             'name' => $validated['name'],
+            'slug' => $slug,
             'designation' => $validated['designation'],
             'spaciality' => $validated['spaciality'],
             'experience' => (int)$validated['experience'],
@@ -181,6 +187,7 @@ class DoctorController extends Controller
 
         $validated = $request->validate([
             'name' => ['required', 'string', 'max:255'],
+            'slug' => ['nullable', 'string', 'max:255', \Illuminate\Validation\Rule::unique('doctors', 'slug')->ignore($doctor->id)],
             'designation' => ['required', 'string', 'max:255'],
             'spaciality' => ['required', 'string', 'max:255'],
             'experience' => ['required', 'integer', 'min:0'],
@@ -212,6 +219,11 @@ class DoctorController extends Controller
         }
 
         $doctor->name = $validated['name'];
+        if (!empty($validated['slug'])) {
+            $doctor->slug = Doctor::generateUniqueSlug($validated['slug'], $doctor->id);
+        } else {
+            $doctor->slug = Doctor::generateUniqueSlug($validated['name'], $doctor->id);
+        }
         $doctor->designation = $validated['designation'];
         $doctor->spaciality = $validated['spaciality'];
         $doctor->experience = (int)$validated['experience'];

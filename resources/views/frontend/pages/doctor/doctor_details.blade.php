@@ -1,6 +1,19 @@
 @extends('frontend.layouts.app')
 
-@section('title', 'Dr. Y K Mishra - Best Cardiac Surgeon in India | Manipal Hospital Dwarka')
+@php
+    $doc = $doctor ?? null;
+    $docName = $doc ? $doc->name : 'Dr. Y K Mishra';
+    $docTitle = $doc ? 'Dr. ' . $doc->name . ' - ' . $doc->designation . ' | Heal Go Fly' : 'Dr. Y K Mishra - Best Cardiac Surgeon in India | Manipal Hospital Dwarka';
+    $docPhoto = $doc && $doc->image ? (Illuminate\Support\Str::startsWith($doc->image, 'http') ? $doc->image : (file_exists(public_path($doc->image)) ? asset($doc->image) : asset('storage/' . $doc->image))) : 'https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=400&q=80';
+    $docHospital = $doc && $doc->hospital ? $doc->hospital->name : 'Manipal Hospitals Dwarka';
+    $docLocation = $doc && $doc->hospital && $doc->hospital->city ? $doc->hospital->city->name . ', ' . $doc->hospital->country->name : 'New Delhi, India';
+    $docSpeciality = $doc ? $doc->spaciality : 'Cardiac Surgery';
+    $docExperience = $doc ? $doc->experience . '+ Years' : '44+ Years';
+    $docFee = $doc ? 'INR ' . number_format($doc->OPD_fee, 0) . ' /-' : 'INR 1000 /-';
+    $docSurgeries = $doc && $doc->surgeries ? $doc->surgeries : 'Over 19,000+ Surgeries';
+@endphp
+
+@section('title', $docTitle)
 
 @section('content')
 
@@ -12,11 +25,9 @@
                 <span class="text-gray-400">›</span>
                 <a href="{{ route('doctors') }}" class="hover:text-[#27797D] transition-colors">Doctors</a>
                 <span class="text-gray-400">›</span>
-                <a href="{{ route('doctors') }}" class="hover:text-[#27797D] transition-colors">India</a>
+                <span class="text-gray-500">{{ $docLocation }}</span>
                 <span class="text-gray-400">›</span>
-                <span class="text-gray-500">New Delhi</span>
-                <span class="text-gray-400">›</span>
-                <span class="text-[#112347] font-semibold">Dr. Y K Mishra</span>
+                <span class="text-[#112347] font-semibold">{{ $docName }}</span>
             </nav>
         </div>
     </div>
@@ -31,8 +42,8 @@
                 <!-- Doctor Image -->
                 <div class="w-28 h-28 sm:w-36 sm:h-36 rounded-2xl overflow-hidden bg-gray-100 border border-gray-200 flex-shrink-0 shadow-xs relative">
                     <img 
-                        src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=400&q=80" 
-                        alt="Dr. Y K Mishra - Cardiac Surgeon" 
+                        src="{{ $docPhoto }}" 
+                        alt="{{ $docName }}" 
                         class="w-full h-full object-cover"
                     >
                     <span class="absolute top-2 right-2 w-5 h-5 rounded-full bg-red-500 text-white flex items-center justify-center text-[10px] font-bold shadow-xs">
@@ -46,14 +57,14 @@
                         <div>
                             <div class="flex items-center gap-2">
                                 <h1 class="text-2xl sm:text-3xl font-extrabold text-[#112347] tracking-tight">
-                                    Dr. Y K Mishra
+                                    {{ Str::startsWith($docName, 'Dr') ? $docName : 'Dr. ' . $docName }}
                                 </h1>
                                 <span class="inline-flex items-center justify-center w-5 h-5 rounded-full border border-red-500 text-red-500 text-xs font-bold" title="Verified Specialist">
                                     ✓
                                 </span>
                             </div>
                             <p class="text-sm font-semibold text-[#27797D] mt-0.5">
-                                Chief of Cardiac Surgery & Head of Clinical Services
+                                {{ $doc ? $doc->designation : 'Chief of Cardiac Surgery & Head of Clinical Services' }}
                             </p>
                         </div>
 
@@ -69,27 +80,27 @@
                     <div class="grid grid-cols-1 sm:grid-cols-3 gap-y-2 gap-x-4 text-xs text-gray-600 pt-1">
                         <div class="flex items-center gap-2">
                             <span class="text-blue-500 font-bold">🩺</span>
-                            <span><strong>Speciality:</strong> Cardiac Surgery</span>
+                            <span><strong>Speciality:</strong> {{ $docSpeciality }}</span>
                         </div>
                         <div class="flex items-center gap-2">
                             <span class="text-blue-500 font-bold">⏳</span>
-                            <span><strong>Experience:</strong> 44+ Years</span>
+                            <span><strong>Experience:</strong> {{ $docExperience }}</span>
                         </div>
                         <div class="flex items-center gap-2">
                             <span class="text-blue-500 font-bold">🏥</span>
-                            <span><strong>Hospital:</strong> Manipal Hospitals Dwarka</span>
+                            <span><strong>Hospital:</strong> {{ $docHospital }}</span>
                         </div>
                         <div class="flex items-center gap-2">
                             <svg class="w-3.5 h-3.5 text-red-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg>
-                            <span>New Delhi, India</span>
+                            <span>{{ $docLocation }}</span>
                         </div>
                         <div class="flex items-center gap-2">
                             <span class="text-emerald-500 font-bold">💵</span>
-                            <span><strong>OPD Fee:</strong> INR 1000 /-</span>
+                            <span><strong>OPD Fee:</strong> {{ $docFee }}</span>
                         </div>
                         <div class="flex items-center gap-2">
                             <span class="text-amber-500 font-bold">⭐</span>
-                            <span>Over 19,000+ Surgeries</span>
+                            <span>{{ $docSurgeries }}</span>
                         </div>
                     </div>
 

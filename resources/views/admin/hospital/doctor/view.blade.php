@@ -25,7 +25,16 @@
 
         <div class="flex items-center gap-2.5">
             <a 
-                href="{{ route('admin.hospital.doctor.update', [$hospital->id, $doctor->id]) }}" 
+                href="{{ route('doctor.show', $doctor) }}" 
+                target="_blank"
+                class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-teal-50 hover:bg-teal-100 text-[#27797D] border border-teal-200 text-xs font-bold transition-all shadow-xs"
+                title="View public profile on frontend"
+            >
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                <span>Public View</span>
+            </a>
+            <a 
+                href="{{ route('admin.hospital.doctor.update', [$hospital, $doctor]) }}" 
                 class="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-[#EF7415] hover:bg-[#d9640d] text-white text-xs font-bold transition-all shadow-sm shadow-[#EF7415]/20 cursor-pointer"
             >
                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125"/></svg>

@@ -26,6 +26,7 @@ class DoctorSeeder extends Seeder
                 ],
                 [
                     'designation' => 'Chairman & Chief Cardiac Surgeon',
+                    'slug' => 'naresh-trehan',
                     'spaciality' => 'Cardiothoracic Surgery',
                     'experience' => 38,
                     'OPD_fee' => 2500.00,
@@ -52,6 +53,7 @@ class DoctorSeeder extends Seeder
                 ],
                 [
                     'designation' => 'Chairman - Liver Transplantation & Hepatobiliary Sciences',
+                    'slug' => 'arvinder-singh-soin',
                     'spaciality' => 'Hepatology & Liver Transplant',
                     'experience' => 32,
                     'OPD_fee' => 2800.00,
@@ -80,6 +82,7 @@ class DoctorSeeder extends Seeder
                 ],
                 [
                     'designation' => 'Chairman - Cardiology & Chief Interventional Cardiologist',
+                    'slug' => 'ashok-seth',
                     'spaciality' => 'Interventional Cardiology',
                     'experience' => 35,
                     'OPD_fee' => 2200.00,

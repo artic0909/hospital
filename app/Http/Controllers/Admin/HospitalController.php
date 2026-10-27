@@ -89,6 +89,7 @@ class HospitalController extends Controller
     {
         $validated = $request->validate([
             'name' => ['required', 'string', 'max:255'],
+            'slug' => ['nullable', 'string', 'max:255', 'unique:hospitals,slug'],
             'contact' => ['required', 'string', 'max:50', 'unique:hospitals,contact'],
             'email' => ['nullable', 'email', 'max:255', 'unique:hospitals,email'],
             'country_id' => ['required', 'exists:countries,id'],
@@ -104,6 +105,12 @@ class HospitalController extends Controller
         ]);
 
         $validated['status'] = $request->has('status');
+
+        if (!empty($validated['slug'])) {
+            $validated['slug'] = Hospital::generateUniqueSlug($validated['slug']);
+        } else {
+            $validated['slug'] = Hospital::generateUniqueSlug($validated['name']);
+        }
 
         $hospital = Hospital::create($validated);
 
@@ -142,6 +149,7 @@ class HospitalController extends Controller
     {
         $validated = $request->validate([
             'name' => ['required', 'string', 'max:255'],
+            'slug' => ['nullable', 'string', 'max:255', Rule::unique('hospitals', 'slug')->ignore($hospital->id)],
             'contact' => ['required', 'string', 'max:50', Rule::unique('hospitals', 'contact')->ignore($hospital->id)],
             'email' => ['nullable', 'email', 'max:255', Rule::unique('hospitals', 'email')->ignore($hospital->id)],
             'country_id' => ['required', 'exists:countries,id'],
@@ -161,6 +169,12 @@ class HospitalController extends Controller
         }
 
         $validated['status'] = $request->has('status');
+
+        if (!empty($validated['slug'])) {
+            $validated['slug'] = Hospital::generateUniqueSlug($validated['slug'], $hospital->id);
+        } else {
+            $validated['slug'] = Hospital::generateUniqueSlug($validated['name'], $hospital->id);
+        }
 
         $hospital->update($validated);
 

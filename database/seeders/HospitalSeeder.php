@@ -131,6 +131,9 @@ class HospitalSeeder extends Seeder
             if (empty($data['code'])) {
                 $data['code'] = Hospital::generateHospitalCode();
             }
+            if (empty($data['slug'])) {
+                $data['slug'] = Hospital::generateUniqueSlug($data['name']);
+            }
             Hospital::firstOrCreate(
                 ['name' => $data['name']],
                 $data

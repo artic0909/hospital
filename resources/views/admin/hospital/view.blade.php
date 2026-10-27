@@ -38,17 +38,28 @@
                     <h1 class="text-2xl sm:text-3xl font-black text-white tracking-tight">
                         {{ $hospital->name }}
                     </h1>
-                    <p class="text-xs text-teal-100/90 mt-1 flex items-center gap-1.5">
+                    <p class="text-xs text-teal-100/90 mt-1 flex items-center gap-1.5 flex-wrap">
                         <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
                         <span>{{ $hospital->city->name ?? '' }}, {{ $hospital->state->name ?? '' }}, {{ $hospital->country->name ?? '' }}</span>
                         <span>&bull;</span>
                         <span>Est. {{ $hospital->establish_year }}</span>
+                        <span>&bull;</span>
+                        <span class="bg-white/15 px-2 py-0.5 rounded text-[11px] font-mono text-teal-100">slug: {{ $hospital->slug }}</span>
                     </p>
                 </div>
             </div>
 
             <!-- Action Buttons -->
             <div class="flex flex-wrap items-center gap-2.5 shrink-0">
+                <a 
+                    href="{{ route('hospital.show', $hospital) }}" 
+                    target="_blank"
+                    class="inline-flex items-center gap-1.5 px-3.5 py-2 text-xs font-bold bg-white/15 hover:bg-white/25 text-white rounded-xl transition-all border border-white/20"
+                    title="View public profile on frontend"
+                >
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                    <span>Public View</span>
+                </a>
                 <a 
                     href="{{ route('admin.hospital.index') }}" 
                     class="px-4 py-2 text-xs font-bold bg-white/10 hover:bg-white/20 text-white rounded-xl transition-all border border-white/15"
