@@ -1,6 +1,6 @@
 @extends('frontend.layouts.app')
 
-@section('title', 'Partner Login - Heal Go Fly | Medical Value Travel Network')
+@section('title', 'Business Head Login - Heal Go Fly | Medical Value Travel Network')
 
 @section('content')
 <!-- ==================== MAIN PARTNER AUTH HERO (SIDE-BY-SIDE ON DESKTOP) ==================== -->
@@ -21,8 +21,7 @@
                 <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#1D4B6C]/10 text-[#1D4B6C] border border-[#1D4B6C]/15 text-xs font-bold">
                     <span class="w-2 h-2 rounded-full bg-[#EF7415] animate-pulse"></span>
                     <span>Global Healthcare Facilitator Network</span>
-                    <span class="text-gray-300">|</span>
-                    <span class="italic text-[#27797D]">Healgofly hi rahega</span>
+                    
                 </div>
 
                 <!-- Main Headline -->
@@ -126,8 +125,8 @@
                         <a href="{{ url('/') }}" class="inline-flex items-center justify-center bg-white px-3 py-1.5 rounded-xl shadow-xs mb-2.5">
                             <img src="{{ asset('logo.png') }}" alt="Heal Go Fly" class="h-8 w-auto object-contain">
                         </a>
-                        <h2 class="text-2xl font-black tracking-tight text-white">Partner Login</h2>
-                        <p class="text-xs text-teal-100/90 mt-0.5">Access your facilitator portal</p>
+                        <h2 class="text-2xl font-black tracking-tight text-white">Business Head Login</h2>
+                        <p class="text-xs text-teal-100/90 mt-0.5">Access your Business Head portal</p>
                     </div>
 
                     <!-- Card Body -->
@@ -249,7 +248,7 @@
                         <!-- Switch to Register -->
                         <div class="mt-5 pt-4 border-t border-gray-100 text-center">
                             <p class="text-xs text-gray-500">
-                                Don't have a partner account? 
+                                Want to become a Business Head? 
                                 <a href="{{ route('partner.register') }}" class="font-bold text-[#27797D] hover:text-[#1D4B6C] hover:underline">
                                     Register here
                                 </a>

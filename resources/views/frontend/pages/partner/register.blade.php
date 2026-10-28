@@ -1,6 +1,6 @@
 @extends('frontend.layouts.app')
 
-@section('title', 'Partner Registration - Heal Go Fly | Medical Value Travel Network')
+@section('title', 'Business Head Registration - Heal Go Fly | Medical Value Travel Network')
 
 @section('content')
 <!-- ==================== MAIN PARTNER REGISTRATION HERO (SIDE-BY-SIDE ON DESKTOP) ==================== -->
@@ -20,18 +20,18 @@
                 <!-- Badge & Slogan -->
                 <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#1D4B6C]/10 text-[#1D4B6C] border border-[#1D4B6C]/15 text-xs font-bold">
                     <span class="w-2 h-2 rounded-full bg-[#EF7415] animate-pulse"></span>
-                    <span>Join Partner Program</span>
+                    <span>Become Business Head</span>
                     <span class="text-gray-300">|</span>
-                    <span class="italic text-[#27797D]">Healgofly hi rahega</span>
+                    <span class="italic text-[#27797D]">Healgofly</span>
                 </div>
 
                 <!-- Main Heading -->
                 <div class="space-y-3">
                     <h1 class="text-2xl sm:text-3xl lg:text-[36px] font-black text-[#112347] tracking-tight leading-[1.2]">
-                        Grow Your Medical Travel Agency With Us
+                        Grow Your Medical Travel Business With Us
                     </h1>
                     <p class="text-sm sm:text-base text-[#5a6a85] font-normal leading-relaxed">
-                        Partner with India's premier multi-specialty hospital network. Enjoy transparent case tracking, fast doctor estimates, and direct facilitator support.
+                        Become a Business Head in the medical tourism industry with HealGoFly. Work with India's premier multi-specialty hospital network. Enjoy transparent case tracking, fast doctor estimates, and direct facilitator support.
                     </p>
                 </div>
 
@@ -42,8 +42,8 @@
                             1
                         </div>
                         <div>
-                            <h4 class="text-xs font-bold text-gray-900">Instant Partner Onboarding</h4>
-                            <p class="text-[11px] text-gray-500 mt-0.5 leading-relaxed">Quick registration with dedicated partner ID and facilitator dashboard.</p>
+                            <h4 class="text-xs font-bold text-gray-900">Instant Business Head Onboarding</h4>
+                            <p class="text-[11px] text-gray-500 mt-0.5 leading-relaxed">Quickly become a Business Head in the medical tourism industry with HealGoFly.</p>
                         </div>
                     </div>
 
@@ -103,7 +103,7 @@
                         <a href="{{ url('/') }}" class="inline-flex items-center justify-center bg-white px-3 py-1.5 rounded-xl shadow-xs mb-2.5">
                             <img src="{{ asset('logo.png') }}" alt="Heal Go Fly" class="h-8 w-auto object-contain">
                         </a>
-                        <h2 class="text-2xl font-black tracking-tight text-white">Partner Registration</h2>
+                        <h2 class="text-2xl font-black tracking-tight text-white">Business Head Registration</h2>
                         <p class="text-xs text-teal-100/90 mt-0.5">Create your healthcare facilitator account</p>
                     </div>
 

@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>@yield('title', 'Heal Go Fly - Medical Value Travel | Healgofly hi rahega')</title>
+    <title>@yield('title', 'HealGoFly - Medical Value Travel | Healgofly hi rahega')</title>
     
     <!-- Favicon -->
     <link rel="icon" href="{{ asset('logo.png') }}" type="image/png">

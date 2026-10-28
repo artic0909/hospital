@@ -9,15 +9,13 @@
                 <!-- Brand Logo (Protected from Google translation via notranslate) -->
                 <a href="{{ url('/') }}" class="inline-flex items-center gap-2 sm:gap-2.5 group notranslate">
                     <div class="bg-white p-1 sm:p-1.5 rounded-xl shadow-xs border border-white/20 flex items-center justify-center shrink-0">
-                        <img src="{{ asset('logo.png') }}" alt="Heal Go Fly - Medical Value Travel" class="h-7 sm:h-9 w-auto object-contain">
+                        <img src="{{ asset('logo.png') }}" alt="HealGoFly - Medical Value Travel" class="h-7 sm:h-9 w-auto object-contain">
                     </div>
                     <div class="flex flex-col leading-none">
                         <span class="text-base sm:text-xl lg:text-2xl font-black tracking-tight text-white group-hover:text-teal-200 transition-colors whitespace-nowrap">
-                            Heal Go Fly
+                            HealGoFly
                         </span>
-                        <span class="text-[8px] sm:text-[9px] tracking-wider uppercase font-bold text-[#EF7415] mt-0.5 whitespace-nowrap">
-                            Healgofly hi rahega
-                        </span>
+                        
                     </div>
                 </a>
 
@@ -785,9 +783,9 @@
                         <button type="button" class="h-14 flex items-center gap-1 text-gray-700 hover:text-[#27797D] group-hover:text-[#27797D] border-b-2 border-transparent group-hover:border-[#27797D] transition-all cursor-pointer focus:outline-none">
                             @auth('partner')
                                 <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-                                <span>Agent ({{ Str::limit(auth('partner')->user()->name, 10) }})</span>
+                                <span>Partner ({{ Str::limit(auth('partner')->user()->name, 10) }})</span>
                             @else
-                                <span>Agent</span>
+                                <span>Become a Partner</span>
                             @endauth
                             <svg class="w-3 h-3 text-gray-400 group-hover:text-[#27797D] transition-transform duration-200 group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/>
@@ -813,11 +811,11 @@
                             @else
                                 <a href="{{ route('partner.login') }}" class="flex items-center gap-2 px-4 py-2 text-xs font-medium text-gray-700 hover:bg-blue-50 hover:text-[#27797D] transition-colors">
                                     <svg class="w-3.5 h-3.5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"/></svg>
-                                    <span>Login</span>
+                                    <span>Partner Login</span>
                                 </a>
                                 <a href="{{ route('partner.register') }}" class="flex items-center gap-2 px-4 py-2 text-xs font-medium text-gray-700 hover:bg-blue-50 hover:text-[#27797D] transition-colors">
                                     <svg class="w-3.5 h-3.5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z"/></svg>
-                                    <span>Register</span>
+                                    <span>Become a Partner</span>
                                 </a>
                             @endauth
                         </div>
@@ -864,11 +862,10 @@
         <div class="p-4 bg-gradient-to-r from-[#1D4B6C] to-[#27797D] text-white flex items-center justify-between border-b border-white/10 shrink-0">
             <div class="flex items-center gap-2.5 notranslate">
                 <div class="bg-white p-1 rounded-xl shadow-xs">
-                    <img src="{{ asset('logo.png') }}" alt="Heal Go Fly" class="h-7 w-auto object-contain">
+                    <img src="{{ asset('logo.png') }}" alt="HealGoFly" class="h-7 w-auto object-contain">
                 </div>
                 <div class="leading-none">
-                    <span class="text-base font-black tracking-tight text-white block">Heal Go Fly</span>
-                    <span class="text-[9px] uppercase font-bold text-[#EF7415] tracking-wider mt-0.5 block">Healgofly hi rahega</span>
+                    <span class="text-base font-black tracking-tight text-white block">HealGoFly</span>
                 </div>
             </div>
 
@@ -1004,9 +1001,9 @@
                         <span class="flex items-center gap-2">
                             @auth('partner')
                                 <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-                                <span>Agent ({{ Str::limit(auth('partner')->user()->name, 12) }})</span>
+                                <span>Partner ({{ Str::limit(auth('partner')->user()->name, 12) }})</span>
                             @else
-                                <span>Agent</span>
+                                <span>Become a Partner</span>
                             @endauth
                         </span>
                         <svg class="w-3.5 h-3.5 text-gray-400 transition-transform group-open/sub:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
@@ -1019,8 +1016,8 @@
                                 <button type="submit" class="w-full text-left mobile-sidebar-link block px-2.5 py-1 text-xs text-red-600 font-semibold">Logout</button>
                             </form>
                         @else
-                            <a href="{{ route('partner.login') }}" class="mobile-sidebar-link block px-2.5 py-1.5 text-xs text-gray-700 hover:text-[#27797D] font-medium">Agent Login</a>
-                            <a href="{{ route('partner.register') }}" class="mobile-sidebar-link block px-2.5 py-1.5 text-xs text-gray-700 hover:text-[#27797D] font-medium">Agent Register</a>
+                            <a href="{{ route('partner.login') }}" class="mobile-sidebar-link block px-2.5 py-1.5 text-xs text-gray-700 hover:text-[#27797D] font-medium">Partner Login</a>
+                            <a href="{{ route('partner.register') }}" class="mobile-sidebar-link block px-2.5 py-1.5 text-xs text-gray-700 hover:text-[#27797D] font-medium">Become a Partner</a>
                         @endauth
                     </div>
                 </details>
@@ -1030,7 +1027,7 @@
 
         <!-- Drawer Footer -->
         <div class="p-3.5 bg-gray-50 border-t border-gray-100 text-center text-xs shrink-0">
-            <p class="text-[11px] font-bold text-[#1D4B6C]">Heal Go Fly LLP</p>
+            <p class="text-[11px] font-bold text-[#1D4B6C]">HealGoFly LLP</p>
             <p class="text-[10px] text-gray-500 mt-0.5">info@healgofly.com &bull; +91 9129846542</p>
             <span class="inline-block mt-1 text-[9px] uppercase tracking-wider font-extrabold text-[#EF7415]">NABH & JCI Certified Network</span>
         </div>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>@yield('title', 'Admin Dashboard - Heal Go Fly')</title>
+    <title>@yield('title', 'Admin Dashboard - HealGoFly')</title>
     
     <!-- Favicon -->
     <link rel="icon" href="{{ asset('logo.png') }}" type="image/png">
@@ -232,7 +232,7 @@
             <footer class="bg-white border-t border-slate-200/80 py-4 px-4 sm:px-6 lg:px-8 text-xs text-slate-500">
                 <div class="flex flex-col sm:flex-row items-center justify-between gap-3">
                     <div>
-                        &copy; {{ date('Y') }} <span class="font-bold text-[#112347]">Heal Go Fly LLP</span>. Central Administration System. &bull; <span class="text-[#EF7415] italic font-semibold">Healgofly hi rahega</span>
+                        &copy; {{ date('Y') }} <span class="font-bold text-[#112347]">HealGoFly LLP</span>. Central Administration System. &bull; <span class="text-[#EF7415] italic font-semibold">Healgofly hi rahega</span>
                     </div>
                     <div class="flex items-center gap-4 text-xs font-medium">
                         <span class="text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">JCI & NABH Hospital Liaison</span>

@@ -17,7 +17,7 @@
             </div>
             <div class="flex flex-col leading-none">
                 <span class="text-base font-black tracking-tight text-white group-hover:text-teal-200 transition-colors">
-                    Heal Go Fly
+                    HealGoFly
                 </span>
                 <span class="text-[9px] uppercase font-bold text-[#EF7415] tracking-wider mt-0.5">
                     Partner Desk
