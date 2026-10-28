@@ -382,7 +382,7 @@
                                     id="reg-submit-btn" 
                                     class="w-full bg-[#EF7415] hover:bg-[#d9640d] text-white font-bold py-3 px-5 rounded-xl shadow-md shadow-[#EF7415]/20 hover:shadow-lg transition-all text-sm flex items-center justify-center gap-2"
                                 >
-                                    <span id="reg-btn-text">Register as Certified Partner</span>
+                                    <span id="reg-btn-text">Register as Business Head</span>
                                     <svg id="reg-btn-spinner" class="animate-spin h-4 w-4 text-white hidden" fill="none" viewBox="0 0 24 24">
                                         <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
                                         <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
@@ -395,7 +395,7 @@
                         <!-- Switch to Login -->
                         <div class="mt-5 pt-4 border-t border-gray-100 text-center">
                             <p class="text-xs text-gray-500">
-                                Already have a partner account? 
+                                Already have an account? 
                                 <a href="{{ route('partner.login') }}" class="font-bold text-[#27797D] hover:text-[#1D4B6C] hover:underline">
                                     Sign in here
                                 </a>
