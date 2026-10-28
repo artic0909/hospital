@@ -235,7 +235,7 @@
                                             {{ Str::limit(auth('partner')->user()->name, 14) }}
                                         </span>
                                         <span class="block text-[10px] text-slate-400 truncate max-w-[120px]">
-                                            {{ auth('partner')->user()->company_name }}
+                                            {{ auth('partner')->user()->company_name ?: (auth('partner')->user()->partner_type ?? 'Partner') }}
                                         </span>
                                     </div>
                                 </div>

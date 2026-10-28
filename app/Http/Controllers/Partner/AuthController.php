@@ -117,7 +117,7 @@ class AuthController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'name' => ['required', 'string', 'min:3', 'max:255'],
-            'company_name' => ['required', 'string', 'min:2', 'max:255'],
+            'company_name' => ['nullable', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:partners,email'],
             'phone' => ['required', 'string', 'min:7', 'max:20'],
             'country' => ['required', 'string', 'max:100'],
@@ -127,7 +127,6 @@ class AuthController extends Controller
         ], [
             'name.required' => 'Please enter your full name / primary contact.',
             'name.min' => 'Full name must be at least 3 characters.',
-            'company_name.required' => 'Please enter your company or agency name.',
             'email.required' => 'Please enter your business email.',
             'email.email' => 'Please provide a valid email address.',
             'email.unique' => 'This email is already registered as a partner. Please log in instead.',
@@ -156,7 +155,7 @@ class AuthController extends Controller
         // Create the partner record
         $partner = Partner::create([
             'name' => trim($request->name),
-            'company_name' => trim($request->company_name),
+            'company_name' => $request->filled('company_name') ? trim($request->company_name) : null,
             'email' => strtolower(trim($request->email)),
             'phone' => trim($request->phone),
             'country' => trim($request->country),

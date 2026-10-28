@@ -142,17 +142,16 @@
                                     </p>
                                 </div>
 
-                                <!-- Company / Agency Name -->
+                                <!-- Company / Agency Name (Optional) -->
                                 <div>
                                     <label for="reg-company_name" class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1.5">
-                                        Company / Agency <span class="text-rose-500">*</span>
+                                        Company / Agency <span class="text-gray-400 font-normal lowercase">(optional)</span>
                                     </label>
                                     <input 
                                         type="text" 
                                         id="reg-company_name" 
                                         name="company_name" 
                                         value="{{ old('company_name') }}"
-                                        required
                                         placeholder="Agency or Clinic Name" 
                                         class="w-full px-3.5 py-2.5 text-sm text-gray-900 bg-gray-50/60 border border-gray-300 rounded-xl focus:bg-white focus:outline-none focus:border-[#27797D] focus:ring-2 focus:ring-[#27797D]/20 transition-all @error('company_name') border-rose-400 bg-rose-50/30 @enderror"
                                     >
@@ -674,10 +673,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
         if (!nameVal || nameVal.length < 3) {
             markError('name', 'Please enter your full name (at least 3 characters).');
-        }
-
-        if (!companyVal || companyVal.length < 2) {
-            markError('company_name', 'Please enter your company or agency name.');
         }
 
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
