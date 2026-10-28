@@ -10,16 +10,15 @@
                     <!-- Logo & Brand Header -->
                     <a href="/" class="inline-flex items-center gap-3 group">
                         <div class="bg-white p-2 rounded-xl shadow-md inline-flex items-center justify-center">
-                            <img src="{{ asset('logo.png') }}" alt="Heal Go Fly - Medical Value Travel" class="h-10 w-auto object-contain">
+                            <img src="{{ asset('logo.png') }}" alt="HealGoFly - Medical Value Travel" class="h-10 w-auto object-contain">
                         </div>
                         <div>
-                            <span class="text-xl font-black text-white tracking-tight block">Heal Go Fly</span>
-                            <span class="text-[10px] uppercase tracking-wider text-[#EF7415] font-bold block">Healgofly hi rahega</span>
+                            <span class="text-xl font-black text-white tracking-tight block">HealGoFly</span>
                         </div>
                     </a>
                     
                     <p class="text-xs text-teal-100/80 leading-relaxed max-w-sm">
-                        Heal Go Fly is your trusted medical value travel partner. We connect international and domestic patients to the best accredited hospitals and doctors worldwide with seamless care and dedicated assistance.
+                        HealGoFly is your trusted medical value travel partner. We connect international and domestic patients to the best accredited hospitals and doctors worldwide with seamless care and dedicated assistance.
                     </p>
                 </div>
 
@@ -162,10 +161,10 @@
             <!-- Bottom Disclaimer & Copyright -->
             <div class="pt-6 text-center space-y-3">
                 <p class="text-[10px] text-teal-100/75 leading-relaxed max-w-4xl mx-auto">
-                    Note: Heal Go Fly does not provide direct medical advice, diagnosis, or treatment. The services and information offered on this website are intended solely for medical facilitator assistance, travel coordination, and educational informational purposes. Heal Go Fly connects patients with certified hospitals and accredited healthcare professionals.
+                    Note: HealGoFly does not provide direct medical advice, diagnosis, or treatment. The services and information offered on this website are intended solely for medical facilitator assistance, travel coordination, and educational informational purposes. HealGoFly connects patients with certified hospitals and accredited healthcare professionals.
                 </p>
                 <p class="text-[11px] text-teal-100/90 font-medium">
-                    &copy; Copyright {{ date('Y') }} <span class="font-bold text-white">Heal Go Fly</span>. All rights reserved. &bull; <span class="text-[#EF7415] font-semibold italic">Healgofly hi rahega</span>
+                    &copy; Copyright {{ date('Y') }} <span class="font-bold text-white">HealGoFly</span>. All rights reserved.
                 </p>
             </div>
 
