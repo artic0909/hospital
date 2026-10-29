@@ -652,282 +652,44 @@
                 <!-- Specialties Grid (3 Columns on Desktop, 2 on Tablet, 1 on Mobile) -->
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
                     
-                    <!-- 1. Oncology -->
-                    <a href="#quote-form" class="group relative bg-white rounded-2xl p-4 sm:p-5 border border-gray-200/90 shadow-[0_2px_8px_rgba(0,0,0,0.03)] hover:shadow-xl hover:shadow-[#27797D]/8 hover:border-[#27797D]/50 hover:-translate-y-1 transition-all duration-300 flex items-center justify-between cursor-pointer overflow-hidden">
-                        <span class="absolute left-0 top-3 bottom-3 w-1 bg-gradient-to-b from-[#27797D] to-[#EF7415] rounded-r-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
-                        <div class="flex items-center gap-3.5 sm:gap-4 pr-2 sm:pr-3 min-w-0">
-                            <!-- Icon -->
-                            <div class="w-12 h-12 sm:w-13 sm:h-13 rounded-xl bg-gradient-to-br from-teal-50/90 via-blue-50/70 to-indigo-50/40 p-2.5 flex items-center justify-center flex-shrink-0 border border-teal-100/70 shadow-xs group-hover:scale-105 group-hover:bg-teal-100/80 group-hover:border-teal-200 transition-all duration-300">
-                                <img src="{{ asset('icons/onco.svg') }}" alt="Oncology & Cancer Care" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300">
+                    @forelse($specialities as $speciality)
+                        @php
+                            $specialityImg = !empty($speciality->image)
+                                ? (\Illuminate\Support\Str::startsWith($speciality->image, ['http://', 'https://']) ? $speciality->image : asset($speciality->image))
+                                : asset('icons/cardio.svg');
+                            $specialityDesc = !empty($speciality->description) 
+                                ? $speciality->description 
+                                : ($speciality->treatments_count > 0 
+                                    ? $speciality->treatments_count . ' ' . \Illuminate\Support\Str::plural('Specialized Procedure', $speciality->treatments_count) . ' & Top Surgeons' 
+                                    : 'Super-Specialty Clinical Consultations & Advanced Surgeries');
+                        @endphp
+                        <a href="#quote-form" class="group relative bg-white rounded-2xl p-4 sm:p-5 border border-gray-200/90 shadow-[0_2px_8px_rgba(0,0,0,0.03)] hover:shadow-xl hover:shadow-[#27797D]/8 hover:border-[#27797D]/50 hover:-translate-y-1 transition-all duration-300 flex items-center justify-between cursor-pointer overflow-hidden">
+                            <span class="absolute left-0 top-3 bottom-3 w-1 bg-gradient-to-b from-[#27797D] to-[#EF7415] rounded-r-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                            <div class="flex items-center gap-3.5 sm:gap-4 pr-2 sm:pr-3 min-w-0">
+                                <!-- Icon -->
+                                <div class="w-12 h-12 sm:w-13 sm:h-13 rounded-xl bg-gradient-to-br from-teal-50/90 via-blue-50/70 to-indigo-50/40 p-2.5 flex items-center justify-center flex-shrink-0 border border-teal-100/70 shadow-xs group-hover:scale-105 group-hover:bg-teal-100/80 group-hover:border-teal-200 transition-all duration-300">
+                                    <img src="{{ $specialityImg }}" alt="{{ $speciality->name }}" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300" onerror="this.onerror=null; this.src='{{ asset('icons/cardio.svg') }}';">
+                                </div>
+                                <div class="min-w-0">
+                                    <h3 class="text-[15px] sm:text-base font-bold text-gray-900 group-hover:text-[#27797D] transition-colors leading-snug">
+                                        {{ $speciality->name }}
+                                    </h3>
+                                    <p class="text-xs text-gray-500 mt-1 leading-relaxed line-clamp-2">
+                                        {{ $specialityDesc }}
+                                    </p>
+                                </div>
                             </div>
-                            <div class="min-w-0">
-                                <h3 class="text-[15px] sm:text-base font-bold text-gray-900 group-hover:text-[#27797D] transition-colors leading-snug">
-                                    Oncology & Cancer Care
-                                </h3>
-                                <p class="text-xs text-gray-500 mt-1 leading-relaxed line-clamp-2">
-                                    Targeted immunotherapy, robotic surgical oncology & precision therapies.
-                                </p>
+                            <div class="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-orange-50 text-[#EF7415] border border-orange-200/80 flex items-center justify-center flex-shrink-0 shadow-2xs group-hover:scale-110 group-hover:bg-[#EF7415] group-hover:text-white group-hover:border-[#EF7415] transition-all duration-300 self-center ml-2.5">
+                                <svg class="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                                </svg>
                             </div>
+                        </a>
+                    @empty
+                        <div class="col-span-full py-8 text-center text-gray-500 text-xs">
+                            No specialities listed currently.
                         </div>
-                        <div class="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-orange-50 text-[#EF7415] border border-orange-200/80 flex items-center justify-center flex-shrink-0 shadow-2xs group-hover:scale-110 group-hover:bg-[#EF7415] group-hover:text-white group-hover:border-[#EF7415] transition-all duration-300 self-center ml-2.5">
-                            <svg class="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-                            </svg>
-                        </div>
-                    </a>
-
-                    <!-- 2. Neurosurgery -->
-                    <a href="#quote-form" class="group relative bg-white rounded-2xl p-4 sm:p-5 border border-gray-200/90 shadow-[0_2px_8px_rgba(0,0,0,0.03)] hover:shadow-xl hover:shadow-[#27797D]/8 hover:border-[#27797D]/50 hover:-translate-y-1 transition-all duration-300 flex items-center justify-between cursor-pointer overflow-hidden">
-                        <span class="absolute left-0 top-3 bottom-3 w-1 bg-gradient-to-b from-[#27797D] to-[#EF7415] rounded-r-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
-                        <div class="flex items-center gap-3.5 sm:gap-4 pr-2 sm:pr-3 min-w-0">
-                            <div class="w-12 h-12 sm:w-13 sm:h-13 rounded-xl bg-gradient-to-br from-teal-50/90 via-blue-50/70 to-indigo-50/40 p-2.5 flex items-center justify-center flex-shrink-0 border border-teal-100/70 shadow-xs group-hover:scale-105 group-hover:bg-teal-100/80 group-hover:border-teal-200 transition-all duration-300">
-                                <img src="{{ asset('icons/neuro.png') }}" alt="Neurosurgery & Brain Care" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300">
-                            </div>
-                            <div class="min-w-0">
-                                <h3 class="text-[15px] sm:text-base font-bold text-gray-900 group-hover:text-[#27797D] transition-colors leading-snug">
-                                    Neurosurgery & Brain Care
-                                </h3>
-                                <p class="text-xs text-gray-500 mt-1 leading-relaxed line-clamp-2">
-                                    Micro-neurosurgical procedures, cranial tumor care & neuro-navigation.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-orange-50 text-[#EF7415] border border-orange-200/80 flex items-center justify-center flex-shrink-0 shadow-2xs group-hover:scale-110 group-hover:bg-[#EF7415] group-hover:text-white group-hover:border-[#EF7415] transition-all duration-300 self-center ml-2.5">
-                            <svg class="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-                            </svg>
-                        </div>
-                    </a>
-
-                    <!-- 3. Spine Surgery -->
-                    <a href="#quote-form" class="group relative bg-white rounded-2xl p-4 sm:p-5 border border-gray-200/90 shadow-[0_2px_8px_rgba(0,0,0,0.03)] hover:shadow-xl hover:shadow-[#27797D]/8 hover:border-[#27797D]/50 hover:-translate-y-1 transition-all duration-300 flex items-center justify-between cursor-pointer overflow-hidden">
-                        <span class="absolute left-0 top-3 bottom-3 w-1 bg-gradient-to-b from-[#27797D] to-[#EF7415] rounded-r-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
-                        <div class="flex items-center gap-3.5 sm:gap-4 pr-2 sm:pr-3 min-w-0">
-                            <div class="w-12 h-12 sm:w-13 sm:h-13 rounded-xl bg-gradient-to-br from-teal-50/90 via-blue-50/70 to-indigo-50/40 p-2.5 flex items-center justify-center flex-shrink-0 border border-teal-100/70 shadow-xs group-hover:scale-105 group-hover:bg-teal-100/80 group-hover:border-teal-200 transition-all duration-300">
-                                <img src="{{ asset('icons/spine.svg') }}" alt="Advanced Spine Surgery" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300">
-                            </div>
-                            <div class="min-w-0">
-                                <h3 class="text-[15px] sm:text-base font-bold text-gray-900 group-hover:text-[#27797D] transition-colors leading-snug">
-                                    Advanced Spine Surgery
-                                </h3>
-                                <p class="text-xs text-gray-500 mt-1 leading-relaxed line-clamp-2">
-                                    Endoscopic disc surgery, spinal deformity correction & motion preservation.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-orange-50 text-[#EF7415] border border-orange-200/80 flex items-center justify-center flex-shrink-0 shadow-2xs group-hover:scale-110 group-hover:bg-[#EF7415] group-hover:text-white group-hover:border-[#EF7415] transition-all duration-300 self-center ml-2.5">
-                            <svg class="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-                            </svg>
-                        </div>
-                    </a>
-
-                    <!-- 4. Cardiology -->
-                    <a href="#quote-form" class="group relative bg-white rounded-2xl p-4 sm:p-5 border border-gray-200/90 shadow-[0_2px_8px_rgba(0,0,0,0.03)] hover:shadow-xl hover:shadow-[#27797D]/8 hover:border-[#27797D]/50 hover:-translate-y-1 transition-all duration-300 flex items-center justify-between cursor-pointer overflow-hidden">
-                        <span class="absolute left-0 top-3 bottom-3 w-1 bg-gradient-to-b from-[#27797D] to-[#EF7415] rounded-r-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
-                        <div class="flex items-center gap-3.5 sm:gap-4 pr-2 sm:pr-3 min-w-0">
-                            <div class="w-12 h-12 sm:w-13 sm:h-13 rounded-xl bg-gradient-to-br from-teal-50/90 via-blue-50/70 to-indigo-50/40 p-2.5 flex items-center justify-center flex-shrink-0 border border-teal-100/70 shadow-xs group-hover:scale-105 group-hover:bg-teal-100/80 group-hover:border-teal-200 transition-all duration-300">
-                                <img src="{{ asset('icons/cardio.svg') }}" alt="Cardiology & Cardiac Care" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300">
-                            </div>
-                            <div class="min-w-0">
-                                <h3 class="text-[15px] sm:text-base font-bold text-gray-900 group-hover:text-[#27797D] transition-colors leading-snug">
-                                    Cardiology & Heart Care
-                                </h3>
-                                <p class="text-xs text-gray-500 mt-1 leading-relaxed line-clamp-2">
-                                    Minimally invasive bypass, valve repair, angioplasty & pediatric heart care.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-orange-50 text-[#EF7415] border border-orange-200/80 flex items-center justify-center flex-shrink-0 shadow-2xs group-hover:scale-110 group-hover:bg-[#EF7415] group-hover:text-white group-hover:border-[#EF7415] transition-all duration-300 self-center ml-2.5">
-                            <svg class="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-                            </svg>
-                        </div>
-                    </a>
-
-                    <!-- 5. Orthopedics -->
-                    <a href="#quote-form" class="group relative bg-white rounded-2xl p-4 sm:p-5 border border-gray-200/90 shadow-[0_2px_8px_rgba(0,0,0,0.03)] hover:shadow-xl hover:shadow-[#27797D]/8 hover:border-[#27797D]/50 hover:-translate-y-1 transition-all duration-300 flex items-center justify-between cursor-pointer overflow-hidden">
-                        <span class="absolute left-0 top-3 bottom-3 w-1 bg-gradient-to-b from-[#27797D] to-[#EF7415] rounded-r-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
-                        <div class="flex items-center gap-3.5 sm:gap-4 pr-2 sm:pr-3 min-w-0">
-                            <div class="w-12 h-12 sm:w-13 sm:h-13 rounded-xl bg-gradient-to-br from-teal-50/90 via-blue-50/70 to-indigo-50/40 p-2.5 flex items-center justify-center flex-shrink-0 border border-teal-100/70 shadow-xs group-hover:scale-105 group-hover:bg-teal-100/80 group-hover:border-teal-200 transition-all duration-300">
-                                <img src="{{ asset('icons/ortho.svg') }}" alt="Orthopedics & Joint Care" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300">
-                            </div>
-                            <div class="min-w-0">
-                                <h3 class="text-[15px] sm:text-base font-bold text-gray-900 group-hover:text-[#27797D] transition-colors leading-snug">
-                                    Orthopedics & Joint Care
-                                </h3>
-                                <p class="text-xs text-gray-500 mt-1 leading-relaxed line-clamp-2">
-                                    Robotic knee & hip replacements, arthroscopy & joint restoration.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-orange-50 text-[#EF7415] border border-orange-200/80 flex items-center justify-center flex-shrink-0 shadow-2xs group-hover:scale-110 group-hover:bg-[#EF7415] group-hover:text-white group-hover:border-[#EF7415] transition-all duration-300 self-center ml-2.5">
-                            <svg class="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-                            </svg>
-                        </div>
-                    </a>
-
-                    <!-- 6. IVF -->
-                    <a href="#quote-form" class="group relative bg-white rounded-2xl p-4 sm:p-5 border border-gray-200/90 shadow-[0_2px_8px_rgba(0,0,0,0.03)] hover:shadow-xl hover:shadow-[#27797D]/8 hover:border-[#27797D]/50 hover:-translate-y-1 transition-all duration-300 flex items-center justify-between cursor-pointer overflow-hidden">
-                        <span class="absolute left-0 top-3 bottom-3 w-1 bg-gradient-to-b from-[#27797D] to-[#EF7415] rounded-r-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
-                        <div class="flex items-center gap-3.5 sm:gap-4 pr-2 sm:pr-3 min-w-0">
-                            <div class="w-12 h-12 sm:w-13 sm:h-13 rounded-xl bg-gradient-to-br from-teal-50/90 via-blue-50/70 to-indigo-50/40 p-2.5 flex items-center justify-center flex-shrink-0 border border-teal-100/70 shadow-xs group-hover:scale-105 group-hover:bg-teal-100/80 group-hover:border-teal-200 transition-all duration-300">
-                                <img src="{{ asset('icons/ivf.svg') }}" alt="IVF & Reproductive Care" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300">
-                            </div>
-                            <div class="min-w-0">
-                                <h3 class="text-[15px] sm:text-base font-bold text-gray-900 group-hover:text-[#27797D] transition-colors leading-snug">
-                                    IVF & Reproductive Care
-                                </h3>
-                                <p class="text-xs text-gray-500 mt-1 leading-relaxed line-clamp-2">
-                                    Advanced IVF/ICSI cycles, fertility preservation & high success rates.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-orange-50 text-[#EF7415] border border-orange-200/80 flex items-center justify-center flex-shrink-0 shadow-2xs group-hover:scale-110 group-hover:bg-[#EF7415] group-hover:text-white group-hover:border-[#EF7415] transition-all duration-300 self-center ml-2.5">
-                            <svg class="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-                            </svg>
-                        </div>
-                    </a>
-
-                    <!-- 7. Gynecology -->
-                    <a href="#quote-form" class="group relative bg-white rounded-2xl p-4 sm:p-5 border border-gray-200/90 shadow-[0_2px_8px_rgba(0,0,0,0.03)] hover:shadow-xl hover:shadow-[#27797D]/8 hover:border-[#27797D]/50 hover:-translate-y-1 transition-all duration-300 flex items-center justify-between cursor-pointer overflow-hidden">
-                        <span class="absolute left-0 top-3 bottom-3 w-1 bg-gradient-to-b from-[#27797D] to-[#EF7415] rounded-r-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
-                        <div class="flex items-center gap-3.5 sm:gap-4 pr-2 sm:pr-3 min-w-0">
-                            <div class="w-12 h-12 sm:w-13 sm:h-13 rounded-xl bg-gradient-to-br from-teal-50/90 via-blue-50/70 to-indigo-50/40 p-2.5 flex items-center justify-center flex-shrink-0 border border-teal-100/70 shadow-xs group-hover:scale-105 group-hover:bg-teal-100/80 group-hover:border-teal-200 transition-all duration-300">
-                                <img src="{{ asset('icons/heno.svg') }}" alt="Gynecology & Women's Health" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300">
-                            </div>
-                            <div class="min-w-0">
-                                <h3 class="text-[15px] sm:text-base font-bold text-gray-900 group-hover:text-[#27797D] transition-colors leading-snug">
-                                    Gynecology & Women's Health
-                                </h3>
-                                <p class="text-xs text-gray-500 mt-1 leading-relaxed line-clamp-2">
-                                    Specialized women's health, laparoscopic gynecology & pelvic care.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-orange-50 text-[#EF7415] border border-orange-200/80 flex items-center justify-center flex-shrink-0 shadow-2xs group-hover:scale-110 group-hover:bg-[#EF7415] group-hover:text-white group-hover:border-[#EF7415] transition-all duration-300 self-center ml-2.5">
-                            <svg class="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-                            </svg>
-                        </div>
-                    </a>
-
-                    <!-- 8. Cosmetic -->
-                    <a href="#quote-form" class="group relative bg-white rounded-2xl p-4 sm:p-5 border border-gray-200/90 shadow-[0_2px_8px_rgba(0,0,0,0.03)] hover:shadow-xl hover:shadow-[#27797D]/8 hover:border-[#27797D]/50 hover:-translate-y-1 transition-all duration-300 flex items-center justify-between cursor-pointer overflow-hidden">
-                        <span class="absolute left-0 top-3 bottom-3 w-1 bg-gradient-to-b from-[#27797D] to-[#EF7415] rounded-r-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
-                        <div class="flex items-center gap-3.5 sm:gap-4 pr-2 sm:pr-3 min-w-0">
-                            <div class="w-12 h-12 sm:w-13 sm:h-13 rounded-xl bg-gradient-to-br from-teal-50/90 via-blue-50/70 to-indigo-50/40 p-2.5 flex items-center justify-center flex-shrink-0 border border-teal-100/70 shadow-xs group-hover:scale-105 group-hover:bg-teal-100/80 group-hover:border-teal-200 transition-all duration-300">
-                                <img src="{{ asset('icons/cosmatic.svg') }}" alt="Cosmetic & Aesthetic Surgery" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300">
-                            </div>
-                            <div class="min-w-0">
-                                <h3 class="text-[15px] sm:text-base font-bold text-gray-900 group-hover:text-[#27797D] transition-colors leading-snug">
-                                    Cosmetic & Plastic Surgery
-                                </h3>
-                                <p class="text-xs text-gray-500 mt-1 leading-relaxed line-clamp-2">
-                                    Aesthetic facial refinement, hair restoration & body sculpting procedures.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-orange-50 text-[#EF7415] border border-orange-200/80 flex items-center justify-center flex-shrink-0 shadow-2xs group-hover:scale-110 group-hover:bg-[#EF7415] group-hover:text-white group-hover:border-[#EF7415] transition-all duration-300 self-center ml-2.5">
-                            <svg class="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-                            </svg>
-                        </div>
-                    </a>
-
-                    <!-- 9. Weight Loss -->
-                    <a href="#quote-form" class="group relative bg-white rounded-2xl p-4 sm:p-5 border border-gray-200/90 shadow-[0_2px_8px_rgba(0,0,0,0.03)] hover:shadow-xl hover:shadow-[#27797D]/8 hover:border-[#27797D]/50 hover:-translate-y-1 transition-all duration-300 flex items-center justify-between cursor-pointer overflow-hidden">
-                        <span class="absolute left-0 top-3 bottom-3 w-1 bg-gradient-to-b from-[#27797D] to-[#EF7415] rounded-r-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
-                        <div class="flex items-center gap-3.5 sm:gap-4 pr-2 sm:pr-3 min-w-0">
-                            <div class="w-12 h-12 sm:w-13 sm:h-13 rounded-xl bg-gradient-to-br from-teal-50/90 via-blue-50/70 to-indigo-50/40 p-2.5 flex items-center justify-center flex-shrink-0 border border-teal-100/70 shadow-xs group-hover:scale-105 group-hover:bg-teal-100/80 group-hover:border-teal-200 transition-all duration-300">
-                                <img src="{{ asset('icons/weightloss.svg') }}" alt="Bariatrics & Weight Loss" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300">
-                            </div>
-                            <div class="min-w-0">
-                                <h3 class="text-[15px] sm:text-base font-bold text-gray-900 group-hover:text-[#27797D] transition-colors leading-snug">
-                                    Bariatrics & Weight Loss
-                                </h3>
-                                <p class="text-xs text-gray-500 mt-1 leading-relaxed line-clamp-2">
-                                    Minimally invasive gastric sleeve, bypass & metabolic wellness care.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-orange-50 text-[#EF7415] border border-orange-200/80 flex items-center justify-center flex-shrink-0 shadow-2xs group-hover:scale-110 group-hover:bg-[#EF7415] group-hover:text-white group-hover:border-[#EF7415] transition-all duration-300 self-center ml-2.5">
-                            <svg class="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-                            </svg>
-                        </div>
-                    </a>
-
-                    <!-- 10. Liver Transplant -->
-                    <a href="#quote-form" class="group relative bg-white rounded-2xl p-4 sm:p-5 border border-gray-200/90 shadow-[0_2px_8px_rgba(0,0,0,0.03)] hover:shadow-xl hover:shadow-[#27797D]/8 hover:border-[#27797D]/50 hover:-translate-y-1 transition-all duration-300 flex items-center justify-between cursor-pointer overflow-hidden">
-                        <span class="absolute left-0 top-3 bottom-3 w-1 bg-gradient-to-b from-[#27797D] to-[#EF7415] rounded-r-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
-                        <div class="flex items-center gap-3.5 sm:gap-4 pr-2 sm:pr-3 min-w-0">
-                            <div class="w-12 h-12 sm:w-13 sm:h-13 rounded-xl bg-gradient-to-br from-teal-50/90 via-blue-50/70 to-indigo-50/40 p-2.5 flex items-center justify-center flex-shrink-0 border border-teal-100/70 shadow-xs group-hover:scale-105 group-hover:bg-teal-100/80 group-hover:border-teal-200 transition-all duration-300">
-                                <img src="{{ asset('icons/liver.svg') }}" alt="Liver Transplant & Hepatic Care" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300">
-                            </div>
-                            <div class="min-w-0">
-                                <h3 class="text-[15px] sm:text-base font-bold text-gray-900 group-hover:text-[#27797D] transition-colors leading-snug">
-                                    Liver Transplant & Hepatic Care
-                                </h3>
-                                <p class="text-xs text-gray-500 mt-1 leading-relaxed line-clamp-2">
-                                    High-success living donor transplants & complex hepato-biliary care.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-orange-50 text-[#EF7415] border border-orange-200/80 flex items-center justify-center flex-shrink-0 shadow-2xs group-hover:scale-110 group-hover:bg-[#EF7415] group-hover:text-white group-hover:border-[#EF7415] transition-all duration-300 self-center ml-2.5">
-                            <svg class="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-                            </svg>
-                        </div>
-                    </a>
-
-                    <!-- 11. Kidney Transplant -->
-                    <a href="#quote-form" class="group relative bg-white rounded-2xl p-4 sm:p-5 border border-gray-200/90 shadow-[0_2px_8px_rgba(0,0,0,0.03)] hover:shadow-xl hover:shadow-[#27797D]/8 hover:border-[#27797D]/50 hover:-translate-y-1 transition-all duration-300 flex items-center justify-between cursor-pointer overflow-hidden">
-                        <span class="absolute left-0 top-3 bottom-3 w-1 bg-gradient-to-b from-[#27797D] to-[#EF7415] rounded-r-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
-                        <div class="flex items-center gap-3.5 sm:gap-4 pr-2 sm:pr-3 min-w-0">
-                            <div class="w-12 h-12 sm:w-13 sm:h-13 rounded-xl bg-gradient-to-br from-teal-50/90 via-blue-50/70 to-indigo-50/40 p-2.5 flex items-center justify-center flex-shrink-0 border border-teal-100/70 shadow-xs group-hover:scale-105 group-hover:bg-teal-100/80 group-hover:border-teal-200 transition-all duration-300">
-                                <img src="{{ asset('icons/kidneytransplant.svg') }}" alt="Kidney Transplant & Renal Care" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300">
-                            </div>
-                            <div class="min-w-0">
-                                <h3 class="text-[15px] sm:text-base font-bold text-gray-900 group-hover:text-[#27797D] transition-colors leading-snug">
-                                    Kidney Care & Nephrology
-                                </h3>
-                                <p class="text-xs text-gray-500 mt-1 leading-relaxed line-clamp-2">
-                                    Advanced renal transplantation, dialysis access & comprehensive renal care.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-orange-50 text-[#EF7415] border border-orange-200/80 flex items-center justify-center flex-shrink-0 shadow-2xs group-hover:scale-110 group-hover:bg-[#EF7415] group-hover:text-white group-hover:border-[#EF7415] transition-all duration-300 self-center ml-2.5">
-                            <svg class="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-                            </svg>
-                        </div>
-                    </a>
-
-                    <!-- 12. Bone Marrow -->
-                    <a href="#quote-form" class="group relative bg-white rounded-2xl p-4 sm:p-5 border border-gray-200/90 shadow-[0_2px_8px_rgba(0,0,0,0.03)] hover:shadow-xl hover:shadow-[#27797D]/8 hover:border-[#27797D]/50 hover:-translate-y-1 transition-all duration-300 flex items-center justify-between cursor-pointer overflow-hidden">
-                        <span class="absolute left-0 top-3 bottom-3 w-1 bg-gradient-to-b from-[#27797D] to-[#EF7415] rounded-r-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
-                        <div class="flex items-center gap-3.5 sm:gap-4 pr-2 sm:pr-3 min-w-0">
-                            <div class="w-12 h-12 sm:w-13 sm:h-13 rounded-xl bg-gradient-to-br from-teal-50/90 via-blue-50/70 to-indigo-50/40 p-2.5 flex items-center justify-center flex-shrink-0 border border-teal-100/70 shadow-xs group-hover:scale-105 group-hover:bg-teal-100/80 group-hover:border-teal-200 transition-all duration-300">
-                                <img src="{{ asset('icons/bonemarrow.svg') }}" alt="Bone Marrow & Stem Cell" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300">
-                            </div>
-                            <div class="min-w-0">
-                                <h3 class="text-[15px] sm:text-base font-bold text-gray-900 group-hover:text-[#27797D] transition-colors leading-snug">
-                                    Bone Marrow & Stem Cell
-                                </h3>
-                                <p class="text-xs text-gray-500 mt-1 leading-relaxed line-clamp-2">
-                                    Autologous & allogeneic stem cell therapies for blood disorders.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-orange-50 text-[#EF7415] border border-orange-200/80 flex items-center justify-center flex-shrink-0 shadow-2xs group-hover:scale-110 group-hover:bg-[#EF7415] group-hover:text-white group-hover:border-[#EF7415] transition-all duration-300 self-center ml-2.5">
-                            <svg class="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-                            </svg>
-                        </div>
-                    </a>
+                    @endforelse
 
                 </div>
 
@@ -1124,15 +886,15 @@
                     @php
                         $treatmentImg = !empty($treatment->image) 
                             ? (\Illuminate\Support\Str::startsWith($treatment->image, ['http://', 'https://']) ? $treatment->image : asset($treatment->image)) 
-                            : asset('icons/cardio.svg');
+                            : (!empty($treatment->doctorSpeciality?->image) ? asset($treatment->doctorSpeciality->image) : asset('icons/cardio.svg'));
                     @endphp
-                    <a href="#quote-form" class="group relative bg-white rounded-2xl p-4 border border-gray-200/90 shadow-[0_2px_8px_rgba(0,0,0,0.03)] hover:shadow-xl hover:shadow-[#27797D]/10 hover:border-[#27797D]/50 hover:-translate-y-1 transition-all duration-300 flex items-center gap-3.5 cursor-pointer overflow-hidden">
+                    <a href="#quote-form" class="group relative bg-white rounded-2xl p-4 border border-gray-200/90 shadow-[0_2px_8px_rgba(0,0,0,0.03)] hover:shadow-xl hover:shadow-[#27797D]/10 hover:border-[#27797D]/50 hover:-translate-y-1 transition-all duration-300 flex items-center gap-3.5 cursor-pointer overflow-hidden min-h-[96px]">
                         <span class="absolute left-0 top-3 bottom-3 w-1 bg-gradient-to-b from-[#27797D] to-[#EF7415] rounded-r-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
                         <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-teal-50/90 via-blue-50/70 to-indigo-50/40 p-2 flex items-center justify-center flex-shrink-0 border border-teal-100/70 shadow-2xs group-hover:scale-105 group-hover:bg-teal-100/80 group-hover:border-teal-200 transition-all duration-300">
                             <img src="{{ $treatmentImg }}" alt="{{ $treatment->name }}" class="w-full h-full object-contain" onerror="this.onerror=null; this.src='{{ asset('icons/cardio.svg') }}';">
                         </div>
                         <div class="min-w-0 flex-1">
-                            <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#27797D] transition-colors truncate" title="{{ $treatment->name }}">
+                            <h3 class="text-sm font-bold text-[#112347] leading-snug group-hover:text-[#27797D] transition-colors break-words" title="{{ $treatment->name }}">
                                 {{ $treatment->name }}
                             </h3>
                             <div class="flex items-baseline gap-1 mt-1">

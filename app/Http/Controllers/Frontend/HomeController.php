@@ -25,7 +25,7 @@ class HomeController extends Controller
 
         // 2. Doctor Specialties
         $specialities = DoctorSpeciality::withCount('treatments')
-            ->orderBy('name')
+            ->orderBy('id')
             ->get();
 
         // 3. How It Works (ordered active steps)

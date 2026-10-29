@@ -61,10 +61,54 @@ class UtilitySeeder extends Seeder
         );
 
         // 5. Doctor Specialities
-        $interventionalCardio = DoctorSpeciality::firstOrCreate(['name' => 'Interventional Cardiologist']);
-        $surgicalOnco = DoctorSpeciality::firstOrCreate(['name' => 'Surgical Oncologist']);
-        $jointSurgeon = DoctorSpeciality::firstOrCreate(['name' => 'Joint Replacement Surgeon']);
-        $neuroSurgeon = DoctorSpeciality::firstOrCreate(['name' => 'Neurosurgeon & Spine Specialist']);
+        $cardioSpec = DoctorSpeciality::updateOrCreate(
+            ['id' => 1],
+            ['name' => 'Cardiology & Heart Care', 'image' => 'icons/cardio.svg', 'description' => 'Minimally invasive bypass, valve repair, angioplasty & pediatric heart care.']
+        );
+        $oncoSpec = DoctorSpeciality::updateOrCreate(
+            ['id' => 2],
+            ['name' => 'Oncology & Cancer Care', 'image' => 'icons/onco.svg', 'description' => 'Targeted immunotherapy, robotic surgical oncology & precision therapies.']
+        );
+        $orthoSpec = DoctorSpeciality::updateOrCreate(
+            ['id' => 3],
+            ['name' => 'Orthopedics & Joint Care', 'image' => 'icons/ortho.svg', 'description' => 'Robotic knee & hip replacements, arthroscopy & joint restoration.']
+        );
+        $neuroSpec = DoctorSpeciality::updateOrCreate(
+            ['id' => 4],
+            ['name' => 'Neurosurgery & Brain Care', 'image' => 'icons/neuro.png', 'description' => 'Micro-neurosurgical procedures, cranial tumor care & neuro-navigation.']
+        );
+        DoctorSpeciality::updateOrCreate(
+            ['id' => 5],
+            ['name' => 'Advanced Spine Surgery', 'image' => 'icons/spine.svg', 'description' => 'Endoscopic disc surgery, spinal deformity correction & motion preservation.']
+        );
+        DoctorSpeciality::updateOrCreate(
+            ['id' => 6],
+            ['name' => 'IVF & Reproductive Care', 'image' => 'icons/ivf.svg', 'description' => 'Advanced IVF/ICSI cycles, fertility preservation & high success rates.']
+        );
+        DoctorSpeciality::updateOrCreate(
+            ['id' => 7],
+            ['name' => 'Gynecology & Women\'s Health', 'image' => 'icons/heno.svg', 'description' => 'Specialized women\'s health, laparoscopic gynecology & pelvic care.']
+        );
+        DoctorSpeciality::updateOrCreate(
+            ['id' => 8],
+            ['name' => 'Cosmetic & Plastic Surgery', 'image' => 'icons/cosmatic.svg', 'description' => 'Aesthetic facial refinement, hair restoration & body sculpting procedures.']
+        );
+        DoctorSpeciality::updateOrCreate(
+            ['id' => 9],
+            ['name' => 'Bariatrics & Weight Loss', 'image' => 'icons/weightloss.svg', 'description' => 'Minimally invasive gastric sleeve, bypass & metabolic wellness care.']
+        );
+        DoctorSpeciality::updateOrCreate(
+            ['id' => 10],
+            ['name' => 'Liver Transplant & Hepatic Care', 'image' => 'icons/liver.svg', 'description' => 'High-success living donor transplants & complex hepato-biliary care.']
+        );
+        DoctorSpeciality::updateOrCreate(
+            ['id' => 11],
+            ['name' => 'Kidney Care & Nephrology', 'image' => 'icons/kidneytransplant.svg', 'description' => 'Advanced renal transplantation, dialysis access & comprehensive renal care.']
+        );
+        DoctorSpeciality::updateOrCreate(
+            ['id' => 12],
+            ['name' => 'Bone Marrow & Stem Cell', 'image' => 'icons/bonemarrow.svg', 'description' => 'Autologous & allogeneic stem cell therapies for blood disorders.']
+        );
 
         // 6. Hospital Categories
         HospitalCategory::firstOrCreate(['name' => 'Multi-Specialty Quaternary Hospital']);
@@ -77,7 +121,7 @@ class UtilitySeeder extends Seeder
             ['name' => 'Coronary Artery Bypass Grafting (CABG)'],
             [
                 'department_id' => $cardio->id,
-                'spaciality_id' => $interventionalCardio->id,
+                'spaciality_id' => $cardioSpec->id,
                 'price' => 480000.00,
                 'price_type' => 'rupees',
             ]
@@ -87,7 +131,7 @@ class UtilitySeeder extends Seeder
             ['name' => 'Bilateral Robotic Knee Replacement'],
             [
                 'department_id' => $ortho->id,
-                'spaciality_id' => $jointSurgeon->id,
+                'spaciality_id' => $orthoSpec->id,
                 'price' => 620000.00,
                 'price_type' => 'rupees',
             ]
@@ -97,7 +141,7 @@ class UtilitySeeder extends Seeder
             ['name' => 'Deep Brain Stimulation (DBS)'],
             [
                 'department_id' => $neuro->id,
-                'spaciality_id' => $neuroSurgeon->id,
+                'spaciality_id' => $neuroSpec->id,
                 'price' => 18500.00,
                 'price_type' => 'dollars',
             ]
@@ -107,7 +151,7 @@ class UtilitySeeder extends Seeder
             ['name' => 'Targeted Immunotherapy (Cycle)'],
             [
                 'department_id' => $onco->id,
-                'spaciality_id' => $surgicalOnco->id,
+                'spaciality_id' => $oncoSpec->id,
                 'price' => 850000.00,
                 'price_type' => 'rupees',
             ]

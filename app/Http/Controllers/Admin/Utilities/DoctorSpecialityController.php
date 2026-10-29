@@ -47,6 +47,7 @@ class DoctorSpecialityController extends Controller
     {
         $validated = $request->validate([
             'name' => ['required', 'string', 'max:255', 'unique:doctor_specialities,name'],
+            'description' => ['nullable', 'string', 'max:1000'],
             'selected_icon' => ['nullable', 'string', 'max:255'],
             'image' => ['nullable', 'file', 'mimes:jpeg,png,jpg,gif,svg,webp,ico,bmp,avif', 'max:5120'],
         ]);
@@ -90,6 +91,7 @@ class DoctorSpecialityController extends Controller
     {
         $validated = $request->validate([
             'name' => ['required', 'string', 'max:255', 'unique:doctor_specialities,name,' . $doctorSpeciality->id],
+            'description' => ['nullable', 'string', 'max:1000'],
             'selected_icon' => ['nullable', 'string', 'max:255'],
             'image' => ['nullable', 'file', 'mimes:jpeg,png,jpg,gif,svg,webp,ico,bmp,avif', 'max:5120'],
         ]);

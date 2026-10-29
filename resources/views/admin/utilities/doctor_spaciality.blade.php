@@ -153,6 +153,11 @@
                                 <span class="font-bold text-slate-900 text-sm">
                                     {{ $item->name }}
                                 </span>
+                                @if($item->description)
+                                    <p class="text-xs text-slate-500 line-clamp-1 mt-0.5">
+                                        {{ $item->description }}
+                                    </p>
+                                @endif
                                 @if($item->image)
                                     <span class="block text-[10px] text-slate-400 font-mono mt-0.5 truncate max-w-xs">
                                         {{ $item->image }}
@@ -172,7 +177,7 @@
                                     <!-- Edit Button -->
                                     <button 
                                         type="button" 
-                                        onclick="openEditSpecialityModal({{ $item->id }}, '{{ addslashes($item->name) }}', '{{ $item->image ?? '' }}')"
+                                        onclick="openEditSpecialityModal({{ $item->id }}, '{{ addslashes($item->name) }}', '{{ $item->image ?? '' }}', '{{ addslashes(preg_replace('/\r|\n/', ' ', $item->description ?? '')) }}')"
                                         class="p-1.5 rounded-lg text-slate-500 hover:text-[#27797D] hover:bg-teal-50 transition-colors cursor-pointer"
                                         title="Edit Speciality"
                                     >
@@ -252,6 +257,19 @@
                     placeholder="e.g. Interventional Cardiologist, Spine Surgeon, Surgical Oncologist..." 
                     class="w-full bg-slate-50 focus:bg-white text-xs sm:text-sm px-3.5 py-2.5 rounded-xl border border-slate-200 focus:border-[#27797D] focus:outline-none transition-all font-medium"
                 >
+            </div>
+
+            <!-- Description -->
+            <div>
+                <label class="block text-xs font-bold text-slate-700 mb-1.5">
+                    Description / Subtitle <span class="text-slate-400 font-normal">(Optional, shown on homepage)</span>
+                </label>
+                <textarea 
+                    name="description" 
+                    rows="2"
+                    placeholder="e.g. Minimally invasive bypass, valve repair, angioplasty & pediatric heart care." 
+                    class="w-full bg-slate-50 focus:bg-white text-xs sm:text-sm px-3.5 py-2 rounded-xl border border-slate-200 focus:border-[#27797D] focus:outline-none transition-all font-medium"
+                ></textarea>
             </div>
 
             <!-- DUAL ICON SELECTION: Searchable public/icons Dropdown + Upload -->
@@ -385,6 +403,20 @@
                     required 
                     class="w-full bg-slate-50 focus:bg-white text-xs sm:text-sm px-3.5 py-2.5 rounded-xl border border-slate-200 focus:border-[#27797D] focus:outline-none transition-all font-medium"
                 >
+            </div>
+
+            <!-- Description -->
+            <div>
+                <label class="block text-xs font-bold text-slate-700 mb-1.5">
+                    Description / Subtitle <span class="text-slate-400 font-normal">(Optional, shown on homepage)</span>
+                </label>
+                <textarea 
+                    name="description" 
+                    id="edit-speciality-description"
+                    rows="2"
+                    placeholder="e.g. Minimally invasive bypass, valve repair, angioplasty & pediatric heart care." 
+                    class="w-full bg-slate-50 focus:bg-white text-xs sm:text-sm px-3.5 py-2 rounded-xl border border-slate-200 focus:border-[#27797D] focus:outline-none transition-all font-medium"
+                ></textarea>
             </div>
 
             <!-- Current Icon Preview -->
@@ -613,17 +645,21 @@
         modal.classList.remove('flex');
     }
 
-    function openEditSpecialityModal(id, name, imagePath) {
+    function openEditSpecialityModal(id, name, imagePath, description) {
         clearIconPicker('edit-spec');
         const modal = document.getElementById('edit-speciality-modal');
         const form = document.getElementById('edit-speciality-form');
         const nameInput = document.getElementById('edit-speciality-name');
+        const descInput = document.getElementById('edit-speciality-description');
         const currentPreview = document.getElementById('edit-spec-current-preview');
         const currentImg = document.getElementById('edit-spec-current-img');
         const currentPath = document.getElementById('edit-spec-current-path');
 
         form.action = "{{ url('/admin/utilities/doctor-spaciality') }}/" + id;
         nameInput.value = name;
+        if (descInput) {
+            descInput.value = description || '';
+        }
 
         if (imagePath) {
             const assetUrl = "{{ asset('') }}" + imagePath;
