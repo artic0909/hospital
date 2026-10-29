@@ -146,15 +146,10 @@ Route::prefix('admin')->name('admin.')->group(function () {
         });
 
         // ==================== FRONTEND DYNAMIC & PAGE SETUP ====================
-        // 1. Hero Section CRUD
+        // 1. Hero Section (Single Record Edit)
         Route::prefix('hero-section')->name('hero-section.')->group(function () {
-            Route::get('/', [HeroSectionController::class, 'index'])->name('index');
-            Route::get('/create', [HeroSectionController::class, 'create'])->name('create');
-            Route::post('/', [HeroSectionController::class, 'store'])->name('store');
-            Route::get('/{heroSection}/edit', [HeroSectionController::class, 'edit'])->name('edit');
-            Route::put('/{heroSection}', [HeroSectionController::class, 'update'])->name('update');
-            Route::delete('/{heroSection}', [HeroSectionController::class, 'destroy'])->name('destroy');
-            Route::patch('/{heroSection}/toggle-status', [HeroSectionController::class, 'toggleStatus'])->name('toggle-status');
+            Route::get('/', [HeroSectionController::class, 'edit'])->name('index');
+            Route::put('/', [HeroSectionController::class, 'update'])->name('update');
         });
 
         // 2. How It Works CRUD

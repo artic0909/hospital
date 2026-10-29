@@ -33,5 +33,28 @@ class HeroSection extends Model
         'is_active' => 'boolean',
         'order' => 'integer',
     ];
-}
 
+    /**
+     * Get or initialize the singleton hero section record.
+     */
+    public static function getHero(): self
+    {
+        return static::firstOrCreate([], [
+            'badge' => 'World-Class Healthcare Partner',
+            'title' => 'Medical Treatment With Unmatched Personal Care',
+            'highlight_text' => 'Personal Care',
+            'subheading' => "World's Most Trusted Medical Travel Assistance Platform connecting global patients with accredited hospitals.",
+            'patient_count' => '1,00,000+',
+            'patient_count_label' => 'Patients Assisted Since 2016',
+            'rating' => '4.7',
+            'rating_label' => 'Google Rating (500+ Reviews)',
+            'primary_btn_text' => 'Get a FREE Quote',
+            'primary_btn_url' => '#quote-form',
+            'secondary_btn_text' => 'WhatsApp Us',
+            'secondary_btn_url' => 'https://wa.me/919129846542',
+            'image' => 'images/hero_medical_care.jpg',
+            'order' => 1,
+            'is_active' => true,
+        ]);
+    }
+}

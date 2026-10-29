@@ -12,7 +12,10 @@ class DoctorSpeciality extends Model
 
     protected $table = 'doctor_specialities';
 
-    protected $fillable = ['name'];
+    protected $fillable = [
+        'name',
+        'image',
+    ];
 
     public function treatments(): HasMany
     {

@@ -16,7 +16,7 @@
                 </span>
             </div>
             <h1 class="text-2xl font-black text-[#112347] tracking-tight">Medical Treatments & Procedures</h1>
-            <p class="text-xs text-slate-500 mt-0.5">Manage surgical procedures, treatments, estimated pricing (₹ INR / $ USD), and department mappings.</p>
+            <p class="text-xs text-slate-500 mt-0.5">Manage surgical procedures, treatments, icons (SVGs, PNGs), estimated pricing, and department mappings.</p>
         </div>
 
         <div class="flex items-center gap-3">
@@ -152,6 +152,7 @@
                             >
                         </th>
                         <th class="py-3.5 px-4 w-16">#ID</th>
+                        <th class="py-3.5 px-4 w-16 text-center">Icon / Image</th>
                         <th class="py-3.5 px-6">Treatment / Procedure</th>
                         <th class="py-3.5 px-6">Department</th>
                         <th class="py-3.5 px-6">Speciality</th>
@@ -173,6 +174,21 @@
                             </td>
                             <td class="py-3.5 px-4 font-bold text-slate-400">
                                 #{{ $treatment->id }}
+                            </td>
+                            <!-- Icon / Image Preview -->
+                            <td class="py-3.5 px-4 text-center">
+                                <div class="w-10 h-10 rounded-xl bg-slate-50 border border-slate-200/80 p-1 flex items-center justify-center mx-auto overflow-hidden">
+                                    @if ($treatment->image)
+                                        <img 
+                                            src="{{ asset($treatment->image) }}" 
+                                            alt="{{ $treatment->name }}" 
+                                            class="w-full h-full object-contain"
+                                            onerror="this.onerror=null; this.src='https://placehold.co/40x40?text=SVG';"
+                                        >
+                                    @else
+                                        <span class="text-base">💊</span>
+                                    @endif
+                                </div>
                             </td>
                             <td class="py-3.5 px-6">
                                 <span class="font-bold text-slate-900 text-sm block">
@@ -212,8 +228,8 @@
                                     <!-- Edit Button -->
                                     <button 
                                         type="button" 
-                                        onclick="openEditTreatmentModal({{ $treatment->id }}, {{ $treatment->department_id }}, {{ $treatment->spaciality_id ?? 'null' }}, '{{ addslashes($treatment->name) }}', '{{ $treatment->price }}', '{{ $treatment->price_type }}')"
-                                        class="p-1.5 rounded-lg text-slate-500 hover:text-[#27797D] hover:bg-teal-50 transition-colors"
+                                        onclick="openEditTreatmentModal({{ $treatment->id }}, {{ $treatment->department_id }}, {{ $treatment->spaciality_id ?? 'null' }}, '{{ addslashes($treatment->name) }}', '{{ $treatment->price }}', '{{ $treatment->price_type }}', '{{ $treatment->image ? asset($treatment->image) : '' }}')"
+                                        class="p-1.5 rounded-lg text-slate-500 hover:text-[#27797D] hover:bg-teal-50 transition-colors cursor-pointer"
                                         title="Edit Treatment"
                                     >
                                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"/></svg>
@@ -237,7 +253,7 @@
                         </tr>
                     @empty
                         <tr>
-                            <td colspan="8" class="py-12 text-center text-slate-400">
+                            <td colspan="9" class="py-12 text-center text-slate-400">
                                 <div class="max-w-xs mx-auto space-y-2">
                                     <span class="text-3xl block">💊</span>
                                     <p class="font-bold text-slate-700">No treatments found</p>
@@ -271,13 +287,13 @@
                 </div>
                 <div>
                     <h3 class="text-base font-bold">Add Treatment Procedure</h3>
-                    <p class="text-[11px] text-teal-100">Configure surgical or diagnostic procedure and baseline pricing</p>
+                    <p class="text-[11px] text-teal-100">Configure surgical procedure, icon visual & baseline pricing</p>
                 </div>
             </div>
             <button type="button" onclick="closeAddTreatmentModal()" class="w-7 h-7 rounded-full bg-white/20 hover:bg-white/30 text-white flex items-center justify-center text-xs font-bold transition-colors cursor-pointer">&times;</button>
         </div>
 
-        <form action="{{ route('admin.utilities.treatment.store') }}" method="POST" class="p-5 sm:p-6 space-y-4">
+        <form action="{{ route('admin.utilities.treatment.store') }}" method="POST" enctype="multipart/form-data" class="p-5 sm:p-6 space-y-4">
             @csrf
 
             <!-- Department -->
@@ -315,9 +331,23 @@
                     type="text" 
                     name="name" 
                     required 
-                    placeholder="e.g. CABG Heart Bypass, Robotic Knee Replacement, Bone Marrow Transplant..." 
+                    placeholder="e.g. Total Knee Replacement, CABG Heart Bypass, Bone Marrow..." 
                     class="w-full bg-slate-50 focus:bg-white text-xs sm:text-sm px-3.5 py-2.5 rounded-xl border border-slate-200 focus:border-[#27797D] focus:outline-none transition-all font-medium"
                 >
+            </div>
+
+            <!-- Icon / Visual Upload (Supports SVGs & All Images) -->
+            <div>
+                <label class="block text-xs font-bold text-slate-700 mb-1.5">
+                    Procedure Icon / Visual <span class="text-slate-400 font-normal text-[10px]">(SVG, PNG, JPG, WebP)</span>
+                </label>
+                <input 
+                    type="file" 
+                    name="image" 
+                    accept="image/*,.svg"
+                    class="w-full text-xs text-slate-500 file:mr-4 file:py-2 file:px-3.5 file:rounded-xl file:border-0 file:text-xs file:font-bold file:bg-teal-50 file:text-[#27797D] hover:file:bg-teal-100 cursor-pointer"
+                >
+                <p class="text-[10px] text-slate-400 mt-1">Accepts vector SVGs, PNG, JPG, WebP icons (e.g. Knee, Heart, Eye SVG icons up to 5MB).</p>
             </div>
 
             <!-- Price and Currency -->
@@ -370,13 +400,13 @@
                 </div>
                 <div>
                     <h3 class="text-base font-bold">Edit Treatment Procedure</h3>
-                    <p class="text-[11px] text-teal-100">Update procedure details, specialty, and pricing</p>
+                    <p class="text-[11px] text-teal-100">Update procedure details, specialty, icon, and pricing</p>
                 </div>
             </div>
             <button type="button" onclick="closeEditTreatmentModal()" class="w-7 h-7 rounded-full bg-white/20 hover:bg-white/30 text-white flex items-center justify-center text-xs font-bold transition-colors cursor-pointer">&times;</button>
         </div>
 
-        <form id="edit-treatment-form" action="" method="POST" class="p-5 sm:p-6 space-y-4">
+        <form id="edit-treatment-form" action="" method="POST" enctype="multipart/form-data" class="p-5 sm:p-6 space-y-4">
             @csrf
             @method('PUT')
 
@@ -417,6 +447,31 @@
                     required 
                     class="w-full bg-slate-50 focus:bg-white text-xs sm:text-sm px-3.5 py-2.5 rounded-xl border border-slate-200 focus:border-[#27797D] focus:outline-none transition-all font-medium"
                 >
+            </div>
+
+            <!-- Existing Image Preview -->
+            <div id="edit-treatment-image-preview" class="hidden">
+                <label class="block text-xs font-bold text-slate-700 mb-1.5">Current Visual</label>
+                <div class="flex items-center gap-3 bg-slate-50 p-2.5 rounded-xl border border-slate-200">
+                    <div class="w-10 h-10 rounded-lg bg-white p-1 border border-slate-200 overflow-hidden flex items-center justify-center">
+                        <img id="edit-treatment-img" src="" alt="Icon" class="w-full h-full object-contain">
+                    </div>
+                    <span class="text-[11px] text-slate-500">Current visual active. Upload below to replace.</span>
+                </div>
+            </div>
+
+            <!-- Replace Visual Input -->
+            <div>
+                <label class="block text-xs font-bold text-slate-700 mb-1.5">
+                    Replace Icon / Visual <span class="text-slate-400 font-normal text-[10px]">(SVG, PNG, JPG, WebP)</span>
+                </label>
+                <input 
+                    type="file" 
+                    name="image" 
+                    accept="image/*,.svg"
+                    class="w-full text-xs text-slate-500 file:mr-4 file:py-2 file:px-3.5 file:rounded-xl file:border-0 file:text-xs file:font-bold file:bg-teal-50 file:text-[#27797D] hover:file:bg-teal-100 cursor-pointer"
+                >
+                <p class="text-[10px] text-slate-400 mt-1">Leave blank to keep existing visual.</p>
             </div>
 
             <!-- Price and Currency -->
@@ -473,7 +528,7 @@
         modal.classList.remove('flex');
     }
 
-    function openEditTreatmentModal(id, deptId, specId, name, price, priceType) {
+    function openEditTreatmentModal(id, deptId, specId, name, price, priceType, imageUrl) {
         const modal = document.getElementById('edit-treatment-modal');
         const form = document.getElementById('edit-treatment-form');
         const deptSelect = document.getElementById('edit-treatment-dept-id');
@@ -481,6 +536,8 @@
         const nameInput = document.getElementById('edit-treatment-name');
         const priceInput = document.getElementById('edit-treatment-price');
         const priceTypeSelect = document.getElementById('edit-treatment-price-type');
+        const previewBlock = document.getElementById('edit-treatment-image-preview');
+        const imgElement = document.getElementById('edit-treatment-img');
 
         form.action = "{{ url('/admin/utilities/treatment') }}/" + id;
         deptSelect.value = deptId;
@@ -488,6 +545,14 @@
         nameInput.value = name;
         priceInput.value = price;
         priceTypeSelect.value = priceType;
+
+        if (imageUrl) {
+            imgElement.src = imageUrl;
+            previewBlock.classList.remove('hidden');
+        } else {
+            imgElement.src = '';
+            previewBlock.classList.add('hidden');
+        }
 
         modal.classList.remove('hidden');
         modal.classList.add('flex');

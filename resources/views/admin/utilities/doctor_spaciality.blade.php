@@ -16,7 +16,7 @@
                 </span>
             </div>
             <h1 class="text-2xl font-black text-[#112347] tracking-tight">Doctor Specialities</h1>
-            <p class="text-xs text-slate-500 mt-0.5">Manage doctor clinical specialities and medical qualifications.</p>
+            <p class="text-xs text-slate-500 mt-0.5">Manage doctor clinical specialities, icons (SVGs, PNGs), and qualifications.</p>
         </div>
 
         <div class="flex items-center gap-3">
@@ -113,6 +113,7 @@
                             >
                         </th>
                         <th class="py-3.5 px-4 w-16">#ID</th>
+                        <th class="py-3.5 px-4 w-16 text-center">Icon / Image</th>
                         <th class="py-3.5 px-6">Speciality Name</th>
                         <th class="py-3.5 px-6">Procedures / Treatments</th>
                         <th class="py-3.5 px-6">Created At</th>
@@ -133,9 +134,23 @@
                             <td class="py-3.5 px-4 font-bold text-slate-400">
                                 #{{ $item->id }}
                             </td>
+                            <!-- Icon / Image Preview -->
+                            <td class="py-3.5 px-4 text-center">
+                                <div class="w-10 h-10 rounded-xl bg-slate-50 border border-slate-200/80 p-1 flex items-center justify-center mx-auto overflow-hidden">
+                                    @if ($item->image)
+                                        <img 
+                                            src="{{ asset($item->image) }}" 
+                                            alt="{{ $item->name }}" 
+                                            class="w-full h-full object-contain"
+                                            onerror="this.onerror=null; this.src='https://placehold.co/40x40?text=SVG';"
+                                        >
+                                    @else
+                                        <span class="text-base">🩺</span>
+                                    @endif
+                                </div>
+                            </td>
                             <td class="py-3.5 px-6">
                                 <span class="font-bold text-slate-900 text-sm flex items-center gap-2">
-                                    <span class="w-2 h-2 rounded-full bg-[#27797D]"></span>
                                     <span>{{ $item->name }}</span>
                                 </span>
                             </td>
@@ -152,8 +167,8 @@
                                     <!-- Edit Button -->
                                     <button 
                                         type="button" 
-                                        onclick="openEditSpecialityModal({{ $item->id }}, '{{ addslashes($item->name) }}')"
-                                        class="p-1.5 rounded-lg text-slate-500 hover:text-[#27797D] hover:bg-teal-50 transition-colors"
+                                        onclick="openEditSpecialityModal({{ $item->id }}, '{{ addslashes($item->name) }}', '{{ $item->image ? asset($item->image) : '' }}')"
+                                        class="p-1.5 rounded-lg text-slate-500 hover:text-[#27797D] hover:bg-teal-50 transition-colors cursor-pointer"
                                         title="Edit Speciality"
                                     >
                                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"/></svg>
@@ -177,7 +192,7 @@
                         </tr>
                     @empty
                         <tr>
-                            <td colspan="6" class="py-12 text-center text-slate-400">
+                            <td colspan="7" class="py-12 text-center text-slate-400">
                                 <div class="max-w-xs mx-auto space-y-2">
                                     <span class="text-3xl block">🩺</span>
                                     <p class="font-bold text-slate-700">No specialities found</p>
@@ -211,13 +226,13 @@
                 </div>
                 <div>
                     <h3 class="text-base font-bold">Add Doctor Speciality</h3>
-                    <p class="text-[11px] text-teal-100">Register doctor specialization</p>
+                    <p class="text-[11px] text-teal-100">Register doctor specialization & icon</p>
                 </div>
             </div>
             <button type="button" onclick="closeAddSpecialityModal()" class="w-7 h-7 rounded-full bg-white/20 hover:bg-white/30 text-white flex items-center justify-center text-xs font-bold transition-colors cursor-pointer">&times;</button>
         </div>
 
-        <form action="{{ route('admin.utilities.doctor-spaciality.store') }}" method="POST" class="p-5 sm:p-6 space-y-4">
+        <form action="{{ route('admin.utilities.doctor-spaciality.store') }}" method="POST" enctype="multipart/form-data" class="p-5 sm:p-6 space-y-4">
             @csrf
             <div>
                 <label class="block text-xs font-bold text-slate-700 mb-1.5">
@@ -230,6 +245,20 @@
                     placeholder="e.g. Interventional Cardiologist, Spine Surgeon, Surgical Oncologist..." 
                     class="w-full bg-slate-50 focus:bg-white text-xs sm:text-sm px-3.5 py-2.5 rounded-xl border border-slate-200 focus:border-[#27797D] focus:outline-none transition-all font-medium"
                 >
+            </div>
+
+            <!-- Icon / Image upload (Supports SVGs & all images) -->
+            <div>
+                <label class="block text-xs font-bold text-slate-700 mb-1.5">
+                    Speciality Icon / Visual <span class="text-slate-400 font-normal text-[10px]">(SVG, PNG, JPG, WebP)</span>
+                </label>
+                <input 
+                    type="file" 
+                    name="image" 
+                    accept="image/*,.svg"
+                    class="w-full text-xs text-slate-500 file:mr-4 file:py-2 file:px-3.5 file:rounded-xl file:border-0 file:text-xs file:font-bold file:bg-teal-50 file:text-[#27797D] hover:file:bg-teal-100 cursor-pointer"
+                >
+                <p class="text-[10px] text-slate-400 mt-1">Accepts vector SVGs, PNG, JPG, WebP icons (up to 5MB).</p>
             </div>
 
             <div class="pt-2 flex items-center justify-end gap-2.5">
@@ -254,13 +283,13 @@
                 </div>
                 <div>
                     <h3 class="text-base font-bold">Edit Speciality</h3>
-                    <p class="text-[11px] text-teal-100">Update doctor specialization details</p>
+                    <p class="text-[11px] text-teal-100">Update doctor specialization & icon visual</p>
                 </div>
             </div>
             <button type="button" onclick="closeEditSpecialityModal()" class="w-7 h-7 rounded-full bg-white/20 hover:bg-white/30 text-white flex items-center justify-center text-xs font-bold transition-colors cursor-pointer">&times;</button>
         </div>
 
-        <form id="edit-speciality-form" action="" method="POST" class="p-5 sm:p-6 space-y-4">
+        <form id="edit-speciality-form" action="" method="POST" enctype="multipart/form-data" class="p-5 sm:p-6 space-y-4">
             @csrf
             @method('PUT')
             <div>
@@ -274,6 +303,31 @@
                     required 
                     class="w-full bg-slate-50 focus:bg-white text-xs sm:text-sm px-3.5 py-2.5 rounded-xl border border-slate-200 focus:border-[#27797D] focus:outline-none transition-all font-medium"
                 >
+            </div>
+
+            <!-- Existing Image Preview -->
+            <div id="edit-speciality-image-preview" class="hidden">
+                <label class="block text-xs font-bold text-slate-700 mb-1.5">Current Visual</label>
+                <div class="flex items-center gap-3 bg-slate-50 p-2.5 rounded-xl border border-slate-200">
+                    <div class="w-10 h-10 rounded-lg bg-white p-1 border border-slate-200 overflow-hidden flex items-center justify-center">
+                        <img id="edit-speciality-img" src="" alt="Icon" class="w-full h-full object-contain">
+                    </div>
+                    <span class="text-[11px] text-slate-500">Current icon active. Upload below to replace.</span>
+                </div>
+            </div>
+
+            <!-- Image Upload -->
+            <div>
+                <label class="block text-xs font-bold text-slate-700 mb-1.5">
+                    Replace Icon / Visual <span class="text-slate-400 font-normal text-[10px]">(SVG, PNG, JPG, WebP)</span>
+                </label>
+                <input 
+                    type="file" 
+                    name="image" 
+                    accept="image/*,.svg"
+                    class="w-full text-xs text-slate-500 file:mr-4 file:py-2 file:px-3.5 file:rounded-xl file:border-0 file:text-xs file:font-bold file:bg-teal-50 file:text-[#27797D] hover:file:bg-teal-100 cursor-pointer"
+                >
+                <p class="text-[10px] text-slate-400 mt-1">Leave blank to keep existing icon.</p>
             </div>
 
             <div class="pt-2 flex items-center justify-end gap-2.5">
@@ -302,13 +356,23 @@
         modal.classList.remove('flex');
     }
 
-    function openEditSpecialityModal(id, name) {
+    function openEditSpecialityModal(id, name, imageUrl) {
         const modal = document.getElementById('edit-speciality-modal');
         const form = document.getElementById('edit-speciality-form');
         const nameInput = document.getElementById('edit-speciality-name');
+        const previewBlock = document.getElementById('edit-speciality-image-preview');
+        const imgElement = document.getElementById('edit-speciality-img');
 
         form.action = "{{ url('/admin/utilities/doctor-spaciality') }}/" + id;
         nameInput.value = name;
+
+        if (imageUrl) {
+            imgElement.src = imageUrl;
+            previewBlock.classList.remove('hidden');
+        } else {
+            imgElement.src = '';
+            previewBlock.classList.add('hidden');
+        }
 
         modal.classList.remove('hidden');
         modal.classList.add('flex');

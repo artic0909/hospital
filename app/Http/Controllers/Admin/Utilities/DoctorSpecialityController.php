@@ -7,6 +7,7 @@ use App\Models\DoctorSpeciality;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 use Illuminate\View\View;
 
 class DoctorSpecialityController extends Controller
@@ -42,7 +43,21 @@ class DoctorSpecialityController extends Controller
     {
         $validated = $request->validate([
             'name' => ['required', 'string', 'max:255', 'unique:doctor_specialities,name'],
+            'image' => ['nullable', 'file', 'mimes:jpeg,png,jpg,gif,svg,webp,ico,bmp,avif', 'max:5120'],
         ]);
+
+        if ($request->hasFile('image')) {
+            $file = $request->file('image');
+            $filename = time() . '_' . uniqid() . '.' . $file->getClientOriginalExtension();
+            $destinationPath = public_path('uploads/specialities');
+
+            if (!File::exists($destinationPath)) {
+                File::makeDirectory($destinationPath, 0755, true);
+            }
+
+            $file->move($destinationPath, $filename);
+            $validated['image'] = 'uploads/specialities/' . $filename;
+        }
 
         $speciality = DoctorSpeciality::create($validated);
 
@@ -64,7 +79,26 @@ class DoctorSpecialityController extends Controller
     {
         $validated = $request->validate([
             'name' => ['required', 'string', 'max:255', 'unique:doctor_specialities,name,' . $doctorSpeciality->id],
+            'image' => ['nullable', 'file', 'mimes:jpeg,png,jpg,gif,svg,webp,ico,bmp,avif', 'max:5120'],
         ]);
+
+        if ($request->hasFile('image')) {
+            // Delete old image if exists
+            if ($doctorSpeciality->image && File::exists(public_path($doctorSpeciality->image)) && str_starts_with($doctorSpeciality->image, 'uploads/')) {
+                File::delete(public_path($doctorSpeciality->image));
+            }
+
+            $file = $request->file('image');
+            $filename = time() . '_' . uniqid() . '.' . $file->getClientOriginalExtension();
+            $destinationPath = public_path('uploads/specialities');
+
+            if (!File::exists($destinationPath)) {
+                File::makeDirectory($destinationPath, 0755, true);
+            }
+
+            $file->move($destinationPath, $filename);
+            $validated['image'] = 'uploads/specialities/' . $filename;
+        }
 
         $doctorSpeciality->update($validated);
 
@@ -85,6 +119,11 @@ class DoctorSpecialityController extends Controller
     public function destroy(Request $request, DoctorSpeciality $doctorSpeciality): JsonResponse|RedirectResponse
     {
         $name = $doctorSpeciality->name;
+
+        if ($doctorSpeciality->image && File::exists(public_path($doctorSpeciality->image)) && str_starts_with($doctorSpeciality->image, 'uploads/')) {
+            File::delete(public_path($doctorSpeciality->image));
+        }
+
         $doctorSpeciality->delete();
 
         if ($request->wantsJson() || $request->ajax()) {
@@ -109,8 +148,16 @@ class DoctorSpecialityController extends Controller
             'ids.required' => 'Please select at least one speciality to delete.',
         ]);
 
-        $count = DoctorSpeciality::whereIn('id', $validated['ids'])->delete();
+        $specialities = DoctorSpeciality::whereIn('id', $validated['ids'])->get();
 
+        foreach ($specialities as $speciality) {
+            if ($speciality->image && File::exists(public_path($speciality->image)) && str_starts_with($speciality->image, 'uploads/')) {
+                File::delete(public_path($speciality->image));
+            }
+            $speciality->delete();
+        }
+
+        $count = $specialities->count();
         $msg = "{$count} " . ($count === 1 ? 'speciality' : 'specialities') . ' deleted successfully!';
 
         if ($request->wantsJson() || $request->ajax()) {

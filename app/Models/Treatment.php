@@ -14,6 +14,7 @@ class Treatment extends Model
         'department_id',
         'spaciality_id',
         'name',
+        'image',
         'price',
         'price_type',
     ];

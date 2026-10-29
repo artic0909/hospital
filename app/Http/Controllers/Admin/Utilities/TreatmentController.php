@@ -9,6 +9,7 @@ use App\Models\Treatment;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 use Illuminate\View\View;
 
 class TreatmentController extends Controller
@@ -67,7 +68,21 @@ class TreatmentController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'price' => ['required', 'numeric', 'min:0'],
             'price_type' => ['required', 'in:rupees,dollars'],
+            'image' => ['nullable', 'file', 'mimes:jpeg,png,jpg,gif,svg,webp,ico,bmp,avif', 'max:5120'],
         ]);
+
+        if ($request->hasFile('image')) {
+            $file = $request->file('image');
+            $filename = time() . '_' . uniqid() . '.' . $file->getClientOriginalExtension();
+            $destinationPath = public_path('uploads/treatments');
+
+            if (!File::exists($destinationPath)) {
+                File::makeDirectory($destinationPath, 0755, true);
+            }
+
+            $file->move($destinationPath, $filename);
+            $validated['image'] = 'uploads/treatments/' . $filename;
+        }
 
         $treatment = Treatment::create($validated);
 
@@ -93,7 +108,26 @@ class TreatmentController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'price' => ['required', 'numeric', 'min:0'],
             'price_type' => ['required', 'in:rupees,dollars'],
+            'image' => ['nullable', 'file', 'mimes:jpeg,png,jpg,gif,svg,webp,ico,bmp,avif', 'max:5120'],
         ]);
+
+        if ($request->hasFile('image')) {
+            // Delete old image if exists
+            if ($treatment->image && File::exists(public_path($treatment->image)) && str_starts_with($treatment->image, 'uploads/')) {
+                File::delete(public_path($treatment->image));
+            }
+
+            $file = $request->file('image');
+            $filename = time() . '_' . uniqid() . '.' . $file->getClientOriginalExtension();
+            $destinationPath = public_path('uploads/treatments');
+
+            if (!File::exists($destinationPath)) {
+                File::makeDirectory($destinationPath, 0755, true);
+            }
+
+            $file->move($destinationPath, $filename);
+            $validated['image'] = 'uploads/treatments/' . $filename;
+        }
 
         $treatment->update($validated);
 
@@ -114,6 +148,11 @@ class TreatmentController extends Controller
     public function destroy(Request $request, Treatment $treatment): JsonResponse|RedirectResponse
     {
         $name = $treatment->name;
+
+        if ($treatment->image && File::exists(public_path($treatment->image)) && str_starts_with($treatment->image, 'uploads/')) {
+            File::delete(public_path($treatment->image));
+        }
+
         $treatment->delete();
 
         if ($request->wantsJson() || $request->ajax()) {
@@ -138,8 +177,16 @@ class TreatmentController extends Controller
             'ids.required' => 'Please select at least one treatment to delete.',
         ]);
 
-        $count = Treatment::whereIn('id', $validated['ids'])->delete();
+        $treatments = Treatment::whereIn('id', $validated['ids'])->get();
 
+        foreach ($treatments as $treatment) {
+            if ($treatment->image && File::exists(public_path($treatment->image)) && str_starts_with($treatment->image, 'uploads/')) {
+                File::delete(public_path($treatment->image));
+            }
+            $treatment->delete();
+        }
+
+        $count = $treatments->count();
         $msg = "{$count} " . ($count === 1 ? 'treatment' : 'treatments') . ' deleted successfully!';
 
         if ($request->wantsJson() || $request->ajax()) {
