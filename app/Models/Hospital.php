@@ -184,6 +184,14 @@ class Hospital extends Authenticatable
     }
 
     /**
+     * Appointments relationship.
+     */
+    public function appointments(): HasMany
+    {
+        return $this->hasMany(Appointment::class)->latest();
+    }
+
+    /**
      * Facilities relationship.
      */
     public function facilities(): HasMany

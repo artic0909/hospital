@@ -74,30 +74,12 @@
                     @endif
                 </a>
 
-                <!-- Patients & Reports -->
                 <a 
-                    href="{{ route('partner.patient.index') }}" 
-                    class="flex items-center justify-between px-3 py-2.5 rounded-xl transition-all {{ request()->routeIs('partner.patient*') ? 'bg-[#27797D] text-white font-bold shadow-md shadow-[#27797D]/20' : 'text-slate-300 hover:text-white hover:bg-slate-800/80' }}"
+                    href="{{ route('partner.appointment.index') }}" 
+                    class="flex items-center justify-between px-3 py-2.5 rounded-xl transition-all {{ request()->routeIs('partner.appointment*') ? 'bg-[#27797D] text-white font-bold shadow-md shadow-[#27797D]/20' : 'text-slate-300 hover:text-white hover:bg-slate-800/80' }}"
                 >
                     <div class="flex items-center gap-2.5">
-                        <svg class="w-4 h-4 {{ request()->routeIs('partner.patient*') ? 'text-teal-100' : 'text-slate-400' }}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
-                        </svg>
-                        <span>Patients</span>
-                    </div>
-                    @if(request()->routeIs('partner.patient*'))
-                        <span class="w-2 h-2 rounded-full bg-white animate-pulse"></span>
-                    @else
-                        <span class="px-1.5 py-0.5 rounded text-[9px] font-extrabold bg-[#EF7415]/20 text-[#EF7415]">Reports</span>
-                    @endif
-                </a>
-
-                <a 
-                    href="{{ route('partner.dashboard') }}" 
-                    class="flex items-center justify-between px-3 py-2.5 rounded-xl transition-all text-slate-300 hover:text-white hover:bg-slate-800/80"
-                >
-                    <div class="flex items-center gap-2.5">
-                        <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg class="w-4 h-4 {{ request()->routeIs('partner.appointment*') ? 'text-teal-100' : 'text-slate-400' }}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
                         </svg>
                         <span>Appointments</span>

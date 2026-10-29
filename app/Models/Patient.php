@@ -54,6 +54,14 @@ class Patient extends Model
     }
 
     /**
+     * Appointments relationship.
+     */
+    public function appointments(): HasMany
+    {
+        return $this->hasMany(Appointment::class)->latest();
+    }
+
+    /**
      * Get the resolved image URL or a default fallback avatar.
      */
     public function getImageUrlAttribute(): string

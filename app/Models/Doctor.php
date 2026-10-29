@@ -111,6 +111,14 @@ class Doctor extends Model
     }
 
     /**
+     * Appointments relationship.
+     */
+    public function appointments(): HasMany
+    {
+        return $this->hasMany(Appointment::class)->latest();
+    }
+
+    /**
      * Schedules relationship.
      */
     public function schedules(): HasMany

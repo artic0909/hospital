@@ -124,5 +124,20 @@ Route::prefix('admin')->name('admin.')->group(function () {
                 Route::get('/{report}/download', \App\Http\Controllers\Admin\PatientReportController::class . '@download')->name('download');
             });
         });
+
+        // ==================== APPOINTMENTS CRUD ====================
+        Route::prefix('appointment')->name('appointment.')->group(function () {
+            Route::get('/', \App\Http\Controllers\Admin\AppointmentController::class . '@index')->name('index');
+            Route::get('/create', \App\Http\Controllers\Admin\AppointmentController::class . '@create')->name('create');
+            Route::post('/', \App\Http\Controllers\Admin\AppointmentController::class . '@store')->name('store');
+            Route::post('/bulk-delete', \App\Http\Controllers\Admin\AppointmentController::class . '@bulkDelete')->name('bulk-delete');
+            Route::get('/get-partner-doctors/{partner}', \App\Http\Controllers\Admin\AppointmentController::class . '@getPartnerDoctors')->name('get-partner-doctors');
+            Route::get('/get-hospital-doctors/{hospital}', \App\Http\Controllers\Admin\AppointmentController::class . '@getHospitalDoctors')->name('get-hospital-doctors');
+            Route::get('/{appointment}', \App\Http\Controllers\Admin\AppointmentController::class . '@show')->name('view');
+            Route::get('/{appointment}/edit', \App\Http\Controllers\Admin\AppointmentController::class . '@edit')->name('update');
+            Route::put('/{appointment}', \App\Http\Controllers\Admin\AppointmentController::class . '@update')->name('update.submit');
+            Route::patch('/{appointment}/status', \App\Http\Controllers\Admin\AppointmentController::class . '@updateStatus')->name('update-status');
+            Route::delete('/{appointment}', \App\Http\Controllers\Admin\AppointmentController::class . '@destroy')->name('destroy');
+        });
     });
 });

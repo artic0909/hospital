@@ -46,6 +46,22 @@ class Partner extends Authenticatable
     }
 
     /**
+     * Appointments relationship.
+     */
+    public function appointments(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(Appointment::class)->latest();
+    }
+
+    /**
+     * Get the formatted partner code (e.g. PTR-00001).
+     */
+    public function getPartnerCodeAttribute(): string
+    {
+        return 'PTR-' . str_pad((string)$this->id, 5, '0', STR_PAD_LEFT);
+    }
+
+    /**
      * Resolve the active hospital for this partner.
      */
     public function getHospital(): ?Hospital
