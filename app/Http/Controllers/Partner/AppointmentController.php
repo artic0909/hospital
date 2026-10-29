@@ -83,7 +83,7 @@ class AppointmentController extends Controller
                 'status' => $apt->status,
                 'status_label' => $apt->status_label,
                 'status_badge' => $apt->status_badge_class,
-                'date' => $apt->appointment_date ? $apt->appointment_date->format('M d, Y') : 'Date TBD',
+                'date' => $apt->appointment_date ? \Carbon\Carbon::parse($apt->appointment_date)->format('M d, Y') : 'Date TBD',
                 'time' => $apt->appointment_time ?: 'Standard OPD',
                 'notes' => $apt->notes ?: '',
                 'patient' => [

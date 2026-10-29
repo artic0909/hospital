@@ -63,7 +63,7 @@ class AppointmentController extends Controller
         }
 
         // Pagination
-        $perPage = $request->get('per_page', 10);
+        $perPage = $request->input('per_page', 10);
         if ($perPage === 'all') {
             $appointments = $query->latest('id')->paginate(99999)->withQueryString();
         } else {

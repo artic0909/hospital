@@ -6,6 +6,20 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
+/**
+ * @property int $id
+ * @property string $appointment_code
+ * @property int $patient_id
+ * @property int|null $hospital_id
+ * @property int $doctor_id
+ * @property int|null $partner_id
+ * @property \Illuminate\Support\Carbon|null $appointment_date
+ * @property string|null $appointment_time
+ * @property string $status
+ * @property string|null $notes
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ */
 class Appointment extends Model
 {
     use HasFactory;

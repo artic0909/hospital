@@ -7,6 +7,11 @@
     $currentAdmin = $admin ?? (auth('admin')->user() ?? auth()->user());
     $adminName = $currentAdmin->name ?? 'Administrator';
 @endphp
+
+<script>
+    window.dashboardChartData = @json($chartData ?? []);
+</script>
+
 <div class="space-y-6 sm:space-y-8">
     
     <!-- ==================== 1. WELCOME HERO BANNER ==================== -->
@@ -29,7 +34,7 @@
                             Active Super Admin
                         </span>
                         <span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-white/15 text-white border border-white/20">
-                            ID: #HGF-ADM-001
+                            ID: #HGF-ADM-{{ str_pad($currentAdmin->id ?? 1, 3, '0', STR_PAD_LEFT) }}
                         </span>
                         <span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-[#EF7415] text-white">
                             Central Command
@@ -51,16 +56,15 @@
 
             <!-- Right: Quick CTA Buttons -->
             <div class="flex flex-wrap items-center gap-3 w-full lg:w-auto">
-                <button 
-                    type="button"
-                    onclick="openReferralModal()"
+                <a 
+                    href="{{ route('admin.appointment.create') }}"
                     class="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 bg-[#EF7415] hover:bg-[#d9640d] text-white px-5 py-3 rounded-xl font-bold text-sm shadow-lg shadow-[#EF7415]/30 transition-all hover:-translate-y-0.5 cursor-pointer"
                 >
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/>
                     </svg>
-                    <span>Patient Case</span>
-                </button>
+                    <span>+ Book Appointment</span>
+                </a>
 
                 <a 
                     href="https://wa.me/919129846542?text=Hello%20Heal%20Go%20Fly%20Central%20Desk,%20I%20have%20an%20urgent%20case%20inquiry." 
@@ -75,7 +79,7 @@
         </div>
     </div>
 
-    <!-- ==================== 2. STATIC KPI COUNTING BOXES (6 CARDS) ==================== -->
+    <!-- ==================== 2. DYNAMIC KPI COUNTING BOXES (6 CARDS) ==================== -->
     <div id="kpi-section" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4 sm:gap-5">
         
         <!-- KPI 1: Total Referrals -->
@@ -89,10 +93,10 @@
                 </div>
             </div>
             <div class="mt-2.5">
-                <h3 class="text-2xl sm:text-3xl font-black text-[#112347] tracking-tight">148</h3>
+                <h3 class="text-2xl sm:text-3xl font-black text-[#112347] tracking-tight">{{ number_format($kpis['total_referrals']) }}</h3>
                 <div class="mt-2 flex items-center gap-1.5 text-[11px] font-semibold text-emerald-600">
-                    <span>&uarr; 18.4%</span>
-                    <span class="text-slate-400 font-normal">vs last month</span>
+                    <span>&uarr; {{ $kpis['referrals_this_month'] }}</span>
+                    <span class="text-slate-400 font-normal">this month</span>
                 </div>
             </div>
         </div>
@@ -100,7 +104,7 @@
         <!-- KPI 2: Hospital Admissions -->
         <div class="bg-white rounded-2xl p-5 border border-slate-200/80 shadow-xs hover:shadow-md transition-all duration-200 group">
             <div class="flex items-center justify-between">
-                <span class="text-[11px] font-bold uppercase tracking-wider text-slate-400">Admissions</span>
+                <span class="text-[11px] font-bold uppercase tracking-wider text-slate-400">Admissions / Care</span>
                 <div class="w-10 h-10 rounded-xl bg-teal-50 text-[#27797D] flex items-center justify-center group-hover:scale-105 transition-transform">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
@@ -108,18 +112,18 @@
                 </div>
             </div>
             <div class="mt-2.5">
-                <h3 class="text-2xl sm:text-3xl font-black text-[#27797D] tracking-tight">68</h3>
+                <h3 class="text-2xl sm:text-3xl font-black text-[#27797D] tracking-tight">{{ number_format($kpis['admissions']) }}</h3>
                 <div class="mt-2 flex items-center gap-1.5 text-[11px] font-semibold text-teal-600">
                     <span class="w-1.5 h-1.5 rounded-full bg-teal-500 animate-pulse"></span>
-                    <span>32 Admitted Now</span>
+                    <span>{{ $kpis['active_treatment'] }} in active treatment</span>
                 </div>
             </div>
         </div>
 
-        <!-- KPI 3: Medical Visas Issued -->
+        <!-- KPI 3: Completed / Discharged -->
         <div class="bg-white rounded-2xl p-5 border border-slate-200/80 shadow-xs hover:shadow-md transition-all duration-200 group">
             <div class="flex items-center justify-between">
-                <span class="text-[11px] font-bold uppercase tracking-wider text-slate-400">Visas Issued</span>
+                <span class="text-[11px] font-bold uppercase tracking-wider text-slate-400">Discharged / Done</span>
                 <div class="w-10 h-10 rounded-xl bg-cyan-50 text-cyan-600 flex items-center justify-center group-hover:scale-105 transition-transform">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h4m-5 5h10a2 2 0 002-2V5a2 2 0 00-2-2H6a2 2 0 00-2 2v14a2 2 0 002 2z"/>
@@ -127,37 +131,36 @@
                 </div>
             </div>
             <div class="mt-2.5">
-                <h3 class="text-2xl sm:text-3xl font-black text-[#112347] tracking-tight">89</h3>
+                <h3 class="text-2xl sm:text-3xl font-black text-[#112347] tracking-tight">{{ number_format($kpis['discharged']) }}</h3>
                 <div class="mt-2 flex items-center gap-1.5 text-[11px] font-semibold text-emerald-600">
-                    <span>✓ 98.2%</span>
-                    <span class="text-slate-400 font-normal">Approved</span>
+                    <span>✓ {{ $kpis['completion_rate'] }}%</span>
+                    <span class="text-slate-400 font-normal">completion</span>
                 </div>
             </div>
         </div>
 
-        <!-- KPI 4: Doctor Opinions Given -->
+        <!-- KPI 4: Total Patients Registered -->
         <div class="bg-white rounded-2xl p-5 border border-slate-200/80 shadow-xs hover:shadow-md transition-all duration-200 group">
             <div class="flex items-center justify-between">
-                <span class="text-[11px] font-bold uppercase tracking-wider text-slate-400">Doctor Opinions</span>
+                <span class="text-[11px] font-bold uppercase tracking-wider text-slate-400">Total Patients</span>
                 <div class="w-10 h-10 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center group-hover:scale-105 transition-transform">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
                     </svg>
                 </div>
             </div>
             <div class="mt-2.5">
-                <h3 class="text-2xl sm:text-3xl font-black text-purple-700 tracking-tight">112</h3>
+                <h3 class="text-2xl sm:text-3xl font-black text-purple-700 tracking-tight">{{ number_format($kpis['total_patients']) }}</h3>
                 <div class="mt-2 flex items-center gap-1.5 text-[11px] font-semibold text-purple-600">
-                    <span>SLA: &lt; 24h</span>
-                    <span class="text-slate-400 font-normal">Turnaround</span>
+                    <span>Network Dossiers</span>
                 </div>
             </div>
         </div>
 
-        <!-- KPI 5: Accrued Commission / Payouts -->
+        <!-- KPI 5: Accrued OPD / Value -->
         <div class="bg-white rounded-2xl p-5 border border-slate-200/80 shadow-xs hover:shadow-md transition-all duration-200 group">
             <div class="flex items-center justify-between">
-                <span class="text-[11px] font-bold uppercase tracking-wider text-slate-400">Total Earnings</span>
+                <span class="text-[11px] font-bold uppercase tracking-wider text-slate-400">Total Est. Value</span>
                 <div class="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center group-hover:scale-105 transition-transform">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
@@ -165,29 +168,27 @@
                 </div>
             </div>
             <div class="mt-2.5">
-                <h3 class="text-2xl sm:text-3xl font-black text-emerald-600 tracking-tight">₹4.82L</h3>
+                <h3 class="text-2xl sm:text-3xl font-black text-emerald-600 tracking-tight">₹{{ number_format($kpis['total_earnings']) }}</h3>
                 <div class="mt-2 flex items-center gap-1.5 text-[11px] font-semibold text-emerald-600">
-                    <span>&uarr; 24.5%</span>
-                    <span class="text-slate-400 font-normal">this quarter</span>
+                    <span>OPD & Consultations</span>
                 </div>
             </div>
         </div>
 
-        <!-- KPI 6: Patient Satisfaction Rate -->
+        <!-- KPI 6: Hospital & Doctor Network -->
         <div class="bg-white rounded-2xl p-5 border border-slate-200/80 shadow-xs hover:shadow-md transition-all duration-200 group">
             <div class="flex items-center justify-between">
-                <span class="text-[11px] font-bold uppercase tracking-wider text-slate-400">Patient Rating</span>
+                <span class="text-[11px] font-bold uppercase tracking-wider text-slate-400">Network Hub</span>
                 <div class="w-10 h-10 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center group-hover:scale-105 transition-transform">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"/>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
                     </svg>
                 </div>
             </div>
             <div class="mt-2.5">
-                <h3 class="text-2xl sm:text-3xl font-black text-[#EF7415] tracking-tight">4.9<span class="text-xs text-slate-400 font-bold">/5.0</span></h3>
+                <h3 class="text-2xl sm:text-3xl font-black text-[#EF7415] tracking-tight">{{ $kpis['total_hospitals'] }}<span class="text-xs text-slate-400 font-bold"> Hosp</span></h3>
                 <div class="mt-2 flex items-center gap-1.5 text-[11px] font-semibold text-amber-600">
-                    <span>★★★★★</span>
-                    <span class="text-slate-400 font-normal">130+ cases</span>
+                    <span>{{ $kpis['total_doctors'] }} Doctors &bull; {{ $kpis['total_partners'] }} Partners</span>
                 </div>
             </div>
         </div>
@@ -212,7 +213,7 @@
                 <div class="flex items-center gap-2">
                     <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-bold bg-teal-50 text-[#27797D] border border-teal-200/60">
                         <span class="w-1.5 h-1.5 rounded-full bg-[#27797D]"></span>
-                        45.9% Conversion
+                        {{ $kpis['conversion_rate'] }}% Conversion
                     </span>
                 </div>
             </div>
@@ -233,7 +234,7 @@
                     </p>
                 </div>
                 <span class="text-xs font-semibold text-slate-500 bg-slate-100 px-2.5 py-1 rounded-lg">
-                    148 Cases
+                    {{ $kpis['total_referrals'] }} Cases
                 </span>
             </div>
 
@@ -259,7 +260,7 @@
                 </div>
                 <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-bold bg-emerald-50 text-emerald-700 border border-emerald-200">
                     <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-                    High Retention
+                    {{ $chartData['pipeline']['retentionRate'] }}% Retention
                 </span>
             </div>
 
@@ -279,7 +280,7 @@
                     </p>
                 </div>
                 <span class="text-xs font-bold text-[#EF7415] bg-orange-50 px-2.5 py-1 rounded-lg">
-                    October 2026
+                    {{ date('F Y') }}
                 </span>
             </div>
 
@@ -288,35 +289,23 @@
 
             <!-- Destination Progress Bars -->
             <div class="space-y-3 pt-3 border-t border-slate-100 text-xs">
-                <div>
-                    <div class="flex justify-between font-bold text-slate-700 mb-1">
-                        <span>🇮🇳 India (Medanta, Apollo, Fortis)</span>
-                        <span class="text-[#27797D]">58% (86 cases)</span>
+                @forelse($destinations as $idx => $dest)
+                    @php
+                        $barColors = ['bg-[#27797D]', 'bg-[#EF7415]', 'bg-cyan-500', 'bg-purple-500'];
+                        $colorClass = $barColors[$idx % count($barColors)];
+                    @endphp
+                    <div>
+                        <div class="flex justify-between font-bold text-slate-700 mb-1">
+                            <span class="truncate max-w-[200px]" title="{{ $dest['name'] }}">{{ $dest['name'] }}</span>
+                            <span class="text-[#27797D]">{{ $dest['percentage'] }}% ({{ $dest['count'] }} cases)</span>
+                        </div>
+                        <div class="w-full bg-slate-100 rounded-full h-2 overflow-hidden">
+                            <div class="{{ $colorClass }} h-2 rounded-full transition-all duration-500" style="width: {{ max(4, $dest['percentage']) }}%"></div>
+                        </div>
                     </div>
-                    <div class="w-full bg-slate-100 rounded-full h-2 overflow-hidden">
-                        <div class="bg-[#27797D] h-2 rounded-full" style="width: 58%"></div>
-                    </div>
-                </div>
-
-                <div>
-                    <div class="flex justify-between font-bold text-slate-700 mb-1">
-                        <span>🇹🇷 Turkey (Medicana, Memorial, Acibadem)</span>
-                        <span class="text-[#EF7415]">24% (36 cases)</span>
-                    </div>
-                    <div class="w-full bg-slate-100 rounded-full h-2 overflow-hidden">
-                        <div class="bg-[#EF7415] h-2 rounded-full" style="width: 24%"></div>
-                    </div>
-                </div>
-
-                <div>
-                    <div class="flex justify-between font-bold text-slate-700 mb-1">
-                        <span>🇹🇭 Thailand & 🇦🇪 UAE</span>
-                        <span class="text-slate-600">18% (26 cases)</span>
-                    </div>
-                    <div class="w-full bg-slate-100 rounded-full h-2 overflow-hidden">
-                        <div class="bg-cyan-500 h-2 rounded-full" style="width: 18%"></div>
-                    </div>
-                </div>
+                @empty
+                    <div class="py-4 text-center text-slate-400 italic">No hospital destinations recorded yet.</div>
+                @endforelse
             </div>
 
         </div>
@@ -361,19 +350,18 @@
                     class="bg-slate-50 text-xs font-semibold text-slate-700 px-3 py-2 border border-slate-200 rounded-xl focus:outline-none focus:border-[#27797D] cursor-pointer"
                 >
                     <option value="all">All Statuses</option>
-                    <option value="admitted">Admitted & In Treatment</option>
-                    <option value="visa">Visa Issued</option>
-                    <option value="opinion">Doctor Opinion Ready</option>
-                    <option value="discharged">Completed & Discharged</option>
+                    <option value="booked">Booked / In Review</option>
+                    <option value="received">Patient Received</option>
+                    <option value="treatment">In Treatment</option>
+                    <option value="discharge">Completed & Discharged</option>
                 </select>
 
-                <button 
-                    type="button" 
-                    onclick="openReferralModal()"
+                <a 
+                    href="{{ route('admin.appointment.create') }}"
                     class="bg-[#27797D] hover:bg-[#1e5f62] text-white text-xs font-bold px-3.5 py-2 rounded-xl flex items-center gap-1.5 transition-colors cursor-pointer"
                 >
-                    <span>+ New Case</span>
-                </button>
+                    <span>+ New Appointment</span>
+                </a>
             </div>
         </div>
 
@@ -384,185 +372,108 @@
                     <tr class="bg-slate-50/80 border-b border-slate-100 text-slate-400 font-bold uppercase tracking-wider text-[10px]">
                         <th class="py-3.5 px-4 sm:px-6">Case ID & Patient</th>
                         <th class="py-3.5 px-4">Hospital & Destination</th>
-                        <th class="py-3.5 px-4">Specialty & Procedure</th>
+                        <th class="py-3.5 px-4">Specialty & Doctor</th>
                         <th class="py-3.5 px-4">Current Stage</th>
-                        <th class="py-3.5 px-4">Est. Treatment</th>
-                        <th class="py-3.5 px-4">Facilitator Accrual</th>
+                        <th class="py-3.5 px-4">OPD Fee</th>
+                        <th class="py-3.5 px-4">Facilitator / Partner</th>
                         <th class="py-3.5 px-4 sm:px-6 text-right">Action</th>
                     </tr>
                 </thead>
                 <tbody class="divide-y divide-slate-100 font-medium text-slate-700">
-                    
-                    <!-- Row 1: Farhana Begum -->
-                    <tr class="referral-table-row hover:bg-slate-50/70 transition-colors" data-status="admitted">
-                        <td class="py-3.5 px-4 sm:px-6">
-                            <div class="flex items-center gap-3">
-                                <div class="w-8 h-8 rounded-lg bg-teal-50 text-[#27797D] flex items-center justify-center font-bold text-xs shrink-0">
-                                    FB
-                                </div>
-                                <div>
-                                    <span class="block font-bold text-slate-900">Farhana Begum</span>
-                                    <span class="block text-[11px] text-slate-400">#HGF-P-1042 &bull; 🇧🇩 Bangladesh</span>
-                                </div>
-                            </div>
-                        </td>
-                        <td class="py-3.5 px-4">
-                            <span class="font-bold text-slate-900 block">Medanta - The Medicity</span>
-                            <span class="text-slate-400 text-[11px]">Gurgaon, India</span>
-                        </td>
-                        <td class="py-3.5 px-4">
-                            <span class="block font-semibold text-slate-800">Cardiology</span>
-                            <span class="text-slate-500 text-[11px]">CABG Bypass Surgery</span>
-                        </td>
-                        <td class="py-3.5 px-4">
-                            <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-bold bg-emerald-50 text-emerald-700 border border-emerald-200">
-                                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
-                                Admitted (OT Today)
-                            </span>
-                        </td>
-                        <td class="py-3.5 px-4 font-bold text-slate-900">
-                            ₹4,80,000
-                        </td>
-                        <td class="py-3.5 px-4 font-bold text-emerald-600">
-                            ₹48,000 <span class="text-[10px] text-slate-400 font-normal">(10%)</span>
-                        </td>
-                        <td class="py-3.5 px-4 sm:px-6 text-right">
-                            <a href="https://wa.me/919129846542?text=Hello,%20Case%20HGF-P-1042%20status%20inquiry" target="_blank" class="text-[#27797D] hover:underline font-bold text-xs inline-flex items-center gap-1">
-                                <span>Desk</span> &rarr;
-                            </a>
-                        </td>
-                    </tr>
+                    @forelse($recentAppointments as $apt)
+                        @php
+                            $patient = $apt->patient;
+                            $doctor = $apt->doctor;
+                            $hospital = $apt->hospital;
+                            $partner = $apt->partner;
 
-                    <!-- Row 2: Rustam Aliyev -->
-                    <tr class="referral-table-row hover:bg-slate-50/70 transition-colors" data-status="visa">
-                        <td class="py-3.5 px-4 sm:px-6">
-                            <div class="flex items-center gap-3">
-                                <div class="w-8 h-8 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center font-bold text-xs shrink-0">
-                                    RA
-                                </div>
-                                <div>
-                                    <span class="block font-bold text-slate-900">Rustam Aliyev</span>
-                                    <span class="block text-[11px] text-slate-400">#HGF-P-1039 &bull; 🇺🇿 Uzbekistan</span>
-                                </div>
-                            </div>
-                        </td>
-                        <td class="py-3.5 px-4">
-                            <span class="font-bold text-slate-900 block">Medicana International</span>
-                            <span class="text-slate-400 text-[11px]">Istanbul, Turkey</span>
-                        </td>
-                        <td class="py-3.5 px-4">
-                            <span class="block font-semibold text-slate-800">Neurosurgery</span>
-                            <span class="text-slate-500 text-[11px]">Deep Brain Stimulation (DBS)</span>
-                        </td>
-                        <td class="py-3.5 px-4">
-                            <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-bold bg-blue-50 text-blue-700 border border-blue-200">
-                                Visa Letter Issued
-                            </span>
-                        </td>
-                        <td class="py-3.5 px-4 font-bold text-slate-900">
-                            $18,500
-                        </td>
-                        <td class="py-3.5 px-4 font-bold text-emerald-600">
-                            $1,850 <span class="text-[10px] text-slate-400 font-normal">(10%)</span>
-                        </td>
-                        <td class="py-3.5 px-4 sm:px-6 text-right">
-                            <a href="https://wa.me/919129846542?text=Hello,%20Case%20HGF-P-1039%20visa%20check" target="_blank" class="text-[#27797D] hover:underline font-bold text-xs inline-flex items-center gap-1">
-                                <span>Desk</span> &rarr;
-                            </a>
-                        </td>
-                    </tr>
+                            $patientName = $patient->name ?? 'Walk-in Patient';
+                            $initials = collect(explode(' ', $patientName))->map(fn($part) => substr($part, 0, 1))->take(2)->join('');
+                            if (!$initials) $initials = 'PT';
 
-                    <!-- Row 3: Mohammed Al-Harbi -->
-                    <tr class="referral-table-row hover:bg-slate-50/70 transition-colors" data-status="opinion">
-                        <td class="py-3.5 px-4 sm:px-6">
-                            <div class="flex items-center gap-3">
-                                <div class="w-8 h-8 rounded-lg bg-orange-50 text-[#EF7415] flex items-center justify-center font-bold text-xs shrink-0">
-                                    MH
+                            $statusBadge = match($apt->status) {
+                                'booked' => ['bg' => 'bg-blue-50', 'text' => 'text-blue-700', 'border' => 'border-blue-200', 'label' => 'Booked / In Review'],
+                                'received' => ['bg' => 'bg-amber-50', 'text' => 'text-amber-700', 'border' => 'border-amber-200', 'label' => 'Patient Received'],
+                                'treatment' => ['bg' => 'bg-teal-50', 'text' => 'text-teal-700', 'border' => 'border-teal-200', 'label' => 'In Treatment'],
+                                'discharge' => ['bg' => 'bg-emerald-50', 'text' => 'text-emerald-700', 'border' => 'border-emerald-200', 'label' => 'Discharged / Cleared'],
+                                default => ['bg' => 'bg-slate-50', 'text' => 'text-slate-700', 'border' => 'border-slate-200', 'label' => ucfirst($apt->status ?? 'Active')]
+                            };
+                        @endphp
+                        <tr class="referral-table-row hover:bg-slate-50/70 transition-colors" data-status="{{ $apt->status }}">
+                            <td class="py-3.5 px-4 sm:px-6">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-8 h-8 rounded-lg bg-teal-50 text-[#27797D] flex items-center justify-center font-bold text-xs shrink-0 uppercase">
+                                        {{ $initials }}
+                                    </div>
+                                    <div>
+                                        <span class="block font-bold text-slate-900">{{ $patientName }}</span>
+                                        <span class="block text-[11px] text-slate-400">#{{ $apt->appointment_code }} &bull; {{ $patient->country ?? 'India' }}</span>
+                                    </div>
                                 </div>
-                                <div>
-                                    <span class="block font-bold text-slate-900">Mohammed Al-Harbi</span>
-                                    <span class="block text-[11px] text-slate-400">#HGF-P-1035 &bull; 🇸🇦 Saudi Arabia</span>
+                            </td>
+                            <td class="py-3.5 px-4">
+                                <span class="font-bold text-slate-900 block truncate max-w-[180px]" title="{{ $hospital->name ?? 'Direct Network' }}">
+                                    {{ $hospital->name ?? 'Direct Network' }}
+                                </span>
+                                <span class="text-slate-400 text-[11px] block truncate max-w-[180px]">
+                                    {{ $hospital->address ?? ($hospital->contact ?? 'Partner Network') }}
+                                </span>
+                            </td>
+                            <td class="py-3.5 px-4">
+                                <span class="block font-semibold text-slate-800">{{ $doctor->spaciality ?? 'General Consultation' }}</span>
+                                <span class="text-slate-500 text-[11px]">Dr. {{ $doctor->name ?? 'Assigned Specialist' }}</span>
+                            </td>
+                            <td class="py-3.5 px-4">
+                                <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-bold {{ $statusBadge['bg'] }} {{ $statusBadge['text'] }} border {{ $statusBadge['border'] }}">
+                                    @if(in_array($apt->status, ['treatment', 'received']))
+                                        <span class="w-1.5 h-1.5 rounded-full bg-current animate-pulse"></span>
+                                    @endif
+                                    {{ $statusBadge['label'] }}
+                                </span>
+                            </td>
+                            <td class="py-3.5 px-4 font-bold text-slate-900">
+                                ₹{{ number_format($doctor->OPD_fee ?? 0) }}
+                            </td>
+                            <td class="py-3.5 px-4 font-bold text-slate-700">
+                                @if($partner)
+                                    <span class="text-emerald-700">{{ $partner->company_name ?? $partner->name }}</span>
+                                @else
+                                    <span class="text-slate-400 font-normal">Direct Booking</span>
+                                @endif
+                            </td>
+                            <td class="py-3.5 px-4 sm:px-6 text-right">
+                                <a href="{{ route('admin.appointment.view', $apt->id) }}" class="text-[#27797D] hover:underline font-bold text-xs inline-flex items-center gap-1">
+                                    <span>Dossier</span> &rarr;
+                                </a>
+                            </td>
+                        </tr>
+                    @empty
+                        <tr>
+                            <td colspan="7" class="py-8 text-center text-slate-400">
+                                <div class="flex flex-col items-center justify-center gap-2">
+                                    <svg class="w-8 h-8 text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
+                                    </svg>
+                                    <p class="text-sm font-semibold text-slate-600">No patient referrals found yet</p>
+                                    <p class="text-xs text-slate-400">Click below to create your first patient appointment referral</p>
+                                    <a href="{{ route('admin.appointment.create') }}" class="mt-2 inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-[#27797D] text-white text-xs font-bold hover:bg-[#1e5f62] transition-colors">
+                                        + Book New Appointment
+                                    </a>
                                 </div>
-                            </div>
-                        </td>
-                        <td class="py-3.5 px-4">
-                            <span class="font-bold text-slate-900 block">Indraprastha Apollo</span>
-                            <span class="text-slate-400 text-[11px]">New Delhi, India</span>
-                        </td>
-                        <td class="py-3.5 px-4">
-                            <span class="block font-semibold text-slate-800">Oncology</span>
-                            <span class="text-slate-500 text-[11px]">Targeted Immunotherapy</span>
-                        </td>
-                        <td class="py-3.5 px-4">
-                            <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-bold bg-amber-50 text-amber-700 border border-amber-200">
-                                3 Quotes Sent
-                            </span>
-                        </td>
-                        <td class="py-3.5 px-4 font-bold text-slate-900">
-                            ₹8,50,000
-                        </td>
-                        <td class="py-3.5 px-4 font-bold text-slate-500">
-                            Pending Patient Choice
-                        </td>
-                        <td class="py-3.5 px-4 sm:px-6 text-right">
-                            <a href="https://wa.me/919129846542?text=Hello,%20Case%20HGF-P-1035%20followup" target="_blank" class="text-[#27797D] hover:underline font-bold text-xs inline-flex items-center gap-1">
-                                <span>Desk</span> &rarr;
-                            </a>
-                        </td>
-                    </tr>
-
-                    <!-- Row 4: Olumide Adeleke -->
-                    <tr class="referral-table-row hover:bg-slate-50/70 transition-colors" data-status="discharged">
-                        <td class="py-3.5 px-4 sm:px-6">
-                            <div class="flex items-center gap-3">
-                                <div class="w-8 h-8 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold text-xs shrink-0">
-                                    OA
-                                </div>
-                                <div>
-                                    <span class="block font-bold text-slate-900">Olumide Adeleke</span>
-                                    <span class="block text-[11px] text-slate-400">#HGF-P-1028 &bull; 🇳🇬 Nigeria</span>
-                                </div>
-                            </div>
-                        </td>
-                        <td class="py-3.5 px-4">
-                            <span class="font-bold text-slate-900 block">Fortis Memorial Research</span>
-                            <span class="text-slate-400 text-[11px]">Gurgaon, India</span>
-                        </td>
-                        <td class="py-3.5 px-4">
-                            <span class="block font-semibold text-slate-800">Orthopedics</span>
-                            <span class="text-slate-500 text-[11px]">Bilateral Robotic Knee Repl.</span>
-                        </td>
-                        <td class="py-3.5 px-4">
-                            <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-bold bg-purple-50 text-purple-700 border border-purple-200">
-                                ✓ Discharged / Cleared
-                            </span>
-                        </td>
-                        <td class="py-3.5 px-4 font-bold text-slate-900">
-                            ₹6,20,000
-                        </td>
-                        <td class="py-3.5 px-4 font-bold text-emerald-600">
-                            ₹62,000 <span class="text-[10px] text-emerald-700 font-bold">(Paid)</span>
-                        </td>
-                        <td class="py-3.5 px-4 sm:px-6 text-right">
-                            <a href="https://wa.me/919129846542?text=Hello,%20Case%20HGF-P-1028%20invoice" target="_blank" class="text-emerald-700 hover:underline font-bold text-xs inline-flex items-center gap-1">
-                                <span>Receipt</span> &rarr;
-                            </a>
-                        </td>
-                    </tr>
-
+                            </td>
+                        </tr>
+                    @endforelse
                 </tbody>
             </table>
         </div>
 
         <!-- Table Footer Pagination / Summary -->
         <div class="p-4 bg-slate-50/60 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-3">
-            <span>Showing <strong class="text-slate-800">4</strong> of <strong class="text-slate-800">148</strong> total patient records</span>
+            <span>Showing <strong class="text-slate-800">{{ $recentAppointments->count() }}</strong> of <strong class="text-slate-800">{{ $kpis['total_referrals'] }}</strong> total patient records</span>
             <div class="flex items-center gap-1.5">
-                <button class="px-2.5 py-1 rounded border border-slate-200 bg-white hover:bg-slate-50 disabled:opacity-50 font-medium">Prev</button>
-                <button class="px-2.5 py-1 rounded bg-[#27797D] text-white font-bold">1</button>
-                <button class="px-2.5 py-1 rounded border border-slate-200 bg-white hover:bg-slate-50 font-medium">2</button>
-                <button class="px-2.5 py-1 rounded border border-slate-200 bg-white hover:bg-slate-50 font-medium">3</button>
-                <button class="px-2.5 py-1 rounded border border-slate-200 bg-white hover:bg-slate-50 font-medium">Next</button>
+                <a href="{{ route('admin.appointment.index') }}" class="px-3.5 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-[#27797D] font-bold text-xs transition-colors inline-flex items-center gap-1">
+                    <span>Manage All Appointments</span> &rarr;
+                </a>
             </div>
         </div>
 

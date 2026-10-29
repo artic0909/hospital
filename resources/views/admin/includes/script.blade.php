@@ -85,21 +85,32 @@
         // 4. APEXCHARTS INITIALIZATION
         // ==========================================
         if (typeof ApexCharts !== 'undefined') {
+            const chartConfig = window.dashboardChartData || {};
 
             // ------------------------------------------
             // CHART 1: BAR CHART - Referrals & Admissions Trend
             // ------------------------------------------
             const barChartEl = document.querySelector("#chart-referrals-bar");
             if (barChartEl) {
+                const monthlyLabels = (chartConfig.monthly && chartConfig.monthly.labels && chartConfig.monthly.labels.length) 
+                    ? chartConfig.monthly.labels 
+                    : ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct'];
+                const monthlyReferrals = (chartConfig.monthly && chartConfig.monthly.referrals && chartConfig.monthly.referrals.length) 
+                    ? chartConfig.monthly.referrals 
+                    : [14, 18, 22, 28, 24, 32, 38, 42, 48, 52];
+                const monthlyAdmissions = (chartConfig.monthly && chartConfig.monthly.admissions && chartConfig.monthly.admissions.length) 
+                    ? chartConfig.monthly.admissions 
+                    : [8, 11, 15, 19, 18, 23, 27, 31, 35, 38];
+
                 const barOptions = {
                     series: [
                         {
                             name: 'Referrals Received',
-                            data: [14, 18, 22, 28, 24, 32, 38, 42, 48, 52]
+                            data: monthlyReferrals
                         },
                         {
                             name: 'Hospital Admissions',
-                            data: [8, 11, 15, 19, 18, 23, 27, 31, 35, 38]
+                            data: monthlyAdmissions
                         }
                     ],
                     chart: {
@@ -124,7 +135,7 @@
                         colors: ['transparent']
                     },
                     xaxis: {
-                        categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct'],
+                        categories: monthlyLabels,
                         labels: {
                             style: { colors: '#64748b', fontSize: '11px', fontWeight: 600 }
                         },
@@ -167,15 +178,22 @@
             // ------------------------------------------
             const donutChartEl = document.querySelector("#chart-specialty-donut");
             if (donutChartEl) {
+                const specialtySeries = (chartConfig.specialty && chartConfig.specialty.series && chartConfig.specialty.series.length) 
+                    ? chartConfig.specialty.series 
+                    : [44, 36, 28, 22, 18];
+                const specialtyLabels = (chartConfig.specialty && chartConfig.specialty.labels && chartConfig.specialty.labels.length) 
+                    ? chartConfig.specialty.labels 
+                    : ['Cardiology', 'Oncology', 'Orthopedics', 'Neurosurgery', 'Bariatric & Spine'];
+
                 const donutOptions = {
-                    series: [44, 36, 28, 22, 18],
-                    labels: ['Cardiology', 'Oncology', 'Orthopedics', 'Neurosurgery', 'Bariatric & Spine'],
+                    series: specialtySeries,
+                    labels: specialtyLabels,
                     chart: {
                         type: 'donut',
                         height: 310,
                         fontFamily: 'inherit'
                     },
-                    colors: ['#27797D', '#1D4B6C', '#EF7415', '#06b6d4', '#8b5cf6'],
+                    colors: ['#27797D', '#1D4B6C', '#EF7415', '#06b6d4', '#8b5cf6', '#10b981', '#f59e0b'],
                     plotOptions: {
                         pie: {
                             donut: {
@@ -231,11 +249,25 @@
             // ------------------------------------------
             const funnelChartEl = document.querySelector("#chart-pipeline-pyramid");
             if (funnelChartEl) {
+                const pipelineSeries = (chartConfig.pipeline && chartConfig.pipeline.series && chartConfig.pipeline.series.length) 
+                    ? chartConfig.pipeline.series 
+                    : [148, 126, 108, 89, 68, 62];
+                const pipelineCategories = (chartConfig.pipeline && chartConfig.pipeline.categories && chartConfig.pipeline.categories.length) 
+                    ? chartConfig.pipeline.categories 
+                    : [
+                        '1. Inquiries Received',
+                        '2. Reports Reviewed',
+                        '3. Quotes & Plans Shared',
+                        '4. Medical Visa Issued',
+                        '5. Hospital Admitted',
+                        '6. Successful Discharge'
+                    ];
+
                 const funnelOptions = {
                     series: [
                         {
                             name: "Patients",
-                            data: [148, 126, 108, 89, 68, 62]
+                            data: pipelineSeries
                         }
                     ],
                     chart: {
@@ -263,7 +295,7 @@
                     dataLabels: {
                         enabled: true,
                         formatter: function (val, opt) {
-                            return opt.w.globals.labels[opt.dataPointIndex] + ": " + val;
+                            return (opt.w.globals.labels[opt.dataPointIndex] || '') + ": " + val;
                         },
                         dropShadow: { enabled: false },
                         style: {
@@ -272,14 +304,7 @@
                         }
                     },
                     xaxis: {
-                        categories: [
-                            '1. Inquiries Received',
-                            '2. Reports Reviewed',
-                            '3. Quotes & Plans Shared',
-                            '4. Medical Visa Issued',
-                            '5. Hospital Admitted',
-                            '6. Successful Discharge'
-                        ]
+                        categories: pipelineCategories
                     },
                     legend: { show: false },
                     tooltip: {
@@ -301,8 +326,10 @@
             // ------------------------------------------
             const radialChartEl = document.querySelector("#chart-target-radial");
             if (radialChartEl) {
+                const radialSeries = (chartConfig.radialProgress !== undefined) ? [chartConfig.radialProgress] : [86];
+
                 const radialOptions = {
-                    series: [86],
+                    series: radialSeries,
                     chart: {
                         height: 310,
                         type: 'radialBar',
@@ -361,6 +388,7 @@
                 const radialChart = new ApexCharts(radialChartEl, radialOptions);
                 radialChart.render();
             }
+        }
 
         }
 
