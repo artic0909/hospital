@@ -16,7 +16,7 @@
                 </span>
             </div>
             <h1 class="text-2xl font-black text-[#112347] tracking-tight">Medical Treatments & Procedures</h1>
-            <p class="text-xs text-slate-500 mt-0.5">Manage surgical procedures, treatments, icons (SVGs, PNGs), estimated pricing, and department mappings.</p>
+            <p class="text-xs text-slate-500 mt-0.5">Manage surgical procedures, treatments, icons (searchable SVG library or custom upload), estimated pricing, and department mappings.</p>
         </div>
 
         <div class="flex items-center gap-3">
@@ -152,7 +152,7 @@
                             >
                         </th>
                         <th class="py-3.5 px-4 w-16">#ID</th>
-                        <th class="py-3.5 px-4 w-16 text-center">Icon / Image</th>
+                        <th class="py-3.5 px-4 w-20 text-center">Icon / Visual</th>
                         <th class="py-3.5 px-6">Treatment / Procedure</th>
                         <th class="py-3.5 px-6">Department</th>
                         <th class="py-3.5 px-6">Speciality</th>
@@ -177,7 +177,7 @@
                             </td>
                             <!-- Icon / Image Preview -->
                             <td class="py-3.5 px-4 text-center">
-                                <div class="w-10 h-10 rounded-xl bg-slate-50 border border-slate-200/80 p-1 flex items-center justify-center mx-auto overflow-hidden">
+                                <div class="w-10 h-10 rounded-xl bg-slate-50 border border-slate-200/80 p-1 flex items-center justify-center mx-auto overflow-hidden shadow-2xs">
                                     @if ($treatment->image)
                                         <img 
                                             src="{{ asset($treatment->image) }}" 
@@ -194,6 +194,11 @@
                                 <span class="font-bold text-slate-900 text-sm block">
                                     {{ $treatment->name }}
                                 </span>
+                                @if($treatment->image)
+                                    <span class="block text-[10px] text-slate-400 font-mono mt-0.5 truncate max-w-xs">
+                                        {{ $treatment->image }}
+                                    </span>
+                                @endif
                             </td>
                             <td class="py-3.5 px-6">
                                 <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-bold bg-teal-50 text-[#27797D] border border-teal-200/60">
@@ -228,7 +233,7 @@
                                     <!-- Edit Button -->
                                     <button 
                                         type="button" 
-                                        onclick="openEditTreatmentModal({{ $treatment->id }}, {{ $treatment->department_id }}, {{ $treatment->spaciality_id ?? 'null' }}, '{{ addslashes($treatment->name) }}', '{{ $treatment->price }}', '{{ $treatment->price_type }}', '{{ $treatment->image ? asset($treatment->image) : '' }}')"
+                                        onclick="openEditTreatmentModal({{ $treatment->id }}, {{ $treatment->department_id }}, {{ $treatment->spaciality_id ?? 'null' }}, '{{ addslashes($treatment->name) }}', '{{ $treatment->price }}', '{{ $treatment->price_type }}', '{{ $treatment->image ?? '' }}')"
                                         class="p-1.5 rounded-lg text-slate-500 hover:text-[#27797D] hover:bg-teal-50 transition-colors cursor-pointer"
                                         title="Edit Treatment"
                                     >
@@ -336,18 +341,91 @@
                 >
             </div>
 
-            <!-- Icon / Visual Upload (Supports SVGs & All Images) -->
-            <div>
-                <label class="block text-xs font-bold text-slate-700 mb-1.5">
-                    Procedure Icon / Visual <span class="text-slate-400 font-normal text-[10px]">(SVG, PNG, JPG, WebP)</span>
-                </label>
-                <input 
-                    type="file" 
-                    name="image" 
-                    accept="image/*,.svg"
-                    class="w-full text-xs text-slate-500 file:mr-4 file:py-2 file:px-3.5 file:rounded-xl file:border-0 file:text-xs file:font-bold file:bg-teal-50 file:text-[#27797D] hover:file:bg-teal-100 cursor-pointer"
-                >
-                <p class="text-[10px] text-slate-400 mt-1">Accepts vector SVGs, PNG, JPG, WebP icons (e.g. Knee, Heart, Eye SVG icons up to 5MB).</p>
+            <!-- DUAL ICON SELECTION: Searchable public/icons Dropdown + Upload -->
+            <div class="space-y-3 bg-slate-50/70 p-4 rounded-2xl border border-slate-200/80">
+                <div class="flex items-center justify-between">
+                    <label class="block text-xs font-bold text-slate-800">
+                        Procedure Icon / Visual
+                    </label>
+                    <button 
+                        type="button" 
+                        onclick="clearIconPicker('add-treat')" 
+                        class="text-[11px] font-bold text-rose-500 hover:underline"
+                    >
+                        Clear Selection &times;
+                    </button>
+                </div>
+
+                <!-- 1. Searchable Icons Dropdown (from public/icons) -->
+                <div class="relative" id="dropdown-wrapper-add-treat">
+                    <input type="hidden" name="selected_icon" id="add-treat-selected-icon" value="">
+
+                    <!-- Trigger Button -->
+                    <button 
+                        type="button" 
+                        onclick="toggleIconDropdown('add-treat')"
+                        class="w-full bg-white text-xs px-3.5 py-2.5 rounded-xl border border-slate-200 focus:border-[#27797D] text-left flex items-center justify-between transition-all cursor-pointer shadow-2xs"
+                    >
+                        <div class="flex items-center gap-2.5 truncate" id="add-treat-trigger-content">
+                            <span class="w-6 h-6 rounded-lg bg-orange-50 border border-orange-200/60 flex items-center justify-center text-[#EF7415] text-xs shrink-0 font-bold">💊</span>
+                            <span class="text-slate-500 font-medium truncate">-- Search & choose from public/icons --</span>
+                        </div>
+                        <svg class="w-4 h-4 text-slate-400 shrink-0 transition-transform duration-200" id="add-treat-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </button>
+
+                    <!-- Dropdown Menu -->
+                    <div id="add-treat-menu" class="hidden absolute left-0 right-0 top-full mt-1.5 bg-white border border-slate-200 rounded-2xl shadow-xl z-50 p-2.5 space-y-2">
+                        <!-- Search Box inside dropdown -->
+                        <div class="relative">
+                            <input 
+                                type="text" 
+                                id="add-treat-search-input"
+                                placeholder="Search icon (e.g. cardio, bypass, hip, knee, tumor)..." 
+                                oninput="filterIcons('add-treat', this.value)"
+                                class="w-full bg-slate-50 text-xs px-3 py-2 pl-8 rounded-xl border border-slate-200 focus:border-[#27797D] focus:outline-none font-medium"
+                            >
+                            <svg class="w-3.5 h-3.5 text-slate-400 absolute left-2.5 top-1/2 -translate-y-1/2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+                        </div>
+
+                        <!-- Scrollable Icons Options -->
+                        <div class="max-h-48 overflow-y-auto space-y-1 pr-1 custom-scroll" id="add-treat-options-list">
+                            @foreach ($publicIcons as $icon)
+                                <div 
+                                    onclick="selectIcon('add-treat', '{{ $icon['path'] }}', '{{ addslashes($icon['label']) }}', '{{ asset($icon['path']) }}')"
+                                    data-search="{{ strtolower($icon['label'] . ' ' . $icon['filename']) }}"
+                                    class="icon-option flex items-center gap-3 p-2 rounded-xl hover:bg-teal-50 cursor-pointer transition-colors group"
+                                >
+                                    <div class="w-8 h-8 rounded-lg bg-slate-100 group-hover:bg-white p-1 border border-slate-200 shrink-0 flex items-center justify-center">
+                                        <img src="{{ asset($icon['path']) }}" alt="{{ $icon['label'] }}" class="w-full h-full object-contain">
+                                    </div>
+                                    <div class="min-w-0 flex-1 truncate">
+                                        <span class="font-bold text-xs text-slate-800 group-hover:text-[#27797D] block truncate">{{ $icon['label'] }}</span>
+                                        <span class="text-[10px] text-slate-400 font-mono block truncate">{{ $icon['filename'] }}</span>
+                                    </div>
+                                </div>
+                            @endforeach
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Divider: OR Upload -->
+                <div class="relative flex items-center justify-center my-1">
+                    <div class="border-t border-slate-200/80 w-full"></div>
+                    <span class="bg-slate-50 px-2.5 text-[10px] font-extrabold uppercase tracking-wider text-slate-400 absolute">OR Upload New</span>
+                </div>
+
+                <!-- 2. File Upload Input -->
+                <div>
+                    <input 
+                        type="file" 
+                        name="image" 
+                        id="add-treat-file-input"
+                        accept="image/*,.svg"
+                        onchange="handleFileUploadChange('add-treat', this)"
+                        class="w-full text-xs text-slate-500 file:mr-4 file:py-2 file:px-3.5 file:rounded-xl file:border-0 file:text-xs file:font-bold file:bg-teal-50 file:text-[#27797D] hover:file:bg-teal-100 cursor-pointer"
+                    >
+                    <p class="text-[10px] text-slate-400 mt-1">Accepts SVG, PNG, JPG, WebP icons (up to 5MB).</p>
+                </div>
             </div>
 
             <!-- Price and Currency -->
@@ -449,29 +527,102 @@
                 >
             </div>
 
-            <!-- Existing Image Preview -->
-            <div id="edit-treatment-image-preview" class="hidden">
-                <label class="block text-xs font-bold text-slate-700 mb-1.5">Current Visual</label>
+            <!-- Current Icon Preview -->
+            <div id="edit-treat-current-preview" class="hidden">
+                <label class="block text-xs font-bold text-slate-700 mb-1">Current Active Visual</label>
                 <div class="flex items-center gap-3 bg-slate-50 p-2.5 rounded-xl border border-slate-200">
-                    <div class="w-10 h-10 rounded-lg bg-white p-1 border border-slate-200 overflow-hidden flex items-center justify-center">
-                        <img id="edit-treatment-img" src="" alt="Icon" class="w-full h-full object-contain">
+                    <div class="w-9 h-9 rounded-lg bg-white p-1 border border-slate-200 shrink-0 flex items-center justify-center">
+                        <img id="edit-treat-current-img" src="" alt="Icon" class="w-full h-full object-contain">
                     </div>
-                    <span class="text-[11px] text-slate-500">Current visual active. Upload below to replace.</span>
+                    <span id="edit-treat-current-path" class="text-[11px] text-slate-600 font-mono truncate flex-1"></span>
                 </div>
             </div>
 
-            <!-- Replace Visual Input -->
-            <div>
-                <label class="block text-xs font-bold text-slate-700 mb-1.5">
-                    Replace Icon / Visual <span class="text-slate-400 font-normal text-[10px]">(SVG, PNG, JPG, WebP)</span>
-                </label>
-                <input 
-                    type="file" 
-                    name="image" 
-                    accept="image/*,.svg"
-                    class="w-full text-xs text-slate-500 file:mr-4 file:py-2 file:px-3.5 file:rounded-xl file:border-0 file:text-xs file:font-bold file:bg-teal-50 file:text-[#27797D] hover:file:bg-teal-100 cursor-pointer"
-                >
-                <p class="text-[10px] text-slate-400 mt-1">Leave blank to keep existing visual.</p>
+            <!-- DUAL ICON SELECTION: Searchable public/icons Dropdown + Upload -->
+            <div class="space-y-3 bg-slate-50/70 p-4 rounded-2xl border border-slate-200/80">
+                <div class="flex items-center justify-between">
+                    <label class="block text-xs font-bold text-slate-800">
+                        Choose Different Icon / Visual
+                    </label>
+                    <button 
+                        type="button" 
+                        onclick="clearIconPicker('edit-treat')" 
+                        class="text-[11px] font-bold text-rose-500 hover:underline"
+                    >
+                        Clear Selection &times;
+                    </button>
+                </div>
+
+                <!-- 1. Searchable Icons Dropdown (from public/icons) -->
+                <div class="relative" id="dropdown-wrapper-edit-treat">
+                    <input type="hidden" name="selected_icon" id="edit-treat-selected-icon" value="">
+
+                    <!-- Trigger Button -->
+                    <button 
+                        type="button" 
+                        onclick="toggleIconDropdown('edit-treat')"
+                        class="w-full bg-white text-xs px-3.5 py-2.5 rounded-xl border border-slate-200 focus:border-[#27797D] text-left flex items-center justify-between transition-all cursor-pointer shadow-2xs"
+                    >
+                        <div class="flex items-center gap-2.5 truncate" id="edit-treat-trigger-content">
+                            <span class="w-6 h-6 rounded-lg bg-orange-50 border border-orange-200/60 flex items-center justify-center text-[#EF7415] text-xs shrink-0 font-bold">💊</span>
+                            <span class="text-slate-500 font-medium truncate">-- Select from public/icons --</span>
+                        </div>
+                        <svg class="w-4 h-4 text-slate-400 shrink-0 transition-transform duration-200" id="edit-treat-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </button>
+
+                    <!-- Dropdown Menu -->
+                    <div id="edit-treat-menu" class="hidden absolute left-0 right-0 top-full mt-1.5 bg-white border border-slate-200 rounded-2xl shadow-xl z-50 p-2.5 space-y-2">
+                        <!-- Search Box inside dropdown -->
+                        <div class="relative">
+                            <input 
+                                type="text" 
+                                id="edit-treat-search-input"
+                                placeholder="Search icon (e.g. cardio, bypass, hip, knee, tumor)..." 
+                                oninput="filterIcons('edit-treat', this.value)"
+                                class="w-full bg-slate-50 text-xs px-3 py-2 pl-8 rounded-xl border border-slate-200 focus:border-[#27797D] focus:outline-none font-medium"
+                            >
+                            <svg class="w-3.5 h-3.5 text-slate-400 absolute left-2.5 top-1/2 -translate-y-1/2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+                        </div>
+
+                        <!-- Scrollable Icons Options -->
+                        <div class="max-h-48 overflow-y-auto space-y-1 pr-1 custom-scroll" id="edit-treat-options-list">
+                            @foreach ($publicIcons as $icon)
+                                <div 
+                                    onclick="selectIcon('edit-treat', '{{ $icon['path'] }}', '{{ addslashes($icon['label']) }}', '{{ asset($icon['path']) }}')"
+                                    data-search="{{ strtolower($icon['label'] . ' ' . $icon['filename']) }}"
+                                    class="icon-option flex items-center gap-3 p-2 rounded-xl hover:bg-teal-50 cursor-pointer transition-colors group"
+                                >
+                                    <div class="w-8 h-8 rounded-lg bg-slate-100 group-hover:bg-white p-1 border border-slate-200 shrink-0 flex items-center justify-center">
+                                        <img src="{{ asset($icon['path']) }}" alt="{{ $icon['label'] }}" class="w-full h-full object-contain">
+                                    </div>
+                                    <div class="min-w-0 flex-1 truncate">
+                                        <span class="font-bold text-xs text-slate-800 group-hover:text-[#27797D] block truncate">{{ $icon['label'] }}</span>
+                                        <span class="text-[10px] text-slate-400 font-mono block truncate">{{ $icon['filename'] }}</span>
+                                    </div>
+                                </div>
+                            @endforeach
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Divider: OR Upload -->
+                <div class="relative flex items-center justify-center my-1">
+                    <div class="border-t border-slate-200/80 w-full"></div>
+                    <span class="bg-slate-50 px-2.5 text-[10px] font-extrabold uppercase tracking-wider text-slate-400 absolute">OR Upload New</span>
+                </div>
+
+                <!-- 2. File Upload Input -->
+                <div>
+                    <input 
+                        type="file" 
+                        name="image" 
+                        id="edit-treat-file-input"
+                        accept="image/*,.svg"
+                        onchange="handleFileUploadChange('edit-treat', this)"
+                        class="w-full text-xs text-slate-500 file:mr-4 file:py-2 file:px-3.5 file:rounded-xl file:border-0 file:text-xs file:font-bold file:bg-teal-50 file:text-[#27797D] hover:file:bg-teal-100 cursor-pointer"
+                    >
+                    <p class="text-[10px] text-slate-400 mt-1">Leave empty to keep current visual. Accepts SVGs, PNG, JPG, WebP.</p>
+                </div>
             </div>
 
             <!-- Price and Currency -->
@@ -516,7 +667,107 @@
 
 @push('scripts')
 <script>
+    // All available public icons lookup
+    const allPublicIcons = @json($publicIcons);
+
+    function toggleIconDropdown(prefix) {
+        const menu = document.getElementById(prefix + '-menu');
+        const arrow = document.getElementById(prefix + '-arrow');
+        const isOpen = !menu.classList.contains('hidden');
+
+        document.querySelectorAll('[id$="-menu"]').forEach(el => el.classList.add('hidden'));
+        document.querySelectorAll('[id$="-arrow"]').forEach(el => el.classList.remove('rotate-180'));
+
+        if (!isOpen) {
+            menu.classList.remove('hidden');
+            if (arrow) arrow.classList.add('rotate-180');
+            const searchInput = document.getElementById(prefix + '-search-input');
+            if (searchInput) {
+                searchInput.value = '';
+                filterIcons(prefix, '');
+                setTimeout(() => searchInput.focus(), 50);
+            }
+        }
+    }
+
+    function filterIcons(prefix, query) {
+        const cleanQuery = query.toLowerCase().trim();
+        const options = document.querySelectorAll('#' + prefix + '-options-list .icon-option');
+
+        options.forEach(opt => {
+            const searchData = opt.getAttribute('data-search') || '';
+            if (!cleanQuery || searchData.includes(cleanQuery)) {
+                opt.classList.remove('hidden');
+            } else {
+                opt.classList.add('hidden');
+            }
+        });
+    }
+
+    function selectIcon(prefix, path, label, url) {
+        const hiddenInput = document.getElementById(prefix + '-selected-icon');
+        const triggerContent = document.getElementById(prefix + '-trigger-content');
+        const menu = document.getElementById(prefix + '-menu');
+        const arrow = document.getElementById(prefix + '-arrow');
+        const fileInput = document.getElementById(prefix + '-file-input');
+
+        hiddenInput.value = path;
+
+        if (fileInput) fileInput.value = '';
+
+        triggerContent.innerHTML = `
+            <div class="w-6 h-6 rounded-md bg-white border border-teal-200 p-0.5 shrink-0 flex items-center justify-center">
+                <img src="${url}" class="w-full h-full object-contain" alt="${label}">
+            </div>
+            <span class="font-bold text-xs text-[#27797D] truncate">${label}</span>
+            <span class="text-[10px] text-emerald-600 bg-emerald-50 px-1.5 py-0.5 rounded font-bold ml-auto shrink-0">Selected ✓</span>
+        `;
+
+        if (menu) menu.classList.add('hidden');
+        if (arrow) arrow.classList.remove('rotate-180');
+    }
+
+    function clearIconPicker(prefix) {
+        const hiddenInput = document.getElementById(prefix + '-selected-icon');
+        const triggerContent = document.getElementById(prefix + '-trigger-content');
+        const fileInput = document.getElementById(prefix + '-file-input');
+
+        if (hiddenInput) hiddenInput.value = '';
+        if (fileInput) fileInput.value = '';
+
+        if (triggerContent) {
+            triggerContent.innerHTML = `
+                <span class="w-6 h-6 rounded-lg bg-orange-50 border border-orange-200/60 flex items-center justify-center text-[#EF7415] text-xs shrink-0 font-bold">💊</span>
+                <span class="text-slate-500 font-medium truncate">-- Search & choose from public/icons --</span>
+            `;
+        }
+    }
+
+    function handleFileUploadChange(prefix, fileInput) {
+        if (fileInput.files && fileInput.files[0]) {
+            const hiddenInput = document.getElementById(prefix + '-selected-icon');
+            if (hiddenInput) hiddenInput.value = '';
+
+            const triggerContent = document.getElementById(prefix + '-trigger-content');
+            if (triggerContent) {
+                triggerContent.innerHTML = `
+                    <span class="w-6 h-6 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center text-xs shrink-0 font-bold">📁</span>
+                    <span class="text-blue-700 font-bold text-xs truncate">Custom: ${fileInput.files[0].name}</span>
+                `;
+            }
+        }
+    }
+
+    // Close dropdown on outside click
+    document.addEventListener('click', function(e) {
+        if (!e.target.closest('[id^="dropdown-wrapper-"]')) {
+            document.querySelectorAll('[id$="-menu"]').forEach(el => el.classList.add('hidden'));
+            document.querySelectorAll('[id$="-arrow"]').forEach(el => el.classList.remove('rotate-180'));
+        }
+    });
+
     function openAddTreatmentModal() {
+        clearIconPicker('add-treat');
         const modal = document.getElementById('add-treatment-modal');
         modal.classList.remove('hidden');
         modal.classList.add('flex');
@@ -528,7 +779,8 @@
         modal.classList.remove('flex');
     }
 
-    function openEditTreatmentModal(id, deptId, specId, name, price, priceType, imageUrl) {
+    function openEditTreatmentModal(id, deptId, specId, name, price, priceType, imagePath) {
+        clearIconPicker('edit-treat');
         const modal = document.getElementById('edit-treatment-modal');
         const form = document.getElementById('edit-treatment-form');
         const deptSelect = document.getElementById('edit-treatment-dept-id');
@@ -536,8 +788,9 @@
         const nameInput = document.getElementById('edit-treatment-name');
         const priceInput = document.getElementById('edit-treatment-price');
         const priceTypeSelect = document.getElementById('edit-treatment-price-type');
-        const previewBlock = document.getElementById('edit-treatment-image-preview');
-        const imgElement = document.getElementById('edit-treatment-img');
+        const currentPreview = document.getElementById('edit-treat-current-preview');
+        const currentImg = document.getElementById('edit-treat-current-img');
+        const currentPath = document.getElementById('edit-treat-current-path');
 
         form.action = "{{ url('/admin/utilities/treatment') }}/" + id;
         deptSelect.value = deptId;
@@ -546,12 +799,20 @@
         priceInput.value = price;
         priceTypeSelect.value = priceType;
 
-        if (imageUrl) {
-            imgElement.src = imageUrl;
-            previewBlock.classList.remove('hidden');
+        if (imagePath) {
+            const assetUrl = "{{ asset('') }}" + imagePath;
+            currentImg.src = assetUrl;
+            currentPath.textContent = imagePath;
+            currentPreview.classList.remove('hidden');
+
+            const matched = allPublicIcons.find(ic => ic.path === imagePath);
+            if (matched) {
+                selectIcon('edit-treat', matched.path, matched.label, matched.url);
+            }
         } else {
-            imgElement.src = '';
-            previewBlock.classList.add('hidden');
+            currentPreview.classList.add('hidden');
+            currentImg.src = '';
+            currentPath.textContent = '';
         }
 
         modal.classList.remove('hidden');

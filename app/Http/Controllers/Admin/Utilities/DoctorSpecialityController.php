@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin\Utilities;
 
+use App\Helpers\IconHelper;
 use App\Http\Controllers\Controller;
 use App\Models\DoctorSpeciality;
 use Illuminate\Http\JsonResponse;
@@ -33,7 +34,10 @@ class DoctorSpecialityController extends Controller
             $specialities = $query->paginate($perPage)->withQueryString();
         }
 
-        return view('admin.utilities.doctor_spaciality', compact('specialities'));
+        // Available library icons from public/icons
+        $publicIcons = IconHelper::getPublicIcons();
+
+        return view('admin.utilities.doctor_spaciality', compact('specialities', 'publicIcons'));
     }
 
     /**
@@ -43,9 +47,11 @@ class DoctorSpecialityController extends Controller
     {
         $validated = $request->validate([
             'name' => ['required', 'string', 'max:255', 'unique:doctor_specialities,name'],
+            'selected_icon' => ['nullable', 'string', 'max:255'],
             'image' => ['nullable', 'file', 'mimes:jpeg,png,jpg,gif,svg,webp,ico,bmp,avif', 'max:5120'],
         ]);
 
+        // 1. If file uploaded, prioritize upload
         if ($request->hasFile('image')) {
             $file = $request->file('image');
             $filename = time() . '_' . uniqid() . '.' . $file->getClientOriginalExtension();
@@ -57,7 +63,12 @@ class DoctorSpecialityController extends Controller
 
             $file->move($destinationPath, $filename);
             $validated['image'] = 'uploads/specialities/' . $filename;
+        } elseif ($request->filled('selected_icon')) {
+            // 2. If chosen from public/icons library
+            $validated['image'] = $request->selected_icon;
         }
+
+        unset($validated['selected_icon']);
 
         $speciality = DoctorSpeciality::create($validated);
 
@@ -79,12 +90,13 @@ class DoctorSpecialityController extends Controller
     {
         $validated = $request->validate([
             'name' => ['required', 'string', 'max:255', 'unique:doctor_specialities,name,' . $doctorSpeciality->id],
+            'selected_icon' => ['nullable', 'string', 'max:255'],
             'image' => ['nullable', 'file', 'mimes:jpeg,png,jpg,gif,svg,webp,ico,bmp,avif', 'max:5120'],
         ]);
 
         if ($request->hasFile('image')) {
-            // Delete old image if exists
-            if ($doctorSpeciality->image && File::exists(public_path($doctorSpeciality->image)) && str_starts_with($doctorSpeciality->image, 'uploads/')) {
+            // Delete old uploaded image if in uploads/
+            if ($doctorSpeciality->image && str_starts_with($doctorSpeciality->image, 'uploads/') && File::exists(public_path($doctorSpeciality->image))) {
                 File::delete(public_path($doctorSpeciality->image));
             }
 
@@ -98,7 +110,16 @@ class DoctorSpecialityController extends Controller
 
             $file->move($destinationPath, $filename);
             $validated['image'] = 'uploads/specialities/' . $filename;
+        } elseif ($request->filled('selected_icon')) {
+            // Delete old uploaded image if in uploads/
+            if ($doctorSpeciality->image && str_starts_with($doctorSpeciality->image, 'uploads/') && File::exists(public_path($doctorSpeciality->image))) {
+                File::delete(public_path($doctorSpeciality->image));
+            }
+
+            $validated['image'] = $request->selected_icon;
         }
+
+        unset($validated['selected_icon']);
 
         $doctorSpeciality->update($validated);
 
@@ -120,7 +141,7 @@ class DoctorSpecialityController extends Controller
     {
         $name = $doctorSpeciality->name;
 
-        if ($doctorSpeciality->image && File::exists(public_path($doctorSpeciality->image)) && str_starts_with($doctorSpeciality->image, 'uploads/')) {
+        if ($doctorSpeciality->image && str_starts_with($doctorSpeciality->image, 'uploads/') && File::exists(public_path($doctorSpeciality->image))) {
             File::delete(public_path($doctorSpeciality->image));
         }
 
@@ -151,7 +172,7 @@ class DoctorSpecialityController extends Controller
         $specialities = DoctorSpeciality::whereIn('id', $validated['ids'])->get();
 
         foreach ($specialities as $speciality) {
-            if ($speciality->image && File::exists(public_path($speciality->image)) && str_starts_with($speciality->image, 'uploads/')) {
+            if ($speciality->image && str_starts_with($speciality->image, 'uploads/') && File::exists(public_path($speciality->image))) {
                 File::delete(public_path($speciality->image));
             }
             $speciality->delete();

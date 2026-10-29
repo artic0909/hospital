@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin\Utilities;
 
+use App\Helpers\IconHelper;
 use App\Http\Controllers\Controller;
 use App\Models\Department;
 use App\Models\DoctorSpeciality;
@@ -54,7 +55,10 @@ class TreatmentController extends Controller
         $departments = Department::orderBy('name')->get();
         $specialities = DoctorSpeciality::orderBy('name')->get();
 
-        return view('admin.utilities.treatment', compact('treatments', 'departments', 'specialities'));
+        // Available library icons from public/icons
+        $publicIcons = IconHelper::getPublicIcons();
+
+        return view('admin.utilities.treatment', compact('treatments', 'departments', 'specialities', 'publicIcons'));
     }
 
     /**
@@ -68,9 +72,11 @@ class TreatmentController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'price' => ['required', 'numeric', 'min:0'],
             'price_type' => ['required', 'in:rupees,dollars'],
+            'selected_icon' => ['nullable', 'string', 'max:255'],
             'image' => ['nullable', 'file', 'mimes:jpeg,png,jpg,gif,svg,webp,ico,bmp,avif', 'max:5120'],
         ]);
 
+        // 1. If file uploaded, prioritize upload
         if ($request->hasFile('image')) {
             $file = $request->file('image');
             $filename = time() . '_' . uniqid() . '.' . $file->getClientOriginalExtension();
@@ -82,7 +88,12 @@ class TreatmentController extends Controller
 
             $file->move($destinationPath, $filename);
             $validated['image'] = 'uploads/treatments/' . $filename;
+        } elseif ($request->filled('selected_icon')) {
+            // 2. If chosen from public/icons library
+            $validated['image'] = $request->selected_icon;
         }
+
+        unset($validated['selected_icon']);
 
         $treatment = Treatment::create($validated);
 
@@ -108,12 +119,13 @@ class TreatmentController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'price' => ['required', 'numeric', 'min:0'],
             'price_type' => ['required', 'in:rupees,dollars'],
+            'selected_icon' => ['nullable', 'string', 'max:255'],
             'image' => ['nullable', 'file', 'mimes:jpeg,png,jpg,gif,svg,webp,ico,bmp,avif', 'max:5120'],
         ]);
 
         if ($request->hasFile('image')) {
-            // Delete old image if exists
-            if ($treatment->image && File::exists(public_path($treatment->image)) && str_starts_with($treatment->image, 'uploads/')) {
+            // Delete old uploaded image if in uploads/
+            if ($treatment->image && str_starts_with($treatment->image, 'uploads/') && File::exists(public_path($treatment->image))) {
                 File::delete(public_path($treatment->image));
             }
 
@@ -127,7 +139,16 @@ class TreatmentController extends Controller
 
             $file->move($destinationPath, $filename);
             $validated['image'] = 'uploads/treatments/' . $filename;
+        } elseif ($request->filled('selected_icon')) {
+            // Delete old uploaded image if in uploads/
+            if ($treatment->image && str_starts_with($treatment->image, 'uploads/') && File::exists(public_path($treatment->image))) {
+                File::delete(public_path($treatment->image));
+            }
+
+            $validated['image'] = $request->selected_icon;
         }
+
+        unset($validated['selected_icon']);
 
         $treatment->update($validated);
 
@@ -149,7 +170,7 @@ class TreatmentController extends Controller
     {
         $name = $treatment->name;
 
-        if ($treatment->image && File::exists(public_path($treatment->image)) && str_starts_with($treatment->image, 'uploads/')) {
+        if ($treatment->image && str_starts_with($treatment->image, 'uploads/') && File::exists(public_path($treatment->image))) {
             File::delete(public_path($treatment->image));
         }
 
@@ -180,7 +201,7 @@ class TreatmentController extends Controller
         $treatments = Treatment::whereIn('id', $validated['ids'])->get();
 
         foreach ($treatments as $treatment) {
-            if ($treatment->image && File::exists(public_path($treatment->image)) && str_starts_with($treatment->image, 'uploads/')) {
+            if ($treatment->image && str_starts_with($treatment->image, 'uploads/') && File::exists(public_path($treatment->image))) {
                 File::delete(public_path($treatment->image));
             }
             $treatment->delete();
