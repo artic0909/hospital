@@ -1,6 +1,6 @@
-@extends('partner.layouts.app')
+@extends('admin.layouts.app')
 
-@section('title', 'Patients Directory - Heal Go Fly Partner')
+@section('title', 'Patients Directory - Heal Go Fly Admin')
 
 @section('content')
 <div class="space-y-6">
@@ -9,17 +9,19 @@
     <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white p-6 rounded-3xl border border-slate-200/80 shadow-xs">
         <div>
             <div class="flex items-center gap-2 mb-1 text-xs font-bold text-slate-500">
-                <a href="{{ route('partner.dashboard') }}" class="text-[#27797D] hover:underline">&larr; Dashboard</a>
+                <a href="{{ route('admin.dashboard') }}" class="text-[#27797D] hover:underline">&larr; Dashboard</a>
                 <span>&bull;</span>
-                <span class="text-slate-400">Patients & Health Records</span>
+                <span class="px-2 py-0.5 rounded-full text-[11px] font-bold bg-teal-50 text-teal-700 border border-teal-200">
+                    {{ $patients->total() }} Patients
+                </span>
             </div>
             <h1 class="text-2xl font-black text-[#112347] tracking-tight">Patients Directory</h1>
-            <p class="text-xs text-slate-500 mt-0.5">Manage patient health dossiers, contact information, geographical locations, and associated medical reports.</p>
+            <p class="text-xs text-slate-500 mt-0.5">Manage patient health dossiers, international case files, and diagnostic reports.</p>
         </div>
 
         <div class="flex items-center gap-2.5">
             <a 
-                href="{{ route('partner.patient.create') }}" 
+                href="{{ route('admin.patient.create') }}" 
                 class="inline-flex items-center gap-2 bg-[#EF7415] hover:bg-[#d9640d] text-white text-xs sm:text-sm font-bold px-4 py-2.5 rounded-xl shadow-md shadow-[#EF7415]/20 transition-all transform hover:-translate-y-0.5 cursor-pointer"
             >
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg>
@@ -85,7 +87,7 @@
 
     <!-- Filter & Search Toolbar -->
     <div class="bg-white p-4 sm:p-5 rounded-2xl border border-slate-200/80 shadow-xs space-y-3">
-        <form action="{{ route('partner.patient.index') }}" method="GET" class="grid grid-cols-1 sm:grid-cols-12 gap-3 items-center">
+        <form action="{{ route('admin.patient.index') }}" method="GET" class="grid grid-cols-1 sm:grid-cols-12 gap-3 items-center">
             
             <!-- Search -->
             <div class="sm:col-span-6 relative">
@@ -140,7 +142,7 @@
 
                 @if(request()->hasAny(['search', 'country', 'per_page']))
                 <a 
-                    href="{{ route('partner.patient.index') }}" 
+                    href="{{ route('admin.patient.index') }}" 
                     class="p-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-600 text-xs font-bold transition-all shrink-0 cursor-pointer"
                     title="Reset Filter"
                 >
@@ -156,7 +158,7 @@
                 <span class="w-2 h-2 rounded-full bg-teal-600 animate-pulse"></span>
                 <span id="bulk-selected-count">0</span> patients selected
             </div>
-            <form id="bulk-delete-form" action="{{ route('partner.patient.bulk-delete') }}" method="POST" class="inline">
+            <form id="bulk-delete-form" action="{{ route('admin.patient.bulk-delete') }}" method="POST" class="inline">
                 @csrf
                 <div id="bulk-hidden-inputs"></div>
                 <button 
@@ -219,7 +221,7 @@
                                     >
                                 </div>
                                 <div class="truncate">
-                                    <a href="{{ route('partner.patient.view', $patient) }}" class="font-bold text-[#112347] hover:text-[#27797D] transition-colors text-sm block truncate">
+                                    <a href="{{ route('admin.patient.view', $patient->id) }}" class="font-bold text-[#112347] hover:text-[#27797D] transition-colors text-sm block truncate">
                                         {{ $patient->name }}
                                     </a>
                                     <span class="inline-flex items-center gap-1 text-[10px] font-mono font-bold text-slate-400 mt-0.5">
@@ -268,7 +270,7 @@
                         <!-- Medical Reports Count Badge -->
                         <td class="py-3.5 px-4 text-center">
                             <a 
-                                href="{{ route('partner.patient.report.index', $patient) }}" 
+                                href="{{ route('admin.patient.report.index', $patient->id) }}" 
                                 class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-xl font-bold text-xs transition-all {{ $patient->reports_count > 0 ? 'bg-teal-50 text-[#27797D] hover:bg-[#27797D] hover:text-white border border-teal-200/80 shadow-xs' : 'bg-slate-100 text-slate-400 hover:bg-slate-200 hover:text-slate-700' }}"
                                 title="Manage Medical Reports"
                             >
@@ -289,7 +291,7 @@
                                 
                                 <!-- View Profile -->
                                 <a 
-                                    href="{{ route('partner.patient.view', $patient) }}" 
+                                    href="{{ route('admin.patient.view', $patient->id) }}" 
                                     class="p-2 rounded-lg text-slate-400 hover:text-[#27797D] hover:bg-teal-50 transition-colors"
                                     title="View Dossier"
                                 >
@@ -298,7 +300,7 @@
 
                                 <!-- Medical Reports -->
                                 <a 
-                                    href="{{ route('partner.patient.report.index', $patient) }}" 
+                                    href="{{ route('admin.patient.report.index', $patient->id) }}" 
                                     class="p-2 rounded-lg text-slate-400 hover:text-teal-600 hover:bg-teal-50 transition-colors"
                                     title="Upload & View Reports"
                                 >
@@ -307,7 +309,7 @@
 
                                 <!-- Edit -->
                                 <a 
-                                    href="{{ route('partner.patient.update', $patient) }}" 
+                                    href="{{ route('admin.patient.update', $patient->id) }}" 
                                     class="p-2 rounded-lg text-slate-400 hover:text-amber-600 hover:bg-amber-50 transition-colors"
                                     title="Edit Patient"
                                 >
@@ -317,7 +319,7 @@
                                 <!-- Delete -->
                                 <button 
                                     type="button" 
-                                    onclick="confirmDelete('{{ route('partner.patient.destroy', $patient) }}', '{{ addslashes($patient->name) }}')"
+                                    onclick="confirmDelete('{{ route('admin.patient.destroy', $patient->id) }}', '{{ addslashes($patient->name) }}')"
                                     class="p-2 rounded-lg text-slate-400 hover:text-rose-600 hover:bg-rose-50 transition-colors cursor-pointer"
                                     title="Delete Patient"
                                 >
@@ -334,9 +336,9 @@
                                     <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
                                 </div>
                                 <h3 class="text-base font-bold text-slate-800">No Patients Registered Yet</h3>
-                                <p class="text-xs text-slate-400">Begin registering international and domestic patients to manage appointments and attach diagnostic medical reports.</p>
+                                <p class="text-xs text-slate-400">Add patients directly to track international clinical treatments, diagnostic files, and investigations.</p>
                                 <a 
-                                    href="{{ route('partner.patient.create') }}" 
+                                    href="{{ route('admin.patient.create') }}" 
                                     class="inline-flex items-center gap-2 bg-[#27797D] hover:bg-[#1e5f62] text-white text-xs font-bold px-4 py-2 rounded-xl transition-all shadow-xs cursor-pointer"
                                 >
                                     <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg>

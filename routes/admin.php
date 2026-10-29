@@ -101,27 +101,27 @@ Route::prefix('admin')->name('admin.')->group(function () {
                 Route::put('/{doctor}', \App\Http\Controllers\Admin\DoctorController::class . '@update')->name('update.submit');
                 Route::delete('/{doctor}', \App\Http\Controllers\Admin\DoctorController::class . '@destroy')->name('destroy');
             });
+        });
 
-            // Hospital Patient & Medical Report CRUD
-            Route::prefix('{hospital}/patient')->name('patient.')->group(function () {
-                Route::get('/', \App\Http\Controllers\Admin\PatientController::class . '@index')->name('index');
-                Route::get('/create', \App\Http\Controllers\Admin\PatientController::class . '@create')->name('create');
-                Route::post('/', \App\Http\Controllers\Admin\PatientController::class . '@store')->name('store');
-                Route::post('/bulk-delete', \App\Http\Controllers\Admin\PatientController::class . '@bulkDelete')->name('bulk-delete');
-                Route::get('/get-states', \App\Http\Controllers\Admin\PatientController::class . '@getStates')->name('get-states');
-                Route::get('/get-cities', \App\Http\Controllers\Admin\PatientController::class . '@getCities')->name('get-cities');
-                Route::get('/{patient}', \App\Http\Controllers\Admin\PatientController::class . '@show')->name('view');
-                Route::get('/{patient}/edit', \App\Http\Controllers\Admin\PatientController::class . '@edit')->name('update');
-                Route::put('/{patient}', \App\Http\Controllers\Admin\PatientController::class . '@update')->name('update.submit');
-                Route::delete('/{patient}', \App\Http\Controllers\Admin\PatientController::class . '@destroy')->name('destroy');
+        // ==================== PATIENT CRUD ====================
+        Route::prefix('patient')->name('patient.')->group(function () {
+            Route::get('/', \App\Http\Controllers\Admin\PatientController::class . '@index')->name('index');
+            Route::get('/create', \App\Http\Controllers\Admin\PatientController::class . '@create')->name('create');
+            Route::post('/', \App\Http\Controllers\Admin\PatientController::class . '@store')->name('store');
+            Route::post('/bulk-delete', \App\Http\Controllers\Admin\PatientController::class . '@bulkDelete')->name('bulk-delete');
+            Route::get('/get-states', \App\Http\Controllers\Admin\PatientController::class . '@getStates')->name('get-states');
+            Route::get('/get-cities', \App\Http\Controllers\Admin\PatientController::class . '@getCities')->name('get-cities');
+            Route::get('/{patient}', \App\Http\Controllers\Admin\PatientController::class . '@show')->name('view');
+            Route::get('/{patient}/edit', \App\Http\Controllers\Admin\PatientController::class . '@edit')->name('update');
+            Route::put('/{patient}', \App\Http\Controllers\Admin\PatientController::class . '@update')->name('update.submit');
+            Route::delete('/{patient}', \App\Http\Controllers\Admin\PatientController::class . '@destroy')->name('destroy');
 
-                // Reports
-                Route::prefix('{patient}/report')->name('report.')->group(function () {
-                    Route::get('/', \App\Http\Controllers\Admin\PatientReportController::class . '@index')->name('index');
-                    Route::post('/', \App\Http\Controllers\Admin\PatientReportController::class . '@store')->name('store');
-                    Route::delete('/{report}', \App\Http\Controllers\Admin\PatientReportController::class . '@destroy')->name('destroy');
-                    Route::get('/{report}/download', \App\Http\Controllers\Admin\PatientReportController::class . '@download')->name('download');
-                });
+            // Patient Medical Reports
+            Route::prefix('{patient}/report')->name('report.')->group(function () {
+                Route::get('/', \App\Http\Controllers\Admin\PatientReportController::class . '@index')->name('index');
+                Route::post('/', \App\Http\Controllers\Admin\PatientReportController::class . '@store')->name('store');
+                Route::delete('/{report}', \App\Http\Controllers\Admin\PatientReportController::class . '@destroy')->name('destroy');
+                Route::get('/{report}/download', \App\Http\Controllers\Admin\PatientReportController::class . '@download')->name('download');
             });
         });
     });

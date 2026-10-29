@@ -223,9 +223,9 @@
                                     </a>
 
                                     <a 
-                                        href="{{ route('admin.hospital.patient.index', $hosp->id) }}"
+                                        href="{{ route('admin.patient.index') }}"
                                         class="inline-flex items-center gap-1 px-2.5 py-1 rounded-xl text-xs font-bold bg-orange-50 hover:bg-orange-100 text-[#EF7415] border border-orange-200 transition-colors shadow-2xs"
-                                        title="View Hospital Patients"
+                                        title="View All Patients"
                                     >
                                         <span>👥</span>
                                         <span>{{ $hosp->patients_count }} Patients</span>
@@ -258,9 +258,9 @@
 
                                     <!-- Patient Directory Button -->
                                     <!-- <a 
-                                        href="{{ route('admin.hospital.patient.index', $hosp->id) }}"
+                                        href="{{ route('admin.patient.index') }}"
                                         class="p-1.5 rounded-lg text-[#27797D] hover:bg-teal-50 transition-colors"
-                                        title="Patients Directory - {{ $hosp->name }}"
+                                        title="Patients Directory"
                                     >
                                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
                                     </a> -->

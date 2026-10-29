@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Hospital;
 use App\Models\Patient;
 use App\Models\Report;
 use Illuminate\Http\RedirectResponse;
@@ -15,9 +14,9 @@ use Symfony\Component\HttpFoundation\BinaryFileResponse;
 class PatientReportController extends Controller
 {
     /**
-     * Display medical reports listing for a patient under a hospital.
+     * Display medical reports listing for a patient.
      */
-    public function index(Request $request, Hospital $hospital, Patient $patient): View
+    public function index(Request $request, Patient $patient): View
     {
         $query = $patient->reports();
 
@@ -42,13 +41,13 @@ class PatientReportController extends Controller
             'latest_date' => $patient->reports()->max('date'),
         ];
 
-        return view('admin.hospital.patient.report.index', compact('hospital', 'patient', 'reports', 'stats'));
+        return view('admin.patient.report.index', compact('patient', 'reports', 'stats'));
     }
 
     /**
      * Store a newly created medical report for the patient.
      */
-    public function store(Request $request, Hospital $hospital, Patient $patient): RedirectResponse
+    public function store(Request $request, Patient $patient): RedirectResponse
     {
         $validated = $request->validate([
             'name' => ['required', 'string', 'max:255'],
@@ -89,7 +88,7 @@ class PatientReportController extends Controller
     /**
      * Remove the specified medical report.
      */
-    public function destroy(Hospital $hospital, Patient $patient, Report $report): RedirectResponse
+    public function destroy(Patient $patient, Report $report): RedirectResponse
     {
         $name = $report->name;
 
@@ -103,14 +102,18 @@ class PatientReportController extends Controller
     }
 
     /**
-     * Download or view report file.
+     * Download the report file.
      */
-    public function download(Hospital $hospital, Patient $patient, Report $report): BinaryFileResponse|RedirectResponse
+    public function download(Patient $patient, Report $report): BinaryFileResponse|RedirectResponse
     {
         if (!$report->file || !File::exists(public_path($report->file))) {
-            return back()->with('error', 'The requested report document was not found on the server.');
+            return back()->with('error', 'The requested file could not be found on the server.');
         }
 
-        return response()->download(public_path($report->file), $report->name . '.' . $report->extension);
+        $fullPath = public_path($report->file);
+        $extension = pathinfo($fullPath, PATHINFO_EXTENSION);
+        $downloadName = str_replace(' ', '_', $patient->name) . '_' . str_replace(' ', '_', $report->name) . '.' . $extension;
+
+        return response()->download($fullPath, $downloadName);
     }
 }

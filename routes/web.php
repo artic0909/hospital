@@ -117,28 +117,6 @@ Route::prefix('partner')->name('partner.')->group(function () {
             Route::delete('/{review}', [\App\Http\Controllers\Partner\ReviewController::class, 'destroy'])->name('destroy');
             Route::post('/bulk-delete', [\App\Http\Controllers\Partner\ReviewController::class, 'bulkDelete'])->name('bulk-delete');
         });
-
-        // 8. Patients & Medical Reports CRUD
-        Route::prefix('patient')->name('patient.')->group(function () {
-            Route::get('/', [\App\Http\Controllers\Partner\PatientController::class, 'index'])->name('index');
-            Route::get('/create', [\App\Http\Controllers\Partner\PatientController::class, 'create'])->name('create');
-            Route::post('/', [\App\Http\Controllers\Partner\PatientController::class, 'store'])->name('store');
-            Route::post('/bulk-delete', [\App\Http\Controllers\Partner\PatientController::class, 'bulkDelete'])->name('bulk-delete');
-            Route::get('/get-states', [\App\Http\Controllers\Partner\PatientController::class, 'getStates'])->name('get-states');
-            Route::get('/get-cities', [\App\Http\Controllers\Partner\PatientController::class, 'getCities'])->name('get-cities');
-            Route::get('/{patient}', [\App\Http\Controllers\Partner\PatientController::class, 'show'])->name('view');
-            Route::get('/{patient}/edit', [\App\Http\Controllers\Partner\PatientController::class, 'edit'])->name('update');
-            Route::put('/{patient}', [\App\Http\Controllers\Partner\PatientController::class, 'update'])->name('update.submit');
-            Route::delete('/{patient}', [\App\Http\Controllers\Partner\PatientController::class, 'destroy'])->name('destroy');
-
-            // Reports under patient
-            Route::prefix('{patient}/report')->name('report.')->group(function () {
-                Route::get('/', [\App\Http\Controllers\Partner\PatientReportController::class, 'index'])->name('index');
-                Route::post('/', [\App\Http\Controllers\Partner\PatientReportController::class, 'store'])->name('store');
-                Route::delete('/{report}', [\App\Http\Controllers\Partner\PatientReportController::class, 'destroy'])->name('destroy');
-                Route::get('/{report}/download', [\App\Http\Controllers\Partner\PatientReportController::class, 'download'])->name('download');
-            });
-        });
     });
 });
 

@@ -5,8 +5,6 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\City;
 use App\Models\Country;
-use App\Models\Hospital;
-use App\Models\Partner;
 use App\Models\Patient;
 use App\Models\Report;
 use App\Models\State;
@@ -14,59 +12,16 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\View\View;
 
 class PatientController extends Controller
 {
     /**
-     * Resolve or provision a partner account for this hospital.
+     * Display a listing of patients.
      */
-    protected function getOrCreateHospitalPartner(Hospital $hospital): Partner
+    public function index(Request $request): View
     {
-        $partner = Partner::where('hospital_id', $hospital->id)->first();
-        if ($partner) return $partner;
-
-        if (!empty($hospital->email)) {
-            $partner = Partner::where('email', $hospital->email)->first();
-            if ($partner) {
-                $partner->update(['hospital_id' => $hospital->id]);
-                return $partner;
-            }
-        }
-
-        $partner = Partner::where('company_name', $hospital->name)->first();
-        if ($partner) {
-            $partner->update(['hospital_id' => $hospital->id]);
-            return $partner;
-        }
-
-        // Provision a partner record
-        $cleanCode = strtolower(preg_replace('/[^a-zA-Z0-9]/', '', $hospital->code ?: 'hosp' . $hospital->id));
-        $email = !empty($hospital->email) 
-            ? $hospital->email 
-            : ($cleanCode . '@partner.healgofly.com');
-
-        return Partner::create([
-            'hospital_id' => $hospital->id,
-            'name' => $hospital->name,
-            'company_name' => $hospital->name,
-            'email' => $email,
-            'phone' => $hospital->contact ?? '0000000000',
-            'country' => $hospital->country->name ?? 'India',
-            'partner_type' => 'Hospital Partner',
-            'address' => $hospital->address,
-            'status' => 'active',
-            'password' => $hospital->password ?? Hash::make('12345678'),
-        ]);
-    }
-
-    /**
-     * Display a listing of patients for a specific hospital.
-     */
-    public function index(Request $request, Hospital $hospital): View
-    {
-        $query = $hospital->patients()->withCount('reports');
+        $query = Patient::withCount('reports');
 
         // Search filter
         if ($request->filled('search')) {
@@ -95,42 +50,37 @@ class PatientController extends Controller
             $patients = $query->latest()->paginate($perPage)->withQueryString();
         }
 
-        // Aggregate statistics for this hospital
+        // Aggregate statistics
         $stats = [
-            'total' => $hospital->patients()->count(),
-            'with_reports' => $hospital->patients()->has('reports')->count(),
-            'total_reports' => Report::whereHas('patient', function ($q) use ($hospital) {
-                $q->where('hospital_id', $hospital->id);
-            })->count(),
-            'this_month' => $hospital->patients()
-                ->where('created_at', '>=', now()->startOfMonth())
-                ->count(),
+            'total' => Patient::count(),
+            'with_reports' => Patient::has('reports')->count(),
+            'total_reports' => Report::count(),
+            'this_month' => Patient::where('created_at', '>=', now()->startOfMonth())->count(),
         ];
 
-        // Unique countries in this hospital's patient pool
-        $filterCountries = $hospital->patients()
-            ->whereNotNull('country')
+        // Unique countries in patient pool
+        $filterCountries = Patient::whereNotNull('country')
             ->where('country', '!=', '')
             ->distinct()
             ->orderBy('country')
             ->pluck('country');
 
-        return view('admin.hospital.patient.index', compact('hospital', 'patients', 'stats', 'filterCountries'));
+        return view('admin.patient.index', compact('patients', 'stats', 'filterCountries'));
     }
 
     /**
-     * Show the form for creating a new patient for this hospital.
+     * Show the form for creating a new patient.
      */
-    public function create(Hospital $hospital): View
+    public function create(): View
     {
         $countries = Country::orderBy('name')->get();
-        return view('admin.hospital.patient.create', compact('hospital', 'countries'));
+        return view('admin.patient.create', compact('countries'));
     }
 
     /**
-     * Store a newly created patient for this hospital.
+     * Store a newly created patient.
      */
-    public function store(Request $request, Hospital $hospital): RedirectResponse
+    public function store(Request $request): RedirectResponse
     {
         $validated = $request->validate([
             'name' => ['required', 'string', 'max:255'],
@@ -164,11 +114,9 @@ class PatientController extends Controller
             $imagePath = 'patients/' . $filename;
         }
 
-        $partner = $this->getOrCreateHospitalPartner($hospital);
-
         $patient = Patient::create([
-            'hospital_id' => $hospital->id,
-            'partner_id' => $partner->id,
+            'partner_id' => null,
+            'hospital_id' => null,
             'name' => $validated['name'],
             'phone' => $validated['phone'] ?? null,
             'email' => $validated['email'] ?? null,
@@ -180,23 +128,23 @@ class PatientController extends Controller
         ]);
 
         return redirect()
-            ->route('admin.hospital.patient.view', [$hospital->id, $patient->id])
-            ->with('success', "Patient '{$patient->name}' registered for {$hospital->name} successfully!");
+            ->route('admin.patient.view', $patient->id)
+            ->with('success', "Patient '{$patient->name}' registered successfully!");
     }
 
     /**
      * Display the specified patient profile.
      */
-    public function show(Hospital $hospital, Patient $patient): View
+    public function show(Patient $patient): View
     {
         $patient->load('reports');
-        return view('admin.hospital.patient.view', compact('hospital', 'patient'));
+        return view('admin.patient.view', compact('patient'));
     }
 
     /**
      * Show the form for editing the specified patient.
      */
-    public function edit(Hospital $hospital, Patient $patient): View
+    public function edit(Patient $patient): View
     {
         $countries = Country::orderBy('name')->get();
 
@@ -206,13 +154,13 @@ class PatientController extends Controller
         $selectedState = State::where('name', $patient->state)->first();
         $cities = $selectedState ? City::where('state_id', $selectedState->id)->orderBy('name')->get() : collect();
 
-        return view('admin.hospital.patient.update', compact('hospital', 'patient', 'countries', 'states', 'cities'));
+        return view('admin.patient.update', compact('patient', 'countries', 'states', 'cities'));
     }
 
     /**
      * Update the specified patient.
      */
-    public function update(Request $request, Hospital $hospital, Patient $patient): RedirectResponse
+    public function update(Request $request, Patient $patient): RedirectResponse
     {
         $validated = $request->validate([
             'name' => ['required', 'string', 'max:255'],
@@ -267,14 +215,14 @@ class PatientController extends Controller
         ]);
 
         return redirect()
-            ->route('admin.hospital.patient.view', [$hospital->id, $patient->id])
+            ->route('admin.patient.view', $patient->id)
             ->with('success', "Patient '{$patient->name}' profile updated successfully!");
     }
 
     /**
      * Remove the specified patient.
      */
-    public function destroy(Hospital $hospital, Patient $patient): RedirectResponse
+    public function destroy(Patient $patient): RedirectResponse
     {
         $name = $patient->name;
 
@@ -291,21 +239,21 @@ class PatientController extends Controller
         $patient->delete();
 
         return redirect()
-            ->route('admin.hospital.patient.index', $hospital->id)
+            ->route('admin.patient.index')
             ->with('success', "Patient '{$name}' and all attached medical reports have been deleted.");
     }
 
     /**
      * Bulk delete selected patients.
      */
-    public function bulkDelete(Request $request, Hospital $hospital): RedirectResponse
+    public function bulkDelete(Request $request): RedirectResponse
     {
         $validated = $request->validate([
             'ids' => ['required', 'array'],
             'ids.*' => ['integer'],
         ]);
 
-        $patients = $hospital->patients()->whereIn('id', $validated['ids'])->with('reports')->get();
+        $patients = Patient::whereIn('id', $validated['ids'])->with('reports')->get();
 
         $count = 0;
         foreach ($patients as $patient) {
@@ -322,14 +270,14 @@ class PatientController extends Controller
         }
 
         return redirect()
-            ->route('admin.hospital.patient.index', $hospital->id)
+            ->route('admin.patient.index')
             ->with('success', "Successfully deleted {$count} patient records.");
     }
 
     /**
      * Helper AJAX to fetch states.
      */
-    public function getStates(Request $request, Hospital $hospital): JsonResponse
+    public function getStates(Request $request): JsonResponse
     {
         $countryQuery = $request->query('country');
         if (is_numeric($countryQuery)) {
@@ -349,7 +297,7 @@ class PatientController extends Controller
     /**
      * Helper AJAX to fetch cities.
      */
-    public function getCities(Request $request, Hospital $hospital): JsonResponse
+    public function getCities(Request $request): JsonResponse
     {
         $stateQuery = $request->query('state');
         if (is_numeric($stateQuery)) {

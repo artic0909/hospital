@@ -75,9 +75,9 @@
                     <span>Doctors ({{ $hospital->doctors()->count() }})</span>
                 </a>
                 <a 
-                    href="{{ route('admin.hospital.patient.index', $hospital->id) }}" 
+                    href="{{ route('admin.patient.index') }}" 
                     class="inline-flex items-center gap-1.5 px-3.5 py-2 text-xs font-bold bg-[#EF7415] hover:bg-[#d9640d] text-white rounded-xl transition-all shadow-md shadow-[#EF7415]/20 font-semibold"
-                    title="Manage Hospital Patients & Reports"
+                    title="Manage Patients Directory"
                 >
                     <span>👥</span>
                     <span>Patients ({{ $hospital->patients()->count() }})</span>
