@@ -1772,7 +1772,7 @@
             <!-- Section Header with Left Title and Right Nav Controls -->
             <div class="flex items-center justify-between mb-8 sm:mb-10">
                 <h2 class="text-2xl sm:text-3xl font-extrabold text-[#112347] tracking-tight">
-                    Heal Go Fly In News
+                    HealGoFly In News
                 </h2>
                 
                 <!-- Slider Nav Arrows -->
