@@ -38,8 +38,13 @@
         }
     </script>
 
-    <!-- ApexCharts CDN for Rich Visualizations -->
-    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <!-- ApexCharts Library (Local asset with CDN fallback) -->
+    <script src="{{ asset('js/apexcharts.min.js') }}"></script>
+    <script>
+        if (typeof ApexCharts === 'undefined') {
+            document.write('<script src="https://cdn.jsdelivr.net/npm/apexcharts"><\/script>');
+        }
+    </script>
 
     <!-- SweetAlert2 CDN for Confirmation Dialogs & Flash Toasts -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>

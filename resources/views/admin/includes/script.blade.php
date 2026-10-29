@@ -1,5 +1,5 @@
 <script>
-    document.addEventListener('DOMContentLoaded', () => {
+    function initializeAdminScript() {
 
         // ==========================================
         // 1. MOBILE SIDEBAR DRAWER TOGGLE
@@ -82,16 +82,26 @@
         if (statusFilterSelect) statusFilterSelect.addEventListener('change', filterTable);
 
         // ==========================================
-        // 4. APEXCHARTS INITIALIZATION
+        // 4. APEXCHARTS INITIALIZATION WITH RETRY
         // ==========================================
-        if (typeof ApexCharts !== 'undefined') {
+        function initApexCharts(retries = 20) {
+            if (typeof ApexCharts === 'undefined') {
+                if (retries > 0) {
+                    setTimeout(() => initApexCharts(retries - 1), 100);
+                }
+                return;
+            }
+
             const chartConfig = window.dashboardChartData || {};
 
             // ------------------------------------------
             // CHART 1: BAR CHART - Referrals & Admissions Trend
             // ------------------------------------------
             const barChartEl = document.querySelector("#chart-referrals-bar");
-            if (barChartEl) {
+            if (barChartEl && !barChartEl.hasAttribute('data-chart-rendered')) {
+                barChartEl.setAttribute('data-chart-rendered', 'true');
+                barChartEl.innerHTML = '';
+
                 const monthlyLabels = (chartConfig.monthly && chartConfig.monthly.labels && chartConfig.monthly.labels.length) 
                     ? chartConfig.monthly.labels 
                     : ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct'];
@@ -123,8 +133,7 @@
                         bar: {
                             horizontal: false,
                             columnWidth: '48%',
-                            borderRadius: 6,
-                            borderRadiusApplication: 'end'
+                            borderRadius: 4
                         }
                     },
                     colors: ['#27797D', '#EF7415'],
@@ -163,27 +172,36 @@
                         theme: 'dark',
                         y: {
                             formatter: function (val) {
-                                return val + " Patients";
+                                return (val || 0) + " Patients";
                             }
                         }
                     }
                 };
 
-                const barChart = new ApexCharts(barChartEl, barOptions);
-                barChart.render();
+                try {
+                    const barChart = new ApexCharts(barChartEl, barOptions);
+                    barChart.render();
+                } catch (e) {
+                    console.error('Failed to render barChart:', e);
+                }
             }
 
             // ------------------------------------------
             // CHART 2: DONUT / PIE CHART - Specialty Distribution
             // ------------------------------------------
             const donutChartEl = document.querySelector("#chart-specialty-donut");
-            if (donutChartEl) {
-                const specialtySeries = (chartConfig.specialty && chartConfig.specialty.series && chartConfig.specialty.series.length) 
+            if (donutChartEl && !donutChartEl.hasAttribute('data-chart-rendered')) {
+                donutChartEl.setAttribute('data-chart-rendered', 'true');
+                donutChartEl.innerHTML = '';
+
+                let specialtySeries = (chartConfig.specialty && chartConfig.specialty.series && chartConfig.specialty.series.length) 
                     ? chartConfig.specialty.series 
                     : [44, 36, 28, 22, 18];
-                const specialtyLabels = (chartConfig.specialty && chartConfig.specialty.labels && chartConfig.specialty.labels.length) 
+                let specialtyLabels = (chartConfig.specialty && chartConfig.specialty.labels && chartConfig.specialty.labels.length) 
                     ? chartConfig.specialty.labels 
                     : ['Cardiology', 'Oncology', 'Orthopedics', 'Neurosurgery', 'Bariatric & Spine'];
+
+                specialtySeries = specialtySeries.map(val => Number(val) || 0);
 
                 const donutOptions = {
                     series: specialtySeries,
@@ -210,7 +228,7 @@
                                         fontWeight: 800,
                                         color: '#112347',
                                         formatter: function (val) {
-                                            return val + " Cases";
+                                            return (val || 0) + " Cases";
                                         }
                                     },
                                     total: {
@@ -220,7 +238,8 @@
                                         fontSize: '11px',
                                         fontWeight: 700,
                                         formatter: function (w) {
-                                            return w.globals.seriesTotals.reduce((a, b) => a + b, 0);
+                                            if (!w || !w.globals || !w.globals.seriesTotals) return "0 Cases";
+                                            return w.globals.seriesTotals.reduce((a, b) => a + b, 0) + " Cases";
                                         }
                                     }
                                 }
@@ -240,19 +259,26 @@
                     }
                 };
 
-                const donutChart = new ApexCharts(donutChartEl, donutOptions);
-                donutChart.render();
+                try {
+                    const donutChart = new ApexCharts(donutChartEl, donutOptions);
+                    donutChart.render();
+                } catch (e) {
+                    console.error('Failed to render donutChart:', e);
+                }
             }
 
             // ------------------------------------------
             // CHART 3: PYRAMID / FUNNEL CHART - Referral Pipeline
             // ------------------------------------------
             const funnelChartEl = document.querySelector("#chart-pipeline-pyramid");
-            if (funnelChartEl) {
-                const pipelineSeries = (chartConfig.pipeline && chartConfig.pipeline.series && chartConfig.pipeline.series.length) 
+            if (funnelChartEl && !funnelChartEl.hasAttribute('data-chart-rendered')) {
+                funnelChartEl.setAttribute('data-chart-rendered', 'true');
+                funnelChartEl.innerHTML = '';
+
+                let pipelineSeries = (chartConfig.pipeline && chartConfig.pipeline.series && chartConfig.pipeline.series.length) 
                     ? chartConfig.pipeline.series 
                     : [148, 126, 108, 89, 68, 62];
-                const pipelineCategories = (chartConfig.pipeline && chartConfig.pipeline.categories && chartConfig.pipeline.categories.length) 
+                let pipelineCategories = (chartConfig.pipeline && chartConfig.pipeline.categories && chartConfig.pipeline.categories.length) 
                     ? chartConfig.pipeline.categories 
                     : [
                         '1. Inquiries Received',
@@ -262,6 +288,8 @@
                         '5. Hospital Admitted',
                         '6. Successful Discharge'
                     ];
+
+                pipelineSeries = pipelineSeries.map(val => Number(val) || 0);
 
                 const funnelOptions = {
                     series: [
@@ -280,8 +308,8 @@
                         bar: {
                             borderRadius: 4,
                             horizontal: true,
-                            isFunnel: true,
-                            distributed: true
+                            distributed: true,
+                            barHeight: '65%'
                         }
                     },
                     colors: [
@@ -294,39 +322,59 @@
                     ],
                     dataLabels: {
                         enabled: true,
-                        formatter: function (val, opt) {
-                            return (opt.w.globals.labels[opt.dataPointIndex] || '') + ": " + val;
-                        },
-                        dropShadow: { enabled: false },
+                        textAnchor: 'start',
                         style: {
+                            colors: ['#fff'],
                             fontSize: '11px',
                             fontWeight: 700
-                        }
+                        },
+                        formatter: function (val, opt) {
+                            const cats = opt && opt.w && opt.w.config && opt.w.config.xaxis ? opt.w.config.xaxis.categories : null;
+                            const catName = cats ? (cats[opt.dataPointIndex] || '') : '';
+                            return catName ? (catName + ": " + (val || 0)) : (val || 0);
+                        },
+                        offsetX: 5,
+                        dropShadow: { enabled: false }
                     },
                     xaxis: {
-                        categories: pipelineCategories
+                        categories: pipelineCategories,
+                        labels: {
+                            style: { colors: '#64748b', fontSize: '11px', fontWeight: 600 }
+                        }
+                    },
+                    yaxis: {
+                        labels: {
+                            show: false
+                        }
                     },
                     legend: { show: false },
                     tooltip: {
                         theme: 'dark',
                         y: {
                             formatter: function (val) {
-                                return val + " Patients";
+                                return (val || 0) + " Patients";
                             }
                         }
                     }
                 };
 
-                const funnelChart = new ApexCharts(funnelChartEl, funnelOptions);
-                funnelChart.render();
+                try {
+                    const funnelChart = new ApexCharts(funnelChartEl, funnelOptions);
+                    funnelChart.render();
+                } catch (e) {
+                    console.error('Failed to render funnelChart:', e);
+                }
             }
 
             // ------------------------------------------
             // CHART 4: RADIAL BAR / TARGET ACHIEVEMENT
             // ------------------------------------------
             const radialChartEl = document.querySelector("#chart-target-radial");
-            if (radialChartEl) {
-                const radialSeries = (chartConfig.radialProgress !== undefined) ? [chartConfig.radialProgress] : [86];
+            if (radialChartEl && !radialChartEl.hasAttribute('data-chart-rendered')) {
+                radialChartEl.setAttribute('data-chart-rendered', 'true');
+                radialChartEl.innerHTML = '';
+
+                const radialSeries = (chartConfig.radialProgress !== undefined) ? [Number(chartConfig.radialProgress) || 0] : [86];
 
                 const radialOptions = {
                     series: radialSeries,
@@ -359,7 +407,7 @@
                                     fontWeight: 900,
                                     color: '#112347',
                                     formatter: function (val) {
-                                        return val + "%";
+                                        return (val || 0) + "%";
                                     }
                                 }
                             }
@@ -385,12 +433,21 @@
                     labels: ['Monthly Target']
                 };
 
-                const radialChart = new ApexCharts(radialChartEl, radialOptions);
-                radialChart.render();
+                try {
+                    const radialChart = new ApexCharts(radialChartEl, radialOptions);
+                    radialChart.render();
+                } catch (e) {
+                    console.error('Failed to render radialChart:', e);
+                }
             }
         }
 
-        }
+        initApexCharts();
+    }
 
-    });
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initializeAdminScript);
+    } else {
+        initializeAdminScript();
+    }
 </script>
