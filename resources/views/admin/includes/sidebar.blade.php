@@ -186,10 +186,10 @@
             </div>
         </div>
 
-        <!-- SECTION 2: HOSPITAL & DOCTOR NETWORK -->
+        <!-- Frontend Dynamic -->
         <div>
             <span class="px-3 text-[10px] font-extrabold uppercase tracking-widest text-slate-400 block mb-2">
-                Profile & Settings
+                Page Setup
             </span>
             <div class="space-y-1">
                 
