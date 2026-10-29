@@ -1,8 +1,11 @@
 <?php
 
+use App\Http\Controllers\Frontend\HomeController;
 use Illuminate\Support\Facades\Route;
 
-Route::view('/', 'frontend.pages.index')->name('home');
+Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/news/{slug}', [HomeController::class, 'blogDetails'])->name('blog.show');
+Route::get('/blog/{slug}', [HomeController::class, 'blogDetails'])->name('blog.details');
 Route::view('/hospitals', 'frontend.pages.hospital.hospitals')->name('hospitals');
 Route::view('/doctors', 'frontend.pages.doctor.doctors')->name('doctors');
 
