@@ -51,6 +51,15 @@ class Appointment extends Model
                 $appointment->appointment_code = static::generateAppointmentCode();
             }
         });
+
+        static::created(function ($appointment) {
+            $appointment->recordStatusHistory(
+                status: $appointment->status ?: 'booked',
+                notes: 'Appointment booked / initial stage',
+                changedByType: 'system',
+                changedByName: 'Initial Booking'
+            );
+        });
     }
 
     /**
@@ -95,6 +104,31 @@ class Appointment extends Model
     public function partner(): BelongsTo
     {
         return $this->belongsTo(Partner::class);
+    }
+
+    /**
+     * Appointment status history audit trail.
+     */
+    public function histories(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(AppointmentHistory::class)->orderBy('status_at', 'asc')->orderBy('id', 'asc');
+    }
+
+    /**
+     * Record a new status change in appointment_histories table.
+     */
+    public function recordStatusHistory(?string $status = null, ?string $notes = null, string $changedByType = 'admin', ?string $changedByName = null): AppointmentHistory
+    {
+        $status = $status ?: $this->status;
+
+        return $this->histories()->create([
+            'patient_id' => $this->patient_id,
+            'status' => $status,
+            'notes' => $notes,
+            'changed_by_type' => $changedByType,
+            'changed_by_name' => $changedByName ?: ($changedByType === 'partner' ? ($this->partner?->company_name ?: ($this->partner?->name ?: 'Partner')) : 'Admin Command'),
+            'status_at' => now(),
+        ]);
     }
 
     /**

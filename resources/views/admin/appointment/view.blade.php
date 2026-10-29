@@ -48,16 +48,6 @@
                 <span>Edit Appointment</span>
             </a>
 
-            <!-- Print Slip -->
-            <button 
-                type="button" 
-                onclick="window.print()" 
-                class="p-2.5 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 transition-colors"
-                title="Print Appointment Dossier"
-            >
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/></svg>
-            </button>
-
             <!-- Delete Button -->
             <button 
                 type="button" 
@@ -303,6 +293,62 @@
 
         </div>
 
+    </div>
+
+    <!-- CARD: Status-Wise History Audit Trail -->
+    <div class="bg-white p-6 sm:p-8 rounded-3xl border border-slate-200/80 shadow-xs space-y-4">
+        <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+            <div>
+                <h3 class="text-sm font-extrabold text-[#112347]">Patient Status-Wise History & Timeline</h3>
+                <p class="text-xs text-slate-400">Complete audit trail of all patient admission and clinical consultation stage transitions</p>
+            </div>
+            <span class="px-2.5 py-1 rounded-xl bg-slate-100 text-slate-600 font-bold text-xs font-mono">
+                {{ $appointment->histories->count() }} Stage Updates
+            </span>
+        </div>
+
+        <div class="overflow-x-auto">
+            <table class="w-full text-left text-xs border-collapse">
+                <thead>
+                    <tr class="bg-slate-50 border-b border-slate-200/80 text-[11px] font-extrabold uppercase tracking-wider text-slate-500">
+                        <th class="py-3 px-4">Stage / Status</th>
+                        <th class="py-3 px-4">Date</th>
+                        <th class="py-3 px-4">Time</th>
+                        <th class="py-3 px-4">Updated By</th>
+                        <th class="py-3 px-4">Notes / Remarks</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-slate-100">
+                    @forelse($appointment->histories as $history)
+                    <tr class="hover:bg-slate-50/60 transition-colors">
+                        <td class="py-3 px-4">
+                            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-xl text-xs font-bold border {{ $history->status_badge_class }}">
+                                <span class="w-1.5 h-1.5 rounded-full bg-current"></span>
+                                {{ $history->status_label }}
+                            </span>
+                        </td>
+                        <td class="py-3 px-4 font-semibold text-slate-800">
+                            {{ $history->status_at ? $history->status_at->format('M d, Y') : $history->created_at->format('M d, Y') }}
+                        </td>
+                        <td class="py-3 px-4 font-mono font-medium text-slate-600">
+                            {{ $history->status_at ? $history->status_at->format('h:i A') : $history->created_at->format('h:i A') }}
+                        </td>
+                        <td class="py-3 px-4">
+                            <span class="font-bold text-slate-700">{{ $history->changed_by_name ?: ucfirst($history->changed_by_type) }}</span>
+                            <span class="text-[10px] uppercase font-bold text-slate-400 block tracking-wider">({{ ucfirst($history->changed_by_type) }})</span>
+                        </td>
+                        <td class="py-3 px-4 text-slate-600">
+                            {{ $history->notes ?: '—' }}
+                        </td>
+                    </tr>
+                    @empty
+                    <tr>
+                        <td colspan="5" class="py-8 text-center text-slate-400 italic">No history records logged yet.</td>
+                    </tr>
+                    @endforelse
+                </tbody>
+            </table>
+        </div>
     </div>
 
     <!-- Hidden Form for Deletion -->

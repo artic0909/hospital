@@ -57,15 +57,44 @@
         font-weight: 600 !important;
         color: #334155 !important;
         cursor: pointer !important;
-        transition: background 0.15s ease !important;
+        transition: all 0.15s ease !important;
     }
+    /* Active, hover & selected states with high contrast white text */
     .ts-dropdown .option:hover,
-    .ts-dropdown .option.active {
-        background-color: #f0fdfa !important; /* teal-50 */
-        color: #27797D !important;
-    }
-    .ts-dropdown .option.selected {
+    .ts-dropdown .option.active,
+    .ts-dropdown .option.selected,
+    .ts-dropdown .option.selected.active {
         background-color: #27797D !important;
+        color: #ffffff !important;
+    }
+    .ts-dropdown .option:hover *,
+    .ts-dropdown .option.active *,
+    .ts-dropdown .option.selected *,
+    .ts-dropdown .option.selected.active * {
+        color: #ffffff !important;
+    }
+    .ts-dropdown .option:hover span,
+    .ts-dropdown .option.active span,
+    .ts-dropdown .option.selected span,
+    .ts-dropdown .option:hover div,
+    .ts-dropdown .option.active div,
+    .ts-dropdown .option.selected div,
+    .ts-dropdown .option:hover p,
+    .ts-dropdown .option.active p,
+    .ts-dropdown .option.selected p {
+        color: #ffffff !important;
+    }
+    .ts-dropdown .option:hover svg,
+    .ts-dropdown .option.active svg,
+    .ts-dropdown .option.selected svg {
+        stroke: #ffffff !important;
+        color: #ffffff !important;
+    }
+    .ts-dropdown .option:hover [class*="bg-teal"],
+    .ts-dropdown .option.active [class*="bg-teal"],
+    .ts-dropdown .option.selected [class*="bg-teal"] {
+        background-color: rgba(255, 255, 255, 0.22) !important;
+        border-color: rgba(255, 255, 255, 0.4) !important;
         color: #ffffff !important;
     }
     .ts-dropdown .optgroup-header {

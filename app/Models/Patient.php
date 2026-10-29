@@ -62,6 +62,14 @@ class Patient extends Model
     }
 
     /**
+     * Appointment status histories relationship.
+     */
+    public function appointmentHistories(): HasMany
+    {
+        return $this->hasMany(AppointmentHistory::class)->orderBy('status_at', 'desc');
+    }
+
+    /**
      * Get the resolved image URL or a default fallback avatar.
      */
     public function getImageUrlAttribute(): string

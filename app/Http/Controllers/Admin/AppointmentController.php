@@ -224,7 +224,7 @@ class AppointmentController extends Controller
      */
     public function show(Appointment $appointment): View
     {
-        $appointment->load(['patient', 'hospital', 'doctor', 'partner']);
+        $appointment->load(['patient', 'hospital', 'doctor', 'partner', 'histories']);
         return view('admin.appointment.view', compact('appointment'));
     }
 
@@ -268,6 +268,8 @@ class AppointmentController extends Controller
             $hospitalId = $partner?->getHospital()?->id;
         }
 
+        $oldStatus = $appointment->status;
+
         $appointment->update([
             'patient_id' => $validated['patient_id'],
             'partner_id' => $validated['partner_id'] ?? null,
@@ -278,6 +280,15 @@ class AppointmentController extends Controller
             'status' => $validated['status'],
             'notes' => $validated['notes'] ?? null,
         ]);
+
+        if ($oldStatus !== $validated['status']) {
+            $appointment->recordStatusHistory(
+                status: $validated['status'],
+                notes: 'Stage updated to ' . ucfirst($validated['status']) . ' via dossier edit',
+                changedByType: 'admin',
+                changedByName: auth('admin')->user()?->name ?: 'Admin Command'
+            );
+        }
 
         return redirect()
             ->route('admin.appointment.view', $appointment->id)
@@ -291,11 +302,23 @@ class AppointmentController extends Controller
     {
         $validated = $request->validate([
             'status' => ['required', 'in:booked,received,treatment,discharge'],
+            'notes' => ['nullable', 'string', 'max:1000'],
         ]);
+
+        $oldStatus = $appointment->status;
 
         $appointment->update([
             'status' => $validated['status'],
         ]);
+
+        if ($oldStatus !== $validated['status']) {
+            $appointment->recordStatusHistory(
+                status: $validated['status'],
+                notes: $validated['notes'] ?? ('Stage updated to ' . ucfirst($validated['status'])),
+                changedByType: 'admin',
+                changedByName: auth('admin')->user()?->name ?: 'Admin Command'
+            );
+        }
 
         return back()->with('success', "Status for #{$appointment->appointment_code} updated to {$appointment->status_label}.");
     }
