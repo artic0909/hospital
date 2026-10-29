@@ -187,17 +187,28 @@
                     <select 
                         name="partner_id" 
                         id="partner_select" 
-                        placeholder="Search partner or agency (Optional)..."
+                        placeholder="Search partner by name, partner code (#PTR-...), or phone..."
                         class="w-full text-xs font-semibold"
                     >
                         <option value="">-- All Partners / Direct Booking (Optional) --</option>
                         @foreach($partners as $partner)
+                            @php
+                                $hosp = $partner->hospital ?? $partner->getHospital();
+                                $hospName = $hosp?->name ?? '';
+                                $hospPhone = $hosp?->contact ?? '';
+                                $partnerPhone = $partner->phone ?? '';
+                                $partnerCode = 'PTR-' . str_pad($partner->id, 5, '0', STR_PAD_LEFT);
+                                $displayName = ($partner->company_name && ($partner->company_name !== $partner->name))
+                                    ? $partner->company_name . ' (' . $partner->name . ')'
+                                    : ($partner->company_name ?: $partner->name);
+                                $primaryPhone = $hospPhone ?: $partnerPhone;
+                            @endphp
                             <option 
                                 value="{{ $partner->id }}" 
-                                data-data='{"name": "{{ addslashes($partner->name) }}", "company": "{{ addslashes($partner->company_name ?? '') }}"}'
+                                data-data='{"name": "{{ addslashes($partner->name) }}", "company": "{{ addslashes($partner->company_name ?? '') }}", "code": "{{ $partnerCode }} #{{ $partnerCode }} {{ $partner->id }}", "hospital": "{{ addslashes($hospName) }}", "hospital_phone": "{{ $hospPhone }}", "phone": "{{ $partnerPhone }}"}'
                                 {{ old('partner_id') == $partner->id ? 'selected' : '' }}
                             >
-                                {{ $partner->company_name ? $partner->company_name . ' (' . $partner->name . ')' : $partner->name }}
+                                {{ $displayName }} (#{{ $partnerCode }}) {{ $primaryPhone ? '- ' . $primaryPhone : '' }} {{ $hospName && $hospName !== $displayName ? '[' . $hospName . ']' : '' }}
                             </option>
                         @endforeach
                     </select>
@@ -213,21 +224,22 @@
                         name="doctor_id" 
                         id="doctor_select" 
                         required 
-                        placeholder="Search doctor by name, speciality, or hospital..."
+                        placeholder="Search doctor by name, speciality, hospital, or phone..."
                         class="w-full text-xs font-semibold {{ $errors->has('doctor_id') ? 'is-invalid' : '' }}"
                     >
-                        <option value="">-- Choose Doctor (Search name, speciality) --</option>
+                        <option value="">-- Choose Doctor (Search name, speciality, hospital) --</option>
                         @foreach($allDoctors as $doc)
                             @php
                                 $hospName = $doc->hospital->name ?? 'Affiliated Hospital';
+                                $hospPhone = $doc->hospital->contact ?? '';
                                 $feeStr = $doc->OPD_fee ? '₹' . number_format($doc->OPD_fee) : '';
                             @endphp
                             <option 
                                 value="{{ $doc->id }}" 
-                                data-data='{"name": "{{ addslashes($doc->name) }}", "speciality": "{{ addslashes($doc->spaciality ?? '') }}", "hospital": "{{ addslashes($hospName) }}", "fee": "{{ $feeStr }}", "hospital_id": {{ $doc->hospital_id ?? 0 }}}'
+                                data-data='{"name": "{{ addslashes($doc->name) }}", "speciality": "{{ addslashes($doc->spaciality ?? '') }}", "hospital": "{{ addslashes($hospName) }}", "hospital_phone": "{{ $hospPhone }}", "fee": "{{ $feeStr }}", "hospital_id": {{ $doc->hospital_id ?? 0 }}}'
                                 {{ old('doctor_id') == $doc->id ? 'selected' : '' }}
                             >
-                                {{ $doc->name }} ({{ $doc->spaciality ?: 'Specialist' }}) - {{ $hospName }} {{ $feeStr ? '[' . $feeStr . ']' : '' }}
+                                {{ $doc->name }} ({{ $doc->spaciality ?: 'Specialist' }}) - {{ $hospName }} {{ $hospPhone ? '📞 ' . $hospPhone : '' }} {{ $feeStr ? '[' . $feeStr . ']' : '' }}
                             </option>
                         @endforeach
                     </select>
@@ -389,26 +401,34 @@
         }
     });
 
-    // 2. Doctor TomSelect: Searchable by doctor name, speciality, hospital
+    // 2. Doctor TomSelect: Searchable by doctor name, speciality, hospital, and hospital phone
     const doctorTomSelect = new TomSelect('#doctor_select', {
         create: false,
         maxItems: 1,
         placeholder: '-- Choose Doctor (Search name, speciality, hospital) --',
-        searchField: ['text', 'name', 'speciality', 'hospital'],
+        searchField: ['text', 'name', 'speciality', 'hospital', 'hospital_phone'],
         render: {
             option: function(data, escape) {
                 const name = escape(data.name || data.text);
                 const spec = data.speciality ? escape(data.speciality) : 'Specialist';
                 const hosp = data.hospital ? escape(data.hospital) : '';
+                const hospPhone = data.hospital_phone ? escape(data.hospital_phone) : '';
                 const fee = data.fee ? escape(data.fee) : '';
                 return `<div class="py-1">
                     <div class="flex items-center justify-between gap-2">
                         <span class="font-bold text-slate-800 text-xs">${name}</span>
                         ${fee ? `<span class="text-[11px] font-bold px-2 py-0.5 rounded-md bg-emerald-50 text-emerald-700 border border-emerald-200/60">${fee} OPD</span>` : ''}
                     </div>
-                    <div class="text-[11px] text-slate-500 mt-0.5 font-medium">
+                    <div class="text-[11px] text-slate-500 mt-1 flex flex-wrap items-center gap-x-2 gap-y-0.5 font-medium">
                         <span>${spec}</span>
-                        ${hosp ? `<span class="text-slate-300 mx-1">&bull;</span><span class="text-[#27797D] font-semibold">${hosp}</span>` : ''}
+                        ${hosp ? `<span class="text-slate-300">&bull;</span><span class="text-[#27797D] font-semibold flex items-center gap-1">
+                            <svg class="w-3 h-3 text-[#27797D]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+                            <span>${hosp}</span>
+                        </span>` : ''}
+                        ${hospPhone ? `<span class="text-slate-300">&bull;</span><span class="text-emerald-700 font-semibold flex items-center gap-1">
+                            <svg class="w-3 h-3 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+                            <span>${hospPhone}</span>
+                        </span>` : ''}
                     </div>
                 </div>`;
             },
@@ -418,12 +438,45 @@
         }
     });
 
-    // 3. Partner TomSelect: Searchable partner agency
+    // 3. Partner TomSelect: Searchable partner agency with partner code & hospital phone
     const partnerTomSelect = new TomSelect('#partner_select', {
         create: false,
         maxItems: 1,
         placeholder: '-- All Partners / Direct Booking (Optional) --',
-        searchField: ['text', 'name', 'company']
+        searchField: ['text', 'name', 'company', 'code', 'hospital', 'hospital_phone', 'phone'],
+        render: {
+            option: function(data, escape) {
+                const name = escape(data.name || data.text);
+                const company = escape(data.company || '');
+                const displayName = company && (company !== name) ? `${company} (${name})` : (company || name);
+                const codeRaw = data.code ? escape(data.code).split(' ')[0] : '';
+                const codeDisplay = codeRaw ? (codeRaw.startsWith('#') ? codeRaw : '#' + codeRaw) : '';
+                const hosp = data.hospital ? escape(data.hospital) : '';
+                const hospPhone = data.hospital_phone ? escape(data.hospital_phone) : '';
+                const directPhone = data.phone ? escape(data.phone) : '';
+                const displayPhone = hospPhone || directPhone;
+
+                return `<div class="py-1">
+                    <div class="flex items-center justify-between gap-2">
+                        <span class="font-bold text-slate-800 text-xs">${displayName}</span>
+                        ${codeDisplay ? `<span class="text-[11px] font-mono px-2 py-0.5 rounded-md bg-teal-50 text-[#27797D] font-bold border border-teal-200/60">${codeDisplay}</span>` : ''}
+                    </div>
+                    <div class="text-[11px] text-slate-500 mt-1 flex flex-wrap items-center gap-x-2 gap-y-0.5 font-medium">
+                        ${hosp ? `<span class="text-slate-600 font-semibold flex items-center gap-1">
+                            <svg class="w-3 h-3 text-[#27797D]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+                            <span>${hosp}</span>
+                        </span>` : ''}
+                        ${displayPhone ? `${hosp ? `<span class="text-slate-300">&bull;</span>` : ''}<span class="text-emerald-700 font-semibold flex items-center gap-1">
+                            <svg class="w-3 h-3 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+                            <span>${displayPhone}</span>
+                        </span>` : ''}
+                    </div>
+                </div>`;
+            },
+            item: function(data, escape) {
+                return `<div class="font-semibold text-slate-800 text-xs">${escape(data.text)}</div>`;
+            }
+        }
     });
 
     // 4. Status TomSelect: Searchable workflow status
@@ -474,6 +527,7 @@
                             name: doc.name,
                             speciality: doc.spaciality || doc.designation || 'Specialist',
                             hospital: doc.hospital_name || '',
+                            hospital_phone: doc.hospital_phone || '',
                             fee: feeStr,
                             hospital_id: doc.hospital_id
                         });

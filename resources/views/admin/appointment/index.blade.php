@@ -143,7 +143,7 @@
                     <option value="">All Partners</option>
                     @foreach($partners as $partner)
                         <option value="{{ $partner->id }}" {{ request('partner_id') == $partner->id ? 'selected' : '' }}>
-                            {{ $partner->company_name ?: $partner->name }}
+                            {{ $partner->company_name ?: $partner->name }} (#PTR-{{ str_pad($partner->id, 5, '0', STR_PAD_LEFT) }})
                         </option>
                     @endforeach
                 </select>

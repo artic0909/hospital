@@ -146,7 +146,7 @@
                         <th class="py-3.5 px-4">Doctor</th>
                         <th class="py-3.5 px-4">Hospital</th>
                         <th class="py-3.5 px-4">Schedule</th>
-                        <th class="py-3.5 px-4 text-center">Update Stage</th>
+                        <th class="py-3.5 px-4 text-center">Status</th>
                     </tr>
                 </thead>
                 <tbody class="divide-y divide-slate-100 text-xs">
@@ -160,7 +160,6 @@
                         <td class="py-3.5 px-4">
                             @if($apt->patient)
                                 <div class="font-bold text-[#112347]">{{ $apt->patient->name }}</div>
-                                <div class="text-[11px] text-slate-400">{{ $apt->patient->phone ?: 'No phone' }}</div>
                             @else
                                 <span class="text-slate-400 italic">Unknown Patient</span>
                             @endif
@@ -185,20 +184,9 @@
                         </td>
 
                         <td class="py-3.5 px-4 text-center">
-                            <form action="{{ route('partner.appointment.update-status', $apt->id) }}" method="POST" class="inline">
-                                @csrf
-                                @method('PATCH')
-                                <select 
-                                    name="status" 
-                                    onchange="this.form.submit()" 
-                                    class="text-xs font-bold px-2.5 py-1 rounded-xl border cursor-pointer focus:outline-none transition-all {{ $apt->status_badge_class }}"
-                                >
-                                    <option value="booked" {{ $apt->status === 'booked' ? 'selected' : '' }}>Booked</option>
-                                    <option value="received" {{ $apt->status === 'received' ? 'selected' : '' }}>Received</option>
-                                    <option value="treatment" {{ $apt->status === 'treatment' ? 'selected' : '' }}>In Treatment</option>
-                                    <option value="discharge" {{ $apt->status === 'discharge' ? 'selected' : '' }}>Discharged</option>
-                                </select>
-                            </form>
+                            <span class="inline-block px-3 py-1 rounded-xl text-[11px] font-bold {{ $apt->status_badge_class }}">
+    {{ ucfirst($apt->status) }}
+</span>        
                         </td>
 
                     </tr>
