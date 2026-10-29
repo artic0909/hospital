@@ -168,10 +168,15 @@
                             @php
                                 $currentAdmin = auth('admin')->user() ?? auth()->user();
                                 $adminName = $currentAdmin->name ?? 'Administrator';
+                                $profileRoute = Route::has('admin.profile.edit') ? route('admin.profile.edit') : '#';
                             @endphp
-                            <div class="flex items-center gap-2 pl-2 border-l border-slate-200">
-                                <div class="w-8 h-8 rounded-xl bg-gradient-to-br from-[#1D4B6C] to-[#27797D] text-white flex items-center justify-center font-bold text-xs uppercase shadow-xs">
-                                    {{ strtoupper(substr($adminName, 0, 1)) }}
+                            <a href="{{ $profileRoute }}" class="flex items-center gap-2 pl-2 border-l border-slate-200 hover:opacity-85 transition-opacity" title="Edit Admin Profile">
+                                <div class="w-8 h-8 rounded-xl bg-gradient-to-br from-[#1D4B6C] to-[#27797D] text-white flex items-center justify-center font-bold text-xs uppercase shadow-xs overflow-hidden">
+                                    @if (!empty($currentAdmin->avatar))
+                                        <img src="{{ asset($currentAdmin->avatar) }}" alt="{{ $adminName }}" class="w-full h-full object-cover">
+                                    @else
+                                        {{ strtoupper(substr($adminName, 0, 1)) }}
+                                    @endif
                                 </div>
                                 <div class="hidden md:block text-left leading-tight">
                                     <span class="block text-xs font-bold text-[#112347]">
@@ -181,7 +186,7 @@
                                         Super Admin
                                     </span>
                                 </div>
-                            </div>
+                            </a>
 
                         </div>
 

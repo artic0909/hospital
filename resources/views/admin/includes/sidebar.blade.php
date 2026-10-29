@@ -189,10 +189,63 @@
         <!-- Frontend Dynamic -->
         <div>
             <span class="px-3 text-[10px] font-extrabold uppercase tracking-widest text-slate-400 block mb-2">
-                Page Setup
+                Page Setup & Dynamic
             </span>
             <div class="space-y-1">
-                
+                <!-- Hero Section -->
+                <a 
+                    href="{{ route('admin.hero-section.index') }}" 
+                    class="flex items-center justify-between px-3 py-2 rounded-xl {{ request()->routeIs('admin.hero-section*') ? 'bg-[#27797D] text-white font-bold shadow-md shadow-[#27797D]/20' : 'text-slate-300 hover:text-white hover:bg-slate-800/80' }} transition-all"
+                >
+                    <div class="flex items-center gap-2.5">
+                        <span class="text-xs">🖼️</span>
+                        <span>Hero Section</span>
+                    </div>
+                </a>
+
+                <!-- How It Works -->
+                <a 
+                    href="{{ route('admin.how-it-works.index') }}" 
+                    class="flex items-center justify-between px-3 py-2 rounded-xl {{ request()->routeIs('admin.how-it-works*') ? 'bg-[#27797D] text-white font-bold shadow-md shadow-[#27797D]/20' : 'text-slate-300 hover:text-white hover:bg-slate-800/80' }} transition-all"
+                >
+                    <div class="flex items-center gap-2.5">
+                        <span class="text-xs">🔄</span>
+                        <span>How It Works</span>
+                    </div>
+                </a>
+
+                <!-- Blogs & News -->
+                <a 
+                    href="{{ route('admin.blogs.index') }}" 
+                    class="flex items-center justify-between px-3 py-2 rounded-xl {{ request()->routeIs('admin.blogs*') ? 'bg-[#27797D] text-white font-bold shadow-md shadow-[#27797D]/20' : 'text-slate-300 hover:text-white hover:bg-slate-800/80' }} transition-all"
+                >
+                    <div class="flex items-center gap-2.5">
+                        <span class="text-xs">📰</span>
+                        <span>Blogs & News</span>
+                    </div>
+                </a>
+
+                <!-- Contact & Social Details -->
+                <a 
+                    href="{{ route('admin.settings.contact') }}" 
+                    class="flex items-center justify-between px-3 py-2 rounded-xl {{ request()->routeIs('admin.settings.contact*') ? 'bg-[#27797D] text-white font-bold shadow-md shadow-[#27797D]/20' : 'text-slate-300 hover:text-white hover:bg-slate-800/80' }} transition-all"
+                >
+                    <div class="flex items-center gap-2.5">
+                        <span class="text-xs">📞</span>
+                        <span>Website & Contact</span>
+                    </div>
+                </a>
+
+                <!-- Admin Profile Settings -->
+                <a 
+                    href="{{ route('admin.profile.edit') }}" 
+                    class="flex items-center justify-between px-3 py-2 rounded-xl {{ request()->routeIs('admin.profile*') ? 'bg-[#27797D] text-white font-bold shadow-md shadow-[#27797D]/20' : 'text-slate-300 hover:text-white hover:bg-slate-800/80' }} transition-all"
+                >
+                    <div class="flex items-center gap-2.5">
+                        <span class="text-xs">👤</span>
+                        <span>Admin Profile</span>
+                    </div>
+                </a>
             </div>
         </div>
 
@@ -206,19 +259,23 @@
     @endphp
     <div class="p-3.5 border-t border-slate-800/80 bg-[#0d1b36] shrink-0">
         <div class="flex items-center justify-between gap-2">
-            <div class="flex items-center gap-2.5 truncate">
-                <div class="w-8 h-8 rounded-xl bg-[#EF7415] text-white flex items-center justify-center font-bold text-xs uppercase shrink-0">
-                    {{ strtoupper(substr($adminDisplayName, 0, 1)) }}
+            <a href="{{ route('admin.profile.edit') }}" class="flex items-center gap-2.5 truncate hover:opacity-85 transition-opacity" title="Manage Profile Settings">
+                <div class="w-8 h-8 rounded-xl bg-[#EF7415] text-white flex items-center justify-center font-bold text-xs uppercase shrink-0 overflow-hidden">
+                    @if (!empty($sidebarAdmin->avatar))
+                        <img src="{{ asset($sidebarAdmin->avatar) }}" alt="{{ $adminDisplayName }}" class="w-full h-full object-cover">
+                    @else
+                        {{ strtoupper(substr($adminDisplayName, 0, 1)) }}
+                    @endif
                 </div>
                 <div class="truncate leading-tight">
                     <span class="block text-xs font-bold text-white truncate">
                         {{ $adminDisplayName }}
                     </span>
                     <span class="block text-[10px] text-slate-400 truncate">
-                        Central Command
+                        Central Command &bull; Edit
                     </span>
                 </div>
-            </div>
+            </a>
 
             <form action="{{ $logoutRoute }}" method="POST">
                 @csrf

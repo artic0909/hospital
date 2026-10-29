@@ -9,6 +9,11 @@ use App\Http\Controllers\Admin\Utilities\DoctorSpecialityController;
 use App\Http\Controllers\Admin\Utilities\HospitalCategoryController;
 use App\Http\Controllers\Admin\Utilities\StateController;
 use App\Http\Controllers\Admin\Utilities\TreatmentController;
+use App\Http\Controllers\Admin\HeroSectionController;
+use App\Http\Controllers\Admin\HowItWorksController;
+use App\Http\Controllers\Admin\BlogController;
+use App\Http\Controllers\Admin\SiteSettingController;
+use App\Http\Controllers\Admin\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 // ==================== ADMIN PORTAL ====================
@@ -138,6 +143,53 @@ Route::prefix('admin')->name('admin.')->group(function () {
             Route::put('/{appointment}', \App\Http\Controllers\Admin\AppointmentController::class . '@update')->name('update.submit');
             Route::patch('/{appointment}/status', \App\Http\Controllers\Admin\AppointmentController::class . '@updateStatus')->name('update-status');
             Route::delete('/{appointment}', \App\Http\Controllers\Admin\AppointmentController::class . '@destroy')->name('destroy');
+        });
+
+        // ==================== FRONTEND DYNAMIC & PAGE SETUP ====================
+        // 1. Hero Section CRUD
+        Route::prefix('hero-section')->name('hero-section.')->group(function () {
+            Route::get('/', [HeroSectionController::class, 'index'])->name('index');
+            Route::get('/create', [HeroSectionController::class, 'create'])->name('create');
+            Route::post('/', [HeroSectionController::class, 'store'])->name('store');
+            Route::get('/{heroSection}/edit', [HeroSectionController::class, 'edit'])->name('edit');
+            Route::put('/{heroSection}', [HeroSectionController::class, 'update'])->name('update');
+            Route::delete('/{heroSection}', [HeroSectionController::class, 'destroy'])->name('destroy');
+            Route::patch('/{heroSection}/toggle-status', [HeroSectionController::class, 'toggleStatus'])->name('toggle-status');
+        });
+
+        // 2. How It Works CRUD
+        Route::prefix('how-it-works')->name('how-it-works.')->group(function () {
+            Route::get('/', [HowItWorksController::class, 'index'])->name('index');
+            Route::get('/create', [HowItWorksController::class, 'create'])->name('create');
+            Route::post('/', [HowItWorksController::class, 'store'])->name('store');
+            Route::get('/{howItWork}/edit', [HowItWorksController::class, 'edit'])->name('edit');
+            Route::put('/{howItWork}', [HowItWorksController::class, 'update'])->name('update');
+            Route::delete('/{howItWork}', [HowItWorksController::class, 'destroy'])->name('destroy');
+            Route::patch('/{howItWork}/toggle-status', [HowItWorksController::class, 'toggleStatus'])->name('toggle-status');
+        });
+
+        // 3. Blogs CRUD
+        Route::prefix('blogs')->name('blogs.')->group(function () {
+            Route::get('/', [BlogController::class, 'index'])->name('index');
+            Route::get('/create', [BlogController::class, 'create'])->name('create');
+            Route::post('/', [BlogController::class, 'store'])->name('store');
+            Route::get('/{blog}/edit', [BlogController::class, 'edit'])->name('edit');
+            Route::put('/{blog}', [BlogController::class, 'update'])->name('update');
+            Route::delete('/{blog}', [BlogController::class, 'destroy'])->name('destroy');
+            Route::patch('/{blog}/toggle-status', [BlogController::class, 'toggleStatus'])->name('toggle-status');
+        });
+
+        // 4. Website Settings & Contact Details
+        Route::prefix('settings')->name('settings.')->group(function () {
+            Route::get('/contact', [SiteSettingController::class, 'edit'])->name('contact');
+            Route::put('/contact', [SiteSettingController::class, 'update'])->name('contact.update');
+        });
+
+        // 5. Admin Profile Edit & Security
+        Route::prefix('profile')->name('profile.')->group(function () {
+            Route::get('/', [ProfileController::class, 'edit'])->name('edit');
+            Route::put('/', [ProfileController::class, 'update'])->name('update');
+            Route::put('/password', [ProfileController::class, 'updatePassword'])->name('password.update');
         });
     });
 });
