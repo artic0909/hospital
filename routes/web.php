@@ -12,11 +12,25 @@ Route::get('/search', [HomeController::class, 'search'])->name('search');
 
 // Hospital Slug Routes
 Route::get('/hospital/{hospital:slug}', function (\App\Models\Hospital $hospital) {
+    $hospital->load([
+        'country', 'city', 'state', 'category',
+        'doctors' => fn($q) => $q->where('status', true)->with('schedules'),
+        'facilities', 'images', 'infrustructure', 'services', 'locationGuide',
+        'reviews' => fn($q) => $q->where('status', true),
+    ]);
     return view('frontend.pages.hospital.hospital_details', compact('hospital'));
 })->name('hospital.show');
 
 Route::get('/hospital-details/{hospital:slug?}', function (?\App\Models\Hospital $hospital = null) {
     $hospital = $hospital ?? \App\Models\Hospital::first();
+    if ($hospital) {
+        $hospital->load([
+            'country', 'city', 'state', 'category',
+            'doctors' => fn($q) => $q->where('status', true)->with('schedules'),
+            'facilities', 'images', 'infrustructure', 'services', 'locationGuide',
+            'reviews' => fn($q) => $q->where('status', true),
+        ]);
+    }
     return view('frontend.pages.hospital.hospital_details', compact('hospital'));
 })->name('hospital.details');
 
@@ -24,11 +38,15 @@ Route::view('/book-appointment', 'frontend.pages.hospital.book_appointment')->na
 
 // Doctor Slug Routes
 Route::get('/doctor/{doctor:slug}', function (\App\Models\Doctor $doctor) {
+    $doctor->load(['hospital.country', 'hospital.city', 'hospital.state', 'schedules']);
     return view('frontend.pages.doctor.doctor_details', compact('doctor'));
 })->name('doctor.show');
 
 Route::get('/doctor-details/{doctor:slug?}', function (?\App\Models\Doctor $doctor = null) {
     $doctor = $doctor ?? \App\Models\Doctor::first();
+    if ($doctor) {
+        $doctor->load(['hospital.country', 'hospital.city', 'hospital.state', 'schedules']);
+    }
     return view('frontend.pages.doctor.doctor_details', compact('doctor'));
 })->name('doctor.details');
 

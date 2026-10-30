@@ -72,35 +72,107 @@
             <!-- ==================== LEFT COLUMN: DOCTORS LIST (SCROLLABLE) ==================== -->
             <div class="lg:col-span-8 space-y-5">
                 
-                <!-- Results Bar & Quick Specialty Filter -->
+                <!-- Results Bar & Searchable Specialty Dropdown -->
                 <div class="bg-white p-4 sm:p-5 rounded-2xl border border-gray-200/80 shadow-xs space-y-3.5">
                     
-                    <!-- Top Results Bar -->
-                    <div>
-                        <span class="text-sm font-bold text-gray-900">
-                            Showing <span id="visible-count" class="text-[#27797D]">{{ $doctors->total() }}</span> 
-                            {{ $selectedSpeciality ? $selectedSpeciality->name : 'Best Doctors' }}
-                            @if($selectedHospital)
-                                at <span class="text-[#EF7415]">{{ $selectedHospital->name }}</span>
-                            @elseif($selectedCountry)
-                                in {{ $selectedCountry->name }}
-                            @endif
-                        </span>
-                        <p class="text-xs text-gray-500 mt-0.5">Board-certified specialists & surgeons with international patient expertise</p>
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                        <div>
+                            <span class="text-sm font-bold text-gray-900">
+                                Showing <span id="visible-count" class="text-[#27797D]">{{ $doctors->total() }}</span> 
+                                {{ $selectedSpeciality ? $selectedSpeciality->name : 'Best Doctors' }}
+                                @if($selectedHospital)
+                                    at <span class="text-[#EF7415]">{{ $selectedHospital->name }}</span>
+                                @elseif($selectedCountry)
+                                    in {{ $selectedCountry->name }}
+                                @endif
+                            </span>
+                            <p class="text-xs text-gray-500 mt-0.5">Board-certified specialists & surgeons with international patient expertise</p>
+                        </div>
+
+                        <!-- Searchable Specialty Dropdown Component -->
+                        <div class="relative w-full sm:w-72" id="speciality-dropdown-wrapper">
+                            <label class="block text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-1">
+                                Filter by Specialist:
+                            </label>
+
+                            <!-- Trigger Button -->
+                            <button 
+                                type="button" 
+                                id="spec-dropdown-trigger" 
+                                class="w-full bg-gray-50 hover:bg-white border border-gray-200 text-gray-800 text-xs font-semibold rounded-xl px-3 py-2.5 flex items-center justify-between gap-2 focus:outline-none focus:ring-2 focus:ring-[#27797D]/20 focus:border-[#27797D] transition-all cursor-pointer shadow-2xs"
+                                aria-haspopup="listbox"
+                                aria-expanded="false"
+                            >
+                                <span class="flex items-center gap-1.5 truncate" id="spec-selected-label">
+                                    <span class="text-teal-600">🩺</span>
+                                    <span class="truncate">{{ $selectedSpeciality ? $selectedSpeciality->name : 'All Specialists' }}</span>
+                                </span>
+                                <svg class="w-4 h-4 text-gray-400 shrink-0 transition-transform duration-200" id="spec-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                                </svg>
+                            </button>
+
+                            <!-- Dropdown Menu with Search Field -->
+                            <div 
+                                id="spec-dropdown-menu" 
+                                class="hidden absolute left-0 right-0 top-full mt-1.5 bg-white border border-gray-200 rounded-xl shadow-xl z-50 p-2 space-y-2 text-xs"
+                            >
+                                <!-- Search Input inside Dropdown -->
+                                <div class="relative">
+                                    <input 
+                                        type="text" 
+                                        id="spec-search-input" 
+                                        placeholder="Type to search specialist..." 
+                                        class="w-full bg-gray-50 focus:bg-white text-xs text-gray-800 placeholder-gray-400 rounded-lg pl-8 pr-3 py-2 border border-gray-200 focus:border-[#27797D] focus:outline-none transition-all"
+                                        autocomplete="off"
+                                    >
+                                    <svg class="w-3.5 h-3.5 text-gray-400 absolute left-2.5 top-1/2 -translate-y-1/2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                                    </svg>
+                                </div>
+
+                                <!-- Options List -->
+                                <div class="max-h-52 overflow-y-auto space-y-0.5 pr-1" id="spec-options-list">
+                                    <a 
+                                        href="{{ route('doctors', request()->except('speciality', 'page')) }}" 
+                                        class="spec-option flex items-center justify-between px-2.5 py-2 rounded-lg hover:bg-teal-50 hover:text-[#27797D] font-semibold text-gray-700 transition-colors {{ empty(request('speciality')) || request('speciality') === 'all' ? 'bg-teal-50 text-[#27797D] font-bold' : '' }}"
+                                        data-name="all specialists"
+                                    >
+                                        <span>All Specialists</span>
+                                        @if(empty(request('speciality')) || request('speciality') === 'all')
+                                            <span class="text-[#27797D]">✓</span>
+                                        @endif
+                                    </a>
+
+                                    @foreach($specialities as $sp)
+                                        <a 
+                                            href="{{ route('doctors', array_merge(request()->except('page'), ['speciality' => $sp->name])) }}" 
+                                            class="spec-option flex items-center justify-between px-2.5 py-2 rounded-lg hover:bg-teal-50 hover:text-[#27797D] font-semibold text-gray-700 transition-colors {{ request('speciality') === $sp->name ? 'bg-teal-50 text-[#27797D] font-bold' : '' }}"
+                                            data-name="{{ strtolower($sp->name) }}"
+                                        >
+                                            <span class="truncate">{{ $sp->name }}</span>
+                                            @if(request('speciality') === $sp->name)
+                                                <span class="text-[#27797D] font-bold">✓</span>
+                                            @endif
+                                        </a>
+                                    @endforeach
+
+                                    <div id="spec-no-results" class="hidden py-4 text-center text-gray-400 text-xs">
+                                        No specialist found
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
-                    <!-- Quick Specialty Filter Pills -->
-                    @if($specialities->isNotEmpty())
-                        <div class="flex items-center gap-2 overflow-x-auto pb-1 pt-2 border-t border-gray-100 no-scrollbar text-xs">
-                            <span class="text-gray-400 font-bold uppercase text-[10px] tracking-wider whitespace-nowrap">Specialist:</span>
-                            <a href="{{ route('doctors', request()->except('speciality', 'page')) }}" class="specialty-pill px-3 py-1 rounded-full font-semibold {{ empty(request('speciality')) || request('speciality') === 'all' ? 'bg-[#27797D] text-white' : 'bg-gray-100 hover:bg-gray-200 text-gray-700' }} transition-colors whitespace-nowrap cursor-pointer">
-                                All Specialists
-                            </a>
-                            @foreach($specialities as $sp)
-                                <a href="{{ route('doctors', array_merge(request()->except('page'), ['speciality' => $sp->name])) }}" class="specialty-pill px-3 py-1 rounded-full font-semibold {{ request('speciality') === $sp->name ? 'bg-[#27797D] text-white' : 'bg-gray-100 hover:bg-gray-200 text-gray-700' }} transition-colors whitespace-nowrap cursor-pointer">
-                                    {{ $sp->name }}
-                                </a>
-                            @endforeach
+                    <!-- Selected Specialist Badge (if active) -->
+                    @if(request('speciality') && request('speciality') !== 'all')
+                        <div class="pt-2 border-t border-gray-100 flex items-center gap-2 text-xs">
+                            <span class="text-gray-400 font-bold uppercase text-[10px] tracking-wider">Filtered:</span>
+                            <span class="inline-flex items-center gap-1.5 bg-teal-50 text-[#27797D] border border-teal-200 px-3 py-1 rounded-full text-xs font-bold">
+                                <span>{{ request('speciality') }}</span>
+                                <a href="{{ route('doctors', request()->except('speciality', 'page')) }}" class="text-teal-600 hover:text-rose-600 font-bold text-sm leading-none ml-1" title="Clear filter">&times;</a>
+                            </span>
                         </div>
                     @endif
 
@@ -389,5 +461,80 @@
         </div>
 
     </div>
+
+    <!-- Searchable Dropdown JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const trigger = document.getElementById('spec-dropdown-trigger');
+            const menu = document.getElementById('spec-dropdown-menu');
+            const arrow = document.getElementById('spec-arrow');
+            const searchInput = document.getElementById('spec-search-input');
+            const options = document.querySelectorAll('.spec-option');
+            const noResults = document.getElementById('spec-no-results');
+            const wrapper = document.getElementById('speciality-dropdown-wrapper');
+
+            if (!trigger || !menu) return;
+
+            // Toggle Dropdown
+            function toggleMenu(show) {
+                const isExpanded = show !== undefined ? show : menu.classList.contains('hidden');
+                if (isExpanded) {
+                    menu.classList.remove('hidden');
+                    arrow.classList.add('rotate-180');
+                    trigger.setAttribute('aria-expanded', 'true');
+                    setTimeout(() => searchInput.focus(), 50);
+                } else {
+                    menu.classList.add('hidden');
+                    arrow.classList.remove('rotate-180');
+                    trigger.setAttribute('aria-expanded', 'false');
+                }
+            }
+
+            trigger.addEventListener('click', function (e) {
+                e.stopPropagation();
+                toggleMenu();
+            });
+
+            // Live filter options based on search input
+            if (searchInput) {
+                searchInput.addEventListener('input', function () {
+                    const q = this.value.trim().toLowerCase();
+                    let visibleCount = 0;
+
+                    options.forEach(opt => {
+                        const name = opt.getAttribute('data-name') || '';
+                        if (name.includes(q)) {
+                            opt.classList.remove('hidden');
+                            visibleCount++;
+                        } else {
+                            opt.classList.add('hidden');
+                        }
+                    });
+
+                    if (noResults) {
+                        if (visibleCount === 0) {
+                            noResults.classList.remove('hidden');
+                        } else {
+                            noResults.classList.add('hidden');
+                        }
+                    }
+                });
+            }
+
+            // Close on click outside
+            document.addEventListener('click', function (e) {
+                if (wrapper && !wrapper.contains(e.target)) {
+                    toggleMenu(false);
+                }
+            });
+
+            // Close on Escape key
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape') {
+                    toggleMenu(false);
+                }
+            });
+        });
+    </script>
 
 @endsection
