@@ -140,6 +140,42 @@
     <form action="{{ route('admin.appointment.store') }}" method="POST" class="space-y-6">
         @csrf
 
+        @if(!empty($selectedPatient))
+        <!-- Pre-selected Patient Notice Banner -->
+        <div class="bg-teal-50/90 border border-teal-200/90 p-4 sm:p-5 rounded-3xl flex flex-col sm:flex-row sm:items-center justify-between gap-4 shadow-xs">
+            <div class="flex items-center gap-3.5">
+                <div class="w-12 h-12 rounded-2xl bg-[#27797D] text-white flex items-center justify-center font-bold text-base shadow-sm shrink-0">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+                </div>
+                <div>
+                    <div class="flex items-center gap-2 flex-wrap">
+                        <span class="text-xs font-bold uppercase tracking-wider text-teal-700">Pre-Selected Patient</span>
+                        <span class="text-[11px] font-mono font-bold px-2 py-0.5 rounded-md bg-teal-100 text-teal-900">#PT-{{ str_pad($selectedPatient->id, 5, '0', STR_PAD_LEFT) }}</span>
+                    </div>
+                    <div class="text-base font-black text-[#112347]">{{ $selectedPatient->name }}</div>
+                    <div class="text-xs text-slate-500 flex flex-wrap items-center gap-x-3 gap-y-1 mt-0.5">
+                        @if($selectedPatient->phone)
+                            <span>Phone: <strong class="text-slate-700">{{ $selectedPatient->phone }}</strong></span>
+                        @endif
+                        @if($selectedPatient->email)
+                            <span>Email: <strong class="text-slate-700">{{ $selectedPatient->email }}</strong></span>
+                        @endif
+                        @if($selectedPatient->country)
+                            <span>Location: <strong class="text-slate-700">{{ $selectedPatient->city ? $selectedPatient->city . ', ' : '' }}{{ $selectedPatient->country }}</strong></span>
+                        @endif
+                        @if(!empty($partnerIdToSelect) && !empty($selectedPatient->hospital))
+                            <span class="text-[#27797D] font-bold">&bull; Hospital: {{ $selectedPatient->hospital->name }}</span>
+                        @endif
+                    </div>
+                </div>
+            </div>
+            <a href="{{ route('admin.appointment.create') }}" class="inline-flex items-center gap-1 text-xs font-bold text-slate-500 hover:text-slate-800 transition-colors whitespace-nowrap self-start sm:self-center">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+                <span>Change Patient</span>
+            </a>
+        </div>
+        @endif
+
         <!-- CARD 1: Patient Selection -->
         <div class="bg-white p-6 sm:p-8 rounded-3xl border border-slate-200/80 shadow-xs space-y-5">
             <div class="border-b border-slate-100 pb-3 flex items-center justify-between">
@@ -235,7 +271,7 @@
                             <option 
                                 value="{{ $partner->id }}" 
                                 data-data='{"name": "{{ addslashes($partner->name) }}", "company": "{{ addslashes($partner->company_name ?? '') }}", "code": "{{ $partnerCode }} #{{ $partnerCode }} {{ $partner->id }}", "hospital": "{{ addslashes($hospName) }}", "hospital_phone": "{{ $hospPhone }}", "phone": "{{ $partnerPhone }}"}'
-                                {{ old('partner_id') == $partner->id ? 'selected' : '' }}
+                                {{ (old('partner_id', $partnerIdToSelect ?? request('partner_id')) == $partner->id) ? 'selected' : '' }}
                             >
                                 {{ $displayName }} (#{{ $partnerCode }}) {{ $primaryPhone ? '- ' . $primaryPhone : '' }} {{ $hospName && $hospName !== $displayName ? '[' . $hospName . ']' : '' }}
                             </option>
@@ -577,5 +613,13 @@
                 console.error('Error fetching partner doctors:', err);
             });
     });
+
+    // Auto-select initial patient & partner if passed from patient row or query
+    @if(old('patient_id', $selectedPatientId ?? request('patient_id')))
+        patientTomSelect.setValue("{{ old('patient_id', $selectedPatientId ?? request('patient_id')) }}");
+    @endif
+    @if(old('partner_id', $partnerIdToSelect ?? request('partner_id')))
+        partnerTomSelect.setValue("{{ old('partner_id', $partnerIdToSelect ?? request('partner_id')) }}");
+    @endif
 </script>
 @endpush
