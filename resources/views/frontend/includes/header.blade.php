@@ -123,234 +123,57 @@
                         <!-- Hospitals Full-Width Mega Menu -->
                         <div class="absolute left-0 right-0 top-full w-full bg-white border-b border-gray-200 shadow-2xl z-50 hidden group-hover:block transition-all">
                             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-7">
-                                <div class="grid grid-cols-6 gap-6 xl:gap-8">
-                                    
-                                    <!-- India -->
-                                    <div>
-                                        <h4 class="text-sm font-bold text-[#112347] tracking-tight">India</h4>
-                                        <div class="h-[2px] w-full mt-1.5 mb-3.5 bg-amber-500"></div>
-                                        <div class="space-y-1.5">
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
-                                                <span>Heart Hospitals</span>
-                                            </a>
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
-                                                <span>Cancer Hospitals</span>
-                                            </a>
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
-                                                <span>Brain & Neurosurgery Hospitals</span>
-                                            </a>
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
-                                                <span>Bone & Joint Hospitals</span>
-                                            </a>
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
-                                                <span>Spine Hospitals</span>
-                                            </a>
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
-                                                <span>Hematology Hospitals</span>
-                                            </a>
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
-                                                <span>Gynecology Hospitals</span>
-                                            </a>
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
-                                                <span>IVF Centers</span>
-                                            </a>
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
-                                                <span>Cosmetic Surgery Hospitals</span>
+                                @php
+                                    $accentColors = ['bg-amber-500', 'bg-[#EF7415]', 'bg-[#27797D]', 'bg-emerald-500', 'bg-sky-500', 'bg-rose-500'];
+                                    $displayedCountries = $headerCountries ?? collect();
+                                @endphp
+
+                                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6 xl:gap-8">
+                                    @forelse($displayedCountries as $country)
+                                        @php
+                                            $accent = $accentColors[$loop->index % count($accentColors)];
+                                            // Extract unique hospital categories belonging to hospitals in this country
+                                            $countryHospitals = $country->hospitals ?? collect();
+                                            $categories = $countryHospitals
+                                                ->pluck('category')
+                                                ->filter()
+                                                ->unique('id');
+
+                                            if ($categories->isEmpty() && isset($allHospitalCategories)) {
+                                                $categories = $allHospitalCategories->take(8);
+                                            }
+                                        @endphp
+                                        <div>
+                                            <div class="flex items-center justify-between">
+                                                <h4 class="text-sm font-bold text-[#112347] tracking-tight">{{ $country->name }}</h4>
+                                                
+                                            </div>
+                                            <div class="h-[2px] w-full mt-1.5 mb-3.5 {{ $accent }}"></div>
+                                            
+                                            <div class="space-y-1.5">
+                                                @forelse($categories->take(8) as $cat)
+                                                    <a href="{{ route('hospitals', ['country' => $country->name, 'category' => $cat->name]) }}" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5" title="{{ $cat->name }} in {{ $country->name }}">
+                                                        <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
+                                                        <span class="truncate">{{ $cat->name }}</span>
+                                                    </a>
+                                                @empty
+                                                    <a href="{{ route('hospitals', ['country' => $country->name]) }}" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
+                                                        <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
+                                                        <span>Multi-Specialty Hospitals</span>
+                                                    </a>
+                                                @endforelse
+                                            </div>
+                                            
+                                            <a href="{{ route('hospitals', ['country' => $country->name]) }}" class="inline-flex items-center text-xs font-bold text-[#27797D] hover:text-[#1e5f62] hover:underline mt-2.5 transition-colors">
+                                                View all in {{ $country->name }} &rarr;
                                             </a>
                                         </div>
-                                        <a href="{{ route('hospitals') }}" class="inline-flex items-center text-xs font-bold text-[#27797D] hover:text-[#1e5f62] hover:underline mt-2.5 transition-colors">
-                                            View all →
-                                        </a>
-                                    </div>
-
-                                    <!-- Turkey -->
-                                    <div>
-                                        <h4 class="text-sm font-bold text-[#112347] tracking-tight">Turkey</h4>
-                                        <div class="h-[2px] w-full mt-1.5 mb-3.5 bg-[#EF7415]"></div>
-                                        <div class="space-y-1.5">
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
-                                                <span>Cosmetic Surgery Hospitals</span>
-                                            </a>
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
-                                                <span>Spine Hospitals</span>
-                                            </a>
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
-                                                <span>Brain & Neurosurgery Hospitals</span>
-                                            </a>
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
-                                                <span>Heart Hospitals</span>
-                                            </a>
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
-                                                <span>Bone & Joint Hospitals</span>
-                                            </a>
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
-                                                <span>IVF Centers</span>
-                                            </a>
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
-                                                <span>Dental Centers</span>
-                                            </a>
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
-                                                <span>Cancer Hospitals</span>
-                                            </a>
+                                    @empty
+                                        <div class="col-span-full py-6 text-center text-gray-500 text-xs">
+                                            <p class="font-semibold text-gray-700">No network hospital locations available currently.</p>
+                                            <a href="{{ route('hospitals') }}" class="text-[#27797D] underline mt-1 inline-block">Browse all hospitals</a>
                                         </div>
-                                        <a href="#quote-form" class="inline-flex items-center text-xs font-bold text-[#27797D] hover:text-[#1e5f62] hover:underline mt-2.5 transition-colors">
-                                            View all →
-                                        </a>
-                                    </div>
-
-                                    <!-- Thailand -->
-                                    <div>
-                                        <h4 class="text-sm font-bold text-[#112347] tracking-tight">Thailand</h4>
-                                        <div class="h-[2px] w-full mt-1.5 mb-3.5 bg-[#27797D]"></div>
-                                        <div class="space-y-1.5">
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
-                                                <span>Heart Hospitals</span>
-                                            </a>
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
-                                                <span>Cosmetic Surgery Hospitals</span>
-                                            </a>
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
-                                                <span>Gynecology Hospitals</span>
-                                            </a>
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
-                                                <span>IVF Centers</span>
-                                            </a>
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
-                                                <span>Brain & Neurosurgery Hospitals</span>
-                                            </a>
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
-                                                <span>Cancer Hospitals</span>
-                                            </a>
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
-                                                <span>Bone & Joint Hospitals</span>
-                                            </a>
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
-                                                <span>Spine Hospitals</span>
-                                            </a>
-                                        </div>
-                                        <a href="#quote-form" class="inline-flex items-center text-xs font-bold text-[#27797D] hover:text-[#1e5f62] hover:underline mt-2.5 transition-colors">
-                                            View all →
-                                        </a>
-                                    </div>
-
-                                    <!-- UAE -->
-                                    <div>
-                                        <h4 class="text-sm font-bold text-[#112347] tracking-tight">UAE</h4>
-                                        <div class="h-[2px] w-full mt-1.5 mb-3.5 bg-emerald-500"></div>
-                                        <div class="space-y-1.5">
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
-                                                <span>Heart Hospitals</span>
-                                            </a>
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
-                                                <span>Gynecology Hospitals</span>
-                                            </a>
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
-                                                <span>IVF Centers</span>
-                                            </a>
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
-                                                <span>Brain & Neurosurgery Hospitals</span>
-                                            </a>
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
-                                                <span>Cancer Hospitals</span>
-                                            </a>
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
-                                                <span>Bone & Joint Hospitals</span>
-                                            </a>
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
-                                                <span>Spine Hospitals</span>
-                                            </a>
-                                        </div>
-                                        <a href="#quote-form" class="inline-flex items-center text-xs font-bold text-[#27797D] hover:text-[#1e5f62] hover:underline mt-2.5 transition-colors">
-                                            View all →
-                                        </a>
-                                    </div>
-
-                                    <!-- Germany -->
-                                    <div>
-                                        <h4 class="text-sm font-bold text-[#112347] tracking-tight">Germany</h4>
-                                        <div class="h-[2px] w-full mt-1.5 mb-3.5 bg-[#EF7415]"></div>
-                                        <div class="space-y-1.5">
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
-                                                <span>Cancer Hospitals</span>
-                                            </a>
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
-                                                <span>Brain & Neurosurgery Hospitals</span>
-                                            </a>
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
-                                                <span>Heart Hospitals</span>
-                                            </a>
-                                        </div>
-                                        <a href="#quote-form" class="inline-flex items-center text-xs font-bold text-[#27797D] hover:text-[#1e5f62] hover:underline mt-2.5 transition-colors">
-                                            View all →
-                                        </a>
-                                    </div>
-
-                                    <!-- Egypt -->
-                                    <div>
-                                        <h4 class="text-sm font-bold text-[#112347] tracking-tight">Egypt</h4>
-                                        <div class="h-[2px] w-full mt-1.5 mb-3.5 bg-[#27797D]"></div>
-                                        <div class="space-y-1.5">
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
-                                                <span>Heart Hospitals</span>
-                                            </a>
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
-                                                <span>Cancer Hospitals</span>
-                                            </a>
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
-                                                <span>Brain & Neurosurgery Hospitals</span>
-                                            </a>
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
-                                                <span>Bone & Joint Hospitals</span>
-                                            </a>
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
-                                                <span>Spine Hospitals</span>
-                                            </a>
-                                        </div>
-                                        <a href="#quote-form" class="inline-flex items-center text-xs font-bold text-[#27797D] hover:text-[#1e5f62] hover:underline mt-2.5 transition-colors">
-                                            View all →
-                                        </a>
-                                    </div>
-
+                                    @endforelse
                                 </div>
                             </div>
                         </div>
@@ -368,227 +191,81 @@
                         <!-- Doctors Full-Width Mega Menu -->
                         <div class="absolute left-0 right-0 top-full w-full bg-white border-b border-gray-200 shadow-2xl z-50 hidden group-hover:block transition-all">
                             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-7">
-                                <div class="grid grid-cols-6 gap-6 xl:gap-8">
-                                    
-                                    <!-- India -->
+                                <!-- Top Header within Mega Menu -->
+                                <div class="flex items-center justify-between pb-3.5 mb-5 border-b border-gray-100">
                                     <div>
-                                        <h4 class="text-sm font-bold text-[#112347] tracking-tight">India</h4>
-                                        <div class="h-[2px] w-full mt-1.5 mb-3.5 bg-amber-500"></div>
-                                        <div class="space-y-1.5">
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
-                                                <span>Cardiac Surgeons</span>
-                                            </a>
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
-                                                <span>Cancer Doctors</span>
-                                            </a>
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
-                                                <span>Neurologists & Neurosurgeons</span>
-                                            </a>
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
-                                                <span>Orthopedic Surgeons</span>
-                                            </a>
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
-                                                <span>Back & Spine Surgeons</span>
-                                            </a>
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
-                                                <span>Hematologists</span>
-                                            </a>
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
-                                                <span>Gynecologists</span>
-                                            </a>
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
-                                                <span>IVF & Fertility Specialists</span>
-                                            </a>
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
-                                                <span>Aesthetic & Plastic Surgeons</span>
-                                            </a>
-                                        </div>
-                                        <a href="{{ route('doctors') }}" class="inline-flex items-center text-xs font-bold text-[#27797D] hover:text-[#1e5f62] hover:underline mt-2.5 transition-colors">
-                                            View all →
-                                        </a>
+                                        <h3 class="text-sm font-extrabold text-[#112347] tracking-tight flex items-center gap-2">
+                                            <span class="w-2 h-2 rounded-full bg-[#EF7415]"></span>
+                                            <span>Consult Top Medical Specialists & Surgeons</span>
+                                        </h3>
+                                        <p class="text-xs text-[#5a6a85] mt-0.5">Find internationally certified doctors by medical speciality & surgical expertise</p>
                                     </div>
-
-                                    <!-- Turkey -->
-                                    <div>
-                                        <h4 class="text-sm font-bold text-[#112347] tracking-tight">Turkey</h4>
-                                        <div class="h-[2px] w-full mt-1.5 mb-3.5 bg-[#EF7415]"></div>
-                                        <div class="space-y-1.5">
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
-                                                <span>Aesthetic & Plastic Surgeons</span>
-                                            </a>
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
-                                                <span>Back & Spine Surgeons</span>
-                                            </a>
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
-                                                <span>Neurologists & Neurosurgeons</span>
-                                            </a>
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
-                                                <span>Orthopedic Surgeons</span>
-                                            </a>
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
-                                                <span>Cardiac Surgeons</span>
-                                            </a>
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
-                                                <span>IVF & Fertility Specialists</span>
-                                            </a>
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
-                                                <span>Dentists & Dental Surgeons</span>
-                                            </a>
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
-                                                <span>Cancer Doctors</span>
-                                            </a>
-                                        </div>
-                                        <a href="{{ route('doctors') }}" class="inline-flex items-center text-xs font-bold text-[#27797D] hover:text-[#1e5f62] hover:underline mt-2.5 transition-colors">
-                                            View all →
-                                        </a>
-                                    </div>
-
-                                    <!-- Thailand -->
-                                    <div>
-                                        <h4 class="text-sm font-bold text-[#112347] tracking-tight">Thailand</h4>
-                                        <div class="h-[2px] w-full mt-1.5 mb-3.5 bg-[#27797D]"></div>
-                                        <div class="space-y-1.5">
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
-                                                <span>Aesthetic & Plastic Surgeons</span>
-                                            </a>
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
-                                                <span>Cardiac Surgeons</span>
-                                            </a>
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
-                                                <span>Gynecologists</span>
-                                            </a>
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
-                                                <span>IVF & Fertility Specialists</span>
-                                            </a>
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
-                                                <span>Neurologists & Neurosurgeons</span>
-                                            </a>
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
-                                                <span>Back & Spine Surgeons</span>
-                                            </a>
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
-                                                <span>Cancer Doctors</span>
-                                            </a>
-                                        </div>
-                                        <a href="#quote-form" class="inline-flex items-center text-xs font-bold text-[#27797D] hover:text-[#1e5f62] hover:underline mt-2.5 transition-colors">
-                                            View all →
-                                        </a>
-                                    </div>
-
-                                    <!-- UAE -->
-                                    <div>
-                                        <h4 class="text-sm font-bold text-[#112347] tracking-tight">UAE</h4>
-                                        <div class="h-[2px] w-full mt-1.5 mb-3.5 bg-emerald-500"></div>
-                                        <div class="space-y-1.5">
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
-                                                <span>Cardiac Surgeons</span>
-                                            </a>
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
-                                                <span>Gynecologists</span>
-                                            </a>
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
-                                                <span>IVF & Fertility Specialists</span>
-                                            </a>
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
-                                                <span>Neurologists & Neurosurgeons</span>
-                                            </a>
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
-                                                <span>Cancer Doctors</span>
-                                            </a>
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
-                                                <span>Back & Spine Surgeons</span>
-                                            </a>
-                                        </div>
-                                        <a href="#quote-form" class="inline-flex items-center text-xs font-bold text-[#27797D] hover:text-[#1e5f62] hover:underline mt-2.5 transition-colors">
-                                            View all →
-                                        </a>
-                                    </div>
-
-                                    <!-- Germany -->
-                                    <div>
-                                        <h4 class="text-sm font-bold text-[#112347] tracking-tight">Germany</h4>
-                                        <div class="h-[2px] w-full mt-1.5 mb-3.5 bg-[#EF7415]"></div>
-                                        <div class="space-y-1.5">
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
-                                                <span>Cancer Doctors</span>
-                                            </a>
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
-                                                <span>Neurologists & Neurosurgeons</span>
-                                            </a>
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
-                                                <span>Cardiac Surgeons</span>
-                                            </a>
-                                        </div>
-                                        <a href="#quote-form" class="inline-flex items-center text-xs font-bold text-[#27797D] hover:text-[#1e5f62] hover:underline mt-2.5 transition-colors">
-                                            View all →
-                                        </a>
-                                    </div>
-
-                                    <!-- Egypt -->
-                                    <div>
-                                        <h4 class="text-sm font-bold text-[#112347] tracking-tight">Egypt</h4>
-                                        <div class="h-[2px] w-full mt-1.5 mb-3.5 bg-[#27797D]"></div>
-                                        <div class="space-y-1.5">
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
-                                                <span>Cardiac Surgeons</span>
-                                            </a>
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
-                                                <span>Cancer Doctors</span>
-                                            </a>
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
-                                                <span>Neurologists & Neurosurgeons</span>
-                                            </a>
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
-                                                <span>Orthopedic Surgeons</span>
-                                            </a>
-                                            <a href="#quote-form" class="flex items-start text-xs text-[#5a6a85] hover:text-[#27797D] leading-snug group/link transition-colors py-0.5">
-                                                <span class="text-gray-400 group-hover/link:text-[#27797D] mr-1.5 select-none font-semibold">›</span>
-                                                <span>Back & Spine Surgeons</span>
-                                            </a>
-                                        </div>
-                                        <a href="#quote-form" class="inline-flex items-center text-xs font-bold text-[#27797D] hover:text-[#1e5f62] hover:underline mt-2.5 transition-colors">
-                                            View all →
-                                        </a>
-                                    </div>
-
+                                    <a href="{{ route('doctors') }}" class="inline-flex items-center gap-1.5 text-xs font-bold text-[#27797D] hover:text-[#1e5f62] hover:underline transition-colors">
+                                        <span>View All Doctors & Specialists</span>
+                                        <span>&rarr;</span>
+                                    </a>
                                 </div>
+
+                                <!-- Specialists Grid (4 Columns) -->
+                                @php
+                                    $displayedSpecialities = $headerSpecialities ?? collect();
+                                @endphp
+                                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3.5">
+                                    @forelse($displayedSpecialities as $speciality)
+                                        @php
+                                            $specialityImg = !empty($speciality->image)
+                                                ? (\Illuminate\Support\Str::startsWith($speciality->image, ['http://', 'https://']) ? $speciality->image : asset($speciality->image))
+                                                : asset('icons/cardio.svg');
+                                        @endphp
+                                        <a href="{{ route('doctors', ['speciality' => $speciality->name]) }}" class="group/item flex items-center gap-3 p-2.5 rounded-xl border border-gray-100 bg-gray-50/50 hover:bg-white hover:border-teal-200 hover:shadow-sm transition-all duration-200">
+                                            <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-teal-50 to-blue-50/70 p-2 flex items-center justify-center shrink-0 border border-teal-100/70 group-hover/item:scale-105 group-hover/item:bg-teal-100/70 group-hover/item:border-teal-300 transition-all">
+                                                <img src="{{ $specialityImg }}" alt="{{ $speciality->name }}" class="w-full h-full object-contain" onerror="this.onerror=null; this.src='{{ asset('icons/cardio.svg') }}';">
+                                            </div>
+                                            <div class="min-w-0 flex-1">
+                                                <h4 class="text-xs font-bold text-gray-800 group-hover/item:text-[#27797D] transition-colors leading-tight truncate">
+                                                    {{ $speciality->name }}
+                                                </h4>
+                                                <p class="text-[11px] text-gray-400 mt-0.5 truncate leading-none">
+                                                    @if(!empty($speciality->description))
+                                                        {{ $speciality->description }}
+                                                    @elseif($speciality->treatments_count > 0)
+                                                        {{ $speciality->treatments_count }} {{ \Illuminate\Support\Str::plural('Procedure', $speciality->treatments_count) }}
+                                                    @else
+                                                        Specialized Consultations
+                                                    @endif
+                                                </p>
+                                            </div>
+                                            <span class="text-gray-300 group-hover/item:text-[#27797D] text-xs font-bold shrink-0 transition-colors">›</span>
+                                        </a>
+                                    @empty
+                                        <div class="col-span-full py-6 text-center text-gray-500 text-xs">
+                                            <p class="font-semibold text-gray-700">No medical specialities registered yet.</p>
+                                            <a href="{{ route('doctors') }}" class="text-[#27797D] underline mt-1 inline-block">Browse all doctors</a>
+                                        </div>
+                                    @endforelse
+                                </div>
+
+                                <!-- Bottom Quick Filter Bar: Doctors by Country -->
+                                @if(isset($headerCountries) && $headerCountries->isNotEmpty())
+                                    <div class="mt-5 pt-3.5 border-t border-gray-100 flex flex-wrap items-center justify-between gap-3 text-xs">
+                                        <div class="flex items-center gap-2 flex-wrap">
+                                            <span class="text-gray-400 font-bold uppercase text-[10px] tracking-wider">Top Medical Destinations:</span>
+                                            @foreach($headerCountries as $countryItem)
+                                                <a href="{{ route('doctors', ['country' => $countryItem->name]) }}" class="text-[#5a6a85] hover:text-[#27797D] font-semibold hover:underline">
+                                                    Doctors in {{ $countryItem->name }}
+                                                </a>
+                                                @if(!$loop->last)
+                                                    <span class="text-gray-300">&bull;</span>
+                                                @endif
+                                            @endforeach
+                                        </div>
+                                        <a href="{{ route('doctors') }}" class="font-bold text-[#EF7415] hover:text-[#d9640d] hover:underline flex items-center gap-1 whitespace-nowrap">
+                                            <span>Explore All Doctors</span>
+                                            <span>&rarr;</span>
+                                        </a>
+                                    </div>
+                                @endif
+
                             </div>
                         </div>
                     </div>
@@ -927,12 +604,37 @@
                     </summary>
                     <div class="pl-3 pr-1 py-1 space-y-1 ml-2 border-l-2 border-[#27797D]/30 mt-0.5">
                         <a href="{{ route('hospitals') }}" class="mobile-sidebar-link block px-2.5 py-1.5 text-xs text-[#27797D] font-bold">View All Hospitals &rarr;</a>
-                        <a href="#quote-form" class="mobile-sidebar-link block px-2.5 py-1 text-xs text-gray-600 hover:text-[#27797D]">Top Hospitals in India</a>
-                        <a href="#quote-form" class="mobile-sidebar-link block px-2.5 py-1 text-xs text-gray-600 hover:text-[#27797D]">Hospitals in Turkey</a>
-                        <a href="#quote-form" class="mobile-sidebar-link block px-2.5 py-1 text-xs text-gray-600 hover:text-[#27797D]">Hospitals in Thailand</a>
-                        <a href="#quote-form" class="mobile-sidebar-link block px-2.5 py-1 text-xs text-gray-600 hover:text-[#27797D]">Hospitals in UAE</a>
-                        <a href="#quote-form" class="mobile-sidebar-link block px-2.5 py-1 text-xs text-gray-600 hover:text-[#27797D]">Hospitals in Germany</a>
-                        <a href="#quote-form" class="mobile-sidebar-link block px-2.5 py-1 text-xs text-gray-600 hover:text-[#27797D]">Hospitals in Egypt</a>
+                        @forelse($headerCountries ?? collect() as $country)
+                            @php
+                                $countryHospitals = $country->hospitals ?? collect();
+                                $mobileCategories = $countryHospitals
+                                    ->pluck('category')
+                                    ->filter()
+                                    ->unique('id');
+
+                                if ($mobileCategories->isEmpty() && isset($allHospitalCategories)) {
+                                    $mobileCategories = $allHospitalCategories->take(4);
+                                }
+                            @endphp
+                            <details class="group/nested">
+                                <summary class="flex items-center justify-between px-2.5 py-1 text-xs text-gray-700 font-semibold hover:text-[#27797D] cursor-pointer list-none">
+                                    <span>Hospitals in {{ $country->name }}</span>
+                                    <svg class="w-3 h-3 text-gray-400 transition-transform group-open/nested:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                                </summary>
+                                <div class="pl-2 space-y-0.5 mt-0.5 border-l border-gray-200 ml-1">
+                                    @foreach($mobileCategories->take(6) as $mCat)
+                                        <a href="{{ route('hospitals', ['country' => $country->name, 'category' => $mCat->name]) }}" class="mobile-sidebar-link block px-2 py-0.5 text-[11px] text-gray-500 hover:text-[#27797D] truncate">
+                                            &bull; {{ $mCat->name }}
+                                        </a>
+                                    @endforeach
+                                    <a href="{{ route('hospitals', ['country' => $country->name]) }}" class="mobile-sidebar-link block px-2 py-0.5 text-[11px] font-bold text-[#27797D]">
+                                        View all in {{ $country->name }} &rarr;
+                                    </a>
+                                </div>
+                            </details>
+                        @empty
+                            <a href="{{ route('hospitals') }}" class="mobile-sidebar-link block px-2.5 py-1 text-xs text-gray-600 hover:text-[#27797D]">Network Hospitals</a>
+                        @endforelse
                     </div>
                 </details>
 
@@ -944,11 +646,13 @@
                     </summary>
                     <div class="pl-3 pr-1 py-1 space-y-1 ml-2 border-l-2 border-[#27797D]/30 mt-0.5">
                         <a href="{{ route('doctors') }}" class="mobile-sidebar-link block px-2.5 py-1.5 text-xs text-[#27797D] font-bold">View All Doctors &rarr;</a>
-                        <a href="#quote-form" class="mobile-sidebar-link block px-2.5 py-1 text-xs text-gray-600 hover:text-[#27797D]">Cardiac Surgeons</a>
-                        <a href="#quote-form" class="mobile-sidebar-link block px-2.5 py-1 text-xs text-gray-600 hover:text-[#27797D]">Cancer Doctors</a>
-                        <a href="#quote-form" class="mobile-sidebar-link block px-2.5 py-1 text-xs text-gray-600 hover:text-[#27797D]">Neurologists & Neurosurgeons</a>
-                        <a href="#quote-form" class="mobile-sidebar-link block px-2.5 py-1 text-xs text-gray-600 hover:text-[#27797D]">Orthopedic Surgeons</a>
-                        <a href="#quote-form" class="mobile-sidebar-link block px-2.5 py-1 text-xs text-gray-600 hover:text-[#27797D]">Back & Spine Surgeons</a>
+                        @forelse($headerSpecialities ?? collect() as $speciality)
+                            <a href="{{ route('doctors', ['speciality' => $speciality->name]) }}" class="mobile-sidebar-link block px-2.5 py-1 text-xs text-gray-600 hover:text-[#27797D] truncate">
+                                {{ $speciality->name }}
+                            </a>
+                        @empty
+                            <a href="{{ route('doctors') }}" class="mobile-sidebar-link block px-2.5 py-1 text-xs text-gray-600 hover:text-[#27797D]">Specialists</a>
+                        @endforelse
                     </div>
                 </details>
 
