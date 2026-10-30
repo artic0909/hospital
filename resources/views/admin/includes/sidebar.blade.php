@@ -98,6 +98,27 @@
                         <span>Appointments</span>
                     </div>
                 </a>
+
+                <!-- Patient Enquiries -->
+                @php
+                    $pendingEnquiryCount = \App\Models\PatientEnquiry::where('status', 'pending')->count();
+                @endphp
+                <a 
+                    href="{{ route('admin.enquiries.index') }}" 
+                    class="flex items-center justify-between px-3 py-2 rounded-xl {{ request()->routeIs('admin.enquiries*') ? 'bg-[#27797D] text-white font-bold shadow-md shadow-[#27797D]/20' : 'text-slate-300 hover:text-white hover:bg-slate-800/80' }} transition-all"
+                >
+                    <div class="flex items-center gap-2.5">
+                        <svg class="w-4 h-4 {{ request()->routeIs('admin.enquiries*') ? 'text-teal-200' : 'text-slate-400' }}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"/>
+                        </svg>
+                        <span>Patient Enquiries</span>
+                    </div>
+                    @if($pendingEnquiryCount > 0)
+                        <span class="px-1.5 py-0.5 rounded-full text-[10px] font-black bg-[#EF7415] text-white">
+                            {{ $pendingEnquiryCount }}
+                        </span>
+                    @endif
+                </a>
             </div>
         </div>
 

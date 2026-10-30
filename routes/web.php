@@ -13,6 +13,7 @@ Route::view('/medical-visa', 'frontend.pages.medical_visa')->name('medical.visa'
 Route::get('/patient-stories', [HomeController::class, 'patientStories'])->name('patient.stories');
 Route::get('/contact-us', [HomeController::class, 'contact'])->name('contact');
 Route::get('/privacy-policy', [HomeController::class, 'privacy'])->name('privacy');
+Route::post('/patient-enquiry', [HomeController::class, 'submitEnquiry'])->name('patient.enquiry.submit');
 
 // Hospital Slug Routes
 Route::get('/hospital/{hospital:slug}', function (\App\Models\Hospital $hospital) {

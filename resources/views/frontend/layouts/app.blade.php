@@ -366,5 +366,11 @@
     <!-- Load Google Translate API Script Asynchronously -->
     <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
+    <!-- Global Book Appointment Modal -->
+    @include('frontend.includes.appointment_modal')
+
+    <!-- Global Custom Alert Popup Modal -->
+    @include('frontend.includes.custom_alert')
+
 </body>
 </html>

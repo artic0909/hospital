@@ -187,15 +187,28 @@
                                     <label for="reg-phone" class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1.5">
                                         Phone / WhatsApp <span class="text-rose-500">*</span>
                                     </label>
-                                    <input 
-                                        type="tel" 
-                                        id="reg-phone" 
-                                        name="phone" 
-                                        value="{{ old('phone') }}"
-                                        required
-                                        placeholder="+91 9129846542" 
-                                        class="w-full px-3.5 py-2.5 text-sm text-gray-900 bg-gray-50/60 border border-gray-300 rounded-xl focus:bg-white focus:outline-none focus:border-[#27797D] focus:ring-2 focus:ring-[#27797D]/20 transition-all @error('phone') border-rose-400 bg-rose-50/30 @enderror"
-                                    >
+                                    <div class="flex rounded-xl overflow-hidden bg-gray-50/60 border border-gray-300 focus-within:bg-white focus-within:border-[#27797D] focus-within:ring-2 focus-within:ring-[#27797D]/20 transition-all notranslate" dir="ltr">
+                                        <div class="relative bg-gray-100 border-r border-gray-200 select-none flex items-center shrink-0">
+                                            <select 
+                                                name="country_code" 
+                                                class="bg-transparent text-gray-800 text-xs font-bold pl-2.5 pr-6 py-2.5 focus:outline-none appearance-none cursor-pointer max-w-[110px]"
+                                            >
+                                                @include('frontend.includes.country_code_options')
+                                            </select>
+                                            <div class="pointer-events-none absolute right-1.5 inset-y-0 flex items-center text-gray-500">
+                                                <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/></svg>
+                                            </div>
+                                        </div>
+                                        <input 
+                                            type="tel" 
+                                            id="reg-phone" 
+                                            name="phone" 
+                                            value="{{ old('phone') }}"
+                                            required
+                                            placeholder="9129846542" 
+                                            class="flex-1 min-w-0 px-3.5 py-2.5 text-sm text-gray-900 bg-transparent border-0 focus:outline-none"
+                                        >
+                                    </div>
                                     <p id="error-phone" class="text-xs text-rose-500 font-medium mt-1.5 flex items-center gap-1 {{ $errors->has('phone') ? '' : 'hidden' }}">
                                         <svg class="w-3.5 h-3.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/></svg>
                                         <span class="error-text">{{ $errors->first('phone') }}</span>

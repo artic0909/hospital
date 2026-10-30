@@ -13,6 +13,7 @@ use App\Models\Hospital;
 use App\Models\HospitalCategory;
 use App\Models\HowItWork;
 use App\Models\Partner;
+use App\Models\PatientEnquiry;
 use App\Models\PatientStory;
 use App\Models\SiteSetting;
 use App\Models\Treatment;
@@ -542,6 +543,89 @@ class HomeController extends Controller
     {
         $settings = SiteSetting::getSettings();
         return view('frontend.pages.privacy-policy', compact('settings'));
+    }
+
+    /**
+     * Handle patient enquiry form submission from any page or modal.
+     */
+    public function submitEnquiry(Request $request)
+    {
+        $validated = $request->validate([
+            'patient_name' => 'nullable|string|max:255',
+            'name' => 'nullable|string|max:255',
+            'country_code' => 'nullable|string|max:20',
+            'phone' => 'required|string|max:50',
+            'country' => 'nullable|string|max:100',
+            'city' => 'nullable|string|max:100',
+            'medical_problem' => 'nullable|string',
+            'problem' => 'nullable|string',
+            'treatment' => 'nullable|string',
+            'message' => 'nullable|string',
+            'dob' => 'nullable|string|max:100',
+            'age_or_dob' => 'nullable|string|max:100',
+            'age_dob' => 'nullable|string|max:100',
+            'hospital_id' => 'nullable|integer',
+            'doctor_id' => 'nullable|integer',
+            'source_page' => 'nullable|string|max:255',
+        ]);
+
+        $name = trim($validated['patient_name'] ?? $validated['name'] ?? 'Guest Patient');
+        $problem = trim($validated['medical_problem'] ?? $validated['problem'] ?? $validated['treatment'] ?? $validated['message'] ?? '');
+        
+        // Handle DOB / Age calculation
+        $dobInput = trim($validated['dob'] ?? '');
+        $ageDob = trim($validated['age_or_dob'] ?? $validated['age_dob'] ?? '');
+        $finalAgeDob = $dobInput ?: $ageDob;
+        if ($dobInput) {
+            try {
+                $carbonDob = \Carbon\Carbon::parse($dobInput);
+                $ageYears = $carbonDob->age;
+                $finalAgeDob = $carbonDob->format('d M Y') . ' (' . $ageYears . ' Yrs)';
+            } catch (\Throwable $e) {
+                $finalAgeDob = $dobInput;
+            }
+        }
+
+        // Handle Phone with Country Code
+        $countryCode = trim($validated['country_code'] ?? '+91');
+        $rawPhone = trim($validated['phone']);
+        $fullPhone = (\Illuminate\Support\Str::startsWith($rawPhone, '+'))
+            ? $rawPhone
+            : ($countryCode . ' ' . $rawPhone);
+
+        $hospitalId = !empty($validated['hospital_id']) ? (int)$validated['hospital_id'] : null;
+        $doctorId = !empty($validated['doctor_id']) ? (int)$validated['doctor_id'] : null;
+
+        // If doctor_id is present but hospital_id is missing, auto-fetch hospital_id from doctor
+        if (!empty($doctorId) && empty($hospitalId)) {
+            $doc = Doctor::find($doctorId);
+            if ($doc) {
+                $hospitalId = $doc->hospital_id;
+            }
+        }
+
+        $enquiry = PatientEnquiry::create([
+            'name' => $name,
+            'country' => $validated['country'] ?? 'India',
+            'city' => $validated['city'] ?? null,
+            'phone' => $fullPhone,
+            'problem' => $problem ?: null,
+            'age_or_dob' => $finalAgeDob ?: null,
+            'hospital_id' => $hospitalId ?: null,
+            'doctor_id' => $doctorId ?: null,
+            'source_page' => $validated['source_page'] ?? url()->previous() ?? 'Website Form',
+            'status' => 'pending',
+        ]);
+
+        if ($request->ajax() || $request->wantsJson()) {
+            return response()->json([
+                'success' => true,
+                'message' => 'Thank you! Your enquiry has been received. Our medical coordinator will contact you within 24 hours.',
+                'enquiry_id' => $enquiry->id,
+            ]);
+        }
+
+        return redirect()->back()->with('success', 'Thank you! Your enquiry has been received. Our medical coordinator will contact you within 24 hours.');
     }
 }
 

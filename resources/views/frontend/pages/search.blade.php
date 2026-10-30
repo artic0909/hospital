@@ -347,18 +347,49 @@
                         <p class="text-xs text-blue-100 mt-1">Get customized hospital recommendations & cost quotes within 24 hours.</p>
                     </div>
 
-                    <form action="#" method="POST" class="space-y-3" onsubmit="event.preventDefault(); alert('Thank you! Your inquiry has been submitted. Our medical team will contact you shortly.');">
+                    <form action="{{ route('patient.enquiry.submit') }}" method="POST" class="space-y-3" data-enquiry-form>
                         @csrf
+                        <input type="hidden" name="source_page" value="Search Page - Medical Advice Request">
                         <div>
                             <input type="text" name="name" required placeholder="Patient Full Name" class="w-full text-xs text-gray-900 bg-white placeholder-gray-400 px-3.5 py-2.5 rounded-xl border-0 focus:outline-none focus:ring-2 focus:ring-[#EF7415]">
                         </div>
-                        <div>
-                            <input type="tel" name="phone" required placeholder="Phone / WhatsApp (+Country Code)" class="w-full text-xs text-gray-900 bg-white placeholder-gray-400 px-3.5 py-2.5 rounded-xl border-0 focus:outline-none focus:ring-2 focus:ring-[#EF7415]">
+                        <div class="flex rounded-xl overflow-hidden bg-white focus-within:ring-2 focus-within:ring-[#EF7415] transition-all notranslate" dir="ltr">
+                            <div class="relative bg-gray-100 border-r border-gray-200 select-none flex items-center shrink-0">
+                                <select 
+                                    name="country_code" 
+                                    class="bg-transparent text-gray-800 text-xs font-bold pl-2 pr-5 py-2.5 focus:outline-none appearance-none cursor-pointer max-w-[105px]"
+                                >
+                                    @include('frontend.includes.country_code_options')
+                                </select>
+                                <div class="pointer-events-none absolute right-1 inset-y-0 flex items-center text-gray-500">
+                                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/></svg>
+                                </div>
+                            </div>
+                            <input 
+                                type="tel" 
+                                name="phone" 
+                                required 
+                                placeholder="Phone number" 
+                                class="flex-1 min-w-0 text-xs text-gray-900 bg-white placeholder-gray-400 px-3 py-2.5 border-0 focus:outline-none"
+                            >
+                        </div>
+                        <div class="relative flex items-center bg-white rounded-xl focus-within:ring-2 focus-within:ring-[#EF7415] transition-all">
+                            <label for="search_dob" class="pl-3 pr-2 py-2.5 text-xs font-semibold text-gray-500 flex items-center gap-1 shrink-0 select-none cursor-pointer">
+                                <svg class="w-3.5 h-3.5 text-[#27797D]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                                <span>DOB:</span>
+                            </label>
+                            <input 
+                                type="date" 
+                                id="search_dob"
+                                name="dob" 
+                                max="{{ date('Y-m-d') }}"
+                                class="w-full bg-transparent text-gray-900 text-xs pr-3 py-2.5 focus:outline-none cursor-pointer font-medium"
+                            >
                         </div>
                         <div>
                             <textarea name="treatment" rows="3" required placeholder="Describe condition or treatment needed..." class="w-full text-xs text-gray-900 bg-white placeholder-gray-400 px-3.5 py-2.5 rounded-xl border-0 focus:outline-none focus:ring-2 focus:ring-[#EF7415] resize-none"></textarea>
                         </div>
-                        <button type="submit" class="w-full bg-[#EF7415] hover:bg-[#d9640d] text-white font-bold py-2.5 px-4 rounded-xl text-xs sm:text-sm shadow-md transition-all">
+                        <button type="submit" class="w-full bg-[#EF7415] hover:bg-[#d9640d] text-white font-bold py-2.5 px-4 rounded-xl text-xs sm:text-sm shadow-md transition-all cursor-pointer">
                             Request Free Hospital Quotes
                         </button>
                     </form>

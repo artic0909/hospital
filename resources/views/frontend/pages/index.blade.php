@@ -124,8 +124,9 @@
                         </div>
 
                         <!-- Form -->
-                        <form action="#" method="POST" class="space-y-3" onsubmit="event.preventDefault(); alert('Thank you! Our medical expert will contact you shortly.');">
+                        <form action="{{ route('patient.enquiry.submit') }}" method="POST" class="space-y-3" data-enquiry-form>
                             @csrf
+                            <input type="hidden" name="source_page" value="Home Hero Form">
                             
                             <!-- 1. Patient Name -->
                             <div>
@@ -139,22 +140,25 @@
                             </div>
 
                             <!-- 2. Country Dropdown -->
+                            @php
+                                $heroCountries = \App\Models\Country::orderBy('name')->get();
+                            @endphp
                             <div class="relative">
                                 <select 
                                     name="country" 
                                     class="w-full bg-white text-gray-900 text-sm rounded-lg px-3.5 py-2.5 sm:py-3 border border-transparent focus:border-red-500 focus:ring-2 focus:ring-red-400/40 focus:outline-none transition-all shadow-inner appearance-none cursor-pointer pr-10"
                                 >
-                                    <option value="India" selected>India</option>
-                                    <option value="United States">United States</option>
-                                    <option value="United Kingdom">United Kingdom</option>
-                                    <option value="United Arab Emirates">United Arab Emirates</option>
-                                    <option value="Bangladesh">Bangladesh</option>
-                                    <option value="Kenya">Kenya</option>
-                                    <option value="Nigeria">Nigeria</option>
-                                    <option value="Oman">Oman</option>
-                                    <option value="Saudi Arabia">Saudi Arabia</option>
-                                    <option value="Iraq">Iraq</option>
-                                    <option value="Other">Other Country</option>
+                                    @forelse($heroCountries as $countryItem)
+                                        <option value="{{ $countryItem->name }}" {{ strtolower($countryItem->name) === 'india' ? 'selected' : '' }}>
+                                            {{ $countryItem->name }}
+                                        </option>
+                                    @empty
+                                        <option value="India" selected>India</option>
+                                        <option value="United States">United States</option>
+                                        <option value="United Kingdom">United Kingdom</option>
+                                        <option value="United Arab Emirates">United Arab Emirates</option>
+                                        <option value="Bangladesh">Bangladesh</option>
+                                    @endforelse
                                 </select>
                                 <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3.5 text-gray-500">
                                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -173,10 +177,18 @@
                                 >
                             </div>
 
-                            <!-- 4. Phone with Country Code -->
+                            <!-- 4. Phone with Country Code Dropdown -->
                             <div class="flex rounded-lg overflow-hidden bg-white shadow-inner focus-within:ring-2 focus-within:ring-red-400/40 border border-transparent focus-within:border-red-500 transition-all notranslate" dir="ltr">
-                                <div class="bg-gray-100/90 text-gray-700 text-sm font-semibold px-3 flex items-center border-r border-gray-200 select-none">
-                                    +91
+                                <div class="relative bg-gray-100/90 border-r border-gray-200 select-none flex items-center shrink-0">
+                                    <select 
+                                        name="country_code" 
+                                        class="bg-transparent text-gray-800 text-xs sm:text-sm font-bold pl-2.5 pr-6 py-2.5 sm:py-3 focus:outline-none appearance-none cursor-pointer max-w-[115px]"
+                                    >
+                                        @include('frontend.includes.country_code_options')
+                                    </select>
+                                    <div class="pointer-events-none absolute right-1.5 inset-y-0 flex items-center text-gray-500">
+                                        <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/></svg>
+                                    </div>
                                 </div>
                                 <input 
                                     type="tel" 
@@ -197,13 +209,18 @@
                                 >
                             </div>
 
-                            <!-- 6. Age or DOB -->
-                            <div>
+                            <!-- 6. Date of Birth Picker -->
+                            <div class="relative flex items-center bg-white rounded-lg shadow-inner border border-transparent focus-within:border-red-500 focus-within:ring-2 focus-within:ring-red-400/40 transition-all">
+                                <label for="hero_dob" class="pl-3.5 pr-2 py-2.5 sm:py-3 text-xs sm:text-sm font-semibold text-gray-500 flex items-center gap-1.5 shrink-0 select-none cursor-pointer">
+                                    <svg class="w-4 h-4 text-[#27797D]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                                    <span>DOB:</span>
+                                </label>
                                 <input 
-                                    type="text" 
-                                    name="age_or_dob" 
-                                    placeholder="Example: 30 Yrs or 29-05-1985" 
-                                    class="w-full bg-white text-gray-900 placeholder-gray-400 text-sm rounded-lg px-3.5 py-2.5 sm:py-3 border border-transparent focus:border-red-500 focus:ring-2 focus:ring-red-400/40 focus:outline-none transition-all shadow-inner"
+                                    type="date" 
+                                    id="hero_dob"
+                                    name="dob" 
+                                    max="{{ date('Y-m-d') }}"
+                                    class="w-full bg-transparent text-gray-900 text-xs sm:text-sm pr-3 py-2.5 sm:py-3 focus:outline-none cursor-pointer font-medium"
                                 >
                             </div>
 
@@ -211,7 +228,7 @@
                             <div class="pt-1">
                                 <button 
                                     type="submit" 
-                                    class="w-full bg-[#EF7415] hover:bg-[#d9640d] active:scale-[0.99] text-white font-bold py-3 px-4 rounded-lg shadow-md hover:shadow-lg transition-all duration-150 flex items-center justify-center gap-2 text-base"
+                                    class="w-full bg-[#EF7415] hover:bg-[#d9640d] active:scale-[0.99] text-white font-bold py-3 px-4 rounded-lg shadow-md hover:shadow-lg transition-all duration-150 flex items-center justify-center gap-2 text-base cursor-pointer"
                                 >
                                     <span>Continue</span>
                                     <span class="text-lg leading-none">&rarr;</span>
@@ -222,9 +239,9 @@
                             <div class="pt-1 text-center">
                                 <p class="text-[11px] text-blue-100/90 leading-tight">
                                     By submitting I agree to the 
-                                    <a href="#" class="underline hover:text-white transition-colors">Terms of Use</a> 
+                                    <a href="{{ route('privacy') }}" class="underline hover:text-white transition-colors">Terms of Use</a> 
                                     and 
-                                    <a href="#" class="underline hover:text-white transition-colors">Privacy Policy</a> 
+                                    <a href="{{ route('privacy') }}" class="underline hover:text-white transition-colors">Privacy Policy</a> 
                                     of Heal Go Fly.
                                 </p>
                             </div>

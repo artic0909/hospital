@@ -12,6 +12,7 @@ use App\Http\Controllers\Admin\Utilities\TreatmentController;
 use App\Http\Controllers\Admin\HeroSectionController;
 use App\Http\Controllers\Admin\HowItWorksController;
 use App\Http\Controllers\Admin\BlogController;
+use App\Http\Controllers\Admin\PatientEnquiryController;
 use App\Http\Controllers\Admin\PatientStoryController;
 use App\Http\Controllers\Admin\SiteSettingController;
 use App\Http\Controllers\Admin\ProfileController;
@@ -144,6 +145,15 @@ Route::prefix('admin')->name('admin.')->group(function () {
             Route::put('/{appointment}', \App\Http\Controllers\Admin\AppointmentController::class . '@update')->name('update.submit');
             Route::patch('/{appointment}/status', \App\Http\Controllers\Admin\AppointmentController::class . '@updateStatus')->name('update-status');
             Route::delete('/{appointment}', \App\Http\Controllers\Admin\AppointmentController::class . '@destroy')->name('destroy');
+        });
+
+        // ==================== PATIENT ENQUIRIES / LEADS ====================
+        Route::prefix('enquiries')->name('enquiries.')->group(function () {
+            Route::get('/', [PatientEnquiryController::class, 'index'])->name('index');
+            Route::get('/{enquiry}', [PatientEnquiryController::class, 'show'])->name('show');
+            Route::patch('/{enquiry}/status', [PatientEnquiryController::class, 'updateStatus'])->name('update-status');
+            Route::post('/{enquiry}/notes', [PatientEnquiryController::class, 'updateNotes'])->name('update-notes');
+            Route::delete('/{enquiry}', [PatientEnquiryController::class, 'destroy'])->name('destroy');
         });
 
         // ==================== FRONTEND DYNAMIC & PAGE SETUP ====================

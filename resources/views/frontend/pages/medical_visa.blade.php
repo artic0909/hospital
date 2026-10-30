@@ -302,8 +302,9 @@
                         <p class="text-xs text-blue-100 mt-1">Our hospital liaison desk arranges official stamped visa letters within 24 to 48 hours.</p>
                     </div>
 
-                    <form action="#" method="POST" class="space-y-3" onsubmit="event.preventDefault(); alert('Thank you! Your Medical Visa assistance request has been submitted. Our international patient officer will contact you within 24 hours with your hospital invitation letter.');">
+                    <form action="{{ route('patient.enquiry.submit') }}" method="POST" class="space-y-3" data-enquiry-form>
                         @csrf
+                        <input type="hidden" name="source_page" value="Medical Visa Page - Invitation Letter Request">
                         <div>
                             <label class="block text-[10px] font-bold text-blue-100 uppercase tracking-wider mb-1">Patient Full Name</label>
                             <input type="text" name="name" required placeholder="Name as in passport" class="w-full text-xs text-gray-900 bg-white placeholder-gray-400 px-3.5 py-2.5 rounded-xl border-0 focus:outline-none focus:ring-2 focus:ring-[#EF7415]">
@@ -314,7 +315,35 @@
                         </div>
                         <div>
                             <label class="block text-[10px] font-bold text-blue-100 uppercase tracking-wider mb-1">WhatsApp / Phone Number</label>
-                            <input type="tel" name="phone" required placeholder="+CountryCode Phone" class="w-full text-xs text-gray-900 bg-white placeholder-gray-400 px-3.5 py-2.5 rounded-xl border-0 focus:outline-none focus:ring-2 focus:ring-[#EF7415]">
+                            <div class="flex rounded-xl overflow-hidden bg-white focus-within:ring-2 focus-within:ring-[#EF7415] transition-all notranslate" dir="ltr">
+                                <div class="relative bg-gray-100 border-r border-gray-200 select-none flex items-center shrink-0">
+                                    <select 
+                                        name="country_code" 
+                                        class="bg-transparent text-gray-800 text-xs font-bold pl-2 pr-5 py-2.5 focus:outline-none appearance-none cursor-pointer max-w-[105px]"
+                                    >
+                                        @include('frontend.includes.country_code_options')
+                                    </select>
+                                    <div class="pointer-events-none absolute right-1 inset-y-0 flex items-center text-gray-500">
+                                        <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/></svg>
+                                    </div>
+                                </div>
+                                <input 
+                                    type="tel" 
+                                    name="phone" 
+                                    required 
+                                    placeholder="Phone number" 
+                                    class="flex-1 min-w-0 text-xs text-gray-900 bg-white placeholder-gray-400 px-3 py-2.5 border-0 focus:outline-none"
+                                >
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-[10px] font-bold text-blue-100 uppercase tracking-wider mb-1">Date of Birth</label>
+                            <input 
+                                type="date" 
+                                name="dob" 
+                                max="{{ date('Y-m-d') }}"
+                                class="w-full text-xs text-gray-900 bg-white px-3.5 py-2.5 rounded-xl border-0 focus:outline-none focus:ring-2 focus:ring-[#EF7415] cursor-pointer"
+                            >
                         </div>
                         <div>
                             <label class="block text-[10px] font-bold text-blue-100 uppercase tracking-wider mb-1">Medical Condition or Surgery</label>

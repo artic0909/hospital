@@ -306,9 +306,17 @@
 
                                 <!-- Right: Two Action Buttons -->
                                 <div class="md:col-span-4 flex flex-col justify-center space-y-2.5 pt-2 md:pt-0">
-                                    <a href="{{ route('doctor.appointment') }}" class="w-full bg-[#EF7415] hover:bg-[#d9640d] text-white text-xs sm:text-sm font-bold py-2.5 px-4 rounded-xl shadow-xs hover:shadow text-center block transition-all">
+                                    <button 
+                                        type="button"
+                                        data-book-appointment
+                                        data-doctor-id="{{ $doctor->id }}"
+                                        data-doctor-name="{{ $doctor->name }}"
+                                        data-hospital-id="{{ $doctor->hospital_id }}"
+                                        data-hospital-name="{{ $doctor->hospital?->name }}"
+                                        class="w-full bg-[#EF7415] hover:bg-[#d9640d] text-white text-xs sm:text-sm font-bold py-2.5 px-4 rounded-xl shadow-xs hover:shadow text-center block transition-all cursor-pointer"
+                                    >
                                         Book Consultation
-                                    </a>
+                                    </button>
                                     <a href="https://wa.me/919129846542?text={{ urlencode('Hello HealGoFly, I want to consult Dr. ' . $doctor->name . ($doctor->hospital ? ' at ' . $doctor->hospital->name : '')) }}" target="_blank" class="w-full bg-[#28a745] hover:bg-[#218838] text-white text-xs sm:text-sm font-bold py-2.5 px-4 rounded-xl shadow-xs hover:shadow text-center flex items-center justify-center gap-2 transition-all">
                                         <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
                                         <span>WhatsApp Doctor</span>
@@ -396,8 +404,12 @@
                     </div>
 
                     <!-- Evaluation Form -->
-                    <form action="#" method="POST" class="space-y-3" onsubmit="event.preventDefault(); alert('Thank you! Your doctor consultation request has been received. Our medical team will reach out with consultant slots within 24 hours.');">
+                    <form action="{{ route('patient.enquiry.submit') }}" method="POST" class="space-y-3" data-enquiry-form>
                         @csrf
+                        <input type="hidden" name="source_page" value="Doctors Listing - Consult Form">
+                        @if($selectedHospital)
+                            <input type="hidden" name="hospital_id" value="{{ $selectedHospital->id }}">
+                        @endif
                         
                         <!-- 1. Patient Name -->
                         <div>
@@ -405,49 +417,82 @@
                         </div>
 
                         <!-- 2. Country Dropdown -->
+                        @php
+                            $docCountries = \App\Models\Country::orderBy('name')->get();
+                        @endphp
                         <div class="relative">
                             <select name="country" class="w-full text-xs text-gray-900 bg-white px-3.5 py-2.5 rounded-lg border-0 focus:outline-none focus:ring-2 focus:ring-[#EF7415] appearance-none cursor-pointer font-medium">
-                                <option value="India" {{ ($selectedCountry?->name === 'India') ? 'selected' : '' }}>India</option>
-                                <option value="Bangladesh">Bangladesh</option>
-                                <option value="United Arab Emirates" {{ ($selectedCountry?->name === 'United Arab Emirates') ? 'selected' : '' }}>United Arab Emirates</option>
-                                <option value="Turkey" {{ ($selectedCountry?->name === 'Turkey') ? 'selected' : '' }}>Turkey</option>
-                                <option value="Thailand" {{ ($selectedCountry?->name === 'Thailand') ? 'selected' : '' }}>Thailand</option>
-                                <option value="Saudi Arabia">Saudi Arabia</option>
-                                <option value="Russia">Russia</option>
-                                <option value="Other">Other Country</option>
+                                @forelse($docCountries as $cItem)
+                                    <option value="{{ $cItem->name }}" {{ ($selectedCountry?->id === $cItem->id || strtolower($cItem->name) === 'india') ? 'selected' : '' }}>
+                                        {{ $cItem->name }}
+                                    </option>
+                                @empty
+                                    <option value="India" selected>India</option>
+                                    <option value="Bangladesh">Bangladesh</option>
+                                    <option value="United Arab Emirates">United Arab Emirates</option>
+                                @endforelse
                             </select>
                             <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none text-gray-500">
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
                             </div>
                         </div>
 
-                        <!-- 3. Phone with Country Code -->
-                        <div class="flex gap-2">
-                            <div class="w-16 bg-white rounded-lg flex items-center justify-center text-xs font-bold text-gray-700 px-2 flex-shrink-0">
-                                +91
+                        <!-- 3. Phone with Country Code Dropdown -->
+                        <div class="flex rounded-lg overflow-hidden bg-white focus-within:ring-2 focus-within:ring-[#EF7415] transition-all notranslate" dir="ltr">
+                            <div class="relative bg-gray-100 border-r border-gray-200 select-none flex items-center shrink-0">
+                                <select 
+                                    name="country_code" 
+                                    class="bg-transparent text-gray-800 text-xs font-bold pl-2 pr-5 py-2.5 focus:outline-none appearance-none cursor-pointer max-w-[105px]"
+                                >
+                                    @include('frontend.includes.country_code_options')
+                                </select>
+                                <div class="pointer-events-none absolute right-1 inset-y-0 flex items-center text-gray-500">
+                                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/></svg>
+                                </div>
                             </div>
-                            <input type="tel" name="phone" required placeholder="Phone / WhatsApp" class="flex-1 text-xs text-gray-900 bg-white placeholder-gray-400 px-3.5 py-2.5 rounded-lg border-0 focus:outline-none focus:ring-2 focus:ring-[#EF7415]">
+                            <input 
+                                type="tel" 
+                                name="phone" 
+                                required 
+                                placeholder="Phone number" 
+                                class="flex-1 min-w-0 text-xs text-gray-900 bg-white placeholder-gray-400 px-3 py-2.5 border-0 focus:outline-none"
+                            >
                         </div>
 
-                        <!-- 4. Preferred Speciality / Problem -->
+                        <!-- 4. Select City -->
                         <div>
-                            <input type="text" name="preferred_speciality" value="{{ $selectedSpeciality?->name ?? '' }}" placeholder="Medical Speciality or Symptoms..." class="w-full text-xs text-gray-900 bg-white placeholder-gray-400 px-3.5 py-2.5 rounded-lg border-0 focus:outline-none focus:ring-2 focus:ring-[#EF7415]">
+                            <input type="text" name="city" placeholder="City (Optional)" class="w-full text-xs text-gray-900 bg-white placeholder-gray-400 px-3.5 py-2.5 rounded-lg border-0 focus:outline-none focus:ring-2 focus:ring-[#EF7415]">
                         </div>
 
                         <!-- 5. Medical Problem Description -->
                         <div>
-                            <textarea name="problem" rows="3" placeholder="Describe the current medical diagnosis or upload reports.." class="w-full text-xs text-gray-900 bg-white placeholder-gray-400 px-3.5 py-2.5 rounded-lg border-0 focus:outline-none focus:ring-2 focus:ring-[#EF7415]"></textarea>
+                            <textarea name="problem" rows="3" placeholder="Describe the current medical diagnosis, speciality or symptoms..." class="w-full text-xs text-gray-900 bg-white placeholder-gray-400 px-3.5 py-2.5 rounded-lg border-0 focus:outline-none focus:ring-2 focus:ring-[#EF7415]"></textarea>
                         </div>
 
-                        <!-- 6. Continue Button -->
-                        <button type="submit" class="w-full bg-[#EF7415] hover:bg-[#d9640d] text-white text-sm font-bold py-3 rounded-lg shadow-md hover:shadow-lg transition-all duration-150 transform hover:-translate-y-0.5">
+                        <!-- 6. Date of Birth Picker -->
+                        <div class="relative flex items-center bg-white rounded-lg focus-within:ring-2 focus-within:ring-[#EF7415] transition-all">
+                            <label for="doctor_dob" class="pl-3 pr-2 py-2.5 text-xs font-semibold text-gray-500 flex items-center gap-1 shrink-0 select-none cursor-pointer">
+                                <svg class="w-3.5 h-3.5 text-[#27797D]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                                <span>DOB:</span>
+                            </label>
+                            <input 
+                                type="date" 
+                                id="doctor_dob"
+                                name="dob" 
+                                max="{{ date('Y-m-d') }}"
+                                class="w-full bg-transparent text-gray-900 text-xs pr-3 py-2.5 focus:outline-none cursor-pointer font-medium"
+                            >
+                        </div>
+
+                        <!-- 7. Continue Button -->
+                        <button type="submit" class="w-full bg-[#EF7415] hover:bg-[#d9640d] text-white text-sm font-bold py-3 rounded-lg shadow-md hover:shadow-lg transition-all duration-150 transform hover:-translate-y-0.5 cursor-pointer">
                             Request Appointment →
                         </button>
                     </form>
 
                     <!-- Terms & Privacy -->
                     <p class="text-[11px] text-blue-100/90 text-center mt-3 leading-snug">
-                        By submitting I agree to the <a href="#terms" class="underline hover:text-white font-medium">Terms of Use</a> and <a href="#privacy" class="underline hover:text-white font-medium">Privacy Policy</a> of Heal Go Fly.
+                        By submitting I agree to the <a href="{{ route('privacy') }}" class="underline hover:text-white font-medium">Terms of Use</a> and <a href="{{ route('privacy') }}" class="underline hover:text-white font-medium">Privacy Policy</a> of Heal Go Fly.
                     </p>
                 </div>
 
