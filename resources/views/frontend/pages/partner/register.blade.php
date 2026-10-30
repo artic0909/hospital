@@ -81,13 +81,13 @@
                 <!-- Quick Helpline Info -->
                 <div class="pt-2 flex flex-wrap items-center gap-4 text-xs text-gray-600">
                     <span class="font-bold text-[#1D4B6C]">Helpline:</span>
-                    <a href="https://wa.me/919129846542" target="_blank" class="inline-flex items-center gap-1.5 font-bold text-emerald-600 hover:text-emerald-700">
+                    <a href="https://wa.me/{{ $siteSettings->clean_whatsapp }}?text={{ urlencode('Hello HealGoFly, I am inquiring about Partner registration.') }}" target="_blank" class="inline-flex items-center gap-1.5 font-bold text-emerald-600 hover:text-emerald-700">
                         <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.299.144.347.491 1.199.534 1.286.043.087.072.188.014.303-.058.116-.087.188-.173.289l-.26.302c-.087.087-.179.182-.077.357.101.174.45 0.742.965 1.201.664.591 1.224.774 1.397.86.173.087.275.072.376-.043.101-.116.433-.506.549-.679.116-.173.231-.144.39-.087s1.011.477 1.184.564.289.13.332.202c.044.072.044.419-.1 0.824z"/></svg>
-                        <span>+91 9129846542</span>
+                        <span>{{ $siteSettings->display_whatsapp }}</span>
                     </a>
                     <span>&bull;</span>
-                    <a href="mailto:info@healgofly.com" class="font-medium text-[#27797D] hover:underline">
-                        info@healgofly.com
+                    <a href="mailto:{{ $siteSettings->email_primary ?: 'info@healgofly.com' }}" class="font-medium text-[#27797D] hover:underline">
+                        {{ $siteSettings->email_primary ?: 'info@healgofly.com' }}
                     </a>
                 </div>
 

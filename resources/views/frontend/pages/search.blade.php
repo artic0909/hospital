@@ -181,7 +181,7 @@
                                             <a href="{{ route('hospital.show', $hospital->slug) }}" class="flex-1 sm:flex-initial text-center bg-[#27797D] hover:bg-[#1f6266] text-white text-xs font-bold px-3.5 py-2 rounded-xl transition-all">
                                                 Profile
                                             </a>
-                                            <a href="https://wa.me/919129846542?text={{ urlencode('Hello HealGoFly, I am inquiring about ' . $hospital->name) }}" target="_blank" class="flex-1 sm:flex-initial text-center bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold px-3.5 py-2 rounded-xl transition-all">
+                                            <a href="https://wa.me/{{ $siteSettings->clean_whatsapp }}?text={{ urlencode('Hello HealGoFly, I am inquiring about medical treatment at ' . $hospital->name . ($hospital->city ? ', ' . $hospital->city->name : '')) }}" target="_blank" class="flex-1 sm:flex-initial text-center bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold px-3.5 py-2 rounded-xl transition-all">
                                                 WhatsApp
                                             </a>
                                         </div>
@@ -284,7 +284,7 @@
                                             <a href="{{ route('doctor.appointment') }}" class="flex-1 sm:flex-initial text-center bg-[#EF7415] hover:bg-[#d9640d] text-white text-xs font-bold px-3.5 py-2 rounded-xl transition-all">
                                                 Book OPD
                                             </a>
-                                            <a href="https://wa.me/919129846542?text={{ urlencode('Hello HealGoFly, I want to consult Dr. ' . $doctor->name) }}" target="_blank" class="flex-1 sm:flex-initial text-center bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold px-3.5 py-2 rounded-xl transition-all">
+                                            <a href="https://wa.me/{{ $siteSettings->clean_whatsapp }}?text={{ urlencode('Hello HealGoFly, I want to consult Dr. ' . $doctor->name . ($doctor->spaciality ? ' (' . $doctor->spaciality . ')' : '') . ($doctor->hospital ? ' at ' . $doctor->hospital->name : '')) }}" target="_blank" class="flex-1 sm:flex-initial text-center bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold px-3.5 py-2 rounded-xl transition-all">
                                                 WhatsApp
                                             </a>
                                         </div>

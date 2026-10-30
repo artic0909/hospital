@@ -28,7 +28,24 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         $this->configureDefaults();
+        $this->composeSiteSettings();
         $this->composeHeaderNavigation();
+    }
+
+    /**
+     * Share dynamic SiteSetting with all views.
+     */
+    protected function composeSiteSettings(): void
+    {
+        View::composer('*', function ($view) {
+            try {
+                if (!isset($view->siteSettings)) {
+                    $view->with('siteSettings', \App\Models\SiteSetting::getSettings());
+                }
+            } catch (\Throwable $e) {
+                // Ignore during early bootstrap or migrations
+            }
+        });
     }
 
     /**
