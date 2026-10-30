@@ -61,7 +61,45 @@ class AppServiceProvider extends ServiceProvider
                 }
 
                 $allHospitalCategories = HospitalCategory::orderBy('name')->get();
-                $headerSpecialities = DoctorSpeciality::withCount('treatments')->orderBy('name')->get();
+
+                // Dynamic Header Specialities: Only show specialities that have active doctors in DB
+                // Pull unique spaciality strings from active doctors
+                $activeDoctorSpecialities = \App\Models\Doctor::where('status', true)
+                    ->whereNotNull('spaciality')
+                    ->where('spaciality', '!=', '')
+                    ->pluck('spaciality')
+                    ->map(fn($s) => trim($s))
+                    ->filter()
+                    ->unique();
+
+                // Match with registered DoctorSpeciality records, or create on the fly if not in table
+                $matchedSpecialities = collect();
+                foreach ($activeDoctorSpecialities as $specName) {
+                    $matched = DoctorSpeciality::withCount('treatments')
+                        ->where(function ($q) use ($specName) {
+                            $q->where('name', 'like', "%{$specName}%")
+                              ->orWhereRaw('? LIKE CONCAT("%", name, "%")', [$specName]);
+                        })
+                        ->first();
+
+                    if ($matched) {
+                        $matchedSpecialities->push($matched);
+                    } else {
+                        $matchedSpecialities->push((object)[
+                            'name' => $specName,
+                            'image' => 'icons/cardio.svg',
+                            'description' => 'Specialized medical care and consultations',
+                            'treatments_count' => 0,
+                        ]);
+                    }
+                }
+
+                $headerSpecialities = $matchedSpecialities->unique('name');
+
+                // If no doctors exist yet in DB, fallback to registered specialities
+                if ($headerSpecialities->isEmpty()) {
+                    $headerSpecialities = DoctorSpeciality::withCount('treatments')->orderBy('name')->take(12)->get();
+                }
             } catch (\Throwable $e) {
                 $headerCountries = collect();
                 $allHospitalCategories = collect();

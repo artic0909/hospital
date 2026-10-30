@@ -4,9 +4,13 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Blog;
+use App\Models\City;
+use App\Models\Country;
+use App\Models\Doctor;
 use App\Models\DoctorSpeciality;
 use App\Models\HeroSection;
 use App\Models\Hospital;
+use App\Models\HospitalCategory;
 use App\Models\HowItWork;
 use App\Models\Partner;
 use App\Models\Treatment;
@@ -104,6 +108,233 @@ class HomeController extends Controller
         $sidebarSpecialities = DoctorSpeciality::take(6)->get();
 
         return view('frontend.pages.blog-details', compact('blog', 'recentBlogs', 'sidebarSpecialities'));
+    }
+
+    /**
+     * Display the dynamic hospitals directory with header and sidebar filters.
+     */
+    public function hospitals(Request $request): View
+    {
+        $query = Hospital::with(['country', 'state', 'city', 'category', 'images', 'reviews'])
+            ->withCount('doctors')
+            ->where('status', true);
+
+        // 1. Filter by Country
+        $selectedCountry = null;
+        if ($request->filled('country')) {
+            $countryParam = trim($request->country);
+            $query->whereHas('country', function ($q) use ($countryParam) {
+                $q->where('name', $countryParam);
+            });
+            $selectedCountry = Country::where('name', $countryParam)->first();
+        }
+
+        // 2. Filter by Hospital Category
+        $selectedCategory = null;
+        if ($request->filled('category')) {
+            $categoryParam = trim($request->category);
+            $query->whereHas('category', function ($q) use ($categoryParam) {
+                $q->where('name', $categoryParam);
+            });
+            $selectedCategory = HospitalCategory::where('name', $categoryParam)->first();
+        } elseif ($request->filled('category_id')) {
+            $query->where('hospital_category_id', $request->category_id);
+            $selectedCategory = HospitalCategory::find($request->category_id);
+        }
+
+        // 3. Filter by City
+        $selectedCity = $request->input('city');
+        if (!empty($selectedCity) && $selectedCity !== 'all') {
+            $cityParam = trim($selectedCity);
+            $query->whereHas('city', function ($q) use ($cityParam) {
+                $q->where('name', $cityParam);
+            });
+        }
+
+        // 4. Filter by Search Query
+        if ($request->filled('search')) {
+            $search = trim($request->search);
+            $query->where(function ($q) use ($search) {
+                $q->where('name', 'like', "%{$search}%")
+                  ->orWhere('about', 'like', "%{$search}%")
+                  ->orWhere('address', 'like', "%{$search}%")
+                  ->orWhereHas('city', fn($cq) => $cq->where('name', 'like', "%{$search}%"))
+                  ->orWhereHas('country', fn($cq) => $cq->where('name', 'like', "%{$search}%"));
+            });
+        }
+
+        // 5. Sorting
+        $sort = $request->input('sort', 'recommended');
+        if ($sort === 'beds') {
+            $query->orderByDesc('no_of_bed');
+        } elseif ($sort === 'established') {
+            $query->orderBy('establish_year');
+        } elseif ($sort === 'rating') {
+            $query->withAvg('reviews', 'rating')->orderByDesc('reviews_avg_rating');
+        } else {
+            $query->latest();
+        }
+
+        $hospitals = $query->paginate(10)->withQueryString();
+
+        // Available filter options
+        $countries = Country::whereHas('hospitals', fn($q) => $q->where('status', true))->orderBy('name')->get();
+        $categories = HospitalCategory::orderBy('name')->get();
+
+        // Extract available cities for quick filter pills safely
+        if ($selectedCountry) {
+            $cities = City::where(function ($cq) use ($selectedCountry) {
+                $cq->whereHas('state', fn($sq) => $sq->where('country_id', $selectedCountry->id))
+                   ->orWhereHas('hospitals', fn($hq) => $hq->where('country_id', $selectedCountry->id)->where('status', true));
+            })
+            ->whereHas('hospitals', fn($q) => $q->where('status', true))
+            ->orderBy('name')
+            ->get();
+        } else {
+            $cities = City::whereHas('hospitals', fn($q) => $q->where('status', true))->orderBy('name')->get();
+        }
+
+        return view('frontend.pages.hospital.hospitals', compact(
+            'hospitals',
+            'selectedCountry',
+            'selectedCategory',
+            'selectedCity',
+            'countries',
+            'categories',
+            'cities'
+        ));
+    }
+
+    /**
+     * Display the dynamic doctors directory with header and hospital filters.
+     */
+    public function doctors(Request $request): View
+    {
+        $query = Doctor::with(['hospital.country', 'hospital.city', 'hospital.state', 'schedules'])
+            ->where('status', true);
+
+        // 1. Filter by Hospital (slug or id or name) - "& hospital's doctors show"
+        $selectedHospital = null;
+        if ($request->filled('hospital')) {
+            $hospitalParam = trim($request->hospital);
+            $query->whereHas('hospital', function ($q) use ($hospitalParam) {
+                $q->where('slug', $hospitalParam)
+                  ->orWhere('name', 'like', "%{$hospitalParam}%");
+            });
+            $selectedHospital = Hospital::where('slug', $hospitalParam)
+                ->orWhere('name', $hospitalParam)
+                ->first();
+        } elseif ($request->filled('hospital_id')) {
+            $query->where('hospital_id', $request->hospital_id);
+            $selectedHospital = Hospital::find($request->hospital_id);
+        }
+
+        // 2. Filter by Country
+        $selectedCountry = null;
+        if ($request->filled('country')) {
+            $countryParam = trim($request->country);
+            $query->whereHas('hospital.country', function ($q) use ($countryParam) {
+                $q->where('name', $countryParam);
+            });
+            $selectedCountry = Country::where('name', $countryParam)->first();
+        }
+
+        // 3. Filter by Speciality - Doctors show specialist wise from any hospital
+        $selectedSpeciality = null;
+        if ($request->filled('speciality') && $request->speciality !== 'all') {
+            $specParam = trim($request->speciality);
+            
+            // Extract key words to allow smart fuzzy matching (e.g. "Cardiology" matches "Cardiothoracic Surgery" or "Interventional Cardiology")
+            $words = array_filter(preg_split('/[\s,&]+/', $specParam), fn($w) => mb_strlen($w) > 3);
+            
+            $query->where(function ($q) use ($specParam, $words) {
+                $q->where('spaciality', 'like', "%{$specParam}%")
+                  ->orWhere('designation', 'like', "%{$specParam}%")
+                  ->orWhereRaw('? LIKE CONCAT("%", spaciality, "%")', [$specParam]);
+
+                foreach ($words as $word) {
+                    $q->orWhere('spaciality', 'like', "%{$word}%")
+                      ->orWhere('designation', 'like', "%{$word}%");
+                }
+            });
+
+            $selectedSpeciality = DoctorSpeciality::where('name', 'like', "%{$specParam}%")->first()
+                ?? (object)['name' => $specParam];
+        }
+
+        // 4. Filter by Search Query
+        if ($request->filled('search')) {
+            $search = trim($request->search);
+            $query->where(function ($q) use ($search) {
+                $q->where('name', 'like', "%{$search}%")
+                  ->orWhere('designation', 'like', "%{$search}%")
+                  ->orWhere('spaciality', 'like', "%{$search}%")
+                  ->orWhere('education', 'like', "%{$search}%")
+                  ->orWhereHas('hospital', fn($hq) => $hq->where('name', 'like', "%{$search}%"));
+            });
+        }
+
+        // 5. Sorting
+        $sort = $request->input('sort', 'experience');
+        if ($sort === 'fee_low') {
+            $query->orderBy('OPD_fee');
+        } elseif ($sort === 'fee_high') {
+            $query->orderByDesc('OPD_fee');
+        } elseif ($sort === 'experience') {
+            $query->orderByDesc('experience');
+        } else {
+            $query->latest();
+        }
+
+        $doctors = $query->paginate(10)->withQueryString();
+
+        // Data for dynamic filters: only show specialities that have actual doctors in DB
+        $activeDoctorSpecialities = Doctor::where('status', true)
+            ->whereNotNull('spaciality')
+            ->where('spaciality', '!=', '')
+            ->pluck('spaciality')
+            ->map(fn($s) => trim($s))
+            ->filter()
+            ->unique();
+
+        $matchedSpecialities = collect();
+        foreach ($activeDoctorSpecialities as $specName) {
+            $matched = DoctorSpeciality::where(function ($q) use ($specName) {
+                $q->where('name', 'like', "%{$specName}%")
+                  ->orWhereRaw('? LIKE CONCAT("%", name, "%")', [$specName]);
+            })->first();
+
+            if ($matched) {
+                $matchedSpecialities->push($matched);
+            } else {
+                $matchedSpecialities->push((object)[
+                    'name' => $specName,
+                ]);
+            }
+        }
+
+        $specialities = $matchedSpecialities->unique('name');
+        if ($specialities->isEmpty()) {
+            $specialities = DoctorSpeciality::orderBy('name')->get();
+        }
+        $countries = Country::whereHas('hospitals.doctors', fn($q) => $q->where('status', true))->orderBy('name')->get();
+        if ($countries->isEmpty()) {
+            $countries = Country::whereHas('hospitals', fn($q) => $q->where('status', true))->orderBy('name')->get();
+        }
+        $hospitals = Hospital::where('status', true)->whereHas('doctors', fn($q) => $q->where('status', true))->orderBy('name')->get();
+        if ($hospitals->isEmpty()) {
+            $hospitals = Hospital::where('status', true)->orderBy('name')->get();
+        }
+
+        return view('frontend.pages.doctor.doctors', compact(
+            'doctors',
+            'selectedHospital',
+            'selectedCountry',
+            'selectedSpeciality',
+            'specialities',
+            'countries',
+            'hospitals'
+        ));
     }
 }
 

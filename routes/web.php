@@ -6,8 +6,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/news/{slug}', [HomeController::class, 'blogDetails'])->name('blog.show');
 Route::get('/blog/{slug}', [HomeController::class, 'blogDetails'])->name('blog.details');
-Route::view('/hospitals', 'frontend.pages.hospital.hospitals')->name('hospitals');
-Route::view('/doctors', 'frontend.pages.doctor.doctors')->name('doctors');
+Route::get('/hospitals', [HomeController::class, 'hospitals'])->name('hospitals');
+Route::get('/doctors', [HomeController::class, 'doctors'])->name('doctors');
 
 // Hospital Slug Routes
 Route::get('/hospital/{hospital:slug}', function (\App\Models\Hospital $hospital) {
