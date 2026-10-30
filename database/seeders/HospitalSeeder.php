@@ -134,10 +134,15 @@ class HospitalSeeder extends Seeder
             if (empty($data['slug'])) {
                 $data['slug'] = Hospital::generateUniqueSlug($data['name']);
             }
-            Hospital::firstOrCreate(
-                ['name' => $data['name']],
-                $data
-            );
+            $existing = Hospital::where('name', $data['name'])
+                ->orWhere('contact', $data['contact'])
+                ->first();
+
+            if ($existing) {
+                $existing->update($data);
+            } else {
+                Hospital::create($data);
+            }
         }
     }
 }

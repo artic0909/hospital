@@ -25,6 +25,10 @@ class HospitalImage extends Model
 
     public function getImageUrlAttribute(): string
     {
+        if ($this->image && (str_starts_with($this->image, 'http://') || str_starts_with($this->image, 'https://'))) {
+            return $this->image;
+        }
+
         if ($this->image && file_exists(public_path($this->image))) {
             return asset($this->image);
         }
