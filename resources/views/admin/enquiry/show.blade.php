@@ -17,13 +17,19 @@
             <p class="text-xs text-slate-500 mt-0.5">Submitted on {{ $enquiry->created_at->format('M d, Y \a\t h:i A') }} ({{ $enquiry->created_at->diffForHumans() }})</p>
         </div>
 
-        <div class="flex items-center gap-2.5">
+        <div class="flex flex-wrap items-center gap-2.5">
+            <a 
+                href="{{ route('admin.patient.create', ['enquiry_id' => $enquiry->id]) }}" 
+                class="inline-flex items-center gap-2 bg-[#27797D] hover:bg-[#1e5f62] text-white text-xs font-bold px-4 py-2.5 rounded-xl shadow-xs transition-all cursor-pointer"
+            >
+                <span>👤 Convert to Patient</span>
+            </a>
             <a 
                 href="https://wa.me/{{ preg_replace('/[^0-9]/', '', $enquiry->phone) }}?text={{ urlencode('Hello ' . $enquiry->name . ', this is HealGoFly patient coordinator following up on your medical enquiry.') }}" 
                 target="_blank" 
                 class="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#20ba59] text-white text-xs font-bold px-4 py-2.5 rounded-xl shadow-xs transition-all"
             >
-                <span>💬 WhatsApp Patient</span>
+                <span>💬 WhatsApp</span>
             </a>
             <a 
                 href="tel:{{ $enquiry->phone }}" 
@@ -117,6 +123,23 @@
 
         <!-- Right (5 Cols): Associated Hospital & Doctor Information (ADMIN ONLY) -->
         <div class="lg:col-span-5 space-y-6">
+
+            <!-- Convert to Patient Action Card -->
+            <div class="bg-gradient-to-br from-[#27797D] to-[#112347] text-white p-6 rounded-3xl shadow-sm space-y-3">
+                <div class="flex items-center gap-2">
+                    <span class="text-xl">👤</span>
+                    <h3 class="text-sm font-black tracking-tight text-white">Convert Lead to Patient</h3>
+                </div>
+                <p class="text-[11px] text-teal-100/90 leading-relaxed">
+                    Transfer this lead's name, phone, country, and clinical details into the registered patients directory with pre-filled fields.
+                </p>
+                <a 
+                    href="{{ route('admin.patient.create', ['enquiry_id' => $enquiry->id]) }}" 
+                    class="block w-full bg-[#EF7415] hover:bg-[#d9640d] text-white text-xs font-bold py-2.5 px-4 rounded-xl text-center shadow-md transition-all cursor-pointer"
+                >
+                    Proceed to Create Patient &rarr;
+                </a>
+            </div>
 
             <!-- Status Changer Card -->
             <div class="bg-white p-6 rounded-3xl border border-slate-200/80 shadow-xs space-y-3">

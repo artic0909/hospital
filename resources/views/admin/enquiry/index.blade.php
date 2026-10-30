@@ -228,6 +228,14 @@
                             <td class="py-4 px-5 text-right whitespace-nowrap">
                                 <div class="flex items-center justify-end gap-1.5">
                                     <a 
+                                        href="{{ route('admin.patient.create', ['enquiry_id' => $item->id]) }}" 
+                                        class="inline-flex items-center gap-1 px-2.5 py-1.5 bg-teal-50 hover:bg-[#27797D] text-[#27797D] hover:text-white rounded-xl text-[11px] font-bold border border-teal-200/80 transition-all shadow-xs cursor-pointer"
+                                        title="Convert to Registered Patient"
+                                    >
+                                        <span>👤 Convert to Patient</span>
+                                    </a>
+
+                                    <a 
                                         href="{{ route('admin.enquiries.show', $item->id) }}" 
                                         class="p-2 text-slate-500 hover:text-[#27797D] hover:bg-teal-50 rounded-xl transition-all"
                                         title="View Full Details & Associations"

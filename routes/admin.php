@@ -116,6 +116,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
             Route::get('/create', \App\Http\Controllers\Admin\PatientController::class . '@create')->name('create');
             Route::post('/', \App\Http\Controllers\Admin\PatientController::class . '@store')->name('store');
             Route::post('/bulk-delete', \App\Http\Controllers\Admin\PatientController::class . '@bulkDelete')->name('bulk-delete');
+            Route::get('/check-exists', \App\Http\Controllers\Admin\PatientController::class . '@checkExists')->name('check-exists');
             Route::get('/get-states', \App\Http\Controllers\Admin\PatientController::class . '@getStates')->name('get-states');
             Route::get('/get-cities', \App\Http\Controllers\Admin\PatientController::class . '@getCities')->name('get-cities');
             Route::get('/{patient}', \App\Http\Controllers\Admin\PatientController::class . '@show')->name('view');
