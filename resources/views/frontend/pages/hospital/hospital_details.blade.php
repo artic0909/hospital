@@ -22,17 +22,48 @@
             return trim($doc->spaciality ?: 'General Medicine');
         })
         ->map(function ($docs, $specName) {
-            $masterSpec = \App\Models\DoctorSpeciality::where('name', 'like', "%{$specName}%")
-                ->orWhereRaw('? LIKE CONCAT("%", name, "%")', [$specName])
-                ->first();
+            $words = array_filter(preg_split('/[\s,&]+/', $specName), fn($w) => mb_strlen($w) > 3);
+            $masterSpec = \App\Models\DoctorSpeciality::where(function($q) use ($specName, $words) {
+                $q->where('name', 'like', "%{$specName}%")
+                  ->orWhereRaw('? LIKE CONCAT("%", name, "%")', [$specName]);
+                foreach ($words as $w) {
+                    $q->orWhere('name', 'like', "%{$w}%");
+                }
+            })->first();
+
+            $icon = 'icons/cardio.svg';
+            $lower = strtolower($specName);
+            if (str_contains($lower, 'cardio') || str_contains($lower, 'heart')) {
+                $icon = 'icons/cardio.svg';
+            } elseif (str_contains($lower, 'liver') || str_contains($lower, 'hepato')) {
+                $icon = 'icons/liver.svg';
+            } elseif (str_contains($lower, 'onco') || str_contains($lower, 'cancer')) {
+                $icon = 'icons/onco.svg';
+            } elseif (str_contains($lower, 'ortho') || str_contains($lower, 'joint') || str_contains($lower, 'bone')) {
+                $icon = 'icons/ortho.svg';
+            } elseif (str_contains($lower, 'neuro') || str_contains($lower, 'brain')) {
+                $icon = 'icons/neuro.png';
+            } elseif (str_contains($lower, 'spine')) {
+                $icon = 'icons/spine.svg';
+            } elseif (str_contains($lower, 'kidney') || str_contains($lower, 'nephro') || str_contains($lower, 'renal')) {
+                $icon = 'icons/kidneytransplant.svg';
+            } elseif (str_contains($lower, 'ivf') || str_contains($lower, 'fertil')) {
+                $icon = 'icons/ivf.svg';
+            } elseif (str_contains($lower, 'gyne') || str_contains($lower, 'women')) {
+                $icon = 'icons/heno.svg';
+            } elseif (str_contains($lower, 'plastic') || str_contains($lower, 'cosmet')) {
+                $icon = 'icons/cosmatic.svg';
+            } elseif (str_contains($lower, 'bariatric') || str_contains($lower, 'weight')) {
+                $icon = 'icons/weightloss.svg';
+            }
 
             return (object) [
                 'name' => $specName,
                 'doctors_count' => $docs->count(),
-                'description' => $masterSpec?->description ?? 'Specialized clinical consultations and advanced medical care.',
+                'description' => $masterSpec?->description ?? 'Specialized clinical consultations and advanced surgical care.',
                 'image' => !empty($masterSpec?->image) 
                     ? (\Illuminate\Support\Str::startsWith($masterSpec->image, ['http://', 'https://']) ? $masterSpec->image : asset($masterSpec->image))
-                    : asset('icons/cardio.svg'),
+                    : asset($icon),
             ];
         })
         ->values();

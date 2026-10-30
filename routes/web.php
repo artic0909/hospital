@@ -9,6 +9,7 @@ Route::get('/blog/{slug}', [HomeController::class, 'blogDetails'])->name('blog.d
 Route::get('/hospitals', [HomeController::class, 'hospitals'])->name('hospitals');
 Route::get('/doctors', [HomeController::class, 'doctors'])->name('doctors');
 Route::get('/search', [HomeController::class, 'search'])->name('search');
+Route::view('/medical-visa', 'frontend.pages.medical_visa')->name('medical.visa');
 
 // Hospital Slug Routes
 Route::get('/hospital/{hospital:slug}', function (\App\Models\Hospital $hospital) {

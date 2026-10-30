@@ -222,9 +222,16 @@
                                                 <img src="{{ $specialityImg }}" alt="{{ $speciality->name }}" class="w-full h-full object-contain" onerror="this.onerror=null; this.src='{{ asset('icons/cardio.svg') }}';">
                                             </div>
                                             <div class="min-w-0 flex-1">
-                                                <h4 class="text-xs font-bold text-gray-800 group-hover/item:text-[#27797D] transition-colors leading-tight truncate">
-                                                    {{ $speciality->name }}
-                                                </h4>
+                                                <div class="flex items-center justify-between gap-1">
+                                                    <h4 class="text-xs font-bold text-gray-800 group-hover/item:text-[#27797D] transition-colors leading-tight truncate">
+                                                        {{ $speciality->name }}
+                                                    </h4>
+                                                    @if(!empty($speciality->doctors_count))
+                                                        <span class="text-[10px] font-bold text-[#27797D] bg-teal-50 px-1.5 py-0.2 rounded-full border border-teal-200/60 shrink-0">
+                                                            {{ $speciality->doctors_count }}
+                                                        </span>
+                                                    @endif
+                                                </div>
                                                 <p class="text-[11px] text-gray-400 mt-0.5 truncate leading-none">
                                                     @if(!empty($speciality->description))
                                                         {{ $speciality->description }}
@@ -437,7 +444,7 @@
                         </div>
                     </div> -->
 
-                    <a href="#quote-form" class="h-14 flex items-center hover:text-[#27797D] border-b-2 border-transparent hover:border-[#27797D] transition-colors">
+                    <a href="{{ route('medical.visa') }}" class="h-14 flex items-center {{ request()->routeIs('medical.visa') ? 'text-[#27797D] border-b-2 border-[#27797D]' : 'text-gray-700 hover:text-[#27797D] border-b-2 border-transparent' }} hover:border-[#27797D] transition-colors">
                         Medical Visa
                     </a>
 
@@ -673,6 +680,11 @@
                         @endforelse
                     </div>
                 </details>
+
+                <a href="{{ route('medical.visa') }}" class="mobile-sidebar-link flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-bold {{ request()->routeIs('medical.visa') ? 'bg-[#27797D]/10 text-[#27797D]' : 'text-gray-800 hover:bg-gray-50' }}">
+                    <span>Medical Visa Guidance</span>
+                    <span class="text-gray-400">&rsaquo;</span>
+                </a>
 
                 <!-- Cost & Pricing Accordion -->
                 <details class="group/sub">

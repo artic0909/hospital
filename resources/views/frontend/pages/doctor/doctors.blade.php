@@ -165,14 +165,37 @@
                         </div>
                     </div>
 
-                    <!-- Selected Specialist Badge (if active) -->
-                    @if(request('speciality') && request('speciality') !== 'all')
-                        <div class="pt-2 border-t border-gray-100 flex items-center gap-2 text-xs">
+                    <!-- Active Filter Badges (Hospital / Country / Specialist) -->
+                    @if(request('hospital') || request('country') || (request('speciality') && request('speciality') !== 'all') || request('search'))
+                        <div class="pt-2 border-t border-gray-100 flex flex-wrap items-center gap-2 text-xs">
                             <span class="text-gray-400 font-bold uppercase text-[10px] tracking-wider">Filtered:</span>
-                            <span class="inline-flex items-center gap-1.5 bg-teal-50 text-[#27797D] border border-teal-200 px-3 py-1 rounded-full text-xs font-bold">
-                                <span>{{ request('speciality') }}</span>
-                                <a href="{{ route('doctors', request()->except('speciality', 'page')) }}" class="text-teal-600 hover:text-rose-600 font-bold text-sm leading-none ml-1" title="Clear filter">&times;</a>
-                            </span>
+                            @if($selectedHospital)
+                                <span class="inline-flex items-center gap-1.5 bg-orange-50 text-[#EF7415] border border-orange-200 px-3 py-1 rounded-full text-xs font-bold">
+                                    <span>🏥 {{ $selectedHospital->name }}</span>
+                                    <a href="{{ route('doctors', request()->except('hospital', 'hospital_id', 'page')) }}" class="text-orange-600 hover:text-rose-600 font-bold text-sm leading-none ml-1" title="Clear hospital filter">&times;</a>
+                                </span>
+                            @endif
+                            @if($selectedCountry)
+                                <span class="inline-flex items-center gap-1.5 bg-blue-50 text-blue-700 border border-blue-200 px-3 py-1 rounded-full text-xs font-bold">
+                                    <span>🌍 {{ $selectedCountry->name }}</span>
+                                    <a href="{{ route('doctors', request()->except('country', 'page')) }}" class="text-blue-600 hover:text-rose-600 font-bold text-sm leading-none ml-1" title="Clear country filter">&times;</a>
+                                </span>
+                            @endif
+                            @if(request('speciality') && request('speciality') !== 'all')
+                                <span class="inline-flex items-center gap-1.5 bg-teal-50 text-[#27797D] border border-teal-200 px-3 py-1 rounded-full text-xs font-bold">
+                                    <span>🩺 {{ request('speciality') }}</span>
+                                    <a href="{{ route('doctors', request()->except('speciality', 'page')) }}" class="text-teal-600 hover:text-rose-600 font-bold text-sm leading-none ml-1" title="Clear specialty filter">&times;</a>
+                                </span>
+                            @endif
+                            @if(request('search'))
+                                <span class="inline-flex items-center gap-1.5 bg-gray-100 text-gray-700 border border-gray-200 px-3 py-1 rounded-full text-xs font-bold">
+                                    <span>🔍 "{{ request('search') }}"</span>
+                                    <a href="{{ route('doctors', request()->except('search', 'page')) }}" class="text-gray-500 hover:text-rose-600 font-bold text-sm leading-none ml-1" title="Clear keyword">&times;</a>
+                                </span>
+                            @endif
+                            <a href="{{ route('doctors') }}" class="text-[11px] text-gray-400 hover:text-rose-600 font-semibold underline ml-1">
+                                Clear All
+                            </a>
                         </div>
                     @endif
 

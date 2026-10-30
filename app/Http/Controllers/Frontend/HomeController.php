@@ -258,8 +258,13 @@ class HomeController extends Controller
                 }
             });
 
-            $selectedSpeciality = DoctorSpeciality::where('name', 'like', "%{$specParam}%")->first()
-                ?? (object)['name' => $specParam];
+            $selectedSpeciality = DoctorSpeciality::where(function ($q) use ($specParam, $words) {
+                $q->where('name', 'like', "%{$specParam}%")
+                  ->orWhereRaw('? LIKE CONCAT("%", name, "%")', [$specParam]);
+                foreach ($words as $w) {
+                    $q->orWhere('name', 'like', "%{$w}%");
+                }
+            })->first() ?? (object)['name' => $specParam];
         }
 
         // 4. Filter by Search Query
@@ -288,14 +293,29 @@ class HomeController extends Controller
 
         $doctors = $query->paginate(10)->withQueryString();
 
-        // Data for dynamic filters: only show specialities that have actual doctors in DB
-        $activeDoctorSpecialities = Doctor::where('status', true)
+        // Data for dynamic filters: show specialities with active doctors in DB
+        $specQuery = Doctor::where('status', true)
             ->whereNotNull('spaciality')
-            ->where('spaciality', '!=', '')
-            ->pluck('spaciality')
+            ->where('spaciality', '!=', '');
+
+        if ($selectedHospital) {
+            $specQuery->where('hospital_id', $selectedHospital->id);
+        }
+
+        $activeDoctorSpecialities = $specQuery->pluck('spaciality')
             ->map(fn($s) => trim($s))
             ->filter()
             ->unique();
+
+        if ($activeDoctorSpecialities->isEmpty()) {
+            $activeDoctorSpecialities = Doctor::where('status', true)
+                ->whereNotNull('spaciality')
+                ->where('spaciality', '!=', '')
+                ->pluck('spaciality')
+                ->map(fn($s) => trim($s))
+                ->filter()
+                ->unique();
+        }
 
         $matchedSpecialities = collect();
         foreach ($activeDoctorSpecialities as $specName) {
