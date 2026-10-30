@@ -336,5 +336,109 @@ class HomeController extends Controller
             'hospitals'
         ));
     }
+
+    /**
+     * Unified Global Search: Search Hospitals, Doctors, Specialities, and Categories.
+     */
+    public function search(Request $request): View
+    {
+        $keyword = trim($request->input('q', $request->input('search', '')));
+        $type = $request->input('type', 'all'); // 'all', 'hospitals', 'doctors', 'specialities', 'categories'
+
+        // 1. Search Hospitals (by hospital name, category name, country, city, address, about)
+        $hospitalsQuery = Hospital::with(['country', 'city', 'state', 'category', 'images'])
+            ->withCount('doctors')
+            ->where('status', true);
+
+        if (!empty($keyword)) {
+            $words = array_filter(preg_split('/[\s,&]+/', $keyword), fn($w) => mb_strlen($w) > 2);
+            $hospitalsQuery->where(function ($q) use ($keyword, $words) {
+                $q->where('name', 'like', "%{$keyword}%")
+                  ->orWhere('about', 'like', "%{$keyword}%")
+                  ->orWhere('address', 'like', "%{$keyword}%")
+                  ->orWhereHas('category', fn($cat) => $cat->where('name', 'like', "%{$keyword}%"))
+                  ->orWhereHas('country', fn($cnt) => $cnt->where('name', 'like', "%{$keyword}%"))
+                  ->orWhereHas('city', fn($ct) => $ct->where('name', 'like', "%{$keyword}%"));
+
+                foreach ($words as $w) {
+                    $q->orWhere('name', 'like', "%{$w}%")
+                      ->orWhereHas('category', fn($cat) => $cat->where('name', 'like', "%{$w}%"))
+                      ->orWhereHas('country', fn($cnt) => $cnt->where('name', 'like', "%{$w}%"))
+                      ->orWhereHas('city', fn($ct) => $ct->where('name', 'like', "%{$w}%"));
+                }
+            });
+        }
+
+        // 2. Search Doctors (by doctor name, speciality, designation, hospital name, country, city)
+        $doctorsQuery = Doctor::with(['hospital.country', 'hospital.city', 'hospital.state', 'schedules'])
+            ->where('status', true);
+
+        if (!empty($keyword)) {
+            $words = array_filter(preg_split('/[\s,&]+/', $keyword), fn($w) => mb_strlen($w) > 2);
+            $doctorsQuery->where(function ($q) use ($keyword, $words) {
+                $q->where('name', 'like', "%{$keyword}%")
+                  ->orWhere('designation', 'like', "%{$keyword}%")
+                  ->orWhere('spaciality', 'like', "%{$keyword}%")
+                  ->orWhere('education', 'like', "%{$keyword}%")
+                  ->orWhereHas('hospital', fn($hq) => $hq->where('name', 'like', "%{$keyword}%"))
+                  ->orWhereHas('hospital.category', fn($cat) => $cat->where('name', 'like', "%{$keyword}%"))
+                  ->orWhereHas('hospital.country', fn($cnt) => $cnt->where('name', 'like', "%{$keyword}%"));
+
+                foreach ($words as $w) {
+                    $q->orWhere('name', 'like', "%{$w}%")
+                      ->orWhere('spaciality', 'like', "%{$w}%")
+                      ->orWhere('designation', 'like', "%{$w}%")
+                      ->orWhereHas('hospital', fn($hq) => $hq->where('name', 'like', "%{$w}%"));
+                }
+            });
+        }
+
+        // 3. Search Matching Specialities
+        $specialities = collect();
+        if (!empty($keyword)) {
+            $specialities = DoctorSpeciality::withCount('treatments')
+                ->where('name', 'like', "%{$keyword}%")
+                ->orWhere('description', 'like', "%{$keyword}%")
+                ->take(8)
+                ->get();
+        }
+
+        // 4. Search Matching Hospital Categories
+        $categories = collect();
+        if (!empty($keyword)) {
+            $categories = HospitalCategory::withCount(['hospitals' => fn($q) => $q->where('status', true)])
+                ->where('name', 'like', "%{$keyword}%")
+                ->take(8)
+                ->get();
+        }
+
+        // Count totals
+        $totalHospitals = (clone $hospitalsQuery)->count();
+        $totalDoctors = (clone $doctorsQuery)->count();
+
+        // Paginate results based on active tab
+        if ($type === 'doctors') {
+            $doctors = $doctorsQuery->latest()->paginate(10)->withQueryString();
+            $hospitals = collect();
+        } elseif ($type === 'hospitals') {
+            $hospitals = $hospitalsQuery->latest()->paginate(10)->withQueryString();
+            $doctors = collect();
+        } else {
+            // 'all': show up to 6 of each or paginated
+            $hospitals = $hospitalsQuery->latest()->paginate(6, ['*'], 'hospitals_page')->withQueryString();
+            $doctors = $doctorsQuery->latest()->paginate(6, ['*'], 'doctors_page')->withQueryString();
+        }
+
+        return view('frontend.pages.search', compact(
+            'keyword',
+            'type',
+            'hospitals',
+            'doctors',
+            'specialities',
+            'categories',
+            'totalHospitals',
+            'totalDoctors'
+        ));
+    }
 }
 
