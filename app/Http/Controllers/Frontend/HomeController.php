@@ -14,6 +14,7 @@ use App\Models\HospitalCategory;
 use App\Models\HowItWork;
 use App\Models\Partner;
 use App\Models\PatientStory;
+use App\Models\SiteSetting;
 use App\Models\Treatment;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
@@ -523,6 +524,24 @@ class HomeController extends Controller
             'countries',
             'hospitals'
         ));
+    }
+
+    /**
+     * Display the dynamic Contact Us details page.
+     */
+    public function contact(): View
+    {
+        $settings = SiteSetting::getSettings();
+        return view('frontend.pages.contact', compact('settings'));
+    }
+
+    /**
+     * Display the static Privacy Policy page.
+     */
+    public function privacy(): View
+    {
+        $settings = SiteSetting::getSettings();
+        return view('frontend.pages.privacy-policy', compact('settings'));
     }
 }
 
