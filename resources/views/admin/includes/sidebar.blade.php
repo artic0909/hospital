@@ -225,6 +225,17 @@
                     </div>
                 </a>
 
+                <!-- Patient Stories -->
+                <a 
+                    href="{{ route('admin.patient-stories.index') }}" 
+                    class="flex items-center justify-between px-3 py-2 rounded-xl {{ request()->routeIs('admin.patient-stories*') ? 'bg-[#27797D] text-white font-bold shadow-md shadow-[#27797D]/20' : 'text-slate-300 hover:text-white hover:bg-slate-800/80' }} transition-all"
+                >
+                    <div class="flex items-center gap-2.5">
+                        <span class="text-xs">💬</span>
+                        <span>Patient Stories</span>
+                    </div>
+                </a>
+
                 <!-- Contact & Social Details -->
                 <a 
                     href="{{ route('admin.settings.contact') }}" 

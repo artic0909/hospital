@@ -37,6 +37,7 @@ class DatabaseSeeder extends Seeder
             DoctorSeeder::class,
             PartnerHospitalModulesSeeder::class,
             ComprehensiveHospitalAndDoctorSeeder::class,
+            PatientStorySeeder::class,
         ]);
     }
 }

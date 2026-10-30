@@ -13,6 +13,7 @@ use App\Models\Hospital;
 use App\Models\HospitalCategory;
 use App\Models\HowItWork;
 use App\Models\Partner;
+use App\Models\PatientStory;
 use App\Models\Treatment;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
@@ -458,6 +459,69 @@ class HomeController extends Controller
             'categories',
             'totalHospitals',
             'totalDoctors'
+        ));
+    }
+
+    /**
+     * Display the Patient Stories & Clinical Success Journeys page.
+     */
+    public function patientStories(Request $request): View
+    {
+        $query = PatientStory::where('status', true);
+
+        if ($request->filled('country') && $request->country !== 'all') {
+            $query->where('country', $request->country);
+        }
+
+        if ($request->filled('hospital') && $request->hospital !== 'all') {
+            $hospitalParam = trim($request->hospital);
+            $query->where('hospital_name', 'like', "%{$hospitalParam}%");
+        }
+
+        if ($request->filled('treatment') && $request->treatment !== 'all') {
+            $treatmentParam = trim($request->treatment);
+            $query->where('treatment_name', 'like', "%{$treatmentParam}%");
+        }
+
+        if ($request->filled('search')) {
+            $search = trim($request->search);
+            $query->where(function ($q) use ($search) {
+                $q->where('name', 'like', "%{$search}%")
+                  ->orWhere('headline', 'like', "%{$search}%")
+                  ->orWhere('story', 'like', "%{$search}%")
+                  ->orWhere('hospital_name', 'like', "%{$search}%")
+                  ->orWhere('country', 'like', "%{$search}%")
+                  ->orWhere('treatment_name', 'like', "%{$search}%");
+            });
+        }
+
+        $featuredStories = PatientStory::where('status', true)
+            ->where('is_featured', true)
+            ->latest('id')
+            ->take(3)
+            ->get();
+
+        $stories = $query->latest('id')->paginate(9)->withQueryString();
+
+        $countries = PatientStory::where('status', true)
+            ->whereNotNull('country')
+            ->where('country', '!=', '')
+            ->distinct()
+            ->orderBy('country')
+            ->pluck('country');
+
+        $hospitals = PatientStory::where('status', true)
+            ->whereNotNull('hospital_name')
+            ->where('hospital_name', '!=', '')
+            ->distinct()
+            ->orderBy('hospital_name')
+            ->pluck('hospital_name');
+
+        return view('frontend.pages.patient_stories', compact(
+            'stories',
+            'featuredStories',
+            'countries',
+            'hospitals'
         ));
     }
 }

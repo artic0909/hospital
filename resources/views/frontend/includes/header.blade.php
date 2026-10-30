@@ -448,7 +448,7 @@
                         Medical Visa
                     </a>
 
-                    <a href="#quote-form" class="h-14 flex items-center hover:text-[#27797D] border-b-2 border-transparent hover:border-[#27797D] transition-colors">
+                    <a href="{{ route('patient.stories') }}" class="h-14 flex items-center {{ request()->routeIs('patient.stories') ? 'text-[#27797D] border-b-2 border-[#27797D]' : 'text-gray-700 hover:text-[#27797D] border-b-2 border-transparent' }} hover:border-[#27797D] transition-colors">
                         Patient Stories
                     </a>
 
@@ -714,7 +714,7 @@
                     </div>
                 </details>
 
-                <a href="#quote-form" class="mobile-sidebar-link flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-bold text-gray-800 hover:bg-gray-50">
+                <a href="{{ route('patient.stories') }}" class="mobile-sidebar-link flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-bold {{ request()->routeIs('patient.stories') ? 'bg-[#27797D]/10 text-[#27797D]' : 'text-gray-800 hover:bg-gray-50' }}">
                     <span>Patient Stories</span>
                     <span class="text-gray-400">&rsaquo;</span>
                 </a>

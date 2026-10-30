@@ -12,6 +12,7 @@ use App\Http\Controllers\Admin\Utilities\TreatmentController;
 use App\Http\Controllers\Admin\HeroSectionController;
 use App\Http\Controllers\Admin\HowItWorksController;
 use App\Http\Controllers\Admin\BlogController;
+use App\Http\Controllers\Admin\PatientStoryController;
 use App\Http\Controllers\Admin\SiteSettingController;
 use App\Http\Controllers\Admin\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -172,6 +173,17 @@ Route::prefix('admin')->name('admin.')->group(function () {
             Route::put('/{blog}', [BlogController::class, 'update'])->name('update');
             Route::delete('/{blog}', [BlogController::class, 'destroy'])->name('destroy');
             Route::patch('/{blog}/toggle-status', [BlogController::class, 'toggleStatus'])->name('toggle-status');
+        });
+
+        // 4. Patient Stories CRUD
+        Route::prefix('patient-stories')->name('patient-stories.')->group(function () {
+            Route::get('/', [PatientStoryController::class, 'index'])->name('index');
+            Route::get('/create', [PatientStoryController::class, 'create'])->name('create');
+            Route::post('/', [PatientStoryController::class, 'store'])->name('store');
+            Route::get('/{patientStory}/edit', [PatientStoryController::class, 'edit'])->name('edit');
+            Route::put('/{patientStory}', [PatientStoryController::class, 'update'])->name('update');
+            Route::delete('/{patientStory}', [PatientStoryController::class, 'destroy'])->name('destroy');
+            Route::patch('/{patientStory}/toggle-status', [PatientStoryController::class, 'toggleStatus'])->name('toggle-status');
         });
 
         // 4. Website Settings & Contact Details
