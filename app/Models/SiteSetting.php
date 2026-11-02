@@ -53,5 +53,39 @@ class SiteSetting extends Model
             'copyright_text' => '© Copyright HealGoFly. All rights reserved.',
         ]);
     }
+
+    /**
+     * Get sanitized digits-only WhatsApp number for wa.me links
+     */
+    public function getCleanWhatsappAttribute(): string
+    {
+        $number = $this->whatsapp_number ?: $this->phone_primary ?: '919129846542';
+        return preg_replace('/[^0-9]/', '', $number);
+    }
+
+    /**
+     * Get display WhatsApp number
+     */
+    public function getDisplayWhatsappAttribute(): string
+    {
+        return $this->whatsapp_number ?: $this->phone_primary ?: '+91 9129846542';
+    }
+
+    /**
+     * Get formatted display phone
+     */
+    public function getDisplayPhoneAttribute(): string
+    {
+        return $this->phone_primary ?: $this->whatsapp_number ?: '+91 9129846542';
+    }
+
+    /**
+     * Get sanitized phone for tel: links
+     */
+    public function getCleanPhoneAttribute(): string
+    {
+        $phone = $this->phone_primary ?: $this->whatsapp_number ?: '+91 9129846542';
+        return preg_replace('/[^+0-9]/', '', $phone);
+    }
 }
 

@@ -265,7 +265,7 @@
                     </div>
                     <div class="flex items-center gap-4 text-xs font-medium">
                         <span class="text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">JCI & NABH Hospital Liaison</span>
-                        <a href="https://wa.me/919129846542" target="_blank" class="hover:text-[#27797D] text-[#25D366] font-bold">+91 9129846542</a>
+                        <a href="https://wa.me/{{ $siteSettings->clean_whatsapp }}" target="_blank" class="hover:text-[#27797D] text-[#25D366] font-bold">{{ $siteSettings->display_whatsapp }}</a>
                     </div>
                 </div>
             </footer>

@@ -71,15 +71,16 @@
                 <!-- Phone / WhatsApp -->
                 <div>
                     <label for="phone" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
-                        Phone / WhatsApp Number
+                        Phone / WhatsApp Number <span class="text-rose-500">*</span>
                     </label>
                     <input 
                         type="text" 
                         name="phone" 
                         id="phone" 
+                        required
                         value="{{ old('phone', $patient->phone) }}" 
                         placeholder="+91 98765 43210" 
-                        class="w-full bg-slate-50 focus:bg-white text-xs px-4 py-3 rounded-xl border {{ $errors->has('phone') ? 'border-rose-400' : 'border-slate-200' }} focus:border-[#27797D] focus:outline-none transition-all font-medium text-slate-800"
+                        class="w-full bg-slate-50 focus:bg-white text-xs px-4 py-3 rounded-xl border {{ $errors->has('phone') ? 'border-rose-400' : 'border-slate-200' }} focus:border-[#27797D] focus:outline-none transition-all font-medium text-slate-800 font-mono"
                     >
                     @error('phone')
                         <span class="text-rose-500 text-[11px] font-semibold mt-1 block">{{ $message }}</span>

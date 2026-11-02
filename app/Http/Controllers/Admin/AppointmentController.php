@@ -89,14 +89,40 @@ class AppointmentController extends Controller
     /**
      * Show the form for creating a new appointment.
      */
-    public function create(): View
+    public function create(Request $request): View
     {
         $patients = Patient::orderBy('name')->get();
         $partners = Partner::with('hospital')->orderBy('name')->get();
         $allDoctors = Doctor::with('hospital')->where('status', true)->orderBy('name')->get();
         $allDoctorsFormatted = $this->formatDoctorsList($allDoctors);
 
-        return view('admin.appointment.create', compact('patients', 'partners', 'allDoctors', 'allDoctorsFormatted'));
+        $selectedPatientId = $request->query('patient_id');
+        $selectedPatient = $selectedPatientId ? Patient::with(['hospital', 'partner'])->find($selectedPatientId) : null;
+
+        // Auto-match partner if patient has partner_id or hospital_id
+        $partnerIdToSelect = old('partner_id', $request->query('partner_id'));
+        if (!$partnerIdToSelect && $selectedPatient) {
+            if ($selectedPatient->partner_id) {
+                $partnerIdToSelect = $selectedPatient->partner_id;
+            } elseif ($selectedPatient->hospital_id) {
+                $matchedPartner = $partners->first(function ($p) use ($selectedPatient) {
+                    return $p->hospital_id === $selectedPatient->hospital_id;
+                });
+                if ($matchedPartner) {
+                    $partnerIdToSelect = $matchedPartner->id;
+                }
+            }
+        }
+
+        return view('admin.appointment.create', compact(
+            'patients',
+            'partners',
+            'allDoctors',
+            'allDoctorsFormatted',
+            'selectedPatient',
+            'selectedPatientId',
+            'partnerIdToSelect'
+        ));
     }
 
     /**

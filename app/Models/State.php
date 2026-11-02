@@ -22,4 +22,9 @@ class State extends Model
     {
         return $this->hasMany(City::class);
     }
+
+    public function hospitals(): HasMany
+    {
+        return $this->hasMany(Hospital::class);
+    }
 }

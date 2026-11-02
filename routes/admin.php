@@ -12,6 +12,8 @@ use App\Http\Controllers\Admin\Utilities\TreatmentController;
 use App\Http\Controllers\Admin\HeroSectionController;
 use App\Http\Controllers\Admin\HowItWorksController;
 use App\Http\Controllers\Admin\BlogController;
+use App\Http\Controllers\Admin\PatientEnquiryController;
+use App\Http\Controllers\Admin\PatientStoryController;
 use App\Http\Controllers\Admin\SiteSettingController;
 use App\Http\Controllers\Admin\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -114,6 +116,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
             Route::get('/create', \App\Http\Controllers\Admin\PatientController::class . '@create')->name('create');
             Route::post('/', \App\Http\Controllers\Admin\PatientController::class . '@store')->name('store');
             Route::post('/bulk-delete', \App\Http\Controllers\Admin\PatientController::class . '@bulkDelete')->name('bulk-delete');
+            Route::get('/check-exists', \App\Http\Controllers\Admin\PatientController::class . '@checkExists')->name('check-exists');
             Route::get('/get-states', \App\Http\Controllers\Admin\PatientController::class . '@getStates')->name('get-states');
             Route::get('/get-cities', \App\Http\Controllers\Admin\PatientController::class . '@getCities')->name('get-cities');
             Route::get('/{patient}', \App\Http\Controllers\Admin\PatientController::class . '@show')->name('view');
@@ -145,6 +148,15 @@ Route::prefix('admin')->name('admin.')->group(function () {
             Route::delete('/{appointment}', \App\Http\Controllers\Admin\AppointmentController::class . '@destroy')->name('destroy');
         });
 
+        // ==================== PATIENT ENQUIRIES / LEADS ====================
+        Route::prefix('enquiries')->name('enquiries.')->group(function () {
+            Route::get('/', [PatientEnquiryController::class, 'index'])->name('index');
+            Route::get('/{enquiry}', [PatientEnquiryController::class, 'show'])->name('show');
+            Route::patch('/{enquiry}/status', [PatientEnquiryController::class, 'updateStatus'])->name('update-status');
+            Route::post('/{enquiry}/notes', [PatientEnquiryController::class, 'updateNotes'])->name('update-notes');
+            Route::delete('/{enquiry}', [PatientEnquiryController::class, 'destroy'])->name('destroy');
+        });
+
         // ==================== FRONTEND DYNAMIC & PAGE SETUP ====================
         // 1. Hero Section (Single Record Edit)
         Route::prefix('hero-section')->name('hero-section.')->group(function () {
@@ -172,6 +184,17 @@ Route::prefix('admin')->name('admin.')->group(function () {
             Route::put('/{blog}', [BlogController::class, 'update'])->name('update');
             Route::delete('/{blog}', [BlogController::class, 'destroy'])->name('destroy');
             Route::patch('/{blog}/toggle-status', [BlogController::class, 'toggleStatus'])->name('toggle-status');
+        });
+
+        // 4. Patient Stories CRUD
+        Route::prefix('patient-stories')->name('patient-stories.')->group(function () {
+            Route::get('/', [PatientStoryController::class, 'index'])->name('index');
+            Route::get('/create', [PatientStoryController::class, 'create'])->name('create');
+            Route::post('/', [PatientStoryController::class, 'store'])->name('store');
+            Route::get('/{patientStory}/edit', [PatientStoryController::class, 'edit'])->name('edit');
+            Route::put('/{patientStory}', [PatientStoryController::class, 'update'])->name('update');
+            Route::delete('/{patientStory}', [PatientStoryController::class, 'destroy'])->name('destroy');
+            Route::patch('/{patientStory}/toggle-status', [PatientStoryController::class, 'toggleStatus'])->name('toggle-status');
         });
 
         // 4. Website Settings & Contact Details

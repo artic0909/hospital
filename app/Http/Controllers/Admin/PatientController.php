@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\City;
 use App\Models\Country;
 use App\Models\Patient;
+use App\Models\PatientEnquiry;
 use App\Models\Report;
 use App\Models\State;
 use Illuminate\Http\JsonResponse;
@@ -69,12 +70,69 @@ class PatientController extends Controller
     }
 
     /**
-     * Show the form for creating a new patient.
+     * Show the form for creating a new patient, with optional enquiry prefill.
      */
-    public function create(): View
+    public function create(Request $request): View
     {
         $countries = Country::orderBy('name')->get();
-        return view('admin.patient.create', compact('countries'));
+        $enquiry = null;
+
+        if ($request->filled('enquiry_id')) {
+            $enquiry = PatientEnquiry::with(['hospital', 'doctor'])->find($request->enquiry_id);
+        }
+
+        return view('admin.patient.create', compact('countries', 'enquiry'));
+    }
+
+    /**
+     * Check if a patient already exists by phone or email.
+     */
+    public function checkExists(Request $request): JsonResponse
+    {
+        $phone = trim($request->input('phone', ''));
+        $email = trim($request->input('email', ''));
+        $ignoreId = $request->input('ignore_id');
+
+        $patient = null;
+        $reason = null;
+
+        if (!empty($phone)) {
+            $cleanPhone = preg_replace('/[^0-9]/', '', $phone);
+            $patient = Patient::where(function ($q) use ($phone, $cleanPhone) {
+                $q->where('phone', $phone);
+                if (strlen($cleanPhone) >= 7) {
+                    $q->orWhereRaw("REPLACE(REPLACE(REPLACE(phone, ' ', ''), '-', ''), '+', '') LIKE ?", ['%' . substr($cleanPhone, -10)]);
+                }
+            })
+            ->when($ignoreId, fn($q) => $q->where('id', '!=', $ignoreId))
+            ->first();
+
+            if ($patient) {
+                $reason = "A patient with this mobile number already exists: {$patient->name} (Patient ID #{$patient->id})";
+            }
+        }
+
+        if (!$patient && !empty($email)) {
+            $patient = Patient::where('email', $email)
+                ->when($ignoreId, fn($q) => $q->where('id', '!=', $ignoreId))
+                ->first();
+
+            if ($patient) {
+                $reason = "A patient with this email address already exists: {$patient->name} (Patient ID #{$patient->id})";
+            }
+        }
+
+        return response()->json([
+            'exists' => (bool)$patient,
+            'message' => $reason,
+            'patient' => $patient ? [
+                'id' => $patient->id,
+                'name' => $patient->name,
+                'phone' => $patient->phone,
+                'email' => $patient->email,
+                'url' => route('admin.patient.view', $patient->id),
+            ] : null,
+        ]);
     }
 
     /**
@@ -84,12 +142,14 @@ class PatientController extends Controller
     {
         $validated = $request->validate([
             'name' => ['required', 'string', 'max:255'],
-            'phone' => ['nullable', 'string', 'max:50'],
-            'email' => ['nullable', 'email', 'max:255'],
+            'phone' => ['required', 'string', 'max:50', 'unique:patients,phone'],
+            'email' => ['nullable', 'email', 'max:255', 'unique:patients,email'],
             'country' => ['nullable', 'string', 'max:255'],
             'state' => ['nullable', 'string', 'max:255'],
             'city' => ['nullable', 'string', 'max:255'],
             'address' => ['nullable', 'string', 'max:1000'],
+            'enquiry_id' => ['nullable', 'integer'],
+            'hospital_id' => ['nullable', 'integer'],
             'image' => [
                 'nullable',
                 'file',
@@ -98,6 +158,9 @@ class PatientController extends Controller
             ],
         ], [
             'name.required' => 'Patient name is required.',
+            'phone.required' => 'Patient phone/mobile number is required.',
+            'phone.unique' => 'A patient with this mobile number already exists in the system.',
+            'email.unique' => 'A patient with this email address already exists in the system.',
             'image.mimes' => 'The photo must be an image (JPEG, PNG, JPG, GIF, SVG, WebP, ICO, BMP, AVIF, TIFF, HEIC).',
             'image.max' => 'The photo size cannot exceed 10MB.',
         ]);
@@ -114,11 +177,19 @@ class PatientController extends Controller
             $imagePath = 'patients/' . $filename;
         }
 
+        $hospitalId = $validated['hospital_id'] ?? null;
+        if (!$hospitalId && $request->filled('enquiry_id')) {
+            $enq = PatientEnquiry::find($request->enquiry_id);
+            if ($enq) {
+                $hospitalId = $enq->hospital_id;
+            }
+        }
+
         $patient = Patient::create([
             'partner_id' => null,
-            'hospital_id' => null,
+            'hospital_id' => $hospitalId,
             'name' => $validated['name'],
-            'phone' => $validated['phone'] ?? null,
+            'phone' => $validated['phone'],
             'email' => $validated['email'] ?? null,
             'country' => $validated['country'] ?? null,
             'state' => $validated['state'] ?? null,
@@ -127,9 +198,21 @@ class PatientController extends Controller
             'image' => $imagePath,
         ]);
 
+        // If converted from enquiry, mark enquiry as in_treatment & log coordinator note
+        if ($request->filled('enquiry_id')) {
+            $enquiry = PatientEnquiry::find($request->enquiry_id);
+            if ($enquiry) {
+                $note = "✓ Converted to Registered Patient #{$patient->id} ({$patient->name}) on " . now()->format('d M Y, h:i A');
+                $enquiry->update([
+                    'status' => 'in_treatment',
+                    'admin_notes' => $enquiry->admin_notes ? ($enquiry->admin_notes . "\n" . $note) : $note,
+                ]);
+            }
+        }
+
         return redirect()
             ->route('admin.patient.view', $patient->id)
-            ->with('success', "Patient '{$patient->name}' registered successfully!");
+            ->with('success', "Patient '{$patient->name}' registered successfully!" . ($request->filled('enquiry_id') ? " (Converted from Enquiry #{$request->enquiry_id})" : ""));
     }
 
     /**
@@ -164,8 +247,8 @@ class PatientController extends Controller
     {
         $validated = $request->validate([
             'name' => ['required', 'string', 'max:255'],
-            'phone' => ['nullable', 'string', 'max:50'],
-            'email' => ['nullable', 'email', 'max:255'],
+            'phone' => ['required', 'string', 'max:50', \Illuminate\Validation\Rule::unique('patients', 'phone')->ignore($patient->id)],
+            'email' => ['nullable', 'email', 'max:255', \Illuminate\Validation\Rule::unique('patients', 'email')->ignore($patient->id)],
             'country' => ['nullable', 'string', 'max:255'],
             'state' => ['nullable', 'string', 'max:255'],
             'city' => ['nullable', 'string', 'max:255'],
@@ -177,6 +260,11 @@ class PatientController extends Controller
                 'max:10240',
             ],
             'remove_image' => ['nullable', 'boolean'],
+        ], [
+            'name.required' => 'Patient name is required.',
+            'phone.required' => 'Patient phone number is required.',
+            'phone.unique' => 'A patient with this mobile number already exists in the system.',
+            'email.unique' => 'A patient with this email address already exists in the system.',
         ]);
 
         $imagePath = $patient->image;

@@ -67,7 +67,7 @@
                 </a>
 
                 <a 
-                    href="https://wa.me/919129846542?text=Hello%20Heal%20Go%20Fly%20Central%20Desk,%20I%20have%20an%20urgent%20case%20inquiry." 
+                    href="https://wa.me/{{ $siteSettings->clean_whatsapp }}?text=Hello%20Heal%20Go%20Fly%20Central%20Desk,%20I%20have%20an%20urgent%20case%20inquiry." 
                     target="_blank"
                     class="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20b858] text-white px-5 py-3 rounded-xl font-bold text-sm shadow-md transition-all hover:-translate-y-0.5"
                 >

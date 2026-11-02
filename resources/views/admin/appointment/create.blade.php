@@ -59,43 +59,93 @@
         cursor: pointer !important;
         transition: all 0.15s ease !important;
     }
-    /* Active, hover & selected states with high contrast white text */
+    /* Active, hover & selected option row states */
     .ts-dropdown .option:hover,
     .ts-dropdown .option.active,
-    .ts-dropdown .option.selected,
     .ts-dropdown .option.selected.active {
         background-color: #27797D !important;
         color: #ffffff !important;
     }
     .ts-dropdown .option:hover *,
     .ts-dropdown .option.active *,
-    .ts-dropdown .option.selected *,
     .ts-dropdown .option.selected.active * {
-        color: #ffffff !important;
-    }
-    .ts-dropdown .option:hover span,
-    .ts-dropdown .option.active span,
-    .ts-dropdown .option.selected span,
-    .ts-dropdown .option:hover div,
-    .ts-dropdown .option.active div,
-    .ts-dropdown .option.selected div,
-    .ts-dropdown .option:hover p,
-    .ts-dropdown .option.active p,
-    .ts-dropdown .option.selected p {
         color: #ffffff !important;
     }
     .ts-dropdown .option:hover svg,
     .ts-dropdown .option.active svg,
-    .ts-dropdown .option.selected svg {
+    .ts-dropdown .option.selected.active svg {
         stroke: #ffffff !important;
         color: #ffffff !important;
     }
+
+    /* Selected state when not active / hovered */
+    .ts-dropdown .option.selected:not(.active):not(:hover) {
+        background-color: #f0fdfa !important; /* teal-50 */
+        color: #112347 !important;
+    }
+
+    /* BADGE PILLS INSIDE ACTIVE / HOVERED ROWS:
+       High contrast solid white background with bold vivid colored text */
+    .ts-dropdown .option:hover [class*="bg-emerald"],
+    .ts-dropdown .option.active [class*="bg-emerald"],
+    .ts-dropdown .option.selected.active [class*="bg-emerald"] {
+        background-color: #ffffff !important;
+        border: 1px solid rgba(255, 255, 255, 0.9) !important;
+        color: #047857 !important; /* dark emerald */
+        font-weight: 800 !important;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.18) !important;
+    }
+    .ts-dropdown .option:hover [class*="bg-emerald"] *,
+    .ts-dropdown .option.active [class*="bg-emerald"] *,
+    .ts-dropdown .option.selected.active [class*="bg-emerald"] * {
+        color: #047857 !important;
+        font-weight: 800 !important;
+    }
+
     .ts-dropdown .option:hover [class*="bg-teal"],
     .ts-dropdown .option.active [class*="bg-teal"],
-    .ts-dropdown .option.selected [class*="bg-teal"] {
-        background-color: rgba(255, 255, 255, 0.22) !important;
-        border-color: rgba(255, 255, 255, 0.4) !important;
-        color: #ffffff !important;
+    .ts-dropdown .option.selected.active [class*="bg-teal"] {
+        background-color: #ffffff !important;
+        border: 1px solid rgba(255, 255, 255, 0.9) !important;
+        color: #0f766e !important; /* dark teal */
+        font-weight: 800 !important;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.18) !important;
+    }
+    .ts-dropdown .option:hover [class*="bg-teal"] *,
+    .ts-dropdown .option.active [class*="bg-teal"] *,
+    .ts-dropdown .option.selected.active [class*="bg-teal"] * {
+        color: #0f766e !important;
+        font-weight: 800 !important;
+    }
+
+    .ts-dropdown .option:hover [class*="bg-slate"],
+    .ts-dropdown .option.active [class*="bg-slate"],
+    .ts-dropdown .option.selected.active [class*="bg-slate"],
+    .ts-dropdown .option:hover [class*="bg-orange"],
+    .ts-dropdown .option.active [class*="bg-orange"],
+    .ts-dropdown .option.selected.active [class*="bg-orange"] {
+        background-color: #ffffff !important;
+        border: 1px solid rgba(255, 255, 255, 0.9) !important;
+        color: #1e293b !important;
+        font-weight: 800 !important;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.18) !important;
+    }
+    .ts-dropdown .option:hover [class*="bg-slate"] *,
+    .ts-dropdown .option.active [class*="bg-slate"] *,
+    .ts-dropdown .option.selected.active [class*="bg-slate"] *,
+    .ts-dropdown .option:hover [class*="bg-orange"] *,
+    .ts-dropdown .option.active [class*="bg-orange"] *,
+    .ts-dropdown .option.selected.active [class*="bg-orange"] * {
+        color: #1e293b !important;
+        font-weight: 800 !important;
+    }
+
+    .ts-wrapper.single .ts-control .item {
+        background: transparent !important;
+        border: none !important;
+        padding: 0 !important;
+        color: #1e293b !important;
+        font-weight: 600 !important;
     }
     .ts-dropdown .optgroup-header {
         font-size: 0.7rem !important;
@@ -139,6 +189,42 @@
     <!-- Appointment Booking Form -->
     <form action="{{ route('admin.appointment.store') }}" method="POST" class="space-y-6">
         @csrf
+
+        @if(!empty($selectedPatient))
+        <!-- Pre-selected Patient Notice Banner -->
+        <div class="bg-teal-50/90 border border-teal-200/90 p-4 sm:p-5 rounded-3xl flex flex-col sm:flex-row sm:items-center justify-between gap-4 shadow-xs">
+            <div class="flex items-center gap-3.5">
+                <div class="w-12 h-12 rounded-2xl bg-[#27797D] text-white flex items-center justify-center font-bold text-base shadow-sm shrink-0">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+                </div>
+                <div>
+                    <div class="flex items-center gap-2 flex-wrap">
+                        <span class="text-xs font-bold uppercase tracking-wider text-teal-700">Pre-Selected Patient</span>
+                        <span class="text-[11px] font-mono font-bold px-2 py-0.5 rounded-md bg-teal-100 text-teal-900">#PT-{{ str_pad($selectedPatient->id, 5, '0', STR_PAD_LEFT) }}</span>
+                    </div>
+                    <div class="text-base font-black text-[#112347]">{{ $selectedPatient->name }}</div>
+                    <div class="text-xs text-slate-500 flex flex-wrap items-center gap-x-3 gap-y-1 mt-0.5">
+                        @if($selectedPatient->phone)
+                            <span>Phone: <strong class="text-slate-700">{{ $selectedPatient->phone }}</strong></span>
+                        @endif
+                        @if($selectedPatient->email)
+                            <span>Email: <strong class="text-slate-700">{{ $selectedPatient->email }}</strong></span>
+                        @endif
+                        @if($selectedPatient->country)
+                            <span>Location: <strong class="text-slate-700">{{ $selectedPatient->city ? $selectedPatient->city . ', ' : '' }}{{ $selectedPatient->country }}</strong></span>
+                        @endif
+                        @if(!empty($partnerIdToSelect) && !empty($selectedPatient->hospital))
+                            <span class="text-[#27797D] font-bold">&bull; Hospital: {{ $selectedPatient->hospital->name }}</span>
+                        @endif
+                    </div>
+                </div>
+            </div>
+            <a href="{{ route('admin.appointment.create') }}" class="inline-flex items-center gap-1 text-xs font-bold text-slate-500 hover:text-slate-800 transition-colors whitespace-nowrap self-start sm:self-center">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+                <span>Change Patient</span>
+            </a>
+        </div>
+        @endif
 
         <!-- CARD 1: Patient Selection -->
         <div class="bg-white p-6 sm:p-8 rounded-3xl border border-slate-200/80 shadow-xs space-y-5">
@@ -235,7 +321,7 @@
                             <option 
                                 value="{{ $partner->id }}" 
                                 data-data='{"name": "{{ addslashes($partner->name) }}", "company": "{{ addslashes($partner->company_name ?? '') }}", "code": "{{ $partnerCode }} #{{ $partnerCode }} {{ $partner->id }}", "hospital": "{{ addslashes($hospName) }}", "hospital_phone": "{{ $hospPhone }}", "phone": "{{ $partnerPhone }}"}'
-                                {{ old('partner_id') == $partner->id ? 'selected' : '' }}
+                                {{ (old('partner_id', $partnerIdToSelect ?? request('partner_id')) == $partner->id) ? 'selected' : '' }}
                             >
                                 {{ $displayName }} (#{{ $partnerCode }}) {{ $primaryPhone ? '- ' . $primaryPhone : '' }} {{ $hospName && $hospName !== $displayName ? '[' . $hospName . ']' : '' }}
                             </option>
@@ -577,5 +663,13 @@
                 console.error('Error fetching partner doctors:', err);
             });
     });
+
+    // Auto-select initial patient & partner if passed from patient row or query
+    @if(old('patient_id', $selectedPatientId ?? request('patient_id')))
+        patientTomSelect.setValue("{{ old('patient_id', $selectedPatientId ?? request('patient_id')) }}");
+    @endif
+    @if(old('partner_id', $partnerIdToSelect ?? request('partner_id')))
+        partnerTomSelect.setValue("{{ old('partner_id', $partnerIdToSelect ?? request('partner_id')) }}");
+    @endif
 </script>
 @endpush

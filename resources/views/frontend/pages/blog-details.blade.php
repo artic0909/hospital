@@ -266,7 +266,7 @@
                         </a>
 
                         <a 
-                            href="https://wa.me/919129846542?text=Hello%20HealGoFly%20Team%2C%20I%20am%20reading%20the%20article%3A%20{{ $articleTitle }}" 
+                            href="https://wa.me/{{ $siteSettings->clean_whatsapp }}?text={{ urlencode('Hello HealGoFly Team, I am reading the article: ' . $blog->title) }}" 
                             target="_blank" 
                             class="w-full bg-[#25D366] hover:bg-[#20ba5a] text-white text-xs sm:text-sm font-bold py-3 px-4 rounded-xl shadow-md transition-all flex items-center justify-center gap-2"
                         >

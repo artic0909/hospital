@@ -28,8 +28,59 @@
     </div>
 
     <!-- Registration Form -->
-    <form action="{{ route('admin.patient.store') }}" method="POST" enctype="multipart/form-data" class="space-y-6">
+    <form action="{{ route('admin.patient.store') }}" method="POST" enctype="multipart/form-data" class="space-y-6" id="patient-registration-form">
         @csrf
+
+        @if(isset($enquiry) && $enquiry)
+            <!-- Conversion Ribbon Alert -->
+            <div class="bg-gradient-to-r from-teal-500/10 via-emerald-500/10 to-teal-500/5 border-2 border-teal-300 p-5 rounded-3xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 shadow-xs">
+                <div class="flex items-start gap-3.5">
+                    <div class="w-11 h-11 rounded-2xl bg-[#27797D] text-white flex items-center justify-center font-bold text-xl shrink-0 shadow-sm">
+                        👤
+                    </div>
+                    <div>
+                        <div class="flex items-center gap-2">
+                            <span class="px-2.5 py-0.5 rounded-full bg-teal-100 text-[#27797D] text-[10px] font-black uppercase tracking-wider">Converting Lead #{{ $enquiry->id }}</span>
+                            <span class="text-xs text-slate-400">&bull; Received {{ $enquiry->created_at->format('M d, Y') }}</span>
+                        </div>
+                        <h3 class="text-base font-black text-[#112347] mt-1">
+                            {{ $enquiry->name }} &bull; <span class="font-mono">{{ $enquiry->phone }}</span>
+                        </h3>
+                        <p class="text-xs text-slate-600 mt-0.5 font-medium">
+                            Enquiry matched data (Name, Phone, Country, City, Clinical Notes) is pre-filled below. Review and complete any missing fields to convert this lead into an official patient.
+                        </p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-2 shrink-0">
+                    <a 
+                        href="{{ route('admin.enquiries.show', $enquiry->id) }}" 
+                        target="_blank"
+                        class="px-3.5 py-2 rounded-xl bg-white hover:bg-slate-50 text-xs font-bold text-[#27797D] border border-teal-200 transition-colors shadow-2xs whitespace-nowrap"
+                    >
+                        View Original Enquiry &rarr;
+                    </a>
+                </div>
+            </div>
+
+            <input type="hidden" name="enquiry_id" value="{{ $enquiry->id }}">
+            @if($enquiry->hospital_id)
+                <input type="hidden" name="hospital_id" value="{{ $enquiry->hospital_id }}">
+            @endif
+        @endif
+
+        <!-- Duplicate Warning Banner at Top (Dynamically triggered) -->
+        <div id="duplicate-patient-top-alert" class="hidden p-4 rounded-2xl bg-rose-50 border-2 border-rose-300 text-rose-800 text-xs font-semibold flex items-center justify-between gap-3 animate-in fade-in">
+            <div class="flex items-center gap-2.5">
+                <span class="text-xl">⚠️</span>
+                <div>
+                    <strong class="block text-sm text-rose-900 font-black">Existing Patient Detected!</strong>
+                    <span id="duplicate-patient-top-msg">A patient with this mobile number or email is already registered in the system.</span>
+                </div>
+            </div>
+            <a id="duplicate-patient-top-link" href="#" target="_blank" class="px-3.5 py-2 bg-rose-600 hover:bg-rose-700 text-white rounded-xl text-xs font-bold whitespace-nowrap shadow-xs">
+                View Existing Patient &rarr;
+            </a>
+        </div>
 
         <!-- CARD 1: Basic Information -->
         <div class="bg-white p-6 sm:p-8 rounded-3xl border border-slate-200/80 shadow-xs space-y-5">
@@ -53,7 +104,7 @@
                         name="name" 
                         id="name" 
                         required
-                        value="{{ old('name') }}" 
+                        value="{{ old('name', isset($enquiry) ? $enquiry->name : '') }}" 
                         placeholder="e.g. Johnathan Doe" 
                         class="w-full bg-slate-50 focus:bg-white text-xs px-4 py-3 rounded-xl border {{ $errors->has('name') ? 'border-rose-400' : 'border-slate-200' }} focus:border-[#27797D] focus:outline-none transition-all font-medium text-slate-800"
                     >
@@ -64,17 +115,29 @@
 
                 <!-- Phone / WhatsApp -->
                 <div>
-                    <label for="phone" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
-                        Phone / WhatsApp Number
+                    <label for="phone" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5 flex items-center justify-between">
+                        <span>Phone / WhatsApp Number <span class="text-rose-500">*</span></span>
+                        <span id="phone-checking-spinner" class="text-[10px] text-teal-600 font-normal hidden">Checking...</span>
                     </label>
                     <input 
                         type="text" 
                         name="phone" 
                         id="phone" 
-                        value="{{ old('phone') }}" 
+                        required
+                        value="{{ old('phone', isset($enquiry) ? $enquiry->phone : '') }}" 
                         placeholder="+91 98765 43210" 
-                        class="w-full bg-slate-50 focus:bg-white text-xs px-4 py-3 rounded-xl border {{ $errors->has('phone') ? 'border-rose-400' : 'border-slate-200' }} focus:border-[#27797D] focus:outline-none transition-all font-medium text-slate-800"
+                        class="w-full bg-slate-50 focus:bg-white text-xs px-4 py-3 rounded-xl border {{ $errors->has('phone') ? 'border-rose-400' : 'border-slate-200' }} focus:border-[#27797D] focus:outline-none transition-all font-medium text-slate-800 font-mono"
                     >
+                    <!-- Duplicate Alert Box under Phone -->
+                    <div id="phone-duplicate-box" class="hidden mt-2 p-2.5 rounded-xl bg-rose-50 border border-rose-200 text-xs text-rose-700">
+                        <div class="flex items-start gap-2">
+                            <span class="text-rose-500 font-bold shrink-0">⚠️</span>
+                            <div class="flex-1">
+                                <span id="phone-duplicate-text" class="font-bold block"></span>
+                                <a id="phone-duplicate-link" href="#" target="_blank" class="inline-block mt-1 underline text-rose-800 font-black hover:text-rose-950">View Profile &rarr;</a>
+                            </div>
+                        </div>
+                    </div>
                     @error('phone')
                         <span class="text-rose-500 text-[11px] font-semibold mt-1 block">{{ $message }}</span>
                     @enderror
@@ -82,8 +145,9 @@
 
                 <!-- Email -->
                 <div>
-                    <label for="email" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
-                        Email Address
+                    <label for="email" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5 flex items-center justify-between">
+                        <span>Email Address</span>
+                        <span id="email-checking-spinner" class="text-[10px] text-teal-600 font-normal hidden">Checking...</span>
                     </label>
                     <input 
                         type="email" 
@@ -93,6 +157,16 @@
                         placeholder="patient@example.com" 
                         class="w-full bg-slate-50 focus:bg-white text-xs px-4 py-3 rounded-xl border {{ $errors->has('email') ? 'border-rose-400' : 'border-slate-200' }} focus:border-[#27797D] focus:outline-none transition-all font-medium text-slate-800"
                     >
+                    <!-- Duplicate Alert Box under Email -->
+                    <div id="email-duplicate-box" class="hidden mt-2 p-2.5 rounded-xl bg-rose-50 border border-rose-200 text-xs text-rose-700">
+                        <div class="flex items-start gap-2">
+                            <span class="text-rose-500 font-bold shrink-0">⚠️</span>
+                            <div class="flex-1">
+                                <span id="email-duplicate-text" class="font-bold block"></span>
+                                <a id="email-duplicate-link" href="#" target="_blank" class="inline-block mt-1 underline text-rose-800 font-black hover:text-rose-950">View Profile &rarr;</a>
+                            </div>
+                        </div>
+                    </div>
                     @error('email')
                         <span class="text-rose-500 text-[11px] font-semibold mt-1 block">{{ $message }}</span>
                     @enderror
@@ -124,8 +198,11 @@
                         class="w-full bg-slate-50 focus:bg-white text-xs px-4 py-3 rounded-xl border {{ $errors->has('country') ? 'border-rose-400' : 'border-slate-200' }} focus:border-[#27797D] focus:outline-none transition-all font-semibold text-slate-700 cursor-pointer"
                     >
                         <option value="">Select Country</option>
+                        @php
+                            $targetCountry = old('country', isset($enquiry) ? $enquiry->country : '');
+                        @endphp
                         @foreach($countries as $country)
-                            <option value="{{ $country->name }}" {{ old('country') == $country->name ? 'selected' : '' }}>
+                            <option value="{{ $country->name }}" {{ strtolower($targetCountry) === strtolower($country->name) ? 'selected' : '' }}>
                                 {{ $country->name }}
                             </option>
                         @endforeach
@@ -145,11 +222,11 @@
                             name="state" 
                             id="state_select"
                             class="w-full bg-slate-50 focus:bg-white text-xs px-4 py-3 rounded-xl border {{ $errors->has('state') ? 'border-rose-400' : 'border-slate-200' }} focus:border-[#27797D] focus:outline-none transition-all font-semibold text-slate-700 cursor-pointer disabled:bg-slate-100 disabled:cursor-not-allowed"
-                            {{ old('country') ? '' : 'disabled' }}
+                            {{ (old('country', isset($enquiry) ? $enquiry->country : '')) ? '' : 'disabled' }}
                         >
-                            <option value="">{{ old('country') ? 'Select State' : 'Select Country First' }}</option>
-                            @if(old('state'))
-                                <option value="{{ old('state') }}" selected>{{ old('state') }}</option>
+                            <option value="">{{ (old('country', isset($enquiry) ? $enquiry->country : '')) ? 'Select State' : 'Select Country First' }}</option>
+                            @if(old('state', isset($enquiry) && $enquiry->city ? $enquiry->city : ''))
+                                <option value="{{ old('state', $enquiry->city) }}" selected>{{ old('state', $enquiry->city) }}</option>
                             @endif
                         </select>
                         <div id="state-spinner" class="absolute right-3 top-1/2 -translate-y-1/2 hidden">
@@ -171,11 +248,11 @@
                             name="city" 
                             id="city_select"
                             class="w-full bg-slate-50 focus:bg-white text-xs px-4 py-3 rounded-xl border {{ $errors->has('city') ? 'border-rose-400' : 'border-slate-200' }} focus:border-[#27797D] focus:outline-none transition-all font-semibold text-slate-700 cursor-pointer disabled:bg-slate-100 disabled:cursor-not-allowed"
-                            {{ old('state') ? '' : 'disabled' }}
+                            {{ (old('city', isset($enquiry) ? $enquiry->city : '')) ? '' : 'disabled' }}
                         >
-                            <option value="">{{ old('state') ? 'Select City' : 'Select State First' }}</option>
-                            @if(old('city'))
-                                <option value="{{ old('city') }}" selected>{{ old('city') }}</option>
+                            <option value="">{{ (old('city', isset($enquiry) ? $enquiry->city : '')) ? 'Select City' : 'Select State First' }}</option>
+                            @if(old('city', isset($enquiry) && $enquiry->city ? $enquiry->city : ''))
+                                <option value="{{ old('city', $enquiry->city) }}" selected>{{ old('city', $enquiry->city) }}</option>
                             @endif
                         </select>
                         <div id="city-spinner" class="absolute right-3 top-1/2 -translate-y-1/2 hidden">
@@ -187,18 +264,21 @@
                     @enderror
                 </div>
 
-                <!-- Full Residential Address -->
+                <!-- Full Residential Address / Clinical Notes -->
                 <div class="sm:col-span-3">
-                    <label for="address" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
-                        Residential Address / Hotel in India
+                    <label for="address" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5 flex items-center justify-between">
+                        <span>Residential Address / Clinical History</span>
+                        @if(isset($enquiry) && $enquiry->problem)
+                            <span class="text-[10px] text-[#27797D] font-bold">Prefilled from enquiry problem</span>
+                        @endif
                     </label>
                     <textarea 
                         name="address" 
                         id="address" 
                         rows="3" 
-                        placeholder="House / Street, Landmark, Postcode..." 
+                        placeholder="House / Street, Landmark, Postcode or clinical notes..." 
                         class="w-full bg-slate-50 focus:bg-white text-xs px-4 py-3 rounded-xl border {{ $errors->has('address') ? 'border-rose-400' : 'border-slate-200' }} focus:border-[#27797D] focus:outline-none transition-all font-medium text-slate-800"
-                    >{{ old('address') }}</textarea>
+                    >{{ old('address', isset($enquiry) ? ($enquiry->problem ? 'Clinical Problem: ' . $enquiry->problem . ($enquiry->age_or_dob ? " | Age/DOB: " . $enquiry->age_or_dob : "") : '') : '') }}</textarea>
                     @error('address')
                         <span class="text-rose-500 text-[11px] font-semibold mt-1 block">{{ $message }}</span>
                     @enderror
@@ -383,6 +463,95 @@
                     console.error('Error fetching cities:', err);
                 });
         });
+    }
+
+    // 3. Real-time Duplicate Mobile & Email Check with alert
+    const phoneInput = document.getElementById('phone');
+    const emailInput = document.getElementById('email');
+    const phoneBox = document.getElementById('phone-duplicate-box');
+    const phoneText = document.getElementById('phone-duplicate-text');
+    const phoneLink = document.getElementById('phone-duplicate-link');
+    const phoneSpinner = document.getElementById('phone-checking-spinner');
+
+    const emailBox = document.getElementById('email-duplicate-box');
+    const emailText = document.getElementById('email-duplicate-text');
+    const emailLink = document.getElementById('email-duplicate-link');
+    const emailSpinner = document.getElementById('email-checking-spinner');
+
+    const topAlert = document.getElementById('duplicate-patient-top-alert');
+    const topMsg = document.getElementById('duplicate-patient-top-msg');
+    const topLink = document.getElementById('duplicate-patient-top-link');
+
+    let debounceTimer = null;
+
+    function checkPatientDuplicate() {
+        const phoneVal = phoneInput ? phoneInput.value.trim() : '';
+        const emailVal = emailInput ? emailInput.value.trim() : '';
+
+        if (!phoneVal && !emailVal) {
+            if (phoneBox) phoneBox.classList.add('hidden');
+            if (emailBox) emailBox.classList.add('hidden');
+            if (topAlert) topAlert.classList.add('hidden');
+            return;
+        }
+
+        if (phoneSpinner) phoneSpinner.classList.remove('hidden');
+        if (emailSpinner) emailSpinner.classList.remove('hidden');
+
+        fetch(`{{ route('admin.patient.check-exists') }}?phone=${encodeURIComponent(phoneVal)}&email=${encodeURIComponent(emailVal)}`)
+            .then(res => res.json())
+            .then(data => {
+                if (phoneSpinner) phoneSpinner.classList.add('hidden');
+                if (emailSpinner) emailSpinner.classList.add('hidden');
+
+                if (data.exists && data.patient) {
+                    if (phoneBox && phoneVal) {
+                        phoneText.textContent = data.message;
+                        phoneLink.href = data.patient.url;
+                        phoneBox.classList.remove('hidden');
+                    }
+                    if (emailBox && emailVal) {
+                        emailText.textContent = data.message;
+                        emailLink.href = data.patient.url;
+                        emailBox.classList.remove('hidden');
+                    }
+                    if (topAlert) {
+                        topMsg.textContent = data.message;
+                        topLink.href = data.patient.url;
+                        topAlert.classList.remove('hidden');
+                    }
+                } else {
+                    if (phoneBox) phoneBox.classList.add('hidden');
+                    if (emailBox) emailBox.classList.add('hidden');
+                    if (topAlert) topAlert.classList.add('hidden');
+                }
+            })
+            .catch(err => {
+                if (phoneSpinner) phoneSpinner.classList.add('hidden');
+                if (emailSpinner) emailSpinner.classList.add('hidden');
+            });
+    }
+
+    if (phoneInput) {
+        phoneInput.addEventListener('input', function () {
+            clearTimeout(debounceTimer);
+            debounceTimer = setTimeout(checkPatientDuplicate, 400);
+        });
+        phoneInput.addEventListener('blur', checkPatientDuplicate);
+        if (phoneInput.value.trim()) {
+            checkPatientDuplicate();
+        }
+    }
+
+    if (emailInput) {
+        emailInput.addEventListener('input', function () {
+            clearTimeout(debounceTimer);
+            debounceTimer = setTimeout(checkPatientDuplicate, 400);
+        });
+        emailInput.addEventListener('blur', checkPatientDuplicate);
+        if (emailInput.value.trim()) {
+            checkPatientDuplicate();
+        }
     }
 </script>
 @endpush

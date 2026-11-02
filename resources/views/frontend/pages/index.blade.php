@@ -124,8 +124,9 @@
                         </div>
 
                         <!-- Form -->
-                        <form action="#" method="POST" class="space-y-3" onsubmit="event.preventDefault(); alert('Thank you! Our medical expert will contact you shortly.');">
+                        <form action="{{ route('patient.enquiry.submit') }}" method="POST" class="space-y-3" data-enquiry-form>
                             @csrf
+                            <input type="hidden" name="source_page" value="Home Hero Form">
                             
                             <!-- 1. Patient Name -->
                             <div>
@@ -139,22 +140,25 @@
                             </div>
 
                             <!-- 2. Country Dropdown -->
+                            @php
+                                $heroCountries = \App\Models\Country::orderBy('name')->get();
+                            @endphp
                             <div class="relative">
                                 <select 
                                     name="country" 
                                     class="w-full bg-white text-gray-900 text-sm rounded-lg px-3.5 py-2.5 sm:py-3 border border-transparent focus:border-red-500 focus:ring-2 focus:ring-red-400/40 focus:outline-none transition-all shadow-inner appearance-none cursor-pointer pr-10"
                                 >
-                                    <option value="India" selected>India</option>
-                                    <option value="United States">United States</option>
-                                    <option value="United Kingdom">United Kingdom</option>
-                                    <option value="United Arab Emirates">United Arab Emirates</option>
-                                    <option value="Bangladesh">Bangladesh</option>
-                                    <option value="Kenya">Kenya</option>
-                                    <option value="Nigeria">Nigeria</option>
-                                    <option value="Oman">Oman</option>
-                                    <option value="Saudi Arabia">Saudi Arabia</option>
-                                    <option value="Iraq">Iraq</option>
-                                    <option value="Other">Other Country</option>
+                                    @forelse($heroCountries as $countryItem)
+                                        <option value="{{ $countryItem->name }}" {{ strtolower($countryItem->name) === 'india' ? 'selected' : '' }}>
+                                            {{ $countryItem->name }}
+                                        </option>
+                                    @empty
+                                        <option value="India" selected>India</option>
+                                        <option value="United States">United States</option>
+                                        <option value="United Kingdom">United Kingdom</option>
+                                        <option value="United Arab Emirates">United Arab Emirates</option>
+                                        <option value="Bangladesh">Bangladesh</option>
+                                    @endforelse
                                 </select>
                                 <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3.5 text-gray-500">
                                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -173,10 +177,18 @@
                                 >
                             </div>
 
-                            <!-- 4. Phone with Country Code -->
+                            <!-- 4. Phone with Country Code Dropdown -->
                             <div class="flex rounded-lg overflow-hidden bg-white shadow-inner focus-within:ring-2 focus-within:ring-red-400/40 border border-transparent focus-within:border-red-500 transition-all notranslate" dir="ltr">
-                                <div class="bg-gray-100/90 text-gray-700 text-sm font-semibold px-3 flex items-center border-r border-gray-200 select-none">
-                                    +91
+                                <div class="relative bg-gray-100/90 border-r border-gray-200 select-none flex items-center shrink-0">
+                                    <select 
+                                        name="country_code" 
+                                        class="bg-transparent text-gray-800 text-xs sm:text-sm font-bold pl-2.5 pr-6 py-2.5 sm:py-3 focus:outline-none appearance-none cursor-pointer max-w-[115px]"
+                                    >
+                                        @include('frontend.includes.country_code_options')
+                                    </select>
+                                    <div class="pointer-events-none absolute right-1.5 inset-y-0 flex items-center text-gray-500">
+                                        <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/></svg>
+                                    </div>
                                 </div>
                                 <input 
                                     type="tel" 
@@ -197,13 +209,18 @@
                                 >
                             </div>
 
-                            <!-- 6. Age or DOB -->
-                            <div>
+                            <!-- 6. Date of Birth Picker -->
+                            <div class="relative flex items-center bg-white rounded-lg shadow-inner border border-transparent focus-within:border-red-500 focus-within:ring-2 focus-within:ring-red-400/40 transition-all">
+                                <label for="hero_dob" class="pl-3.5 pr-2 py-2.5 sm:py-3 text-xs sm:text-sm font-semibold text-gray-500 flex items-center gap-1.5 shrink-0 select-none cursor-pointer">
+                                    <svg class="w-4 h-4 text-[#27797D]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                                    <span>DOB:</span>
+                                </label>
                                 <input 
-                                    type="text" 
-                                    name="age_or_dob" 
-                                    placeholder="Example: 30 Yrs or 29-05-1985" 
-                                    class="w-full bg-white text-gray-900 placeholder-gray-400 text-sm rounded-lg px-3.5 py-2.5 sm:py-3 border border-transparent focus:border-red-500 focus:ring-2 focus:ring-red-400/40 focus:outline-none transition-all shadow-inner"
+                                    type="date" 
+                                    id="hero_dob"
+                                    name="dob" 
+                                    max="{{ date('Y-m-d') }}"
+                                    class="w-full bg-transparent text-gray-900 text-xs sm:text-sm pr-3 py-2.5 sm:py-3 focus:outline-none cursor-pointer font-medium"
                                 >
                             </div>
 
@@ -211,7 +228,7 @@
                             <div class="pt-1">
                                 <button 
                                     type="submit" 
-                                    class="w-full bg-[#EF7415] hover:bg-[#d9640d] active:scale-[0.99] text-white font-bold py-3 px-4 rounded-lg shadow-md hover:shadow-lg transition-all duration-150 flex items-center justify-center gap-2 text-base"
+                                    class="w-full bg-[#EF7415] hover:bg-[#d9640d] active:scale-[0.99] text-white font-bold py-3 px-4 rounded-lg shadow-md hover:shadow-lg transition-all duration-150 flex items-center justify-center gap-2 text-base cursor-pointer"
                                 >
                                     <span>Continue</span>
                                     <span class="text-lg leading-none">&rarr;</span>
@@ -222,9 +239,9 @@
                             <div class="pt-1 text-center">
                                 <p class="text-[11px] text-blue-100/90 leading-tight">
                                     By submitting I agree to the 
-                                    <a href="#" class="underline hover:text-white transition-colors">Terms of Use</a> 
+                                    <a href="{{ route('privacy') }}" class="underline hover:text-white transition-colors">Terms of Use</a> 
                                     and 
-                                    <a href="#" class="underline hover:text-white transition-colors">Privacy Policy</a> 
+                                    <a href="{{ route('privacy') }}" class="underline hover:text-white transition-colors">Privacy Policy</a> 
                                     of Heal Go Fly.
                                 </p>
                             </div>
@@ -498,12 +515,236 @@
                         </p>
                     </div>
                     <div class="mt-4 pt-3 border-t border-white/15">
-                        <a href="https://wa.me/919129846542?text=Hello%20Heal%20Go%20Fly,%20I%20need%20assistance%20with%20medical%20services" target="_blank" class="w-full bg-[#EF7415] hover:bg-[#d9640d] text-white text-xs font-bold py-2.5 px-3.5 rounded-xl text-center flex items-center justify-center gap-1.5 shadow-sm transition-all duration-150 transform hover:-translate-y-0.5">
+                        <a href="https://wa.me/{{ $siteSettings->clean_whatsapp }}?text={{ urlencode('Hello HealGoFly, I need assistance with medical services and treatment planning.') }}" target="_blank" class="w-full bg-[#EF7415] hover:bg-[#d9640d] text-white text-xs font-bold py-2.5 px-3.5 rounded-xl text-center flex items-center justify-center gap-1.5 shadow-sm transition-all duration-150 transform hover:-translate-y-0.5">
                             <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
                             <span>Chat on WhatsApp</span>
                         </a>
                     </div>
                 </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ==================== TOP MEDICAL DESTINATIONS & MULTI-SPECIALTY FOCUS ==================== -->
+    <section class="py-14 sm:py-20 bg-[#eaedf2] border-y border-gray-300/60">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- 1. TOP MEDICAL DESTINATIONS -->
+            <div class="text-center max-w-3xl mx-auto mb-8 sm:mb-10">
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-[#112347] tracking-tight">
+                    Top Medical Destinations
+                </h2>
+                <p class="text-xs sm:text-sm text-[#5a6a85] mt-2.5 leading-relaxed">
+                    Our network spans the top medical tourism hubs worldwide — giving you the choice of cities, doctors and price.
+                </p>
+            </div>
+
+            <!-- Destinations Pills List -->
+            <div class="flex flex-wrap items-center justify-center gap-2.5 sm:gap-3.5 max-w-5xl mx-auto">
+                
+                <!-- India -->
+                <a href="#quote-form" class="inline-flex items-center gap-2.5 bg-white border border-gray-200/90 hover:border-[#27797D] hover:text-[#27797D] px-4 py-2 rounded-full text-xs sm:text-sm font-semibold text-gray-700 shadow-sm hover:shadow transition-all duration-150">
+                    <!-- Flag India -->
+                    <span class="w-5 h-3.5 rounded-sm overflow-hidden flex-shrink-0 inline-block shadow-xs border border-gray-100">
+                        <svg viewBox="0 0 900 600" class="w-full h-full object-cover">
+                            <rect width="900" height="200" fill="#FF9933"/>
+                            <rect y="200" width="900" height="200" fill="#FFFFFF"/>
+                            <rect y="400" width="900" height="200" fill="#128807"/>
+                            <circle cx="450" cy="300" r="80" fill="#000080"/>
+                            <circle cx="450" cy="300" r="70" fill="#FFFFFF"/>
+                            <circle cx="450" cy="300" r="25" fill="#000080"/>
+                        </svg>
+                    </span>
+                    <span>India</span>
+                </a>
+
+                <!-- Turkey -->
+                <a href="#quote-form" class="inline-flex items-center gap-2.5 bg-white border border-gray-200/90 hover:border-[#27797D] hover:text-[#27797D] px-4 py-2 rounded-full text-xs sm:text-sm font-semibold text-gray-700 shadow-sm hover:shadow transition-all duration-150">
+                    <span class="w-5 h-3.5 rounded-sm overflow-hidden flex-shrink-0 inline-block shadow-xs">
+                        <svg viewBox="0 0 1200 800" class="w-full h-full object-cover">
+                            <rect width="1200" height="800" fill="#E30A17"/>
+                            <circle cx="425" cy="400" r="200" fill="#FFFFFF"/>
+                            <circle cx="475" cy="400" r="160" fill="#E30A17"/>
+                            <polygon points="630,400 575,417 596,362 552,393 605,379" fill="#FFFFFF" transform="scale(1.2) translate(-90, -70)"/>
+                        </svg>
+                    </span>
+                    <span>Turkey</span>
+                </a>
+
+                <!-- Thailand -->
+                <a href="#quote-form" class="inline-flex items-center gap-2.5 bg-white border border-gray-200/90 hover:border-[#27797D] hover:text-[#27797D] px-4 py-2 rounded-full text-xs sm:text-sm font-semibold text-gray-700 shadow-sm hover:shadow transition-all duration-150">
+                    <span class="w-5 h-3.5 rounded-sm overflow-hidden flex-shrink-0 inline-block shadow-xs">
+                        <svg viewBox="0 0 900 600" class="w-full h-full object-cover">
+                            <rect width="900" height="600" fill="#A51931"/>
+                            <rect y="100" width="900" height="400" fill="#F4F5F8"/>
+                            <rect y="200" width="900" height="200" fill="#2D2A4A"/>
+                        </svg>
+                    </span>
+                    <span>Thailand</span>
+                </a>
+
+                <!-- Germany -->
+                <a href="#quote-form" class="inline-flex items-center gap-2.5 bg-white border border-gray-200/90 hover:border-[#27797D] hover:text-[#27797D] px-4 py-2 rounded-full text-xs sm:text-sm font-semibold text-gray-700 shadow-sm hover:shadow transition-all duration-150">
+                    <span class="w-5 h-3.5 rounded-sm overflow-hidden flex-shrink-0 inline-block shadow-xs">
+                        <svg viewBox="0 0 5 3" class="w-full h-full object-cover">
+                            <rect width="5" height="1" y="0" fill="#000000"/>
+                            <rect width="5" height="1" y="1" fill="#DD0000"/>
+                            <rect width="5" height="1" y="2" fill="#FFCE00"/>
+                        </svg>
+                    </span>
+                    <span>Germany</span>
+                </a>
+
+                <!-- United Arab Emirates -->
+                <a href="#quote-form" class="inline-flex items-center gap-2.5 bg-white border border-gray-200/90 hover:border-[#27797D] hover:text-[#27797D] px-4 py-2 rounded-full text-xs sm:text-sm font-semibold text-gray-700 shadow-sm hover:shadow transition-all duration-150">
+                    <span class="w-5 h-3.5 rounded-sm overflow-hidden flex-shrink-0 inline-block shadow-xs">
+                        <svg viewBox="0 0 1200 600" class="w-full h-full object-cover">
+                            <rect width="1200" height="200" fill="#00732F"/>
+                            <rect y="200" width="1200" height="200" fill="#FFFFFF"/>
+                            <rect y="400" width="1200" height="200" fill="#000000"/>
+                            <rect width="300" height="600" fill="#FF0000"/>
+                        </svg>
+                    </span>
+                    <span>United Arab Emirates</span>
+                </a>
+
+                <!-- Egypt -->
+                <a href="#quote-form" class="inline-flex items-center gap-2.5 bg-white border border-gray-200/90 hover:border-[#27797D] hover:text-[#27797D] px-4 py-2 rounded-full text-xs sm:text-sm font-semibold text-gray-700 shadow-sm hover:shadow transition-all duration-150">
+                    <span class="w-5 h-3.5 rounded-sm overflow-hidden flex-shrink-0 inline-block shadow-xs">
+                        <svg viewBox="0 0 900 600" class="w-full h-full object-cover">
+                            <rect width="900" height="200" fill="#CE1126"/>
+                            <rect y="200" width="900" height="200" fill="#FFFFFF"/>
+                            <rect y="400" width="900" height="200" fill="#000000"/>
+                            <circle cx="450" cy="300" r="30" fill="#C09300"/>
+                        </svg>
+                    </span>
+                    <span>Egypt</span>
+                </a>
+
+                <!-- Oman -->
+                <a href="#quote-form" class="inline-flex items-center gap-2.5 bg-white border border-gray-200/90 hover:border-[#27797D] hover:text-[#27797D] px-4 py-2 rounded-full text-xs sm:text-sm font-semibold text-gray-700 shadow-sm hover:shadow transition-all duration-150">
+                    <span class="w-5 h-3.5 rounded-sm overflow-hidden flex-shrink-0 inline-block shadow-xs">
+                        <svg viewBox="0 0 600 300" class="w-full h-full object-cover">
+                            <rect width="600" height="100" fill="#FFFFFF"/>
+                            <rect y="100" width="600" height="100" fill="#DB161B"/>
+                            <rect y="200" width="600" height="100" fill="#008000"/>
+                            <rect width="150" height="300" fill="#DB161B"/>
+                        </svg>
+                    </span>
+                    <span>Oman</span>
+                </a>
+
+                <!-- Saudi Arabia -->
+                <a href="#quote-form" class="inline-flex items-center gap-2.5 bg-white border border-gray-200/90 hover:border-[#27797D] hover:text-[#27797D] px-4 py-2 rounded-full text-xs sm:text-sm font-semibold text-gray-700 shadow-sm hover:shadow transition-all duration-150">
+                    <span class="w-5 h-3.5 rounded-sm overflow-hidden flex-shrink-0 inline-block shadow-xs">
+                        <svg viewBox="0 0 900 600" class="w-full h-full object-cover">
+                            <rect width="900" height="600" fill="#006C35"/>
+                            <path d="M300 360h300v12H300z" fill="#FFFFFF"/>
+                        </svg>
+                    </span>
+                    <span>Saudi Arabia</span>
+                </a>
+
+            </div>
+
+            <!-- 2. MULTI-SPECIALTY FOCUS -->
+            <div class="mt-16 sm:mt-24">
+                
+                <!-- Section Header -->
+                <div class="text-center max-w-3xl mx-auto mb-8 sm:mb-12">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-teal-50 border border-teal-200/80 text-[#27797D] text-xs font-bold uppercase tracking-wider mb-3 shadow-2xs">
+                        <span class="w-2 h-2 rounded-full bg-[#27797D] animate-pulse"></span>
+                        World-Class Clinical Care
+                    </div>
+                    <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#112347] tracking-tight">
+                        Advanced Medical Specialties
+                    </h2>
+                    <p class="text-xs sm:text-sm text-[#5a6a85] mt-2.5 max-w-2xl mx-auto leading-relaxed">
+                        Comprehensive healthcare solutions and specialized surgical treatments delivered by internationally accredited hospitals and leading specialists.
+                    </p>
+                </div>
+
+                <!-- Specialties Grid (3 Columns on Desktop, 2 on Tablet, 1 on Mobile) -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+                    
+                    @forelse($specialities as $speciality)
+                        @php
+                            $specialityImg = !empty($speciality->image)
+                                ? (\Illuminate\Support\Str::startsWith($speciality->image, ['http://', 'https://']) ? $speciality->image : asset($speciality->image))
+                                : asset('icons/cardio.svg');
+                            $specialityDesc = !empty($speciality->description) 
+                                ? $speciality->description 
+                                : ($speciality->treatments_count > 0 
+                                    ? $speciality->treatments_count . ' ' . \Illuminate\Support\Str::plural('Specialized Procedure', $speciality->treatments_count) . ' & Top Surgeons' 
+                                    : 'Super-Specialty Clinical Consultations & Advanced Surgeries');
+                        @endphp
+                        <a href="#quote-form" class="group relative bg-white rounded-2xl p-4 sm:p-5 border border-gray-200/90 shadow-[0_2px_8px_rgba(0,0,0,0.03)] hover:shadow-xl hover:shadow-[#27797D]/8 hover:border-[#27797D]/50 hover:-translate-y-1 transition-all duration-300 flex items-center justify-between cursor-pointer overflow-hidden">
+                            <span class="absolute left-0 top-3 bottom-3 w-1 bg-gradient-to-b from-[#27797D] to-[#EF7415] rounded-r-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                            <div class="flex items-center gap-3.5 sm:gap-4 pr-2 sm:pr-3 min-w-0">
+                                <!-- Icon -->
+                                <div class="w-12 h-12 sm:w-13 sm:h-13 rounded-xl bg-gradient-to-br from-teal-50/90 via-blue-50/70 to-indigo-50/40 p-2.5 flex items-center justify-center flex-shrink-0 border border-teal-100/70 shadow-xs group-hover:scale-105 group-hover:bg-teal-100/80 group-hover:border-teal-200 transition-all duration-300">
+                                    <img src="{{ $specialityImg }}" alt="{{ $speciality->name }}" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300" onerror="this.onerror=null; this.src='{{ asset('icons/cardio.svg') }}';">
+                                </div>
+                                <div class="min-w-0">
+                                    <h3 class="text-[15px] sm:text-base font-bold text-gray-900 group-hover:text-[#27797D] transition-colors leading-snug">
+                                        {{ $speciality->name }}
+                                    </h3>
+                                    <p class="text-xs text-gray-500 mt-1 leading-relaxed line-clamp-2">
+                                        {{ $specialityDesc }}
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-orange-50 text-[#EF7415] border border-orange-200/80 flex items-center justify-center flex-shrink-0 shadow-2xs group-hover:scale-110 group-hover:bg-[#EF7415] group-hover:text-white group-hover:border-[#EF7415] transition-all duration-300 self-center ml-2.5">
+                                <svg class="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                                </svg>
+                            </div>
+                        </a>
+                    @empty
+                        <div class="col-span-full py-8 text-center text-gray-500 text-xs">
+                            No specialities listed currently.
+                        </div>
+                    @endforelse
+
+                </div>
+
+                <!-- Bottom Action Buttons: Need Assistance? & WhatsApp Chat -->
+                <div class="mt-10 sm:mt-12 flex flex-col items-center">
+                    <div class="flex flex-wrap items-center justify-center gap-3.5 sm:gap-4">
+                        <a 
+                            href="#quote-form" 
+                            class="bg-[#EF7415] hover:bg-[#d9640d] active:scale-[0.99] text-white text-sm sm:text-base font-bold px-7 py-3 rounded-xl shadow-md hover:shadow-lg transition-all duration-150 inline-flex items-center justify-center gap-2 group/btn"
+                        >
+                            <svg class="w-4 h-4 fill-none stroke-current stroke-2 group-hover/btn:rotate-12 transition-transform duration-200" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M12 18h.01" />
+                                <circle cx="12" cy="12" r="9" />
+                            </svg>
+                            <span>Need Assistance?</span>
+                        </a>
+                        
+                        <a 
+                            href="https://wa.me/919129846542" 
+                            target="_blank" 
+                            class="bg-[#25D366] hover:bg-[#20ba5a] active:scale-[0.99] text-white text-sm sm:text-base font-bold px-7 py-3 rounded-xl shadow-md hover:shadow-lg transition-all duration-150 inline-flex items-center justify-center gap-2"
+                        >
+                            <!-- WhatsApp SVG Icon -->
+                            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                                <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+                            </svg>
+                            <span>Chat with Expert</span>
+                        </a>
+                    </div>
+                    <p class="text-xs text-gray-500 mt-3 flex items-center gap-1.5 font-medium">
+                        <svg class="w-4 h-4 text-[#27797D] flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
+                        </svg>
+                        Free medical opinion & treatment cost estimates within 48 hours
+                    </p>
+                </div>
+
+            </div>
 
             </div>
 
@@ -707,7 +948,7 @@
                     </a>
                     
                     <a 
-                        href="https://wa.me/919129846542" 
+                        href="https://wa.me/{{ $siteSettings->clean_whatsapp }}?text={{ urlencode('Hello HealGoFly, I would like to get a free medical estimate and treatment options.') }}" 
                         target="_blank" 
                         class="bg-[#25D366] hover:bg-[#20ba5a] active:scale-[0.99] text-white text-sm sm:text-base font-bold px-7 py-3 rounded-xl shadow-md hover:shadow-lg transition-all duration-150 inline-flex items-center justify-center gap-2"
                     >
@@ -908,7 +1149,7 @@
                 </a>
                 
                 <a 
-                    href="https://wa.me/919129846542" 
+                    href="https://wa.me/{{ $siteSettings->clean_whatsapp }}?text={{ urlencode('Hello HealGoFly, I would like to consult about hospital treatments.') }}" 
                     target="_blank" 
                     class="bg-[#25D366] hover:bg-[#20ba5a] active:scale-[0.99] text-white text-sm sm:text-base font-bold px-7 py-3 rounded-lg shadow-md hover:shadow-lg transition-all duration-150 inline-flex items-center justify-center gap-2"
                 >
