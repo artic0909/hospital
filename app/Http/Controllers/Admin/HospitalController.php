@@ -115,6 +115,28 @@ class HospitalController extends Controller
 
         $hospital = Hospital::create($validated);
 
+        // Automatically provision or sync Partner account for this Hospital
+        $hospital->load('country');
+        $cleanCode = strtolower(preg_replace('/[^a-zA-Z0-9]/', '', $hospital->code ?: 'hosp' . $hospital->id));
+        $partnerEmail = !empty($hospital->email) 
+            ? $hospital->email 
+            : ($cleanCode . '@partner.healgofly.com');
+
+        Partner::updateOrCreate(
+            ['hospital_id' => $hospital->id],
+            [
+                'name' => $hospital->name,
+                'company_name' => $hospital->name,
+                'email' => $partnerEmail,
+                'phone' => $hospital->contact,
+                'country' => $hospital->country?->name ?? 'India',
+                'partner_type' => 'Hospital Partner',
+                'address' => $hospital->address,
+                'status' => $hospital->status ? 'active' : 'suspended',
+                'password' => $request->password,
+            ]
+        );
+
         return redirect()->route('admin.hospital.index')->with('success', "Hospital \"{$hospital->name}\" ({$hospital->code}) registered successfully!");
     }
 
@@ -179,6 +201,41 @@ class HospitalController extends Controller
 
         $hospital->update($validated);
 
+        // Sync associated Partner account
+        $hospital->load('country');
+        $partner = Partner::where('hospital_id', $hospital->id)->first();
+        if (!$partner && !empty($hospital->email)) {
+            $partner = Partner::where('email', $hospital->email)->first();
+        }
+
+        $cleanCode = strtolower(preg_replace('/[^a-zA-Z0-9]/', '', $hospital->code ?: 'hosp' . $hospital->id));
+        $partnerEmail = !empty($hospital->email) 
+            ? $hospital->email 
+            : ($cleanCode . '@partner.healgofly.com');
+
+        $partnerData = [
+            'hospital_id' => $hospital->id,
+            'name' => $hospital->name,
+            'company_name' => $hospital->name,
+            'email' => $partnerEmail,
+            'phone' => $hospital->contact,
+            'country' => $hospital->country?->name ?? 'India',
+            'partner_type' => 'Hospital Partner',
+            'address' => $hospital->address,
+            'status' => $hospital->status ? 'active' : 'suspended',
+        ];
+
+        if ($request->filled('password')) {
+            $partnerData['password'] = $request->password;
+        }
+
+        if ($partner) {
+            $partner->update($partnerData);
+        } else {
+            $partnerData['password'] = $hospital->password;
+            Partner::create($partnerData);
+        }
+
         return redirect()->route('admin.hospital.index')->with('success', "Hospital \"{$hospital->name}\" updated successfully!");
     }
 
@@ -189,6 +246,8 @@ class HospitalController extends Controller
     {
         $name = $hospital->name;
         $code = $hospital->code;
+
+        Partner::where('hospital_id', $hospital->id)->delete();
         $hospital->delete();
 
         return back()->with('success', "Hospital \"{$name}\" ({$code}) deleted successfully!");
@@ -204,6 +263,7 @@ class HospitalController extends Controller
             'ids.*' => ['exists:hospitals,id'],
         ]);
 
+        Partner::whereIn('hospital_id', $request->ids)->delete();
         $count = Hospital::whereIn('id', $request->ids)->delete();
 
         return back()->with('success', "{$count} hospital(s) deleted successfully!");
@@ -252,6 +312,7 @@ class HospitalController extends Controller
                 : ($cleanCode . '@partner.healgofly.com');
 
             $partner = Partner::create([
+                'hospital_id' => $hospital->id,
                 'name' => $hospital->name,
                 'company_name' => $hospital->name,
                 'email' => $email,
@@ -264,6 +325,9 @@ class HospitalController extends Controller
                 'password' => $hospital->password ?? Hash::make('12345678'),
             ]);
         } else {
+            if (!$partner->hospital_id) {
+                $partner->update(['hospital_id' => $hospital->id]);
+            }
             // Ensure status is active
             if ($partner->status === 'suspended') {
                 $partner->update(['status' => 'active']);

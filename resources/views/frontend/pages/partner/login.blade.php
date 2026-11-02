@@ -148,29 +148,29 @@
                         <form id="partner-login-form" action="{{ route('partner.login.submit') }}" method="POST" novalidate class="space-y-4">
                             @csrf
 
-                            <!-- Email Field -->
+                            <!-- Email / Phone / Partner Code Field -->
                             <div>
                                 <label for="login-email" class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1.5">
-                                    Email Address <span class="text-rose-500">*</span>
+                                    Email / Phone / Partner Code <span class="text-rose-500">*</span>
                                 </label>
                                 <div class="relative">
                                     <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-gray-400">
                                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.206"/></svg>
                                     </span>
                                     <input 
-                                        type="email" 
+                                        type="text" 
                                         id="login-email" 
                                         name="email" 
                                         value="{{ old('email') }}"
                                         required
-                                        placeholder="name@company.com" 
+                                        placeholder="email@company.com, +91 9876543210, or PTR-00001" 
                                         class="w-full pl-10 pr-4 py-2.5 text-sm text-gray-900 bg-gray-50/60 border border-gray-300 rounded-xl focus:bg-white focus:outline-none focus:border-[#27797D] focus:ring-2 focus:ring-[#27797D]/20 transition-all @error('email') border-rose-400 bg-rose-50/30 @enderror"
-                                        autocomplete="email"
+                                        autocomplete="username"
                                     >
                                 </div>
-                                <p id="error-email" class="text-xs text-rose-500 font-medium mt-1.5 flex items-center gap-1 {{ $errors->has('email') ? '' : 'hidden' }}">
+                                <p id="error-email" class="text-xs text-rose-500 font-medium mt-1.5 flex items-center gap-1 {{ ($errors->has('email') || $errors->has('login')) ? '' : 'hidden' }}">
                                     <svg class="w-3.5 h-3.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/></svg>
-                                    <span class="error-text">{{ $errors->first('email') }}</span>
+                                    <span class="error-text">{{ $errors->first('login') ?: $errors->first('email') }}</span>
                                 </p>
                             </div>
 
@@ -503,12 +503,8 @@ document.addEventListener('DOMContentLoaded', function () {
         const emailVal = emailInput.value.trim();
         const passwordVal = passwordInput.value;
 
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailVal) {
-            showFieldError('login-email', 'Please enter your email address.');
-            hasClientError = true;
-        } else if (!emailRegex.test(emailVal)) {
-            showFieldError('login-email', 'Please enter a valid email.');
+            showFieldError('login-email', 'Please enter your email, phone, or partner code.');
             hasClientError = true;
         }
 
@@ -558,7 +554,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 btnArrow.classList.remove('hidden');
 
                 if (data.errors) {
-                    if (data.errors.email) showFieldError('login-email', data.errors.email[0]);
+                    const idErr = data.errors.login || data.errors.email;
+                    if (idErr) showFieldError('login-email', idErr[0]);
                     if (data.errors.password) showFieldError('login-password', data.errors.password[0]);
                     showAlert('error', data.message || 'Please check your inputs.');
                 } else {

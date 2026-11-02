@@ -31,13 +31,18 @@ class AuthController extends Controller
      */
     public function login(Request $request): JsonResponse|RedirectResponse
     {
-        $validator = Validator::make($request->all(), [
-            'email' => ['required', 'string', 'email', 'max:255'],
-            'password' => ['required', 'string', 'min:6'],
-            'remember' => ['nullable'],
+        $loginInput = trim((string) $request->input('login', $request->input('email', '')));
+        $password = (string) $request->input('password', '');
+        $remember = $request->boolean('remember');
+
+        $validator = Validator::make([
+            'login' => $loginInput,
+            'password' => $password,
         ], [
-            'email.required' => 'Please enter your registered email address.',
-            'email.email' => 'Please enter a valid email address.',
+            'login' => ['required', 'string', 'max:255'],
+            'password' => ['required', 'string', 'min:6'],
+        ], [
+            'login.required' => 'Please enter your registered email address, phone number, or partner code.',
             'password.required' => 'Please enter your password.',
             'password.min' => 'Password must be at least 6 characters long.',
         ]);
@@ -46,20 +51,95 @@ class AuthController extends Controller
             if ($request->expectsJson() || $request->ajax()) {
                 return response()->json([
                     'success' => false,
-                    'errors' => $validator->errors(),
+                    'errors' => [
+                        'email' => $validator->errors()->get('login') ?: $validator->errors()->get('email'),
+                        'password' => $validator->errors()->get('password'),
+                    ],
                     'message' => 'Please fix the errors below.',
                 ], 422);
             }
 
-            return back()->withErrors($validator)->withInput($request->only('email', 'remember'));
+            return back()->withErrors($validator)->withInput($request->only('email', 'login', 'remember'));
         }
 
-        $credentials = $request->only('email', 'password');
-        $remember = $request->boolean('remember');
+        // 1. Resolve Partner
+        $partner = null;
 
-        // Check if partner exists and account status
-        $partner = Partner::where('email', $request->email)->first();
-        if ($partner && $partner->status === 'suspended') {
+        // A. Match by email
+        if (filter_var($loginInput, FILTER_VALIDATE_EMAIL)) {
+            $partner = Partner::where('email', $loginInput)->first();
+        }
+
+        // B. Match by Partner Code (e.g. PTR-00002 or PTR-2 or direct partner ID)
+        if (!$partner && preg_match('/^PTR-?0*(\d+)$/i', $loginInput, $matches)) {
+            $partner = Partner::find((int) $matches[1]);
+        }
+
+        // C. Match by Phone Number
+        if (!$partner) {
+            $cleanPhone = preg_replace('/[^\d+]/', '', $loginInput);
+            if (!empty($cleanPhone)) {
+                $partner = Partner::where('phone', $loginInput)
+                    ->orWhere('phone', $cleanPhone)
+                    ->orWhere('phone', 'like', "%{$cleanPhone}%")
+                    ->first();
+            }
+        }
+
+        // D. Match via Hospital (by code, email, contact phone, or slug)
+        if (!$partner) {
+            $hospital = \App\Models\Hospital::where('code', strtoupper($loginInput))
+                ->orWhere('email', $loginInput)
+                ->orWhere('contact', $loginInput)
+                ->orWhere('slug', $loginInput)
+                ->first();
+
+            if ($hospital) {
+                $partner = Partner::where('hospital_id', $hospital->id)->first();
+                if (!$partner && !empty($hospital->email)) {
+                    $partner = Partner::where('email', $hospital->email)->first();
+                }
+
+                // If hospital exists but Partner row hasn't been provisioned yet, create it on-the-fly!
+                if (!$partner) {
+                    $hospital->load('country');
+                    $cleanCode = strtolower(preg_replace('/[^a-zA-Z0-9]/', '', $hospital->code ?: 'hosp' . $hospital->id));
+                    $email = !empty($hospital->email) 
+                        ? $hospital->email 
+                        : ($cleanCode . '@partner.healgofly.com');
+
+                    $partner = Partner::create([
+                        'hospital_id' => $hospital->id,
+                        'name' => $hospital->name,
+                        'company_name' => $hospital->name,
+                        'email' => $email,
+                        'phone' => $hospital->contact ?? '0000000000',
+                        'country' => $hospital->country?->name ?? 'India',
+                        'partner_type' => 'Hospital Partner',
+                        'address' => $hospital->address,
+                        'status' => $hospital->status ? 'active' : 'suspended',
+                        'password' => $hospital->password,
+                    ]);
+                }
+            }
+        }
+
+        // 2. If Partner still not found
+        if (!$partner) {
+            $failedMsg = 'These credentials do not match our records.';
+            if ($request->expectsJson() || $request->ajax()) {
+                return response()->json([
+                    'success' => false,
+                    'errors' => ['email' => [$failedMsg], 'password' => [$failedMsg]],
+                    'message' => $failedMsg,
+                ], 422);
+            }
+
+            return back()->withErrors(['email' => $failedMsg])->withInput($request->only('email', 'login', 'remember'));
+        }
+
+        // 3. Check if partner is suspended
+        if ($partner->status === 'suspended') {
             $msg = 'Your partner account has been suspended. Please contact info@healgofly.com.';
             if ($request->expectsJson() || $request->ajax()) {
                 return response()->json([
@@ -69,11 +149,20 @@ class AuthController extends Controller
                 ], 422);
             }
 
-            return back()->withErrors(['email' => $msg])->withInput($request->only('email'));
+            return back()->withErrors(['email' => $msg])->withInput($request->only('email', 'login'));
         }
 
-        if (Auth::guard('partner')->attempt($credentials, $remember)) {
-            $request->session()->regenerate();
+        // 4. Attempt login with partner ID & password
+        if (Auth::guard('partner')->attempt(['id' => $partner->id, 'password' => $password], $remember)) {
+            if ($request->hasSession()) {
+                $request->session()->regenerate();
+
+                // Set active hospital in session
+                $h = $partner->getHospital();
+                if ($h) {
+                    session(['active_hospital_id' => $h->id]);
+                }
+            }
 
             if ($request->expectsJson() || $request->ajax()) {
                 return response()->json([
@@ -86,7 +175,8 @@ class AuthController extends Controller
             return redirect()->intended(route('partner.dashboard'))->with('success', 'Welcome back!');
         }
 
-        $failedMsg = 'These credentials do not match our records.';
+        // 5. Wrong password
+        $failedMsg = 'The password you entered is incorrect.';
         if ($request->expectsJson() || $request->ajax()) {
             return response()->json([
                 'success' => false,
@@ -95,7 +185,7 @@ class AuthController extends Controller
             ], 422);
         }
 
-        return back()->withErrors(['email' => $failedMsg])->withInput($request->only('email', 'remember'));
+        return back()->withErrors(['password' => $failedMsg])->withInput($request->only('email', 'login', 'remember'));
     }
 
     /**
