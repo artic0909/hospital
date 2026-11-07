@@ -19,10 +19,10 @@ class UtilitySeeder extends Seeder
     public function run(): void
     {
         // 1. Countries
-        $india = Country::firstOrCreate(['name' => 'India']);
-        $turkey = Country::firstOrCreate(['name' => 'Turkey']);
-        $thailand = Country::firstOrCreate(['name' => 'Thailand']);
-        $uae = Country::firstOrCreate(['name' => 'United Arab Emirates']);
+        $india = Country::firstOrCreate(['name' => 'India'], ['show_in_header' => true]);
+        $turkey = Country::firstOrCreate(['name' => 'Turkey'], ['show_in_header' => false]);
+        $thailand = Country::firstOrCreate(['name' => 'Thailand'], ['show_in_header' => false]);
+        $uae = Country::firstOrCreate(['name' => 'United Arab Emirates'], ['show_in_header' => true]);
 
         // 2. States
         $maharashtra = State::firstOrCreate(['country_id' => $india->id, 'name' => 'Maharashtra']);

@@ -148,12 +148,13 @@
                                     name="country" 
                                     class="w-full bg-white text-gray-900 text-sm rounded-lg px-3.5 py-2.5 sm:py-3 border border-transparent focus:border-red-500 focus:ring-2 focus:ring-red-400/40 focus:outline-none transition-all shadow-inner appearance-none cursor-pointer pr-10"
                                 >
+                                    <option value="" selected disabled>Select Country</option>
                                     @forelse($heroCountries as $countryItem)
-                                        <option value="{{ $countryItem->name }}" {{ strtolower($countryItem->name) === 'india' ? 'selected' : '' }}>
+                                        <option value="{{ $countryItem->name }}" {{ old('country') === $countryItem->name ? 'selected' : '' }}>
                                             {{ $countryItem->name }}
                                         </option>
                                     @empty
-                                        <option value="India" selected>India</option>
+                                        <option value="India">India</option>
                                         <option value="United States">United States</option>
                                         <option value="United Kingdom">United Kingdom</option>
                                         <option value="United Arab Emirates">United Arab Emirates</option>

@@ -277,12 +277,13 @@
                         @endphp
                         <div class="relative">
                             <select name="country" class="w-full text-xs text-gray-900 bg-white px-3.5 py-2.5 rounded-lg border-0 focus:outline-none focus:ring-2 focus:ring-[#EF7415] appearance-none cursor-pointer font-medium">
+                                <option value="" selected disabled>Select Country</option>
                                 @forelse($evalCountries as $cItem)
-                                    <option value="{{ $cItem->name }}" {{ ($selectedCountry?->id === $cItem->id || strtolower($cItem->name) === 'india') ? 'selected' : '' }}>
+                                    <option value="{{ $cItem->name }}" {{ old('country') === $cItem->name ? 'selected' : '' }}>
                                         {{ $cItem->name }}
                                     </option>
                                 @empty
-                                    <option value="India" selected>India</option>
+                                    <option value="India">India</option>
                                     <option value="Bangladesh">Bangladesh</option>
                                     <option value="United Arab Emirates">United Arab Emirates</option>
                                 @endforelse

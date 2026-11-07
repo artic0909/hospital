@@ -115,7 +115,9 @@
                         </th>
                         <th class="py-3.5 px-4 w-16">#ID</th>
                         <th class="py-3.5 px-6">Country Name</th>
-                        <th class="py-3.5 px-6">States Count</th>
+                        <th class="py-3.5 px-6">States</th>
+                        <th class="py-3.5 px-6">Hospitals</th>
+                        <th class="py-3.5 px-6">Frontend Header</th>
                         <th class="py-3.5 px-6">Created At</th>
                         <th class="py-3.5 px-6 text-right">Actions</th>
                     </tr>
@@ -147,6 +149,43 @@
                                     {{ $country->states_count }} States
                                 </span>
                             </td>
+                            <td class="py-3.5 px-6">
+                                <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-semibold {{ $country->hospitals_count > 0 ? 'bg-teal-50 text-teal-700 border border-teal-200' : 'bg-slate-100 text-slate-500' }}">
+                                    🏥 {{ $country->hospitals_count }}
+                                </span>
+                            </td>
+                            <td class="py-3.5 px-6">
+                                @if($country->show_in_header)
+                                    @if($country->hospitals_count > 0)
+                                        <form action="{{ route('admin.utilities.country.toggle-header', $country->id) }}" method="POST" class="inline">
+                                            @csrf
+                                            @method('PATCH')
+                                            <button type="submit" class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-bold bg-emerald-50 text-emerald-700 border border-emerald-200 hover:bg-emerald-100 transition-colors cursor-pointer" title="Click to toggle header visibility">
+                                                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                                                <span>Active in Header</span>
+                                            </button>
+                                        </form>
+                                    @else
+                                        <form action="{{ route('admin.utilities.country.toggle-header', $country->id) }}" method="POST" class="inline">
+                                            @csrf
+                                            @method('PATCH')
+                                            <button type="submit" class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-bold bg-amber-50 text-amber-700 border border-amber-200 hover:bg-amber-100 transition-colors cursor-pointer" title="Checked for header, but no hospitals registered yet. Click to toggle.">
+                                                <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
+                                                <span>Enabled (0 Hosp)</span>
+                                            </button>
+                                        </form>
+                                    @endif
+                                @else
+                                    <form action="{{ route('admin.utilities.country.toggle-header', $country->id) }}" method="POST" class="inline">
+                                        @csrf
+                                        @method('PATCH')
+                                        <button type="submit" class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-medium bg-slate-100 text-slate-500 border border-slate-200 hover:bg-slate-200 hover:text-slate-700 transition-colors cursor-pointer" title="Click to show in frontend header menu">
+                                            <span class="w-1.5 h-1.5 rounded-full bg-slate-300"></span>
+                                            <span>Hidden</span>
+                                        </button>
+                                    </form>
+                                @endif
+                            </td>
                             <td class="py-3.5 px-6 text-slate-400">
                                 {{ $country->created_at ? $country->created_at->format('M d, Y') : 'N/A' }}
                             </td>
@@ -155,7 +194,7 @@
                                     <!-- Edit Button -->
                                     <button 
                                         type="button" 
-                                        onclick="openEditCountryModal({{ $country->id }}, '{{ addslashes($country->name) }}')"
+                                        onclick="openEditCountryModal({{ $country->id }}, '{{ addslashes($country->name) }}', {{ $country->show_in_header ? 1 : 0 }})"
                                         class="p-1.5 rounded-lg text-slate-500 hover:text-[#27797D] hover:bg-teal-50 transition-colors"
                                         title="Edit Country"
                                     >
@@ -233,6 +272,22 @@
                 >
             </div>
 
+            <!-- Checkbox: Show in Frontend Header Menu -->
+            <div class="flex items-start gap-2.5 bg-slate-50 p-3.5 rounded-2xl border border-slate-200/80">
+                <input 
+                    type="checkbox" 
+                    name="show_in_header" 
+                    id="add-country-header" 
+                    value="1" 
+                    checked
+                    class="w-4 h-4 mt-0.5 rounded border-slate-300 text-[#27797D] focus:ring-[#27797D]/20 accent-[#27797D] cursor-pointer"
+                >
+                <label for="add-country-header" class="text-xs font-semibold text-slate-700 select-none cursor-pointer">
+                    <span class="font-bold text-slate-900 block">Show in Frontend Header Menu</span>
+                    <span class="text-slate-400 block mt-0.5 text-[11px]">If checked, this country will appear in the frontend header mega-menu when it has registered hospitals.</span>
+                </label>
+            </div>
+
             <div class="pt-2 flex items-center justify-end gap-2.5">
                 <button type="button" onclick="closeAddCountryModal()" class="px-4 py-2 text-xs font-bold text-slate-500 hover:bg-slate-100 rounded-xl transition-colors cursor-pointer">
                     Cancel
@@ -277,6 +332,21 @@
                 >
             </div>
 
+            <!-- Checkbox: Show in Frontend Header Menu -->
+            <div class="flex items-start gap-2.5 bg-slate-50 p-3.5 rounded-2xl border border-slate-200/80">
+                <input 
+                    type="checkbox" 
+                    name="show_in_header" 
+                    id="edit-country-header" 
+                    value="1" 
+                    class="w-4 h-4 mt-0.5 rounded border-slate-300 text-[#27797D] focus:ring-[#27797D]/20 accent-[#27797D] cursor-pointer"
+                >
+                <label for="edit-country-header" class="text-xs font-semibold text-slate-700 select-none cursor-pointer">
+                    <span class="font-bold text-slate-900 block">Show in Frontend Header Menu</span>
+                    <span class="text-slate-400 block mt-0.5 text-[11px]">If checked, this country will appear in the frontend header mega-menu when it has registered hospitals.</span>
+                </label>
+            </div>
+
             <div class="pt-2 flex items-center justify-end gap-2.5">
                 <button type="button" onclick="closeEditCountryModal()" class="px-4 py-2 text-xs font-bold text-slate-500 hover:bg-slate-100 rounded-xl transition-colors cursor-pointer">
                     Cancel
@@ -303,13 +373,17 @@
         modal.classList.remove('flex');
     }
 
-    function openEditCountryModal(id, name) {
+    function openEditCountryModal(id, name, showInHeader) {
         const modal = document.getElementById('edit-country-modal');
         const form = document.getElementById('edit-country-form');
         const nameInput = document.getElementById('edit-country-name');
+        const headerCheckbox = document.getElementById('edit-country-header');
 
         form.action = "{{ url('/admin/utilities/country') }}/" + id;
         nameInput.value = name;
+        if (headerCheckbox) {
+            headerCheckbox.checked = Boolean(showInHeader);
+        }
 
         modal.classList.remove('hidden');
         modal.classList.add('flex');

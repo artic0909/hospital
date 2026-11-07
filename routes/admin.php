@@ -37,6 +37,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
             Route::get('/country', [CountryController::class, 'index'])->name('country');
             Route::post('/country', [CountryController::class, 'store'])->name('country.store');
             Route::put('/country/{country}', [CountryController::class, 'update'])->name('country.update');
+            Route::patch('/country/{country}/toggle-header', [CountryController::class, 'toggleHeader'])->name('country.toggle-header');
             Route::delete('/country/{country}', [CountryController::class, 'destroy'])->name('country.destroy');
             Route::post('/country/bulk-delete', [CountryController::class, 'bulkDelete'])->name('country.bulk-delete');
 

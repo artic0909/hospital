@@ -16,7 +16,7 @@ class CountryController extends Controller
      */
     public function index(Request $request): View
     {
-        $query = Country::withCount('states')->latest();
+        $query = Country::withCount(['states', 'hospitals'])->latest();
 
         if ($request->filled('search')) {
             $search = trim($request->search);
@@ -42,7 +42,10 @@ class CountryController extends Controller
     {
         $validated = $request->validate([
             'name' => ['required', 'string', 'max:255', 'unique:countries,name'],
+            'show_in_header' => ['nullable', 'boolean'],
         ]);
+
+        $validated['show_in_header'] = $request->has('show_in_header');
 
         $country = Country::create($validated);
 
@@ -64,7 +67,10 @@ class CountryController extends Controller
     {
         $validated = $request->validate([
             'name' => ['required', 'string', 'max:255', 'unique:countries,name,' . $country->id],
+            'show_in_header' => ['nullable', 'boolean'],
         ]);
+
+        $validated['show_in_header'] = $request->has('show_in_header');
 
         $country->update($validated);
 
@@ -77,6 +83,29 @@ class CountryController extends Controller
         }
 
         return back()->with('success', 'Country updated successfully!');
+    }
+
+    /**
+     * Toggle country visibility in the frontend header.
+     */
+    public function toggleHeader(Country $country): JsonResponse|RedirectResponse
+    {
+        $country->update([
+            'show_in_header' => !$country->show_in_header,
+        ]);
+
+        $statusText = $country->show_in_header ? 'enabled for' : 'removed from';
+        $message = "Country \"{$country->name}\" {$statusText} frontend header navigation!";
+
+        if (request()->wantsJson() || request()->ajax()) {
+            return response()->json([
+                'success' => true,
+                'show_in_header' => $country->show_in_header,
+                'message' => $message,
+            ]);
+        }
+
+        return back()->with('success', $message);
     }
 
     /**

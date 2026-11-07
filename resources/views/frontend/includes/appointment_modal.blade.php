@@ -131,11 +131,9 @@
                         name="country" 
                         class="w-full bg-white text-gray-900 text-sm rounded-lg px-3.5 py-2.5 sm:py-3 border border-transparent focus:ring-2 focus:ring-[#EF7415] focus:outline-none transition-all shadow-inner appearance-none cursor-pointer pr-10 font-medium"
                     >
-                        <option value="India" selected>India</option>
+                        <option value="" selected disabled>Select Country</option>
                         @foreach($modalCountries as $c)
-                            @if($c->name !== 'India')
-                                <option value="{{ $c->name }}">{{ $c->name }}</option>
-                            @endif
+                            <option value="{{ $c->name }}" {{ old('country') === $c->name ? 'selected' : '' }}>{{ $c->name }}</option>
                         @endforeach
                         <option value="United States">United States</option>
                         <option value="United Kingdom">United Kingdom</option>

@@ -55,27 +55,16 @@ class AppServiceProvider extends ServiceProvider
     {
         View::composer('frontend.includes.header', function ($view) {
             try {
-                // Countries that have active hospitals, eager loaded with their hospitals and categories
-                $headerCountries = Country::whereHas('hospitals', function ($query) {
-                    $query->where('status', true);
-                })
-                ->with(['hospitals' => function ($query) {
-                    $query->where('status', true)->with('category');
-                }])
-                ->take(6)
-                ->get();
-
-                // If fewer than 4 countries have hospitals, complement with additional countries
-                if ($headerCountries->count() < 4) {
-                    $existingIds = $headerCountries->pluck('id')->toArray();
-                    $additionalCountries = Country::whereNotIn('id', $existingIds)
-                        ->with(['hospitals' => function ($query) {
-                            $query->where('status', true)->with('category');
-                        }])
-                        ->take(6 - count($existingIds))
-                        ->get();
-                    $headerCountries = $headerCountries->concat($additionalCountries);
-                }
+                // Countries enabled for header navigation that have active hospitals
+                $headerCountries = Country::where('show_in_header', true)
+                    ->whereHas('hospitals', function ($query) {
+                        $query->where('status', true);
+                    })
+                    ->with(['hospitals' => function ($query) {
+                        $query->where('status', true)->with('category');
+                    }])
+                    ->orderBy('name')
+                    ->get();
 
                 $allHospitalCategories = HospitalCategory::orderBy('name')->get();
 
