@@ -16,6 +16,11 @@ class DoctorSpeciality extends Model
         'name',
         'image',
         'description',
+        'position',
+    ];
+
+    protected $casts = [
+        'position' => 'integer',
     ];
 
     public function treatments(): HasMany

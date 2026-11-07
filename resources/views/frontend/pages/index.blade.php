@@ -528,7 +528,63 @@
         </div>
     </section>
 
+    <!-- ==================== ADVANCED MEDICAL SPECIALTIES ==================== -->
+    <section class="py-14 sm:py-20 bg-gray-50/60 border-t border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- Section Header -->
+            <div class="text-center max-w-3xl mx-auto mb-8 sm:mb-12">
+                <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-teal-50 border border-teal-200/80 text-[#27797D] text-xs font-bold uppercase tracking-wider mb-3 shadow-2xs">
+                    <span class="w-2 h-2 rounded-full bg-[#27797D] animate-pulse"></span>
+                    World-Class Clinical Care
+                </div>
+                <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#112347] tracking-tight">
+                    Advanced Medical Specialties
+                </h2>
+                <p class="text-xs sm:text-sm text-[#5a6a85] mt-2.5 max-w-2xl mx-auto leading-relaxed">
+                    Comprehensive healthcare solutions and specialized surgical treatments delivered by internationally accredited hospitals and leading specialists.
+                </p>
+            </div>
 
+            <!-- Specialties Grid (3 Columns on Desktop, 2 on Tablet, 1 on Mobile) -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+                @forelse($specialities as $spec)
+                    @php
+                        $specImg = !empty($spec->image)
+                            ? (\Illuminate\Support\Str::startsWith($spec->image, ['http://', 'https://']) ? $spec->image : asset($spec->image))
+                            : asset('icons/cardio.svg');
+                    @endphp
+                    <a href="{{ route('doctors', ['speciality' => $spec->name]) }}" class="group relative bg-white rounded-2xl p-4 sm:p-5 border border-gray-200/90 shadow-[0_2px_8px_rgba(0,0,0,0.03)] hover:shadow-xl hover:shadow-[#27797D]/8 hover:border-[#27797D]/50 hover:-translate-y-1 transition-all duration-300 flex items-center justify-between cursor-pointer overflow-hidden">
+                        <span class="absolute left-0 top-3 bottom-3 w-1 bg-gradient-to-b from-[#27797D] to-[#EF7415] rounded-r-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                        <div class="flex items-center gap-3.5 sm:gap-4 pr-2 sm:pr-3 min-w-0">
+                            <!-- Icon -->
+                            <div class="w-12 h-12 sm:w-13 sm:h-13 rounded-xl bg-gradient-to-br from-teal-50/90 via-blue-50/70 to-indigo-50/40 p-2.5 flex items-center justify-center flex-shrink-0 border border-teal-100/70 shadow-xs group-hover:scale-105 group-hover:bg-teal-100/80 group-hover:border-teal-200 transition-all duration-300">
+                                <img src="{{ $specImg }}" alt="{{ $spec->name }}" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300" onerror="this.onerror=null; this.src='{{ asset('icons/cardio.svg') }}';">
+                            </div>
+                            <div class="min-w-0">
+                                <h3 class="text-[15px] sm:text-base font-bold text-gray-900 group-hover:text-[#27797D] transition-colors leading-snug">
+                                    {{ $spec->name }}
+                                </h3>
+                                <p class="text-xs text-gray-500 mt-1 leading-relaxed line-clamp-2">
+                                    {{ $spec->description ?: ($spec->treatments_count > 0 ? $spec->treatments_count . ' Procedures available' : 'Specialized clinical care & modern surgical therapies.') }}
+                                </p>
+                            </div>
+                        </div>
+                        <div class="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-orange-50 text-[#EF7415] border border-orange-200/80 flex items-center justify-center flex-shrink-0 shadow-2xs group-hover:scale-110 group-hover:bg-[#EF7415] group-hover:text-white group-hover:border-[#EF7415] transition-all duration-300 self-center ml-2.5">
+                            <svg class="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                            </svg>
+                        </div>
+                    </a>
+                @empty
+                    <div class="col-span-full py-8 text-center text-gray-500 text-xs">
+                        No medical specialties registered yet.
+                    </div>
+                @endforelse
+            </div>
+
+        </div>
+    </section>
 
     <!-- ==================== HOW DO WE WORK? ==================== -->
     <section class="relative py-16 sm:py-24 overflow-hidden border-t border-b border-gray-200">

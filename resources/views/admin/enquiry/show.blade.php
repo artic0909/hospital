@@ -141,28 +141,7 @@
                 </a>
             </div>
 
-            <!-- Status Changer Card -->
-            <div class="bg-white p-6 rounded-3xl border border-slate-200/80 shadow-xs space-y-3">
-                <h3 class="text-xs font-extrabold uppercase tracking-wider text-slate-400">
-                    Lead Status
-                </h3>
-                <form action="{{ route('admin.enquiries.update-status', $enquiry->id) }}" method="POST" class="space-y-3">
-                    @csrf
-                    @method('PATCH')
-                    <select 
-                        name="status" 
-                        class="w-full bg-slate-50 focus:bg-white text-xs text-slate-800 px-3.5 py-2.5 rounded-xl border border-slate-200 focus:border-[#27797D] focus:outline-none transition-all font-semibold"
-                    >
-                        <option value="pending" {{ $enquiry->status === 'pending' ? 'selected' : '' }}>⏳ Pending Review</option>
-                        <option value="contacted" {{ $enquiry->status === 'contacted' ? 'selected' : '' }}>📞 Contacted Patient</option>
-                        <option value="in_treatment" {{ $enquiry->status === 'in_treatment' ? 'selected' : '' }}>🩺 In Treatment / Hospitalized</option>
-                        <option value="closed" {{ $enquiry->status === 'closed' ? 'selected' : '' }}>✅ Closed / Completed</option>
-                    </select>
-                    <button type="submit" class="w-full bg-[#112347] hover:bg-[#0c1830] text-white text-xs font-bold py-2.5 rounded-xl transition-all cursor-pointer">
-                        Update Status
-                    </button>
-                </form>
-            </div>
+
 
             <!-- ASSOCIATED DOCTOR DETAILS (if filled from doctor_details) -->
             @if($enquiry->doctor)

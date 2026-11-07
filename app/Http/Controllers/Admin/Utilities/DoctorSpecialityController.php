@@ -18,7 +18,7 @@ class DoctorSpecialityController extends Controller
      */
     public function index(Request $request): View
     {
-        $query = DoctorSpeciality::withCount('treatments')->latest();
+        $query = DoctorSpeciality::withCount('treatments')->orderBy('position', 'asc')->orderBy('id', 'asc');
 
         if ($request->filled('search')) {
             $search = trim($request->search);
@@ -47,10 +47,15 @@ class DoctorSpecialityController extends Controller
     {
         $validated = $request->validate([
             'name' => ['required', 'string', 'max:255', 'unique:doctor_specialities,name'],
+            'position' => ['nullable', 'integer', 'min:0'],
             'description' => ['nullable', 'string', 'max:1000'],
             'selected_icon' => ['nullable', 'string', 'max:255'],
             'image' => ['nullable', 'file', 'mimes:jpeg,png,jpg,gif,svg,webp,ico,bmp,avif', 'max:5120'],
         ]);
+
+        if (!isset($validated['position']) || $validated['position'] === null || $validated['position'] === '') {
+            $validated['position'] = ((int) DoctorSpeciality::max('position')) + 1;
+        }
 
         // 1. If file uploaded, prioritize upload
         if ($request->hasFile('image')) {
@@ -91,10 +96,15 @@ class DoctorSpecialityController extends Controller
     {
         $validated = $request->validate([
             'name' => ['required', 'string', 'max:255', 'unique:doctor_specialities,name,' . $doctorSpeciality->id],
+            'position' => ['nullable', 'integer', 'min:0'],
             'description' => ['nullable', 'string', 'max:1000'],
             'selected_icon' => ['nullable', 'string', 'max:255'],
             'image' => ['nullable', 'file', 'mimes:jpeg,png,jpg,gif,svg,webp,ico,bmp,avif', 'max:5120'],
         ]);
+
+        if (array_key_exists('position', $validated)) {
+            $validated['position'] = $validated['position'] !== null && $validated['position'] !== '' ? (int)$validated['position'] : 0;
+        }
 
         if ($request->hasFile('image')) {
             // Delete old uploaded image if in uploads/

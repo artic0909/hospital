@@ -30,9 +30,10 @@ class HomeController extends Controller
         // 1. Hero Section (singleton)
         $hero = HeroSection::getHero();
 
-        // 2. Doctor Specialties
+        // 2. Doctor Specialties (ordered strictly by admin-defined position)
         $specialities = DoctorSpeciality::withCount('treatments')
-            ->orderBy('id')
+            ->orderBy('position', 'asc')
+            ->orderBy('id', 'asc')
             ->get();
 
         // 3. How It Works (ordered active steps)

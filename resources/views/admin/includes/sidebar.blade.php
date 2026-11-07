@@ -74,6 +74,9 @@
                 </a>
 
                 <!-- Patients Management -->
+                @php
+                    $sidebarPatientCount = \App\Models\Patient::count();
+                @endphp
                 <a 
                     href="{{ route('admin.patient.index') }}" 
                     class="flex items-center justify-between px-3 py-2 rounded-xl {{ request()->routeIs('admin.patient*') ? 'bg-[#27797D] text-white font-bold shadow-md shadow-[#27797D]/20' : 'text-slate-300 hover:text-white hover:bg-slate-800/80' }} transition-all"
@@ -84,6 +87,11 @@
                         </svg>
                         <span>Patients Management</span>
                     </div>
+                    @if($sidebarPatientCount > 0)
+                        <span class="px-2 py-0.5 rounded-full text-[10px] font-black {{ request()->routeIs('admin.patient*') ? 'bg-white text-[#27797D]' : 'bg-slate-800 text-teal-300 border border-teal-500/40' }}">
+                            {{ $sidebarPatientCount }}
+                        </span>
+                    @endif
                 </a>
 
                 <!-- Appointments Management -->

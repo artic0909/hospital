@@ -198,21 +198,17 @@ class PatientController extends Controller
             'image' => $imagePath,
         ]);
 
-        // If converted from enquiry, mark enquiry as in_treatment & log coordinator note
+        // If converted from enquiry, delete/remove the enquiry record as requested
         if ($request->filled('enquiry_id')) {
             $enquiry = PatientEnquiry::find($request->enquiry_id);
             if ($enquiry) {
-                $note = "✓ Converted to Registered Patient #{$patient->id} ({$patient->name}) on " . now()->format('d M Y, h:i A');
-                $enquiry->update([
-                    'status' => 'in_treatment',
-                    'admin_notes' => $enquiry->admin_notes ? ($enquiry->admin_notes . "\n" . $note) : $note,
-                ]);
+                $enquiry->delete();
             }
         }
 
         return redirect()
             ->route('admin.patient.view', $patient->id)
-            ->with('success', "Patient '{$patient->name}' registered successfully!" . ($request->filled('enquiry_id') ? " (Converted from Enquiry #{$request->enquiry_id})" : ""));
+            ->with('success', "Patient '{$patient->name}' registered successfully!" . ($request->filled('enquiry_id') ? " (Converted from Enquiry #{$request->enquiry_id} and removed from enquiries list)" : ""));
     }
 
     /**

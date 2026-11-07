@@ -113,6 +113,7 @@
                             >
                         </th>
                         <th class="py-3.5 px-4 w-16">#ID</th>
+                        <th class="py-3.5 px-3 w-16 text-center">Pos</th>
                         <th class="py-3.5 px-4 w-20 text-center">Icon / Visual</th>
                         <th class="py-3.5 px-6">Speciality Name</th>
                         <th class="py-3.5 px-6">Procedures / Treatments</th>
@@ -133,6 +134,12 @@
                             </td>
                             <td class="py-3.5 px-4 font-bold text-slate-400">
                                 #{{ $item->id }}
+                            </td>
+                            <!-- Position -->
+                            <td class="py-3.5 px-3 text-center">
+                                <span class="inline-flex items-center justify-center min-w-[28px] h-7 px-1.5 rounded-lg text-xs font-black bg-teal-50 text-[#27797D] border border-teal-200 shadow-2xs font-mono" title="Frontend Order Position">
+                                    {{ $item->position ?? 0 }}
+                                </span>
                             </td>
                             <!-- Icon / Visual Preview -->
                             <td class="py-3.5 px-4 text-center">
@@ -177,7 +184,7 @@
                                     <!-- Edit Button -->
                                     <button 
                                         type="button" 
-                                        onclick="openEditSpecialityModal({{ $item->id }}, '{{ addslashes($item->name) }}', '{{ $item->image ?? '' }}', '{{ addslashes(preg_replace('/\r|\n/', ' ', $item->description ?? '')) }}')"
+                                        onclick="openEditSpecialityModal({{ $item->id }}, '{{ addslashes($item->name) }}', '{{ $item->image ?? '' }}', '{{ addslashes(preg_replace('/\r|\n/', ' ', $item->description ?? '')) }}', {{ $item->position ?? 0 }})"
                                         class="p-1.5 rounded-lg text-slate-500 hover:text-[#27797D] hover:bg-teal-50 transition-colors cursor-pointer"
                                         title="Edit Speciality"
                                     >
@@ -245,18 +252,35 @@
         <form action="{{ route('admin.utilities.doctor-spaciality.store') }}" method="POST" enctype="multipart/form-data" class="p-5 sm:p-6 space-y-4">
             @csrf
 
-            <!-- Name -->
-            <div>
-                <label class="block text-xs font-bold text-slate-700 mb-1.5">
-                    Speciality Name <span class="text-rose-500">*</span>
-                </label>
-                <input 
-                    type="text" 
-                    name="name" 
-                    required 
-                    placeholder="e.g. Interventional Cardiologist, Spine Surgeon, Surgical Oncologist..." 
-                    class="w-full bg-slate-50 focus:bg-white text-xs sm:text-sm px-3.5 py-2.5 rounded-xl border border-slate-200 focus:border-[#27797D] focus:outline-none transition-all font-medium"
-                >
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                <!-- Name (2 Cols) -->
+                <div class="sm:col-span-2">
+                    <label class="block text-xs font-bold text-slate-700 mb-1.5">
+                        Speciality Name <span class="text-rose-500">*</span>
+                    </label>
+                    <input 
+                        type="text" 
+                        name="name" 
+                        required 
+                        placeholder="e.g. Cardiology, Spine Surgery..." 
+                        class="w-full bg-slate-50 focus:bg-white text-xs sm:text-sm px-3.5 py-2.5 rounded-xl border border-slate-200 focus:border-[#27797D] focus:outline-none transition-all font-medium"
+                    >
+                </div>
+
+                <!-- Position (1 Col) -->
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1.5" title="Order number (1, 2, 3...)">
+                        Position <span class="text-rose-500">*</span>
+                    </label>
+                    <input 
+                        type="number" 
+                        name="position" 
+                        min="0"
+                        value="{{ ((int) \App\Models\DoctorSpeciality::max('position')) + 1 }}"
+                        placeholder="e.g. 1" 
+                        class="w-full bg-slate-50 focus:bg-white text-xs sm:text-sm px-3 py-2.5 rounded-xl border border-slate-200 focus:border-[#27797D] focus:outline-none transition-all font-mono font-bold text-center"
+                    >
+                </div>
             </div>
 
             <!-- Description -->
@@ -391,18 +415,35 @@
             @csrf
             @method('PUT')
 
-            <!-- Name -->
-            <div>
-                <label class="block text-xs font-bold text-slate-700 mb-1.5">
-                    Speciality Name <span class="text-rose-500">*</span>
-                </label>
-                <input 
-                    type="text" 
-                    name="name" 
-                    id="edit-speciality-name"
-                    required 
-                    class="w-full bg-slate-50 focus:bg-white text-xs sm:text-sm px-3.5 py-2.5 rounded-xl border border-slate-200 focus:border-[#27797D] focus:outline-none transition-all font-medium"
-                >
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                <!-- Name (2 Cols) -->
+                <div class="sm:col-span-2">
+                    <label class="block text-xs font-bold text-slate-700 mb-1.5">
+                        Speciality Name <span class="text-rose-500">*</span>
+                    </label>
+                    <input 
+                        type="text" 
+                        name="name" 
+                        id="edit-speciality-name"
+                        required 
+                        class="w-full bg-slate-50 focus:bg-white text-xs sm:text-sm px-3.5 py-2.5 rounded-xl border border-slate-200 focus:border-[#27797D] focus:outline-none transition-all font-medium"
+                    >
+                </div>
+
+                <!-- Position (1 Col) -->
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1.5" title="Order number (1, 2, 3...)">
+                        Position <span class="text-rose-500">*</span>
+                    </label>
+                    <input 
+                        type="number" 
+                        name="position" 
+                        id="edit-speciality-position"
+                        min="0"
+                        placeholder="e.g. 1" 
+                        class="w-full bg-slate-50 focus:bg-white text-xs sm:text-sm px-3 py-2.5 rounded-xl border border-slate-200 focus:border-[#27797D] focus:outline-none transition-all font-mono font-bold text-center"
+                    >
+                </div>
             </div>
 
             <!-- Description -->
@@ -645,11 +686,12 @@
         modal.classList.remove('flex');
     }
 
-    function openEditSpecialityModal(id, name, imagePath, description) {
+    function openEditSpecialityModal(id, name, imagePath, description, position) {
         clearIconPicker('edit-spec');
         const modal = document.getElementById('edit-speciality-modal');
         const form = document.getElementById('edit-speciality-form');
         const nameInput = document.getElementById('edit-speciality-name');
+        const positionInput = document.getElementById('edit-speciality-position');
         const descInput = document.getElementById('edit-speciality-description');
         const currentPreview = document.getElementById('edit-spec-current-preview');
         const currentImg = document.getElementById('edit-spec-current-img');
@@ -657,6 +699,9 @@
 
         form.action = "{{ url('/admin/utilities/doctor-spaciality') }}/" + id;
         nameInput.value = name;
+        if (positionInput) {
+            positionInput.value = position !== undefined && position !== null ? position : 0;
+        }
         if (descInput) {
             descInput.value = description || '';
         }
