@@ -33,24 +33,6 @@
                     Read authentic testimonials from patients worldwide who traveled abroad for complex surgeries, organ transplants, cancer care, and joint replacements with HealGoFly's end-to-end guidance.
                 </p>
 
-                <!-- Quick Stats Strip -->
-                <div class="pt-2 flex flex-wrap items-center gap-6 text-xs text-gray-600">
-                    <div class="flex items-center gap-2">
-                        <span class="font-extrabold text-[#112347] text-base">15,000+</span>
-                        <span class="text-gray-500">Patients Assisted</span>
-                    </div>
-                    <div class="w-px h-4 bg-gray-300"></div>
-                    <div class="flex items-center gap-2">
-                        <span class="font-extrabold text-emerald-600 text-base">98.6%</span>
-                        <span class="text-gray-500">Satisfaction Rate</span>
-                    </div>
-                    <div class="w-px h-4 bg-gray-300"></div>
-                    <div class="flex items-center gap-2">
-                        <span class="font-extrabold text-[#27797D] text-base">20+</span>
-                        <span class="text-gray-500">JCI / NABH Hospitals</span>
-                    </div>
-                </div>
-
                 <!-- CTAs -->
                 <div class="pt-3 flex flex-wrap items-center gap-3">
                     <a href="https://wa.me/{{ $siteSettings->clean_whatsapp }}?text={{ urlencode('Hello HealGoFly, I read your patient stories and would like to consult a doctor for my treatment.') }}" target="_blank" class="inline-flex items-center gap-2 bg-[#28a745] hover:bg-[#218838] text-white text-xs sm:text-sm font-bold px-6 py-3 rounded-xl shadow-sm hover:shadow transition-all">
