@@ -44,8 +44,6 @@
                             <span>&bull;</span>
                             <span>{{ $partner->country }}</span>
                         @endif
-                        <span>&bull;</span>
-                        <span class="italic text-orange-200 font-semibold">"Healgofly hi rahega"</span>
                     </p>
                 </div>
             </div>

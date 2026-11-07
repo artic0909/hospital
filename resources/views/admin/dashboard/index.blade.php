@@ -48,8 +48,7 @@
                         <span class="font-bold text-white">Heal Go Fly Central Administration</span>
                         <span>&bull;</span>
                         <span>Global Healthcare Facilitation</span>
-                        <span>&bull;</span>
-                        <span class="italic text-orange-200 font-semibold">"Healgofly hi rahega"</span>
+
                     </p>
                 </div>
             </div>
