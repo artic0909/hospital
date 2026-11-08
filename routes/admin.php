@@ -149,6 +149,18 @@ Route::prefix('admin')->name('admin.')->group(function () {
             Route::delete('/{appointment}', \App\Http\Controllers\Admin\AppointmentController::class . '@destroy')->name('destroy');
         });
 
+        // ==================== AGENTS CRUD & DIRECT LOGIN ====================
+        Route::prefix('agent')->name('agent.')->group(function () {
+            Route::get('/', \App\Http\Controllers\Admin\AgentController::class . '@index')->name('index');
+            Route::get('/create', \App\Http\Controllers\Admin\AgentController::class . '@create')->name('create');
+            Route::post('/', \App\Http\Controllers\Admin\AgentController::class . '@store')->name('store');
+            Route::get('/{agent}/login-direct', \App\Http\Controllers\Admin\AgentController::class . '@loginAsAgent')->name('login-direct');
+            Route::get('/{agent}', \App\Http\Controllers\Admin\AgentController::class . '@show')->name('view');
+            Route::get('/{agent}/edit', \App\Http\Controllers\Admin\AgentController::class . '@edit')->name('update');
+            Route::put('/{agent}', \App\Http\Controllers\Admin\AgentController::class . '@update')->name('update.submit');
+            Route::delete('/{agent}', \App\Http\Controllers\Admin\AgentController::class . '@destroy')->name('destroy');
+        });
+
         // ==================== PATIENT ENQUIRIES / LEADS ====================
         Route::prefix('enquiries')->name('enquiries.')->group(function () {
             Route::get('/', [PatientEnquiryController::class, 'index'])->name('index');

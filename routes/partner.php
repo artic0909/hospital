@@ -15,11 +15,11 @@ use App\Http\Controllers\Partner\AppointmentController as PartnerAppointmentCont
 // ==================== PARTNER PORTAL ====================
 Route::prefix('partner')->name('partner.')->group(function () {
 
-    // Guest partner routes
+    // Guest partner routes (Redirected to Agent login & register)
     Route::middleware('guest:partner')->group(function () {
-        Route::get('/login', [PartnerAuthController::class, 'showLoginForm'])->name('login');
+        Route::get('/login', fn() => redirect()->route('agent.login'))->name('login');
         Route::post('/login', [PartnerAuthController::class, 'login'])->name('login.submit');
-        Route::get('/register', [PartnerAuthController::class, 'showRegisterForm'])->name('register');
+        Route::get('/register', fn() => redirect()->route('agent.register'))->name('register');
         Route::post('/register', [PartnerAuthController::class, 'register'])->name('register.submit');
     });
 

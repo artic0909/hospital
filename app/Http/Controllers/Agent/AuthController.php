@@ -54,6 +54,7 @@ class AuthController extends Controller
                     'success' => false,
                     'errors' => [
                         'email' => $validator->errors()->get('login') ?: $validator->errors()->get('email'),
+                        'login' => $validator->errors()->get('login') ?: $validator->errors()->get('email'),
                         'password' => $validator->errors()->get('password'),
                     ],
                     'message' => 'Please fix the errors below.',
@@ -164,13 +165,21 @@ class AuthController extends Controller
      */
     public function register(Request $request): JsonResponse|RedirectResponse
     {
+        // Normalize agent_type / partner_type from form
+        $agentType = $request->input('agent_type', $request->input('partner_type', 'Medical Tourism Agency'));
+        $request->merge([
+            'agent_type' => $agentType,
+            'partner_type' => $agentType,
+        ]);
+
         $validator = Validator::make($request->all(), [
             'name' => ['required', 'string', 'min:3', 'max:255'],
             'company_name' => ['nullable', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:agents,email'],
-            'phone' => ['required', 'string', 'min:7', 'max:20'],
+            'phone' => ['required', 'string', 'min:5', 'max:30'],
             'country' => ['required', 'string', 'max:100'],
             'agent_type' => ['required', 'string', 'max:100'],
+            'partner_type' => ['nullable', 'string', 'max:100'],
             'website' => ['nullable', 'string', 'max:255'],
             'address' => ['nullable', 'string', 'max:1000'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
@@ -180,15 +189,16 @@ class AuthController extends Controller
             'name.min' => 'Full name must be at least 3 characters.',
             'email.required' => 'Please enter your business email.',
             'email.email' => 'Please provide a valid email address.',
-            'email.unique' => 'This email is already registered as an agent. Please log in instead.',
+            'email.unique' => 'This email is already registered. Please log in instead.',
             'phone.required' => 'Please enter your phone/WhatsApp contact number.',
-            'phone.min' => 'Phone number must be at least 7 digits.',
+            'phone.min' => 'Phone number must be at least 5 digits.',
             'country.required' => 'Please select or enter your country.',
-            'agent_type.required' => 'Please select your organization/agent type.',
+            'agent_type.required' => 'Please select your organization/partner type.',
+            'partner_type.required' => 'Please select your organization/partner type.',
             'password.required' => 'Please create a secure password.',
             'password.min' => 'Password must be at least 8 characters long.',
             'password.confirmed' => 'Password confirmation does not match.',
-            'terms.accepted' => 'You must agree to the Heal Go Fly Agent Terms & Conditions.',
+            'terms.accepted' => 'You must agree to the Terms & Conditions.',
         ]);
 
         if ($validator->fails()) {
@@ -203,14 +213,23 @@ class AuthController extends Controller
             return back()->withErrors($validator)->withInput($request->except('password', 'password_confirmation'));
         }
 
+        // Combine country code with phone if separate
+        $cleanPhone = trim((string) $request->phone);
+        if ($request->filled('country_code')) {
+            $cleanCode = trim((string) $request->country_code);
+            if (!str_starts_with($cleanPhone, '+') && !str_starts_with($cleanPhone, $cleanCode)) {
+                $cleanPhone = $cleanCode . ' ' . $cleanPhone;
+            }
+        }
+
         // Create the agent record
         $agent = Agent::create([
             'name' => trim($request->name),
             'company_name' => $request->filled('company_name') ? trim($request->company_name) : null,
             'email' => strtolower(trim($request->email)),
-            'phone' => trim($request->phone),
+            'phone' => $cleanPhone,
             'country' => trim($request->country),
-            'agent_type' => $request->agent_type,
+            'agent_type' => $agentType,
             'website' => $request->filled('website') ? trim($request->website) : null,
             'address' => $request->filled('address') ? trim($request->address) : null,
             'status' => 'active',

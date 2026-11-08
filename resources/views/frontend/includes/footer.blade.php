@@ -47,7 +47,7 @@
                         <li><a href="{{ route('hospitals') }}" class="hover:text-[#EF7415] transition-colors">Hospital Services</a></li>
                         <li><a href="{{ route('doctors') }}" class="hover:text-[#EF7415] transition-colors">Doctor Services</a></li>
                         <li><a href="{{ route('medical.visa') }}" class="hover:text-[#EF7415] transition-colors">Visa Invitation Letter</a></li>
-                        <li><a href="{{ route('partner.login') }}" class="hover:text-[#EF7415] transition-colors">Partner Portal</a></li>
+                        <li><a href="{{ route('agent.login') }}" class="hover:text-[#EF7415] transition-colors">Partner Portal</a></li>
                         <li><a href="{{ route('admin.login') }}" class="hover:text-[#EF7415] transition-colors">Admin Portal</a></li>
                         <li><a href="{{ route('privacy') }}" class="hover:text-[#EF7415] transition-colors">Privacy Policy</a></li>
                         <li><a href="{{ route('contact') }}" class="hover:text-[#EF7415] transition-colors">Office Locations</a></li>

@@ -74,6 +74,22 @@
         <!-- ==================== MAIN CONTENT WRAPPER ==================== -->
         <div class="lg:pl-64 flex flex-col flex-1 min-w-0">
 
+            @if(session('impersonated_by_admin') || auth('admin')->check())
+                <!-- Admin Impersonation Notice Bar -->
+                <div class="bg-gradient-to-r from-amber-600 via-[#EF7415] to-amber-700 text-white px-4 py-2 text-xs font-bold flex items-center justify-between shadow-xs sticky top-0 z-40">
+                    <div class="flex items-center gap-2">
+                        <span class="w-2 h-2 rounded-full bg-white animate-ping"></span>
+                        <span>⚡ <strong>Admin Impersonation Mode:</strong> Viewing Agent Desk as <u>{{ auth('agent')->user()->name ?? 'Agent' }}</u> ({{ auth('agent')->user()->agent_code ?? '' }})</span>
+                    </div>
+                    <a 
+                        href="{{ route('admin.agent.index') }}" 
+                        class="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-white/20 hover:bg-white text-white hover:text-slate-900 text-[11px] font-extrabold transition-all"
+                    >
+                        <span>&larr; Return to Admin</span>
+                    </a>
+                </div>
+            @endif
+
             <!-- Top Header Bar -->
             @include('agent.includes.header')
 
