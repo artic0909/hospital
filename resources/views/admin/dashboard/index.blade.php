@@ -48,7 +48,6 @@
                         <span class="font-bold text-white">Heal Go Fly Central Administration</span>
                         <span>&bull;</span>
                         <span>Global Healthcare Facilitation</span>
-
                     </p>
                 </div>
             </div>
@@ -56,8 +55,18 @@
             <!-- Right: Quick CTA Buttons -->
             <div class="flex flex-wrap items-center gap-3 w-full lg:w-auto">
                 <a 
-                    href="{{ route('admin.appointment.create') }}"
+                    href="{{ route('admin.agent.create') }}"
                     class="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 bg-[#EF7415] hover:bg-[#d9640d] text-white px-5 py-3 rounded-xl font-bold text-sm shadow-lg shadow-[#EF7415]/30 transition-all hover:-translate-y-0.5 cursor-pointer"
+                >
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/>
+                    </svg>
+                    <span>Add New Agent</span>
+                </a>
+
+                <a 
+                    href="{{ route('admin.appointment.create') }}"
+                    class="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 bg-white/20 hover:bg-white/30 text-white px-5 py-3 rounded-xl font-bold text-sm backdrop-blur-xs border border-white/20 transition-all hover:-translate-y-0.5"
                 >
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/>
@@ -151,7 +160,7 @@
             <div class="mt-2.5">
                 <h3 class="text-2xl sm:text-3xl font-black text-purple-700 tracking-tight">{{ number_format($kpis['total_patients']) }}</h3>
                 <div class="mt-2 flex items-center gap-1.5 text-[11px] font-semibold text-purple-600">
-                    <span>Network Dossiers</span>
+                    <span>{{ number_format($kpis['agent_patients_count']) }} from Agents &bull; Total Dossiers</span>
                 </div>
             </div>
         </div>
@@ -174,20 +183,20 @@
             </div>
         </div>
 
-        <!-- KPI 6: Hospital & Doctor Network -->
+        <!-- KPI 6: Agents & Facilitators Network (Replaced Partners) -->
         <div class="bg-white rounded-2xl p-5 border border-slate-200/80 shadow-xs hover:shadow-md transition-all duration-200 group">
             <div class="flex items-center justify-between">
-                <span class="text-[11px] font-bold uppercase tracking-wider text-slate-400">Network Hub</span>
-                <div class="w-10 h-10 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center group-hover:scale-105 transition-transform">
+                <span class="text-[11px] font-bold uppercase tracking-wider text-slate-400">Agent Network</span>
+                <div class="w-10 h-10 rounded-xl bg-amber-50 text-[#EF7415] flex items-center justify-center group-hover:scale-105 transition-transform">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
                     </svg>
                 </div>
             </div>
             <div class="mt-2.5">
-                <h3 class="text-2xl sm:text-3xl font-black text-[#EF7415] tracking-tight">{{ $kpis['total_hospitals'] }}<span class="text-xs text-slate-400 font-bold"> Hosp</span></h3>
-                <div class="mt-2 flex items-center gap-1.5 text-[11px] font-semibold text-amber-600">
-                    <span>{{ $kpis['total_doctors'] }} Doctors &bull; {{ $kpis['total_partners'] }} Partners</span>
+                <h3 class="text-2xl sm:text-3xl font-black text-[#EF7415] tracking-tight">{{ number_format($kpis['total_agents']) }}<span class="text-xs text-slate-400 font-bold"> Agents</span></h3>
+                <div class="mt-2 flex items-center gap-1.5 text-[11px] font-semibold text-teal-600">
+                    <span>{{ number_format($kpis['agent_patients_count']) }} Patients &bull; {{ number_format($kpis['agent_appointments_count']) }} Appts</span>
                 </div>
             </div>
         </div>
@@ -205,7 +214,7 @@
                         Monthly Patient Referrals & Admissions
                     </h3>
                     <p class="text-xs text-slate-400 mt-0.5">
-                        Performance comparison across the last 10 months (Jan - Oct)
+                        Performance comparison across the last 6 months
                     </p>
                 </div>
                 <!-- Mini Metric Badge -->
@@ -311,7 +320,142 @@
 
     </div>
 
-    <!-- ==================== 5. RECENT REFERRALS DATA TABLE ==================== -->
+    <!-- ==================== 5. AGENTS NETWORK & PATIENT REFERRALS LEADERBOARD ==================== -->
+    <div class="bg-white rounded-3xl border border-slate-200/80 shadow-xs overflow-hidden">
+        
+        <!-- Table Header & Controls -->
+        <div class="p-5 sm:p-6 border-b border-slate-100 flex flex-col md:flex-row md:items-center justify-between gap-4">
+            <div>
+                <div class="flex flex-wrap items-center gap-2 mb-1">
+                    <span class="text-xs font-bold uppercase tracking-wider text-[#27797D]">Agent Network Overview</span>
+                    <span class="text-slate-300">&bull;</span>
+                    <span class="px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-teal-50 text-teal-700 border border-teal-200">
+                        {{ $agentsContribution->count() }} Registered Agents
+                    </span>
+                    <span class="px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-amber-50 text-[#EF7415] border border-amber-200">
+                        {{ $kpis['agent_patients_count'] }} Patients Referred
+                    </span>
+                </div>
+                <h3 class="text-lg font-black text-[#112347] tracking-tight">
+                    Agent Patient Referrals & Appointments Leaderboard
+                </h3>
+                <p class="text-xs text-slate-400 mt-0.5">
+                    Live overview of each medical travel agent, how many patients they have referred to admin, their scheduled appointments, and direct power access.
+                </p>
+            </div>
+
+            <div class="flex items-center gap-2.5">
+                <a 
+                    href="{{ route('admin.agent.create') }}" 
+                    class="px-3.5 py-2 rounded-xl bg-[#EF7415] hover:bg-[#d9640d] text-white text-xs font-bold shadow-xs transition-all flex items-center gap-1.5"
+                >
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg>
+                    <span>+ Add Agent</span>
+                </a>
+                <a 
+                    href="{{ route('admin.agent.index') }}" 
+                    class="px-3.5 py-2 rounded-xl border border-slate-200 bg-slate-50 hover:bg-slate-100 text-xs font-bold text-slate-700 transition-colors"
+                >
+                    View All Agents &rarr;
+                </a>
+            </div>
+        </div>
+
+        <div class="overflow-x-auto">
+            <table class="w-full text-left border-collapse text-xs">
+                <thead>
+                    <tr class="bg-slate-50/80 border-b border-slate-100 text-[10px] font-bold uppercase tracking-wider text-slate-400">
+                        <th class="py-3 px-4 sm:px-6">Agent & Reference</th>
+                        <th class="py-3 px-4">Agency / Type</th>
+                        <th class="py-3 px-4">Country & Contact</th>
+                        <th class="py-3 px-4 text-center">Patients Referred</th>
+                        <th class="py-3 px-4 text-center">Appointments</th>
+                        <th class="py-3 px-4">Status</th>
+                        <th class="py-3 px-4 sm:px-6 text-right">Actions</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-slate-100 font-medium text-slate-700">
+                    @forelse($agentsContribution as $agent)
+                        <tr class="hover:bg-slate-50/60 transition-colors">
+                            <td class="py-3.5 px-4 sm:px-6">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-[#27797D] to-[#112347] text-white flex items-center justify-center font-black text-xs shrink-0 shadow-2xs">
+                                        {{ strtoupper(substr($agent->name, 0, 1)) }}
+                                    </div>
+                                    <div>
+                                        <a href="{{ route('admin.agent.view', $agent->id) }}" class="font-bold text-[#112347] hover:text-[#27797D] block leading-snug">
+                                            {{ $agent->name }}
+                                        </a>
+                                        <span class="font-mono text-[11px] text-teal-700 font-bold bg-teal-50 px-1.5 py-0.2 rounded border border-teal-200/60 inline-block mt-0.5">
+                                            {{ $agent->agent_code }}
+                                        </span>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="py-3.5 px-4">
+                                <span class="font-bold text-slate-800 block">{{ $agent->company_name ?: 'Independent' }}</span>
+                                <span class="text-[11px] text-slate-400">{{ $agent->agent_type }}</span>
+                            </td>
+                            <td class="py-3.5 px-4">
+                                <span class="font-semibold text-slate-700 block">{{ $agent->country }}</span>
+                                <span class="font-mono text-[11px] text-slate-400">{{ $agent->phone }}</span>
+                            </td>
+                            <td class="py-3.5 px-4 text-center">
+                                <a href="{{ route('admin.patient.index', ['agent_id' => $agent->id]) }}" class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-black {{ $agent->patients_count > 0 ? 'bg-teal-50 text-[#27797D] border border-teal-200 hover:bg-teal-100' : 'bg-slate-50 text-slate-400 border border-slate-200' }} transition-colors">
+                                    👥 {{ $agent->patients_count }} Patients
+                                </a>
+                            </td>
+                            <td class="py-3.5 px-4 text-center">
+                                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-black {{ $agent->appointments_count > 0 ? 'bg-amber-50 text-[#EF7415] border border-amber-200' : 'bg-slate-50 text-slate-400 border border-slate-200' }}">
+                                    📅 {{ $agent->appointments_count }} Appts
+                                </span>
+                            </td>
+                            <td class="py-3.5 px-4">
+                                <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase {{ $agent->status === 'active' ? 'bg-emerald-50 text-emerald-700 border border-emerald-200' : 'bg-rose-50 text-rose-700 border border-rose-200' }}">
+                                    {{ ucfirst($agent->status) }}
+                                </span>
+                            </td>
+                            <td class="py-3.5 px-4 sm:px-6 text-right">
+                                <div class="inline-flex items-center gap-2">
+                                    <a 
+                                        href="{{ route('admin.agent.login-direct', $agent->id) }}" 
+                                        target="_blank"
+                                        class="px-2.5 py-1.5 rounded-lg bg-amber-50 hover:bg-amber-500 text-amber-700 hover:text-white border border-amber-200 font-bold text-[11px] transition-colors inline-flex items-center gap-1"
+                                        title="Direct power login into {{ $agent->name }}'s portal"
+                                    >
+                                        <span>⚡ Power Login</span>
+                                    </a>
+                                    <a 
+                                        href="{{ route('admin.agent.view', $agent->id) }}" 
+                                        class="px-2.5 py-1.5 rounded-lg bg-slate-100 hover:bg-[#27797D] hover:text-white text-slate-700 font-bold text-[11px] transition-colors inline-block"
+                                    >
+                                        Dossier &rarr;
+                                    </a>
+                                </div>
+                            </td>
+                        </tr>
+                    @empty
+                        <tr>
+                            <td colspan="7" class="py-8 text-center text-slate-400">
+                                No agents registered yet. <a href="{{ route('admin.agent.create') }}" class="text-[#27797D] font-bold underline">Add your first agent</a>.
+                            </td>
+                        </tr>
+                    @endforelse
+                </tbody>
+            </table>
+        </div>
+
+        @if($agentsContribution->count() > 5)
+            <div class="p-3.5 bg-slate-50 border-t border-slate-100 text-right">
+                <a href="{{ route('admin.agent.index') }}" class="text-xs font-bold text-[#27797D] hover:underline">
+                    View Complete Agents Directory ({{ $agentsContribution->count() }} Agents) &rarr;
+                </a>
+            </div>
+        @endif
+
+    </div>
+
+    <!-- ==================== 6. RECENT REFERRALS DATA TABLE ==================== -->
     <div id="referrals-table" class="bg-white rounded-2xl border border-slate-200/80 shadow-xs overflow-hidden">
         
         <!-- Table Header & Controls -->
@@ -374,7 +518,7 @@
                         <th class="py-3.5 px-4">Specialty & Doctor</th>
                         <th class="py-3.5 px-4">Current Stage</th>
                         <th class="py-3.5 px-4">OPD Fee</th>
-                        <th class="py-3.5 px-4">Facilitator / Partner</th>
+                        <th class="py-3.5 px-4">Agent / Facilitator</th>
                         <th class="py-3.5 px-4 sm:px-6 text-right">Action</th>
                     </tr>
                 </thead>
@@ -384,7 +528,7 @@
                             $patient = $apt->patient;
                             $doctor = $apt->doctor;
                             $hospital = $apt->hospital;
-                            $partner = $apt->partner;
+                            $aptAgent = $apt->agent ?? $apt->patient?->agent;
 
                             $patientName = $patient->name ?? 'Walk-in Patient';
                             $initials = collect(explode(' ', $patientName))->map(fn($part) => substr($part, 0, 1))->take(2)->join('');
@@ -415,7 +559,7 @@
                                     {{ $hospital->name ?? 'Direct Network' }}
                                 </span>
                                 <span class="text-slate-400 text-[11px] block truncate max-w-[180px]">
-                                    {{ $hospital->address ?? ($hospital->contact ?? 'Partner Network') }}
+                                    {{ $hospital->address ?? ($hospital->contact ?? 'Hospital Network') }}
                                 </span>
                             </td>
                             <td class="py-3.5 px-4">
@@ -434,8 +578,11 @@
                                 ₹{{ number_format($doctor->OPD_fee ?? 0) }}
                             </td>
                             <td class="py-3.5 px-4 font-bold text-slate-700">
-                                @if($partner)
-                                    <span class="text-emerald-700">{{ $partner->company_name ?? $partner->name }}</span>
+                                @if($aptAgent)
+                                    <a href="{{ route('admin.agent.view', $aptAgent->id) }}" class="text-[#27797D] hover:underline inline-flex items-center gap-1.5" title="{{ $aptAgent->name }} ({{ $aptAgent->agent_code }})">
+                                        <span class="px-1.5 py-0.5 rounded text-[10px] font-mono font-bold bg-teal-50 text-teal-800 border border-teal-200">{{ $aptAgent->agent_code }}</span>
+                                        <span class="truncate max-w-[130px]">{{ $aptAgent->name }}</span>
+                                    </a>
                                 @else
                                     <span class="text-slate-400 font-normal">Direct Booking</span>
                                 @endif
@@ -480,100 +627,216 @@
 
 </div>
 
-<!-- ==================== 6. MODAL: REFER / ADD NEW PATIENT ==================== -->
-<div 
-    id="admin-referral-modal" 
-    class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-slate-900/60 backdrop-blur-xs overflow-y-auto"
->
-    <div class="relative w-full max-w-lg bg-white rounded-2xl shadow-2xl border border-slate-200 overflow-hidden my-8">
-        
-        <!-- Modal Top Bar -->
-        <div class="bg-gradient-to-r from-[#112347] to-[#27797D] text-white p-5 flex items-center justify-between">
-            <div>
-                <h3 class="text-base font-bold">Submit New Patient Case</h3>
-                <p class="text-xs text-teal-100 mt-0.5">Assigned to Central Medical Board &bull; 24-48h SLA</p>
-            </div>
-            <button 
-                type="button" 
-                onclick="closeReferralModal()"
-                class="w-7 h-7 rounded-full bg-white/20 hover:bg-white/30 text-white flex items-center justify-center text-xs font-bold transition-colors cursor-pointer"
-            >
-                ✕
-            </button>
-        </div>
+<!-- ApexCharts Script Initialization -->
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const data = window.dashboardChartData || {};
 
-        <!-- Modal Form -->
-        <form 
-            action="#" 
-            method="POST" 
-            class="p-5 sm:p-6 space-y-4 text-xs" 
-            onsubmit="event.preventDefault(); alert('Success! Patient case has been added. The Medical Board is reviewing reports and preparing quotes.'); closeReferralModal();"
-        >
-            @csrf
+    // 1. Bar Chart: Monthly Referrals vs Admissions
+    if (document.getElementById('chart-referrals-bar') && typeof ApexCharts !== 'undefined') {
+        const monthly = data.monthly || {};
+        const optionsBar = {
+            series: [{
+                name: 'Referrals / Queries',
+                data: monthly.referrals || [12, 18, 15, 25, 22, 30]
+            }, {
+                name: 'Admissions & In-Care',
+                data: monthly.admissions || [6, 11, 9, 17, 15, 22]
+            }],
+            chart: {
+                type: 'bar',
+                height: 280,
+                toolbar: { show: false },
+                fontFamily: 'inherit'
+            },
+            colors: ['#1D4B6C', '#27797D'],
+            plotOptions: {
+                bar: {
+                    horizontal: false,
+                    columnWidth: '45%',
+                    borderRadius: 6
+                }
+            },
+            dataLabels: { enabled: false },
+            stroke: { show: true, width: 2, colors: ['transparent'] },
+            xaxis: {
+                categories: monthly.labels || ['May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct'],
+                labels: { style: { colors: '#64748b', fontSize: '11px', fontWeight: 600 } }
+            },
+            yaxis: {
+                labels: { style: { colors: '#64748b', fontSize: '11px', fontWeight: 600 } }
+            },
+            fill: { opacity: 1 },
+            tooltip: {
+                theme: 'light',
+                y: { formatter: (val) => val + ' Cases' }
+            },
+            legend: {
+                position: 'top',
+                horizontalAlign: 'right',
+                fontWeight: 600,
+                fontSize: '11px'
+            }
+        };
+        new ApexCharts(document.getElementById('chart-referrals-bar'), optionsBar).render();
+    }
 
-            <!-- Patient Name -->
-            <div>
-                <label class="block font-bold text-slate-700 mb-1">Patient Full Name <span class="text-rose-500">*</span></label>
-                <input type="text" required placeholder="e.g. John Doe" class="w-full px-3 py-2 border border-slate-200 rounded-xl focus:outline-none focus:border-[#27797D]">
-            </div>
+    // 2. Specialty Donut Chart
+    if (document.getElementById('chart-specialty-donut') && typeof ApexCharts !== 'undefined') {
+        const specialty = data.specialty || {};
+        const optionsDonut = {
+            series: specialty.series && specialty.series.length ? specialty.series : [35, 25, 20, 12, 8],
+            labels: specialty.labels && specialty.labels.length ? specialty.labels : ['Cardiology', 'Oncology', 'Orthopedics', 'Neuro', 'Other'],
+            chart: {
+                type: 'donut',
+                height: 280,
+                fontFamily: 'inherit'
+            },
+            colors: ['#27797D', '#EF7415', '#1D4B6C', '#06b6d4', '#8b5cf6'],
+            legend: {
+                position: 'bottom',
+                fontSize: '11px',
+                fontWeight: 600
+            },
+            dataLabels: { enabled: false },
+            plotOptions: {
+                pie: {
+                    donut: {
+                        size: '68%',
+                        labels: {
+                            show: true,
+                            total: {
+                                show: true,
+                                label: 'Cases',
+                                fontSize: '12px',
+                                fontWeight: 700,
+                                color: '#64748b',
+                                formatter: (w) => w.globals.seriesTotals.reduce((a, b) => a + b, 0)
+                            }
+                        }
+                    }
+                }
+            }
+        };
+        new ApexCharts(document.getElementById('chart-specialty-donut'), optionsDonut).render();
+    }
 
-            <!-- Country & City -->
-            <div class="grid grid-cols-2 gap-3">
-                <div>
-                    <label class="block font-bold text-slate-700 mb-1">Patient Country <span class="text-rose-500">*</span></label>
-                    <input type="text" required placeholder="e.g. Bangladesh, Nigeria..." class="w-full px-3 py-2 border border-slate-200 rounded-xl focus:outline-none focus:border-[#27797D]">
-                </div>
-                <div>
-                    <label class="block font-bold text-slate-700 mb-1">Age / Gender <span class="text-rose-500">*</span></label>
-                    <input type="text" required placeholder="e.g. 45 M" class="w-full px-3 py-2 border border-slate-200 rounded-xl focus:outline-none focus:border-[#27797D]">
-                </div>
-            </div>
+    // 3. Pipeline Funnel Chart
+    if (document.getElementById('chart-pipeline-pyramid') && typeof ApexCharts !== 'undefined') {
+        const pipeline = data.pipeline || {};
+        const optionsPyramid = {
+            series: [{
+                name: 'Patients',
+                data: pipeline.series && pipeline.series.length ? pipeline.series : [45, 32, 24, 18]
+            }],
+            chart: {
+                type: 'bar',
+                height: 270,
+                toolbar: { show: false },
+                fontFamily: 'inherit'
+            },
+            plotOptions: {
+                bar: {
+                    borderRadius: 4,
+                    horizontal: true,
+                    distributed: true,
+                    barHeight: '65%',
+                    isFunnel: false
+                }
+            },
+            colors: ['#1D4B6C', '#27797D', '#EF7415', '#10b981'],
+            dataLabels: {
+                enabled: true,
+                formatter: (val, opt) => (pipeline.categories ? pipeline.categories[opt.dataPointIndex] : '') + ': ' + val,
+                dropShadow: { enabled: false },
+                style: { fontSize: '11px', fontWeight: 700, colors: ['#fff'] }
+            },
+            xaxis: {
+                categories: pipeline.categories || ['Booked', 'Received', 'Treatment', 'Discharge'],
+                labels: { show: false }
+            },
+            yaxis: { labels: { show: false } },
+            legend: { show: false },
+            tooltip: { theme: 'light' }
+        };
+        new ApexCharts(document.getElementById('chart-pipeline-pyramid'), optionsPyramid).render();
+    }
 
-            <!-- Medical Problem / Diagnosis -->
-            <div>
-                <label class="block font-bold text-slate-700 mb-1">Current Diagnosis / Chief Complaint <span class="text-rose-500">*</span></label>
-                <textarea rows="3" required placeholder="Describe clinical symptoms, past treatments, diagnosis..." class="w-full px-3 py-2 border border-slate-200 rounded-xl focus:outline-none focus:border-[#27797D]"></textarea>
-            </div>
+    // 4. Target Radial Gauge Chart
+    if (document.getElementById('chart-target-radial') && typeof ApexCharts !== 'undefined') {
+        const radialVal = data.radialProgress !== undefined ? data.radialProgress : 76;
+        const optionsRadial = {
+            series: [radialVal],
+            chart: {
+                height: 180,
+                type: 'radialBar',
+                sparkline: { enabled: true }
+            },
+            plotOptions: {
+                radialBar: {
+                    startAngle: -90,
+                    endAngle: 90,
+                    track: {
+                        background: '#f1f5f9',
+                        strokeWidth: '97%'
+                    },
+                    dataLabels: {
+                        name: { show: false },
+                        value: {
+                            offsetY: -2,
+                            fontSize: '22px',
+                            fontWeight: '900',
+                            color: '#112347',
+                            formatter: (val) => val + '%'
+                        }
+                    }
+                }
+            },
+            fill: {
+                type: 'gradient',
+                gradient: {
+                    shade: 'dark',
+                    type: 'horizontal',
+                    shadeIntensity: 0.5,
+                    gradientToColors: ['#EF7415'],
+                    inverseColors: true,
+                    opacityFrom: 1,
+                    opacityTo: 1,
+                    stops: [0, 100]
+                }
+            },
+            colors: ['#27797D'],
+            stroke: { lineCap: 'round' }
+        };
+        new ApexCharts(document.getElementById('chart-target-radial'), optionsRadial).render();
+    }
 
-            <!-- Destination Preference -->
-            <div>
-                <label class="block font-bold text-slate-700 mb-1">Preferred Destination Hub</label>
-                <select class="w-full px-3 py-2 border border-slate-200 rounded-xl focus:outline-none focus:border-[#27797D] cursor-pointer font-medium">
-                    <option value="India" selected>India (Top Choice - NABH/JCI)</option>
-                    <option value="Turkey">Turkey (Istanbul/Ankara)</option>
-                    <option value="Thailand">Thailand (Bangkok)</option>
-                    <option value="UAE">United Arab Emirates (Dubai)</option>
-                    <option value="Best Price">Best Quote Globally</option>
-                </select>
-            </div>
+    // 5. Table Filter Client Side
+    const searchInput = document.getElementById('table-filter-search');
+    const statusSelect = document.getElementById('table-status-filter');
+    const rows = document.querySelectorAll('.referral-table-row');
 
-            <!-- File Upload Simulation -->
-            <div>
-                <label class="block font-bold text-slate-700 mb-1">Attach Medical Reports / MRI / Scans</label>
-                <input type="file" multiple class="w-full text-slate-500 file:mr-3 file:py-1.5 file:px-3 file:rounded-lg file:border-0 file:text-xs file:font-semibold file:bg-teal-50 file:text-[#27797D] hover:file:bg-teal-100 cursor-pointer">
-                <span class="text-[10px] text-slate-400 mt-1 block">PDF, JPG, PNG, DICOM up to 25MB (or send directly to WhatsApp)</span>
-            </div>
+    function filterTable() {
+        const query = (searchInput?.value || '').toLowerCase().trim();
+        const status = statusSelect?.value || 'all';
 
-            <!-- Actions -->
-            <div class="pt-3 border-t border-slate-100 flex items-center justify-end gap-2.5">
-                <button 
-                    type="button" 
-                    onclick="closeReferralModal()"
-                    class="px-4 py-2 rounded-xl text-slate-600 hover:bg-slate-100 font-semibold transition-colors cursor-pointer"
-                >
-                    Cancel
-                </button>
-                <button 
-                    type="submit" 
-                    class="px-5 py-2 rounded-xl bg-[#EF7415] hover:bg-[#d9640d] text-white font-bold shadow-sm transition-all cursor-pointer"
-                >
-                    Submit Case &rarr;
-                </button>
-            </div>
+        rows.forEach(row => {
+            const rowText = row.textContent.toLowerCase();
+            const rowStatus = row.getAttribute('data-status');
 
-        </form>
+            const matchesQuery = !query || rowText.includes(query);
+            const matchesStatus = status === 'all' || rowStatus === status;
 
-    </div>
-</div>
+            if (matchesQuery && matchesStatus) {
+                row.style.display = '';
+            } else {
+                row.style.display = 'none';
+            }
+        });
+    }
 
+    if (searchInput) searchInput.addEventListener('input', filterTable);
+    if (statusSelect) statusSelect.addEventListener('change', filterTable);
+});
+</script>
 @endsection

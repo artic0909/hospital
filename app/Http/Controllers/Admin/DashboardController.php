@@ -3,10 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Agent;
 use App\Models\Appointment;
 use App\Models\Doctor;
 use App\Models\Hospital;
-use App\Models\Partner;
 use App\Models\Patient;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -32,7 +32,10 @@ class DashboardController extends Controller
         $admissions     = $receivedCount + $treatmentCount;
 
         $totalPatients  = Patient::count();
-        $totalPartners  = Partner::count();
+        $totalAgents    = Agent::count();
+        $activeAgents   = Agent::where('status', 'active')->count();
+        $agentPatientsCount     = Patient::whereNotNull('agent_id')->count();
+        $agentAppointmentsCount = Appointment::whereNotNull('agent_id')->count();
         $totalHospitals = Hospital::count();
         $totalDoctors   = Doctor::count();
 
@@ -56,20 +59,23 @@ class DashboardController extends Controller
             : 0;
 
         $kpis = [
-            'total_referrals'      => $totalReferrals,
-            'admissions'           => $admissions,
-            'active_treatment'     => $treatmentCount,
-            'received'             => $receivedCount,
-            'discharged'           => $dischargeCount,
-            'booked'               => $bookedCount,
-            'total_patients'       => $totalPatients,
-            'total_partners'       => $totalPartners,
-            'total_hospitals'      => $totalHospitals,
-            'total_doctors'        => $totalDoctors,
-            'total_earnings'       => (float) $totalEarnings,
-            'referrals_this_month' => $referralsThisMonth,
-            'conversion_rate'      => $conversionRate,
-            'completion_rate'      => $completionRate,
+            'total_referrals'          => $totalReferrals,
+            'admissions'               => $admissions,
+            'active_treatment'         => $treatmentCount,
+            'received'                 => $receivedCount,
+            'discharged'               => $dischargeCount,
+            'booked'                   => $bookedCount,
+            'total_patients'           => $totalPatients,
+            'total_agents'             => $totalAgents,
+            'active_agents'            => $activeAgents,
+            'agent_patients_count'     => $agentPatientsCount,
+            'agent_appointments_count' => $agentAppointmentsCount,
+            'total_hospitals'          => $totalHospitals,
+            'total_doctors'            => $totalDoctors,
+            'total_earnings'           => (float) $totalEarnings,
+            'referrals_this_month'     => $referralsThisMonth,
+            'conversion_rate'          => $conversionRate,
+            'completion_rate'          => $completionRate,
         ];
 
         // 2. Monthly Trend Chart (Last 6 Months)
@@ -155,10 +161,17 @@ class DashboardController extends Controller
                 ];
             });
 
-        // 6. Recent Appointments Table
-        $recentAppointments = Appointment::with(['patient', 'doctor', 'hospital', 'partner', 'histories'])
-            ->latest()
-            ->take(8)
+        // 6. Agents Contribution & Patient Referral Leaderboard
+        $agentsContribution = Agent::withCount(['patients', 'appointments'])
+            ->orderByDesc('patients_count')
+            ->orderByDesc('appointments_count')
+            ->latest('id')
+            ->get();
+
+        // 7. Recent Appointments Table (eager-loaded with agent & patient)
+        $recentAppointments = Appointment::with(['patient.agent', 'doctor', 'hospital', 'agent', 'histories'])
+            ->latest('id')
+            ->take(10)
             ->get();
 
         // Package chart payload
@@ -185,6 +198,7 @@ class DashboardController extends Controller
             'kpis',
             'chartData',
             'destinations',
+            'agentsContribution',
             'recentAppointments'
         ));
     }

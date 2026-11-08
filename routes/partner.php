@@ -28,13 +28,6 @@ Route::prefix('partner')->name('partner.')->group(function () {
         Route::get('/dashboard', [PartnerDashboardController::class, 'index'])->name('dashboard');
         Route::post('/logout', [PartnerAuthController::class, 'logout'])->name('logout');
 
-        // Appointments for partner
-        Route::prefix('appointment')->name('appointment.')->group(function () {
-            Route::get('/', [PartnerAppointmentController::class, 'index'])->name('index');
-            Route::get('/{appointment}', [PartnerAppointmentController::class, 'show'])->name('view');
-            Route::patch('/{appointment}/status', [PartnerAppointmentController::class, 'updateStatus'])->name('update-status');
-        });
-
         // 1. Doctors CRUD
         Route::prefix('doctor')->name('doctor.')->group(function () {
             Route::get('/', [PartnerDoctorController::class, 'index'])->name('index');
