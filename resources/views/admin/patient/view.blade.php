@@ -149,6 +149,62 @@
                 </div>
             </div>
 
+            <!-- Referring Agent Details (if patient was registered by an agent) -->
+            @if($patient->agent)
+                <div class="bg-gradient-to-br from-amber-50 to-orange-50/60 p-6 rounded-3xl border border-amber-200/80 shadow-xs space-y-4">
+                    <div class="flex items-center justify-between pb-3 border-b border-amber-200/60">
+                        <div class="flex items-center gap-2">
+                            <span class="text-base">🤝</span>
+                            <span class="text-xs font-extrabold uppercase tracking-wider text-amber-900">
+                                Referring Agent
+                            </span>
+                        </div>
+                        <span class="text-[10px] font-mono font-bold text-amber-800 bg-amber-100/80 px-2 py-0.5 rounded-md border border-amber-300">
+                            {{ $patient->agent->agent_code }}
+                        </span>
+                    </div>
+
+                    <div class="space-y-3 text-xs">
+                        <div>
+                            <span class="text-slate-400 text-[10px] block uppercase font-bold tracking-wider">Agent Name</span>
+                            <strong class="text-sm font-black text-slate-900">{{ $patient->agent->name }}</strong>
+                        </div>
+
+                        @if($patient->agent->company_name)
+                            <div>
+                                <span class="text-slate-400 text-[10px] block uppercase font-bold tracking-wider">Company / Agency</span>
+                                <span class="font-bold text-slate-800">{{ $patient->agent->company_name }}</span>
+                            </div>
+                        @endif
+
+                        <div class="grid grid-cols-2 gap-2 pt-2 border-t border-amber-200/50">
+                            <div>
+                                <span class="text-slate-400 text-[10px] block uppercase font-bold tracking-wider">Phone</span>
+                                <a href="tel:{{ $patient->agent->phone }}" class="font-bold text-[#27797D] hover:underline">{{ $patient->agent->phone }}</a>
+                            </div>
+                            <div>
+                                <span class="text-slate-400 text-[10px] block uppercase font-bold tracking-wider">Country</span>
+                                <span class="font-semibold text-slate-700">{{ $patient->agent->country }}</span>
+                            </div>
+                        </div>
+
+                        <div>
+                            <span class="text-slate-400 text-[10px] block uppercase font-bold tracking-wider">Email</span>
+                            <a href="mailto:{{ $patient->agent->email }}" class="font-medium text-[#27797D] hover:underline break-all">{{ $patient->agent->email }}</a>
+                        </div>
+
+                        @if($patient->agent->agent_type)
+                            <div>
+                                <span class="text-slate-400 text-[10px] block uppercase font-bold tracking-wider">Agent Type</span>
+                                <span class="inline-block px-2 py-0.5 rounded-full text-[10px] font-bold bg-white text-amber-900 border border-amber-200">
+                                    {{ $patient->agent->agent_type }}
+                                </span>
+                            </div>
+                        @endif
+                    </div>
+                </div>
+            @endif
+
             <!-- Health Summary / Stats Badge -->
             <div class="bg-gradient-to-br from-[#1D4B6C] to-[#27797D] p-6 rounded-3xl text-white shadow-lg shadow-[#1D4B6C]/10 space-y-3">
                 <div class="flex items-center justify-between">

@@ -70,4 +70,5 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
 require __DIR__.'/admin.php';
 require __DIR__.'/partner.php';
+require __DIR__.'/agent.php';
 require __DIR__.'/settings.php';

@@ -90,7 +90,7 @@
         <form action="{{ route('admin.patient.index') }}" method="GET" class="grid grid-cols-1 sm:grid-cols-12 gap-3 items-center">
             
             <!-- Search -->
-            <div class="sm:col-span-6 relative">
+            <div class="sm:col-span-5 relative">
                 <input 
                     type="text" 
                     name="search" 
@@ -104,7 +104,7 @@
             </div>
 
             <!-- Country Filter -->
-            <div class="sm:col-span-3">
+            <div class="sm:col-span-2">
                 <select 
                     name="country" 
                     onchange="this.form.submit()"
@@ -114,6 +114,22 @@
                     @foreach($filterCountries as $c)
                         <option value="{{ $c }}" {{ request('country') == $c ? 'selected' : '' }}>
                             {{ $c }}
+                        </option>
+                    @endforeach
+                </select>
+            </div>
+
+            <!-- Agent Filter -->
+            <div class="sm:col-span-2">
+                <select 
+                    name="agent_id" 
+                    onchange="this.form.submit()"
+                    class="w-full bg-slate-50 focus:bg-white text-xs px-3 py-2.5 rounded-xl border border-slate-200 focus:border-[#27797D] focus:outline-none transition-all font-semibold text-slate-700 cursor-pointer"
+                >
+                    <option value="">All Agents</option>
+                    @foreach($filterAgents ?? [] as $ag)
+                        <option value="{{ $ag->id }}" {{ request('agent_id') == $ag->id ? 'selected' : '' }}>
+                            {{ $ag->name }}
                         </option>
                     @endforeach
                 </select>
@@ -140,7 +156,7 @@
                     Search
                 </button>
 
-                @if(request()->hasAny(['search', 'country', 'per_page']))
+                @if(request()->hasAny(['search', 'country', 'agent_id', 'per_page']))
                 <a 
                     href="{{ route('admin.patient.index') }}" 
                     class="p-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-600 text-xs font-bold transition-all shrink-0 cursor-pointer"
@@ -224,9 +240,17 @@
                                     <a href="{{ route('admin.patient.view', $patient->id) }}" class="font-bold text-[#112347] hover:text-[#27797D] transition-colors text-sm block truncate">
                                         {{ $patient->name }}
                                     </a>
-                                    <span class="inline-flex items-center gap-1 text-[10px] font-mono font-bold text-slate-400 mt-0.5">
-                                        #PT-{{ str_pad($patient->id, 5, '0', STR_PAD_LEFT) }}
-                                    </span>
+                                    <div class="flex items-center gap-1.5 flex-wrap mt-0.5">
+                                        <span class="inline-flex items-center gap-1 text-[10px] font-mono font-bold text-slate-400">
+                                            #PT-{{ str_pad($patient->id, 5, '0', STR_PAD_LEFT) }}
+                                        </span>
+                                        @if($patient->agent)
+                                            <span class="inline-flex items-center gap-1 px-1.5 py-0.2 rounded text-[10px] font-bold bg-amber-50 text-amber-800 border border-amber-200" title="Referred by Agent: {{ $patient->agent->name }} | {{ $patient->agent->phone }}">
+                                                <span>🤝</span>
+                                                <span class="truncate max-w-[130px]">{{ $patient->agent->name }}</span>
+                                            </span>
+                                        @endif
+                                    </div>
                                 </div>
                             </div>
                         </td>

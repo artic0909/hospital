@@ -145,6 +145,17 @@
                         <span class="text-slate-400 font-medium">Location:</span>
                         <span class="font-bold text-slate-800">{{ $appointment->patient->country ?? 'Global' }}</span>
                     </div>
+                    @php
+                        $relAgent = $appointment->agent ?: ($appointment->patient?->agent);
+                    @endphp
+                    @if($relAgent)
+                    <div class="flex items-center justify-between pt-2 border-t border-slate-100">
+                        <span class="text-slate-400 font-medium">Referring Agent:</span>
+                        <span class="font-bold text-amber-800 bg-amber-50 border border-amber-200 px-2 py-0.5 rounded text-[11px]">
+                            🤝 {{ $relAgent->name }} ({{ $relAgent->agent_code }})
+                        </span>
+                    </div>
+                    @endif
                 </div>
                 @else
                     <p class="text-xs text-slate-400 italic">No patient record linked to this appointment.</p>

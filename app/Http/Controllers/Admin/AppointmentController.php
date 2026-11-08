@@ -229,9 +229,12 @@ class AppointmentController extends Controller
             $hospitalId = $partner?->getHospital()?->id;
         }
 
+        $targetPatient = Patient::find($validated['patient_id']);
+
         $appointment = Appointment::create([
             'patient_id' => $validated['patient_id'],
             'partner_id' => $validated['partner_id'] ?? null,
+            'agent_id' => $targetPatient?->agent_id,
             'hospital_id' => $hospitalId,
             'doctor_id' => $validated['doctor_id'],
             'appointment_date' => $validated['appointment_date'] ?? now()->toDateString(),
@@ -294,10 +297,12 @@ class AppointmentController extends Controller
             $hospitalId = $partner?->getHospital()?->id;
         }
 
+        $targetPatient = Patient::find($validated['patient_id']);
         $oldStatus = $appointment->status;
 
         $appointment->update([
             'patient_id' => $validated['patient_id'],
+            'agent_id' => $targetPatient?->agent_id,
             'partner_id' => $validated['partner_id'] ?? null,
             'hospital_id' => $hospitalId,
             'doctor_id' => $validated['doctor_id'],

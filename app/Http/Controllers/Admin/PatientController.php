@@ -22,7 +22,7 @@ class PatientController extends Controller
      */
     public function index(Request $request): View
     {
-        $query = Patient::withCount('reports');
+        $query = Patient::with(['agent'])->withCount('reports');
 
         // Search filter
         if ($request->filled('search')) {
@@ -33,7 +33,11 @@ class PatientController extends Controller
                   ->orWhere('email', 'like', "%{$search}%")
                   ->orWhere('country', 'like', "%{$search}%")
                   ->orWhere('city', 'like', "%{$search}%")
-                  ->orWhere('state', 'like', "%{$search}%");
+                  ->orWhere('state', 'like', "%{$search}%")
+                  ->orWhereHas('agent', function ($aq) use ($search) {
+                      $aq->where('name', 'like', "%{$search}%")
+                         ->orWhere('company_name', 'like', "%{$search}%");
+                  });
             });
         }
 
@@ -42,13 +46,18 @@ class PatientController extends Controller
             $query->where('country', $request->country);
         }
 
+        // Agent filter
+        if ($request->filled('agent_id')) {
+            $query->where('agent_id', $request->agent_id);
+        }
+
         // Pagination
         $perPage = $request->get('per_page', 10);
         if ($perPage === 'all') {
-            $patients = $query->latest()->paginate(99999)->withQueryString();
+            $patients = $query->latest('id')->paginate(99999)->withQueryString();
         } else {
             $perPage = in_array((int)$perPage, [10, 20, 50, 100], true) ? (int)$perPage : 10;
-            $patients = $query->latest()->paginate($perPage)->withQueryString();
+            $patients = $query->latest('id')->paginate($perPage)->withQueryString();
         }
 
         // Aggregate statistics
@@ -56,6 +65,7 @@ class PatientController extends Controller
             'total' => Patient::count(),
             'with_reports' => Patient::has('reports')->count(),
             'total_reports' => Report::count(),
+            'with_agent' => Patient::whereNotNull('agent_id')->count(),
             'this_month' => Patient::where('created_at', '>=', now()->startOfMonth())->count(),
         ];
 
@@ -66,7 +76,9 @@ class PatientController extends Controller
             ->orderBy('country')
             ->pluck('country');
 
-        return view('admin.patient.index', compact('patients', 'stats', 'filterCountries'));
+        $filterAgents = \App\Models\Agent::orderBy('name')->get();
+
+        return view('admin.patient.index', compact('patients', 'stats', 'filterCountries', 'filterAgents'));
     }
 
     /**
@@ -75,13 +87,14 @@ class PatientController extends Controller
     public function create(Request $request): View
     {
         $countries = Country::orderBy('name')->get();
+        $agents = \App\Models\Agent::where('status', 'active')->orderBy('name')->get();
         $enquiry = null;
 
         if ($request->filled('enquiry_id')) {
             $enquiry = PatientEnquiry::with(['hospital', 'doctor'])->find($request->enquiry_id);
         }
 
-        return view('admin.patient.create', compact('countries', 'enquiry'));
+        return view('admin.patient.create', compact('countries', 'agents', 'enquiry'));
     }
 
     /**
@@ -148,6 +161,7 @@ class PatientController extends Controller
             'state' => ['nullable', 'string', 'max:255'],
             'city' => ['nullable', 'string', 'max:255'],
             'address' => ['nullable', 'string', 'max:1000'],
+            'agent_id' => ['nullable', 'exists:agents,id'],
             'enquiry_id' => ['nullable', 'integer'],
             'hospital_id' => ['nullable', 'integer'],
             'image' => [
@@ -187,6 +201,7 @@ class PatientController extends Controller
 
         $patient = Patient::create([
             'partner_id' => null,
+            'agent_id' => $request->filled('agent_id') ? $request->agent_id : null,
             'hospital_id' => $hospitalId,
             'name' => $validated['name'],
             'phone' => $validated['phone'],
@@ -216,7 +231,7 @@ class PatientController extends Controller
      */
     public function show(Patient $patient): View
     {
-        $patient->load('reports');
+        $patient->load(['reports', 'hospital', 'partner', 'agent', 'appointments.doctor', 'appointments.hospital', 'appointmentHistories']);
         return view('admin.patient.view', compact('patient'));
     }
 
@@ -226,6 +241,7 @@ class PatientController extends Controller
     public function edit(Patient $patient): View
     {
         $countries = Country::orderBy('name')->get();
+        $agents = \App\Models\Agent::where('status', 'active')->orderBy('name')->get();
 
         $selectedCountry = Country::where('name', $patient->country)->first();
         $states = $selectedCountry ? State::where('country_id', $selectedCountry->id)->orderBy('name')->get() : collect();
@@ -233,7 +249,7 @@ class PatientController extends Controller
         $selectedState = State::where('name', $patient->state)->first();
         $cities = $selectedState ? City::where('state_id', $selectedState->id)->orderBy('name')->get() : collect();
 
-        return view('admin.patient.update', compact('patient', 'countries', 'states', 'cities'));
+        return view('admin.patient.update', compact('patient', 'countries', 'states', 'cities', 'agents'));
     }
 
     /**
@@ -249,6 +265,7 @@ class PatientController extends Controller
             'state' => ['nullable', 'string', 'max:255'],
             'city' => ['nullable', 'string', 'max:255'],
             'address' => ['nullable', 'string', 'max:1000'],
+            'agent_id' => ['nullable', 'exists:agents,id'],
             'image' => [
                 'nullable',
                 'file',
@@ -289,6 +306,7 @@ class PatientController extends Controller
 
         $patient->update([
             'name' => $validated['name'],
+            'agent_id' => $request->filled('agent_id') ? $request->agent_id : null,
             'phone' => $validated['phone'] ?? null,
             'email' => $validated['email'] ?? null,
             'country' => $validated['country'] ?? null,

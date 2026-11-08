@@ -35,6 +35,7 @@ class Appointment extends Model
         'hospital_id',
         'doctor_id',
         'partner_id',
+        'agent_id',
         'appointment_date',
         'appointment_time',
         'status',
@@ -118,6 +119,14 @@ class Appointment extends Model
     public function partner(): BelongsTo
     {
         return $this->belongsTo(Partner::class);
+    }
+
+    /**
+     * Agent relationship.
+     */
+    public function agent(): BelongsTo
+    {
+        return $this->belongsTo(Agent::class, 'agent_id');
     }
 
     /**

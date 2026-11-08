@@ -23,6 +23,9 @@ return Application::configure(basePath: dirname(__DIR__))
             if ($request->is('partner*')) {
                 return route('partner.login');
             }
+            if ($request->is('agent*')) {
+                return route('agent.login');
+            }
             return route('login');
         });
 
@@ -32,6 +35,9 @@ return Application::configure(basePath: dirname(__DIR__))
             }
             if (\Illuminate\Support\Facades\Auth::guard('partner')->check()) {
                 return route('partner.dashboard');
+            }
+            if (\Illuminate\Support\Facades\Auth::guard('agent')->check()) {
+                return route('agent.dashboard');
             }
             return route('dashboard');
         });

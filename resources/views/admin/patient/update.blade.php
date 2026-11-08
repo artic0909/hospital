@@ -215,6 +215,26 @@
                     @enderror
                 </div>
 
+                <!-- Referring Agent (Optional) -->
+                <div class="sm:col-span-3">
+                    <label for="agent_id" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5 flex items-center justify-between">
+                        <span>Referring Agent / Facilitator <span class="text-slate-400 font-normal lowercase">(optional)</span></span>
+                        <span class="text-[10px] text-amber-700 font-bold">🤝 Associates patient with agent</span>
+                    </label>
+                    <select 
+                        name="agent_id" 
+                        id="agent_id"
+                        class="w-full bg-slate-50 focus:bg-white text-xs px-4 py-3 rounded-xl border border-slate-200 focus:border-[#27797D] focus:outline-none transition-all font-semibold text-slate-700 cursor-pointer"
+                    >
+                        <option value="">-- No Agent (Direct Patient / Hospital Walk-in) --</option>
+                        @foreach($agents ?? [] as $ag)
+                            <option value="{{ $ag->id }}" {{ old('agent_id', $patient->agent_id) == $ag->id ? 'selected' : '' }}>
+                                {{ $ag->agent_code }}: {{ $ag->name }} {{ $ag->company_name ? "({$ag->company_name})" : '' }} - {{ $ag->country }}
+                            </option>
+                        @endforeach
+                    </select>
+                </div>
+
             </div>
         </div>
 
