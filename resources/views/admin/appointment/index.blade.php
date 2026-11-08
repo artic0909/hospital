@@ -219,7 +219,7 @@
                         </th>
                         <th class="py-3.5 px-4">Code</th>
                         <th class="py-3.5 px-4">Patient</th>
-                        <th class="py-3.5 px-4">Doctor & Partner</th>
+                        <th class="py-3.5 px-4">Doctor & Facilitator</th>
                         <th class="py-3.5 px-4">Hospital</th>
                         <th class="py-3.5 px-4">Schedule</th>
                         <th class="py-3.5 px-4 text-center">Status</th>
@@ -283,7 +283,22 @@
                                 <div class="text-[11px] text-[#27797D] font-medium mt-0.5">
                                     {{ $apt->doctor->spaciality ?: ($apt->doctor->designation ?: 'Specialist') }}
                                 </div>
-                                @if($apt->partner)
+                                @php
+                                    $aptAgent = $apt->agent ?? $apt->patient?->agent;
+                                @endphp
+                                @if($aptAgent)
+                                    <div class="mt-1.5">
+                                        <a 
+                                            href="{{ route('admin.agent.view', $aptAgent->id) }}" 
+                                            class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-lg bg-amber-50 text-[#9a3412] hover:bg-amber-100 border border-amber-300 text-[10px] font-bold transition-colors"
+                                            title="Referred by Agent: {{ $aptAgent->name }} ({{ $aptAgent->agent_code }})"
+                                        >
+                                            <span>🤝</span>
+                                            <span class="truncate max-w-[120px]">{{ $aptAgent->name }}</span>
+                                            <span class="font-mono text-[#c2410c] font-black">({{ $aptAgent->agent_code }})</span>
+                                        </a>
+                                    </div>
+                                @elseif($apt->partner)
                                     <div class="text-[10px] text-slate-400 mt-0.5 flex items-center gap-1">
                                         <span class="font-semibold text-slate-500">Partner:</span>
                                         <span class="truncate">{{ $apt->partner->company_name ?: $apt->partner->name }}</span>

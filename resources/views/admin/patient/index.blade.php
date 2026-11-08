@@ -129,7 +129,7 @@
                     <option value="">All Agents</option>
                     @foreach($filterAgents ?? [] as $ag)
                         <option value="{{ $ag->id }}" {{ request('agent_id') == $ag->id ? 'selected' : '' }}>
-                            {{ $ag->name }}
+                            {{ $ag->name }} ({{ $ag->agent_code }})
                         </option>
                     @endforeach
                 </select>
@@ -203,6 +203,12 @@
                             >
                         </th>
                         <th class="py-3.5 px-4">Patient Profile</th>
+                        <th class="py-3.5 px-4">
+                            <span class="inline-flex items-center gap-1.5 text-[#c2410c] font-black">
+                                <span class="text-sm">🤝</span>
+                                <span>Referred Agent</span>
+                            </span>
+                        </th>
                         <th class="py-3.5 px-4">Contact Info</th>
                         <th class="py-3.5 px-4">Location</th>
                         <th class="py-3.5 px-4 text-center">Reports</th>
@@ -244,15 +250,55 @@
                                         <span class="inline-flex items-center gap-1 text-[10px] font-mono font-bold text-slate-400">
                                             #PT-{{ str_pad($patient->id, 5, '0', STR_PAD_LEFT) }}
                                         </span>
-                                        @if($patient->agent)
-                                            <span class="inline-flex items-center gap-1 px-1.5 py-0.2 rounded text-[10px] font-bold bg-amber-50 text-amber-800 border border-amber-200" title="Referred by Agent: {{ $patient->agent->name }} | {{ $patient->agent->phone }}">
-                                                <span>🤝</span>
-                                                <span class="truncate max-w-[130px]">{{ $patient->agent->name }}</span>
-                                            </span>
+                                        @if($patient->gender)
+                                            <span class="text-[10px] text-slate-400 font-medium">({{ ucfirst($patient->gender) }})</span>
                                         @endif
                                     </div>
                                 </div>
                             </div>
+                        </td>
+
+                        <!-- Referred By (Agent) -->
+                        <td class="py-3.5 px-4 whitespace-nowrap">
+                            @if($patient->agent)
+                                <div class="inline-flex items-center gap-2.5 px-3 py-2 rounded-2xl bg-gradient-to-r from-amber-50 via-orange-50/70 to-amber-50/40 border-2 border-amber-300 shadow-[0_2px_6px_rgba(239,116,21,0.12)] group/agent hover:border-[#EF7415] hover:shadow-md transition-all">
+                                    <!-- Distinct Handshake Avatar in Brand Orange -->
+                                    <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-[#EF7415] to-[#d9640d] text-white flex items-center justify-center font-black text-sm shrink-0 shadow-xs ring-2 ring-amber-300/80">
+                                        🤝
+                                    </div>
+                                    <div class="min-w-0 pr-1 text-left">
+                                        <div class="flex items-center gap-1.5">
+                                            <a 
+                                                href="{{ route('admin.agent.view', $patient->agent->id) }}" 
+                                                class="font-black text-[#9a3412] hover:text-[#c2410c] text-xs inline-flex items-center gap-1 truncate transition-colors"
+                                                title="View Agent Dossier: {{ $patient->agent->name }} ({{ $patient->agent->agent_code }})"
+                                            >
+                                                <span class="truncate max-w-[150px]">{{ $patient->agent->name }}</span>
+                                                <svg class="w-3.5 h-3.5 text-[#EF7415] shrink-0 group-hover/agent:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                                            </a>
+                                        </div>
+                                        <div class="flex items-center gap-1.5 mt-0.5">
+                                            <span class="px-1.5 py-0.2 rounded font-mono text-[10px] font-black bg-white text-[#c2410c] border border-amber-300 shadow-2xs">
+                                                {{ $patient->agent->agent_code }}
+                                            </span>
+                                            @if($patient->agent->company_name)
+                                                <span class="text-[11px] font-bold text-amber-900/85 truncate max-w-[130px]" title="{{ $patient->agent->company_name }}">
+                                                    {{ $patient->agent->company_name }}
+                                                </span>
+                                            @elseif($patient->agent->country)
+                                                <span class="text-[10px] font-semibold text-amber-800">
+                                                    {{ $patient->agent->country }}
+                                                </span>
+                                            @endif
+                                        </div>
+                                    </div>
+                                </div>
+                            @else
+                                <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-xl bg-slate-100 text-slate-500 border border-slate-200 text-[11px] font-semibold">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-slate-400"></span>
+                                    <span>Direct Patient</span>
+                                </div>
+                            @endif
                         </td>
 
                         <!-- Contact Info -->
@@ -364,7 +410,7 @@
                     </tr>
                     @empty
                     <tr>
-                        <td colspan="7" class="py-12 text-center">
+                        <td colspan="8" class="py-12 text-center">
                             <div class="max-w-sm mx-auto space-y-3">
                                 <div class="w-16 h-16 rounded-full bg-slate-100 text-slate-400 flex items-center justify-center mx-auto">
                                     <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>

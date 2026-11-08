@@ -518,7 +518,12 @@
                         <th class="py-3.5 px-4">Specialty & Doctor</th>
                         <th class="py-3.5 px-4">Current Stage</th>
                         <th class="py-3.5 px-4">OPD Fee</th>
-                        <th class="py-3.5 px-4">Agent / Facilitator</th>
+                        <th class="py-3.5 px-4">
+                            <span class="inline-flex items-center gap-1 text-[#c2410c] font-black">
+                                <span>🤝</span>
+                                <span>Referred Agent</span>
+                            </span>
+                        </th>
                         <th class="py-3.5 px-4 sm:px-6 text-right">Action</th>
                     </tr>
                 </thead>
@@ -579,12 +584,19 @@
                             </td>
                             <td class="py-3.5 px-4 font-bold text-slate-700">
                                 @if($aptAgent)
-                                    <a href="{{ route('admin.agent.view', $aptAgent->id) }}" class="text-[#27797D] hover:underline inline-flex items-center gap-1.5" title="{{ $aptAgent->name }} ({{ $aptAgent->agent_code }})">
-                                        <span class="px-1.5 py-0.5 rounded text-[10px] font-mono font-bold bg-teal-50 text-teal-800 border border-teal-200">{{ $aptAgent->agent_code }}</span>
+                                    <a 
+                                        href="{{ route('admin.agent.view', $aptAgent->id) }}" 
+                                        class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-xl bg-amber-50 hover:bg-amber-100 text-[#9a3412] border border-amber-300 text-xs font-black transition-colors"
+                                        title="{{ $aptAgent->name }} ({{ $aptAgent->agent_code }})"
+                                    >
+                                        <span>🤝</span>
                                         <span class="truncate max-w-[130px]">{{ $aptAgent->name }}</span>
+                                        <span class="px-1.5 py-0.2 rounded font-mono text-[10px] font-black bg-white text-[#c2410c] border border-amber-300 shadow-2xs">
+                                            {{ $aptAgent->agent_code }}
+                                        </span>
                                     </a>
                                 @else
-                                    <span class="text-slate-400 font-normal">Direct Booking</span>
+                                    <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-slate-100 text-slate-400 text-[11px] font-medium">Direct Booking</span>
                                 @endif
                             </td>
                             <td class="py-3.5 px-4 sm:px-6 text-right">
