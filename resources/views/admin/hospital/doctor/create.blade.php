@@ -341,10 +341,8 @@
                     <span>Education & Medical Degrees <span class="text-rose-500">*</span></span>
                     <span class="text-[10px] text-teal-700 font-semibold bg-teal-50 px-2 py-0.5 rounded-full border border-teal-200">Rich Text</span>
                 </label>
-                <input type="hidden" name="education" id="education_input" value="{{ old('education') }}">
-                <div id="education_editor">
-                    {!! old('education', '<p>MBBS, MD - General Medicine, DM - Cardiology</p>') !!}
-                </div>
+                <input type="hidden" name="education" id="education_input" value="{{ old('education', '<p>MBBS, MD - General Medicine, DM - Cardiology</p>') }}">
+                <div id="education_editor"></div>
             </div>
 
             <!-- Awards -->
@@ -413,6 +411,10 @@
             modules: { toolbar: toolbarOptions }
         });
 
+        // Load pre-existing / old() HTML into Quill editors
+        const eduOld = document.getElementById('education_input').value;
+        if (eduOld) eduQuill.clipboard.dangerouslyPasteHTML(eduOld);
+
         awardsQuill = new Quill('#awards_editor', {
             theme: 'snow',
             placeholder: 'Padma Shri, Best Doctor Award, Research fellowships...',
@@ -427,7 +429,8 @@
 
         // Form Submit Sync
         document.querySelector('form').addEventListener('submit', function () {
-            document.getElementById('education_input').value = eduQuill.getText().trim().length === 0 ? '' : eduQuill.root.innerHTML;
+            const eduText = eduQuill.getText().trim();
+            document.getElementById('education_input').value = eduText.length > 0 ? eduQuill.root.innerHTML : '';
             document.getElementById('awards_input').value = awardsQuill.getText().trim().length === 0 ? '' : awardsQuill.root.innerHTML;
             document.getElementById('work_experiance_input').value = workQuill.getText().trim().length === 0 ? '' : workQuill.root.innerHTML;
         });

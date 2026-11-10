@@ -272,19 +272,19 @@
             </div>
         </div>
 
-        <!-- Card 3: Contact & Portal Credentials -->
+        <!-- Card 3: Contact Details -->
         <div class="bg-white p-6 sm:p-8 rounded-3xl border border-slate-200/80 shadow-xs space-y-5">
             <div class="border-b border-slate-100 pb-3 flex items-center justify-between">
                 <div>
-                    <h2 class="text-base font-extrabold text-[#112347]">3. Contact & Security Credentials</h2>
-                    <p class="text-xs text-slate-400">Direct contact phone, official email, and partner portal login password</p>
+                    <h2 class="text-base font-extrabold text-[#112347]">3. Contact Details</h2>
+                    <p class="text-xs text-slate-400">Direct contact phone and official email for the hospital portal</p>
                 </div>
                 <span class="w-8 h-8 rounded-xl bg-teal-50 text-[#27797D] font-bold text-sm flex items-center justify-center">
                     🔐
                 </span>
             </div>
 
-            <div class="grid grid-cols-1 sm:grid-cols-3 gap-5">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 <!-- Contact Phone -->
                 <div>
                     <label class="block text-xs font-bold text-slate-700 mb-1.5">
@@ -313,31 +313,6 @@
                         placeholder="e.g. contact@apollohospital.com" 
                         class="w-full bg-slate-50 focus:bg-white text-xs sm:text-sm px-3.5 py-2.5 rounded-xl border border-slate-200 focus:border-[#27797D] focus:outline-none transition-all font-medium"
                     >
-                </div>
-
-                <!-- Password -->
-                <div>
-                    <label class="block text-xs font-bold text-slate-700 mb-1.5">
-                        Portal Login Password <span class="text-rose-500">*</span>
-                    </label>
-                    <div class="relative">
-                        <input 
-                            type="password" 
-                            name="password" 
-                            id="password_input" 
-                            required 
-                            minlength="6"
-                            placeholder="Minimum 6 characters" 
-                            class="w-full bg-slate-50 focus:bg-white text-xs sm:text-sm px-3.5 py-2.5 pr-10 rounded-xl border border-slate-200 focus:border-[#27797D] focus:outline-none transition-all font-medium"
-                        >
-                        <button 
-                            type="button" 
-                            onclick="togglePasswordVisibility('password_input')"
-                            class="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 cursor-pointer"
-                        >
-                            👁️
-                        </button>
-                    </div>
                 </div>
             </div>
         </div>

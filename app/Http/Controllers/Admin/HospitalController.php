@@ -101,11 +101,11 @@ class HospitalController extends Controller
             'hospital_category_id' => ['required', 'exists:hospital_categories,id'],
             'no_of_bed' => ['required', 'integer', 'min:0'],
             'about' => ['nullable', 'string'],
-            'password' => ['required', 'string', 'min:6'],
             'status' => ['nullable', 'boolean'],
         ]);
 
         $validated['status'] = $request->has('status');
+        $validated['password'] = Hash::make('password');
 
         if (!empty($validated['slug'])) {
             $validated['slug'] = Hospital::generateUniqueSlug($validated['slug']);
@@ -133,7 +133,7 @@ class HospitalController extends Controller
                 'partner_type' => 'Hospital Partner',
                 'address' => $hospital->address,
                 'status' => $hospital->status ? 'active' : 'suspended',
-                'password' => $request->password,
+                'password' => Hash::make('password'),
             ]
         );
 
@@ -183,13 +183,8 @@ class HospitalController extends Controller
             'hospital_category_id' => ['required', 'exists:hospital_categories,id'],
             'no_of_bed' => ['required', 'integer', 'min:0'],
             'about' => ['nullable', 'string'],
-            'password' => ['nullable', 'string', 'min:6'],
             'status' => ['nullable', 'boolean'],
         ]);
-
-        if (empty($validated['password'])) {
-            unset($validated['password']);
-        }
 
         $validated['status'] = $request->has('status');
 
@@ -225,14 +220,10 @@ class HospitalController extends Controller
             'status' => $hospital->status ? 'active' : 'suspended',
         ];
 
-        if ($request->filled('password')) {
-            $partnerData['password'] = $request->password;
-        }
-
         if ($partner) {
             $partner->update($partnerData);
         } else {
-            $partnerData['password'] = $hospital->password;
+            $partnerData['password'] = $hospital->password ?? Hash::make('password');
             Partner::create($partnerData);
         }
 
