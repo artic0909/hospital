@@ -168,25 +168,6 @@
                     <p class="text-xs sm:text-sm text-gray-700 leading-relaxed">
                         {{ Str::startsWith($docName, 'Dr') ? $docName : 'Dr. ' . $docName }} is a board-certified specialist in <strong>{{ $docSpeciality }}</strong> with over <strong>{{ $docExperience }}</strong> of clinical experience. Currently practicing at <strong>{{ $docHospital }}</strong>, having conducted {{ $docSurgeries }} with internationally benchmarked clinical success rates.
                     </p>
-
-                    <div class="space-y-2 pt-2">
-                        <h3 class="text-sm font-bold text-gray-900">Why Consult {{ Str::startsWith($docName, 'Dr') ? $docName : 'Dr. ' . $docName }}?</h3>
-                        
-                        <div class="space-y-2.5 text-xs sm:text-sm text-gray-700">
-                            <div class="flex items-start gap-2.5">
-                                <span class="text-emerald-500 font-bold text-base flex-shrink-0">✓</span>
-                                <span><strong>Pioneering Clinical Expertise:</strong> Specializing in advanced surgical and non-invasive protocols in {{ $docSpeciality }} with international patient care experience.</span>
-                            </div>
-                            <div class="flex items-start gap-2.5">
-                                <span class="text-emerald-500 font-bold text-base flex-shrink-0">✓</span>
-                                <span><strong>Vast Track Record:</strong> {{ $docSurgeries }} performed at top quaternary and tertiary care accredited hospitals.</span>
-                            </div>
-                            <div class="flex items-start gap-2.5">
-                                <span class="text-emerald-500 font-bold text-base flex-shrink-0">✓</span>
-                                <span><strong>International Recognition:</strong> Faculty speaker and advisor across leading global medical associations and boards.</span>
-                            </div>
-                        </div>
-                    </div>
                 </div>
 
                 <!-- SECTION 2: OPD SCHEDULE & FEE -->
