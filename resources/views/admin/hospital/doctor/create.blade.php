@@ -438,12 +438,16 @@
             placeholder: 'Padma Shri, Best Doctor Award, Research fellowships...',
             modules: { toolbar: toolbarOptions }
         });
+        const awardsOld = document.getElementById('awards_input').value;
+        if (awardsOld) awardsQuill.clipboard.dangerouslyPasteHTML(awardsOld);
 
         workQuill = new Quill('#work_experiance_editor', {
             theme: 'snow',
             placeholder: 'Former Director at AIIMS, Head of Cardiology...',
             modules: { toolbar: toolbarOptions }
         });
+        const workOld = document.getElementById('work_experiance_input').value;
+        if (workOld) workQuill.clipboard.dangerouslyPasteHTML(workOld);
 
         // Form Submit Sync
         document.querySelector('form').addEventListener('submit', function () {

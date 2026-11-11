@@ -310,7 +310,7 @@
                         </button>
                         <button type="button" class="tab-btn-doc pb-3 text-gray-500 hover:text-[#27797D] transition-all cursor-pointer flex items-center gap-1.5" data-target="tab-experience">
                             <span>💼 Work Experience</span>
-                            @if($doc && !empty($doc->work_experiance))
+                            @if($doc && (!empty($doc->work_experiance) || !empty($doc->work_experience)))
                                 <span class="w-2 h-2 rounded-full bg-teal-500"></span>
                             @endif
                         </button>
@@ -346,9 +346,12 @@
 
                     <!-- Panel 3: Work Experience -->
                     <div id="tab-experience" class="doc-tab-panel hidden space-y-3 text-xs sm:text-sm text-gray-700">
-                        @if($doc && !empty($doc->work_experiance))
+                        @php
+                            $workExpData = $doc ? ($doc->work_experiance ?: $doc->work_experience) : null;
+                        @endphp
+                        @if(!empty($workExpData))
                             <div class="rich-html-content space-y-2 text-xs sm:text-sm text-gray-700">
-                                {!! $doc->work_experiance !!}
+                                {!! $workExpData !!}
                             </div>
                         @else
                             <div class="p-4 bg-teal-50/60 rounded-xl border border-teal-200/80 space-y-1">

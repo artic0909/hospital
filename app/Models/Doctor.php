@@ -49,6 +49,22 @@ class Doctor extends Model
     }
 
     /**
+     * Alias accessor for work_experience spelling.
+     */
+    public function getWorkExperienceAttribute(): ?string
+    {
+        return $this->attributes['work_experiance'] ?? null;
+    }
+
+    /**
+     * Alias mutator for work_experience spelling.
+     */
+    public function setWorkExperienceAttribute($value): void
+    {
+        $this->attributes['work_experiance'] = $value;
+    }
+
+    /**
      * Boot model logic to autogenerate unique doctor slug.
      */
     protected static function boot()

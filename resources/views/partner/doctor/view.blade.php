@@ -174,6 +174,25 @@
 
         <!-- Column 1 & 2: Qualifications & Experience -->
         <div class="lg:col-span-2 space-y-6">
+            <!-- About Doctor -->
+            @if($doctor->about)
+                <div class="bg-white p-6 sm:p-7 rounded-3xl border border-slate-200/80 shadow-xs space-y-4">
+                    <div class="flex items-center gap-3 border-b border-slate-100 pb-3">
+                        <span class="w-8 h-8 rounded-xl bg-teal-50 text-[#27797D] font-bold text-sm flex items-center justify-center">
+                            👨‍⚕️
+                        </span>
+                        <div>
+                            <h3 class="text-base font-extrabold text-[#112347]">About Doctor & Clinical Biography</h3>
+                            <p class="text-xs text-slate-400">Clinical summary, specializations, and patient care profile</p>
+                        </div>
+                    </div>
+
+                    <div class="prose prose-sm max-w-none text-slate-700 leading-relaxed text-xs sm:text-sm">
+                        {!! $doctor->about !!}
+                    </div>
+                </div>
+            @endif
+
             <!-- Education -->
             <div class="bg-white p-6 sm:p-7 rounded-3xl border border-slate-200/80 shadow-xs space-y-4">
                 <div class="flex items-center gap-3 border-b border-slate-100 pb-3">

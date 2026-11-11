@@ -436,12 +436,16 @@
             placeholder: 'Awards, Recognitions, Certifications...',
             modules: { toolbar: toolbarOptions }
         });
+        const awardsOld = document.getElementById('awards_input').value;
+        if (awardsOld) awardsQuill.clipboard.dangerouslyPasteHTML(awardsOld);
 
         workQuill = new Quill('#work_experiance_editor', {
             theme: 'snow',
             placeholder: 'Former Clinical Director, Senior Consultant...',
             modules: { toolbar: toolbarOptions }
         });
+        const workOld = document.getElementById('work_experiance_input').value;
+        if (workOld) workQuill.clipboard.dangerouslyPasteHTML(workOld);
 
         document.querySelector('form').addEventListener('submit', function () {
             document.getElementById('about_input').value = aboutQuill.getText().trim().length === 0 ? '' : aboutQuill.root.innerHTML;

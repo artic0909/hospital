@@ -475,24 +475,40 @@
             placeholder: 'Write comprehensive doctor profile, clinical focus, specializations...',
             modules: { toolbar: toolbarOptions }
         });
+        const aboutOld = document.getElementById('about_input').value;
+        if (aboutOld && (!aboutQuill.root.innerHTML || aboutQuill.root.innerHTML.trim() === '<p><br></p>')) {
+            aboutQuill.clipboard.dangerouslyPasteHTML(aboutOld);
+        }
 
         eduQuill = new Quill('#education_editor', {
             theme: 'snow',
             placeholder: 'MBBS, MD, MS, MCh, Fellowships...',
             modules: { toolbar: toolbarOptions }
         });
+        const eduOld = document.getElementById('education_input').value;
+        if (eduOld && (!eduQuill.root.innerHTML || eduQuill.root.innerHTML.trim() === '<p><br></p>')) {
+            eduQuill.clipboard.dangerouslyPasteHTML(eduOld);
+        }
 
         awardsQuill = new Quill('#awards_editor', {
             theme: 'snow',
             placeholder: 'Awards, Honors, Fellowships...',
             modules: { toolbar: toolbarOptions }
         });
+        const awardsOld = document.getElementById('awards_input').value;
+        if (awardsOld && (!awardsQuill.root.innerHTML || awardsQuill.root.innerHTML.trim() === '<p><br></p>')) {
+            awardsQuill.clipboard.dangerouslyPasteHTML(awardsOld);
+        }
 
         workQuill = new Quill('#work_experiance_editor', {
             theme: 'snow',
             placeholder: 'Former Clinical Director, Senior Consultant...',
             modules: { toolbar: toolbarOptions }
         });
+        const workOld = document.getElementById('work_experiance_input').value;
+        if (workOld && (!workQuill.root.innerHTML || workQuill.root.innerHTML.trim() === '<p><br></p>')) {
+            workQuill.clipboard.dangerouslyPasteHTML(workOld);
+        }
 
         document.querySelector('form').addEventListener('submit', function () {
             document.getElementById('about_input').value = aboutQuill.getText().trim().length === 0 ? '' : aboutQuill.root.innerHTML;
