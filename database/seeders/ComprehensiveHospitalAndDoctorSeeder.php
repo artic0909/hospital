@@ -353,6 +353,10 @@ class ComprehensiveHospitalAndDoctorSeeder extends Seeder
 
             // Seed Doctors for this Hospital
             foreach ($doctorsData as $dData) {
+                if (empty($dData['about'])) {
+                    $dData['about'] = '<p><strong>Dr. ' . e($dData['name']) . '</strong> is an internationally recognized specialist in <strong>' . e($dData['spaciality'] ?? 'Specialist Medicine') . '</strong> with over <strong>' . ($dData['experience'] ?? '15') . '+ years</strong> of clinical and surgical expertise. Currently serving as <strong>' . e($dData['designation'] ?? 'Senior Consultant') . '</strong> at <strong>' . e($hospital->name) . '</strong>, holding benchmarked patient recovery rates.</p><p>With extensive fellowship training and clinical leadership across top healthcare institutions, Dr. ' . e($dData['name']) . ' specializes in advanced diagnostics, minimally invasive therapies, and personalized post-operative recovery protocols for both domestic and international patients.</p>';
+                }
+
                 $doc = Doctor::updateOrCreate(
                     [
                         'hospital_id' => $hospital->id,

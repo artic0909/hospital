@@ -27,6 +27,7 @@ class DoctorSeeder extends Seeder
                 [
                     'designation' => 'Chairman & Chief Cardiac Surgeon',
                     'slug' => 'naresh-trehan',
+                    'about' => '<p><strong>Dr. Naresh Trehan</strong> is a world-renowned cardiovascular and cardiothoracic surgeon with over 38+ years of groundbreaking clinical leadership. Founder and Chairman of Medanta - The Medicity, he has performed over 48,000 successful open-heart surgeries.</p>',
                     'spaciality' => 'Cardiothoracic Surgery',
                     'experience' => 38,
                     'OPD_fee' => 2500.00,
@@ -54,6 +55,7 @@ class DoctorSeeder extends Seeder
                 [
                     'designation' => 'Chairman - Liver Transplantation & Hepatobiliary Sciences',
                     'slug' => 'arvinder-singh-soin',
+                    'about' => '<p><strong>Dr. Arvinder Singh Soin</strong> is a pioneer in liver transplantation with over 32+ years of surgical experience. He has performed more than 3,500 successful liver transplants with benchmarked success rates.</p>',
                     'spaciality' => 'Hepatology & Liver Transplant',
                     'experience' => 32,
                     'OPD_fee' => 2800.00,
@@ -83,6 +85,7 @@ class DoctorSeeder extends Seeder
                 [
                     'designation' => 'Chairman - Cardiology & Chief Interventional Cardiologist',
                     'slug' => 'ashok-seth',
+                    'about' => '<p><strong>Dr. Ashok Seth</strong> is an internationally acclaimed interventional cardiologist with over 35+ years of distinguished clinical experience, having performed over 20,000 angiographies and angioplasties.</p>',
                     'spaciality' => 'Interventional Cardiology',
                     'experience' => 35,
                     'OPD_fee' => 2200.00,

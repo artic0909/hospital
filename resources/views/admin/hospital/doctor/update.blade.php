@@ -72,7 +72,7 @@
     </div>
 
     <!-- Update Form -->
-    <form action="{{ route('admin.hospital.doctor.update.submit', [$hospital->id, $doctor->id]) }}" method="POST" enctype="multipart/form-data" class="space-y-6">
+    <form id="doctor-form" action="{{ route('admin.hospital.doctor.update.submit', [$hospital, $doctor]) }}" method="POST" enctype="multipart/form-data" class="space-y-6">
         @csrf
         @method('PUT')
 
@@ -520,25 +520,39 @@
             workQuill.clipboard.dangerouslyPasteHTML(workOld);
         }
 
-        // Form Submit Sync
-        document.querySelector('form').addEventListener('submit', function () {
+        // Real-time synchronization functions
+        function syncInputs() {
             document.getElementById('about_input').value = aboutQuill.getText().trim().length === 0 ? '' : aboutQuill.root.innerHTML;
             document.getElementById('education_input').value = eduQuill.getText().trim().length === 0 ? '' : eduQuill.root.innerHTML;
             document.getElementById('awards_input').value = awardsQuill.getText().trim().length === 0 ? '' : awardsQuill.root.innerHTML;
             document.getElementById('work_experiance_input').value = workQuill.getText().trim().length === 0 ? '' : workQuill.root.innerHTML;
-        });
+        }
+
+        aboutQuill.on('text-change', syncInputs);
+        eduQuill.on('text-change', syncInputs);
+        awardsQuill.on('text-change', syncInputs);
+        workQuill.on('text-change', syncInputs);
+
+        // Explicitly listen to doctor-form submit
+        const doctorForm = document.getElementById('doctor-form');
+        if (doctorForm) {
+            doctorForm.addEventListener('submit', function () {
+                syncInputs();
+            });
+        }
     });
 
     // Schedule Row Logic
-    let scheduleIndex = {{ count($existingSchedules) > 0 ? count($existingSchedules) : 1 }};
+    let scheduleIndex = Date.now();
 
     function addScheduleRow(day = 'Monday', from = '09:00 AM', to = '01:00 PM') {
         const container = document.getElementById('schedules_container');
+        const uniqueId = ++scheduleIndex;
         const tr = document.createElement('tr');
         tr.className = 'schedule-row';
         tr.innerHTML = `
             <td class="py-2.5 px-3">
-                <select name="schedules[${scheduleIndex}][day]" class="w-full bg-slate-50 text-xs px-3 py-2 rounded-xl border border-slate-200 font-bold text-slate-700 cursor-pointer">
+                <select name="schedules[${uniqueId}][day]" class="w-full bg-slate-50 text-xs px-3 py-2 rounded-xl border border-slate-200 font-bold text-slate-700 cursor-pointer">
                     <option value="Monday" ${day === 'Monday' ? 'selected' : ''}>Monday</option>
                     <option value="Tuesday" ${day === 'Tuesday' ? 'selected' : ''}>Tuesday</option>
                     <option value="Wednesday" ${day === 'Wednesday' ? 'selected' : ''}>Wednesday</option>
@@ -551,7 +565,7 @@
             <td class="py-2.5 px-3">
                 <input 
                     type="text" 
-                    name="schedules[${scheduleIndex}][time_from]" 
+                    name="schedules[${uniqueId}][time_from]" 
                     value="${from}" 
                     placeholder="e.g. 09:00 AM" 
                     class="w-full bg-slate-50 text-xs px-3 py-2 rounded-xl border border-slate-200 font-medium"
@@ -560,7 +574,7 @@
             <td class="py-2.5 px-3">
                 <input 
                     type="text" 
-                    name="schedules[${scheduleIndex}][time_to]" 
+                    name="schedules[${uniqueId}][time_to]" 
                     value="${to}" 
                     placeholder="e.g. 01:00 PM" 
                     class="w-full bg-slate-50 text-xs px-3 py-2 rounded-xl border border-slate-200 font-medium"
@@ -573,7 +587,6 @@
             </td>
         `;
         container.appendChild(tr);
-        scheduleIndex++;
     }
 
     function removeScheduleRow(btn) {
