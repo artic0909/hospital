@@ -43,14 +43,24 @@ Route::view('/book-appointment', 'frontend.pages.hospital.book_appointment')->na
 
 // Doctor Slug Routes
 Route::get('/doctor/{doctor:slug}', function (\App\Models\Doctor $doctor) {
-    $doctor->load(['hospital.country', 'hospital.city', 'hospital.state', 'schedules']);
+    $doctor->load([
+        'hospital.country', 'hospital.city', 'hospital.state', 'hospital.category',
+        'hospital.images', 'hospital.infrustructure', 'hospital.locationGuide',
+        'hospital.reviews' => fn($q) => $q->where('status', true),
+        'schedules',
+    ]);
     return view('frontend.pages.doctor.doctor_details', compact('doctor'));
 })->name('doctor.show');
 
 Route::get('/doctor-details/{doctor:slug?}', function (?\App\Models\Doctor $doctor = null) {
     $doctor = $doctor ?? \App\Models\Doctor::first();
     if ($doctor) {
-        $doctor->load(['hospital.country', 'hospital.city', 'hospital.state', 'schedules']);
+        $doctor->load([
+            'hospital.country', 'hospital.city', 'hospital.state', 'hospital.category',
+            'hospital.images', 'hospital.infrustructure', 'hospital.locationGuide',
+            'hospital.reviews' => fn($q) => $q->where('status', true),
+            'schedules',
+        ]);
     }
     return view('frontend.pages.doctor.doctor_details', compact('doctor'));
 })->name('doctor.details');

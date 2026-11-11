@@ -396,6 +396,18 @@
                 </span>
             </div>
 
+            <!-- About Doctor -->
+            <div>
+                <label class="block text-xs font-bold text-slate-700 mb-1.5 flex items-center justify-between">
+                    <span>About Doctor & Clinical Biography <span class="text-slate-400 text-[10px] font-normal">(Optional)</span></span>
+                    <span class="text-[10px] text-teal-700 font-semibold bg-teal-50 px-2 py-0.5 rounded-full border border-teal-200">Rich Text</span>
+                </label>
+                <input type="hidden" name="about" id="about_input" value="{{ old('about', $doctor->about) }}">
+                <div id="about_editor">
+                    {!! old('about', $doctor->about) !!}
+                </div>
+            </div>
+
             <!-- Education -->
             <div>
                 <label class="block text-xs font-bold text-slate-700 mb-1.5 flex items-center justify-between">
@@ -458,7 +470,7 @@
 <script src="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.js"></script>
 <script>
     // Quill Rich Editors
-    let eduQuill, awardsQuill, workQuill;
+    let aboutQuill, eduQuill, awardsQuill, workQuill;
     
     document.addEventListener('DOMContentLoaded', function () {
         const toolbarOptions = [
@@ -467,6 +479,12 @@
             [{ 'list': 'ordered'}, { 'list': 'bullet' }],
             ['link', 'clean']
         ];
+
+        aboutQuill = new Quill('#about_editor', {
+            theme: 'snow',
+            placeholder: 'Write comprehensive doctor profile, clinical focus, specializations...',
+            modules: { toolbar: toolbarOptions }
+        });
 
         eduQuill = new Quill('#education_editor', {
             theme: 'snow',
@@ -488,6 +506,7 @@
 
         // Form Submit Sync
         document.querySelector('form').addEventListener('submit', function () {
+            document.getElementById('about_input').value = aboutQuill.getText().trim().length === 0 ? '' : aboutQuill.root.innerHTML;
             document.getElementById('education_input').value = eduQuill.getText().trim().length === 0 ? '' : eduQuill.root.innerHTML;
             document.getElementById('awards_input').value = awardsQuill.getText().trim().length === 0 ? '' : awardsQuill.root.innerHTML;
             document.getElementById('work_experiance_input').value = workQuill.getText().trim().length === 0 ? '' : workQuill.root.innerHTML;

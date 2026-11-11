@@ -22,6 +22,7 @@ class Doctor extends Model
         'name',
         'slug',
         'designation',
+        'about',
         'spaciality',
         'experience',
         'OPD_fee',

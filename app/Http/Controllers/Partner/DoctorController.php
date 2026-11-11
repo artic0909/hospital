@@ -84,6 +84,7 @@ class DoctorController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'slug' => ['nullable', 'string', 'max:255', 'unique:doctors,slug'],
             'designation' => ['required', 'string', 'max:255'],
+            'about' => ['nullable', 'string'],
             'spaciality' => ['required', 'string', 'max:255'],
             'experience' => ['required', 'integer', 'min:0'],
             'OPD_fee' => ['required', 'numeric', 'min:0'],
@@ -123,6 +124,7 @@ class DoctorController extends Controller
             'name' => $validated['name'],
             'slug' => $slug,
             'designation' => $validated['designation'],
+            'about' => $validated['about'] ?? null,
             'spaciality' => $validated['spaciality'],
             'experience' => (int)$validated['experience'],
             'OPD_fee' => (float)$validated['OPD_fee'],
@@ -189,6 +191,7 @@ class DoctorController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'slug' => ['nullable', 'string', 'max:255', \Illuminate\Validation\Rule::unique('doctors', 'slug')->ignore($doctor->id)],
             'designation' => ['required', 'string', 'max:255'],
+            'about' => ['nullable', 'string'],
             'spaciality' => ['required', 'string', 'max:255'],
             'experience' => ['required', 'integer', 'min:0'],
             'OPD_fee' => ['required', 'numeric', 'min:0'],
@@ -225,6 +228,7 @@ class DoctorController extends Controller
             $doctor->slug = Doctor::generateUniqueSlug($validated['name'], $doctor->id);
         }
         $doctor->designation = $validated['designation'];
+        $doctor->about = $validated['about'] ?? null;
         $doctor->spaciality = $validated['spaciality'];
         $doctor->experience = (int)$validated['experience'];
         $doctor->OPD_fee = (float)$validated['OPD_fee'];
