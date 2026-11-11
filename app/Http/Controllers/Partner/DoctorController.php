@@ -106,12 +106,12 @@ class DoctorController extends Controller
         if ($request->hasFile('image')) {
             $file = $request->file('image');
             $filename = time() . '_' . uniqid() . '.' . $file->getClientOriginalExtension();
-            $destination = public_path('doctors');
+            $destination = public_path('doctor_images');
             if (!file_exists($destination)) {
                 mkdir($destination, 0755, true);
             }
             $file->move($destination, $filename);
-            $imagePath = 'doctors/' . $filename;
+            $imagePath = 'doctor_images/' . $filename;
         }
 
         $slug = !empty($validated['slug'])
@@ -210,12 +210,12 @@ class DoctorController extends Controller
             }
             $file = $request->file('image');
             $filename = time() . '_' . uniqid() . '.' . $file->getClientOriginalExtension();
-            $destination = public_path('doctors');
+            $destination = public_path('doctor_images');
             if (!file_exists($destination)) {
                 mkdir($destination, 0755, true);
             }
             $file->move($destination, $filename);
-            $doctor->image = 'doctors/' . $filename;
+            $doctor->image = 'doctor_images/' . $filename;
         }
 
         $doctor->name = $validated['name'];

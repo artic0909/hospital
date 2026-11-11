@@ -680,3 +680,7 @@
                         targetPanel.classList.remove('hidden');
                     }
                 });
+            });
+        });
+    </script>
+@endsection

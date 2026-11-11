@@ -5,6 +5,9 @@
 
     RewriteEngine On
 
+    # Prevent mod_dir from redirecting route names to physical directory URLs
+    DirectorySlash Off
+
     # Handle Authorization Header
     RewriteCond %{HTTP:Authorization} .
     RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
@@ -12,6 +15,9 @@
     # Handle X-XSRF-Token Header
     RewriteCond %{HTTP:x-xsrf-token} .
     RewriteRule .* - [E=HTTP_X_XSRF_TOKEN:%{HTTP:X-XSRF-Token}]
+
+    # Force core Laravel routes to front controller (prevents directory collision)
+    RewriteRule ^(doctors|hospitals|doctor|hospital)(/.*)?$ index.php [L,QSA]
 
     # Redirect Trailing Slashes If Not A Folder...
     RewriteCond %{REQUEST_FILENAME} !-d
