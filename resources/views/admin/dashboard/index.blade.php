@@ -61,7 +61,7 @@
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/>
                     </svg>
-                    <span>Add New Agent</span>
+                    <span>Add Referral Partner</span>
                 </a>
 
                 <a 
@@ -160,7 +160,7 @@
             <div class="mt-2.5">
                 <h3 class="text-2xl sm:text-3xl font-black text-purple-700 tracking-tight">{{ number_format($kpis['total_patients']) }}</h3>
                 <div class="mt-2 flex items-center gap-1.5 text-[11px] font-semibold text-purple-600">
-                    <span>{{ number_format($kpis['agent_patients_count']) }} from Agents &bull; Total Dossiers</span>
+                    <span>{{ number_format($kpis['agent_patients_count']) }} from Referral Partners &bull; Total Dossiers</span>
                 </div>
             </div>
         </div>
@@ -183,10 +183,10 @@
             </div>
         </div>
 
-        <!-- KPI 6: Agents & Facilitators Network (Replaced Partners) -->
+        <!-- KPI 6: Referral Partners Network -->
         <div class="bg-white rounded-2xl p-5 border border-slate-200/80 shadow-xs hover:shadow-md transition-all duration-200 group">
             <div class="flex items-center justify-between">
-                <span class="text-[11px] font-bold uppercase tracking-wider text-slate-400">Agent Network</span>
+                <span class="text-[11px] font-bold uppercase tracking-wider text-slate-400">Referral Partner Network</span>
                 <div class="w-10 h-10 rounded-xl bg-amber-50 text-[#EF7415] flex items-center justify-center group-hover:scale-105 transition-transform">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
@@ -194,7 +194,7 @@
                 </div>
             </div>
             <div class="mt-2.5">
-                <h3 class="text-2xl sm:text-3xl font-black text-[#EF7415] tracking-tight">{{ number_format($kpis['total_agents']) }}<span class="text-xs text-slate-400 font-bold"> Agents</span></h3>
+                <h3 class="text-2xl sm:text-3xl font-black text-[#EF7415] tracking-tight">{{ number_format($kpis['total_agents']) }}<span class="text-xs text-slate-400 font-bold"> Partners</span></h3>
                 <div class="mt-2 flex items-center gap-1.5 text-[11px] font-semibold text-teal-600">
                     <span>{{ number_format($kpis['agent_patients_count']) }} Patients &bull; {{ number_format($kpis['agent_appointments_count']) }} Appts</span>
                 </div>
@@ -320,27 +320,27 @@
 
     </div>
 
-    <!-- ==================== 5. AGENTS NETWORK & PATIENT REFERRALS LEADERBOARD ==================== -->
+    <!-- ==================== 5. REFERRAL PARTNERS NETWORK & PATIENT REFERRALS LEADERBOARD ==================== -->
     <div class="bg-white rounded-3xl border border-slate-200/80 shadow-xs overflow-hidden">
         
         <!-- Table Header & Controls -->
         <div class="p-5 sm:p-6 border-b border-slate-100 flex flex-col md:flex-row md:items-center justify-between gap-4">
             <div>
                 <div class="flex flex-wrap items-center gap-2 mb-1">
-                    <span class="text-xs font-bold uppercase tracking-wider text-[#27797D]">Agent Network Overview</span>
+                    <span class="text-xs font-bold uppercase tracking-wider text-[#27797D]">Referral Partner Network Overview</span>
                     <span class="text-slate-300">&bull;</span>
                     <span class="px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-teal-50 text-teal-700 border border-teal-200">
-                        {{ $agentsContribution->count() }} Registered Agents
+                        {{ $agentsContribution->count() }} Registered Partners
                     </span>
                     <span class="px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-amber-50 text-[#EF7415] border border-amber-200">
                         {{ $kpis['agent_patients_count'] }} Patients Referred
                     </span>
                 </div>
                 <h3 class="text-lg font-black text-[#112347] tracking-tight">
-                    Agent Patient Referrals & Appointments Leaderboard
+                    Referral Partner Patient Referrals & Appointments Leaderboard
                 </h3>
                 <p class="text-xs text-slate-400 mt-0.5">
-                    Live overview of each medical travel agent, how many patients they have referred to admin, their scheduled appointments, and direct power access.
+                    Live overview of each referral partner / business head, how many patients they have referred to admin, their scheduled appointments, and direct power access.
                 </p>
             </div>
 
@@ -350,13 +350,13 @@
                     class="px-3.5 py-2 rounded-xl bg-[#EF7415] hover:bg-[#d9640d] text-white text-xs font-bold shadow-xs transition-all flex items-center gap-1.5"
                 >
                     <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg>
-                    <span>+ Add Agent</span>
+                    <span>+ Add Partner</span>
                 </a>
                 <a 
                     href="{{ route('admin.agent.index') }}" 
                     class="px-3.5 py-2 rounded-xl border border-slate-200 bg-slate-50 hover:bg-slate-100 text-xs font-bold text-slate-700 transition-colors"
                 >
-                    View All Agents &rarr;
+                    View All Partners &rarr;
                 </a>
             </div>
         </div>
@@ -365,7 +365,7 @@
             <table class="w-full text-left border-collapse text-xs">
                 <thead>
                     <tr class="bg-slate-50/80 border-b border-slate-100 text-[10px] font-bold uppercase tracking-wider text-slate-400">
-                        <th class="py-3 px-4 sm:px-6">Agent & Reference</th>
+                        <th class="py-3 px-4 sm:px-6">Partner & Reference</th>
                         <th class="py-3 px-4">Agency / Type</th>
                         <th class="py-3 px-4">Country & Contact</th>
                         <th class="py-3 px-4 text-center">Patients Referred</th>
@@ -437,7 +437,7 @@
                     @empty
                         <tr>
                             <td colspan="7" class="py-8 text-center text-slate-400">
-                                No agents registered yet. <a href="{{ route('admin.agent.create') }}" class="text-[#27797D] font-bold underline">Add your first agent</a>.
+                                No referral partners registered yet. <a href="{{ route('admin.agent.create') }}" class="text-[#27797D] font-bold underline">Add your first referral partner</a>.
                             </td>
                         </tr>
                     @endforelse
@@ -448,7 +448,7 @@
         @if($agentsContribution->count() > 5)
             <div class="p-3.5 bg-slate-50 border-t border-slate-100 text-right">
                 <a href="{{ route('admin.agent.index') }}" class="text-xs font-bold text-[#27797D] hover:underline">
-                    View Complete Agents Directory ({{ $agentsContribution->count() }} Agents) &rarr;
+                    View Complete Referral Partners Directory ({{ $agentsContribution->count() }} Partners) &rarr;
                 </a>
             </div>
         @endif
@@ -521,7 +521,7 @@
                         <th class="py-3.5 px-4">
                             <span class="inline-flex items-center gap-1 text-[#c2410c] font-black">
                                 <span>🤝</span>
-                                <span>Referred Agent</span>
+                                <span>Referred Partner</span>
                             </span>
                         </th>
                         <th class="py-3.5 px-4 sm:px-6 text-right">Action</th>

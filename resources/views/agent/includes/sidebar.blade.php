@@ -12,7 +12,7 @@
 <!-- Sidebar Container -->
 <aside id="agent-sidebar" class="fixed inset-y-0 left-0 z-50 w-64 bg-[#112347] text-white flex flex-col justify-between transition-transform duration-300 transform -translate-x-full lg:translate-x-0 shadow-2xl lg:shadow-none border-r border-slate-800">
     
-    <!-- Top Brand & Agent Badge -->
+    <!-- Top Brand & Partner Badge -->
     <div>
         <!-- Brand Header -->
         <div class="h-16 px-5 flex items-center justify-between border-b border-slate-800/80 bg-[#0e1d3a]">
@@ -20,7 +20,7 @@
                 <img src="{{ asset('logo.png') }}" alt="Heal Go Fly" class="h-8 w-auto object-contain bg-white rounded-lg px-2 py-0.5">
                 <div class="leading-none">
                     <span class="text-xs font-black tracking-tight text-white block">HEAL GO FLY</span>
-                    <span class="text-[9px] font-bold text-amber-400 uppercase tracking-widest block mt-0.5">Agent Portal</span>
+                    <span class="text-[9px] font-bold text-amber-400 uppercase tracking-widest block mt-0.5">Partner Portal</span>
                 </div>
             </a>
 
@@ -30,7 +30,7 @@
             </button>
         </div>
 
-        <!-- Agent Identification Pill -->
+        <!-- Referral Partner Identification Pill -->
         <div class="p-4 mx-3 my-3 rounded-2xl bg-gradient-to-br from-slate-800/90 to-slate-800/40 border border-slate-700/60">
             <div class="flex items-center gap-3">
                 <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-[#27797D] to-[#EF7415] text-white flex items-center justify-center font-black text-sm shadow-md shrink-0">

@@ -149,14 +149,14 @@
                 </div>
             </div>
 
-            <!-- Referring Agent Details (if patient was registered by an agent) -->
+            <!-- Referring Partner Details (if patient was registered by a partner) -->
             @if($patient->agent)
                 <div class="bg-gradient-to-br from-amber-50 to-orange-50/60 p-6 rounded-3xl border border-amber-200/80 shadow-xs space-y-4">
                     <div class="flex items-center justify-between pb-3 border-b border-amber-200/60">
                         <div class="flex items-center gap-2">
                             <span class="text-base">🤝</span>
                             <span class="text-xs font-extrabold uppercase tracking-wider text-amber-900">
-                                Referring Agent
+                                Referring Referral Partner
                             </span>
                         </div>
                         <span class="text-[10px] font-mono font-bold text-amber-800 bg-amber-100/80 px-2 py-0.5 rounded-md border border-amber-300">
@@ -166,7 +166,7 @@
 
                     <div class="space-y-3 text-xs">
                         <div>
-                            <span class="text-slate-400 text-[10px] block uppercase font-bold tracking-wider">Agent Name</span>
+                            <span class="text-slate-400 text-[10px] block uppercase font-bold tracking-wider">Partner Name</span>
                             <strong class="text-sm font-black text-slate-900">{{ $patient->agent->name }}</strong>
                         </div>
 
@@ -195,7 +195,7 @@
 
                         @if($patient->agent->agent_type)
                             <div>
-                                <span class="text-slate-400 text-[10px] block uppercase font-bold tracking-wider">Agent Type</span>
+                                <span class="text-slate-400 text-[10px] block uppercase font-bold tracking-wider">Partner Type</span>
                                 <span class="inline-block px-2 py-0.5 rounded-full text-[10px] font-bold bg-white text-amber-900 border border-amber-200">
                                     {{ $patient->agent->agent_type }}
                                 </span>

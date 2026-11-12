@@ -1,6 +1,6 @@
 @extends('agent.layouts.app')
 
-@section('title', 'Register New Patient - Heal Go Fly Agent Portal')
+@section('title', 'Register New Patient - Heal Go Fly Referral Partner Portal')
 
 @section('content')
 <div class="max-w-4xl mx-auto space-y-6">

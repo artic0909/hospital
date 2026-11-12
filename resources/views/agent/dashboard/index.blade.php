@@ -1,6 +1,6 @@
 @extends('agent.layouts.app')
 
-@section('title', 'Agent Dashboard - Heal Go Fly Facilitator Desk')
+@section('title', 'Referral Partner Dashboard - Heal Go Fly')
 
 @section('content')
 <div class="space-y-6 sm:space-y-8">
@@ -22,7 +22,7 @@
                     <div class="flex flex-wrap items-center gap-2 mb-1.5">
                         <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-500/20 text-emerald-300 border border-emerald-400/30">
                             <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-                            {{ ucfirst($agent->status ?? 'active') }} Agent
+                            {{ ucfirst($agent->status ?? 'active') }} Referral Partner
                         </span>
                         <span class="px-2.5 py-0.5 rounded-full text-xs font-mono font-bold bg-amber-400 text-[#112347] border border-amber-300">
                             {{ $agent->agent_code }}
@@ -33,10 +33,10 @@
                     </div>
 
                     <h1 class="text-2xl sm:text-3xl font-black tracking-tight text-white">
-                        Welcome, {{ $agent->name ?? 'Agent' }}
+                        Welcome, {{ $agent->name ?? 'Partner' }}
                     </h1>
                     <p class="text-teal-100 text-xs sm:text-sm mt-0.5 font-medium flex items-center gap-2 flex-wrap">
-                        <span class="font-bold text-white">{{ $agent->company_name ?? 'Authorized Medical Tourism Facilitator' }}</span>
+                        <span class="font-bold text-white">{{ $agent->company_name ?? 'Authorized Referral Partner / Business Head' }}</span>
                         @if($agent->country)
                             <span>&bull;</span>
                             <span>{{ $agent->country }}</span>

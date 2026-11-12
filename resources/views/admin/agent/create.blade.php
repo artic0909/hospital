@@ -1,6 +1,6 @@
 @extends('admin.layouts.app')
 
-@section('title', 'Add New Agent / Facilitator - Admin Portal')
+@section('title', 'Add New Referral Partner / Business Head - Admin Portal')
 
 @section('content')
 <div class="max-w-4xl mx-auto space-y-6">
@@ -9,12 +9,12 @@
     <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white p-6 rounded-3xl border border-slate-200/80 shadow-xs">
         <div>
             <div class="flex items-center gap-2 mb-1 text-xs font-bold text-slate-500">
-                <a href="{{ route('admin.agent.index') }}" class="text-[#27797D] hover:underline">&larr; Agents Directory</a>
+                <a href="{{ route('admin.agent.index') }}" class="text-[#27797D] hover:underline">&larr; Referral Partners Directory</a>
                 <span>&bull;</span>
-                <span class="text-slate-400">Add New Agent</span>
+                <span class="text-slate-400">Add New Partner</span>
             </div>
-            <h1 class="text-2xl font-black text-[#112347] tracking-tight">Register New Agent / Facilitator</h1>
-            <p class="text-xs text-slate-500 mt-0.5">Create a dedicated medical facilitator account with access to the Agent Portal.</p>
+            <h1 class="text-2xl font-black text-[#112347] tracking-tight">Register New Referral Partner / Business Head</h1>
+            <p class="text-xs text-slate-500 mt-0.5">Create a dedicated referral partner or business head account with access to the Partner Desk.</p>
         </div>
 
         <div class="flex items-center gap-2">
@@ -27,7 +27,7 @@
         </div>
     </div>
 
-    <!-- Agent Creation Form -->
+    <!-- Referral Partner Creation Form -->
     <form action="{{ route('admin.agent.store') }}" method="POST" class="space-y-6" id="agent-create-form">
         @csrf
 
@@ -39,7 +39,7 @@
                 </div>
                 <div>
                     <h3 class="text-base font-black text-[#112347]">Primary Profile & Agency Details</h3>
-                    <p class="text-xs text-slate-400">Enter agent identity, company representation, and contact credentials.</p>
+                    <p class="text-xs text-slate-400">Enter partner identity, company representation, and contact credentials.</p>
                 </div>
             </div>
 
@@ -47,7 +47,7 @@
                 <!-- Full Name -->
                 <div>
                     <label for="name" class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1.5">
-                        Agent Full Name <span class="text-rose-500">*</span>
+                        Partner Full Name <span class="text-rose-500">*</span>
                     </label>
                     <input 
                         type="text" 
@@ -151,7 +151,7 @@
                     @enderror
                 </div>
 
-                <!-- Agent / Facilitator Type -->
+                <!-- Referral Partner / Facilitator Type -->
                 <div>
                     <label for="agent_type" class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1.5">
                         Facilitator Type <span class="text-rose-500">*</span>
@@ -167,7 +167,7 @@
                                 'Medical Facilitator',
                                 'Travel Agency',
                                 'Corporate Partner',
-                                'Independent Agent',
+                                'Independent Referral Partner',
                                 'Insurance Partner',
                                 'Doctor Referral / Clinic',
                                 'Embassy / Consulate Coordinator'
@@ -236,7 +236,7 @@
                         class="w-full text-xs px-4 py-2.5 rounded-xl border @error('password') border-rose-400 bg-rose-50/30 @else border-slate-200 bg-slate-50 focus:bg-white @enderror focus:border-[#27797D] focus:outline-none transition-all font-medium text-slate-800"
                     >
                 </div>
-                <p class="text-[11px] text-slate-400 mt-1">If left empty, default password will be <code class="bg-slate-100 px-1 py-0.5 rounded text-slate-700 font-mono font-bold">12345678</code>. The agent can change it anytime in their portal settings.</p>
+                <p class="text-[11px] text-slate-400 mt-1">If left empty, default password will be <code class="bg-slate-100 px-1 py-0.5 rounded text-slate-700 font-mono font-bold">12345678</code>. The partner can change it anytime in their portal settings.</p>
                 @error('password')
                     <p class="text-rose-500 text-[11px] font-semibold mt-1">{{ $message }}</p>
                 @enderror
@@ -273,7 +273,7 @@
                 class="px-6 py-2.5 rounded-xl bg-[#EF7415] hover:bg-[#d9640d] text-white text-xs font-black shadow-md shadow-[#EF7415]/20 hover:shadow-lg transition-all transform hover:-translate-y-0.5 cursor-pointer inline-flex items-center gap-2"
             >
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-                <span>Save Agent & View Profile</span>
+                <span>Save Partner & View Profile</span>
             </button>
         </div>
 

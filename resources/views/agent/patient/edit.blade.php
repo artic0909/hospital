@@ -1,6 +1,6 @@
 @extends('agent.layouts.app')
 
-@section('title', 'Edit Patient: ' . $patient->name . ' - Heal Go Fly Agent Portal')
+@section('title', 'Edit Patient: ' . $patient->name . ' - Heal Go Fly Referral Partner Portal')
 
 @section('content')
 <div class="max-w-4xl mx-auto space-y-6">

@@ -462,12 +462,12 @@
                         </span>
                     </a>
 
-                    <!-- Agent / Partner Dropdown -->
+                    <!-- Referral Partner / Business Head Dropdown -->
                     <div class="relative group h-14 flex items-center">
                         <button type="button" class="h-14 flex items-center gap-1 text-gray-700 hover:text-[#27797D] group-hover:text-[#27797D] border-b-2 border-transparent group-hover:border-[#27797D] transition-all cursor-pointer focus:outline-none">
                             @if(auth('agent')->check())
                                 <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-                                <span>Agent ({{ Str::limit(auth('agent')->user()->name, 10) }})</span>
+                                <span>Referral Partner ({{ Str::limit(auth('agent')->user()->name, 10) }})</span>
                             @elseif(auth('partner')->check())
                                 <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
                                 <span>Partner ({{ Str::limit(auth('partner')->user()->name, 10) }})</span>
@@ -481,12 +481,12 @@
                         <div class="absolute left-0 top-full hidden group-hover:block w-48 bg-white border border-gray-100 rounded-xl shadow-xl py-2 z-50">
                             @if(auth('agent')->check())
                                 <div class="px-4 py-2 border-b border-gray-100 bg-gray-50/50">
-                                    <p class="text-[10px] text-gray-400 uppercase font-bold tracking-wider">Signed in as Agent</p>
+                                    <p class="text-[10px] text-gray-400 uppercase font-bold tracking-wider">Signed in as Referral Partner</p>
                                     <p class="text-xs font-bold text-[#112347] truncate">{{ auth('agent')->user()->name }}</p>
                                 </div>
                                 <a href="{{ route('agent.dashboard') }}" class="flex items-center gap-2 px-4 py-2 text-xs font-semibold text-[#EF7415] hover:bg-orange-50 transition-colors">
                                     <svg class="w-3.5 h-3.5 text-[#EF7415]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
-                                    <span>Agent Dashboard</span>
+                                    <span>Referral Partner Dashboard</span>
                                 </a>
                                 <form method="POST" action="{{ route('agent.logout') }}">
                                     @csrf
@@ -748,13 +748,13 @@
                     </span>
                 </a>
 
-                <!-- Agent Accordion -->
+                <!-- Referral Partner Accordion -->
                 <details class="group/sub">
                     <summary class="flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-bold text-gray-800 hover:bg-gray-50 cursor-pointer list-none select-none">
                         <span class="flex items-center gap-2">
                             @if(auth('agent')->check())
                                 <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-                                <span>Agent ({{ Str::limit(auth('agent')->user()->name, 12) }})</span>
+                                <span>Referral Partner ({{ Str::limit(auth('agent')->user()->name, 12) }})</span>
                             @elseif(auth('partner')->check())
                                 <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
                                 <span>Partner ({{ Str::limit(auth('partner')->user()->name, 12) }})</span>
@@ -766,7 +766,7 @@
                     </summary>
                     <div class="pl-3 pr-1 py-1 space-y-1 ml-2 border-l-2 border-[#27797D]/30 mt-0.5">
                         @if(auth('agent')->check())
-                            <a href="{{ route('agent.dashboard') }}" class="mobile-sidebar-link block px-2.5 py-1.5 text-xs text-[#EF7415] font-bold">Agent Dashboard &rarr;</a>
+                            <a href="{{ route('agent.dashboard') }}" class="mobile-sidebar-link block px-2.5 py-1.5 text-xs text-[#EF7415] font-bold">Referral Partner Dashboard &rarr;</a>
                             <form method="POST" action="{{ route('agent.logout') }}">
                                 @csrf
                                 <button type="submit" class="w-full text-left mobile-sidebar-link block px-2.5 py-1 text-xs text-red-600 font-semibold cursor-pointer">Logout</button>

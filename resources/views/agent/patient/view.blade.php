@@ -1,6 +1,6 @@
 @extends('agent.layouts.app')
 
-@section('title', 'Patient Dossier: ' . $patient->name . ' - Heal Go Fly Agent Portal')
+@section('title', 'Patient Dossier: ' . $patient->name . ' - Heal Go Fly Referral Partner Portal')
 
 @section('content')
 <div class="space-y-6">
@@ -139,7 +139,7 @@
                 </div>
             </div>
 
-            <!-- Referring Agent Badge (Account Attribution) -->
+            <!-- Referring Partner Badge (Account Attribution) -->
             <div class="bg-gradient-to-br from-slate-900 to-[#112347] text-white p-6 rounded-3xl shadow-sm border border-slate-800 space-y-3">
                 <div class="flex items-center justify-between">
                     <span class="text-[10px] font-bold text-amber-400 uppercase tracking-widest">My Referral Account</span>
@@ -155,7 +155,7 @@
                     </div>
                 </div>
                 <p class="text-[11px] text-slate-300 leading-relaxed border-t border-slate-800 pt-3">
-                    This patient dossier is officially linked to your agency profile. All clinical inquiries and admin appointments will reflect your agent details on the Admin dashboard.
+                    This patient dossier is officially linked to your agency profile. All clinical inquiries and admin appointments will reflect your partner details on the Admin dashboard.
                 </p>
             </div>
 

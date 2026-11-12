@@ -16,24 +16,24 @@
                     </svg>
                 </button>
 
-                <!-- Agent Portal Brand Title -->
+                <!-- Partner Portal Brand Title -->
                 <div class="flex items-center gap-2.5">
                     <span class="w-2.5 h-2.5 rounded-full bg-[#EF7415] animate-ping"></span>
                     <div>
                         <h1 class="text-base sm:text-lg font-extrabold text-[#112347] tracking-tight flex items-center gap-2">
-                            <span>Agent Desk</span>
+                            <span>Partner Desk</span>
                             <span class="hidden sm:inline-flex items-center px-2 py-0.5 rounded-md text-[10px] font-black uppercase tracking-wider bg-teal-50 text-[#27797D] border border-teal-200">
-                                Facilitator
+                                Referral Partner
                             </span>
                         </h1>
                     </div>
                 </div>
             </div>
 
-            <!-- Right: Fast Actions & Agent Profile -->
+            <!-- Right: Fast Actions & Profile -->
             <div class="flex items-center gap-2.5 sm:gap-4">
                 
-                <!-- Quick Search Input (Navigates to agent.patient.index with ?search=...) -->
+                <!-- Quick Search Input -->
                 <form action="{{ route('agent.patient.index') }}" method="GET" class="hidden md:block relative w-56 lg:w-64">
                     <input 
                         type="text" 
@@ -60,7 +60,7 @@
                     <span><span class="hidden sm:inline">Add</span> Patient</span>
                 </a>
 
-                <!-- Agent User Profile Pill -->
+                <!-- Referral Partner Profile Pill -->
                 @auth('agent')
                     @php $currentAgent = auth('agent')->user(); @endphp
                     <div class="flex items-center gap-2.5 pl-2 border-l border-slate-200">

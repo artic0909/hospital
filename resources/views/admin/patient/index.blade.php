@@ -119,14 +119,14 @@
                 </select>
             </div>
 
-            <!-- Agent Filter -->
+            <!-- Referral Partner Filter -->
             <div class="sm:col-span-2">
                 <select 
                     name="agent_id" 
                     onchange="this.form.submit()"
                     class="w-full bg-slate-50 focus:bg-white text-xs px-3 py-2.5 rounded-xl border border-slate-200 focus:border-[#27797D] focus:outline-none transition-all font-semibold text-slate-700 cursor-pointer"
                 >
-                    <option value="">All Agents</option>
+                    <option value="">All Referral Partners</option>
                     @foreach($filterAgents ?? [] as $ag)
                         <option value="{{ $ag->id }}" {{ request('agent_id') == $ag->id ? 'selected' : '' }}>
                             {{ $ag->name }} ({{ $ag->agent_code }})
@@ -206,7 +206,7 @@
                         <th class="py-3.5 px-4">
                             <span class="inline-flex items-center gap-1.5 text-[#c2410c] font-black">
                                 <span class="text-sm">🤝</span>
-                                <span>Referred Agent</span>
+                                <span>Referred Partner</span>
                             </span>
                         </th>
                         <th class="py-3.5 px-4">Contact Info</th>
@@ -258,7 +258,7 @@
                             </div>
                         </td>
 
-                        <!-- Referred By (Agent) -->
+                        <!-- Referred By (Referral Partner) -->
                         <td class="py-3.5 px-4 whitespace-nowrap">
                             @if($patient->agent)
                                 <div class="inline-flex items-center gap-2.5 px-3 py-2 rounded-2xl bg-gradient-to-r from-amber-50 via-orange-50/70 to-amber-50/40 border-2 border-amber-300 shadow-[0_2px_6px_rgba(239,116,21,0.12)] group/agent hover:border-[#EF7415] hover:shadow-md transition-all">
@@ -271,7 +271,7 @@
                                             <a 
                                                 href="{{ route('admin.agent.view', $patient->agent->id) }}" 
                                                 class="font-black text-[#9a3412] hover:text-[#c2410c] text-xs inline-flex items-center gap-1 truncate transition-colors"
-                                                title="View Agent Dossier: {{ $patient->agent->name }} ({{ $patient->agent->agent_code }})"
+                                                title="View Partner Dossier: {{ $patient->agent->name }} ({{ $patient->agent->agent_code }})"
                                             >
                                                 <span class="truncate max-w-[150px]">{{ $patient->agent->name }}</span>
                                                 <svg class="w-3.5 h-3.5 text-[#EF7415] shrink-0 group-hover/agent:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>

@@ -1,6 +1,6 @@
 @extends('admin.layouts.app')
 
-@section('title', 'Agent Dossier: ' . $agent->name . ' (' . $agent->agent_code . ') - Admin Portal')
+@section('title', 'Referral Partner Dossier: ' . $agent->name . ' (' . $agent->agent_code . ') - Admin Portal')
 
 @section('content')
 <div class="space-y-6">
@@ -19,7 +19,7 @@
                 <div>
                     <div class="flex flex-wrap items-center gap-2 mb-1">
                         <span class="text-xs font-bold text-slate-400">
-                            <a href="{{ route('admin.agent.index') }}" class="text-[#27797D] hover:underline">&larr; Agents Directory</a>
+                            <a href="{{ route('admin.agent.index') }}" class="text-[#27797D] hover:underline">&larr; Referral Partners Directory</a>
                         </span>
                         <span class="text-slate-300">&bull;</span>
                         <span class="px-2.5 py-0.5 rounded-full text-[11px] font-mono font-bold bg-teal-50 text-teal-800 border border-teal-200">
@@ -65,7 +65,7 @@
                     href="{{ route('admin.agent.login-direct', $agent->id) }}" 
                     target="_blank"
                     class="px-4 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-600 text-white text-xs font-black shadow-md shadow-amber-500/20 hover:shadow-lg transition-all transform hover:-translate-y-0.5 inline-flex items-center gap-2 cursor-pointer"
-                    title="Direct impersonation login into this agent's portal"
+                    title="Direct impersonation login into this partner's portal"
                 >
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
                     <span>⚡ Power Direct Login</span>
@@ -92,7 +92,7 @@
                     <button 
                         type="submit" 
                         class="px-3.5 py-2.5 rounded-xl border border-rose-200 bg-rose-50/50 hover:bg-rose-100/80 text-xs font-bold text-rose-700 transition-colors cursor-pointer inline-flex items-center gap-1.5"
-                        title="Delete this agent"
+                        title="Delete this partner"
                     >
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/></svg>
                         <span class="hidden sm:inline">Delete</span>
@@ -152,18 +152,18 @@
     <!-- Main Content Grid -->
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
 
-        <!-- Left Column: Agent Dossier Specifications -->
+        <!-- Left Column: Referral Partner Dossier Specifications -->
         <div class="lg:col-span-1 space-y-6">
             <div class="bg-white p-6 rounded-3xl border border-slate-200/80 shadow-xs space-y-5">
                 <h3 class="text-sm font-black uppercase tracking-wider text-[#112347] pb-3 border-b border-slate-100 flex items-center gap-2">
                     <svg class="w-4 h-4 text-[#27797D]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V8a2 2 0 00-2-2h-5m-4 0V5a2 2 0 114 0v1m-4 0a2 2 0 104 0m-5 8a2 2 0 100-4 2 2 0 000 4zm0 0c1.306 0 2.417.835 2.83 2M9 14a3.001 3.001 0 00-2.83 2M15 11h3m-3 4h2"/></svg>
-                    <span>Agent Profile Details</span>
+                    <span>Partner Profile Details</span>
                 </h3>
 
                 <div class="space-y-4 text-xs">
-                    <!-- Agent Code -->
+                    <!-- Partner Code -->
                     <div>
-                        <span class="text-slate-400 block text-[11px] font-bold uppercase tracking-wider">Agent Reference ID</span>
+                        <span class="text-slate-400 block text-[11px] font-bold uppercase tracking-wider">Partner Reference ID</span>
                         <span class="font-mono font-bold text-slate-800 text-sm">{{ $agent->agent_code }}</span>
                     </div>
 
@@ -230,14 +230,14 @@
                         <h4 class="text-xs font-black">Admin Impersonation Mode</h4>
                     </div>
                     <p class="text-[11px] text-amber-800 leading-relaxed">
-                        Log directly into this agent's dashboard to add patients, view referred appointments, or verify records.
+                        Log directly into this partner's dashboard to add patients, view referred appointments, or verify records.
                     </p>
                     <a 
                         href="{{ route('admin.agent.login-direct', $agent->id) }}" 
                         target="_blank"
                         class="block w-full py-2 px-3 rounded-xl bg-amber-500 hover:bg-amber-600 text-white text-xs font-bold text-center transition-colors shadow-xs"
                     >
-                        Launch Agent Portal &rarr;
+                        Launch Partner Portal &rarr;
                     </a>
                 </div>
 
@@ -256,7 +256,7 @@
                         </div>
                         <div>
                             <h3 class="text-sm font-black text-[#112347]">Referred Patients</h3>
-                            <p class="text-[11px] text-slate-400">Patients registered by or attributed to this agent.</p>
+                            <p class="text-[11px] text-slate-400">Patients registered by or attributed to this partner.</p>
                         </div>
                     </div>
                     <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-slate-100 text-slate-700">
@@ -315,7 +315,7 @@
                             @empty
                                 <tr>
                                     <td colspan="6" class="py-8 text-center text-slate-400 text-xs">
-                                        No patients registered by this agent yet.
+                                        No patients registered by this partner yet.
                                     </td>
                                 </tr>
                             @endforelse
@@ -333,7 +333,7 @@
                         </div>
                         <div>
                             <h3 class="text-sm font-black text-[#112347]">Appointments</h3>
-                            <p class="text-[11px] text-slate-400">Scheduled clinical appointments for this agent's referred cases.</p>
+                            <p class="text-[11px] text-slate-400">Scheduled clinical appointments for this partner's referred cases.</p>
                         </div>
                     </div>
                     <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-slate-100 text-slate-700">
@@ -396,7 +396,7 @@
                             @empty
                                 <tr>
                                     <td colspan="6" class="py-8 text-center text-slate-400 text-xs">
-                                        No appointments booked for this agent's patients yet.
+                                        No appointments booked for this partner's patients yet.
                                     </td>
                                 </tr>
                             @endforelse
@@ -417,13 +417,13 @@ function confirmDeleteAgent(e, name, code) {
     const form = e.target;
     if (typeof Swal !== 'undefined') {
         Swal.fire({
-            title: 'Delete Agent Account?',
-            html: `Are you sure you want to permanently delete agent <strong>${name}</strong> (${code})?<br><br><span class="text-xs text-slate-500">Referred patient dossiers will be preserved safely.</span>`,
+            title: 'Delete Referral Partner Account?',
+            html: `Are you sure you want to permanently delete partner <strong>${name}</strong> (${code})?<br><br><span class="text-xs text-slate-500">Referred patient dossiers will be preserved safely.</span>`,
             icon: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#e11d48',
             cancelButtonColor: '#64748b',
-            confirmButtonText: 'Yes, Delete Agent',
+            confirmButtonText: 'Yes, Delete Partner',
             cancelButtonText: 'Cancel'
         }).then((result) => {
             if (result.isConfirmed) {
@@ -431,7 +431,7 @@ function confirmDeleteAgent(e, name, code) {
             }
         });
     } else {
-        if (confirm(`Are you sure you want to permanently delete agent ${name} (${code})?`)) {
+        if (confirm(`Are you sure you want to permanently delete partner ${name} (${code})?`)) {
             form.submit();
         }
     }

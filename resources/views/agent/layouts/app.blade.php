@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>@yield('title', 'Agent Portal - Heal Go Fly')</title>
+    <title>@yield('title', 'Referral Partner Portal - Heal Go Fly')</title>
     
     <!-- Favicon -->
     <link rel="icon" href="{{ asset('logo.png') }}" type="image/png">
@@ -79,7 +79,7 @@
                 <div class="bg-gradient-to-r from-amber-600 via-[#EF7415] to-amber-700 text-white px-4 py-2 text-xs font-bold flex items-center justify-between shadow-xs sticky top-0 z-40">
                     <div class="flex items-center gap-2">
                         <span class="w-2 h-2 rounded-full bg-white animate-ping"></span>
-                        <span>⚡ <strong>Admin Impersonation Mode:</strong> Viewing Agent Desk as <u>{{ auth('agent')->user()->name ?? 'Agent' }}</u> ({{ auth('agent')->user()->agent_code ?? '' }})</span>
+                        <span>⚡ <strong>Admin Impersonation Mode:</strong> Viewing Partner Desk as <u>{{ auth('agent')->user()->name ?? 'Partner' }}</u> ({{ auth('agent')->user()->agent_code ?? '' }})</span>
                     </div>
                     <a 
                         href="{{ route('admin.agent.index') }}" 

@@ -291,7 +291,7 @@
                                         <a 
                                             href="{{ route('admin.agent.view', $aptAgent->id) }}" 
                                             class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-lg bg-amber-50 text-[#9a3412] hover:bg-amber-100 border border-amber-300 text-[10px] font-bold transition-colors"
-                                            title="Referred by Agent: {{ $aptAgent->name }} ({{ $aptAgent->agent_code }})"
+                                            title="Referred by Partner: {{ $aptAgent->name }} ({{ $aptAgent->agent_code }})"
                                         >
                                             <span>🤝</span>
                                             <span class="truncate max-w-[120px]">{{ $aptAgent->name }}</span>

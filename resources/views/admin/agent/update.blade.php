@@ -1,6 +1,6 @@
 @extends('admin.layouts.app')
 
-@section('title', 'Edit Agent - ' . $agent->name . ' - Admin Portal')
+@section('title', 'Edit Referral Partner - ' . $agent->name . ' - Admin Portal')
 
 @section('content')
 <div class="max-w-4xl mx-auto space-y-6">
@@ -9,14 +9,14 @@
     <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white p-6 rounded-3xl border border-slate-200/80 shadow-xs">
         <div>
             <div class="flex items-center gap-2 mb-1 text-xs font-bold text-slate-500">
-                <a href="{{ route('admin.agent.index') }}" class="text-[#27797D] hover:underline">&larr; Agents Directory</a>
+                <a href="{{ route('admin.agent.index') }}" class="text-[#27797D] hover:underline">&larr; Referral Partners Directory</a>
                 <span>&bull;</span>
                 <a href="{{ route('admin.agent.view', $agent->id) }}" class="text-slate-600 hover:underline">{{ $agent->agent_code }}</a>
                 <span>&bull;</span>
                 <span class="text-slate-400">Edit Profile</span>
             </div>
             <div class="flex items-center gap-3">
-                <h1 class="text-2xl font-black text-[#112347] tracking-tight">Edit Agent: {{ $agent->name }}</h1>
+                <h1 class="text-2xl font-black text-[#112347] tracking-tight">Edit Referral Partner: {{ $agent->name }}</h1>
                 <span class="px-2.5 py-0.5 rounded-full text-xs font-mono font-bold bg-teal-50 text-teal-800 border border-teal-200">
                     {{ $agent->agent_code }}
                 </span>
@@ -29,7 +29,7 @@
                 href="{{ route('admin.agent.login-direct', $agent->id) }}" 
                 target="_blank"
                 class="px-3.5 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-600 text-white text-xs font-bold transition-all shadow-xs inline-flex items-center gap-1.5"
-                title="Direct impersonation login into this agent's portal"
+                title="Direct impersonation login into this partner's portal"
             >
                 <span>⚡ Power Login</span>
             </a>
@@ -42,7 +42,7 @@
         </div>
     </div>
 
-    <!-- Agent Edit Form -->
+    <!-- Referral Partner Edit Form -->
     <form action="{{ route('admin.agent.update.submit', $agent->id) }}" method="POST" class="space-y-6" id="agent-update-form">
         @csrf
         @method('PUT')
@@ -55,7 +55,7 @@
                 </div>
                 <div>
                     <h3 class="text-base font-black text-[#112347]">Primary Profile & Agency Details</h3>
-                    <p class="text-xs text-slate-400">Modify agent profile, agency affiliation, phone numbers, or country of operation.</p>
+                    <p class="text-xs text-slate-400">Modify partner profile, agency affiliation, phone numbers, or country of operation.</p>
                 </div>
             </div>
 
@@ -63,7 +63,7 @@
                 <!-- Full Name -->
                 <div>
                     <label for="name" class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1.5">
-                        Agent Full Name <span class="text-rose-500">*</span>
+                        Partner Full Name <span class="text-rose-500">*</span>
                     </label>
                     <input 
                         type="text" 
@@ -164,7 +164,7 @@
                     @enderror
                 </div>
 
-                <!-- Agent / Facilitator Type -->
+                <!-- Referral Partner / Facilitator Type -->
                 <div>
                     <label for="agent_type" class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1.5">
                         Facilitator Type <span class="text-rose-500">*</span>
@@ -180,7 +180,7 @@
                                 'Medical Facilitator',
                                 'Travel Agency',
                                 'Corporate Partner',
-                                'Independent Agent',
+                                'Independent Referral Partner',
                                 'Insurance Partner',
                                 'Doctor Referral / Clinic',
                                 'Embassy / Consulate Coordinator'
@@ -249,7 +249,7 @@
                         class="w-full text-xs px-4 py-2.5 rounded-xl border @error('password') border-rose-400 bg-rose-50/30 @else border-slate-200 bg-slate-50 focus:bg-white @enderror focus:border-[#27797D] focus:outline-none transition-all font-medium text-slate-800"
                     >
                 </div>
-                <p class="text-[11px] text-slate-400 mt-1">Leave blank if you do not want to alter this agent's current credentials.</p>
+                <p class="text-[11px] text-slate-400 mt-1">Leave blank if you do not want to alter this partner's current credentials.</p>
                 @error('password')
                     <p class="text-rose-500 text-[11px] font-semibold mt-1">{{ $message }}</p>
                 @enderror
@@ -287,7 +287,7 @@
                     class="px-6 py-2.5 rounded-xl bg-[#27797D] hover:bg-[#1f6265] text-white text-xs font-black shadow-md shadow-[#27797D]/20 hover:shadow-lg transition-all transform hover:-translate-y-0.5 cursor-pointer inline-flex items-center gap-2"
                 >
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-                    <span>Update Agent Profile</span>
+                    <span>Update Partner Profile</span>
                 </button>
             </div>
         </div>

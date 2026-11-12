@@ -150,7 +150,7 @@
                     @endphp
                     @if($relAgent)
                     <div class="flex items-center justify-between pt-2 border-t border-slate-100">
-                        <span class="text-slate-400 font-medium">Referring Agent:</span>
+                        <span class="text-slate-400 font-medium">Referring Referral Partner:</span>
                         <span class="font-bold text-amber-800 bg-amber-50 border border-amber-200 px-2 py-0.5 rounded text-[11px]">
                             🤝 {{ $relAgent->name }} ({{ $relAgent->agent_code }})
                         </span>
