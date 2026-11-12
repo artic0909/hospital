@@ -33,6 +33,7 @@ class DatabaseSeeder extends Seeder
 
         $this->call([
             UtilitySeeder::class,
+            CountrySeeder::class,
             HospitalSeeder::class,
             DoctorSeeder::class,
             PartnerHospitalModulesSeeder::class,

@@ -279,7 +279,6 @@
                     name="show_in_header" 
                     id="add-country-header" 
                     value="1" 
-                    checked
                     class="w-4 h-4 mt-0.5 rounded border-slate-300 text-[#27797D] focus:ring-[#27797D]/20 accent-[#27797D] cursor-pointer"
                 >
                 <label for="add-country-header" class="text-xs font-semibold text-slate-700 select-none cursor-pointer">
