@@ -230,7 +230,6 @@
                                     @if($item->phone)
                                         @php
                                             $cleanPhone = preg_replace('/[^0-9]/', '', $item->phone);
-                                            $waMessage = 'Hello ' . $item->name . ', this is Heal Go Fly patient coordinator following up on your medical enquiry.';
                                         @endphp
                                         <!-- Call Button -->
                                         <a 
@@ -246,7 +245,7 @@
                                         <!-- WhatsApp Button -->
                                         @if($cleanPhone)
                                             <a 
-                                                href="https://wa.me/{{ $cleanPhone }}?text={{ urlencode($waMessage) }}" 
+                                                href="https://wa.me/{{ $cleanPhone }}" 
                                                 target="_blank" 
                                                 class="p-2 text-emerald-600 hover:text-white bg-emerald-50 hover:bg-[#25D366] rounded-xl transition-all shadow-2xs"
                                                 title="Chat on WhatsApp ({{ $item->phone }})"
