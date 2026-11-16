@@ -67,8 +67,8 @@
                         <!-- Counter text -->
                         <div class="mt-2.5">
                             <p class="text-xs sm:text-sm text-gray-700">
-                                <span class="font-bold text-[#112347] text-sm sm:text-base">{{ $hero->patient_count ?? '1,00,000+' }}</span> 
-                                <span class="text-[#5a6a85] font-medium">{{ $hero->patient_count_label ?? 'Patients Assisted Since 2016' }}</span>
+                                <span class="font-bold text-[#112347] text-sm sm:text-base">{{ $hero->patient_count }}</span> 
+                                <span class="text-[#5a6a85] font-medium">{{ $hero->patient_count_label }}</span>
                             </p>
                         </div>
                     </div>
